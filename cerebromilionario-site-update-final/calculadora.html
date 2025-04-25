@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculadora de Juros Compostos gratuita - Simule investimentos, calcule rendimentos e visualize o crescimento do seu patrimônio ao longo do tempo.">
+    <meta name="keywords" content="calculadora juros compostos, simulador investimentos, juros sobre juros, calculadora financeira, planejamento financeiro">
+    <meta name="author" content="Cérebro Milionário">
+    <meta name="robots" content="index, follow">
+    
+    <title>Calculadora de Juros Compostos | Cérebro Milionário</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://cerebromilionario.github.io/cerebromilionario/calculadora.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cerebromilionario.github.io/cerebromilionario/calculadora.html">
+    <meta property="og:title" content="Calculadora de Juros Compostos | Cérebro Milionário">
+    <meta property="og:description" content="Simule investimentos, calcule rendimentos e visualize o crescimento do seu patrimônio ao longo do tempo com nossa calculadora gratuita.">
+    <meta property="og:image" content="images/og-calculator.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://cerebromilionario.github.io/cerebromilionario/calculadora.html">
+    <meta property="twitter:title" content="Calculadora de Juros Compostos | Cérebro Milionário">
+    <meta property="twitter:description" content="Simule investimentos, calcule rendimentos e visualize o crescimento do seu patrimônio ao longo do tempo com nossa calculadora gratuita.">
+    <meta property="twitter:image" content="images/og-calculator.jpg">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Calculadora de Juros Compostos",
+        "url": "https://cerebromilionario.github.io/cerebromilionario/calculadora.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "BRL"
+        },
+        "description": "Simule investimentos, calcule rendimentos e visualize o crescimento do seu patrimônio ao longo do tempo com nossa calculadora gratuita."
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Cérebro Milionário</h1>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="calculadora.html">Calculadora</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#sobre">Sobre</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="calculator-section">
+            <div class="container">
+                <h1 class="section-title">Calculadora de Juros Compostos</h1>
+                <p class="section-description">Simule o crescimento dos seus investimentos ao longo do tempo e descubra o poder dos juros compostos.</p>
+                
+                <div class="calculator-container">
+                    <form id="calculatorForm" class="calculator-form">
+                        <div class="form-group">
+                            <label for="initialValue">Valor inicial (R$)</label>
+                            <input type="number" id="initialValue" class="form-control" placeholder="Ex: 1000" min="0" step="0.01" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="monthlyValue">Aporte mensal (R$)</label>
+                            <input type="number" id="monthlyValue" class="form-control" placeholder="Ex: 100" min="0" step="0.01" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="interestRate">Taxa de juros</label>
+                            <div class="input-group">
+                                <input type="number" id="interestRate" class="form-control" placeholder="Ex: 8" min="0" step="0.01" required>
+                                <select id="interestType" class="form-select">
+                                    <option value="annual">% ao ano</option>
+                                    <option value="monthly">% ao mês</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="period">Período</label>
+                            <div class="input-group">
+                                <input type="number" id="period" class="form-control" placeholder="Ex: 10" min="1" required>
+                                <select id="periodType" class="form-select">
+                                    <option value="years">anos</option>
+                                    <option value="months">meses</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="calculator-buttons">
+                            <button type="submit" id="calculateBtn" class="btn">Calcular</button>
+                            <button type="button" id="resetBtn" class="btn btn-outline">Limpar</button>
+                        </div>
+                    </form>
+                    
+                    <div id="resultContainer" class="calculator-result" style="display: none;">
+                        <h3>Resultado da simulação</h3>
+                        
+                        <div class="result-summary">
+                            <div class="result-item">
+                                <div class="result-value" id="totalInvested">R$ 0,00</div>
+                                <div class="result-label">Total investido</div>
+                            </div>
+                            
+                            <div class="result-item">
+                                <div class="result-value" id="totalInterest">R$ 0,00</div>
+                                <div class="result-label">Juros acumulados</div>
+                            </div>
+                            
+                            <div class="result-item">
+                                <div class="result-value" id="finalAmount">R$ 0,00</div>
+                                <div class="result-label">Montante final</div>
+                            </div>
+                            
+                            <div class="result-item">
+                                <div class="result-value" id="monthlyIncome">R$ 0,00</div>
+                                <div class="result-label">Renda mensal estimada</div>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-container">
+                            <canvas id="resultChart"></canvas>
+                        </div>
+                        
+                        <div class="evolution-table-container">
+                            <h4>Evolução do investimento</h4>
+                            <div id="evolutionTable"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="calculator-explanation">
+                    <h2>Como usar a calculadora de juros compostos</h2>
+                    <p>Nossa calculadora de juros compostos é uma ferramenta gratuita que permite simular o crescimento dos seus investimentos ao longo do tempo. Siga os passos abaixo para utilizá-la:</p>
+                    
+                    <div class="explanation-steps">
+                        <div class="explanation-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Valor inicial</h3>
+                                <p>Informe o valor que você já possui para investir ou o valor inicial do seu investimento.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="explanation-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Aporte mensal</h3>
+                                <p>Digite o valor que você pretende investir mensalmente. Se não planeja fazer aportes regulares, deixe zero.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="explanation-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Taxa de juros</h3>
+                                <p>Informe a taxa de juros do seu investimento e selecione se é uma taxa anual ou mensal.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="explanation-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h3>Período</h3>
+                                <p>Defina por quanto tempo você pretende manter o investimento, em anos ou meses.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="explanation-step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h3>Calcular</h3>
+                                <p>Clique no botão "Calcular" para ver os resultados da sua simulação, incluindo o montante final e um gráfico da evolução do seu investimento.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="calculator-info">
+                    <h2>O poder dos juros compostos</h2>
+                    <p>Os juros compostos são frequentemente chamados de "oitava maravilha do mundo" e representam um dos conceitos mais poderosos para a construção de patrimônio a longo prazo.</p>
+                    
+                    <h3>O que são juros compostos?</h3>
+                    <p>Juros compostos são juros calculados sobre o valor principal mais os juros acumulados de períodos anteriores. Em outras palavras, são "juros sobre juros", o que cria um efeito de crescimento exponencial ao longo do tempo.</p>
+                    
+                    <h3>A fórmula dos juros compostos</h3>
+                    <p>A fórmula básica dos juros compostos é:</p>
+                    <div class="formula">
+                        <p><strong>M = P × (1 + i)<sup>t</sup></strong></p>
+                        <p>Onde:</p>
+                        <ul>
+                            <li><strong>M</strong> = Montante final</li>
+                            <li><strong>P</strong> = Principal (valor inicial)</li>
+                            <li><strong>i</strong> = Taxa de juros (em formato decimal)</li>
+                            <li><strong>t</strong> = Tempo (número de períodos)</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Benefícios dos juros compostos</h3>
+                    <p>Investir com juros compostos oferece diversos benefícios:</p>
+                    <ul>
+                        <li><strong>Crescimento exponencial:</strong> Quanto mais tempo seu dinheiro fica investido, mais rápido ele cresce.</li>
+                        <li><strong>Efeito bola de neve:</strong> Com o tempo, os juros gerados sobre os juros anteriores se tornam mais significativos que o capital inicial.</li>
+                        <li><strong>Disciplina financeira:</strong> Incentiva o investimento regular e de longo prazo.</li>
+                    </ul>
+                    
+                    <h3>Dicas para maximizar os juros compostos</h3>
+                    <ul>
+                        <li><strong>Comece cedo:</strong> Quanto mais cedo você começar a investir, mais tempo os juros compostos terão para trabalhar a seu favor.</li>
+                        <li><strong>Seja consistente:</strong> Faça aportes regulares para aumentar o efeito dos juros compostos.</li>
+                        <li><strong>Reinvista os rendimentos:</strong> Sempre que possível, reinvista os juros recebidos para potencializar o crescimento.</li>
+                        <li><strong>Tenha paciência:</strong> Os juros compostos mostram seu verdadeiro poder no longo prazo.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <h3 class="footer-logo">Cérebro Milionário</h3>
+                    <p>Transformando sua relação com o dinheiro através da educação financeira e ferramentas práticas.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/cerebromillionario/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@cerebromillionario?si=HXuHdkSfJpfBcT75" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Links rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="calculadora.html">Calculadora</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.html#sobre">Sobre</a></li>
+                        <li><a href="index.html#contato">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Recursos</h3>
+                    <ul>
+                        <li><a href="#">Guia para iniciantes</a></li>
+                        <li><a href="#">Glossário financeiro</a></li>
+                        <li><a href="#">Perguntas frequentes</a></li>
+                        <li><a href="#">Política de privacidade</a></li>
+                        <li><a href="#">Termos de uso</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Inscreva-se para receber conteúdos exclusivos sobre finanças e investimentos.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Seu email" class="form-control" required>
+                        <button type="submit" class="btn">Inscrever</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cérebro Milionário. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/calculator.js"></script>
+</body>
+</html>
