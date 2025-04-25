@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Juros Compostos</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Calculadora de Juros Compostos</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="calculadora.html">Calculadora</a>
+            <a href="posts/index.html">Blog</a>
+        </nav>
+    </header>
+    <main>
+        <form id="form">
+            <label>Valor Inicial (R$): <input type="number" id="inicial" required></label><br>
+            <label>Aporte Mensal (R$): <input type="number" id="aporte" required></label><br>
+            <label>Taxa de Juros Mensal (%): <input type="number" id="juros" step="0.01" required></label><br>
+            <label>Período (meses): <input type="number" id="periodo" required></label><br>
+            <button type="submit">Calcular</button>
+        </form>
+        <canvas id="grafico" width="400" height="200"></canvas>
+        <div id="resultado"></div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Cérebro Milionário</p>
+    </footer>
+    <script>
+        document.getElementById("form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const P = parseFloat(document.getElementById("inicial").value);
+            const A = parseFloat(document.getElementById("aporte").value);
+            const r = parseFloat(document.getElementById("juros").value) / 100;
+            const n = parseInt(document.getElementById("periodo").value);
+            
+            let valores = [];
+            let total = P;
+            for (let i = 0; i <= n; i++) {
+                if (i > 0) total = (total + A) * (1 + r);
+                valores.push(total.toFixed(2));
+            }
+
+            const labels = Array.from({length: n + 1}, (_, i) => i);
+            const ctx = document.getElementById('grafico').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Evolução do Patrimônio (R$)',
+                        data: valores,
+                        borderColor: '#0066cc',
+                        backgroundColor: 'rgba(0,102,204,0.1)',
+                        fill: true,
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: true
+                        }
+                    }
+                }
+            });
+
+            document.getElementById("resultado").innerHTML = `<p><strong>Valor final estimado:</strong> R$ ${valores[n]}</p>`;
+        });
+    </script>
+</body>
+</html>
