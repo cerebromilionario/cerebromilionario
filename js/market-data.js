@@ -1,124 +1,151 @@
-// Arquivo para obter e exibir cotações em tempo real
+// Arquivo para obter e exibir cotações em tempo real com APIs reais
 document.addEventListener('DOMContentLoaded', function() {
     // Inicializa os elementos de cotação
     initializeMarketData();
+    
+    // Atualiza o timestamp inicial
+    updateLastUpdated();
 });
+
+// Configurações
+const config = {
+    updateInterval: 60000, // 1 minuto (reduzido de 5 minutos para dados mais atualizados)
+    currencyPairs: ['USD-BRL', 'EUR-BRL', 'GBP-BRL'],
+    stockTickers: ['PETR4', 'VALE3', 'ITUB4', 'BBDC4', 'MGLU3'],
+    indices: [
+        { code: '^BVSP', name: 'IBOVESPA' },
+        { code: '^GSPC', name: 'S&P 500' },
+        { code: '^IXIC', name: 'NASDAQ' },
+        { code: '^DJI', name: 'DOW JONES' }
+    ]
+};
 
 // Função para inicializar os dados de mercado
 function initializeMarketData() {
-    // Obtém cotações de moedas
-    fetchCurrencyData();
+    // Obtém todas as cotações
+    fetchAllMarketData();
     
-    // Obtém cotações de índices
-    fetchIndexData();
-    
-    // Obtém cotações de ações
-    fetchStockData();
-    
-    // Atualiza os dados a cada 5 minutos
-    setInterval(function() {
-        fetchCurrencyData();
-        fetchIndexData();
-        fetchStockData();
-    }, 300000); // 5 minutos em milissegundos
+    // Configura atualização periódica
+    setInterval(fetchAllMarketData, config.updateInterval);
 }
 
-// Função para obter cotações de moedas
-async function fetchCurrencyData() {
+// Função para obter todos os dados do mercado
+async function fetchAllMarketData() {
     try {
-        // Simula a obtenção de dados de API
-        const currencyData = {
-            'USD/BRL': {
-                value: (Math.random() * 0.2 + 5.0).toFixed(2),
-                change: (Math.random() * 0.2 - 0.1).toFixed(2)
-            },
-            'EUR/BRL': {
-                value: (Math.random() * 0.2 + 5.5).toFixed(2),
-                change: (Math.random() * 0.2 - 0.1).toFixed(2)
-            },
-            'GBP/BRL': {
-                value: (Math.random() * 0.2 + 6.5).toFixed(2),
-                change: (Math.random() * 0.2 - 0.1).toFixed(2)
-            }
-        };
-        
-        // Atualiza a interface com os dados obtidos
-        updateCurrencyUI(currencyData);
+        await Promise.all([
+            fetchCurrencyData(),
+            fetchIndexData(),
+            fetchStockData()
+        ]);
+        updateLastUpdated();
     } catch (error) {
-        console.error('Erro ao obter dados de moedas:', error);
+        console.error('Erro ao atualizar dados:', error);
+        showErrorMessage();
     }
 }
 
-// Função para obter cotações de índices
+// Função para obter cotações de moedas (usando AwesomeAPI)
+async function fetchCurrencyData() {
+    try {
+        const response = await fetch(`https://economia.awesomeapi.com.br/json/last/${config.currencyPairs.join()}`);
+        const data = await response.json();
+        
+        const formattedData = {};
+        config.currencyPairs.forEach(pair => {
+            const key = pair.replace('-', '');
+            if (data[key]) {
+                formattedData[pair] = {
+                    value: parseFloat(data[key].bid).toFixed(2),
+                    change: parseFloat(data[key].pctChange).toFixed(2)
+                };
+            }
+        });
+        
+        updateCurrencyUI(formattedData);
+    } catch (error) {
+        console.error('Erro ao obter dados de moedas:', error);
+        throw error;
+    }
+}
+
+// Função para obter cotações de índices (usando Yahoo Finance)
 async function fetchIndexData() {
     try {
-        // Simula a obtenção de dados de API
-        const indexData = {
-            'IBOVESPA': {
-                value: Math.floor(Math.random() * 2000 + 125000),
-                change: (Math.random() * 2 - 1).toFixed(2)
-            },
-            'S&P 500': {
-                value: Math.floor(Math.random() * 100 + 5000),
-                change: (Math.random() * 2 - 1).toFixed(2)
-            },
-            'NASDAQ': {
-                value: Math.floor(Math.random() * 200 + 16000),
-                change: (Math.random() * 2 - 1).toFixed(2)
-            },
-            'DOW JONES': {
-                value: Math.floor(Math.random() * 500 + 38000),
-                change: (Math.random() * 2 - 1).toFixed(2)
-            }
-        };
+        const requests = config.indices.map(index => 
+            fetch(`https://query1.finance.yahoo.com/v8/finance/chart/${index.code}`)
+                .then(response => response.json())
+                .then(data => ({
+                    name: index.name,
+                    data: data.chart.result[0].meta
+                }))
+        );
         
-        // Atualiza a interface com os dados obtidos
+        const results = await Promise.all(requests);
+        
+        const indexData = {};
+        results.forEach(result => {
+            const meta = result.data;
+            const changePercent = ((meta.regularMarketPrice - meta.chartPreviousClose) / meta.chartPreviousClose * 100).toFixed(2);
+            
+            indexData[result.name] = {
+                value: meta.regularMarketPrice.toLocaleString('pt-BR'),
+                change: changePercent
+            };
+        });
+        
         updateIndexUI(indexData);
     } catch (error) {
         console.error('Erro ao obter dados de índices:', error);
+        throw error;
     }
 }
 
-// Função para obter cotações de ações
+// Função para obter cotações de ações (usando Yahoo Finance)
 async function fetchStockData() {
     try {
-        // Simula a obtenção de dados de API
-        const stockData = {
-            'PETR4.SA': {
-                name: 'PETROBRAS',
-                value: (Math.random() * 5 + 35).toFixed(2),
-                change: (Math.random() * 4 - 2).toFixed(2)
-            },
-            'VALE3.SA': {
-                name: 'VALE',
-                value: (Math.random() * 10 + 65).toFixed(2),
-                change: (Math.random() * 4 - 2).toFixed(2)
-            },
-            'ITUB4.SA': {
-                name: 'ITAÚ',
-                value: (Math.random() * 5 + 30).toFixed(2),
-                change: (Math.random() * 4 - 2).toFixed(2)
-            },
-            'BBDC4.SA': {
-                name: 'BRADESCO',
-                value: (Math.random() * 3 + 15).toFixed(2),
-                change: (Math.random() * 4 - 2).toFixed(2)
-            },
-            'MGLU3.SA': {
-                name: 'MAGALU',
-                value: (Math.random() * 2 + 8).toFixed(2),
-                change: (Math.random() * 4 - 2).toFixed(2)
-            }
-        };
+        const requests = config.stockTickers.map(ticker => 
+            fetch(`https://query1.finance.yahoo.com/v8/finance/chart/${ticker}.SA`)
+                .then(response => response.json())
+                .then(data => ({
+                    ticker,
+                    data: data.chart.result[0].meta
+                }))
+        );
         
-        // Atualiza a interface com os dados obtidos
+        const results = await Promise.all(requests);
+        
+        const stockData = {};
+        results.forEach(result => {
+            const meta = result.data;
+            const changePercent = ((meta.regularMarketPrice - meta.chartPreviousClose) / meta.chartPreviousClose * 100).toFixed(2);
+            
+            stockData[result.ticker] = {
+                name: getStockName(result.ticker),
+                value: meta.regularMarketPrice.toFixed(2),
+                change: changePercent
+            };
+        });
+        
         updateStockUI(stockData);
     } catch (error) {
         console.error('Erro ao obter dados de ações:', error);
+        throw error;
     }
 }
 
-// Função para atualizar a interface com dados de moedas
+// Mapeamento de nomes de ações
+function getStockName(ticker) {
+    const names = {
+        'PETR4': 'PETROBRAS',
+        'VALE3': 'VALE',
+        'ITUB4': 'ITAÚ',
+        'BBDC4': 'BRADESCO',
+        'MGLU3': 'MAGALU'
+    };
+    return names[ticker] || ticker;
+}
+
+// Funções de atualização de UI (mantidas como no seu código original)
 function updateCurrencyUI(data) {
     const currencyContainer = document.getElementById('currency-data');
     if (!currencyContainer) return;
@@ -132,7 +159,7 @@ function updateCurrencyUI(data) {
         
         html += `
             <div class="market-item">
-                <div class="market-symbol">${pair}</div>
+                <div class="market-symbol">${pair.replace('-', '/')}</div>
                 <div class="market-value">R$ ${info.value}</div>
                 <div class="market-change ${changeClass}">
                     ${changeIcon} ${Math.abs(info.change)}%
@@ -144,7 +171,6 @@ function updateCurrencyUI(data) {
     currencyContainer.innerHTML = html;
 }
 
-// Função para atualizar a interface com dados de índices
 function updateIndexUI(data) {
     const indexContainer = document.getElementById('index-data');
     if (!indexContainer) return;
@@ -159,7 +185,7 @@ function updateIndexUI(data) {
         html += `
             <div class="market-item">
                 <div class="market-symbol">${index}</div>
-                <div class="market-value">${info.value.toLocaleString('pt-BR')}</div>
+                <div class="market-value">${info.value}</div>
                 <div class="market-change ${changeClass}">
                     ${changeIcon} ${Math.abs(info.change)}%
                 </div>
@@ -170,7 +196,6 @@ function updateIndexUI(data) {
     indexContainer.innerHTML = html;
 }
 
-// Função para atualizar a interface com dados de ações
 function updateStockUI(data) {
     const stockContainer = document.getElementById('stock-data');
     if (!stockContainer) return;
@@ -196,7 +221,18 @@ function updateStockUI(data) {
     stockContainer.innerHTML = html;
 }
 
-// Função para formatar data e hora atual
+// Função para mostrar mensagem de erro
+function showErrorMessage() {
+    const containers = ['currency-data', 'index-data', 'stock-data'];
+    containers.forEach(id => {
+        const container = document.getElementById(id);
+        if (container) {
+            container.innerHTML = `<div class="error-message">Dados temporariamente indisponíveis. Atualizando automaticamente...</div>`;
+        }
+    });
+}
+
+// Funções de timestamp (mantidas como no seu código original)
 function getCurrentDateTime() {
     const now = new Date();
     const options = { 
@@ -204,23 +240,15 @@ function getCurrentDateTime() {
         month: '2-digit', 
         year: 'numeric',
         hour: '2-digit', 
-        minute: '2-digit'
+        minute: '2-digit',
+        second: '2-digit'
     };
     return now.toLocaleDateString('pt-BR', options);
 }
 
-// Atualiza o timestamp da última atualização
 function updateLastUpdated() {
     const lastUpdatedElement = document.getElementById('last-updated');
     if (lastUpdatedElement) {
         lastUpdatedElement.textContent = `Última atualização: ${getCurrentDateTime()}`;
     }
 }
-
-// Inicializa o timestamp de última atualização
-document.addEventListener('DOMContentLoaded', function() {
-    updateLastUpdated();
-    
-    // Atualiza o timestamp a cada 5 minutos
-    setInterval(updateLastUpdated, 300000);
-});
