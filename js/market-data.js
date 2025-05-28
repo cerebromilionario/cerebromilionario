@@ -1,6 +1,4 @@
 // Arquivo para obter e exibir cotações em tempo real
-// Última atualização: 28/04/2025 12:57
-
 document.addEventListener('DOMContentLoaded', function() {
     // Inicializa os elementos de cotação
     initializeMarketData();
@@ -8,17 +6,116 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Função para inicializar os dados de mercado
 function initializeMarketData() {
-    // Atualiza os dados de moedas
-    updateCurrencyUI({"USD/BRL": {"value": 5.66, "change": -0.4}, "EUR/BRL": {"value": 6.43, "change": -0.5}, "GBP/BRL": {"value": 7.56, "change": -0.17}});
+    // Obtém cotações de moedas
+    fetchCurrencyData();
     
-    // Atualiza os dados de índices
-    updateIndexUI({"IBOVESPA": {"value": 134739, "change": 0.12}, "S&P 500": {"value": 5525, "change": 0.74}, "NASDAQ": {"value": 17382, "change": 1.26}, "DOW JONES": {"value": 40113, "change": 0.05}});
+    // Obtém cotações de índices
+    fetchIndexData();
     
-    // Atualiza os dados de ações
-    updateStockUI({"PETR4.SA": {"name": "PETROBRAS", "value": 30.52, "change": 0.3}, "VALE3.SA": {"name": "VALE", "value": 53.85, "change": -2.64}, "ITUB4.SA": {"name": "ITA\u00da", "value": 34.62, "change": -0.37}, "BBDC4.SA": {"name": "BRADESCO", "value": 13.38, "change": 0.15}, "MGLU3.SA": {"name": "MAGALU", "value": 10.45, "change": -1.14}});
+    // Obtém cotações de ações
+    fetchStockData();
     
-    // Atualiza o timestamp da última atualização
-    updateLastUpdated();
+    // Atualiza os dados a cada 5 minutos
+    setInterval(function() {
+        fetchCurrencyData();
+        fetchIndexData();
+        fetchStockData();
+    }, 300000); // 5 minutos em milissegundos
+}
+
+// Função para obter cotações de moedas
+async function fetchCurrencyData() {
+    try {
+        // Simula a obtenção de dados de API
+        const currencyData = {
+            'USD/BRL': {
+                value: (Math.random() * 0.2 + 5.0).toFixed(2),
+                change: (Math.random() * 0.2 - 0.1).toFixed(2)
+            },
+            'EUR/BRL': {
+                value: (Math.random() * 0.2 + 5.5).toFixed(2),
+                change: (Math.random() * 0.2 - 0.1).toFixed(2)
+            },
+            'GBP/BRL': {
+                value: (Math.random() * 0.2 + 6.5).toFixed(2),
+                change: (Math.random() * 0.2 - 0.1).toFixed(2)
+            }
+        };
+        
+        // Atualiza a interface com os dados obtidos
+        updateCurrencyUI(currencyData);
+    } catch (error) {
+        console.error('Erro ao obter dados de moedas:', error);
+    }
+}
+
+// Função para obter cotações de índices
+async function fetchIndexData() {
+    try {
+        // Simula a obtenção de dados de API
+        const indexData = {
+            'IBOVESPA': {
+                value: Math.floor(Math.random() * 2000 + 125000),
+                change: (Math.random() * 2 - 1).toFixed(2)
+            },
+            'S&P 500': {
+                value: Math.floor(Math.random() * 100 + 5000),
+                change: (Math.random() * 2 - 1).toFixed(2)
+            },
+            'NASDAQ': {
+                value: Math.floor(Math.random() * 200 + 16000),
+                change: (Math.random() * 2 - 1).toFixed(2)
+            },
+            'DOW JONES': {
+                value: Math.floor(Math.random() * 500 + 38000),
+                change: (Math.random() * 2 - 1).toFixed(2)
+            }
+        };
+        
+        // Atualiza a interface com os dados obtidos
+        updateIndexUI(indexData);
+    } catch (error) {
+        console.error('Erro ao obter dados de índices:', error);
+    }
+}
+
+// Função para obter cotações de ações
+async function fetchStockData() {
+    try {
+        // Simula a obtenção de dados de API
+        const stockData = {
+            'PETR4.SA': {
+                name: 'PETROBRAS',
+                value: (Math.random() * 5 + 35).toFixed(2),
+                change: (Math.random() * 4 - 2).toFixed(2)
+            },
+            'VALE3.SA': {
+                name: 'VALE',
+                value: (Math.random() * 10 + 65).toFixed(2),
+                change: (Math.random() * 4 - 2).toFixed(2)
+            },
+            'ITUB4.SA': {
+                name: 'ITAÚ',
+                value: (Math.random() * 5 + 30).toFixed(2),
+                change: (Math.random() * 4 - 2).toFixed(2)
+            },
+            'BBDC4.SA': {
+                name: 'BRADESCO',
+                value: (Math.random() * 3 + 15).toFixed(2),
+                change: (Math.random() * 4 - 2).toFixed(2)
+            },
+            'MGLU3.SA': {
+                name: 'MAGALU',
+                value: (Math.random() * 2 + 8).toFixed(2),
+                change: (Math.random() * 4 - 2).toFixed(2)
+            }
+        };
+        
+        // Atualiza a interface com os dados obtidos
+        updateStockUI(stockData);
+    } catch (error) {
+        console.error('Erro ao obter dados de ações:', error);
+    }
 }
 
 // Função para atualizar a interface com dados de moedas
@@ -36,9 +133,9 @@ function updateCurrencyUI(data) {
         html += `
             <div class="market-item">
                 <div class="market-symbol">${pair}</div>
-                <div class="market-value">R$ ${info.value.toFixed(2)}</div>
+                <div class="market-value">R$ ${info.value}</div>
                 <div class="market-change ${changeClass}">
-                    ${changeIcon} ${Math.abs(info.change).toFixed(2)}%
+                    ${changeIcon} ${Math.abs(info.change)}%
                 </div>
             </div>
         `;
@@ -64,7 +161,7 @@ function updateIndexUI(data) {
                 <div class="market-symbol">${index}</div>
                 <div class="market-value">${info.value.toLocaleString('pt-BR')}</div>
                 <div class="market-change ${changeClass}">
-                    ${changeIcon} ${Math.abs(info.change).toFixed(2)}%
+                    ${changeIcon} ${Math.abs(info.change)}%
                 </div>
             </div>
         `;
@@ -88,9 +185,9 @@ function updateStockUI(data) {
         html += `
             <div class="market-item">
                 <div class="market-name">${info.name}</div>
-                <div class="market-value">R$ ${info.value.toFixed(2)}</div>
+                <div class="market-value">R$ ${info.value}</div>
                 <div class="market-change ${changeClass}">
-                    ${changeIcon} ${Math.abs(info.change).toFixed(2)}%
+                    ${changeIcon} ${Math.abs(info.change)}%
                 </div>
             </div>
         `;
@@ -101,7 +198,15 @@ function updateStockUI(data) {
 
 // Função para formatar data e hora atual
 function getCurrentDateTime() {
-    return "28/04/2025 12:57";
+    const now = new Date();
+    const options = { 
+        day: '2-digit', 
+        month: '2-digit', 
+        year: 'numeric',
+        hour: '2-digit', 
+        minute: '2-digit'
+    };
+    return now.toLocaleDateString('pt-BR', options);
 }
 
 // Atualiza o timestamp da última atualização
@@ -111,3 +216,11 @@ function updateLastUpdated() {
         lastUpdatedElement.textContent = `Última atualização: ${getCurrentDateTime()}`;
     }
 }
+
+// Inicializa o timestamp de última atualização
+document.addEventListener('DOMContentLoaded', function() {
+    updateLastUpdated();
+    
+    // Atualiza o timestamp a cada 5 minutos
+    setInterval(updateLastUpdated, 300000);
+});
