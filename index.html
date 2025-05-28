@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cérebro Milionário - Educação financeira, calculadoras de investimentos e conteúdo exclusivo para você conquistar sua independência financeira.">
+    <meta name="keywords" content="educação financeira, investimentos, independência financeira, juros compostos, calculadora financeira">
+    <meta name="author" content="Cérebro Milionário">
+    <meta name="robots" content="index, follow">
+    
+    <title>Cérebro Milionário - Educação Financeira e Investimentos</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/market-data.css">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/">
+    <meta property="og:title" content="Cérebro Milionário - Educação Financeira e Investimentos">
+    <meta property="og:description" content="Educação financeira, calculadoras de investimentos e conteúdo exclusivo para você conquistar sua independência financeira.">
+    <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://peppy-lollipop-54fa27.netlify.app/">
+    <meta property="twitter:title" content="Cérebro Milionário - Educação Financeira e Investimentos">
+    <meta property="twitter:description" content="Educação financeira, calculadoras de investimentos e conteúdo exclusivo para você conquistar sua independência financeira.">
+    <meta property="twitter:image" content="https://peppy-lollipop-54fa27.netlify.app/images/og-image.jpg">
+    
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Cérebro Milionário",
+        "url": "https://peppy-lollipop-54fa27.netlify.app/",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://peppy-lollipop-54fa27.netlify.app/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        },
+        "description": "Educação financeira, calculadoras de investimentos e conteúdo exclusivo para você conquistar sua independência financeira."
+    }
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2544667387518436" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Cérebro Milionário</h1>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="calculadora.html">Calculadora</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transforme sua relação com o dinheiro</h1>
+                <p>Educação financeira, ferramentas práticas e estratégias comprovadas para você conquistar sua independência financeira.</p>
+                <div class="hero-buttons">
+                    <a href="calculadora.html" class="btn btn-primary">Calculadora de Juros Compostos</a>
+                    <a href="blog.html" class="btn btn-secondary">Artigos Educativos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Market Data Section -->
+    <section class="market-data-section">
+        <div class="container">
+            <div class="market-data-header">
+                <h2>Cotações em Tempo Real</h2>
+                <span class="last-updated" id="last-updated">Última atualização: 25/04/2025 19:39</span>
+            </div>
+            
+            <div class="market-data-tabs">
+                <div class="market-data-tab active" data-panel="currency-panel">Moedas</div>
+                <div class="market-data-tab" data-panel="index-panel">Índices</div>
+                <div class="market-data-tab" data-panel="stock-panel">Ações</div>
+            </div>
+            
+            <div class="market-data-content">
+                <!-- Painel de Moedas -->
+                <div id="currency-panel" class="market-data-panel active">
+                    <div id="currency-data" class="market-items-container">
+                        <!-- Conteúdo será preenchido via JavaScript -->
+                        <div class="market-item">
+                            <div class="market-symbol">USD/BRL</div>
+                            <div class="market-value">R$ 5.10</div>
+                            <div class="market-change positive-change">▲ 0.05%</div>
+                        </div>
+                        <div class="market-item">
+                            <div class="market-symbol">EUR/BRL</div>
+                            <div class="market-value">R$ 5.60</div>
+                            <div class="market-change negative-change">▼ 0.03%</div>
+                        </div>
+                        <div class="market-item">
+                            <div class="market-symbol">GBP/BRL</div>
+                            <div class="market-value">R$ 6.55</div>
+                            <div class="market-change positive-change">▲ 0.07%</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Painel de Índices -->
+                <div id="index-panel" class="market-data-panel">
+                    <div id="index-data" class="market-items-container">
+                        <!-- Conteúdo será preenchido via JavaScript -->
+                        <div class="market-item">
+                            <div class="market-symbol">IBOVESPA</div>
+                            <div class="market-value">126.345</div>
+                            <div class="market-change positive-change">▲ 0.75%</div>
+                        </div>
+                        <div class="market-item">
+                            <div class="market-symbol">S&P 500</div>
+                            <div class="market-value">5.048</div>
+                            <div class="market-change negative-change">▼ 0.32%</div>
+                        </div>
+                        <div class="market-item">
+                            <div class="market-symbol">NASDAQ</div>
+                            <div class="market-value">16.125</div>
+                            <div class="market-change positive-change">▲ 0.18%</div>
+                        </div>
+                        <div class="market-item">
+                            <div class="market-symbol">DOW JONES</div>
+                            <div class="market-value">38.245</div>
+                            <div class="market-change negative-change">▼ 0.45%</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Painel de Ações -->
+                <div id="stock-panel" class="market-data-panel">
+                    <div id="stock-data" class="market-items-container">
+                        <!-- Conteúdo será preenchido via JavaScript -->
+                        <div class="market-item">
+                            <div class="market-name">PETROBRAS</div>
+                            <div class="market-value">R$ 36.75</div>
+                            <div class="market-change positive-change">▲ 1.25%</div>
+                        </div>
+                        <div class="market-item">
+                            <div class="market-name">VALE</div>
+                            <div class="market-value">R$ 68.42</div>
+                            <div class="market-change negative-change">▼ 0.87%</div>
+                        </div>
+                        <div class="market-item">
+                            <div class="market-name">ITAÚ</div>
+                            <div class="market-value">R$ 32.15</div>
+                            <div class="market-change positive-change">▲ 0.63%</div>
+                        </div>
+                        <div class="market-item">
+                            <div class="market-name">BRADESCO</div>
+                            <div class="market-value">R$ 16.28</div>
+                            <div class="market-change negative-change">▼ 0.42%</div>
+                        </div>
+                        <div class="market-item">
+                            <div class="market-name">MAGALU</div>
+                            <div class="market-value">R$ 9.35</div>
+                            <div class="market-change positive-change">▲ 1.85%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Por que escolher o Cérebro Milionário?</h2>
+                <p>Oferecemos ferramentas e conteúdos exclusivos para impulsionar sua jornada financeira</p>
+            </div>
+            
+            <div class="features-container">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Calculadoras Financeiras</h3>
+                    <p>Ferramentas avançadas para simular investimentos, calcular juros compostos e planejar sua aposentadoria.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Conteúdo Educativo</h3>
+                    <p>Artigos, guias e tutoriais sobre investimentos, economia de dinheiro e construção de patrimônio.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Análises de Mercado</h3>
+                    <p>Acompanhe as tendências do mercado financeiro e receba insights para tomar decisões mais inteligentes.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Comunidade Engajada</h3>
+                    <p>Conecte-se com pessoas que compartilham os mesmos objetivos financeiros e aprenda com suas experiências.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Calculator Preview Section -->
+    <section class="calculator-preview-section">
+        <div class="container">
+            <div class="calculator-preview-container">
+                <div class="calculator-preview-content">
+                    <h2>Calculadora de Juros Compostos</h2>
+                    <p>Descubra o poder dos juros compostos e veja como pequenos investimentos regulares podem se transformar em uma fortuna ao longo do tempo.</p>
+                    <ul class="calculator-features">
+                        <li><i class="fas fa-check"></i> Simulação visual do crescimento do investimento</li>
+                        <li><i class="fas fa-check"></i> Cálculo de aportes mensais para atingir objetivos</li>
+                        <li><i class="fas fa-check"></i> Comparação entre diferentes taxas de juros</li>
+                        <li><i class="fas fa-check"></i> Análise detalhada ano a ano</li>
+                    </ul>
+                    <a href="calculadora.html" class="btn btn-primary">Experimentar Agora</a>
+                </div>
+                
+                <div class="calculator-preview-image">
+                    <img src="images/chart-image.jpg" alt="Gráfico de crescimento de investimentos com juros compostos">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Blog Preview Section -->
+    <section class="blog-preview-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Artigos Recentes</h2>
+                <p>Conteúdo exclusivo para transformar sua mentalidade financeira</p>
+            </div>
+            
+            <div class="blog-preview-container">
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/placeholders/chart-bg.jpg" alt="Múltiplas fontes de renda">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-category">Finanças Pessoais</div>
+                        <h3>Múltiplas Fontes de Renda: Estratégias para Diversificar seus Ganhos</h3>
+                        <p>Descubra como criar múltiplas fontes de renda e construir patrimônio através de investimentos diversificados e negócios online.</p>
+                        <a href="posts/multiplas-fontes-renda.html" class="read-more">Ler artigo completo</a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/placeholders/chart-bg.jpg" alt="Investimentos para iniciantes">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-category">Investimentos</div>
+                        <h3>Investimento para Iniciantes: Guia Completo para Começar do Zero</h3>
+                        <p>Um guia passo a passo para quem está começando a investir, com explicações simples e estratégias práticas.</p>
+                        <a href="posts/investimento-para-iniciantes.html" class="read-more">Ler artigo completo</a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/placeholders/chart-bg.jpg" alt="Guia para investir em ações">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-category">Mercado de Ações</div>
+                        <h3>Guia Completo para Investir em Ações: Do Básico ao Avançado</h3>
+                        <p>Aprenda a investir no mercado de ações com segurança e construir um portfólio rentável a longo prazo.</p>
+                        <a href="posts/guia-investir-acoes.html" class="read-more">Ler artigo completo</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="blog-preview-footer">
+                <a href="blog.html" class="btn btn-secondary">Ver todos os artigos</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>O que nossos leitores dizem</h2>
+                <p>Histórias reais de pessoas que transformaram suas finanças com nosso conteúdo</p>
+            </div>
+            
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Graças aos artigos e à calculadora de juros compostos do Cérebro Milionário, consegui criar um plano de investimentos realista. Em apenas 2 anos, já tripliquei meu patrimônio!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-image">
+                            <img src="images/placeholders/chart-bg.jpg" alt="Foto de Ricardo">
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h4>Ricardo M.</h4>
+                            <p>Engenheiro, 32 anos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Eu não entendia nada de investimentos até encontrar o Cérebro Milionário. O conteúdo é explicado de forma tão clara que até eu, que nunca me interessei por finanças, consegui começar a investir."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-image">
+                            <img src="images/placeholders/chart-bg.jpg" alt="Foto de Camila">
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h4>Camila S.</h4>
+                            <p>Professora, 28 anos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"O artigo sobre múltiplas fontes de renda mudou completamente minha visão sobre trabalho e dinheiro. Hoje tenho 3 fontes de renda diferentes e muito mais segurança financeira."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-image">
+                            <img src="images/placeholders/chart-bg.jpg" alt="Foto de Rafael">
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h4>Rafael T.</h4>
+                            <p>Empresário, 41 anos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="sobre" class="about-section">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="images/placeholders/chart-bg.jpg" alt="Equipe Cérebro Milionário">
+                </div>
+                
+                <div class="about-content">
+                    <h2>Sobre o Cérebro Milionário</h2>
+                    <p>O Cérebro Milionário nasceu da paixão por educação financeira e da crença de que todos merecem ter acesso a informações de qualidade sobre como construir patrimônio e alcançar a independência financeira.</p>
+                    <p>Nossa missão é desmistificar o mundo dos investimentos e das finanças pessoais, oferecendo conteúdo educativo, ferramentas práticas e uma comunidade de apoio para pessoas em diferentes estágios da jornada financeira.</p>
+                    <p>Acreditamos que a verdadeira riqueza começa com conhecimento e disciplina, não com sorte ou privilégios. Por isso, nos dedicamos a criar recursos acessíveis que possam transformar a relação das pessoas com o dinheiro.</p>
+                    <div class="about-social">
+                        <a href="https://www.instagram.com/cerebromillionario/" target="_blank" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
+                        <a href="https://youtube.com/@cerebromillionario?si=HXuHdkSfJpfBcT75" target="_blank" class="social-link"><i class="fab fa-youtube"></i> YouTube</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-container">
+                <div class="newsletter-content">
+                    <h2>Inscreva-se em nossa newsletter</h2>
+                    <p>Receba conteúdos exclusivos, dicas de investimentos e novidades sobre finanças diretamente no seu email.</p>
+                </div>
+                
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Seu email" class="form-control" required>
+                    <button type="submit" class="btn">Inscrever</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contato" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Entre em contato</h2>
+                <p>Tem dúvidas, sugestões ou quer colaborar conosco? Envie uma mensagem!</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-form-container">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Assunto</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info-container">
+                    <div class="contact-info">
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h3>Email</h3>
+                                <p>contato@cerebromilionario.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h3>Localização</h3>
+                                <p>São Paulo, SP - Brasil</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h3>Horário de atendimento</h3>
+                                <p>Segunda a Sexta: 9h às 18h</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-social">
+                        <h3>Siga-nos nas redes sociais</h3>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/cerebromillionario/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="https://youtube.com/@cerebromillionario?si=HXuHdkSfJpfBcT75" target="_blank" class="social-link"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <h3 class="footer-logo">Cérebro Milionário</h3>
+                    <p>Transformando sua relação com o dinheiro através da educação financeira e ferramentas práticas.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/cerebromillionario/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@cerebromillionario?si=HXuHdkSfJpfBcT75" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Links rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="calculadora.html">Calculadora</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Recursos</h3>
+                    <ul>
+                        <li><a href="guia-iniciantes.html">Guia para iniciantes</a></li>
+                        <li><a href="glossario-financeiro.html">Glossário financeiro</a></li>
+                        <li><a href="perguntas-frequentes.html">Perguntas frequentes</a></li>
+                        <li><a href="politica-privacidade.html">Política de privacidade</a></li>
+                        <li><a href="termos-uso.html">Termos de uso</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Inscreva-se para receber conteúdos exclusivos sobre finanças e investimentos.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Seu email" class="form-control" required>
+                        <button type="submit" class="btn">Inscrever</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cérebro Milionário. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/market-data.js"></script>
+    <script src="js/market-tabs.js"></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</body>
+</html>
