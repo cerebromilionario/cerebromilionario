@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calcule sua aposentadoria: patrimônio alvo, tempo restante, aportes necessários e projeções em valores de hoje. Simulador completo e gratuito." />
+    <meta name="keywords" content="calculadora juros compostos, simulador investimentos, planejamento financeiro, rentabilidade, investimentos">
+    <meta name="author" content="Cérebro Milionário">
+    <meta name="robots" content="index, follow">
+    
+    <title>Calculadora de Aposentadoria | Cérebro Milionário</title>
+    <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Chart.js para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/aposentadoria.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/calculadora.html">
+    <meta property="og:title" content="Calculadora de Juros Compostos | Cérebro Milionário">
+    <meta property="og:description" content="Simule seus investimentos e planeje seu futuro financeiro com nossa calculadora de juros compostos gratuita.">
+    <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/og-calculadora.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://peppy-lollipop-54fa27.netlify.app/calculadora.html">
+    <meta property="twitter:title" content="Calculadora de Juros Compostos | Cérebro Milionário">
+    <meta property="twitter:description" content="Simule seus investimentos e planeje seu futuro financeiro com nossa calculadora de juros compostos gratuita.">
+    <meta property="twitter:image" content="https://peppy-lollipop-54fa27.netlify.app/images/og-calculadora.jpg">
+    
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Calculadora de Juros Compostos",
+        "url": "https://peppy-lollipop-54fa27.netlify.app/calculadora.html",
+        "description": "Simule seus investimentos e planeje seu futuro financeiro com nossa calculadora de juros compostos gratuita.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "BRL"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Cérebro Milionário",
+            "url": "https://peppy-lollipop-54fa27.netlify.app/"
+        }
+    }
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2544667387518436" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <h1><a href="/index.html">Cérebro Milionário</a></h1>
+            </div>
+            
+            <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="navigation">
+                <ul class="nav-menu">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/calculadora.html">Calculadora</a></li>
+                    <li><a href="/aposentadoria.html" class="active active active">Aposentadoria</a></li>
+                    <li><a href="/cursos.html">Cursos</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<main>
+  <section class="page-header">
+    <div class="container">
+      <h1>Calculadora de Aposentadoria</h1>
+      <p>Simule quanto falta para você se aposentar, o patrimônio alvo para viver de renda e os aportes necessários para chegar lá — tudo em <strong>valores de hoje</strong>.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="calculator-grid retirement-grid">
+        <div class="calculator-card">
+          <h2 class="calculator-title">Dados da simulação</h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="ageNow">Idade atual</label>
+              <input type="number" id="ageNow" min="0" max="120" value="33" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="ageRetire">Idade para se aposentar</label>
+              <input type="number" id="ageRetire" min="0" max="120" value="60" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="pv">Patrimônio atual (R$)</label>
+              <input type="text" id="pv" value="0" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="pmt">Aporte mensal (R$)</label>
+              <input type="text" id="pmt" value="1000" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="pmtGrow">Crescimento do aporte ao ano (%)</label>
+              <input type="number" id="pmtGrow" step="0.1" value="0" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="nominalReturn">Rentabilidade anual esperada (%)</label>
+              <input type="number" id="nominalReturn" step="0.1" value="10" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="inflation">Inflação anual esperada (%)</label>
+              <input type="number" id="inflation" step="0.1" value="4" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="swr">Taxa de retirada anual (SWR) (%)</label>
+              <input type="number" id="swr" step="0.1" value="4" class="form-control">
+            </div>
+
+            <div class="form-group full">
+              <label for="income">Renda mensal desejada na aposentadoria (valores de hoje) (R$)</label>
+              <input type="text" id="income" value="5000" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="startMonth">Começar a investir em</label>
+              <select id="startMonth" class="form-control">
+                <option value="0">Agora</option>
+                <option value="3">3 meses</option>
+                <option value="6">6 meses</option>
+                <option value="12">12 meses</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="feeDrag">Taxas/IR (redução na rentabilidade) (%)</label>
+              <input type="number" id="feeDrag" step="0.1" value="0.5" class="form-control">
+            </div>
+
+            <div class="form-actions full">
+              <button type="button" id="btnCalc" class="btn btn-primary">Simular</button>
+              <button type="button" id="btnReset" class="btn btn-secondary">Resetar</button>
+              <span id="statusBadge" class="status-badge">Pronto para simular</span>
+            </div>
+
+            <div class="form-note full">
+              <strong>Nota:</strong> A simulação usa rentabilidade <strong>real</strong> (rentabilidade nominal ajustada pela inflação e taxas).
+              Assim você compara tudo em <strong>R$ de hoje</strong>. O método SWR estima quanto do patrimônio pode ser sacado ao ano.
+            </div>
+          </div>
+        </div>
+
+        <div class="calculator-card">
+          <div class="result-header">
+            <h2 class="calculator-title">Resultado</h2>
+            <span id="lastRun" class="small-muted">Ainda não simulado</span>
+          </div>
+
+          <div class="metrics">
+            <div class="metric-card">
+              <div class="metric-label">Patrimônio alvo</div>
+              <div class="metric" id="targetWealth">—</div>
+              <div class="metric-sub">Renda anual / SWR</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Patrimônio na aposentadoria</div>
+              <div class="metric" id="wealthAtRetire">—</div>
+              <div class="metric-sub" id="wealthAtRetireNote">—</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Status</div>
+              <div class="metric" id="status">—</div>
+              <div class="metric-sub" id="statusNote">—</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Aporte necessário (meta)</div>
+              <div class="metric" id="neededPmt">—</div>
+              <div class="metric-sub">Mantendo o mesmo prazo</div>
+            </div>
+          </div>
+
+          <div id="metaInfo" class="tags"></div>
+          <div class="premium-panel">
+            <div class="premium-head">
+              <h3 class="table-title" style="margin:0">Modo Premium: cenários + gráfico</h3>
+              <div class="scenario-tabs" role="tablist" aria-label="Cenários">
+                <button type="button" class="tab active" data-scn="base">Moderado</button>
+                <button type="button" class="tab" data-scn="cons">Conservador</button>
+                <button type="button" class="tab" data-scn="aggr">Agressivo</button>
+                <button type="button" class="tab" data-scn="custom">Personalizado</button>
+              </div>
+            </div>
+
+            <div class="scenario-note small-muted">
+              <b>Como funciona:</b> “Conservador/Moderado/Agressivo” aplicam <b>rentabilidade e inflação</b> sugeridas automaticamente.
+              “Personalizado” usa exatamente os valores do formulário.
+            </div>
+
+            <div class="scenario-grid" id="scenarioGrid">
+              <!-- preenchido via JS -->
+            </div>
+
+            <div class="chart-wrap">
+              <div class="chart-head">
+                <div class="small-muted">Projeção do patrimônio (R$ de hoje)</div>
+                <div class="small-muted" id="chartLegend">—</div>
+              </div>
+              <svg id="retChart" viewBox="0 0 900 320" preserveAspectRatio="none" aria-label="Gráfico de projeção do patrimônio">
+                <!-- preenchido via JS -->
+              </svg>
+            </div>
+          </div>
+
+
+          <h3 class="table-title">Projeção (resumo anual)</h3>
+          <div class="table-wrap">
+            <table class="data-table" id="projTable">
+              <thead>
+                <tr>
+                  <th>Ano</th>
+                  <th>Idade</th>
+                  <th>Patrimônio (R$ de hoje)</th>
+                  <th>Aporte no ano</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td colspan="4" class="small-muted">Simule para ver a projeção…</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="watermark-row">
+            <strong>@cerebromillionario</strong> • Simulação educacional • Não é recomendação de investimento
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3 class="footer-logo">Cérebro Milionário</h3>
+                    <p class="footer-text">Capacitando você a tomar decisões financeiras inteligentes para um futuro próspero.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/cerebromillionario/" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@cerebromillionario?si=HXuHdkSfJpfBcT75" target="_blank" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/calculadora.html">Calculadora</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Recursos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Glossário Financeiro</a></li>
+                        <li><a href="#">Perguntas Frequentes</a></li>
+                        <li><a href="#">Guias para Iniciantes</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Newsletter</h4>
+                    <p class="footer-text">Receba dicas financeiras exclusivas diretamente no seu email.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Seu melhor email" required class="form-control">
+                        <button type="submit" class="btn btn-primary" style="margin-top: var(--spacing-sm); width: 100%;">Inscrever</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; <span id="current-year"></span> Cérebro Milionário. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JS -->
+    <script src="/js/main.js"></script>
+    <script src="/js/retirement-calculator.js"></script>
+
+</body>
+</html>
