@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cérebro Milionário - Educação financeira, calculadoras de investimentos e conteúdo exclusivo para você conquistar sua independência financeira.">
+    <meta name="keywords" content="educação financeira, investimentos, independência financeira, juros compostos, calculadora financeira, blog de finanças">
+    <meta name="author" content="Cérebro Milionário">
+    <meta name="robots" content="index, follow">
+    
+    <title>Cérebro Milionário - Educação Financeira e Investimentos</title>
+    
+    <!-- Favicon (manter o original ou pedir novo) -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- CSS Moderno -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Canonical URL (Atualizar se o domínio mudar) -->
+    <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/">
+    <meta property="og:title" content="Cérebro Milionário - Educação Financeira e Investimentos">
+    <meta property="og:description" content="Educação financeira, calculadoras de investimentos e conteúdo exclusivo para você conquistar sua independência financeira.">
+    <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/og-image.jpg"> <!-- Atualizar imagem OG -->
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://peppy-lollipop-54fa27.netlify.app/">
+    <meta property="twitter:title" content="Cérebro Milionário - Educação Financeira e Investimentos">
+    <meta property="twitter:description" content="Educação financeira, calculadoras de investimentos e conteúdo exclusivo para você conquistar sua independência financeira.">
+    <meta property="twitter:image" content="https://peppy-lollipop-54fa27.netlify.app/images/og-image.jpg"> <!-- Atualizar imagem Twitter -->
+    
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Cérebro Milionário",
+        "url": "https://peppy-lollipop-54fa27.netlify.app/",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://peppy-lollipop-54fa27.netlify.app/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        },
+        "description": "Educação financeira, calculadoras de investimentos e conteúdo exclusivo para você conquistar sua independência financeira."
+    }
+    </script>
+    
+    <!-- Google AdSense (Será inserido aqui) -->
+    
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <!-- <img src="images/logo.png" alt="Cérebro Milionário Logo"> -->
+                <h1><a href="index.html">Cérebro Milionário</a></h1>
+            </div>
+            
+            <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="navigation">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active active">Home</a></li>
+                    <li><a href="calculadora.html">Calculadora</a></li>
+                    <li><a href="aposentadoria.html">Aposentadoria</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <!-- Adicionar mais links se necessário -->
+                    <!-- <li><a href="#sobre">Sobre</a></li> -->
+                    <!-- <li><a href="#contato">Contato</a></li> -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content animate-fade-in">
+                    <h1>Transforme sua Relação com o Dinheiro</h1>
+                    <p>Educação financeira descomplicada, ferramentas práticas e estratégias comprovadas para você alcançar a independência financeira.</p>
+                    <div class="hero-buttons">
+                        <a href="calculadora.html" class="btn btn-primary">Calculadora de Juros Compostos</a>
+                        <a href="blog.html" class="btn btn-secondary">Explore o Blog</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <!-- News Feed Section -->
+        <section class="news-feed-section">
+            <div class="container">
+                <div class="market-data-header">
+                    <h2>Radar Financeiro</h2>
+                    <span class="last-updated" id="news-updated">Carregando...</span>
+                </div>
+
+                <p class="section-subtitle">Manchetes do mercado em tempo real. Clique para ler a notícia completa na fonte.</p>
+
+                <div class="news-grid" id="news-grid">
+                    <div class="news-card skeleton">
+                        <div class="news-meta">Carregando…</div>
+                        <div class="news-title">Buscando as últimas manchetes</div>
+                        <div class="news-excerpt">Aguarde alguns segundos.</div>
+                    </div>
+                    <div class="news-card skeleton"></div>
+                    <div class="news-card skeleton"></div>
+                </div>
+
+                <div class="news-footer">
+                    <a href="blog.html" class="btn btn-secondary">Ir para o Blog</a>
+                    <a href="aposentadoria.html" class="btn btn-primary">Simular Aposentadoria</a>
+                </div>
+            </div>
+        </section>
+<!-- AdSense Unit - Top -->
+        <section class="ad-container adsense-responsive">
+            <span class="ad-label">Publicidade</span>
+            <!-- Colocar código do bloco de anúncios AdSense aqui -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-2544667387518436" 
+                 data-ad-slot="YOUR_AD_SLOT_ID_1" 
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Por que o Cérebro Milionário?</h2>
+                    <p>Oferecemos conteúdo de qualidade e ferramentas essenciais para sua jornada financeira.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card animate-fade-in">
+                        <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h3 class="feature-title">Educação Clara</h3>
+                        <p class="feature-text">Artigos e guias que explicam conceitos financeiros complexos de forma simples e direta.</p>
+                    </div>
+                    <div class="feature-card animate-fade-in" style="animation-delay: 0.1s;">
+                        <div class="feature-icon"><i class="fas fa-calculator"></i></div>
+                        <h3 class="feature-title">Ferramentas Úteis</h3>
+                        <p class="feature-text">Calculadoras interativas para ajudar você a planejar seus investimentos e metas.</p>
+                    </div>
+                    <div class="feature-card animate-fade-in" style="animation-delay: 0.2s;">
+                        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3 class="feature-title">Conteúdo Atualizado</h3>
+                        <p class="feature-text">Mantenha-se informado sobre as últimas tendências e estratégias do mercado financeiro.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Blog Posts Section -->
+        <section class="blog-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Últimos Artigos do Blog</h2>
+                    <p>Explore nossos conteúdos mais recentes sobre finanças e investimentos.</p>
+                </div>
+                <div class="blog-grid" id="latest-posts-grid">
+                    <!-- Posts serão carregados aqui via JS ou diretamente se for estático -->
+                    <p>Carregando últimos posts...</p>
+                </div>
+                <div style="text-align: center; margin-top: var(--spacing-xl);">
+                    <a href="blog.html" class="btn btn-tertiary">Ver Todos os Artigos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- AdSense Unit - Middle -->
+        <section class="ad-container adsense-responsive">
+            <span class="ad-label">Publicidade</span>
+            <!-- Colocar código do bloco de anúncios AdSense aqui -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-2544667387518436"
+                 data-ad-slot="YOUR_AD_SLOT_ID_2"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content animate-fade-in">
+                    <h2>Pronto para Começar?</h2>
+                    <p>Use nossa calculadora de juros compostos e veja o poder do tempo e da disciplina nos seus investimentos.</p>
+                    <a href="calculadora.html" class="btn btn-primary">Simular Investimento</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3 class="footer-logo">Cérebro Milionário</h3>
+                    <p class="footer-text">Capacitando você a tomar decisões financeiras inteligentes para um futuro próspero.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/cerebromillionario/" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@cerebromillionario?si=HXuHdkSfJpfBcT75" target="_blank" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="calculadora.html">Calculadora</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Recursos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Glossário Financeiro</a></li>
+                        <li><a href="#">Perguntas Frequentes</a></li>
+                        <li><a href="#">Guias para Iniciantes</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Newsletter</h4>
+                    <p class="footer-text">Receba dicas financeiras exclusivas diretamente no seu email.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Seu melhor email" required class="form-control">
+                        <button type="submit" class="btn btn-primary" style="margin-top: var(--spacing-sm); width: 100%;">Inscrever</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; <span id="current-year"></span> Cérebro Milionário. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JS -->
+    <script src="js/main.js"></script>
+    <script src="js/news-feed.js"></script>
+    <!-- Adicionar outros scripts necessários -->
+
+</body>
+</html>
