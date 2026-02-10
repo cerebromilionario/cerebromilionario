@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://peppy-lollipop-54fa27.netlify.app/sitemap.xml
