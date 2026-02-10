@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculadora de juros compostos do Cérebro Milionário - Simule seus investimentos e planeje seu futuro financeiro com nossa ferramenta gratuita.">
+    <meta name="keywords" content="calculadora juros compostos, simulador investimentos, planejamento financeiro, rentabilidade, investimentos">
+    <meta name="author" content="Cérebro Milionário">
+    <meta name="robots" content="index, follow">
+    
+    <title>Calculadora de Juros Compostos | Cérebro Milionário</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Chart.js para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/calculadora.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/calculadora.html">
+    <meta property="og:title" content="Calculadora de Juros Compostos | Cérebro Milionário">
+    <meta property="og:description" content="Simule seus investimentos e planeje seu futuro financeiro com nossa calculadora de juros compostos gratuita.">
+    <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/og-calculadora.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://peppy-lollipop-54fa27.netlify.app/calculadora.html">
+    <meta property="twitter:title" content="Calculadora de Juros Compostos | Cérebro Milionário">
+    <meta property="twitter:description" content="Simule seus investimentos e planeje seu futuro financeiro com nossa calculadora de juros compostos gratuita.">
+    <meta property="twitter:image" content="https://peppy-lollipop-54fa27.netlify.app/images/og-calculadora.jpg">
+    
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Calculadora de Juros Compostos",
+        "url": "https://peppy-lollipop-54fa27.netlify.app/calculadora.html",
+        "description": "Simule seus investimentos e planeje seu futuro financeiro com nossa calculadora de juros compostos gratuita.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "BRL"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Cérebro Milionário",
+            "url": "https://peppy-lollipop-54fa27.netlify.app/"
+        }
+    }
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2544667387518436" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <h1><a href="/index.html">Cérebro Milionário</a></h1>
+            </div>
+            
+            <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="navigation" id="primary-navigation">
+                <ul class="nav-menu">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/calculadora.html" class="active active">Calculadora</a></li>
+                    <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+                    <li><a href="/cursos.html">Cursos</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content animate-fade-in">
+                    <h1>Calculadora de Juros Compostos</h1>
+                    <p>Descubra o poder dos juros compostos e planeje seu futuro financeiro com nossa ferramenta gratuita.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- AdSense Unit - Top -->
+        <section class="ad-container adsense-responsive">
+            <span class="ad-label">Publicidade</span>
+            <!-- Código AdSense -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-2544667387518436"
+                 data-ad-slot="YOUR_AD_SLOT_ID_1"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Simule Seus Investimentos</h2>
+                    <p>Veja como seu dinheiro pode crescer ao longo do tempo com o poder dos juros compostos.</p>
+                </div>
+                
+                <div class="calculator-container">
+                    <div class="calculator-tabs">
+                        <div class="calculator-tab active" data-panel="juros-compostos">Juros Compostos</div>
+                        <div class="calculator-tab" data-panel="aporte-mensal">Aportes Mensais</div>
+                        <div class="calculator-tab" data-panel="objetivo-financeiro">Objetivo Financeiro</div>
+                    </div>
+                    
+                    <!-- Painel de Juros Compostos -->
+                    <div id="juros-compostos" class="calculator-panel active">
+                        <form id="juros-compostos-form" class="calculator-form">
+                            <div class="form-group">
+                                <label for="capital-inicial">Capital Inicial (R$)</label>
+                                <input type="number" id="capital-inicial" class="form-control" min="0" step="100" value="1000" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="taxa-juros">Taxa de Juros (% ao ano)</label>
+                                <input type="number" id="taxa-juros" class="form-control" min="0" step="0.1" value="10" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="periodo">Período (anos)</label>
+                                <input type="number" id="periodo" class="form-control" min="1" max="50" step="1" value="10" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="aporte-mensal">Aporte Mensal (R$)</label>
+                                <input type="number" id="aporte-mensal" class="form-control" min="0" step="100" value="200">
+                            </div>
+                            <div class="form-group" style="grid-column: 1 / -1;">
+                                <button type="submit" class="btn btn-primary" style="width: 100%;">Calcular</button>
+                            </div>
+                        </form>
+                        
+                        <div id="resultado-juros-compostos" class="calculator-result" style="display: none;">
+                            <div class="result-value">R$ <span id="valor-total">0,00</span></div>
+                            <div class="result-label">Valor Total Acumulado</div>
+                        </div>
+                        
+                        <div id="resultado-detalhes" class="result-details" style="display: none;">
+                            <div class="result-row">
+                                <div class="result-label">Capital Inicial:</div>
+                                <div class="result-value" id="resultado-capital">R$ 0,00</div>
+                            </div>
+                            <div class="result-row">
+                                <div class="result-label">Total Investido:</div>
+                                <div class="result-value" id="resultado-investido">R$ 0,00</div>
+                            </div>
+                            <div class="result-row">
+                                <div class="result-label">Juros Acumulados:</div>
+                                <div class="result-value" id="resultado-juros">R$ 0,00</div>
+                            </div>
+                        </div>
+                        
+                        <div class="calculator-chart">
+                            <canvas id="chart-juros-compostos"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Painel de Aportes Mensais -->
+                    <div id="aporte-mensal" class="calculator-panel">
+                        <form id="aporte-mensal-form" class="calculator-form">
+                            <div class="form-group">
+                                <label for="objetivo-valor">Valor Desejado (R$)</label>
+                                <input type="number" id="objetivo-valor" class="form-control" min="1000" step="1000" value="100000" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="objetivo-taxa">Taxa de Juros (% ao ano)</label>
+                                <input type="number" id="objetivo-taxa" class="form-control" min="0" step="0.1" value="10" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="objetivo-periodo">Período (anos)</label>
+                                <input type="number" id="objetivo-periodo" class="form-control" min="1" max="50" step="1" value="10" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="objetivo-inicial">Capital Inicial (R$)</label>
+                                <input type="number" id="objetivo-inicial" class="form-control" min="0" step="100" value="1000">
+                            </div>
+                            <div class="form-group" style="grid-column: 1 / -1;">
+                                <button type="submit" class="btn btn-primary" style="width: 100%;">Calcular</button>
+                            </div>
+                        </form>
+                        
+                        <div id="resultado-aporte" class="calculator-result" style="display: none;">
+                            <div class="result-value">R$ <span id="valor-aporte-mensal">0,00</span></div>
+                            <div class="result-label">Aporte Mensal Necessário</div>
+                        </div>
+                        
+                        <div class="calculator-chart">
+                            <canvas id="chart-aporte-mensal"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Painel de Objetivo Financeiro -->
+                    <div id="objetivo-financeiro" class="calculator-panel">
+                        <form id="objetivo-financeiro-form" class="calculator-form">
+                            <div class="form-group">
+                                <label for="meta-valor">Valor da Meta (R$)</label>
+                                <input type="number" id="meta-valor" class="form-control" min="1000" step="1000" value="100000" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="meta-aporte">Aporte Mensal (R$)</label>
+                                <input type="number" id="meta-aporte" class="form-control" min="0" step="100" value="500" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="meta-taxa">Taxa de Juros (% ao ano)</label>
+                                <input type="number" id="meta-taxa" class="form-control" min="0" step="0.1" value="10" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="meta-inicial">Capital Inicial (R$)</label>
+                                <input type="number" id="meta-inicial" class="form-control" min="0" step="100" value="1000">
+                            </div>
+                            <div class="form-group" style="grid-column: 1 / -1;">
+                                <button type="submit" class="btn btn-primary" style="width: 100%;">Calcular</button>
+                            </div>
+                        </form>
+                        
+                        <div id="resultado-tempo" class="calculator-result" style="display: none;">
+                            <div class="result-value"><span id="tempo-anos">0</span> anos e <span id="tempo-meses">0</span> meses</div>
+                            <div class="result-label">Tempo Necessário</div>
+                        </div>
+                        
+                        <div class="calculator-chart">
+                            <canvas id="chart-objetivo-financeiro"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AdSense Unit - Middle -->
+        <section class="ad-container adsense-responsive">
+            <span class="ad-label">Publicidade</span>
+            <!-- Código AdSense -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-2544667387518436"
+                 data-ad-slot="YOUR_AD_SLOT_ID_2"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </section>
+
+        <!-- Explanation Section -->
+        <section class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Entenda os Juros Compostos</h2>
+                    <p>O oitavo milagre do mundo, segundo Albert Einstein</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card animate-fade-in">
+                        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3 class="feature-title">O Que São?</h3>
+                        <p class="feature-text">Juros compostos são juros sobre juros. Seu dinheiro cresce exponencialmente porque os rendimentos também geram rendimentos.</p>
+                    </div>
+                    <div class="feature-card animate-fade-in" style="animation-delay: 0.1s;">
+                        <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                        <h3 class="feature-title">Fator Tempo</h3>
+                        <p class="feature-text">Quanto mais tempo seu dinheiro ficar investido, maior será o efeito dos juros compostos. Comece cedo e seja consistente.</p>
+                    </div>
+                    <div class="feature-card animate-fade-in" style="animation-delay: 0.2s;">
+                        <div class="feature-icon"><i class="fas fa-percentage"></i></div>
+                        <h3 class="feature-title">Taxa de Juros</h3>
+                        <p class="feature-text">Pequenas diferenças na taxa de juros podem resultar em grandes diferenças no resultado final ao longo do tempo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Articles Section -->
+        <section class="blog-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Artigos Relacionados</h2>
+                    <p>Aprofunde seus conhecimentos sobre investimentos e finanças</p>
+                </div>
+                <div class="blog-grid" id="related-posts">
+                    <!-- Posts relacionados serão carregados aqui via JS ou diretamente -->
+                </div>
+                <div style="text-align: center; margin-top: var(--spacing-xl);">
+                    <a href="/blog.html" class="btn btn-tertiary">Explorar Mais Artigos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- AdSense Unit - Bottom -->
+        <section class="ad-container adsense-responsive">
+            <span class="ad-label">Publicidade</span>
+            <!-- Código AdSense -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-2544667387518436"
+                 data-ad-slot="YOUR_AD_SLOT_ID_3"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3 class="footer-logo">Cérebro Milionário</h3>
+                    <p class="footer-text">Capacitando você a tomar decisões financeiras inteligentes para um futuro próspero.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/cerebromillionario/" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@cerebromillionario?si=HXuHdkSfJpfBcT75" target="_blank" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/calculadora.html">Calculadora</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Recursos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Glossário Financeiro</a></li>
+                        <li><a href="#">Perguntas Frequentes</a></li>
+                        <li><a href="#">Guias para Iniciantes</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Newsletter</h4>
+                    <p class="footer-text">Receba dicas financeiras exclusivas diretamente no seu email.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Seu melhor email" required class="form-control">
+                        <button type="submit" class="btn btn-primary" style="margin-top: var(--spacing-sm); width: 100%;">Inscrever</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; <span id="current-year"></span> Cérebro Milionário. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JS -->
+    <script src="/js/main.js"></script>
+    <script src="/js/calculator.js"></script>
+    <script>
+        // Preencher o ano atual no footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Carregar artigos relacionados
+        document.addEventListener('DOMContentLoaded', function() {
+            // Exemplo de artigos relacionados (substituir por carregamento dinâmico)
+            const relatedPosts = [
+                {
+                    title: 'O Poder dos Juros Compostos',
+                    excerpt: 'Descubra como os juros compostos podem transformar pequenos investimentos em grandes fortunas ao longo do tempo.',
+                    image: 'images/post-juros-compostos.jpg',
+                    url: 'posts/o-poder-dos-juros-compostos.html'
+                },
+                {
+                    title: 'Investimentos para Iniciantes',
+                    excerpt: 'Um guia completo para quem está começando a investir: entenda os conceitos básicos e as melhores opções.',
+                    image: 'images/post-investimentos-iniciantes.jpg',
+                    url: 'posts/investimentos-para-iniciantes.html'
+                },
+                {
+                    title: 'Como Economizar Dinheiro',
+                    excerpt: 'Estratégias práticas para economizar dinheiro no dia a dia e aumentar sua capacidade de investimento.',
+                    image: 'images/post-economizar-dinheiro.jpg',
+                    url: 'posts/como-economizar-dinheiro.html'
+                }
+            ];
+            
+            const relatedPostsContainer = document.getElementById('related-posts');
+            let relatedPostsHTML = '';
+            
+            relatedPosts.forEach(post => {
+                relatedPostsHTML += `
+                    <div class="blog-card">
+                        <div class="blog-card-img">
+                            <img src="${post.image}" alt="${post.title}">
+                        </div>
+                        <div class="blog-card-content">
+                            <h3><a href="${post.url}">${post.title}</a></h3>
+                            <p>${post.excerpt}</p>
+                            <a href="${post.url}" class="btn btn-tertiary">Ler Mais</a>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            relatedPostsContainer.innerHTML = relatedPostsHTML;
+        });
+    </script>
+</body>
+</html>
