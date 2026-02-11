@@ -1,247 +1,456 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Blog do Cérebro Milionário - Artigos sobre educação financeira, investimentos, independência financeira e muito mais." name="description"/>
-<meta content="blog financeiro, educação financeira, investimentos, independência financeira, finanças pessoais" name="keywords"/>
-<meta content="Cérebro Milionário" name="author"/>
-<meta content="index, follow" name="robots"/>
-<title>Blog | Cérebro Milionário</title>
-<meta content="ca-pub-4613426749830025" name="google-adsense-account"/>
-<!-- Favicon -->
-<link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-<!-- Font Awesome -->
-<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" referrerpolicy="no-referrer" rel="stylesheet">
-<!-- CSS -->
-<link href="/css/style.css" rel="stylesheet"/>
-<!-- Canonical URL -->
-<link href="https://peppy-lollipop-54fa27.netlify.app/blog.html" rel="canonical"/>
-<!-- Open Graph / Facebook -->
-<meta content="website" property="og:type"/>
-<meta content="https://peppy-lollipop-54fa27.netlify.app/blog.html" property="og:url"/>
-<meta content="Blog | Cérebro Milionário" property="og:title"/>
-<meta content="Artigos sobre educação financeira, investimentos, independência financeira e muito mais." property="og:description"/>
-<meta content="https://peppy-lollipop-54fa27.netlify.app/images/og-blog.jpg" property="og:image"/>
-<!-- Twitter -->
-<meta content="summary_large_image" property="twitter:card"/>
-<meta content="https://peppy-lollipop-54fa27.netlify.app/blog.html" property="twitter:url"/>
-<meta content="Blog | Cérebro Milionário" property="twitter:title"/>
-<meta content="Artigos sobre educação financeira, investimentos, independência financeira e muito mais." property="twitter:description"/>
-<meta content="https://peppy-lollipop-54fa27.netlify.app/images/og-blog.jpg" property="twitter:image"/>
-<!-- Structured Data / Schema.org -->
-<script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Blog",
-        "name": "Blog do Cérebro Milionário",
-        "url": "https://peppy-lollipop-54fa27.netlify.app/blog.html",
-        "description": "Artigos sobre educação financeira, investimentos, independência financeira e muito mais.",
-        "publisher": {
-            "@type": "Organization",
-            "name": "Cérebro Milionário",
-            "url": "https://peppy-lollipop-54fa27.netlify.app/"
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Blog | Cérebro Milionário</title>
+  <meta name="description" content="Artigos do Cérebro Milionário sobre investimentos, renda fixa, ETFs, FIIs, finanças pessoais e ferramentas práticas." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/blog.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/blog.html" />
+  <meta property="og:title" content="Blog | Cérebro Milionário" />
+  <meta property="og:description" content="Artigos sobre investimentos e finanças pessoais + ferramentas práticas." />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Google Fonts (padrão do site) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (ícone menu) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- CSS do site -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
+
+  <style>
+    /* Ajustes locais somente nesta página */
+    .blog-toolbar { display:flex; gap:14px; align-items:center; justify-content:space-between; flex-wrap:wrap; margin-top: 16px; }
+    .blog-toolbar .field { flex: 1 1 320px; }
+    .blog-toolbar input, .blog-toolbar select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,.10);
+      outline: none;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+      font-family: inherit;
     }
-    </script>
-<!-- Google AdSense -->
-<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025"></script>
-</link><style>
-/* Blog toolbar + tags + pagination (local) */
-.blog-toolbar{display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin:18px 0;}
-.blog-search{width:min(560px,100%);padding:12px 14px;border:1px solid rgba(0,0,0,.10);border-radius:14px;background:#fff;box-shadow:var(--shadow-sm);font-size:16px;}
-.blog-filter{padding:12px 14px;border:1px solid rgba(0,0,0,.10);border-radius:14px;background:#fff;box-shadow:var(--shadow-sm);font-size:16px;}
-.tag-row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 6px;}
-.tag-pill{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px;background:rgba(44,44,46,.06);color:var(--text-medium);}
-.pagination{gap:8px;flex-wrap:wrap;}
-.pagination-btn{min-width:44px;height:44px;padding:0 14px;border-radius:999px;border:1px solid rgba(0,0,0,.10);background:#fff;box-shadow:var(--shadow-sm);cursor:pointer;font-weight:700;}
-.pagination-btn.active{background:var(--primary-color);color:#fff;border-color:transparent;}
-.pagination-btn:hover{transform:translateY(-1px);}
-.no-results{margin:10px 0 16px;padding:12px 14px;border:1px solid rgba(0,0,0,.08);border-radius:14px;background:rgba(44,44,46,.04);}
-.sr-only{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;}
-</style></head>
+    .posts-grid { margin-top: 18px; }
+    .posts-grid.is-loading { opacity: .55; filter: grayscale(.10); }
+    .post-card { display:flex; flex-direction:column; overflow:hidden; border-radius: 18px; border:1px solid rgba(0,0,0,.08); background:#fff; box-shadow: var(--shadow-sm); transition: transform .15s ease; }
+    .post-card:hover { transform: translateY(-2px); }
+    .post-thumb { width: 100%; height: 180px; object-fit: cover; background: rgba(0,0,0,.04); display:block; }
+    .post-body { padding: 16px; display:flex; flex-direction:column; gap:10px; height: 100%; }
+    .post-meta { display:flex; gap:10px; flex-wrap:wrap; align-items:center; font-size: 12px; opacity: .80; }
+    .tag { display:inline-flex; align-items:center; gap:6px; padding: 6px 10px; border-radius: 999px; background: rgba(44,44,46,.06); font-weight: 700; }
+    .readtime { display:inline-flex; align-items:center; gap:6px; padding: 6px 10px; border-radius: 999px; background: rgba(244,196,48,.14); font-weight: 800; }
+    .post-title { margin: 0; font-size: 18px; line-height: 1.25; }
+    .post-desc { margin: 0; opacity: .82; }
+    .post-actions { margin-top:auto; display:flex; justify-content:flex-start; }
+    .btn-sm { padding: 10px 12px; border-radius: 12px; border:1px solid rgba(0,0,0,.10); background:#fff; text-decoration:none; font-weight:800; }
+    .btn-sm:hover { border-color: rgba(0,0,0,.22); }
+    .pagination { display:flex; gap:10px; justify-content:center; margin: 22px 0 10px; flex-wrap:wrap; }
+    .pagination button { width: 42px; height: 42px; border-radius: 999px; border:1px solid rgba(0,0,0,.12); background:#fff; box-shadow: var(--shadow-sm); font-weight: 900; cursor:pointer; }
+    .pagination button.active { background: var(--primary-color); color: #fff; border-color: var(--primary-color); }
+    .empty-state { text-align:center; padding: 22px 16px; border-radius: 18px; border:1px solid rgba(0,0,0,.08); background:#fff; box-shadow: var(--shadow-sm); margin-top: 18px; }
+    .muted { opacity: .78; }
+    .ad-slot { border: 1px dashed rgba(0,0,0,.18); border-radius: 18px; padding: 14px; background: rgba(0,0,0,.02); }
+    .ad-slot small { display:block; opacity:.7; margin-bottom: 6px; }
+  </style>
+</head>
+
 <body>
-<!-- Header -->
-<header class="header">
-<div class="container header-container">
-<div class="logo">
-<h1><a href="/index.html">Cérebro Milionário</a></h1>
-</div>
-<button aria-expanded="false" aria-label="Abrir menu" class="mobile-menu-btn">
-<i class="fas fa-bars"></i>
-</button>
-<nav class="navigation" id="primary-navigation">
-<ul class="nav-menu"><li><a href="/index.html">Home</a></li><li><a href="/calculadora.html">Calculadora</a></li><li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li><li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li><li><a href="/aposentadoria.html">Aposentadoria</a></li><li><a href="/cursos.html">Cursos</a></li><li><a class="active" href="/blog.html">Blog</a></li></ul>
-</nav>
-</div>
-</header>
-<main>
-<!-- Hero Section -->
-<section class="hero-section">
-<div class="container">
-<div class="hero-content animate-fade-in">
-<h1>Blog do Cérebro Milionário</h1>
-<p>Artigos, dicas e estratégias para você conquistar sua independência financeira.</p>
-</div>
-</div>
-</section>
-<!-- Blog Content Section -->
-<section class="blog-section">
-<div class="container">
-<!-- AdSense Unit - Top -->
-<div class="ad-container adsense-responsive">
-<span class="ad-label">Publicidade</span>
-<ins class="adsbygoogle" data-ad-client="ca-pub-4613426749830025" data-ad-format="auto" data-ad-slot="YOUR_AD_SLOT_ID_1" data-full-width-responsive="true" style="display:block"></ins>
-<script>
-                         (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-</div>
-<!-- Toolbar: busca e filtro -->
-<div class="blog-toolbar">
-<div class="blog-toolbar-left">
-<label class="sr-only" for="blogSearch">Buscar</label>
-<input autocomplete="off" class="blog-search" id="blogSearch" placeholder="Buscar artigos (ex.: renda fixa, ETF, FIIs, aposentadoria)…" type="search"/>
-</div>
-<div class="blog-toolbar-right">
-<label class="sr-only" for="tagFilter">Filtrar</label>
-<select class="blog-filter" id="tagFilter">
-<option value="all">Todos os temas</option>
-<option value="Iniciante">Iniciante</option>
-<option value="Renda Fixa">Renda Fixa</option>
-<option value="ETFs">ETFs</option>
-<option value="FIIs">FIIs</option>
-<option value="Cripto">Cripto</option>
-<option value="Carteira">Carteira</option>
-<option value="Finanças Pessoais">Finanças Pessoais</option>
-<option value="Mentalidade">Mentalidade</option>
-<option value="Educação">Educação</option>
-<option value="Investimentos">Investimentos</option>
-</select>
-</div>
-</div>
-<div class="no-results" id="noResults" style="display:none;">
-                    Nenhum artigo encontrado. Tente outro termo ou selecione “Todos os temas”.
-                </div>
+  <!-- Header (padrão do seu site) -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
 
-<!-- Blog Posts Grid -->
-<div class="posts-grid" id="posts-container">
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
 
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/cursos.html">Cursos</a></li>
+          <li><a href="/blog.html" class="active">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Blog</h1>
+        <p class="muted" style="max-width: 920px;">
+          Artigos densos e práticos para você investir com clareza. Use a busca e os filtros para encontrar o que precisa.
+        </p>
 
+        <!-- Slot de anúncio (auto ads podem preencher; se não, fica só como área segura) -->
+        <div class="ad-slot" style="margin-top: 14px;">
+          <small>Publicidade</small>
+          <!-- Auto Ads: não precisa inserir bloco manual. Deixei o espaço seguro. -->
+        </div>
 
+        <div class="blog-toolbar">
+          <div class="field">
+            <input id="searchInput" type="search" placeholder="Buscar artigos (ex.: renda fixa, ETF, reserva...)" />
+          </div>
+          <div style="min-width: 220px;">
+            <select id="tagSelect" aria-label="Filtrar por tema">
+              <option value="all">Todos os temas</option>
+            </select>
+          </div>
+        </div>
 
+        <div id="emptyState" class="empty-state" style="display:none;">
+          <h3 style="margin-top:0;">Nenhum artigo encontrado</h3>
+          <p class="muted">Tente outra palavra-chave ou selecione “Todos os temas”.</p>
+        </div>
 
+        <div id="posts-container" class="posts-grid is-loading">
+          <!-- Cards são carregados automaticamente via sitemap.xml -->
+        </div>
 
+        <div id="pagination" class="pagination" aria-label="Paginação"></div>
+      </div>
+    </section>
 
+    <section class="section">
+      <div class="container">
+        <!-- Slot de anúncio inferior -->
+        <div class="ad-slot">
+          <small>Publicidade</small>
+          <!-- Auto Ads -->
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <!-- Footer (padrão do site) -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-about">
+        <h3>Cérebro Milionário</h3>
+        <p>Capacitando você a tomar decisões financeiras inteligentes para um futuro próspero.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
 
+      <div class="footer-links">
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-de-uso.html">Termos de Uso</a></li>
+        </ul>
+      </div>
 
+      <div class="footer-links">
+        <h3>Recursos</h3>
+        <ul>
+          <li><a href="/glossario-financeiro.html">Glossário Financeiro</a></li>
+          <li><a href="/perguntas-frequentes.html">Perguntas Frequentes</a></li>
+          <li><a href="/guia-iniciantes.html">Guias para Iniciantes</a></li>
+          <li><a href="/contato.html">Contato</a></li>
+        </ul>
+      </div>
 
+      <div class="footer-newsletter">
+        <h3>Newsletter</h3>
+        <p>Receba dicas financeiras exclusivas diretamente no seu email.</p>
+        <form>
+          <input type="email" placeholder="Seu melhor email" required>
+          <button type="submit" class="btn">Inscrever</button>
+        </form>
+      </div>
+    </div>
 
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; <span id="current-year"></span> Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
 
+  <!-- Scripts do site -->
+  <script src="/js/main.js"></script>
 
+  <script>
+    // Ano atual no footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
 
+    // Helpers
+    function slugToTitle(slug) {
+      return slug
+        .replace(/[-_]+/g, ' ')
+        .replace(/\b\w/g, c => c.toUpperCase());
+    }
 
+    function inferTagFromSlug(slug) {
+      const s = slug.toLowerCase();
+      if (s.includes('cdb') || s.includes('lci') || s.includes('lca') || s.includes('renda-fixa') || s.includes('tesouro') || s.includes('ipca')) return 'Renda Fixa';
+      if (s.includes('etf')) return 'ETFs';
+      if (s.includes('fii') || s.includes('fiis') || s.includes('imoveis')) return 'FIIs';
+      if (s.includes('acao') || s.includes('acoes') || s.includes('bolsa')) return 'Ações';
+      if (s.includes('aposent')) return 'Aposentadoria';
+      if (s.includes('orçamento') || s.includes('orcamento') || s.includes('financas')) return 'Finanças Pessoais';
+      if (s.includes('cripto') || s.includes('bitcoin')) return 'Cripto';
+      return 'Investimentos';
+    }
 
+    function estimateReadTime(text) {
+      const words = (text || '').trim().split(/\s+/).filter(Boolean).length;
+      const minutes = Math.max(2, Math.round(words / 200));
+      return minutes + ' min';
+    }
 
+    // Estado
+    const state = {
+      posts: [],
+      filtered: [],
+      page: 1,
+      perPage: 9,
+      q: '',
+      tag: 'all'
+    };
 
+    const els = {
+      container: document.getElementById('posts-container'),
+      pagination: document.getElementById('pagination'),
+      empty: document.getElementById('emptyState'),
+      search: document.getElementById('searchInput'),
+      tag: document.getElementById('tagSelect'),
+    };
 
+    function renderTags() {
+      const tags = Array.from(new Set(state.posts.map(p => p.tag))).sort((a,b) => a.localeCompare(b, 'pt-BR'));
+      const current = els.tag.value || 'all';
+      els.tag.innerHTML = '<option value="all">Todos os temas</option>' + tags.map(t => `<option value="${t}">${t}</option>`).join('');
+      els.tag.value = current;
+    }
 
-</div>
-<!-- Pagination -->
-<div class="pagination"><button class="pagination-btn active" data-page="1">1</button><button class="pagination-btn" data-page="2">2</button><button class="pagination-btn" data-page="3">3</button></div>
-<!-- AdSense Unit - Bottom -->
-<div class="ad-container adsense-responsive">
-<span class="ad-label">Publicidade</span>
-<ins class="adsbygoogle" data-ad-client="ca-pub-4613426749830025" data-ad-format="auto" data-ad-slot="YOUR_AD_SLOT_ID_3" data-full-width-responsive="true" style="display:block"></ins>
-<script>
-                         (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="footer">
-<div class="container">
-<div class="footer-grid">
-<div class="footer-column">
-<h3 class="footer-logo">Cérebro Milionário</h3>
-<p class="footer-text">Capacitando você a tomar decisões financeiras inteligentes para um futuro próspero.</p>
-<div class="social-links">
-<a aria-label="Facebook" class="social-link" href="#"><i class="fab fa-facebook-f"></i></a>
-<a aria-label="Twitter" class="social-link" href="#"><i class="fab fa-twitter"></i></a>
-<a aria-label="Instagram" class="social-link" href="https://www.instagram.com/cerebromillionario/" target="_blank"><i class="fab fa-instagram"></i></a>
-<a aria-label="YouTube" class="social-link" href="https://youtube.com/@cerebromillionario?si=HXuHdkSfJpfBcT75" target="_blank"><i class="fab fa-youtube"></i></a>
-<a aria-label="LinkedIn" class="social-link" href="#"><i class="fab fa-linkedin-in"></i></a>
-</div>
-</div>
-<div class="footer-column">
-<h4 class="footer-heading">Navegação</h4>
-<ul class="footer-links">
-<li><a href="/index.html">Home</a></li>
-<li><a href="/calculadora.html">Calculadora</a></li>
-<li><a href="/blog.html">Blog</a></li>
-<li><a href="politica-privacidade.html">Política de Privacidade</a></li>
-<li><a href="termos-uso.html">Termos de Uso</a></li>
-</ul>
-</div>
-<div class="footer-column">
-<h4 class="footer-heading">Recursos</h4>
-<ul class="footer-links">
-<li><a href="glossario-financeiro.html">Glossário Financeiro</a></li>
-<li><a href="perguntas-frequentes.html">Perguntas Frequentes</a></li>
-<li><a href="guia-iniciantes.html">Guias para Iniciantes</a></li>
-<li><a href="contato.html">Contato</a></li>
-</ul>
-</div>
-<div class="footer-column">
-<h4 class="footer-heading">Newsletter</h4>
-<p class="footer-text">Receba dicas financeiras exclusivas diretamente no seu email.</p>
-<form class="newsletter-form">
-<input class="form-control" placeholder="Seu melhor email" required="" type="email"/>
-<button class="btn btn-primary" style="margin-top: var(--spacing-sm); width: 100%;" type="submit">Inscrever</button>
-</form>
-</div>
-</div>
-<div class="footer-bottom">
-                © <span id="current-year"></span> Cérebro Milionário. Todos os direitos reservados.
-            </div>
-</div>
-</footer>
-<!-- Scripts JS -->
-<script src="/js/main.js"></script>
-<script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const paginationButtons = document.querySelectorAll('.pagination-btn');
-            const postCards = document.querySelectorAll('.post-card');
-            
-            paginationButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const pageNumber = this.getAttribute('data-page');
-                    
-                    paginationButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    postCards.forEach(card => {
-                        if (card.getAttribute('data-page') === pageNumber) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                    
-                    document.querySelector('.blog-section').scrollIntoView({behavior: 'smooth'});
-                });
-            });
-            
-            document.getElementById('current-year').textContent = new Date().getFullYear();
+    function applyFilters() {
+      const q = state.q.trim().toLowerCase();
+      const tag = state.tag;
+
+      state.filtered = state.posts.filter(p => {
+        const hay = (p.title + ' ' + p.desc + ' ' + p.tag).toLowerCase();
+        const okQ = !q || hay.includes(q);
+        const okTag = (tag === 'all') || (p.tag === tag);
+        return okQ && okTag;
+      });
+
+      state.page = 1;
+      render();
+    }
+
+    function renderPagination(totalPages) {
+      els.pagination.innerHTML = '';
+      if (totalPages <= 1) return;
+
+      for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = i;
+        if (i === state.page) btn.classList.add('active');
+        btn.addEventListener('click', () => {
+          state.page = i;
+          render();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-    </script>
+        els.pagination.appendChild(btn);
+      }
+    }
+
+    function render() {
+      const list = state.filtered.length ? state.filtered : state.posts;
+      const total = list.length;
+      const totalPages = Math.max(1, Math.ceil(total / state.perPage));
+      const start = (state.page - 1) * state.perPage;
+      const pageItems = list.slice(start, start + state.perPage);
+
+      els.container.classList.remove('is-loading');
+      els.container.innerHTML = pageItems.map(p => `
+        <article class="post-card">
+          <a href="${p.url}" style="text-decoration:none;">
+            <img class="post-thumb" src="${p.image}" alt="${p.title}" loading="lazy" onerror="this.src='/images/blog-cover.svg';" />
+          </a>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="tag"><i class="fa-solid fa-tag"></i> ${p.tag}</span>
+              <span class="readtime"><i class="fa-regular fa-clock"></i> ${p.readTime}</span>
+              ${p.lastmod ? `<span class="muted"><i class="fa-regular fa-calendar"></i> ${p.lastmod}</span>` : ''}
+            </div>
+            <h2 class="post-title">${p.title}</h2>
+            <p class="post-desc">${p.desc}</p>
+            <div class="post-actions">
+              <a class="btn-sm" href="${p.url}">Ler mais</a>
+            </div>
+          </div>
+        </article>
+      `).join('');
+
+      // Empty state
+      const showingFiltered = !!(state.q || (state.tag !== 'all'));
+      els.empty.style.display = (showingFiltered && total === 0) ? 'block' : 'none';
+
+      renderPagination(totalPages);
+    }
+
+    async function fetchPostMeta(url) {
+      // Puxa HTML do post e extrai title/description/og:image e texto p/ tempo de leitura.
+      const res = await fetch(url, { cache: 'force-cache' });
+      if (!res.ok) throw new Error('Falha ao carregar ' + url);
+      const html = await res.text();
+
+      const dom = new DOMParser().parseFromString(html, 'text/html');
+
+      const title = (dom.querySelector('meta[property="og:title"]')?.content || dom.querySelector('title')?.textContent || '').trim();
+      const desc = (dom.querySelector('meta[name="description"]')?.content || dom.querySelector('meta[property="og:description"]')?.content || '').trim();
+
+      const ogImg = (dom.querySelector('meta[property="og:image"]')?.content || '').trim();
+
+      // Texto para estimar tempo de leitura
+      const mainText = (dom.querySelector('main')?.innerText || dom.body?.innerText || '').replace(/\s+/g,' ').trim();
+      const readTime = estimateReadTime(mainText);
+
+      // Data: tenta achar "Atualizado em dd/mm/aaaa" (pílula do artigo pilar e outros)
+      let lastmodText = '';
+      const m = html.match(/Atualizado em\s*([0-3]?\d\/[01]?\d\/\d{4})/i);
+      if (m && m[1]) lastmodText = m[1];
+
+      return {
+        title: title || 'Artigo',
+        desc: desc || 'Leia o artigo completo no Cérebro Milionário.',
+        image: ogImg || '/images/blog-cover.svg',
+        readTime,
+        lastmodText
+      };
+    }
+
+    async function loadFromSitemap() {
+      els.container.classList.add('is-loading');
+      els.container.innerHTML = `<div class="empty-state"><h3 style="margin-top:0;">Carregando artigos…</h3><p class="muted">Estamos montando os cards automaticamente a partir do sitemap.</p></div>`;
+
+      const smRes = await fetch('/sitemap.xml', { cache: 'no-store' });
+      if (!smRes.ok) throw new Error('Não consegui acessar /sitemap.xml');
+
+      const smText = await smRes.text();
+      const xml = new DOMParser().parseFromString(smText, 'application/xml');
+      const urls = Array.from(xml.querySelectorAll('url')).map(u => ({
+        loc: (u.querySelector('loc')?.textContent || '').trim(),
+        lastmod: (u.querySelector('lastmod')?.textContent || '').trim()
+      })).filter(u => u.loc);
+
+      // Só posts
+      const posts = urls.filter(u => u.loc.includes('/posts/'));
+
+      // Converte lastmod ISO -> dd/mm/aaaa
+      const fmtLastmod = (iso) => {
+        if (!iso) return '';
+        const d = new Date(iso);
+        if (isNaN(d.getTime())) return '';
+        const dd = String(d.getDate()).padStart(2,'0');
+        const mm = String(d.getMonth()+1).padStart(2,'0');
+        const yy = d.getFullYear();
+        return `${dd}/${mm}/${yy}`;
+      };
+
+      // Ordena por lastmod desc (se tiver)
+      posts.sort((a,b) => (b.lastmod || '').localeCompare(a.lastmod || ''));
+
+      // Para evitar excesso de requests, carrega meta em batches
+      const items = [];
+      for (const p of posts) {
+        try {
+          const u = new URL(p.loc);
+          const urlPath = u.pathname; // garante same-origin
+          const slug = urlPath.split('/').pop().replace(/\.html$/,'');
+          const meta = await fetchPostMeta(urlPath);
+          items.push({
+            url: urlPath,
+            slug,
+            title: meta.title || slugToTitle(slug),
+            desc: meta.desc,
+            image: meta.image,
+            tag: inferTagFromSlug(slug),
+            readTime: meta.readTime,
+            lastmod: meta.lastmodText || fmtLastmod(p.lastmod),
+            _sort: p.lastmod || ''
+          });
+        } catch (e) {
+          // fallback simples
+          const urlPath = new URL(p.loc).pathname;
+          const slug = urlPath.split('/').pop().replace(/\.html$/,'');
+          items.push({
+            url: urlPath,
+            slug,
+            title: slugToTitle(slug),
+            desc: 'Leia o artigo completo no Cérebro Milionário.',
+            image: '/images/blog-cover.svg',
+            tag: inferTagFromSlug(slug),
+            readTime: '5 min',
+            lastmod: fmtLastmod(p.lastmod),
+            _sort: p.lastmod || ''
+          });
+        }
+      }
+
+      // Pin do pilar no topo, se existir
+      const pilarSlug = 'guia-completo-investimentos-iniciantes-2026';
+      items.sort((a,b) => {
+        if (a.slug.includes(pilarSlug)) return -1;
+        if (b.slug.includes(pilarSlug)) return 1;
+        return (b._sort || '').localeCompare(a._sort || '');
+      });
+
+      state.posts = items;
+      state.filtered = [];
+      renderTags();
+      applyFilters(); // render
+    }
+
+    // Eventos
+    els.search.addEventListener('input', (e) => {
+      state.q = e.target.value || '';
+      applyFilters();
+    });
+
+    els.tag.addEventListener('change', (e) => {
+      state.tag = e.target.value || 'all';
+      applyFilters();
+    });
+
+    // Go!
+    loadFromSitemap().catch(err => {
+      els.container.classList.remove('is-loading');
+      els.container.innerHTML = `<div class="empty-state"><h3 style="margin-top:0;">Não foi possível carregar os artigos</h3><p class="muted">${String(err.message || err)}</p><p class="muted">Dica: verifique se <a href="/sitemap.xml">/sitemap.xml</a> está acessível e contém URLs de <strong>/posts/</strong>.</p></div>`;
+    });
+  </script>
 </body>
 </html>
