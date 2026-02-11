@@ -141,5 +141,12 @@
   <changefreq>monthly</changefreq>
   <priority>0.80</priority>
 </url>
+  <url>
+  <loc>https://peppy-lollipop-54fa27.netlify.app/calculadora-ir-renda-fixa.html</loc>
+  <lastmod>2026-02-11</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+
 
 </urlset>
