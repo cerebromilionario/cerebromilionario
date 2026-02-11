@@ -135,4 +135,11 @@
   <changefreq>monthly</changefreq>
   <priority>0.80</priority>
 </url>
+  <url>
+  <loc>https://peppy-lollipop-54fa27.netlify.app/comparador-cdb-lci-lca.html</loc>
+  <lastmod>2026-02-11</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+
 </urlset>
