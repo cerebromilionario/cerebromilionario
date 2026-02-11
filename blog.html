@@ -79,7 +79,7 @@
                     <li><a href="/calculadora.html">Calculadora</a></li>
                     <li><a href="/aposentadoria.html">Aposentadoria</a></li>
                     <li><a href="/cursos.html">Cursos</a></li>
-                    <li><a href="/blog.html" class="active active">Blog</a></li>
+                    <li><a href="/blog.html" class="active">Blog</a></li>
                 </ul>
             </nav>
         </div>
@@ -102,7 +102,6 @@
                 <!-- AdSense Unit - Top -->
                 <div class="ad-container adsense-responsive">
                     <span class="ad-label">Publicidade</span>
-                    <!-- Código AdSense -->
                     <ins class="adsbygoogle"
                          style="display:block"
                          data-ad-client="ca-pub-4613426749830025"
@@ -116,7 +115,23 @@
                 
                 <!-- Blog Posts Grid -->
                 <div class="posts-grid" id="posts-container">
-                    <!-- Posts serão carregados aqui via JS ou diretamente -->
+
+                    <!-- ✅ NOVO: Artigo Pilar -->
+                    <div class="post-card" data-page="1">
+                        <div class="blog-card-img">
+                            <img src="/images/blog-cover.svg" alt="Guia Completo de Investimentos para Iniciantes (2026)">
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> 10/02/2026</span>
+                                <span><i class="far fa-clock"></i> 20–25 min de leitura</span>
+                            </div>
+                            <h3><a href="/posts/guia-completo-investimentos-iniciantes-2026.html">Guia Completo de Investimentos para Iniciantes (2026)</a></h3>
+                            <p>O mapa do zero ao plano de longo prazo: reserva, renda fixa, ETFs, FIIs, ações, diversificação e checklist de 30 dias.</p>
+                            <a href="/posts/guia-completo-investimentos-iniciantes-2026.html" class="btn btn-tertiary">Ler Mais</a>
+                        </div>
+                    </div>
+
                     <!-- Página 1 (posts 1-9) -->
                     <div class="post-card" data-page="1">
                         <div class="blog-card-img">
@@ -166,7 +181,6 @@
                     <!-- AdSense Unit - Middle -->
                     <div class="ad-container adsense-responsive" style="grid-column: 1 / -1;">
                         <span class="ad-label">Publicidade</span>
-                        <!-- Código AdSense -->
                         <ins class="adsbygoogle"
                              style="display:block"
                              data-ad-client="ca-pub-4613426749830025"
@@ -294,7 +308,6 @@
                 <!-- AdSense Unit - Bottom -->
                 <div class="ad-container adsense-responsive">
                     <span class="ad-label">Publicidade</span>
-                    <!-- Código AdSense -->
                     <ins class="adsbygoogle"
                          style="display:block"
                          data-ad-client="ca-pub-4613426749830025"
@@ -361,7 +374,6 @@
     <!-- Scripts JS -->
     <script src="/js/main.js"></script>
     <script>
-        // Paginação do blog
         document.addEventListener('DOMContentLoaded', function() {
             const paginationButtons = document.querySelectorAll('.pagination-btn');
             const postCards = document.querySelectorAll('.post-card');
@@ -370,11 +382,9 @@
                 button.addEventListener('click', function() {
                     const pageNumber = this.getAttribute('data-page');
                     
-                    // Atualiza botões de paginação
                     paginationButtons.forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
                     
-                    // Mostra/esconde posts
                     postCards.forEach(card => {
                         if (card.getAttribute('data-page') === pageNumber) {
                             card.style.display = 'block';
@@ -383,12 +393,10 @@
                         }
                     });
                     
-                    // Scroll para o topo da seção
                     document.querySelector('.blog-section').scrollIntoView({behavior: 'smooth'});
                 });
             });
             
-            // Atualiza o ano no rodapé
             document.getElementById('current-year').textContent = new Date().getFullYear();
         });
     </script>
