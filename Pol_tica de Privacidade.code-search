@@ -1,0 +1,188 @@
+# Query: Política de Privacidade
+# ContextLines: 1
+
+42 resultados - 28 arquivos
+
+404.html:
+  122                          <li><a href="/blog.html">Blog</a></li>
+  123:                         <li><a href="/politica-privacidade.html">Política de Privacidade</a>
+  124                          <li><a href="#">Termos de Uso</a></li>
+
+aposentadoria.html:
+  286                          <li><a href="/blog.html">Blog</a></li>
+  287:                         <li><a href="/politica-privacidade.html">Política de Privacidade</a>
+  288                          <li><a href="#">Termos de Uso</a></li>
+
+blog.html:
+  167            <li><a href="/blog.html">Blog</a></li>
+  168:           <li><a href="/politica-privacidade.html">Política de Privacidade</a>
+  169            <li><a href="/termos-de-uso.html">Termos de Uso</a></li>
+
+calculadora-ir-renda-fixa.html:
+  385                          <li><a href="/blog.html">Blog</a></li>
+  386:                         <li><a href="/politica-privacidade.html">Política de Privacidade</a>
+  387                          <li><a href="#">Termos de Uso</a></li>
+
+calculadora.html:
+  354                          <li><a href="/blog.html">Blog</a></li>
+  355:                         <li><a href="/politica-privacidade.html">Política de Privacidade</a>
+  356                          <li><a href="#">Termos de Uso</a></li>
+
+comparador-cdb-lci-lca.html:
+  463              <li><a href="/blog.html">Blog</a></li>
+  464:             <li><a href="/politica-privacidade.html">Política de Privacidade</a>
+  465              <li><a href="/termos-uso.html">Termos de Uso</a></li>
+
+contato.html:
+  167                                          <input type="checkbox" id="privacy" name="privacy" class="form-check-input" required>
+  168:                                         <label for="privacy" class="form-check-label">Concordo com a <a href="politica-privacidade.html">Política de Privacidade</a></label>
+  169                                      </div>
+
+  212                          <li><a href="/blog.html">Blog</a></li>
+  213:                         <li><a href="/politica-privacidade.html">Política de Privacidade</a>
+  214                          <li><a href="termos-uso.html">Termos de Uso</a></li>
+
+cursos.html:
+  172                          <li><a href="/blog.html">Blog</a></li>
+  173:                         <li><a href="/politica-privacidade.html">Política de Privacidade</a>
+  174                          <li><a href="#">Termos de Uso</a></li>
+
+glossario-financeiro.html:
+  340                          <li><a href="/blog.html">Blog</a></li>
+  341:                         <li><a href="/politica-privacidade.html">Política de Privacidade</a>
+  342                          <li><a href="termos-uso.html">Termos de Uso</a></li>
+
+guia-iniciantes.html:
+  416                          <li><a href="/blog.html">Blog</a></li>
+  417:                         <li><a href="/politica-privacidade.html">Política de Privacidade</a>
+  418                          <li><a href="termos-uso.html">Termos de Uso</a></li>
+
+index.html:
+  329                          <li><a href="/blog.html">Blog</a></li>
+  330:                         <li><a href="/politica-privacidade.html">Política de Privacidade</a>
+  331                          <li><a href="#">Termos de Uso</a></li>
+
+perguntas-frequentes.html:
+  351                          <li><a href="/blog.html">Blog</a></li>
+  352:                         <li><a href="/politica-privacidade.html">Política de Privacidade</a>
+  353                          <li><a href="termos-uso.html">Termos de Uso</a></li>
+
+politica-privacidade.html:
+    5      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    6:     <meta name="description" content="Política de Privacidade do Cérebro Milionário - Saiba como tratamos seus dados e informações.">
+    7:     <meta name="keywords" content="política de privacidade, privacidade, dados pessoais, cérebro milionário">
+    8      <meta name="author" content="Cérebro Milionário">
+
+   10      
+   11:     <title>Política de Privacidade | Cérebro Milionário</title>
+   12      <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+
+   33      <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/politica-privacidade.html">
+   34:     <meta property="og:title" content="Política de Privacidade | Cérebro Milionário">
+   35      <meta property="og:description" content="Saiba como tratamos seus dados e informações no Cérebro Milionário.">
+
+   40      <meta property="twitter:url" content="https://peppy-lollipop-54fa27.netlify.app/politica-privacidade.html">
+   41:     <meta property="twitter:title" content="Política de Privacidade | Cérebro Milionário">
+   42      <meta property="twitter:description" content="Saiba como tratamos seus dados e informações no Cérebro Milionário.">
+
+   76                  <div class="hero-content animate-fade-in">
+   77:                     <h1>Política de Privacidade</h1>
+   78                      <p>Saiba como tratamos seus dados e informações no Cérebro Milionário.</p>
+
+   87                      <article class="content-article">
+   88:                         <h2>Política de Privacidade do Cérebro Milionário</h2>
+   89                          <p>Última atualização: 28 de maio de 2025</p>
+   90                          
+   91:                         <p>O Cérebro Milionário está comprometido em proteger sua privacidade. Esta Política de Privacidade explica como coletamos, usamos, divulgamos e protegemos suas informações quando você visita nosso site.</p>
+   92                          
+
+  127                          <h3>6. Links para outros sites</h3>
+  128:                         <p>Nosso site pode conter links para outros sites que não são operados por nós. Se você clicar em um link de terceiros, será direcionado para o site desse terceiro. Recomendamos que você revise a política de privacidade de cada site que visitar. Não temos controle e não assumimos responsabilidade pelo conteúdo, políticas de privacidade ou práticas de sites ou serviços de terceiros.</p>
+  129                          
+
+  141                          
+  142:                         <h3>8. Alterações nesta Política de Privacidade</h3>
+  143:                         <p>Podemos atualizar nossa Política de Privacidade periodicamente. Publicaremos quaisquer alterações em nosso site e, se as alterações forem significativas, forneceremos um aviso mais proeminente, incluindo, para certos serviços, notificação por e-mail das alterações da Política de Privacidade.</p>
+  144                          
+  145                          <h3>9. Contato</h3>
+  146:                         <p>Se você tiver dúvidas ou preocupações sobre esta Política de Privacidade ou nossas práticas de privacidade, entre em contato conosco em:</p>
+  147                          <p>Email: contato@cerebromilionario.com</p>
+
+  174                          <li><a href="/blog.html">Blog</a></li>
+  175:                         <li><a href="politica-privacidade.html">Política de Privacidade</a></li>
+  176                          <li><a href="termos-uso.html">Termos de Uso</a></li>
+
+termos-uso.html:
+  164                          <li><a href="/blog.html">Blog</a></li>
+  165:                         <li><a href="politica-privacidade.html">Política de Privacidade</a></li>
+  166                          <li><a href="termos-uso.html">Termos de Uso</a></li>
+
+posts/como-economizar-dinheiro.html:
+  154  <li><a href="../blog.html">Blog</a></li>
+  155: <li><a href="../politica-privacidade.html">Política de Privacidade</a></li>
+  156  <li><a href="../termos-uso.html">Termos de Uso</a></li>
+
+posts/criptomoedas-para-iniciantes.html:
+  538  <li><a href="../blog.html">Blog</a></li>
+  539: <li><a href="../politica-privacidade.html">Política de Privacidade</a></li>
+  540  <li><a href="../termos-uso.html">Termos de Uso</a></li>
+
+posts/educacao-financeira-escolas.html:
+  346  <li><a href="../blog.html">Blog</a></li>
+  347: <li><a href="../politica-privacidade.html">Política de Privacidade</a></li>
+  348  <li><a href="../termos-uso.html">Termos de Uso</a></li>
+
+posts/estrategias-investimento-perfis-risco.html:
+  619  <li><a href="../blog.html">Blog</a></li>
+  620: <li><a href="../politica-privacidade.html">Política de Privacidade</a></li>
+  621  <li><a href="../termos-uso.html">Termos de Uso</a></li>
+
+posts/financas-para-casais.html:
+  597  <li><a href="../blog.html">Blog</a></li>
+  598: <li><a href="../politica-privacidade.html">Política de Privacidade</a></li>
+  599  <li><a href="../termos-uso.html">Termos de Uso</a></li>
+
+posts/fundo-emergencia.html:
+  426  <li><a href="../blog.html">Blog</a></li>
+  427: <li><a href="../politica-privacidade.html">Política de Privacidade</a></li>
+  428  <li><a href="../termos-uso.html">Termos de Uso</a></li>
+
+posts/guia-completo-investimentos-iniciantes-2026.html:
+  428            <li><a href="/blog.html">Blog</a></li>
+  429:           <li><a href="/politica-de-privacidade.html">Política de Privacidade</a></li>
+  430            <li><a href="/termos-de-uso.html">Termos de Uso</a></li>
+
+posts/investimentos-para-iniciantes.html:
+  154  <li><a href="../blog.html">Blog</a></li>
+  155: <li><a href="../politica-privacidade.html">Política de Privacidade</a></li>
+  156  <li><a href="../termos-uso.html">Termos de Uso</a></li>
+
+posts/investimentos-sustentaveis.html:
+  388  <li><a href="../blog.html">Blog</a></li>
+  389: <li><a href="../politica-privacidade.html">Política de Privacidade</a></li>
+  390  <li><a href="../termos-uso.html">Termos de Uso</a></li>
+
+posts/minimalismo-financeiro.html:
+  380  <li><a href="../blog.html">Blog</a></li>
+  381: <li><a href="../politica-privacidade.html">Política de Privacidade</a></li>
+  382  <li><a href="../termos-uso.html">Termos de Uso</a></li>
+
+posts/o-poder-dos-juros-compostos.html:
+  154  <li><a href="../blog.html">Blog</a></li>
+  155: <li><a href="../politica-privacidade.html">Política de Privacidade</a></li>
+  156  <li><a href="../termos-uso.html">Termos de Uso</a></li>
+
+posts/orcamento-familiar.html:
+  466  <li><a href="../blog.html">Blog</a></li>
+  467: <li><a href="../politica-privacidade.html">Política de Privacidade</a></li>
+  468  <li><a href="../termos-uso.html">Termos de Uso</a></li>
+
+posts/planejamento-aposentadoria.html:
+  532  <li><a href="../blog.html">Blog</a></li>
+  533: <li><a href="../politica-privacidade.html">Política de Privacidade</a></li>
+  534  <li><a href="../termos-uso.html">Termos de Uso</a></li>
+
+posts/psicologia-financeira.html:
+  417  <li><a href="../blog.html">Blog</a></li>
+  418: <li><a href="../politica-privacidade.html">Política de Privacidade</a></li>
+  419  <li><a href="../termos-uso.html">Termos de Uso</a></li>
