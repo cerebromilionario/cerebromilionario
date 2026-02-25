@@ -96,284 +96,118 @@ Médio prazo: balanceamento entre CDI e IPCA.
 Longo prazo: IPCA+ com juros reais consistentes.
 </p>
 
-<h3>Estudo Técnico 1: Cenário Macroeconômico e Impacto na Carteira</h3>
+
+<h2 id="simulacoes">Estudos técnicos (nível CFA) + simulações</h2>
 <p>
-Considerando inflação de 4% a 6% ao ano e Selic oscilando entre 9% e 13%,
-avaliamos impacto em títulos pós-fixados, prefixados e indexados ao IPCA.
-</p>
-<p>
-Simulação com capital inicial de R$ 100.000 reinvestido por 10 anos demonstra
-como pequenas diferenças de taxa geram variações significativas no montante final.
-</p>
-<p>
-A gestão ativa da alocação permite capturar oportunidades de taxa real elevada
-sem comprometer liquidez estrutural da carteira.
+A seguir, vamos sair do “conceito” e entrar na engenharia da renda fixa: precificação, risco de taxa (duration/convexidade),
+inflação implícita, crédito (spread x perda esperada), impostos e construção de carteira por prazo.
+A ideia aqui é você conseguir <strong>tomar decisões com linguagem de gestor</strong>, sem depender de “dicas”.
 </p>
 
-<h3>Estudo Técnico 2: Cenário Macroeconômico e Impacto na Carteira</h3>
+<div class="callout">
+  <strong>Nota importante (marcação a mercado):</strong>
+  em renda fixa, “não perder dinheiro” depende do <em>horizonte</em>. Se você precisar vender antes do vencimento,
+  o preço do título vai refletir a taxa vigente no mercado. É por isso que duration e convexidade importam.
+</div>
+
+<h3 id="estudo-1">Estudo Técnico 1 — Duration/Convexidade (sensibilidade a juros)</h3>
 <p>
-Considerando inflação de 4% a 6% ao ano e Selic oscilando entre 9% e 13%,
-avaliamos impacto em títulos pós-fixados, prefixados e indexados ao IPCA.
+Para um título de fluxo fixo, a aproximação de 1ª ordem do impacto de uma mudança na taxa é:
+<strong>ΔP/P ≈ −D<sub>mod</sub> · Δy</strong>.
+A convexidade ajusta o erro dessa aproximação em movimentos maiores:
+<strong>ΔP/P ≈ −D<sub>mod</sub> · Δy + ½·Conv·(Δy)²</strong>.
 </p>
+<ul>
+  <li><strong>Leitura prática:</strong> quanto maior a duration, maior a oscilação do preço para a mesma variação de taxa.</li>
+  <li><strong>Implicação de carteira:</strong> se você não tolera volatilidade, encurte duration (prazo/fluxos mais próximos).</li>
+</ul>
+
+<h3 id="estudo-2">Estudo Técnico 2 — “IPCA+ x Prefixado” e a inflação implícita (breakeven)</h3>
 <p>
-Simulação com capital inicial de R$ 100.000 reinvestido por 10 anos demonstra
-como pequenas diferenças de taxa geram variações significativas no montante final.
+Comparar IPCA+ com prefixado exige olhar a <strong>inflação de equilíbrio</strong> (breakeven inflation):
+é, em termos simples, a inflação média que iguala o retorno esperado do nominal e do real.
+Se você compra IPCA+ e a inflação realizada ficar <em>acima</em> do breakeven (mantidas as demais premissas),
+o IPCA+ tende a “ganhar” do prefixado — e vice-versa.
 </p>
+<div class="kpi-grid" style="margin: 12px 0;">
+  <div class="kpi"><strong>Quando IPCA+ faz sentido</strong><span class="muted">Horizonte longo + proteção real</span></div>
+  <div class="kpi"><strong>Quando prefixado brilha</strong><span class="muted">Queda de juros + inflação controlada</span></div>
+  <div class="kpi"><strong>Pegadinha</strong><span class="muted">Duration alta = MTM forte</span></div>
+</div>
+
+<h3 id="estudo-3">Estudo Técnico 3 — Crédito: spread, PD, LGD e “perda esperada”</h3>
 <p>
-A gestão ativa da alocação permite capturar oportunidades de taxa real elevada
-sem comprometer liquidez estrutural da carteira.
+O spread de crédito (taxa acima do “livre de risco”) compensa, em parte, a <strong>perda esperada</strong> do emissor.
+Em termos de finanças de crédito, uma intuição útil é:
+<strong>Perda Esperada ≈ PD · LGD</strong> (probabilidade de default × perda dado default).
+</p>
+<ul>
+  <li><strong>Spread “barato”:</strong> quando o mercado paga pouco acima do risco (assimetria ruim).</li>
+  <li><strong>Spread “caro”:</strong> quando o mercado exagera o medo (pode ser oportunidade, se a tese for sólida).</li>
+  <li><strong>Checklist:</strong> rating, covenants, garantias, setor, concentração de receita, liquidez do papel.</li>
+</ul>
+
+<h3 id="estudo-4">Estudo Técnico 4 — Impostos e equivalência: “líquido x bruto” (CDB x LCI/LCA)</h3>
+<p>
+Para comparar produtos com tributação diferente, use equivalência de retorno.
+Se um CDB rende <strong>R</strong> ao ano e a alíquota efetiva é <strong>t</strong>, então o retorno líquido aproximado é
+<strong>R<sub>liq</sub> ≈ R · (1 − t)</strong> (ignorando particularidades de base e datas).
+Para achar o “CDB equivalente” de uma LCI/LCA isenta, você faz o <em>gross-up</em>:
+<strong>R<sub>bruto eq</sub> ≈ R<sub>isenta</sub> / (1 − t)</strong>.
+</p>
+<p class="muted">
+Dica: no seu site, use também o <a href="/comparador-cdb-lci-lca.html">Comparador CDB x LCI/LCA</a> e a
+<a href="/calculadora-ir-renda-fixa.html">Calculadora de IR Regressivo</a> para padronizar o raciocínio.
 </p>
 
-<h3>Estudo Técnico 3: Cenário Macroeconômico e Impacto na Carteira</h3>
+<h3 id="estudo-5">Estudo Técnico 5 — Liquidez, reinvestimento e “opcionalidades” escondidas</h3>
 <p>
-Considerando inflação de 4% a 6% ao ano e Selic oscilando entre 9% e 13%,
-avaliamos impacto em títulos pós-fixados, prefixados e indexados ao IPCA.
+Dois riscos pouco discutidos por iniciante:
 </p>
+<ol class="steps">
+  <li><strong>Risco de reinvestimento</strong>: ao receber cupons/vencimentos em um ciclo de queda de juros, você reinveste a taxas menores.</li>
+  <li><strong>Risco de liquidez</strong>: papéis “bons” podem ter <em>spread</em> de compra/venda ruim; vender cedo pode custar caro.</li>
+</ol>
 <p>
-Simulação com capital inicial de R$ 100.000 reinvestido por 10 anos demonstra
-como pequenas diferenças de taxa geram variações significativas no montante final.
-</p>
-<p>
-A gestão ativa da alocação permite capturar oportunidades de taxa real elevada
-sem comprometer liquidez estrutural da carteira.
-</p>
-
-<h3>Estudo Técnico 4: Cenário Macroeconômico e Impacto na Carteira</h3>
-<p>
-Considerando inflação de 4% a 6% ao ano e Selic oscilando entre 9% e 13%,
-avaliamos impacto em títulos pós-fixados, prefixados e indexados ao IPCA.
-</p>
-<p>
-Simulação com capital inicial de R$ 100.000 reinvestido por 10 anos demonstra
-como pequenas diferenças de taxa geram variações significativas no montante final.
-</p>
-<p>
-A gestão ativa da alocação permite capturar oportunidades de taxa real elevada
-sem comprometer liquidez estrutural da carteira.
+Além disso, alguns produtos têm opcionalidades (características semelhantes a opções) como resgate antecipado, call/put etc.,
+que mudam o risco de taxa e o retorno esperado.
 </p>
 
-<h3>Estudo Técnico 5: Cenário Macroeconômico e Impacto na Carteira</h3>
+<h3 id="estudo-6">Estudo Técnico 6 — Construção por prazo: ladder, barbell e “casamento de objetivos”</h3>
 <p>
-Considerando inflação de 4% a 6% ao ano e Selic oscilando entre 9% e 13%,
-avaliamos impacto em títulos pós-fixados, prefixados e indexados ao IPCA.
+Três arquiteturas clássicas (usadas por gestores) para alinhar prazo do investimento com prazo da meta:
 </p>
-<p>
-Simulação com capital inicial de R$ 100.000 reinvestido por 10 anos demonstra
-como pequenas diferenças de taxa geram variações significativas no montante final.
-</p>
-<p>
-A gestão ativa da alocação permite capturar oportunidades de taxa real elevada
-sem comprometer liquidez estrutural da carteira.
-</p>
+<table class="table">
+  <thead><tr><th>Estratégia</th><th>Como é</th><th>Quando usar</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>Ladder (escadinha)</strong></td>
+      <td>Vencimentos distribuídos (ex.: 6m, 12m, 24m, 36m...)</td>
+      <td>Reduz risco de timing e melhora liquidez ao longo do tempo</td>
+    </tr>
+    <tr>
+      <td><strong>Barbell</strong></td>
+      <td>Curto + longo (pouco no meio)</td>
+      <td>Quer liquidez + aposta controlada em duration longa</td>
+    </tr>
+    <tr>
+      <td><strong>Bullet</strong></td>
+      <td>Concentra vencimento em um ponto</td>
+      <td>Meta com data fixa (ex.: entrada de imóvel em 24 meses)</td>
+    </tr>
+  </tbody>
+</table>
 
-<h3>Estudo Técnico 6: Cenário Macroeconômico e Impacto na Carteira</h3>
+<h3 id="estudo-7">Estudo Técnico 7 — Stress test: 2020 (choque) x 2022 (aperto monetário)</h3>
 <p>
-Considerando inflação de 4% a 6% ao ano e Selic oscilando entre 9% e 13%,
-avaliamos impacto em títulos pós-fixados, prefixados e indexados ao IPCA.
+Um exercício mental que melhora decisões: pergunte “o que acontece se…”
 </p>
+<ul>
+  <li><strong>Choque de aversão a risco (2020):</strong> prêmio de crédito sobe; liquidez seca; melhor ter caixa/FGC e evitar concentração em crédito privado.</li>
+  <li><strong>Aperto monetário (2022):</strong> taxas sobem; duration longa sofre no MTM; carregar até o vencimento reduz o impacto se o fluxo for compatível com seu prazo.</li>
+</ul>
 <p>
-Simulação com capital inicial de R$ 100.000 reinvestido por 10 anos demonstra
-como pequenas diferenças de taxa geram variações significativas no montante final.
-</p>
-<p>
-A gestão ativa da alocação permite capturar oportunidades de taxa real elevada
-sem comprometer liquidez estrutural da carteira.
-</p>
-
-<h3>Estudo Técnico 7: Cenário Macroeconômico e Impacto na Carteira</h3>
-<p>
-Considerando inflação de 4% a 6% ao ano e Selic oscilando entre 9% e 13%,
-avaliamos impacto em títulos pós-fixados, prefixados e indexados ao IPCA.
-</p>
-<p>
-Simulação com capital inicial de R$ 100.000 reinvestido por 10 anos demonstra
-como pequenas diferenças de taxa geram variações significativas no montante final.
-</p>
-<p>
-A gestão ativa da alocação permite capturar oportunidades de taxa real elevada
-sem comprometer liquidez estrutural da carteira.
-</p>
-
-<h3>Estudo Técnico 8: Cenário Macroeconômico e Impacto na Carteira</h3>
-<p>
-Considerando inflação de 4% a 6% ao ano e Selic oscilando entre 9% e 13%,
-avaliamos impacto em títulos pós-fixados, prefixados e indexados ao IPCA.
-</p>
-<p>
-Simulação com capital inicial de R$ 100.000 reinvestido por 10 anos demonstra
-como pequenas diferenças de taxa geram variações significativas no montante final.
-</p>
-<p>
-A gestão ativa da alocação permite capturar oportunidades de taxa real elevada
-sem comprometer liquidez estrutural da carteira.
-</p>
-
-<h3>Estudo Técnico 9: Cenário Macroeconômico e Impacto na Carteira</h3>
-<p>
-Considerando inflação de 4% a 6% ao ano e Selic oscilando entre 9% e 13%,
-avaliamos impacto em títulos pós-fixados, prefixados e indexados ao IPCA.
-</p>
-<p>
-Simulação com capital inicial de R$ 100.000 reinvestido por 10 anos demonstra
-como pequenas diferenças de taxa geram variações significativas no montante final.
-</p>
-<p>
-A gestão ativa da alocação permite capturar oportunidades de taxa real elevada
-sem comprometer liquidez estrutural da carteira.
-</p>
-
-<h3>Estudo Técnico 10: Cenário Macroeconômico e Impacto na Carteira</h3>
-<p>
-Considerando inflação de 4% a 6% ao ano e Selic oscilando entre 9% e 13%,
-avaliamos impacto em títulos pós-fixados, prefixados e indexados ao IPCA.
-</p>
-<p>
-Simulação com capital inicial de R$ 100.000 reinvestido por 10 anos demonstra
-como pequenas diferenças de taxa geram variações significativas no montante final.
-</p>
-<p>
-A gestão ativa da alocação permite capturar oportunidades de taxa real elevada
-sem comprometer liquidez estrutural da carteira.
-</p>
-
-<h3>Estudo Técnico 11: Cenário Macroeconômico e Impacto na Carteira</h3>
-<p>
-Considerando inflação de 4% a 6% ao ano e Selic oscilando entre 9% e 13%,
-avaliamos impacto em títulos pós-fixados, prefixados e indexados ao IPCA.
-</p>
-<p>
-Simulação com capital inicial de R$ 100.000 reinvestido por 10 anos demonstra
-como pequenas diferenças de taxa geram variações significativas no montante final.
-</p>
-<p>
-A gestão ativa da alocação permite capturar oportunidades de taxa real elevada
-sem comprometer liquidez estrutural da carteira.
-</p>
-
-<h3>Estudo Técnico 12: Cenário Macroeconômico e Impacto na Carteira</h3>
-<p>
-Considerando inflação de 4% a 6% ao ano e Selic oscilando entre 9% e 13%,
-avaliamos impacto em títulos pós-fixados, prefixados e indexados ao IPCA.
-</p>
-<p>
-Simulação com capital inicial de R$ 100.000 reinvestido por 10 anos demonstra
-como pequenas diferenças de taxa geram variações significativas no montante final.
-</p>
-<p>
-A gestão ativa da alocação permite capturar oportunidades de taxa real elevada
-sem comprometer liquidez estrutural da carteira.
-</p>
-
-<h3>Estudo Técnico 13: Cenário Macroeconômico e Impacto na Carteira</h3>
-<p>
-Considerando inflação de 4% a 6% ao ano e Selic oscilando entre 9% e 13%,
-avaliamos impacto em títulos pós-fixados, prefixados e indexados ao IPCA.
-</p>
-<p>
-Simulação com capital inicial de R$ 100.000 reinvestido por 10 anos demonstra
-como pequenas diferenças de taxa geram variações significativas no montante final.
-</p>
-<p>
-A gestão ativa da alocação permite capturar oportunidades de taxa real elevada
-sem comprometer liquidez estrutural da carteira.
-</p>
-
-<h3>Estudo Técnico 14: Cenário Macroeconômico e Impacto na Carteira</h3>
-<p>
-Considerando inflação de 4% a 6% ao ano e Selic oscilando entre 9% e 13%,
-avaliamos impacto em títulos pós-fixados, prefixados e indexados ao IPCA.
-</p>
-<p>
-Simulação com capital inicial de R$ 100.000 reinvestido por 10 anos demonstra
-como pequenas diferenças de taxa geram variações significativas no montante final.
-</p>
-<p>
-A gestão ativa da alocação permite capturar oportunidades de taxa real elevada
-sem comprometer liquidez estrutural da carteira.
-</p>
-
-<h3>Estudo Técnico 15: Cenário Macroeconômico e Impacto na Carteira</h3>
-<p>
-Considerando inflação de 4% a 6% ao ano e Selic oscilando entre 9% e 13%,
-avaliamos impacto em títulos pós-fixados, prefixados e indexados ao IPCA.
-</p>
-<p>
-Simulação com capital inicial de R$ 100.000 reinvestido por 10 anos demonstra
-como pequenas diferenças de taxa geram variações significativas no montante final.
-</p>
-<p>
-A gestão ativa da alocação permite capturar oportunidades de taxa real elevada
-sem comprometer liquidez estrutural da carteira.
-</p>
-
-<h3>Estudo Técnico 16: Cenário Macroeconômico e Impacto na Carteira</h3>
-<p>
-Considerando inflação de 4% a 6% ao ano e Selic oscilando entre 9% e 13%,
-avaliamos impacto em títulos pós-fixados, prefixados e indexados ao IPCA.
-</p>
-<p>
-Simulação com capital inicial de R$ 100.000 reinvestido por 10 anos demonstra
-como pequenas diferenças de taxa geram variações significativas no montante final.
-</p>
-<p>
-A gestão ativa da alocação permite capturar oportunidades de taxa real elevada
-sem comprometer liquidez estrutural da carteira.
-</p>
-
-<h3>Estudo Técnico 17: Cenário Macroeconômico e Impacto na Carteira</h3>
-<p>
-Considerando inflação de 4% a 6% ao ano e Selic oscilando entre 9% e 13%,
-avaliamos impacto em títulos pós-fixados, prefixados e indexados ao IPCA.
-</p>
-<p>
-Simulação com capital inicial de R$ 100.000 reinvestido por 10 anos demonstra
-como pequenas diferenças de taxa geram variações significativas no montante final.
-</p>
-<p>
-A gestão ativa da alocação permite capturar oportunidades de taxa real elevada
-sem comprometer liquidez estrutural da carteira.
-</p>
-
-<h3>Estudo Técnico 18: Cenário Macroeconômico e Impacto na Carteira</h3>
-<p>
-Considerando inflação de 4% a 6% ao ano e Selic oscilando entre 9% e 13%,
-avaliamos impacto em títulos pós-fixados, prefixados e indexados ao IPCA.
-</p>
-<p>
-Simulação com capital inicial de R$ 100.000 reinvestido por 10 anos demonstra
-como pequenas diferenças de taxa geram variações significativas no montante final.
-</p>
-<p>
-A gestão ativa da alocação permite capturar oportunidades de taxa real elevada
-sem comprometer liquidez estrutural da carteira.
-</p>
-
-<h3>Estudo Técnico 19: Cenário Macroeconômico e Impacto na Carteira</h3>
-<p>
-Considerando inflação de 4% a 6% ao ano e Selic oscilando entre 9% e 13%,
-avaliamos impacto em títulos pós-fixados, prefixados e indexados ao IPCA.
-</p>
-<p>
-Simulação com capital inicial de R$ 100.000 reinvestido por 10 anos demonstra
-como pequenas diferenças de taxa geram variações significativas no montante final.
-</p>
-<p>
-A gestão ativa da alocação permite capturar oportunidades de taxa real elevada
-sem comprometer liquidez estrutural da carteira.
-</p>
-
-<h3>Estudo Técnico 20: Cenário Macroeconômico e Impacto na Carteira</h3>
-<p>
-Considerando inflação de 4% a 6% ao ano e Selic oscilando entre 9% e 13%,
-avaliamos impacto em títulos pós-fixados, prefixados e indexados ao IPCA.
-</p>
-<p>
-Simulação com capital inicial de R$ 100.000 reinvestido por 10 anos demonstra
-como pequenas diferenças de taxa geram variações significativas no montante final.
-</p>
-<p>
-A gestão ativa da alocação permite capturar oportunidades de taxa real elevada
-sem comprometer liquidez estrutural da carteira.
+Esse é o motivo de gestores insistirem em <strong>diversificação por emissor</strong>, <strong>prazo</strong>, <strong>indexador</strong> e <strong>liquidez</strong>.
 </p>
 
 <h2 id="conclusao">8. Conclusão Estratégica</h2>
