@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ETF Masterclass (Parte 3): Carteiras Modelo (1 ETF, 3 ETFs, Fatores) e Rebalanceamento | Cérebro Milionário</title>
+  <meta name="description" content="ETF Masterclass (Parte 3): carteiras modelo em nível institucional. 1 ETF (simplicidade), 3 ETFs (controle), fatores (tilts), perfis, rebalanceamento por bandas e execução prática." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/etf-masterclass-carteira-global-parte-3.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/etf-masterclass-carteira-global-parte-3.html" />
+  <meta property="og:title" content="ETF Masterclass (Parte 3): Carteiras Modelo e Rebalanceamento" />
+  <meta property="og:description" content="Modelos institucionais: 1 ETF, 3 ETFs, fatores, perfis e rebalanceamento por bandas." />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="ETF Masterclass (Parte 3): Carteiras Modelo e Rebalanceamento" />
+  <meta property="twitter:description" content="Modelos institucionais: 1 ETF, 3 ETFs, fatores, perfis e rebalanceamento por bandas." />
+  <meta property="twitter:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- CSS do site -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Schema.org Article -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"ETF Masterclass (Parte 3): Carteiras Modelo (1 ETF, 3 ETFs, Fatores) e Rebalanceamento",
+    "author":{"@type":"Organization","name":"Cérebro Milionário"},
+    "publisher":{"@type":"Organization","name":"Cérebro Milionário"},
+    "datePublished":"2026-02-27",
+    "dateModified":"2026-02-27",
+    "mainEntityOfPage":"https://peppy-lollipop-54fa27.netlify.app/posts/etf-masterclass-carteira-global-parte-3.html",
+    "image":"https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg",
+    "inLanguage":"pt-BR"
+  }
+  </script>
+
+  <style>
+    .pill { display:inline-block; padding:6px 10px; border-radius:999px; font-weight:700; font-size:12px; background: rgba(44,44,46,.06); }
+    .muted { opacity:.78; }
+    .toc { border:1px solid rgba(0,0,0,.08); border-radius:18px; padding:16px; background:#fff; box-shadow: var(--shadow-sm); }
+    .toc h2 { margin-top:0; }
+    .toc a { text-decoration:none; }
+    .callout { border-left:4px solid var(--accent-color, #f4c430); background: rgba(244,196,48,.10); padding:14px 16px; border-radius:14px; }
+    .warning { border-left:4px solid #e2574c; background: rgba(226,87,76,.08); padding:14px 16px; border-radius:14px; }
+    .kpi-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; }
+    .kpi { border:1px solid rgba(0,0,0,.08); border-radius:16px; padding:14px; background:#fff; box-shadow: var(--shadow-sm); }
+    .kpi strong { display:block; font-size:18px; }
+    @media (max-width: 980px) { .kpi-grid { grid-template-columns: 1fr; } }
+
+    .navparts { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+    .navparts a { display:inline-flex; align-items:center; gap:8px; padding:10px 12px; border-radius:14px; border:1px solid rgba(0,0,0,.08); background:#fff; box-shadow: var(--shadow-sm); text-decoration:none; }
+    .navparts a:hover { transform: translateY(-1px); }
+
+    .table { width:100%; border-collapse:collapse; overflow:hidden; border-radius:14px; border:1px solid rgba(0,0,0,.08); }
+    .table th, .table td { padding:12px; border-bottom:1px solid rgba(0,0,0,.08); vertical-align:top; }
+    .table th { background: rgba(44,44,46,.04); text-align:left; }
+
+    .hr-soft { margin: 26px 0; opacity: .22; }
+    body { overflow-x: hidden; }
+    pre, code { white-space: pre-wrap; word-break: break-word; }
+
+    .grid2 { display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+    @media (max-width: 980px) { .grid2 { grid-template-columns: 1fr; } }
+    .cardbox { border:1px solid rgba(0,0,0,.08); border-radius:16px; padding:14px; background:#fff; box-shadow: var(--shadow-sm); }
+    .tag { font-size:12px; font-weight:700; opacity:.85; }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container" style="max-width: 980px;">
+        <span class="pill">Mega Guia • ETF Masterclass • Parte 3/4</span>
+        <h1 style="margin-top:10px;">ETF Masterclass (Parte 3): Carteiras Modelo + Regras de Execução e Rebalanceamento</h1>
+        <p class="muted" style="max-width: 920px;">
+          Agora você sai da teoria e entra na prática: modelos robustos de carteira global
+          (do simples ao avançado), critérios de escolha, sobreposição, satélites e
+          rebalanceamento com regras que evitam decisões emocionais.
+        </p>
+
+        <div class="kpi-grid" style="margin-top:16px;">
+          <div class="kpi"><strong>Leitura</strong><span class="muted">45–60 min</span></div>
+          <div class="kpi"><strong>Foco</strong><span class="muted">Implementação</span></div>
+          <div class="kpi"><strong>Série</strong><span class="muted">Parte 3 de 4</span></div>
+        </div>
+
+        <div class="navparts" aria-label="Navegação entre partes">
+          <a href="/posts/etf-masterclass-carteira-global-parte-2.html"><i class="fa-solid fa-arrow-left"></i> Voltar: Parte 2</a>
+          <a href="/posts/etf-masterclass-carteira-global-parte-4.html"><i class="fa-solid fa-arrow-right"></i> Próxima: Parte 4</a>
+          <a href="/posts/etfs-alocacao-global-guia-2026_CFA.html"><i class="fa-solid fa-link"></i> Ver Pilar 2 (ETFs CFA)</a>
+        </div>
+
+        <div class="callout" style="margin-top:16px;">
+          <strong>Objetivo desta parte:</strong>
+          <p style="margin:10px 0 0 0;">
+            Entregar um “playbook” institucional. Você vai terminar com:
+            (1) uma carteira core global escolhida com clareza,
+            (2) regras de rebalanceamento,
+            (3) estrutura de satélites (se quiser),
+            (4) um plano de execução que você consegue seguir por anos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width: 980px;">
+
+        <div class="toc">
+          <h2>Índice (Parte 3)</h2>
+          <ol>
+            <li><a href="#arquitetura">Arquitetura institucional: Core + Satélites</a></li>
+            <li><a href="#modelo1">Carteira Modelo A: 1 ETF (simplicidade máxima)</a></li>
+            <li><a href="#modelo3">Carteira Modelo B: 3 ETFs (controle e modularidade)</a></li>
+            <li><a href="#fatores">Carteira Modelo C: Tilt de fatores (quando faz sentido)</a></li>
+            <li><a href="#perfis">Perfis por horizonte (conservador, moderado, arrojado)</a></li>
+            <li><a href="#sobreposicao">Sobreposição: como evitar redundância</a></li>
+            <li><a href="#rebalanceamento">Rebalanceamento: calendário vs bandas</a></li>
+            <li><a href="#execucao">Execução prática (ordens, custos e disciplina)</a></li>
+            <li><a href="#proxima">O que vem na Parte 4</a></li>
+          </ol>
+        </div>
+
+        <hr class="hr-soft"/>
+
+        <h2 id="arquitetura">1) Arquitetura institucional: Core + Satélites</h2>
+        <p>
+          Instituições organizam carteira em camadas:
+          <strong>Core</strong> (o “motor” da carteira) e <strong>Satélites</strong> (exposições específicas).
+          Isso evita uma carteira “colcha de retalhos” e deixa claro por que cada componente existe.
+        </p>
+
+        <div class="grid2" style="margin-top:12px;">
+          <div class="cardbox">
+            <div class="tag">CORE (70%–100%)</div>
+            <h3 style="margin-top:6px;">Exposição global ampla</h3>
+            <p class="muted">
+              Um ETF all-world ou combinação DM+EM. Objetivo: capturar prêmio de risco de ações globais com simplicidade,
+              custos baixos e alta robustez.
+            </p>
+          </div>
+          <div class="cardbox">
+            <div class="tag">SATÉLITES (0%–30%)</div>
+            <h3 style="margin-top:6px;">Ajustes de exposição</h3>
+            <p class="muted">
+              Emergentes, small caps, fatores (value/quality/momentum), setores, etc. Objetivo: calibrar risco/retorno,
+              não “apostar” em modinha.
+            </p>
+          </div>
+        </div>
+
+        <p class="callout" style="margin-top:14px;">
+          <strong>Regra de ouro:</strong> Se você não consegue explicar em 1 frase o motivo de um ETF existir na sua carteira,
+          ele provavelmente não deveria estar lá.
+        </p>
+
+        <hr class="hr-soft"/>
+
+        <h2 id="modelo1">2) Carteira Modelo A: 1 ETF (simplicidade máxima)</h2>
+        <p>
+          Para a maioria das pessoas, a melhor carteira é a que você consegue manter por 10 anos.
+          Uma carteira 1 ETF all-world é o ápice de simplicidade com diversificação.
+        </p>
+
+        <div class="cardbox">
+          <h3>Modelo A (1 ETF Core Global)</h3>
+          <ul>
+            <li><strong>100%</strong> ETF Global All-World (desenvolvidos + emergentes)</li>
+          </ul>
+          <p class="muted">
+            Ideal para: iniciante, pouco tempo, foco total em execução, aporte mensal constante, mínimo de decisões.
+          </p>
+        </div>
+
+        <h3>2.1 Prós e contras institucionais</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Prós</th>
+              <th>Contras</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li>Máxima simplicidade</li>
+                  <li>Baixa chance de erro por complexidade</li>
+                  <li>Rebalanceamento quase desnecessário</li>
+                  <li>Fácil de aportar e manter</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Menor controle sobre emergentes/small caps</li>
+                  <li>Menos flexibilidade para “tilts”</li>
+                  <li>Dependência de um único emissor/índice (mitigado se for grande e robusto)</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="warning" style="margin-top:14px;">
+          <strong>Erro comum:</strong> adicionar satélites cedo demais. Primeiro, execute 12 meses de aportes com disciplina.
+          Depois pense em refinamentos.
+        </p>
+
+        <hr class="hr-soft"/>
+
+        <h2 id="modelo3">3) Carteira Modelo B: 3 ETFs (controle e modularidade)</h2>
+        <p>
+          Se você quer mais controle (e aceita um pouco mais de manutenção), o modelo 3 ETFs é o “padrão institucional simplificado”.
+          Ele separa o mundo em blocos e permite calibrar exposição a emergentes e/ou small caps.
+        </p>
+
+        <div class="cardbox">
+          <h3>Modelo B (3 ETFs – Core Global Modular)</h3>
+          <ul>
+            <li><strong>70%–85%</strong> Desenvolvidos (DM)</li>
+            <li><strong>10%–20%</strong> Emergentes (EM)</li>
+            <li><strong>0%–15%</strong> Small Caps (global ou DM)</li>
+          </ul>
+          <p class="muted">
+            Ideal para: quem quer controlar EM/small caps e fazer rebalanceamento 1–2x/ano.
+          </p>
+        </div>
+
+        <h3>3.1 Como decidir o peso de emergentes</h3>
+        <p>
+          Emergentes aumentam volatilidade e risco político/cambial, mas podem elevar retorno esperado no longo prazo.
+          Institucionalmente, você escolhe EM como “componente de risco” e evita apostar timing.
+        </p>
+
+        <div class="callout">
+          <strong>Recomendação robusta:</strong> se você não tem opinião forte e não quer complicar,
+          use EM próximo ao peso de mercado (o próprio all-world faz isso).
+          Se quer um tilt pequeno, 10%–15% costuma ser razoável.
+        </div>
+
+        <h3>3.2 Small caps: por que existem?</h3>
+        <p>
+          Small caps historicamente carregam um prêmio (mais risco, menos liquidez, mais sensibilidade econômica).
+          Mas o prêmio não é garantido em qualquer janela. Se usar small caps:
+          use como satélite pequeno e com horizonte longo.
+        </p>
+
+        <hr class="hr-soft"/>
+
+        <h2 id="fatores">4) Carteira Modelo C: Tilt de fatores (quando faz sentido)</h2>
+        <p>
+          Fatores são o “nível avançado” porque exigem disciplina e convicção de longo prazo.
+          O maior erro é comprar fator depois de ele subir e abandonar depois que ele cai.
+        </p>
+
+        <div class="cardbox">
+          <h3>Modelo C (Core + Tilt de Fatores)</h3>
+          <ul>
+            <li><strong>70%–90%</strong> Core Global (all-world ou DM+EM)</li>
+            <li><strong>10%–30%</strong> Tilt (Quality/Value/Small/Momentum)</li>
+          </ul>
+          <p class="muted">
+            Ideal para: quem entende o comportamento do fator, aceita underperformance por anos e rebalanceia com regra.
+          </p>
+        </div>
+
+        <h3>4.1 Como escolher fator sem cair em “moda”</h3>
+        <ul>
+          <li>Escolha 1 ou 2 fatores no máximo (não “colecione” ETFs)</li>
+          <li>Defina a razão: reduzir drawdown? aumentar retorno esperado? diversificar?</li>
+          <li>Escreva a regra de permanência: “não vendo por 5 anos” ou “rebalanceio anual”</li>
+        </ul>
+
+        <div class="warning">
+          <strong>Se você não aguenta ver o fator ficar para trás por 2–3 anos, não use fatores.</strong>
+          O custo psicológico destrói a estratégia.
+        </div>
+
+        <hr class="hr-soft"/>
+
+        <h2 id="perfis">5) Perfis por horizonte (conservador, moderado, arrojado)</h2>
+        <p>
+          ETFs globais geralmente entram na parcela de risco (ações). A parcela defensiva costuma ser renda fixa.
+          Como seu site já tem Pilar 1 de Renda Fixa, use isso como complemento estrutural:
+          <a href="/posts/renda-fixa-guia-completo-2026.html"><strong>→ Guia Institucional de Renda Fixa</strong></a>
+        </p>
+
+        <table class="table" style="margin-top:14px;">
+          <thead>
+            <tr>
+              <th>Perfil</th>
+              <th>Horizon­te</th>
+              <th>Ações Globais (ETFs)</th>
+              <th>Defensivo (Renda Fixa)</th>
+              <th>Observação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Conservador</strong></td>
+              <td>3–5 anos</td>
+              <td>20%–40%</td>
+              <td>60%–80%</td>
+              <td>Foco em estabilidade e execução</td>
+            </tr>
+            <tr>
+              <td><strong>Moderado</strong></td>
+              <td>5–10 anos</td>
+              <td>40%–70%</td>
+              <td>30%–60%</td>
+              <td>Equilíbrio risco/retorno</td>
+            </tr>
+            <tr>
+              <td><strong>Arrojado</strong></td>
+              <td>10+ anos</td>
+              <td>70%–95%</td>
+              <td>5%–30%</td>
+              <td>Aguenta drawdowns e mantém aportes</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout" style="margin-top:14px;">
+          <strong>Para aposentadoria:</strong> a alocação precisa considerar fase de retirada e risco de sequência.
+          Use a sua ferramenta:
+          <a href="/aposentadoria.html"><strong>→ Simulador de Aposentadoria</strong></a>
+        </div>
+
+        <hr class="hr-soft"/>
+
+        <h2 id="sobreposicao">6) Sobreposição: como evitar redundância</h2>
+        <p>
+          Sobreposição acontece quando você compra ETFs diferentes que possuem quase as mesmas empresas.
+          Isso dá sensação de diversificação, mas na prática você está concentrado nos mesmos riscos.
+        </p>
+
+        <h3>6.1 Exemplos típicos de redundância</h3>
+        <ul>
+          <li>All-world + S&P 500 (muita sobreposição EUA)</li>
+          <li>All-world + Nasdaq 100 (tilt grande em tech)</li>
+          <li>DM + all-world (você já tem DM dentro do all-world)</li>
+        </ul>
+
+        <p class="callout">
+          <strong>Regra institucional:</strong> se você adiciona um ETF, ele deve mudar a exposição de forma clara.
+          Caso contrário, ele só aumenta complexidade e chance de erro.
+        </p>
+
+        <hr class="hr-soft"/>
+
+        <h2 id="rebalanceamento">7) Rebalanceamento: calendário vs bandas</h2>
+        <p>
+          Rebalancear é vender o que subiu (acima do alvo) e comprar o que caiu (abaixo do alvo).
+          É uma forma sistemática de “comprar barato e vender caro” sem adivinhar topo/fundo.
+        </p>
+
+        <h3>7.1 Rebalanceamento por calendário</h3>
+        <ul>
+          <li>Rebalancear 1x/ano (ou 2x/ano) em uma data fixa</li>
+          <li>Simples e fácil de executar</li>
+          <li>Menos risco de “mexer demais”</li>
+        </ul>
+
+        <h3>7.2 Rebalanceamento por bandas</h3>
+        <p>
+          Você define bandas: ex. alvo 70% ações, banda ±5%.
+          Se ações subirem para 76% (acima da banda), rebalanceia.
+          Se cair para 64%, rebalanceia.
+        </p>
+
+        <div class="grid2" style="margin-top:12px;">
+          <div class="cardbox">
+            <h3>Calendário</h3>
+            <p class="muted">Bom para quem quer simplicidade e baixa manutenção.</p>
+          </div>
+          <div class="cardbox">
+            <h3>Bandas</h3>
+            <p class="muted">Bom para quem quer disciplina mais “responsiva” ao mercado.</p>
+          </div>
+        </div>
+
+        <div class="warning" style="margin-top:14px;">
+          <strong>Não rebalanceie toda semana.</strong> Isso vira “trading”, aumenta custos e destrói a estratégia.
+        </div>
+
+        <hr class="hr-soft"/>
+
+        <h2 id="execucao">8) Execução prática (ordens, custos e disciplina)</h2>
+        <h3>8.1 Como reduzir custo de execução</h3>
+        <ul>
+          <li>Evite horários de baixa liquidez</li>
+          <li>Prefira ordens limitadas (controle de preço)</li>
+          <li>Divida aportes muito grandes em 2–3 entradas</li>
+          <li>Monitore spread (especialmente em ETFs menos negociados)</li>
+        </ul>
+
+        <h3>8.2 Disciplina: a variável que mais importa</h3>
+        <p>
+          O “superpoder” do investidor global não é prever economia. É manter aportes quando o mundo parece caos.
+          É aí que o prêmio de risco é “pago”.
+        </p>
+
+        <div class="callout">
+          <strong>Ferramenta prática:</strong> simule quanto seus aportes viram no tempo.
+          <a href="/calculadora.html"><strong>→ Calculadora de Juros Compostos</strong></a>
+        </div>
+
+        <hr class="hr-soft"/>
+
+        <h2 id="proxima">9) O que vem na Parte 4</h2>
+        <p>
+          A Parte 4 fecha o masterclass com o que quase ninguém faz direito:
+          <strong>impostos, operacional, governança, erros fatais, checklist final e plano de execução em 12 meses</strong>.
+          É a parte que transforma conhecimento em “sistema”.
+        </p>
+
+        <div class="navparts" style="margin-top:16px;">
+          <a href="/posts/etf-masterclass-carteira-global-parte-2.html"><i class="fa-solid fa-arrow-left"></i> Voltar: Parte 2</a>
+          <a href="/posts/etf-masterclass-carteira-global-parte-4.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 4</a>
+          <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+        </div>
+
+        <hr class="hr-soft"/>
+
+        <div style="margin-top:40px;padding:25px;border:1px solid rgba(0,0,0,0.08);border-radius:16px;background:#fafafa;">
+          <h3>🔷 Trilogia Estratégica Cérebro Milionário</h3>
+          <p>Este artigo faz parte do núcleo estrutural de investimentos do site:</p>
+          <ul>
+            <li><a href="/posts/renda-fixa-guia-completo-2026.html"><strong>Renda Fixa Institucional (2026)</strong></a></li>
+            <li><a href="/posts/etfs-alocacao-global-guia-2026_CFA.html"><strong>ETFs e Alocação Global (2026)</strong></a></li>
+            <li><a href="/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html"><strong>Construção de Patrimônio (2026)</strong></a></li>
+          </ul>
+          <p><em>Estude os três para visão sistêmica completa.</em></p>
+        </div>
+
+        <p style="margin-top:18px; font-size:14px; opacity:.7;">
+          Atualizado em 27/02/2026 • Cérebro Milionário
+        </p>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        <h3>Cérebro Milionário</h3>
+        <p>Educação financeira com profundidade estratégica.</p>
+      </div>
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', function () {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    })();
+  </script>
+</body>
+</html>
