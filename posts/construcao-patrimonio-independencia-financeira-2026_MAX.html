@@ -19,28 +19,36 @@
 }
 </script>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
 <header class="header">
-<div class="container header-container">
-<div class="logo">
-<h1><a href="/index.html">Cérebro Milionário</a></h1>
-</div>
-<nav class="navigation">
-<ul class="nav-menu">
-<li><a href="/index.html">Home</a></li>
-<li><a href="/calculadora.html">Calculadora</a></li>
-<li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
-<li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
-<li><a href="/aposentadoria.html">Aposentadoria</a></li>
-<li><a href="/blog.html" class="active">Blog</a></li>
-<li><a href="/sobre.html">Sobre</a></li>
-<li><a href="/comunidade.html">Comunidade</a></li>
-</ul>
-</nav>
-</div>
-</header>
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/cursos.html">Cursos</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+        
+        </ul>
+      </nav>
+    </div>
+  </header>
 
 <main class="section">
 <div class="container" style="max-width:1000px;">
@@ -132,26 +140,66 @@ Atualizado em 27/02/2026 • Cérebro Milionário
 </main>
 
 <footer class="footer">
-<div class="container footer-container">
-<div>
-<h3>Cérebro Milionário</h3>
-<p>Capacitando você a tomar decisões financeiras inteligentes.</p>
-</div>
-<div>
-<h3>Navegação</h3>
-<ul>
-<li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
-<li><a href="/termos-uso.html">Termos de Uso</a></li>
-<li><a href="/contato.html">Contato</a></li>
-</ul>
-</div>
-</div>
-<div class="footer-bottom">
-<div class="container">
-<p>&copy; 2026 Cérebro Milionário</p>
-</div>
-</div>
-</footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3 class="footer-logo">Cérebro Milionário</h3>
+                    <p class="footer-text">Capacitando você a tomar decisões financeiras inteligentes para um futuro próspero.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/cerebromillionario/" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@cerebromillionario?si=HXuHdkSfJpfBcT75" target="_blank" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/calculadora.html">Calculadora</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Recursos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Glossário Financeiro</a></li>
+                        <li><a href="#">Perguntas Frequentes</a></li>
+                        <li><a href="#">Guias para Iniciantes</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Newsletter</h4>
+                    <p class="footer-text">Receba dicas financeiras exclusivas diretamente no seu email.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Seu melhor email" required class="form-control">
+                        <button type="submit" class="btn btn-primary" style="margin-top: var(--spacing-sm); width: 100%;">Inscrever</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; <span id="current-year"></span> Cérebro Milionário. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+
+<script>
+(function(){
+  const btn = document.querySelector('.mobile-menu-btn');
+  const nav = document.getElementById('primary-navigation') || document.querySelector('.navigation');
+  if(!btn || !nav) return;
+  btn.addEventListener('click', function(){
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    nav.classList.toggle('open');
+  });
+})();
+</script>
 
 </body>
 </html>
