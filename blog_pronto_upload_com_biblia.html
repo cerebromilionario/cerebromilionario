@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Blog | Cérebro Milionário</title>
+  <meta name="description" content="Artigos do Cérebro Milionário sobre investimentos, renda fixa, ETFs, FIIs e finanças pessoais." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/blog.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/blog.html" />
+  <meta property="og:title" content="Blog | Cérebro Milionário" />
+  <meta property="og:description" content="Artigos densos e ferramentas práticas para investir melhor." />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
+
+  <style>
+    .blog-toolbar{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:16px}
+    .blog-toolbar .field{flex:1 1 320px}
+    .blog-toolbar input,.blog-toolbar select{width:100%;padding:12px 14px;border-radius:14px;border:1px solid rgba(0,0,0,.10);outline:none;background:#fff;box-shadow:var(--shadow-sm);font-family:inherit}
+    .posts-grid{margin-top:18px}
+    .post-card{display:flex;flex-direction:column;overflow:hidden;border-radius:18px;border:1px solid rgba(0,0,0,.08);background:#fff;box-shadow:var(--shadow-sm);transition:transform .15s ease}
+    .post-card:hover{transform:translateY(-2px)}
+    .post-thumb{width:100%;height:180px;object-fit:cover;background:rgba(0,0,0,.04);display:block}
+    .post-body{padding:16px;display:flex;flex-direction:column;gap:10px;height:100%}
+    .post-meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:12px;opacity:.82}
+    .tag{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(44,44,46,.06);font-weight:800}
+    .readtime{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(244,196,48,.14);font-weight:900}
+    .post-title{margin:0;font-size:18px;line-height:1.25}
+    .post-desc{margin:0;opacity:.82}
+    .post-actions{margin-top:auto;display:flex;justify-content:flex-start}
+    .btn-sm{padding:10px 12px;border-radius:12px;border:1px solid rgba(0,0,0,.10);background:#fff;text-decoration:none;font-weight:900}
+    .btn-sm:hover{border-color:rgba(0,0,0,.22)}
+    .empty-state{text-align:center;padding:22px 16px;border-radius:18px;border:1px solid rgba(0,0,0,.08);background:#fff;box-shadow:var(--shadow-sm);margin-top:18px}
+    .muted{opacity:.78}
+
+    /* Paginação bonita */
+    .pagination{display:flex;justify-content:center;align-items:center;gap:10px;margin:24px 0 10px;flex-wrap:wrap}
+    .pagination button{min-width:48px;height:48px;padding:0 16px;display:inline-flex;align-items:center;justify-content:center;border-radius:16px;border:1px solid rgba(0,0,0,.10);background:#fff;color:#2c2c2e;font-weight:900;font-size:16px;line-height:1;box-shadow:0 8px 22px rgba(0,0,0,.08);cursor:pointer;transition:transform .12s ease, box-shadow .12s ease, background .12s ease}
+    .pagination button:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(0,0,0,.12);background:rgba(244,196,48,.14)}
+    .pagination button.active{background:#2c2c2e;color:#fff;border-color:#2c2c2e}
+
+    @media(max-width:480px){
+      .pagination button{min-width:46px;height:46px;border-radius:14px}
+    }
+  
+    /* Destaques (Séries / Pilares) */
+    .featured-wrap{margin-top:18px}
+    .featured-title{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .featured-title h2{margin:0;font-size:20px}
+    .featured-grid{margin-top:12px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .featured-card{display:flex;flex-direction:column;overflow:hidden;border-radius:18px;border:1px solid rgba(0,0,0,.08);background:#fff;box-shadow:var(--shadow-sm);transition:transform .15s ease}
+    .featured-card:hover{transform:translateY(-2px)}
+    .featured-card img{width:100%;height:140px;object-fit:cover;background:rgba(0,0,0,.04);display:block}
+    .featured-body{padding:14px;display:flex;flex-direction:column;gap:10px;height:100%}
+    .featured-body h3{margin:0;font-size:16px;line-height:1.25}
+    .featured-body p{margin:0;opacity:.82}
+    .featured-meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:12px;opacity:.85}
+    .featured-meta .tag{padding:6px 10px}
+    .featured-cta{margin-top:auto;display:flex;justify-content:flex-start}
+    .divider-soft{margin:18px 0;opacity:.22}
+    @media (max-width: 980px){ .featured-grid{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width: 520px){ .featured-grid{grid-template-columns:1fr} .featured-card img{height:160px} }
+
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/cursos.html">Cursos</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+          <li><a href="/blog.html" class="active">Blog</a></li>
+        
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Blog</h1>
+        <p class="muted" style="max-width: 920px;">Todos os artigos do Cérebro Milionário. Use a busca e o filtro.</p>
+
+        <div class="blog-toolbar">
+          <div class="field">
+            <input id="searchInput" type="search" placeholder="Buscar artigos (ex.: renda fixa, ETF, reserva...)" />
+          </div>
+          <div style="min-width: 220px;">
+            <select id="tagSelect" aria-label="Filtrar por tema">
+              <option value="all">Todos os temas</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="featured-wrap" aria-label="Destaques do Blog">
+          <div class="featured-title">
+            <h2>🔥 Destaques</h2>
+            <span class="muted">Séries e pilares para você estudar em sequência</span>
+          </div>
+
+          <div class="featured-grid">
+            <!-- Série ETF Masterclass -->
+            <article class="featured-card">
+              <a href="/posts/etf-masterclass-carteira-global-parte-1.html" style="text-decoration:none;">
+                <img src="/images/blog-cover.svg" alt="ETF Masterclass Parte 1" loading="lazy" onerror="this.src='/images/blog-cover.svg';" />
+              </a>
+              <div class="featured-body">
+                <div class="featured-meta">
+                  <span class="tag"><i class="fa-solid fa-bolt"></i> Masterclass</span>
+                  <span class="readtime"><i class="fa-regular fa-clock"></i> 40–55 min</span>
+                </div>
+                <h3>ETF Masterclass (Parte 1)</h3>
+                <p>Fundação institucional: arquitetura, core/satélites, custos e como pensar como “gestor”.</p>
+                <div class="featured-cta"><a class="btn-sm" href="/posts/etf-masterclass-carteira-global-parte-1.html">Abrir Parte 1</a></div>
+              </div>
+            </article>
+
+            <article class="featured-card">
+              <a href="/posts/etf-masterclass-carteira-global-parte-2.html" style="text-decoration:none;">
+                <img src="/images/blog-cover.svg" alt="ETF Masterclass Parte 2" loading="lazy" onerror="this.src='/images/blog-cover.svg';" />
+              </a>
+              <div class="featured-body">
+                <div class="featured-meta">
+                  <span class="tag"><i class="fa-solid fa-bolt"></i> Masterclass</span>
+                  <span class="readtime"><i class="fa-regular fa-clock"></i> 40–55 min</span>
+                </div>
+                <h3>ETF Masterclass (Parte 2)</h3>
+                <p>Teoria aplicada: Markowitz, Sharpe, CAPM, fatores e câmbio/hedge sem achismo.</p>
+                <div class="featured-cta"><a class="btn-sm" href="/posts/etf-masterclass-carteira-global-parte-2.html">Abrir Parte 2</a></div>
+              </div>
+            </article>
+
+            <article class="featured-card">
+              <a href="/posts/etf-masterclass-carteira-global-parte-3.html" style="text-decoration:none;">
+                <img src="/images/blog-cover.svg" alt="ETF Masterclass Parte 3" loading="lazy" onerror="this.src='/images/blog-cover.svg';" />
+              </a>
+              <div class="featured-body">
+                <div class="featured-meta">
+                  <span class="tag"><i class="fa-solid fa-bolt"></i> Masterclass</span>
+                  <span class="readtime"><i class="fa-regular fa-clock"></i> 45–60 min</span>
+                </div>
+                <h3>ETF Masterclass (Parte 3)</h3>
+                <p>Carteiras modelo (1 ETF, 3 ETFs, fatores), sobreposição e rebalanceamento com regras.</p>
+                <div class="featured-cta"><a class="btn-sm" href="/posts/etf-masterclass-carteira-global-parte-3.html">Abrir Parte 3</a></div>
+              </div>
+            </article>
+
+            <article class="featured-card">
+              <a href="/posts/etf-masterclass-carteira-global-parte-4.html" style="text-decoration:none;">
+                <img src="/images/blog-cover.svg" alt="ETF Masterclass Parte 4" loading="lazy" onerror="this.src='/images/blog-cover.svg';" />
+              </a>
+              <div class="featured-body">
+                <div class="featured-meta">
+                  <span class="tag"><i class="fa-solid fa-bolt"></i> Masterclass</span>
+                  <span class="readtime"><i class="fa-regular fa-clock"></i> 40–55 min</span>
+                </div>
+                <h3>ETF Masterclass (Parte 4)</h3>
+                <p>Fechamento institucional: operacional, riscos, erros fatais e checklist final de execução.</p>
+                <div class="featured-cta"><a class="btn-sm" href="/posts/etf-masterclass-carteira-global-parte-4.html">Abrir Parte 4</a></div>
+              </div>
+            </article>
+          </div>
+
+          
+          <!-- Série Bíblia da Aposentadoria -->
+          <div class="featured-title" style="margin-top:16px;">
+            <h2>📘 Bíblia da Aposentadoria</h2>
+            <span class="muted">Série em 4 partes (do plano ao saque e governança)</span>
+          </div>
+
+          <div class="featured-grid">
+            <article class="featured-card">
+              <a href="/posts/biblia-da-aposentadoria-parte-1.html" style="text-decoration:none;">
+                <img src="/images/blog-cover.svg" alt="Bíblia da Aposentadoria Parte 1" loading="lazy" onerror="this.src='/images/blog-cover.svg';" />
+              </a>
+              <div class="featured-body">
+                <div class="featured-meta">
+                  <span class="tag"><i class="fa-solid fa-book"></i> Aposentadoria</span>
+                  <span class="readtime"><i class="fa-regular fa-clock"></i> 55–75 min</span>
+                </div>
+                <h3>Bíblia da Aposentadoria (Parte 1)</h3>
+                <p>Diagnóstico, metas, “fechar a conta” e como estruturar o plano com realismo.</p>
+                <div class="featured-cta"><a class="btn-sm" href="/posts/biblia-da-aposentadoria-parte-1.html">Abrir Parte 1</a></div>
+              </div>
+            </article>
+
+            <article class="featured-card">
+              <a href="/posts/biblia-da-aposentadoria-parte-2.html" style="text-decoration:none;">
+                <img src="/images/blog-cover.svg" alt="Bíblia da Aposentadoria Parte 2" loading="lazy" onerror="this.src='/images/blog-cover.svg';" />
+              </a>
+              <div class="featured-body">
+                <div class="featured-meta">
+                  <span class="tag"><i class="fa-solid fa-book"></i> Aposentadoria</span>
+                  <span class="readtime"><i class="fa-regular fa-clock"></i> 55–75 min</span>
+                </div>
+                <h3>Bíblia da Aposentadoria (Parte 2)</h3>
+                <p>Motor da acumulação: retorno real, inflação, aportes e alocação por fases.</p>
+                <div class="featured-cta"><a class="btn-sm" href="/posts/biblia-da-aposentadoria-parte-2.html">Abrir Parte 2</a></div>
+              </div>
+            </article>
+
+            <article class="featured-card">
+              <a href="/posts/biblia-da-aposentadoria-parte-3.html" style="text-decoration:none;">
+                <img src="/images/blog-cover.svg" alt="Bíblia da Aposentadoria Parte 3" loading="lazy" onerror="this.src='/images/blog-cover.svg';" />
+              </a>
+              <div class="featured-body">
+                <div class="featured-meta">
+                  <span class="tag"><i class="fa-solid fa-book"></i> Aposentadoria</span>
+                  <span class="readtime"><i class="fa-regular fa-clock"></i> 60–85 min</span>
+                </div>
+                <h3>Bíblia da Aposentadoria (Parte 3)</h3>
+                <p>Saque seguro: sequência de retornos, guardrails, buckets e rebalanceamento com saques.</p>
+                <div class="featured-cta"><a class="btn-sm" href="/posts/biblia-da-aposentadoria-parte-3.html">Abrir Parte 3</a></div>
+              </div>
+            </article>
+
+            <article class="featured-card">
+              <a href="/posts/biblia-da-aposentadoria-parte-4.html" style="text-decoration:none;">
+                <img src="/images/blog-cover.svg" alt="Bíblia da Aposentadoria Parte 4" loading="lazy" onerror="this.src='/images/blog-cover.svg';" />
+              </a>
+              <div class="featured-body">
+                <div class="featured-meta">
+                  <span class="tag"><i class="fa-solid fa-book"></i> Aposentadoria</span>
+                  <span class="readtime"><i class="fa-regular fa-clock"></i> 45–65 min</span>
+                </div>
+                <h3>Bíblia da Aposentadoria (Parte 4)</h3>
+                <p>Gestão de risco, proteção patrimonial, impostos (visão prática) e plano de execução em 12 meses.</p>
+                <div class="featured-cta"><a class="btn-sm" href="/posts/biblia-da-aposentadoria-parte-4.html">Abrir Parte 4</a></div>
+              </div>
+            </article>
+          </div>
+
+          <hr class="divider-soft" />
+        </div>
+
+        <div id="emptyState" class="empty-state" style="display:none;">
+          <h3 style="margin-top:0;">Nenhum artigo encontrado</h3>
+          <p class="muted">Tente outra palavra-chave ou selecione “Todos os temas”.</p>
+        </div>
+
+        <div id="posts-container" class="posts-grid"></div>
+        <div id="pagination" class="pagination" aria-label="Paginação"></div>
+      </div>
+    </section>
+  </main>
+
+  
+  <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3 class="footer-logo">Cérebro Milionário</h3>
+                    <p class="footer-text">Capacitando você a tomar decisões financeiras inteligentes para um futuro próspero.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/cerebromillionario/" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@cerebromillionario?si=HXuHdkSfJpfBcT75" target="_blank" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/calculadora.html">Calculadora</a></li>
+                        <li><a href="/blog.html">Blog</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Recursos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Glossário Financeiro</a></li>
+                        <li><a href="#">Perguntas Frequentes</a></li>
+                        <li><a href="#">Guias para Iniciantes</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Newsletter</h4>
+                    <p class="footer-text">Receba dicas financeiras exclusivas diretamente no seu email.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Seu melhor email" required class="form-control">
+                        <button type="submit" class="btn btn-primary" style="margin-top: var(--spacing-sm); width: 100%;">Inscrever</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; <span id="current-year"></span> Cérebro Milionário. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+
+  <script src="/js/main.js"></script>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    const state = { posts: [], shown: [], page: 1, perPage: 9, q: '', tag: 'all' };
+
+    const els = {
+      container: document.getElementById('posts-container'),
+      pagination: document.getElementById('pagination'),
+      empty: document.getElementById('emptyState'),
+      search: document.getElementById('searchInput'),
+      tag: document.getElementById('tagSelect'),
+    };
+
+    function safePathFromLoc(loc){
+      if (!loc) return '';
+      loc = loc.trim();
+      if (loc.startsWith('http://') || loc.startsWith('https://')) {
+        try { return new URL(loc).pathname; } catch(e){ return loc; }
+      }
+      // relative already
+      return loc.startsWith('/') ? loc : '/' + loc;
+    }
+
+    function slugToTitle(slug) {
+      return slug.replace(/\.html$/,'').replace(/[-_]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    }
+
+    function inferTagFromSlug(slug) {
+      const s = slug.toLowerCase();
+      if (s.includes('cdb') || s.includes('lci') || s.includes('lca') || s.includes('renda-fixa') || s.includes('tesouro') || s.includes('ipca') || s.includes('selic') || s.includes('ir-')) return 'Renda Fixa';
+      if (s.includes('etf')) return 'ETFs';
+      if (s.includes('fii') || s.includes('fiis')) return 'FIIs';
+      if (s.includes('acao') || s.includes('acoes')) return 'Ações';
+      if (s.includes('aposent')) return 'Aposentadoria';
+      if (s.includes('orcamento') || s.includes('financas') || s.includes('casais')) return 'Finanças Pessoais';
+      if (s.includes('cripto') || s.includes('bitcoin')) return 'Cripto';
+      if (s.includes('carteira') || s.includes('rebalanceamento')) return 'Carteira';
+      if (s.includes('iniciantes') || s.includes('guia')) return 'Iniciante';
+      return 'Investimentos';
+    }
+
+    function buildDescFromSlug(slug){
+      const s = slug.toLowerCase();
+      if (s.includes('reserva-de-emergencia')) return 'Onde guardar sua reserva com segurança, liquidez e boas escolhas (e onde NÃO guardar).';
+      if (s.includes('etfs')) return 'Como escolher ETFs com simplicidade e consistência para o longo prazo.';
+      if (s.includes('fiis')) return 'Riscos, armadilhas e como avaliar FIIs além do “dividend yield”.';
+      if (s.includes('ipca')) return 'Quando IPCA+ faz mais sentido e como pensar em prazo e volatilidade.';
+      if (s.includes('cdb') || s.includes('lci') || s.includes('lca')) return 'Comparações práticas e como calcular o que vale mais a pena no líquido.';
+      if (s.includes('tesouro')) return 'Entenda as diferenças entre Tesouro e bancos para liquidez e segurança.';
+      return 'Leia o artigo completo no Cérebro Milionário.';
+    }
+
+    function renderTags(){
+      const tags = Array.from(new Set(state.posts.map(p => p.tag))).sort((a,b)=>a.localeCompare(b,'pt-BR'));
+      const cur = els.tag.value || 'all';
+      els.tag.innerHTML = '<option value="all">Todos os temas</option>' + tags.map(t => `<option value="${t}">${t}</option>`).join('');
+      els.tag.value = cur;
+    }
+
+    function applyFilters(){
+      const q = state.q.trim().toLowerCase();
+      const tag = state.tag;
+
+      state.shown = state.posts.filter(p => {
+        const hay = (p.title + ' ' + p.desc + ' ' + p.tag).toLowerCase();
+        const okQ = !q || hay.includes(q);
+        const okTag = (tag === 'all') || (p.tag === tag);
+        return okQ && okTag;
+      });
+
+      state.page = 1;
+      render();
+    }
+
+    function renderPagination(totalPages){
+      els.pagination.innerHTML = '';
+      if (totalPages <= 1) return;
+
+      for(let i=1;i<=totalPages;i++){
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = i;
+        if (i === state.page) btn.classList.add('active');
+        btn.addEventListener('click', () => {
+          state.page = i;
+          render();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        els.pagination.appendChild(btn);
+      }
+    }
+
+    function render(){
+      const list = state.shown;
+      const total = list.length;
+      const totalPages = Math.max(1, Math.ceil(total / state.perPage));
+      const start = (state.page - 1) * state.perPage;
+      const pageItems = list.slice(start, start + state.perPage);
+
+      els.container.innerHTML = pageItems.map(p => `
+        <article class="post-card">
+          <a href="${p.url}" style="text-decoration:none;">
+            <img class="post-thumb" src="${p.image}" alt="${p.title}" loading="lazy" onerror="this.src='/images/blog-cover.svg';" />
+          </a>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="tag"><i class="fa-solid fa-tag"></i> ${p.tag}</span>
+              <span class="readtime"><i class="fa-regular fa-clock"></i> ${p.readTime}</span>
+              ${p.lastmod ? `<span class="muted"><i class="fa-regular fa-calendar"></i> ${p.lastmod}</span>` : ''}
+            </div>
+            <h2 class="post-title">${p.title}</h2>
+            <p class="post-desc">${p.desc}</p>
+            <div class="post-actions">
+              <a class="btn-sm" href="${p.url}">Ler mais</a>
+            </div>
+          </div>
+        </article>
+      `).join('');
+
+      const filtering = !!(state.q || (state.tag !== 'all'));
+      els.empty.style.display = (filtering && total === 0) ? 'block' : 'none';
+
+      renderPagination(totalPages);
+    }
+
+    function isoToBr(iso){
+      if(!iso) return '';
+      const d = new Date(iso);
+      if (isNaN(d.getTime())) return '';
+      const dd = String(d.getDate()).padStart(2,'0');
+      const mm = String(d.getMonth()+1).padStart(2,'0');
+      const yy = d.getFullYear();
+      return `${dd}/${mm}/${yy}`;
+    }
+
+    async function loadFromSitemap(){
+      const res = await fetch('/sitemap.xml', { cache: 'no-store' });
+      if(!res.ok) throw new Error('Não consegui acessar /sitemap.xml');
+
+      const xmlText = await res.text();
+      const xml = new DOMParser().parseFromString(xmlText, 'application/xml');
+
+      const urls = Array.from(xml.querySelectorAll('url')).map(u => ({
+        loc: (u.querySelector('loc')?.textContent || '').trim(),
+        lastmod: (u.querySelector('lastmod')?.textContent || '').trim()
+      })).filter(u => u.loc);
+
+      const posts = urls
+        .map(u => ({ ...u, path: safePathFromLoc(u.loc) }))
+        .filter(u => u.path.includes('/posts/'));
+
+      // Se o sitemap tem 22 posts, aqui terá 22 também (sem depender de fetch de cada post)
+
+      const featuredMap = {
+        "etf-masterclass-carteira-global-parte-1": { title: "ETF Masterclass: Carteira Global Nível Institucional (Parte 1)", tag: "Masterclass", readTime: "40–55 min", image: "/images/blog-cover.svg",
+          desc: "Fundação institucional: arquitetura da carteira, core/satélites, custos e erros clássicos." },
+        "etf-masterclass-carteira-global-parte-2": { title: "ETF Masterclass (Parte 2): Markowitz, CAPM, Fatores e Câmbio", tag: "Masterclass", readTime: "40–55 min", image: "/images/blog-cover.svg",
+          desc: "Teoria moderna aplicada: correlação, Sharpe, CAPM, fatores e hedge cambial sem achismo." },
+        "etf-masterclass-carteira-global-parte-3": { title: "ETF Masterclass (Parte 3): Carteiras Modelo e Rebalanceamento", tag: "Masterclass", readTime: "45–60 min", image: "/images/blog-cover.svg",
+          desc: "Modelos (1 ETF, 3 ETFs, fatores), sobreposição e rebalanceamento por calendário/bandas." },
+        "etf-masterclass-carteira-global-parte-4": { title: "ETF Masterclass (Parte 4): Impostos, Operacional e Checklist Final", tag: "Masterclass", readTime: "40–55 min", image: "/images/blog-cover.svg",
+          desc: "Governança e execução: fricções, riscos invisíveis, erros fatais e plano de 12 meses." },
+
+        "renda-fixa-guia-completo-2026": { title: "Renda Fixa: Guia Completo 2026 (nível institucional)", tag: "Renda Fixa", readTime: "60+ min", image: "/images/blog-cover.svg",
+          desc: "Curva, duration, crédito, inflação, cenários e decisões com rigor técnico (sem simplismo)." },
+        "etfs-alocacao-global-guia-2026_cfa": { title: "ETFs e Alocação Global 2026 (nível CFA)", tag: "ETFs", readTime: "60+ min", image: "/images/blog-cover.svg",
+          desc: "Construção de carteira global, risco, diversificação, fatores e escolhas com método." },
+        "construcao-patrimonio-independencia-financeira-2026_max": { title: "Construção de Patrimônio e Independência Financeira (2026) — nível máximo", tag: "Carteira", readTime: "60+ min", image: "/images/blog-cover.svg",
+          desc: "Estratégia completa: aportes, alocação, comportamento, risco de ruína e execução de longo prazo." },
+        "warren-buffett-biografia-completa-2026": { title: "Warren Buffett: Biografia Completa e Lições de Investimento (2026)", tag: "Investimentos", readTime: "60+ min", image: "/images/blog-cover.svg",
+          desc: "Trajetória completa, princípios, decisões marcantes e lições práticas aplicáveis." }
+        "biblia-da-aposentadoria-parte-1": { title: "Bíblia da Aposentadoria (Parte 1): Metas, Diagnóstico e Plano", tag: "Aposentadoria", readTime: "55–75 min", image: "/images/blog-cover.svg",
+          desc: "Do diagnóstico ao plano: metas, orçamento, projeções e como estruturar o caminho com realismo." },
+        "biblia-da-aposentadoria-parte-2": { title: "Bíblia da Aposentadoria (Parte 2): Aportes e Alocação por Fases", tag: "Aposentadoria", readTime: "55–75 min", image: "/images/blog-cover.svg",
+          desc: "Motor da acumulação: retorno real, inflação, aportes e alocação por fases com regra." },
+        "biblia-da-aposentadoria-parte-3": { title: "Bíblia da Aposentadoria (Parte 3): Saque Seguro e Guardrails", tag: "Aposentadoria", readTime: "60–85 min", image: "/images/blog-cover.svg",
+          desc: "Saque seguro: sequência de retornos, guardrails, bucket strategy e rebalanceamento com saques." },
+        "biblia-da-aposentadoria-parte-4": { title: "Bíblia da Aposentadoria (Parte 4): Risco, Proteção e Plano de 12 Meses", tag: "Aposentadoria", readTime: "45–65 min", image: "/images/blog-cover.svg",
+          desc: "Fechamento institucional: gestão de risco, proteção patrimonial, impostos (visão prática) e execução." },
+
+      };
+
+      const pinOrder = [
+      "guia-completo-investimentos-iniciantes-2026",
+        "etf-masterclass-carteira-global-parte-1",
+        "etf-masterclass-carteira-global-parte-2",
+        "etf-masterclass-carteira-global-parte-3",
+        "etf-masterclass-carteira-global-parte-4",
+        "biblia-da-aposentadoria-parte-1",
+        "biblia-da-aposentadoria-parte-2",
+        "biblia-da-aposentadoria-parte-3",
+        "biblia-da-aposentadoria-parte-4",
+        "renda-fixa-guia-completo-2026",
+        "etfs-alocacao-global-guia-2026_cfa",
+        "construcao-patrimonio-independencia-financeira-2026_max",
+        "warren-buffett-biografia-completa-2026"
+      ];
+
+      const items = posts.map(p => {
+        const parts = p.path.split('/');
+        const file = parts[parts.length - 1] || '';
+        const slug = file.replace(/\.html$/,'');
+        const isPilar = slug.includes('guia-completo-investimentos-iniciantes-2026');
+        const fmKey = slug.toLowerCase();
+        const featured = featuredMap[fmKey];
+        return {
+          url: p.path,
+          slug,
+          title: featured ? featured.title : (isPilar ? 'Guia Completo de Investimentos para Iniciantes (2026)' : slugToTitle(file)),
+          desc: featured ? featured.desc : (isPilar ? 'Artigo pilar: do zero ao plano de 30 dias, com reserva, renda fixa, ETFs, FIIs e ações.' : buildDescFromSlug(slug)),
+          image: featured ? featured.image : (isPilar ? '/images/blog-cover.svg' : '/images/blog-default.svg'),
+          tag: featured ? featured.tag : inferTagFromSlug(slug),
+          readTime: featured ? featured.readTime : (isPilar ? '20–30 min' : '10–15 min'),
+          lastmod: isoToBr(p.lastmod)
+        };
+      });
+
+      // Ordena: pins (pilar + masterclass + pilares), depois por lastmod desc
+      items.sort((a,b) => {
+        const ai = pinOrder.indexOf((a.slug || '').toLowerCase());
+        const bi = pinOrder.indexOf((b.slug || '').toLowerCase());
+        if (ai !== -1 || bi !== -1) {
+          if (ai === -1) return 1;
+          if (bi === -1) return -1;
+          return ai - bi;
+        }
+        return (b.lastmod || '').localeCompare(a.lastmod || '');
+      });
+
+      state.posts = items;
+      state.shown = items;
+
+      renderTags();
+      render();
+    }
+
+    els.search.addEventListener('input', e => { state.q = e.target.value || ''; applyFilters(); });
+    els.tag.addEventListener('change', e => { state.tag = e.target.value || 'all'; applyFilters(); });
+
+    loadFromSitemap().catch(err => {
+      els.container.innerHTML = `<div class="empty-state"><h3 style="margin-top:0;">Erro ao carregar posts</h3><p class="muted">${String(err.message || err)}</p><p class="muted">Verifique se <a href="/sitemap.xml">/sitemap.xml</a> está acessível.</p></div>`;
+    });
+  </script>
+</body>
+</html>
