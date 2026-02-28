@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Guia Institucional de FIIs (Parte 3/8) — FIIs de Tijolo: Segmentos, Drivers e Risco Operacional | Cérebro Milionário</title>
+  <meta name="description" content="Guia Institucional de FIIs (Parte 3/8): análise profissional de FIIs de tijolo por segmento (lajes, logística, shopping, hotéis e educacional). Drivers de NOI, qualidade do inquilino, WAULT/WALT, vacância, capex, reprecificação e stress tests operacionais." />
+  <meta name="keywords" content="FII tijolo, lajes corporativas, logística, galpões, shoppings, NOI, cap rate, WALT, WAULT, vacância, capex, reprecificação, risco operacional" />
+  <meta name="author" content="Cérebro Milionário" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/guia-institucional-fiis-parte-3.html" />
+
+  <!-- OG -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/guia-institucional-fiis-parte-3.html" />
+  <meta property="og:title" content="Guia Institucional de FIIs (Parte 3/8) — FIIs de Tijolo" />
+  <meta property="og:description" content="Segmentos, drivers e risco operacional em FIIs de tijolo, com métricas institucionais e stress tests." />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/guia-institucional-fiis-parte-3.html" />
+  <meta property="twitter:title" content="Guia Institucional de FIIs (Parte 3/8) — FIIs de Tijolo" />
+  <meta property="twitter:description" content="Segmentos, drivers e risco operacional em FIIs de tijolo, com métricas institucionais e stress tests." />
+  <meta property="twitter:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Fonts + Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- CSS do site -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Guia Institucional de FIIs (Parte 3/8) — FIIs de Tijolo: Segmentos, Drivers e Risco Operacional",
+    "description":"Análise institucional de FIIs de tijolo por segmento, com drivers de NOI, métricas operacionais, qualidade contratual e stress tests.",
+    "author":{"@type":"Organization","name":"Cérebro Milionário"},
+    "publisher":{"@type":"Organization","name":"Cérebro Milionário"},
+    "mainEntityOfPage":"https://peppy-lollipop-54fa27.netlify.app/posts/guia-institucional-fiis-parte-3.html"
+  }
+  </script>
+
+  <style>
+    body{ overflow-x:hidden; }
+    .pill{ display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background: rgba(44,44,46,.06); font-weight: 800; font-size: 12px; }
+    .layout{ display:grid; grid-template-columns: 280px 1fr; gap: 18px; align-items:start; }
+    @media(max-width: 980px){ .layout{ grid-template-columns: 1fr; } .booknav{ position: relative; top:auto; } }
+
+    .booknav{ position: sticky; top: 88px; border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); overflow:hidden; }
+    .booknav .bn-head{ padding:14px 14px 10px; border-bottom:1px solid rgba(0,0,0,.06); background: rgba(44,44,46,.03); }
+    .booknav .bn-head strong{ display:block; }
+    .booknav .bn-head span{ opacity:.78; font-size:12px; }
+    .booknav .bn-body{ padding: 12px 12px 14px; }
+    .booknav a{ display:flex; gap:10px; align-items:flex-start; padding:10px 10px; border-radius: 14px; text-decoration:none; border:1px solid rgba(0,0,0,.06); background:#fff; box-shadow: var(--shadow-sm); margin: 10px 0; }
+    .booknav a:hover{ transform: translateY(-1px); }
+    .booknav a.active{ background: rgba(244,196,48,.14); border-color: rgba(244,196,48,.40); }
+    .booknav a small{ display:block; opacity:.75; line-height:1.25; }
+    .booknav a b{ display:block; font-size: 13px; line-height: 1.2; }
+
+    .content{ max-width: 920px; }
+    .hero{ border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); padding: 16px; }
+    .hero h1{ margin: 8px 0 6px; }
+    .hero p{ margin: 0; opacity:.86; line-height:1.65; }
+
+    .toc{ margin-top:14px; border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); padding: 14px 16px; }
+    .toc h2{ margin: 0 0 10px; font-size:18px; }
+    .toc ol{ margin: 0 0 0 18px; }
+    .toc li{ margin: 8px 0; }
+    .toc a{ text-decoration:none; }
+
+    .callout{ border-left:4px solid var(--accent-color, #f4c430); background: rgba(244,196,48,.10); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
+    .warning{ border-left:4px solid #e2574c; background: rgba(226,87,76,.08); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
+    .note{ border-left:4px solid #3b82f6; background: rgba(59,130,246,.08); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
+
+    .kpi-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+    .kpi{ border:1px solid rgba(0,0,0,.08); border-radius: 16px; background:#fff; box-shadow: var(--shadow-sm); padding: 12px 14px; }
+    .kpi strong{ display:block; font-size: 18px; }
+    .kpi span{ opacity:.8; }
+    @media(max-width: 980px){ .kpi-grid{ grid-template-columns: 1fr; } }
+
+    .math{ border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); padding: 14px 16px; margin: 18px 0; overflow:auto; }
+    .math code{ display:block; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 13px; line-height: 1.6; white-space: pre; }
+
+    .table{ width:100%; border-collapse: collapse; border:1px solid rgba(0,0,0,.08); border-radius: 14px; overflow:hidden; background:#fff; box-shadow: var(--shadow-sm); margin: 14px 0; }
+    .table th, .table td{ padding: 12px 12px; border-bottom:1px solid rgba(0,0,0,.06); vertical-align: top; text-align:left; }
+    .table th{ background: rgba(44,44,46,.04); }
+    .muted{ opacity:.78; }
+
+    .content h2{ margin-top: 34px; }
+    .content h3{ margin-top: 24px; }
+    .content p{ line-height: 1.78; margin: 12px 0; }
+    .content ul{ line-height: 1.75; }
+    .content li{ margin: 8px 0; }
+
+    .nav-ends{ display:flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+    .nav-ends a{ display:inline-flex; align-items:center; gap:10px; padding: 12px 14px; border-radius: 16px; border:1px solid rgba(0,0,0,.10); background:#fff; box-shadow: var(--shadow-sm); text-decoration:none; font-weight: 900; }
+    .nav-ends a:hover{ transform: translateY(-1px); }
+    .divider-soft{ border:0; height:1px; background: rgba(0,0,0,.10); margin: 22px 0; }
+
+    .grid2{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media(max-width: 980px){ .grid2{ grid-template-columns: 1fr; } }
+    .card{ border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); padding: 14px 16px; }
+    .card h3{ margin-top: 0; }
+  </style>
+</head>
+
+<body>
+  <!-- Header padrão -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container" style="max-width: 1200px;">
+        <div class="layout">
+
+          <!-- MENU LATERAL 8 PARTES -->
+          <aside class="booknav" aria-label="Navegação do guia">
+            <div class="bn-head">
+              <strong>Guia Institucional de FIIs</strong>
+              <span>Parte 3/8 • tijolo • drivers</span>
+            </div>
+
+            <div class="bn-body">
+              <a href="/posts/guia-institucional-fiis-parte-1.html">
+                <i class="fa-solid fa-building-columns" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 1 — Fundamentos</b>
+                  <small>estrutura, governança, risco</small>
+                </div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-2.html">
+                <i class="fa-solid fa-chart-line" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 2 — Modelagem</b>
+                  <small>NOI, cap rate, NAV, DCF</small>
+                </div>
+              </a>
+
+              <a class="active" href="/posts/guia-institucional-fiis-parte-3.html">
+                <i class="fa-solid fa-warehouse" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 3 — Tijolo</b>
+                  <small>segmentos e risco operacional</small>
+                </div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-4.html">
+                <i class="fa-solid fa-file-invoice-dollar" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 4 — Papel</b>
+                  <small>CRI, risco, duration</small>
+                </div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-5.html">
+                <i class="fa-solid fa-layer-group" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 5 — FOFs</b>
+                  <small>tática, arbitragem</small>
+                </div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-6.html">
+                <i class="fa-solid fa-scale-balanced" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 6 — Ciclos</b>
+                  <small>curva, spreads</small>
+                </div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-7.html">
+                <i class="fa-solid fa-diagram-project" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 7 — Carteira</b>
+                  <small>IPS, alocação</small>
+                </div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-8.html">
+                <i class="fa-solid fa-shield-halved" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 8 — Blindagem</b>
+                  <small>armadilhas e checklist</small>
+                </div>
+              </a>
+
+              <hr class="divider-soft" />
+              <a href="/calculadora.html" style="margin-top:0;">
+                <i class="fa-solid fa-calculator" style="margin-top:2px;"></i>
+                <div>
+                  <b>Ferramenta: Juros Compostos</b>
+                  <small>simule aportes e retorno</small>
+                </div>
+              </a>
+              <a href="/aposentadoria.html" style="margin-top:10px;">
+                <i class="fa-solid fa-person-cane" style="margin-top:2px;"></i>
+                <div>
+                  <b>Ferramenta: Aposentadoria</b>
+                  <small>planejamento de longo prazo</small>
+                </div>
+              </a>
+            </div>
+          </aside>
+
+          <!-- CONTEÚDO -->
+          <article class="content">
+            <div class="hero">
+              <span class="pill"><i class="fa-solid fa-warehouse"></i> Guia Institucional • Parte 3/8</span>
+              <h1>FIIs de Tijolo: Segmentos, Drivers de NOI e Risco Operacional</h1>
+              <p>
+                Neste capítulo, você aprende a traduzir “segmento imobiliário” em variáveis do modelo:
+                <b>ocupação</b>, <b>reprecificação</b>, <b>qualidade contratual</b>, <b>capex</b> e <b>taxa de desconto</b>.
+                A mesma lógica de valuation da Parte 2 é aplicada com drivers específicos de cada segmento.
+              </p>
+              <div class="kpi-grid">
+                <div class="kpi"><strong>Saída</strong><span>drivers por segmento</span></div>
+                <div class="kpi"><strong>Risco</strong><span>vacância + reprecificação</span></div>
+                <div class="kpi"><strong>Foco</strong><span>NOI sustentável</span></div>
+              </div>
+              <div class="callout">
+                <b>Regra institucional:</b> “tijolo” não é homogêneo.
+                Cada segmento tem uma função de risco distinta e deve ser modelado com
+                <b>métricas próprias</b> (não com o mesmo checklist genérico).
+              </div>
+            </div>
+
+            <div class="toc">
+              <h2>Índice (clique para ir)</h2>
+              <ol>
+                <li><a href="#t1">Mapa dos segmentos e como eles entram no valuation</a></li>
+                <li><a href="#t2">Lajes corporativas: ciclo, obsolescência e reprecificação</a></li>
+                <li><a href="#t3">Logística: last mile, concentração e poder de barganha</a></li>
+                <li><a href="#t4">Shoppings: NOI “alavancado” por vendas e mix</a></li>
+                <li><a href="#t5">Renda urbana (varejo de rua) e contratos</a></li>
+                <li><a href="#t6">Segmentos especiais: hotéis, educacional, saúde</a></li>
+                <li><a href="#t7">Framework de stress test operacional por segmento</a></li>
+                <li><a href="#t8">Checklist e ponte para a Parte 4 (papel)</a></li>
+              </ol>
+            </div>
+
+            <h2 id="t1">1) Mapa dos segmentos e como eles entram no valuation</h2>
+            <p>
+              Em tijolo, o valuation “vive” em dois blocos:
+              <b>(i) NOI sustentável</b> e <b>(ii) taxa de desconto/cap rate justo</b>.
+              O segmento define a dinâmica de ocupação, reajuste, churn e capex, que por sua vez definem NOI e risco.
+            </p>
+
+            <table class="table" aria-label="Segmento e principal driver">
+              <thead>
+                <tr>
+                  <th>Segmento</th>
+                  <th>Driver primário</th>
+                  <th>Risco dominante</th>
+                  <th>Métrica âncora</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Lajes corporativas</b></td>
+                  <td>ciclo de demanda + reprecificação</td>
+                  <td>vacância estrutural/obsolescência</td>
+                  <td>WAULT + capex de modernização</td>
+                </tr>
+                <tr>
+                  <td><b>Logística</b></td>
+                  <td>localização + inquilino</td>
+                  <td>concentração e poder de barganha</td>
+                  <td>concentração por inquilino + qualidade do contrato</td>
+                </tr>
+                <tr>
+                  <td><b>Shoppings</b></td>
+                  <td>vendas + mix + ocupação</td>
+                  <td>ciclo de consumo e renegociações</td>
+                  <td>vendas/m² + taxa de ocupação</td>
+                </tr>
+                <tr>
+                  <td><b>Renda urbana</b></td>
+                  <td>contrato + localização</td>
+                  <td>risco de crédito do locatário</td>
+                  <td>rating/qualidade do inquilino + reajuste</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h2 id="t2">2) Lajes corporativas: ciclo, obsolescência e reprecificação</h2>
+            <p>
+              Lajes corporativas são o segmento clássico onde o investidor amador erra:
+              vê “prédio bonito” e ignora a variável institucional central: <b>obsolescência econômica</b>.
+              O que importa não é o edifício ser “bonito”; é ele ser competitivo no mercado de ocupação.
+            </p>
+
+            <div class="note">
+              <b>Obsolescência econômica</b> = quando o imóvel perde capacidade de gerar NOI competitivo
+              sem capex adicional, devido a mudanças de preferência, tecnologia, localização relativa e padrão de uso.
+            </div>
+
+            <h3>2.1) Três variáveis que mandam em lajes</h3>
+            <ul>
+              <li><b>Vacância estrutural</b> (não só cíclica)</li>
+              <li><b>WAULT</b> (maturidade dos contratos) e risco de reprecificação</li>
+              <li><b>Capex</b> de modernização e custo de recolocação</li>
+            </ul>
+
+            <div class="math">
+              <code>
+NOI sustentável (lajes) depende de:
+- Ocupação esperada (E[Occ])
+- Aluguel de mercado (Market Rent)
+- Reprecificação na renovação (Renewal Spread)
+- Capex recorrente + reposicionamento
+              </code>
+            </div>
+
+            <div class="warning">
+              <b>Risco oculto em lajes:</b> “vazio caro”.
+              Um imóvel pode ter vacância baixa hoje, mas estar prestes a enfrentar uma renovação
+              com queda de aluguel ou saída do inquilino. O valuation exige modelar esse evento.
+            </div>
+
+            <h2 id="t3">3) Logística: last mile, concentração e poder de barganha</h2>
+            <p>
+              Logística costuma parecer “simples” porque o imóvel é funcional.
+              Mas institucionalmente, logística é sobre:
+              <b>localização</b>, <b>qualidade do inquilino</b> e <b>concentração de receita</b>.
+            </p>
+
+            <div class="grid2">
+              <div class="card">
+                <h3>Drivers de força</h3>
+                <ul>
+                  <li>localização com restrição de oferta</li>
+                  <li>quilometragem e acesso</li>
+                  <li>inquilino “sticky” (alto custo de mudança)</li>
+                  <li>contratos longos e robustos</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h3>Drivers de fragilidade</h3>
+                <ul>
+                  <li>inquilino único (concentração)</li>
+                  <li>imóvel “comoditizado” (oferta abundante)</li>
+                  <li>contratos curtos com renegociação agressiva</li>
+                  <li>exigência de retrofit caro para reocupar</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3>3.1) Concentração como risco mensurável</h3>
+            <div class="math">
+              <code>
+Concentração por inquilino (proxy):
+HHI = Σ (w_i^2)
+Se 1 inquilino = 60% da receita:
+HHI mínimo já é 0,36 (alto)
+              </code>
+            </div>
+
+            <h2 id="t4">4) Shoppings: NOI “alavancado” por vendas e mix</h2>
+            <p>
+              Shopping não é “aluguel puro”.
+              Em muitos casos, existe componente variável de receita (participação, aluguel percentual, merchandising).
+              Isso cria uma dinâmica diferente: NOI cresce com vendas, mas também sofre mais no ciclo.
+            </p>
+
+            <div class="note">
+              Em shoppings, você modela:
+              <b>ocupação</b> + <b>vendas</b> + <b>inadimplência</b> + <b>mix</b> + <b>competição regional</b>.
+              É um “asset de consumo”, não apenas imobiliário.
+            </div>
+
+            <h3>4.1) Métricas operacionais âncora</h3>
+            <ul>
+              <li>vendas/m² e crescimento real</li>
+              <li>taxa de ocupação</li>
+              <li>inadimplência e renegociações</li>
+              <li>capex de revitalização (shopping é vivo)</li>
+            </ul>
+
+            <h2 id="t5">5) Renda urbana (varejo de rua) e contratos</h2>
+            <p>
+              Renda urbana tende a ter contratos com locatários bem diversos, e o risco central é:
+              <b>crédito e resiliência do inquilino</b>.
+              A qualidade do contrato (garantias, multas, reajuste) importa mais do que o “nome do segmento”.
+            </p>
+
+            <div class="callout">
+              <b>Institucional:</b> renda urbana é um jogo de microeconomia.
+              Sem um bom framework de crédito (mesmo qualitativo), o investidor vira refém da narrativa.
+            </div>
+
+            <h2 id="t6">6) Segmentos especiais: hotéis, educacional e saúde</h2>
+            <p>
+              Segmentos “especiais” têm risco de contrato e operação (muitas vezes via contrato atípico ou operador),
+              e podem ter dependência maior do ciclo e do operador.
+              Aqui a governança e a qualidade do contrato são determinantes.
+            </p>
+
+            <div class="warning">
+              <b>Risco institucional típico:</b> operador fraco + contrato frágil.
+              Mesmo com imóvel “bom”, o NOI pode colapsar.
+            </div>
+
+            <h2 id="t7">7) Stress test operacional por segmento (framework)</h2>
+            <p>
+              Faça stress tests padronizados, mas com drivers específicos.
+            </p>
+
+            <table class="table" aria-label="Stress tests operacionais por segmento">
+              <thead>
+                <tr>
+                  <th>Segmento</th>
+                  <th>Stress 1</th>
+                  <th>Stress 2</th>
+                  <th>Stress 3</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Lajes</b></td>
+                  <td>vacância +10pp</td>
+                  <td>queda de aluguel real -8%</td>
+                  <td>capex reposicionamento +60%</td>
+                </tr>
+                <tr>
+                  <td><b>Logística</b></td>
+                  <td>saída do maior inquilino</td>
+                  <td>renegociação -10% aluguel</td>
+                  <td>reocupação demora +12 meses</td>
+                </tr>
+                <tr>
+                  <td><b>Shoppings</b></td>
+                  <td>vendas/m² -12%</td>
+                  <td>inadimplência dobra</td>
+                  <td>capex revitalização +50%</td>
+                </tr>
+                <tr>
+                  <td><b>Renda urbana</b></td>
+                  <td>inadimplência +4pp</td>
+                  <td>churn +20%</td>
+                  <td>reajuste abaixo da inflação</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h2 id="t8">8) Checklist e ponte para a Parte 4 (papel)</h2>
+            <div class="card">
+              <h3>Checklist (Parte 3)</h3>
+              <ul>
+                <li>Consigo mapear segmento → driver de NOI → risco dominante.</li>
+                <li>Sei quais métricas são âncora (WAULT, concentração, vendas/m² etc.).</li>
+                <li>Sei onde o capex destrói NOI “ilusório”.</li>
+                <li>Consigo stress-testar operacionalmente cada segmento.</li>
+              </ul>
+            </div>
+
+            <p>
+              Na <b>Parte 4</b>, mudamos de natureza:
+              FIIs de <b>papel</b> (CRI) — aqui o driver central não é ocupação,
+              é <b>crédito + estrutura</b>. Vamos tratar indexadores, duration, convexidade,
+              subordinação, LTV e stress de default.
+            </p>
+
+            <div class="nav-ends" aria-label="Navegação entre partes">
+              <a href="/posts/guia-institucional-fiis-parte-2.html"><i class="fa-solid fa-arrow-left"></i> Voltar: Parte 2</a>
+              <a href="/posts/guia-institucional-fiis-parte-4.html">Próxima: Parte 4 <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé padrão -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        <h3>Cérebro Milionário</h3>
+        <p>Educação financeira com profundidade estratégica.</p>
+        <div style="display:flex; gap:12px; margin-top:10px; align-items:center;">
+          <a href="https://t.me/cerebromillionario" target="_blank" rel="noopener" aria-label="Telegram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none;">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://instagram.com/cerebromillionario" target="_blank" rel="noopener" aria-label="Instagram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none;">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/glossario-financeiro.html">Glossário Financeiro</a></li>
+          <li><a href="/perguntas-frequentes.html">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script menu mobile -->
+  <script>
+    (function () {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', function () {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    })();
+  </script>
+</body>
+</html>
