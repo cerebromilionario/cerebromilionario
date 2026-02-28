@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Enciclopédia do Primeiro Milhão (Parte 7/8) — De 500k a 1M: Efeito Avalanche, Convexidade e Governança | Cérebro Milionário</title>
+  <meta name="description" content="Enciclopédia do Primeiro Milhão (7/8): o trecho 500k→1M em termos reais. Efeito avalanche, convexidade, regimes, drawdown vs tempo, regras para acelerar sem aumentar ruína, rebalanceamento, satélite e proteção. Nível institucional." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/enciclopedia-primeiro-milhao-parte-7.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Enciclopédia do Primeiro Milhão (Parte 7/8) — De 500k a 1M" />
+  <meta property="og:description" content="Tratado técnico: como o efeito avalanche muda o jogo do 500k para 1M e quais regras institucionais aceleram sem aumentar ruína." />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/enciclopedia-primeiro-milhao-parte-7.html" />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Fonts + Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- CSS do site -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Enciclopédia do Primeiro Milhão (Parte 7/8) — De 500k a 1M: Efeito Avalanche, Convexidade e Governança",
+    "description":"Como o jogo muda do 500k ao 1M em termos reais: efeito avalanche, convexidade, regimes, regras de aceleração com controle de ruína.",
+    "author":{"@type":"Organization","name":"Cérebro Milionário"},
+    "publisher":{"@type":"Organization","name":"Cérebro Milionário"},
+    "mainEntityOfPage":"https://peppy-lollipop-54fa27.netlify.app/posts/enciclopedia-primeiro-milhao-parte-7.html"
+  }
+  </script>
+
+  <style>
+    body{ overflow-x:hidden; }
+
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px; border-radius:999px;
+      background: rgba(44,44,46,.06);
+      font-weight: 800; font-size: 12px;
+    }
+
+    .layout{ display:grid; grid-template-columns: 280px 1fr; gap: 18px; align-items:start; }
+    @media(max-width: 980px){ .layout{ grid-template-columns: 1fr; } .booknav{ position: relative; top:auto; } }
+
+    .booknav{
+      position: sticky; top: 88px;
+      border:1px solid rgba(0,0,0,.08);
+      border-radius: 18px;
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      overflow:hidden;
+    }
+    .booknav .bn-head{ padding:14px 14px 10px; border-bottom:1px solid rgba(0,0,0,.06); background: rgba(44,44,46,.03); }
+    .booknav .bn-head strong{ display:block; }
+    .booknav .bn-head span{ opacity:.78; font-size:12px; }
+    .booknav .bn-body{ padding: 12px 12px 14px; }
+    .booknav a{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:10px 10px; border-radius: 14px;
+      text-decoration:none;
+      border:1px solid rgba(0,0,0,.06);
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      margin: 10px 0;
+    }
+    .booknav a:hover{ transform: translateY(-1px); }
+    .booknav a.active{ background: rgba(244,196,48,.14); border-color: rgba(244,196,48,.40); }
+    .booknav a small{ display:block; opacity:.75; line-height:1.25; }
+    .booknav a b{ display:block; font-size: 13px; line-height: 1.2; }
+
+    .content{ max-width: 920px; }
+
+    .hero{
+      border:1px solid rgba(0,0,0,.08);
+      border-radius: 18px;
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      padding: 16px;
+    }
+    .hero h1{ margin: 8px 0 6px; }
+    .hero p{ margin: 0; opacity:.86; line-height:1.65; }
+
+    .toc{
+      margin-top:14px;
+      border:1px solid rgba(0,0,0,.08);
+      border-radius: 18px;
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      padding: 14px 16px;
+    }
+    .toc h2{ margin: 0 0 10px; font-size:18px; }
+    .toc ol{ margin: 0 0 0 18px; }
+    .toc li{ margin: 8px 0; }
+    .toc a{ text-decoration:none; }
+
+    .callout{ border-left:4px solid var(--accent-color, #f4c430); background: rgba(244,196,48,.10); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
+    .warning{ border-left:4px solid #e2574c; background: rgba(226,87,76,.08); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
+    .note{ border-left:4px solid #3b82f6; background: rgba(59,130,246,.08); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
+
+    .kpi-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+    .kpi{ border:1px solid rgba(0,0,0,.08); border-radius: 16px; background:#fff; box-shadow: var(--shadow-sm); padding: 12px 14px; }
+    .kpi strong{ display:block; font-size: 18px; }
+    .kpi span{ opacity:.8; }
+    @media(max-width: 980px){ .kpi-grid{ grid-template-columns: 1fr; } }
+
+    .math{
+      border:1px solid rgba(0,0,0,.08);
+      border-radius: 18px;
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      padding: 14px 16px;
+      margin: 18px 0;
+      overflow:auto;
+    }
+    .math code{
+      display:block;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      white-space: pre;
+    }
+
+    .table{
+      width:100%;
+      border-collapse: collapse;
+      border:1px solid rgba(0,0,0,.08);
+      border-radius: 14px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      margin: 14px 0;
+    }
+    .table th, .table td{
+      padding: 12px 12px;
+      border-bottom:1px solid rgba(0,0,0,.06);
+      vertical-align: top;
+      text-align:left;
+    }
+    .table th{ background: rgba(44,44,46,.04); }
+    .muted{ opacity:.78; }
+
+    .content h2{ margin-top: 34px; }
+    .content h3{ margin-top: 24px; }
+    .content p{ line-height: 1.75; margin: 12px 0; }
+    .content ul{ line-height: 1.75; }
+    .content li{ margin: 8px 0; }
+
+    .nav-ends{
+      display:flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+      margin-top: 22px;
+    }
+    .nav-ends a{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border:1px solid rgba(0,0,0,.10);
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      text-decoration:none;
+      font-weight: 900;
+    }
+    .nav-ends a:hover{ transform: translateY(-1px); }
+    .divider-soft{ border:0; height:1px; background: rgba(0,0,0,.10); margin: 22px 0; }
+
+    .grid2{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media(max-width: 980px){ .grid2{ grid-template-columns: 1fr; } }
+    .card{
+      border:1px solid rgba(0,0,0,.08);
+      border-radius: 18px;
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      padding: 14px 16px;
+    }
+    .card h3{ margin-top: 0; }
+  </style>
+</head>
+
+<body>
+  <!-- Header padrão -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container" style="max-width: 1200px;">
+        <div class="layout">
+
+          <!-- NAVEGAÇÃO DO LIVRO -->
+          <aside class="booknav" aria-label="Navegação do livro">
+            <div class="bn-head">
+              <strong>Enciclopédia do Primeiro Milhão</strong>
+              <span>Livro técnico • 8 partes • meta real</span>
+            </div>
+            <div class="bn-body">
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-1.html">
+                <i class="fa-solid fa-square-root-variable" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 1 — Fundamentos reais</b>
+                  <small>modelo matemático, retorno real, premissas, risco</small>
+                </div>
+              </a>
+
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-2.html">
+                <i class="fa-solid fa-chart-line" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 2 — Motor (renda/aporte)</b>
+                  <small>taxa de investimento, crescimento salarial, alavancas</small>
+                </div>
+              </a>
+
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-3.html">
+                <i class="fa-solid fa-layer-group" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 3 — Arquitetura de carteira</b>
+                  <small>alocação por fase, risco, premissas por ativo</small>
+                </div>
+              </a>
+
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-4.html">
+                <i class="fa-solid fa-infinity" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 4 — Modelos e simulação</b>
+                  <small>determinístico/estocástico, quantis, sequência</small>
+                </div>
+              </a>
+
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-5.html">
+                <i class="fa-solid fa-brain" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 5 — Psicologia quantitativa</b>
+                  <small>viés, governança, controle de processo</small>
+                </div>
+              </a>
+
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-6.html">
+                <i class="fa-solid fa-triangle-exclamation" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 6 — Riscos e armadilhas</b>
+                  <small>ruína, sequência, concentração, liquidez</small>
+                </div>
+              </a>
+
+              <a class="active" href="/posts/enciclopedia-primeiro-milhao-parte-7.html">
+                <i class="fa-solid fa-bolt" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 7 — 500k → 1M</b>
+                  <small>efeito avalanche, convexidade, governança</small>
+                </div>
+              </a>
+
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-8.html">
+                <i class="fa-solid fa-shield-halved" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 8 — Blindagem e consolidação</b>
+                  <small>preservação, impostos, sucessão, próximo ciclo</small>
+                </div>
+              </a>
+
+              <hr class="divider-soft" />
+              <a href="/calculadora.html" style="margin-top:0;">
+                <i class="fa-solid fa-calculator" style="margin-top:2px;"></i>
+                <div>
+                  <b>Ferramenta: Juros Compostos</b>
+                  <small>simule aportes e retorno</small>
+                </div>
+              </a>
+              <a href="/aposentadoria.html" style="margin-top:10px;">
+                <i class="fa-solid fa-person-cane" style="margin-top:2px;"></i>
+                <div>
+                  <b>Ferramenta: Aposentadoria</b>
+                  <small>planejamento de longo prazo</small>
+                </div>
+              </a>
+            </div>
+          </aside>
+
+          <!-- CONTEÚDO -->
+          <article class="content">
+
+            <div class="hero">
+              <span class="pill"><i class="fa-solid fa-bolt"></i> Enciclopédia • Parte 7/8 • 500k → 1M</span>
+              <h1>Do 500k ao 1 milhão real: quando a avalanche começa (e como acelerar sem aumentar ruína)</h1>
+              <p>
+                Esta é a “zona de transição”. Até ~500k, o principal motor costuma ser <b>aporte</b> (C).
+                Depois disso, o motor passa a ser <b>capital</b> (W). O objetivo aqui é entender o que muda:
+                governança, tolerância a drawdown, política de rebalanceamento e o uso (controlado) de satélites.
+              </p>
+
+              <div class="kpi-grid">
+                <div class="kpi"><strong>Antes</strong><span>C domina</span></div>
+                <div class="kpi"><strong>Depois</strong><span>W domina</span></div>
+                <div class="kpi"><strong>Risco</strong><span>erro custa anos</span></div>
+              </div>
+
+              <div class="callout">
+                <b>Tese:</b> para acelerar 500k→1M, você não precisa “tomar mais risco”.
+                Você precisa reduzir ruína, aumentar consistência e melhorar eficiência líquida (impostos + custos),
+                enquanto mantém um risco <i>tolerável</i> que você aguenta sem vender no fundo.
+              </div>
+            </div>
+
+            <div class="toc">
+              <h2>Índice da Parte 7 (clique para ir)</h2>
+              <ol>
+                <li><a href="#sec-1">A matemática do trecho 500k→1M: tempo e sensibilidade</a></li>
+                <li><a href="#sec-2">Drawdown vs tempo: quando uma queda “rouba anos”</a></li>
+                <li><a href="#sec-3">Convexidade e assimetria: por que “sobreviver” vira alfa</a></li>
+                <li><a href="#sec-4">Regimes: como adaptar sem virar trader (política, não previsão)</a></li>
+                <li><a href="#sec-5">Rebalanceamento avançado: bandas dinâmicas e fluxo inteligente</a></li>
+                <li><a href="#sec-6">Satélite no trecho final: quando vale e como limitar (teto + freeze)</a></li>
+                <li><a href="#sec-7">Eficiência líquida: impostos, turnover e o “CAGR invisível”</a></li>
+                <li><a href="#sec-8">Plano operacional 500k→1M: protocolo trimestral + anual</a></li>
+              </ol>
+            </div>
+
+            <h2 id="sec-1">1) A matemática do trecho 500k→1M: tempo e sensibilidade</h2>
+            <p>
+              Do ponto de vista determinístico (Parte 4), o tempo para dobrar patrimônio é:
+              <b>quanto maior W, mais o r domina</b>. É aqui que o investidor entende a avalanche.
+            </p>
+
+            <div class="math">
+              <code>
+Se ignorarmos aportes por um momento:
+
+W_t = W_0 (1+r)^t
+
+Para dobrar: 2 = (1+r)^t
+t = ln(2) / ln(1+r)
+
+Com r real = 6%:
+t ≈ ln(2)/ln(1.06) ≈ 11,9 anos
+
+Com r real = 8%:
+t ≈ 9,0 anos
+
+Com r real = 10%:
+t ≈ 7,3 anos
+              </code>
+            </div>
+
+            <p>
+              Só que você não ignora aportes. O ponto é: quando W já é grande, um erro de risco (grande drawdown)
+              tem impacto gigantesco no tempo de recuperação. Em outras palavras: <b>o custo do erro cresce com W</b>.
+            </p>
+
+            <div class="warning">
+              <b>Insight:</b> no trecho 500k→1M, “proteger o processo” vale mais do que “buscar o máximo retorno”.
+              Porque o custo de uma decisão errada é maior do que no começo.
+            </div>
+
+            <h2 id="sec-2">2) Drawdown vs tempo: quando uma queda “rouba anos”</h2>
+            <p>
+              Uma queda de -30% não exige +30% para recuperar. Exige +42,9%.
+              Isso parece simples, mas muda o jogo quando W é grande.
+            </p>
+
+            <div class="math">
+              <code>
+Recuperação necessária:
+Se cair d%: precisa subir  d/(1-d)
+
+Exemplos:
+-20% → +25%
+-30% → +42,9%
+-40% → +66,7%
+-50% → +100%
+              </code>
+            </div>
+
+            <h3>2.1) Tempo de recuperação (aprox.)</h3>
+            <p>
+              Se o retorno real “de processo” do seu portfólio é ~6% ao ano,
+              o tempo para recuperar +42,9% é grande.
+            </p>
+
+            <div class="math">
+              <code>
+Tempo para recuperar (aprox.):
+(1+r)^t = 1 + ganho_necessário
+
+Para -30%:
+ganho_necessário = 0,429
+t ≈ ln(1,429) / ln(1,06) ≈ 6,1 anos
+              </code>
+            </div>
+
+            <div class="note">
+              <b>Tradução:</b> um único drawdown grande pode custar “meia década” de tempo,
+              principalmente se combinado com erro comportamental (venda no fundo).
+            </div>
+
+            <h2 id="sec-3">3) Convexidade e assimetria: por que “sobreviver” vira alfa</h2>
+            <p>
+              Convexidade (no sentido prático) é quando pequenas perdas evitadas geram ganhos desproporcionais
+              ao longo do tempo. Isso acontece porque o crescimento é geométrico e perdas grandes exigem
+              retornos absurdos para recuperar.
+            </p>
+
+            <div class="math">
+              <code>
+Crescimento geométrico (simplificado):
+CAGR_geom ≈ μ - 0,5σ²
+
+Se você aumenta σ para buscar retorno:
+  pode reduzir o crescimento geométrico
+  e aumentar probabilidade de cair em eventos extremos (p5/p10)
+              </code>
+            </div>
+
+            <div class="callout">
+              <b>Regra institucional:</b> no trecho 500k→1M, otimize o crescimento geométrico
+              e a sobrevivência (cauda esquerda), não apenas o retorno aritmético.
+            </div>
+
+            <h2 id="sec-4">4) Regimes: como adaptar sem virar trader (política, não previsão)</h2>
+            <p>
+              Regimes de mercado existem: inflação alta, juros altos, risco fiscal, dólar forte/fraco,
+              crescimento global, recessão. O erro do PF é tentar prever.
+              O acerto institucional é usar <b>política de adaptação</b>.
+            </p>
+
+            <div class="grid2">
+              <div class="card">
+                <h3>O que NÃO fazer</h3>
+                <ul>
+                  <li>mudar toda alocação por manchete</li>
+                  <li>virar “macro trader”</li>
+                  <li>operar com alta frequência</li>
+                  <li>concentrar porque “agora é certeza”</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h3>O que fazer (institucional)</h3>
+                <ul>
+                  <li>manter blocos funcionais (core)</li>
+                  <li>bandas + rebalanceamento via fluxo</li>
+                  <li>pequenas alterações anuais (não semanais)</li>
+                  <li>limites rígidos por risco/fator</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="note">
+              <b>Adaptação legítima:</b> ajustes anuais de pesos (ex.: 5 p.p.) por mudanças estruturais
+              na vida (renda, horizonte, dependentes) — não por “previsão de mercado”.
+            </div>
+
+            <h2 id="sec-5">5) Rebalanceamento avançado: bandas dinâmicas e fluxo inteligente</h2>
+            <p>
+              Na fase final, o rebalanceamento vira arma para controlar risco e capturar reversão à média,
+              sem aumentar impostos.
+            </p>
+
+            <h3>5.1) Bandas dinâmicas (heurística institucional)</h3>
+            <p>
+              Em épocas de alta volatilidade, bandas muito apertadas geram turnover (custos + imposto).
+              Uma política inteligente ajusta a banda com a volatilidade do bloco.
+            </p>
+
+            <div class="math">
+              <code>
+Banda dinâmica (conceito):
+  banda_i = base_i + k · vol_i
+
+Quanto maior a vol do bloco:
+  maior a tolerância para não girar carteira
+              </code>
+            </div>
+
+            <h3>5.2) Fluxo inteligente (o “rebalanceamento invisível”)</h3>
+            <p>
+              Se você ainda aporta, use o aporte como instrumento de rebalanceamento.
+              Se você não aporta, use uma política de rebalanceamento por bandas para vendas mínimas.
+            </p>
+
+            <table class="table" aria-label="Rebalanceamento por fase">
+              <thead>
+                <tr>
+                  <th>Fase</th>
+                  <th>Melhor ferramenta</th>
+                  <th>Objetivo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Acumulação (aporte alto)</td>
+                  <td>Rebalancear via fluxo</td>
+                  <td>controle de risco sem imposto</td>
+                </tr>
+                <tr>
+                  <td>Meio termo</td>
+                  <td>Fluxo + bandas</td>
+                  <td>reduzir extremos</td>
+                </tr>
+                <tr>
+                  <td>Pré-meta</td>
+                  <td>Bandas + proteção</td>
+                  <td>evitar drawdown grande</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h2 id="sec-6">6) Satélite no trecho final: quando vale e como limitar (teto + freeze)</h2>
+            <p>
+              Se você usa satélites (temas, ativos individuais, cripto, small caps), este é o trecho
+              em que o satélite pode ajudar <b>ou</b> destruir. Institucionalmente, satélite é “opcional”,
+              mas precisa de governança.
+            </p>
+
+            <div class="warning">
+              <b>Regra anti-ruína:</b> satélite não pode gerar drawdown que faça você vender core ou quebrar disciplina.
+              Se pode, está grande demais.
+            </div>
+
+            <h3>6.1) Dois modelos de satélite</h3>
+            <div class="grid2">
+              <div class="card">
+                <h3>Satélite “baixa energia”</h3>
+                <ul>
+                  <li>teto pequeno (ex.: 5%)</li>
+                  <li>aportes raros (trimestral)</li>
+                  <li>freeze em drawdown</li>
+                  <li>objetivo: opcionalidade</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h3>Satélite “alto risco”</h3>
+                <ul>
+                  <li>exige caixa e estômago</li>
+                  <li>turnover tende a subir</li>
+                  <li>risco de FOMO e overtrade</li>
+                  <li>não recomendado para a maioria</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3>6.2) Política de freeze (a trava institucional)</h3>
+            <div class="math">
+              <code>
+Freeze de satélite (exemplo):
+- Se satélite cair > X% do topo:
+   parar aportes no satélite
+   redirecionar fluxo ao core
+- Retomar só na revisão trimestral
+              </code>
+            </div>
+
+            <h2 id="sec-7">7) Eficiência líquida: impostos, turnover e o “CAGR invisível”</h2>
+            <p>
+              Do 500k ao 1M, a diferença entre “bom” e “excelente” muitas vezes está no líquido:
+              custos, spread, impostos e erros operacionais.
+            </p>
+
+            <div class="math">
+              <code>
+CAGR líquido real ≈ CAGR bruto real - custos - impostos - fricções
+
+Um “vazamento” de 1% ao ano por 10–15 anos
+pode reduzir de forma relevante o patrimônio final.
+              </code>
+            </div>
+
+            <div class="callout">
+              <b>Regra:</b> se uma mudança aumenta turnover e imposto, ela precisa entregar ganho esperado alto
+              e consistente para valer. Caso contrário, é ruído disfarçado de estratégia.
+            </div>
+
+            <h2 id="sec-8">8) Plano operacional 500k→1M: protocolo trimestral + anual</h2>
+            <p>
+              Aqui está uma rotina institucional, minimalista e eficiente.
+              O objetivo é manter controle de risco e acelerar sem ruína.
+            </p>
+
+            <h3>8.1) Trimestral (30–45 min)</h3>
+            <ul>
+              <li>Checar pesos vs alvo (bandas).</li>
+              <li>Rebalancear via fluxo; vender apenas se banda superior persistir.</li>
+              <li>Revisar satélite: teto respeitado? freeze acionado?</li>
+              <li>Revisar reserva: ainda cobre horizonte?</li>
+              <li>Registrar decisões (audit trail).</li>
+            </ul>
+
+            <h3>8.2) Anual (60–90 min)</h3>
+            <ul>
+              <li>Revisar IPS (meta, horizonte, tolerância a drawdown).</li>
+              <li>Ajustar pesos estratégicos (pequenos passos, não “virada de mesa”).</li>
+              <li>Rever eficiência líquida (custos, impostos, fricções).</li>
+              <li>Checar risco de concentração por fator.</li>
+            </ul>
+
+            <div class="warning">
+              <b>Princípio final:</b> do 500k ao 1M, você ganha acelerando sem fragilizar.
+              Fragilidade mata a avalanche.
+            </div>
+
+            <hr class="divider-soft" />
+
+            <h2>Fechamento técnico da Parte 7</h2>
+            <p>
+              Você agora tem o mapa do trecho final: o efeito avalanche, o custo real de drawdowns e a governança
+              para acelerar com risco tolerável. Na <b>Parte 8</b>, vamos finalizar com “blindagem e consolidação”:
+              preservação, planejamento fiscal, sucessão, políticas pós-meta e como transformar o milhão em independência.
+            </p>
+
+            <div class="nav-ends" aria-label="Navegação entre partes">
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-6.html"><i class="fa-solid fa-arrow-left"></i> Voltar: Parte 6</a>
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-8.html">Próxima: Parte 8 <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé padrão -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        <h3>Cérebro Milionário</h3>
+        <p>Educação financeira com profundidade estratégica.</p>
+        <div style="display:flex; gap:12px; margin-top:10px; align-items:center;">
+          <a href="https://t.me/cerebromillionario" target="_blank" rel="noopener" aria-label="Telegram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none;">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://instagram.com/cerebromillionario" target="_blank" rel="noopener" aria-label="Instagram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none;">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/glossario-financeiro.html">Glossário Financeiro</a></li>
+          <li><a href="/perguntas-frequentes.html">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script menu mobile -->
+  <script>
+    (function () {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', function () {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    })();
+  </script>
+</body>
+</html>
