@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Guia Institucional de FIIs (Parte 7/8) — Carteira Institucional: IPS, Risco, Correlação e Rebalanceamento | Cérebro Milionário</title>
+  <meta name="description" content="Guia Institucional de FIIs (Parte 7/8): como construir uma carteira de FIIs em nível institucional usando IPS, orçamento de risco, correlação, diversificação, limites, rebalanceamento, governança e monitoramento contínuo." />
+  <meta name="keywords" content="carteira de FIIs, IPS, orçamento de risco, correlação, diversificação, rebalanceamento, limites, governança, risco de concentração, tracking error" />
+  <meta name="author" content="Cérebro Milionário" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/guia-institucional-fiis-parte-7.html" />
+
+  <!-- OG -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/guia-institucional-fiis-parte-7.html" />
+  <meta property="og:title" content="Guia Institucional de FIIs (Parte 7/8) — Carteira Institucional" />
+  <meta property="og:description" content="IPS, orçamento de risco, diversificação, limites e rebalanceamento — framework institucional para carteira de FIIs." />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/guia-institucional-fiis-parte-7.html" />
+  <meta property="twitter:title" content="Guia Institucional de FIIs (Parte 7/8) — Carteira Institucional" />
+  <meta property="twitter:description" content="IPS, orçamento de risco, diversificação, limites e rebalanceamento — framework institucional para carteira de FIIs." />
+  <meta property="twitter:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Fonts + Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- CSS do site -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Guia Institucional de FIIs (Parte 7/8) — Carteira Institucional: IPS, Risco, Correlação e Rebalanceamento",
+    "description":"Framework institucional para construção e gestão de carteira de FIIs: IPS, orçamento de risco, diversificação, limites e rebalanceamento.",
+    "author":{"@type":"Organization","name":"Cérebro Milionário"},
+    "publisher":{"@type":"Organization","name":"Cérebro Milionário"},
+    "mainEntityOfPage":"https://peppy-lollipop-54fa27.netlify.app/posts/guia-institucional-fiis-parte-7.html"
+  }
+  </script>
+
+  <style>
+    body{ overflow-x:hidden; }
+    .pill{ display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background: rgba(44,44,46,.06); font-weight: 800; font-size: 12px; }
+    .layout{ display:grid; grid-template-columns: 280px 1fr; gap: 18px; align-items:start; }
+    @media(max-width: 980px){ .layout{ grid-template-columns: 1fr; } .booknav{ position: relative; top:auto; } }
+
+    .booknav{ position: sticky; top: 88px; border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); overflow:hidden; }
+    .booknav .bn-head{ padding:14px 14px 10px; border-bottom:1px solid rgba(0,0,0,.06); background: rgba(44,44,46,.03); }
+    .booknav .bn-head strong{ display:block; }
+    .booknav .bn-head span{ opacity:.78; font-size:12px; }
+    .booknav .bn-body{ padding: 12px 12px 14px; }
+    .booknav a{ display:flex; gap:10px; align-items:flex-start; padding:10px 10px; border-radius: 14px; text-decoration:none; border:1px solid rgba(0,0,0,.06); background:#fff; box-shadow: var(--shadow-sm); margin: 10px 0; }
+    .booknav a:hover{ transform: translateY(-1px); }
+    .booknav a.active{ background: rgba(244,196,48,.14); border-color: rgba(244,196,48,.40); }
+    .booknav a small{ display:block; opacity:.75; line-height:1.25; }
+    .booknav a b{ display:block; font-size: 13px; line-height: 1.2; }
+
+    .content{ max-width: 920px; }
+    .hero{ border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); padding: 16px; }
+    .hero h1{ margin: 8px 0 6px; }
+    .hero p{ margin: 0; opacity:.86; line-height:1.65; }
+
+    .toc{ margin-top:14px; border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); padding: 14px 16px; }
+    .toc h2{ margin: 0 0 10px; font-size:18px; }
+    .toc ol{ margin: 0 0 0 18px; }
+    .toc li{ margin: 8px 0; }
+    .toc a{ text-decoration:none; }
+
+    .callout{ border-left:4px solid var(--accent-color, #f4c430); background: rgba(244,196,48,.10); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
+    .warning{ border-left:4px solid #e2574c; background: rgba(226,87,76,.08); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
+    .note{ border-left:4px solid #3b82f6; background: rgba(59,130,246,.08); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
+
+    .kpi-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+    .kpi{ border:1px solid rgba(0,0,0,.08); border-radius: 16px; background:#fff; box-shadow: var(--shadow-sm); padding: 12px 14px; }
+    .kpi strong{ display:block; font-size: 18px; }
+    .kpi span{ opacity:.8; }
+    @media(max-width: 980px){ .kpi-grid{ grid-template-columns: 1fr; } }
+
+    .math{ border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); padding: 14px 16px; margin: 18px 0; overflow:auto; }
+    .math code{ display:block; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 13px; line-height: 1.6; white-space: pre; }
+
+    .table{ width:100%; border-collapse: collapse; border:1px solid rgba(0,0,0,.08); border-radius: 14px; overflow:hidden; background:#fff; box-shadow: var(--shadow-sm); margin: 14px 0; }
+    .table th, .table td{ padding: 12px 12px; border-bottom:1px solid rgba(0,0,0,.06); vertical-align: top; text-align:left; }
+    .table th{ background: rgba(44,44,46,.04); }
+    .muted{ opacity:.78; }
+
+    .content h2{ margin-top: 34px; }
+    .content h3{ margin-top: 24px; }
+    .content p{ line-height: 1.78; margin: 12px 0; }
+    .content ul{ line-height: 1.75; }
+    .content li{ margin: 8px 0; }
+
+    .nav-ends{ display:flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+    .nav-ends a{ display:inline-flex; align-items:center; gap:10px; padding: 12px 14px; border-radius: 16px; border:1px solid rgba(0,0,0,.10); background:#fff; box-shadow: var(--shadow-sm); text-decoration:none; font-weight: 900; }
+    .nav-ends a:hover{ transform: translateY(-1px); }
+    .divider-soft{ border:0; height:1px; background: rgba(0,0,0,.10); margin: 22px 0; }
+
+    .grid2{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media(max-width: 980px){ .grid2{ grid-template-columns: 1fr; } }
+    .card{ border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); padding: 14px 16px; }
+    .card h3{ margin-top: 0; }
+    .card ul{ margin: 10px 0 0 18px; }
+  </style>
+</head>
+
+<body>
+  <!-- Header padrão -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container" style="max-width: 1200px;">
+        <div class="layout">
+
+          <!-- MENU LATERAL 8 PARTES -->
+          <aside class="booknav" aria-label="Navegação do guia">
+            <div class="bn-head">
+              <strong>Guia Institucional de FIIs</strong>
+              <span>Parte 7/8 • carteira • IPS</span>
+            </div>
+
+            <div class="bn-body">
+              <a href="/posts/guia-institucional-fiis-parte-1.html">
+                <i class="fa-solid fa-building-columns" style="margin-top:2px;"></i>
+                <div><b>Parte 1 — Fundamentos</b><small>estrutura, governança</small></div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-2.html">
+                <i class="fa-solid fa-chart-line" style="margin-top:2px;"></i>
+                <div><b>Parte 2 — Modelagem</b><small>NOI, cap rate, NAV</small></div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-3.html">
+                <i class="fa-solid fa-warehouse" style="margin-top:2px;"></i>
+                <div><b>Parte 3 — Tijolo</b><small>segmentos e drivers</small></div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-4.html">
+                <i class="fa-solid fa-file-invoice-dollar" style="margin-top:2px;"></i>
+                <div><b>Parte 4 — Papel</b><small>CRI, crédito, spread</small></div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-5.html">
+                <i class="fa-solid fa-layer-group" style="margin-top:2px;"></i>
+                <div><b>Parte 5 — FOFs</b><small>NAV, desconto, custos</small></div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-6.html">
+                <i class="fa-solid fa-scale-balanced" style="margin-top:2px;"></i>
+                <div><b>Parte 6 — Ciclos</b><small>curva e spreads</small></div>
+              </a>
+
+              <a class="active" href="/posts/guia-institucional-fiis-parte-7.html">
+                <i class="fa-solid fa-diagram-project" style="margin-top:2px;"></i>
+                <div><b>Parte 7 — Carteira</b><small>IPS e risco</small></div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-8.html">
+                <i class="fa-solid fa-shield-halved" style="margin-top:2px;"></i>
+                <div><b>Parte 8 — Blindagem</b><small>armadilhas e checklist</small></div>
+              </a>
+
+              <hr class="divider-soft" />
+              <a href="/calculadora.html" style="margin-top:0;">
+                <i class="fa-solid fa-calculator" style="margin-top:2px;"></i>
+                <div><b>Ferramenta: Juros Compostos</b><small>simule aportes</small></div>
+              </a>
+              <a href="/aposentadoria.html" style="margin-top:10px;">
+                <i class="fa-solid fa-person-cane" style="margin-top:2px;"></i>
+                <div><b>Ferramenta: Aposentadoria</b><small>planejamento</small></div>
+              </a>
+            </div>
+          </aside>
+
+          <!-- CONTEÚDO -->
+          <article class="content">
+            <div class="hero">
+              <span class="pill"><i class="fa-solid fa-diagram-project"></i> Guia Institucional • Parte 7/8</span>
+              <h1>Carteira Institucional de FIIs: IPS, Orçamento de Risco, Limites e Rebalanceamento</h1>
+              <p>
+                O investidor institucional não “compra fundos”; ele implementa um <b>processo</b>.
+                O coração do processo é uma <b>IPS (Investment Policy Statement)</b> que define objetivo,
+                restrições, orçamento de risco, limites e gatilhos de ação.
+                Essa parte te entrega um framework completo, neutro e replicável.
+              </p>
+
+              <div class="kpi-grid">
+                <div class="kpi"><strong>Documento</strong><span>IPS + regras</span></div>
+                <div class="kpi"><strong>Risco</strong><span>budget + limites</span></div>
+                <div class="kpi"><strong>Gestão</strong><span>rebalance + monitor</span></div>
+              </div>
+
+              <div class="callout">
+                <b>Princípio institucional:</b> diversificação não é “muitos ativos”.
+                Diversificação é <b>não depender de um único driver</b> (crédito, vacância, consumo, curva de juros, etc.).
+              </div>
+            </div>
+
+            <div class="toc">
+              <h2>Índice (clique para ir)</h2>
+              <ol>
+                <li><a href="#i1">IPS: o que entra e por que isso muda tudo</a></li>
+                <li><a href="#i2">Objetivo: renda, total return e tolerância a drawdown</a></li>
+                <li><a href="#i3">Orçamento de risco: o que você realmente “pode perder”</a></li>
+                <li><a href="#i4">Diversificação de verdade: por drivers (não por tickers)</a></li>
+                <li><a href="#i5">Limites: concentração, liquidez, crédito e segmentação</a></li>
+                <li><a href="#i6">Rebalanceamento: regras, bandas e gatilhos</a></li>
+                <li><a href="#i7">Monitoramento contínuo: painel institucional (checklist)</a></li>
+                <li><a href="#i8">Checklist e ponte para a Parte 8 (blindagem)</a></li>
+              </ol>
+            </div>
+
+            <h2 id="i1">1) IPS: o que entra e por que isso muda tudo</h2>
+            <p>
+              IPS é o “contrato” entre você (alocador) e o processo. Ela evita decisões emocionais e
+              padroniza o que fazer em cenários de estresse. Uma IPS institucional contém:
+            </p>
+
+            <div class="card">
+              <h3>IPS — blocos mínimos</h3>
+              <ul>
+                <li><b>Objetivo primário:</b> renda, preservação real, total return, estabilidade.</li>
+                <li><b>Horizonte:</b> mínimo de permanência e janela de avaliação (ex.: 3–5 anos).</li>
+                <li><b>Restrições:</b> liquidez mínima, limite de concentração, veto de estruturas.</li>
+                <li><b>Risco:</b> budget e drawdown aceitável (ex.: pior cenário tolerado).</li>
+                <li><b>Regras:</b> rebalanceamento, aportes, o que fazer em stress.</li>
+                <li><b>Governança:</b> periodicidade de revisão e “gatilhos de exceção”.</li>
+              </ul>
+            </div>
+
+            <div class="warning">
+              <b>Erro comum:</b> “Eu sou conservador” não é IPS.
+              Conservador precisa ser traduzido em limites numéricos: exposição a crédito, duration, liquidez, drawdown.
+            </div>
+
+            <h2 id="i2">2) Objetivo: renda, total return e tolerância a drawdown</h2>
+            <p>
+              FIIs pagam distribuição, mas o investidor institucional mede <b>total return</b>:
+              distribuição + variação de preço + eventos (default, capex, diluição). Se o objetivo é renda,
+              você define “renda mínima” e permite volatilidade dentro de bandas.
+            </p>
+
+            <div class="math">
+              <code>
+Total Return (simplificado) =
+Distribuições + ΔPreço + Eventos (diluição, default, capex, fechamento de desconto)
+              </code>
+            </div>
+
+            <div class="note">
+              Defina uma métrica operacional simples:
+              “posso tolerar X% de drawdown sem vender?”.
+              Se a resposta for “não sei”, o risco está fora do controle.
+            </div>
+
+            <h2 id="i3">3) Orçamento de risco: o que você realmente “pode perder”</h2>
+            <p>
+              Orçamento de risco (risk budget) é alocar “capacidade de perder” entre os blocos da carteira:
+              tijolo, papel, FOFs e táticas. Institucionalmente, você define:
+              <b>limites por risco dominante</b>, não só por segmento.
+            </p>
+
+            <div class="math">
+              <code>
+Budget de risco (visão prática):
+- Risco de mercado (cap rate/juros): quanto de volatilidade aceito?
+- Risco de crédito: qual perda permanente máxima tolerada?
+- Risco de liquidez: quanto do portfólio posso travar sem necessidade de venda?
+- Risco operacional: quanto capex/rotação/renegociação a carteira aguenta?
+              </code>
+            </div>
+
+            <h2 id="i4">4) Diversificação real: por drivers (não por tickers)</h2>
+            <p>
+              “Ter 20 FIIs” não garante nada se 15 deles dependem do mesmo driver macro.
+              Diversificação institucional separa o que move o NOI e a marcação:
+            </p>
+
+            <table class="table" aria-label="Drivers e exemplos">
+              <thead>
+                <tr>
+                  <th>Driver</th>
+                  <th>Onde aparece</th>
+                  <th>Como diversificar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Curva de juros / cap rate</b></td>
+                  <td>tijolo (valuation) e duration</td>
+                  <td>misturar durations e contratos</td>
+                </tr>
+                <tr>
+                  <td><b>Crédito / spread</b></td>
+                  <td>papel/CRI</td>
+                  <td>indexadores, senioridade, concentração</td>
+                </tr>
+                <tr>
+                  <td><b>Consumo</b></td>
+                  <td>shoppings</td>
+                  <td>regiões, mix, resiliência</td>
+                </tr>
+                <tr>
+                  <td><b>Atividade econômica / absorção</b></td>
+                  <td>lajes/logística</td>
+                  <td>localização + qualidade + churn</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="callout">
+              <b>Regra institucional:</b> para cada posição grande,
+              escreva “qual driver precisa dar certo para este fundo funcionar?”.
+              Se vários fundos respondem igual, você tem “risco duplicado”.
+            </div>
+
+            <h2 id="i5">5) Limites: concentração, liquidez, crédito e segmentação</h2>
+            <p>
+              Limites são o que impede um portfólio de virar uma aposta disfarçada.
+              Um conjunto institucional de limites (exemplo) inclui:
+            </p>
+
+            <div class="grid2">
+              <div class="card">
+                <h3>Limites de concentração</h3>
+                <ul>
+                  <li>máximo por fundo (ex.: 6–10%)</li>
+                  <li>máximo por inquilino (tijolo) via concentração indireta</li>
+                  <li>máximo por emissor/devedor (papel)</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h3>Limites de liquidez</h3>
+                <ul>
+                  <li>mínimo de volume médio (proxy)</li>
+                  <li>tamanho de posição compatível com saída em N dias</li>
+                  <li>FOFs: atenção ao risco de “dupla liquidez”</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="grid2" style="margin-top:12px;">
+              <div class="card">
+                <h3>Limites de crédito</h3>
+                <ul>
+                  <li>máximo em estruturas subordinadas</li>
+                  <li>máximo em operações com LTV alto</li>
+                  <li>máximo em “indexador agressivo” com payment shock</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h3>Limites por segmento</h3>
+                <ul>
+                  <li>tijolo: evitar concentração em um só ciclo</li>
+                  <li>papel: evitar concentração em um só devedor/estrutura</li>
+                  <li>FOFs: evitar excesso de taxa + desconto estrutural</li>
+                </ul>
+              </div>
+            </div>
+
+            <h2 id="i6">6) Rebalanceamento: regras, bandas e gatilhos</h2>
+            <p>
+              Rebalanceamento institucional é “comprar o que ficou barato” e “reduzir o que virou risco”
+              <b>sem depender de feeling</b>. Existem duas formas clássicas:
+              <b>por calendário</b> e <b>por bandas</b>.
+            </p>
+
+            <div class="math">
+              <code>
+Rebalance por bandas (exemplo):
+Alvo tijolo = 50%
+Banda = ±7pp
+Se tijolo > 57% ou < 43% → rebalancear
+
+Para fundos individuais:
+peso alvo 6% com banda 2pp (4% a 8%)
+              </code>
+            </div>
+
+            <div class="warning">
+              <b>Armadilha:</b> rebalancear “só porque caiu” em um ativo com deterioração estrutural.
+              Por isso o rebalance precisa ser combinado com “gatilhos de qualidade”.
+            </div>
+
+            <h3>6.1) Gatilhos de qualidade (institucional)</h3>
+            <ul>
+              <li>tijolo: aumento persistente de vacância + capex não planejado</li>
+              <li>papel: deterioração de covenant, eventos de crédito, extensão recorrente</li>
+              <li>FOFs: desconto estrutural + custo alto + performance fraca no ciclo completo</li>
+            </ul>
+
+            <h2 id="i7">7) Monitoramento contínuo: painel institucional</h2>
+            <p>
+              Você não precisa de 200 indicadores. Precisa do painel certo, com poucos “alertas de verdade”.
+            </p>
+
+            <div class="card">
+              <h3>Painel mínimo (mensal/trimestral)</h3>
+              <ul>
+                <li><b>Concentração:</b> top 5 posições e top 5 drivers (crédito, ciclo, consumo).</li>
+                <li><b>Liquidez:</b> tempo estimado de saída vs tamanho de posição.</li>
+                <li><b>Crédito:</b> concentração por devedor, senioridade e eventos.</li>
+                <li><b>Operacional (tijolo):</b> vacância, WAULT, capex e reprecificação.</li>
+                <li><b>Valuation:</b> desconto/premium (FOFs) e sinais de cap rate implícito.</li>
+                <li><b>Risco macro:</b> regime (Parte 6) e o que mudou desde a última revisão.</li>
+              </ul>
+            </div>
+
+            <h2 id="i8">8) Checklist e ponte para a Parte 8 (blindagem)</h2>
+            <div class="card">
+              <h3>Checklist (Parte 7)</h3>
+              <ul>
+                <li>Tenho uma IPS escrita com objetivo, limites e regras.</li>
+                <li>Meu risco é medido por drivers (juros, crédito, liquidez), não por “achismo”.</li>
+                <li>Tenho limites claros (posição, devedor, liquidez, segmento).</li>
+                <li>Tenho rebalance por bandas + gatilhos de qualidade.</li>
+                <li>Tenho um painel simples para monitoramento recorrente.</li>
+              </ul>
+            </div>
+
+            <p>
+              Na <b>Parte 8</b>, a gente fecha com a “blindagem”:
+              armadilhas mais comuns (DY, alavancagem escondida, diluição, risco de extensão),
+              checklist final, e um protocolo de ação para quando “dá ruim” (sem pânico).
+            </p>
+
+            <div class="nav-ends" aria-label="Navegação entre partes">
+              <a href="/posts/guia-institucional-fiis-parte-6.html"><i class="fa-solid fa-arrow-left"></i> Voltar: Parte 6</a>
+              <a href="/posts/guia-institucional-fiis-parte-8.html">Próxima: Parte 8 <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé padrão -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        <h3>Cérebro Milionário</h3>
+        <p>Educação financeira com profundidade estratégica.</p>
+        <div style="display:flex; gap:12px; margin-top:10px; align-items:center;">
+          <a href="https://t.me/cerebromillionario" target="_blank" rel="noopener" aria-label="Telegram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none;">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://instagram.com/cerebromillionario" target="_blank" rel="noopener" aria-label="Instagram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none;">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/glossario-financeiro.html">Glossário Financeiro</a></li>
+          <li><a href="/perguntas-frequentes.html">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script menu mobile -->
+  <script>
+    (function () {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', function () {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    })();
+  </script>
+</body>
+</html>
