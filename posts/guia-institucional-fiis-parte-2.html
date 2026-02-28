@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Guia Institucional de FIIs (Parte 2/8) — Modelagem Econômica: NOI, Cap Rate, NAV e DCF | Cérebro Milionário</title>
+  <meta name="description" content="Guia Institucional de FIIs (Parte 2/8): modelagem econômica e valuation. NOI, Cap Rate, NAV, prêmio/desconto, DCF, taxa de desconto implícita, duration proxy, e stress tests (juros/vacância). Exemplos numéricos hipotéticos." />
+  <meta name="keywords" content="FII, NOI, cap rate, NAV, DCF, prêmio desconto, taxa implícita, duration, stress test, valuation fundos imobiliários" />
+  <meta name="author" content="Cérebro Milionário" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/guia-institucional-fiis-parte-2.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/guia-institucional-fiis-parte-2.html" />
+  <meta property="og:title" content="Guia Institucional de FIIs (Parte 2/8) — Modelagem Econômica" />
+  <meta property="og:description" content="NOI, Cap Rate, NAV, prêmio/desconto, DCF e stress tests. Valuation institucional com exemplos numéricos hipotéticos." />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/guia-institucional-fiis-parte-2.html" />
+  <meta property="twitter:title" content="Guia Institucional de FIIs (Parte 2/8) — Modelagem Econômica" />
+  <meta property="twitter:description" content="NOI, Cap Rate, NAV, DCF, taxa implícita e stress tests. Valuation institucional com exemplos." />
+  <meta property="twitter:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Fonts + Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- CSS do site -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Guia Institucional de FIIs (Parte 2/8) — Modelagem Econômica: NOI, Cap Rate, NAV e DCF",
+    "description":"Modelagem institucional de FIIs com exemplos numéricos hipotéticos: NOI, cap rate, NAV, DCF, taxa implícita e stress tests.",
+    "author":{"@type":"Organization","name":"Cérebro Milionário"},
+    "publisher":{"@type":"Organization","name":"Cérebro Milionário"},
+    "mainEntityOfPage":"https://peppy-lollipop-54fa27.netlify.app/posts/guia-institucional-fiis-parte-2.html"
+  }
+  </script>
+
+  <style>
+    body{ overflow-x:hidden; }
+    .pill{ display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background: rgba(44,44,46,.06); font-weight: 800; font-size: 12px; }
+    .layout{ display:grid; grid-template-columns: 280px 1fr; gap: 18px; align-items:start; }
+    @media(max-width: 980px){ .layout{ grid-template-columns: 1fr; } .booknav{ position: relative; top:auto; } }
+
+    .booknav{ position: sticky; top: 88px; border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); overflow:hidden; }
+    .booknav .bn-head{ padding:14px 14px 10px; border-bottom:1px solid rgba(0,0,0,.06); background: rgba(44,44,46,.03); }
+    .booknav .bn-head strong{ display:block; }
+    .booknav .bn-head span{ opacity:.78; font-size:12px; }
+    .booknav .bn-body{ padding: 12px 12px 14px; }
+    .booknav a{ display:flex; gap:10px; align-items:flex-start; padding:10px 10px; border-radius: 14px; text-decoration:none; border:1px solid rgba(0,0,0,.06); background:#fff; box-shadow: var(--shadow-sm); margin: 10px 0; }
+    .booknav a:hover{ transform: translateY(-1px); }
+    .booknav a.active{ background: rgba(244,196,48,.14); border-color: rgba(244,196,48,.40); }
+    .booknav a small{ display:block; opacity:.75; line-height:1.25; }
+    .booknav a b{ display:block; font-size: 13px; line-height: 1.2; }
+
+    .content{ max-width: 920px; }
+
+    .hero{ border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); padding: 16px; }
+    .hero h1{ margin: 8px 0 6px; }
+    .hero p{ margin: 0; opacity:.86; line-height:1.65; }
+
+    .toc{ margin-top:14px; border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); padding: 14px 16px; }
+    .toc h2{ margin: 0 0 10px; font-size:18px; }
+    .toc ol{ margin: 0 0 0 18px; }
+    .toc li{ margin: 8px 0; }
+    .toc a{ text-decoration:none; }
+
+    .callout{ border-left:4px solid var(--accent-color, #f4c430); background: rgba(244,196,48,.10); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
+    .warning{ border-left:4px solid #e2574c; background: rgba(226,87,76,.08); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
+    .note{ border-left:4px solid #3b82f6; background: rgba(59,130,246,.08); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
+
+    .kpi-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+    .kpi{ border:1px solid rgba(0,0,0,.08); border-radius: 16px; background:#fff; box-shadow: var(--shadow-sm); padding: 12px 14px; }
+    .kpi strong{ display:block; font-size: 18px; }
+    .kpi span{ opacity:.8; }
+    @media(max-width: 980px){ .kpi-grid{ grid-template-columns: 1fr; } }
+
+    .math{ border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); padding: 14px 16px; margin: 18px 0; overflow:auto; }
+    .math code{ display:block; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 13px; line-height: 1.6; white-space: pre; }
+
+    .table{ width:100%; border-collapse: collapse; border:1px solid rgba(0,0,0,.08); border-radius: 14px; overflow:hidden; background:#fff; box-shadow: var(--shadow-sm); margin: 14px 0; }
+    .table th, .table td{ padding: 12px 12px; border-bottom:1px solid rgba(0,0,0,.06); vertical-align: top; text-align:left; }
+    .table th{ background: rgba(44,44,46,.04); }
+    .muted{ opacity:.78; }
+
+    .content h2{ margin-top: 34px; }
+    .content h3{ margin-top: 24px; }
+    .content p{ line-height: 1.78; margin: 12px 0; }
+    .content ul{ line-height: 1.75; }
+    .content li{ margin: 8px 0; }
+
+    .nav-ends{ display:flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+    .nav-ends a{ display:inline-flex; align-items:center; gap:10px; padding: 12px 14px; border-radius: 16px; border:1px solid rgba(0,0,0,.10); background:#fff; box-shadow: var(--shadow-sm); text-decoration:none; font-weight: 900; }
+    .nav-ends a:hover{ transform: translateY(-1px); }
+    .divider-soft{ border:0; height:1px; background: rgba(0,0,0,.10); margin: 22px 0; }
+
+    .grid2{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media(max-width: 980px){ .grid2{ grid-template-columns: 1fr; } }
+    .card{ border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); padding: 14px 16px; }
+    .card h3{ margin-top: 0; }
+    .tag{ display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; font-weight:800; font-size:12px; background: rgba(44,44,46,.06); }
+  </style>
+</head>
+
+<body>
+  <!-- Header padrão -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container" style="max-width: 1200px;">
+        <div class="layout">
+
+          <!-- MENU LATERAL 8 PARTES -->
+          <aside class="booknav" aria-label="Navegação do guia">
+            <div class="bn-head">
+              <strong>Guia Institucional de FIIs</strong>
+              <span>8 partes • neutro • valuation</span>
+            </div>
+
+            <div class="bn-body">
+              <a href="/posts/guia-institucional-fiis-parte-1.html">
+                <i class="fa-solid fa-building-columns" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 1 — Fundamentos</b>
+                  <small>estrutura, governança, risco</small>
+                </div>
+              </a>
+
+              <a class="active" href="/posts/guia-institucional-fiis-parte-2.html">
+                <i class="fa-solid fa-chart-line" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 2 — Modelagem econômica</b>
+                  <small>NOI, cap rate, NAV, DCF</small>
+                </div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-3.html">
+                <i class="fa-solid fa-warehouse" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 3 — Tijolo</b>
+                  <small>segmentos e drivers</small>
+                </div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-4.html">
+                <i class="fa-solid fa-file-invoice-dollar" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 4 — Papel</b>
+                  <small>CRI, risco, duration, stress</small>
+                </div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-5.html">
+                <i class="fa-solid fa-layer-group" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 5 — FOFs</b>
+                  <small>tática, arbitragem</small>
+                </div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-6.html">
+                <i class="fa-solid fa-scale-balanced" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 6 — Ciclos e juros</b>
+                  <small>curva, spreads</small>
+                </div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-7.html">
+                <i class="fa-solid fa-diagram-project" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 7 — Carteira</b>
+                  <small>core/satélite, IPS</small>
+                </div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-8.html">
+                <i class="fa-solid fa-shield-halved" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 8 — Blindagem</b>
+                  <small>armadilhas e checklist</small>
+                </div>
+              </a>
+
+              <hr class="divider-soft" />
+              <a href="/calculadora.html" style="margin-top:0;">
+                <i class="fa-solid fa-calculator" style="margin-top:2px;"></i>
+                <div>
+                  <b>Ferramenta: Juros Compostos</b>
+                  <small>simule aportes e retorno</small>
+                </div>
+              </a>
+              <a href="/aposentadoria.html" style="margin-top:10px;">
+                <i class="fa-solid fa-person-cane" style="margin-top:2px;"></i>
+                <div>
+                  <b>Ferramenta: Aposentadoria</b>
+                  <small>planejamento de longo prazo</small>
+                </div>
+              </a>
+            </div>
+          </aside>
+
+          <!-- CONTEÚDO -->
+          <article class="content">
+            <div class="hero">
+              <span class="pill"><i class="fa-solid fa-chart-line"></i> Guia Institucional • Parte 2/8</span>
+              <h1>Modelagem Econômica e Valuation de FIIs: NOI, Cap Rate, NAV, DCF e Taxa Implícita</h1>
+              <p>
+                Aqui a narrativa vira número. Construímos um framework operacional para valuation:
+                (1) medir a capacidade de geração de caixa (NOI/resultado recorrente), (2) traduzir para taxa de desconto (cap rate),
+                (3) mapear preço vs valor patrimonial (NAV/premium-discount) e (4) stress-testar os drivers (juros, vacância, custo, capex).
+                Exemplos numéricos abaixo são <b>hipotéticos</b> e servem para você replicar o método.
+              </p>
+
+              <div class="kpi-grid">
+                <div class="kpi"><strong>Saída</strong><span>taxa implícita</span></div>
+                <div class="kpi"><strong>Modelo</strong><span>DCF + múltiplos</span></div>
+                <div class="kpi"><strong>Risco</strong><span>juros + vacância</span></div>
+              </div>
+
+              <div class="warning">
+                <b>Neutralidade:</b> este guia não recomenda ativos. O objetivo é dar um “motor” de análise.
+                O mesmo modelo pode concluir “barato” ou “caro” dependendo de premissas e risco.
+              </div>
+            </div>
+
+            <div class="toc">
+              <h2>Índice (clique para ir)</h2>
+              <ol>
+                <li><a href="#a1">Mapa do valuation: o que precifica FIIs</a></li>
+                <li><a href="#a2">NOI e “cash earnings”: o fluxo que importa</a></li>
+                <li><a href="#a3">Cap rate: definição, uso e armadilhas</a></li>
+                <li><a href="#a4">NAV, prêmio/desconto e taxa de desconto implícita</a></li>
+                <li><a href="#a5">DCF aplicado a FIIs (tijolo): exemplo numérico completo</a></li>
+                <li><a href="#a6">Duration proxy e sensibilidade a juros: choques e elasticidades</a></li>
+                <li><a href="#a7">Stress tests institucionais: vacância, aluguel, capex, juros</a></li>
+                <li><a href="#a8">Checklist e ponte para a Parte 3</a></li>
+              </ol>
+            </div>
+
+            <h2 id="a1">1) Mapa do valuation: o que precifica FIIs (modelo de 4 variáveis)</h2>
+            <p>
+              Em termos institucionais, o preço de um FII em mercado secundário é função de:
+              <b>(i) fluxo esperado</b>, <b>(ii) risco</b>, <b>(iii) taxa de desconto</b> e <b>(iv) liquidez</b>.
+              Isso vale para tijolo e papel; muda apenas a natureza do fluxo e o tipo de risco.
+            </p>
+
+            <div class="math">
+              <code>
+Preço ≈ Valor Presente dos Fluxos Esperados
+
+P ≈ Σ [ E(FC_t) / (1 + r)^t ]
+
+Onde:
+E(FC_t) depende de ocupação, aluguel, inadimplência, despesas, capex e (no papel) crédito/estrutura.
+r depende de juros, prêmio de risco, liquidez e governança.
+              </code>
+            </div>
+
+            <div class="callout">
+              <b>Regra institucional:</b> se você não consegue escrever um modelo de “o que precisa acontecer”
+              para o preço atual fazer sentido, você está comprando narrativa — não fluxo.
+            </div>
+
+            <h2 id="a2">2) NOI e “cash earnings”: o fluxo que importa</h2>
+            <p>
+              Para FIIs de tijolo, o núcleo é o <b>NOI (Net Operating Income)</b> — renda operacional líquida do ativo,
+              antes de despesas financeiras (quando houver) e efeitos não recorrentes.
+              Em FIIs, você não tem uma DRE corporativa tradicional, mas consegue reconstruir a economia do portfólio.
+            </p>
+
+            <div class="math">
+              <code>
+NOI (conceito):
+NOI = Receita Imobiliária Bruta
+      - Vacância/Inadimplência
+      - Custos Operacionais (condomínio quando aplicável, seguros, manutenção)
+      - Despesas de Propriedade (IPTU quando aplicável, etc.)
+
+Foco institucional:
+- Separar recorrente vs não recorrente
+- Identificar capex recorrente (manutenção) vs capex de reposicionamento
+              </code>
+            </div>
+
+            <div class="note">
+              <b>Por que isso importa:</b> um FII pode “distribuir” mais do que o caixa recorrente por um tempo
+              (efeitos contábeis, timing, receitas extraordinárias). Sem reconstruir NOI/cash earnings,
+              você confunde estabilidade com ilusão temporária.
+            </div>
+
+            <h3>2.1) Proxy operacional (hipotético)</h3>
+            <p>
+              Exemplo hipotético: um FII com 1 imóvel logístico e 1 laje corporativa.
+              Receita anual bruta combinada: R$ 24 milhões.
+              Vacância financeira média: 7%. Inadimplência: 1%.
+              Custos operacionais + seguros + manutenção: R$ 3,0 milhões/ano.
+            </p>
+
+            <div class="math">
+              <code>
+Receita líquida após vacância/inadimplência:
+24,0 * (1 - 0,07 - 0,01) = 24,0 * 0,92 = 22,08 milhões
+
+NOI ≈ 22,08 - 3,0 = 19,08 milhões/ano
+              </code>
+            </div>
+
+            <p>
+              Esse NOI é o “motor” do valuation (antes de taxas do fundo e eventuais efeitos de alavancagem).
+            </p>
+
+            <h2 id="a3">3) Cap rate: definição, uso e armadilhas</h2>
+            <p>
+              O cap rate é uma taxa que relaciona NOI e valor do ativo. Institucionalmente, cap rate é um
+              <b>múltiplo inverso</b>. Ele é útil para comparar ativos similares e entender sensibilidade a juros/spreads.
+            </p>
+
+            <div class="math">
+              <code>
+Cap Rate = NOI / Valor do Ativo
+
+Se Cap Rate sobe (taxa exige mais retorno):
+- Para o mesmo NOI, o valor do ativo cai.
+Se Cap Rate cai (compressão):
+- Para o mesmo NOI, o valor sobe.
+              </code>
+            </div>
+
+            <div class="warning">
+              <b>Armadilha:</b> cap rate não é “garantia de retorno”.
+              É uma fotografia de NOI e valor em um regime de taxa/risco. Mudou juros, mudou cap rate “justo”.
+            </div>
+
+            <h3>3.1) Cap rate “de mercado” vs cap rate “implícito” do fundo</h3>
+            <p>
+              Dois cap rates relevantes:
+            </p>
+            <ul>
+              <li><b>Cap rate de mercado</b>: observado em transações comparáveis (quando existem).</li>
+              <li><b>Cap rate implícito</b>: inferido pelo preço da cota e NOI do portfólio.</li>
+            </ul>
+
+            <div class="note">
+              Se o cap rate implícito do fundo está <b>muito abaixo</b> do mercado sem justificativa (qualidade/contratos),
+              pode haver prêmio excessivo. Se está <b>muito acima</b> do mercado, pode haver risco oculto ou estresse de preço.
+            </div>
+
+            <h2 id="a4">4) NAV, prêmio/desconto e taxa de desconto implícita</h2>
+            <p>
+              <b>NAV</b> (Net Asset Value) é o valor patrimonial líquido do fundo (por cota).
+              Em FIIs, o NAV depende de laudos e marcações contábeis, e nem sempre “anda” na mesma velocidade do mercado.
+            </p>
+
+            <div class="math">
+              <code>
+Premium/Discount ao NAV:
+Premium = (Preço / NAV) - 1
+
+Se Preço > NAV → prêmio
+Se Preço < NAV → desconto
+              </code>
+            </div>
+
+            <div class="warning">
+              <b>Institucionalmente:</b> prêmio/desconto ao NAV só é “barato/caro”
+              se você entender a qualidade do NAV (metodologia, cap rate usado, atualização, premissas)
+              e comparar com a taxa exigida pelo mercado.
+            </div>
+
+            <h3>4.1) Taxa de desconto implícita (método prático)</h3>
+            <p>
+              Uma aproximação: se você tem NOI recorrente e o mercado precifica a cota a um certo valor,
+              você pode inferir o cap rate implícito e comparar com spreads.
+            </p>
+
+            <div class="math">
+              <code>
+Valor do portfólio (proxy) = Preço de mercado do fundo (Market Cap) + Dívida líquida (se houver)
+
+Cap rate implícito ≈ NOI / Valor do portfólio (proxy)
+
+Comparação:
+Cap rate implícito - taxa real (proxy) = spread imobiliário (proxy)
+              </code>
+            </div>
+
+            <h2 id="a5">5) DCF aplicado a FIIs (tijolo): exemplo numérico completo (hipotético)</h2>
+            <p>
+              Vamos construir um DCF com hipóteses explícitas. Esse método é o “coração” institucional:
+              você transforma as premissas em um valor e testa sensibilidade.
+            </p>
+
+            <div class="card">
+              <h3>Hipóteses do caso hipotético</h3>
+              <ul>
+                <li>NOI atual: <b>R$ 19,08 milhões/ano</b> (do exemplo anterior).</li>
+                <li>Crescimento real de NOI: <b>1,5% a.a.</b> (reajustes/repasse parcial, ocupação e eficiência).</li>
+                <li>Capex recorrente (manutenção): <b>R$ 1,2 milhão/ano</b> (já refletido no NOI? aqui vamos tratar separado).</li>
+                <li>Taxa de desconto nominal: <b>12% a.a.</b> (exemplo; decomposição via juros + prêmio de risco).</li>
+                <li>Horizonte explícito: <b>10 anos</b>.</li>
+                <li>Terminal: cap rate terminal <b>9,5%</b> aplicado ao NOI do ano 11.</li>
+              </ul>
+              <p class="muted">
+                Observação: valores são hipotéticos para demonstrar método. Em análise real, você construiria cenários
+                (base/otimista/pessimista) e varreria sensibilidade em r e cap rate terminal.
+              </p>
+            </div>
+
+            <h3>5.1) Fluxo de caixa ao cotista (proxy)</h3>
+            <p>
+              Para DCF, você precisa de um FC “distribuível”. Uma forma conservadora é:
+              <b>NOI - capex recorrente - taxas/overhead</b>. Aqui vamos simplificar e tratar capex.
+            </p>
+
+            <div class="math">
+              <code>
+FC_1 (proxy) = NOI_1 - Capex_recorrente
+NOI_1 = 19,08 (milhões) * (1 + 1,5%) = 19,3662
+Capex = 1,2
+
+FC_1 ≈ 18,1662 milhões
+              </code>
+            </div>
+
+            <h3>5.2) Projeção e valor presente (esqueleto)</h3>
+            <p>
+              Vamos expressar o modelo sem listar 10 linhas de planilha (você pode replicar em Excel).
+              FC_t cresce 1,5% a.a. e é descontado a 12% a.a.
+            </p>
+
+            <div class="math">
+              <code>
+FC_t = FC_1 * (1 + g)^(t-1)
+PV = Σ [ FC_t / (1 + r)^t ]  , t=1..10
+
+Terminal:
+NOI_11 = NOI_1 * (1+g)^(10)
+FC_11 ≈ NOI_11 - Capex
+
+TV_10 = FC_11 / CapRate_terminal
+PV_TV = TV_10 / (1 + r)^10
+              </code>
+            </div>
+
+            <p>
+              Agora vamos computar um valor aproximado (mantendo transparência):
+              com r = 12% e g = 1,5%, o valor presente de uma série crescente é dominado pelo terminal.
+              Para o exemplo, suponha que o PV dos fluxos 1..10 dê ~R$ 103 milhões e o PV do terminal ~R$ 152 milhões
+              (ordens de grandeza plausíveis para parâmetros escolhidos).
+            </p>
+
+            <div class="callout">
+              <b>O que o institucional faz aqui:</b> não “acredita” no número. Ele testa:
+              (i) e se r for 13%? (ii) e se cap rate terminal for 10,5%? (iii) e se g for 0%?
+              O valor só é útil se for robusto a pequenas mudanças.
+            </div>
+
+            <h2 id="a6">6) Duration proxy e sensibilidade a juros (choques)</h2>
+            <p>
+              Com um DCF, você consegue medir sensibilidade a juros:
+              se r sobe 1pp, quanto o valor cai? Isso é uma “duration proxy”.
+              Em ativos de fluxo, essa elasticidade é crucial para gestão de risco.
+            </p>
+
+            <div class="math">
+              <code>
+Sensitivity (aprox):
+ΔV/V ≈ -D*Δr   (D = duration proxy)
+
+Exemplo:
+Se D ≈ 7 e Δr = +1% (0,01)
+ΔV/V ≈ -7%  (queda aproximada)
+              </code>
+            </div>
+
+            <div class="note">
+              Isso ajuda a entender por que FIIs podem cair forte em ciclos de juros:
+              mesmo com fluxo atual estável, a taxa de desconto muda o “múltiplo” do fluxo.
+            </div>
+
+            <h2 id="a7">7) Stress tests institucionais (vacância, aluguel, capex, juros)</h2>
+            <p>
+              Valuation sem stress test é frágil. A regra institucional é:
+              <b>todo modelo precisa de testes de estresse nos principais drivers.</b>
+            </p>
+
+            <table class="table" aria-label="Stress tests hipotéticos">
+              <thead>
+                <tr>
+                  <th>Choque</th>
+                  <th>Como modelar</th>
+                  <th>Efeito típico</th>
+                  <th>Interpretação</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Vacância +5pp</b></td>
+                  <td>reduz receita líquida → NOI cai</td>
+                  <td>queda de valor via menor FC</td>
+                  <td>mede risco de ocupação e concentração</td>
+                </tr>
+                <tr>
+                  <td><b>Juros +2pp</b></td>
+                  <td>aumenta r e cap rate “justo”</td>
+                  <td>compressão de múltiplo</td>
+                  <td>mede duration e beta macro</td>
+                </tr>
+                <tr>
+                  <td><b>Capex +50%</b></td>
+                  <td>reduz FC distribuível</td>
+                  <td>reduz yield sustentável</td>
+                  <td>mede obsolescência/ciclo do ativo</td>
+                </tr>
+                <tr>
+                  <td><b>Aluguel real 0%</b></td>
+                  <td>g → 0 (ou negativo)</td>
+                  <td>terminal menor</td>
+                  <td>mede dependência de reajuste/repasse</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="warning">
+              <b>O principal erro amador:</b> usar apenas “cenário base”.
+              O mercado te pune por eventos de cauda (vacância, juros, concentração).
+              O investidor institucional sobrevive porque antecipa o que quebra o modelo.
+            </div>
+
+            <h3>7.1) Exemplo rápido: vacância +5pp (hipotético)</h3>
+            <p>
+              Se vacância sobe de 7% para 12% (mantendo inadimplência 1%), a receita líquida cai:
+            </p>
+
+            <div class="math">
+              <code>
+Antes: Receita líquida = 24,0 * (1 - 0,07 - 0,01) = 22,08
+Depois: Receita líquida = 24,0 * (1 - 0,12 - 0,01) = 20,88
+
+Δ Receita líquida = -1,20 milhão
+Se custos fixos pouco mudam, NOI cai quase 1,20 milhão/ano.
+Esse choque, descontado, pode reduzir valor significativamente.
+              </code>
+            </div>
+
+            <h2 id="a8">8) Checklist e ponte para a Parte 3 (tijolo)</h2>
+            <div class="card">
+              <h3>Checklist (Parte 2)</h3>
+              <ul>
+                <li>Consigo reconstruir NOI e separar recorrente vs não recorrente.</li>
+                <li>Entendo cap rate como múltiplo inverso e sei comparar com mercado.</li>
+                <li>Sei interpretar NAV e por que prêmio/desconto não é “barato/caro” sozinho.</li>
+                <li>Sei montar DCF com hipóteses explícitas e testar sensibilidade.</li>
+                <li>Consigo rodar stress tests (juros, vacância, capex, crescimento real).</li>
+              </ul>
+            </div>
+
+            <p>
+              Na <b>Parte 3</b>, entramos em FIIs de <b>tijolo</b> por segmento (lajes, logística, shoppings etc.),
+              com drivers específicos, métricas operacionais e como “traduzir” cada segmento para o framework
+              de NOI/cap rate/risco.
+            </p>
+
+            <div class="nav-ends" aria-label="Navegação entre partes">
+              <a href="/posts/guia-institucional-fiis-parte-1.html"><i class="fa-solid fa-arrow-left"></i> Voltar: Parte 1</a>
+              <a href="/posts/guia-institucional-fiis-parte-3.html">Próxima: Parte 3 <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé padrão -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        <h3>Cérebro Milionário</h3>
+        <p>Educação financeira com profundidade estratégica.</p>
+        <div style="display:flex; gap:12px; margin-top:10px; align-items:center;">
+          <a href="https://t.me/cerebromillionario" target="_blank" rel="noopener" aria-label="Telegram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none;">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://instagram.com/cerebromillionario" target="_blank" rel="noopener" aria-label="Instagram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none;">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/glossario-financeiro.html">Glossário Financeiro</a></li>
+          <li><a href="/perguntas-frequentes.html">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script menu mobile -->
+  <script>
+    (function () {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', function () {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    })();
+  </script>
+</body>
+</html>
