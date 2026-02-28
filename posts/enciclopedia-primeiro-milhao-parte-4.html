@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Enciclopédia do Primeiro Milhão (Parte 4/8) — Modelos e Simulação (Determinístico + Estocástico) | Cérebro Milionário</title>
+  <meta name="description" content="Enciclopédia do Primeiro Milhão (4/8): modelagem determinística e estocástica do caminho ao milhão real. Quantis, risco de sequência, políticas de aporte e rebalanceamento, governança para maximizar probabilidade de atingir a meta." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/enciclopedia-primeiro-milhao-parte-4.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Enciclopédia do Primeiro Milhão (Parte 4/8) — Modelos e Simulação (Determinístico + Estocástico)" />
+  <meta property="og:description" content="Tratado técnico: tempo para o milhão em termos reais, simulação estocástica, quantis, risco de sequência e políticas de execução robustas." />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/enciclopedia-primeiro-milhao-parte-4.html" />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Fonts + Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- CSS do site -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Enciclopédia do Primeiro Milhão (Parte 4/8) — Modelos e Simulação (Determinístico + Estocástico)",
+    "description":"Modelos determinísticos e estocásticos para o caminho ao milhão real: quantis, risco de sequência, políticas de aporte e rebalanceamento.",
+    "author":{"@type":"Organization","name":"Cérebro Milionário"},
+    "publisher":{"@type":"Organization","name":"Cérebro Milionário"},
+    "mainEntityOfPage":"https://peppy-lollipop-54fa27.netlify.app/posts/enciclopedia-primeiro-milhao-parte-4.html"
+  }
+  </script>
+
+  <style>
+    body{ overflow-x:hidden; }
+
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px; border-radius:999px;
+      background: rgba(44,44,46,.06);
+      font-weight: 800; font-size: 12px;
+    }
+
+    .layout{ display:grid; grid-template-columns: 280px 1fr; gap: 18px; align-items:start; }
+    @media(max-width: 980px){ .layout{ grid-template-columns: 1fr; } .booknav{ position: relative; top:auto; } }
+
+    .booknav{
+      position: sticky; top: 88px;
+      border:1px solid rgba(0,0,0,.08);
+      border-radius: 18px;
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      overflow:hidden;
+    }
+    .booknav .bn-head{ padding:14px 14px 10px; border-bottom:1px solid rgba(0,0,0,.06); background: rgba(44,44,46,.03); }
+    .booknav .bn-head strong{ display:block; }
+    .booknav .bn-head span{ opacity:.78; font-size:12px; }
+    .booknav .bn-body{ padding: 12px 12px 14px; }
+    .booknav a{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:10px 10px; border-radius: 14px;
+      text-decoration:none;
+      border:1px solid rgba(0,0,0,.06);
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      margin: 10px 0;
+    }
+    .booknav a:hover{ transform: translateY(-1px); }
+    .booknav a.active{ background: rgba(244,196,48,.14); border-color: rgba(244,196,48,.40); }
+    .booknav a small{ display:block; opacity:.75; line-height:1.25; }
+    .booknav a b{ display:block; font-size: 13px; line-height: 1.2; }
+
+    .content{ max-width: 920px; }
+
+    .hero{
+      border:1px solid rgba(0,0,0,.08);
+      border-radius: 18px;
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      padding: 16px;
+    }
+    .hero h1{ margin: 8px 0 6px; }
+    .hero p{ margin: 0; opacity:.86; line-height:1.65; }
+
+    .toc{
+      margin-top:14px;
+      border:1px solid rgba(0,0,0,.08);
+      border-radius: 18px;
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      padding: 14px 16px;
+    }
+    .toc h2{ margin: 0 0 10px; font-size:18px; }
+    .toc ol{ margin: 0 0 0 18px; }
+    .toc li{ margin: 8px 0; }
+    .toc a{ text-decoration:none; }
+
+    .callout{ border-left:4px solid var(--accent-color, #f4c430); background: rgba(244,196,48,.10); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
+    .warning{ border-left:4px solid #e2574c; background: rgba(226,87,76,.08); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
+    .note{ border-left:4px solid #3b82f6; background: rgba(59,130,246,.08); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
+
+    .kpi-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+    .kpi{ border:1px solid rgba(0,0,0,.08); border-radius: 16px; background:#fff; box-shadow: var(--shadow-sm); padding: 12px 14px; }
+    .kpi strong{ display:block; font-size: 18px; }
+    .kpi span{ opacity:.8; }
+    @media(max-width: 980px){ .kpi-grid{ grid-template-columns: 1fr; } }
+
+    .math{
+      border:1px solid rgba(0,0,0,.08);
+      border-radius: 18px;
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      padding: 14px 16px;
+      margin: 18px 0;
+      overflow:auto;
+    }
+    .math code{
+      display:block;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      white-space: pre;
+    }
+
+    .table{
+      width:100%;
+      border-collapse: collapse;
+      border:1px solid rgba(0,0,0,.08);
+      border-radius: 14px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      margin: 14px 0;
+    }
+    .table th, .table td{
+      padding: 12px 12px;
+      border-bottom:1px solid rgba(0,0,0,.06);
+      vertical-align: top;
+      text-align:left;
+    }
+    .table th{ background: rgba(44,44,46,.04); }
+    .muted{ opacity:.78; }
+
+    .content h2{ margin-top: 34px; }
+    .content h3{ margin-top: 24px; }
+    .content p{ line-height: 1.75; margin: 12px 0; }
+    .content ul{ line-height: 1.75; }
+    .content li{ margin: 8px 0; }
+
+    .nav-ends{
+      display:flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+      margin-top: 22px;
+    }
+    .nav-ends a{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border:1px solid rgba(0,0,0,.10);
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      text-decoration:none;
+      font-weight: 900;
+    }
+    .nav-ends a:hover{ transform: translateY(-1px); }
+    .divider-soft{ border:0; height:1px; background: rgba(0,0,0,.10); margin: 22px 0; }
+
+    .badge{
+      display:inline-block;
+      font-weight: 900;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,.10);
+      background: rgba(44,44,46,.04);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header padrão -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container" style="max-width: 1200px;">
+        <div class="layout">
+
+          <!-- NAVEGAÇÃO DO LIVRO -->
+          <aside class="booknav" aria-label="Navegação do livro">
+            <div class="bn-head">
+              <strong>Enciclopédia do Primeiro Milhão</strong>
+              <span>Livro técnico • 8 partes • meta real</span>
+            </div>
+            <div class="bn-body">
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-1.html">
+                <i class="fa-solid fa-square-root-variable" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 1 — Fundamentos reais</b>
+                  <small>modelo matemático, retorno real, premissas, risco</small>
+                </div>
+              </a>
+
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-2.html">
+                <i class="fa-solid fa-chart-line" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 2 — Motor (renda/aporte)</b>
+                  <small>taxa de investimento, crescimento salarial, alavancas</small>
+                </div>
+              </a>
+
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-3.html">
+                <i class="fa-solid fa-layer-group" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 3 — Arquitetura de carteira</b>
+                  <small>alocação por fase, risco, premissas por ativo</small>
+                </div>
+              </a>
+
+              <a class="active" href="/posts/enciclopedia-primeiro-milhao-parte-4.html">
+                <i class="fa-solid fa-infinity" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 4 — Modelos e simulação</b>
+                  <small>determinístico/estocástico, quantis, sequência</small>
+                </div>
+              </a>
+
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-5.html">
+                <i class="fa-solid fa-brain" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 5 — Psicologia quantitativa</b>
+                  <small>viés, regime, controle de processo</small>
+                </div>
+              </a>
+
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-6.html">
+                <i class="fa-solid fa-triangle-exclamation" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 6 — Riscos e armadilhas</b>
+                  <small>ruína, sequência, concentração, liquidez</small>
+                </div>
+              </a>
+
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-7.html">
+                <i class="fa-solid fa-bolt" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 7 — 500k → 1M</b>
+                  <small>efeito avalanche, convexidade, governança</small>
+                </div>
+              </a>
+
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-8.html">
+                <i class="fa-solid fa-shield-halved" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 8 — Blindagem e consolidação</b>
+                  <small>preservação, impostos, sucessão, próximo ciclo</small>
+                </div>
+              </a>
+
+              <hr class="divider-soft" />
+              <a href="/calculadora.html" style="margin-top:0;">
+                <i class="fa-solid fa-calculator" style="margin-top:2px;"></i>
+                <div>
+                  <b>Ferramenta: Juros Compostos</b>
+                  <small>simule aportes e retorno</small>
+                </div>
+              </a>
+              <a href="/aposentadoria.html" style="margin-top:10px;">
+                <i class="fa-solid fa-person-cane" style="margin-top:2px;"></i>
+                <div>
+                  <b>Ferramenta: Aposentadoria</b>
+                  <small>planejamento de longo prazo</small>
+                </div>
+              </a>
+            </div>
+          </aside>
+
+          <!-- CONTEÚDO -->
+          <article class="content">
+
+            <div class="hero">
+              <span class="pill"><i class="fa-solid fa-chart-simple"></i> Enciclopédia • Parte 4/8 • Modelos e simulação</span>
+              <h1>Modelos (determinístico + estocástico): tempo para o milhão, quantis e risco de sequência</h1>
+              <p>
+                Aqui você sai do “achismo” e entra no que instituições fazem: modelar o caminho, entender distribuição
+                de resultados, identificar fragilidades (sequence risk) e desenhar uma política que maximize a probabilidade
+                de atingir <b>R$ 1.000.000 em termos reais</b> sob premissas: inflação 4% e retorno real esperado 6% ao ano.
+              </p>
+
+              <div class="kpi-grid">
+                <div class="kpi"><strong>Meta</strong><span>R$ 1.000.000 real</span></div>
+                <div class="kpi"><strong>Base</strong><span>r = 6% a.a. real</span></div>
+                <div class="kpi"><strong>Entrega</strong><span>modelo + política</span></div>
+              </div>
+
+              <div class="callout">
+                <b>Ponto-chave:</b> retorno “médio” é irrelevante se você não sabe o risco de cair nos piores quantis.
+                O investidor não quebra por média. Ele quebra por sequência ruim + choque de vida + venda forçada.
+              </div>
+            </div>
+
+            <div class="toc">
+              <h2>Índice da Parte 4 (clique para ir)</h2>
+              <ol>
+                <li><a href="#sec-1">Determinístico: tempo para a meta (C constante e crescente)</a></li>
+                <li><a href="#sec-2">Estocástico: distribuição de resultados e quantis (p5/p10/p50/p90)</a></li>
+                <li><a href="#sec-3">Risco de sequência: por que ordem dos retornos importa (mesmo com mesma média)</a></li>
+                <li><a href="#sec-4">Políticas comparadas: rebalanceamento, fluxo, satélite e drawdown</a></li>
+                <li><a href="#sec-5">Probabilidade de atingir o milhão: framework para P(WT ≥ W*)</a></li>
+                <li><a href="#sec-6">Regra institucional final: política “executável” (sem virar trader)</a></li>
+              </ol>
+            </div>
+
+            <h2 id="sec-1">1) Determinístico: tempo para a meta (C constante e crescente)</h2>
+            <p>
+              Determinístico é o “mapa” base: assume retorno real constante (r) e contribuições previstas.
+              Não é o mundo real — mas é a régua que você usa para medir execução.
+            </p>
+
+            <h3>1.1) Caso A — aporte real constante (anuidade)</h3>
+            <div class="math">
+              <code>
+W_n = W_0 (1+r)^n + C · [((1+r)^n - 1) / r]
+
+Se W_0 ≈ 0:
+W_n ≈ C · [((1+r)^n - 1) / r]
+
+Invertendo para n (tempo):
+(1+r)^n ≈ 1 + (W*·r)/C
+n ≈ ln( 1 + (W*·r)/C ) / ln(1+r)
+              </code>
+            </div>
+
+            <p>
+              Interpretação: o tempo cai com o aporte, mas de forma logarítmica. Você precisa pensar em “degraus”
+              (políticas) para elevar C ao longo do tempo (Parte 2), porque C constante raramente existe.
+            </p>
+
+            <h3>1.2) Caso B — aporte real crescente (anuidade crescente)</h3>
+            <p>
+              Quando o aporte cresce com a renda real (gY), você tem:
+            </p>
+            <div class="math">
+              <code>
+C_t = C_0 (1+g)^t
+
+W_n ≈ W_0(1+r)^n + C_0 · [ ( (1+r)^n - (1+g)^n ) / (r - g) ]
+(para r ≠ g)
+              </code>
+            </div>
+
+            <p>
+              Institucionalmente, isso é enorme: se você consegue elevar o aporte real ao longo do tempo (mesmo 1–2% real),
+              o tempo para o milhão cai substancialmente sem exigir “retornos mágicos”.
+            </p>
+
+            <div class="note">
+              <b>Uso prático:</b> o modelo determinístico vira seu “alvo” trimestral.
+              Você compara o patrimônio real (deflacionado) com a trajetória esperada e mede erro (tracking error).
+            </div>
+
+            <h2 id="sec-2">2) Estocástico: distribuição de resultados e quantis (p5/p10/p50/p90)</h2>
+            <p>
+              Agora entra o que realmente importa: o retorno é uma variável aleatória. Logo, W<sub>T</sub> é uma variável aleatória.
+              Em vez de “quanto vou ter”, você pergunta:
+              <b>qual a distribuição de W<sub>T</sub>?</b> e <b>qual a probabilidade de atingir a meta?</b>
+            </p>
+
+            <h3>2.1) Modelo de retornos: simples, mas institucionalmente correto</h3>
+            <p>
+              Você pode modelar retornos reais por período como:
+            </p>
+            <div class="math">
+              <code>
+r_t ~ Distribuição com média μ e volatilidade σ
+
+Modelo básico:
+  r_t = μ + σ·ε_t
+  ε_t ~ N(0,1)  (normal)
+              </code>
+            </div>
+
+            <p>
+              Observação institucional: retornos de mercado têm caudas mais gordas que normal. Mas a normal
+              serve como baseline pedagógico. O ponto é o framework.
+            </p>
+
+            <div class="warning">
+              <b>Por que quantis importam?</b> Porque você não investe “na média”. Você vive uma sequência única.
+              Se o seu plano só funciona no p50 (mediana), ele falha em metade dos mundos possíveis.
+            </div>
+
+            <h3>2.2) Monte Carlo conceitual (sem rodar código)</h3>
+            <p>
+              O processo para simular (conceitualmente) é:
+            </p>
+            <div class="math">
+              <code>
+Para simulação k = 1..K:
+  W = W0
+  Para t = 1..T:
+    W = (W + C_t) · (1 + r_t)
+
+No final:
+  guardar W_T(k)
+
+Depois:
+  ordenar {W_T(k)} e extrair quantis p5/p10/p50/p90
+  estimar P(W_T ≥ W*)
+              </code>
+            </div>
+
+            <p>
+              O que sai disso:
+            </p>
+            <ul>
+              <li><b>p50 (mediana):</b> “mundo típico”.</li>
+              <li><b>p10:</b> mundo ruim (1 em 10). Se seu plano quebra aqui, falta robustez.</li>
+              <li><b>p5:</b> mundo muito ruim (1 em 20). Planejamento institucional não ignora isso.</li>
+              <li><b>p90:</b> mundo bom (1 em 10). Evita ilusão de “sempre dá certo”.</li>
+            </ul>
+
+            <h3>2.3) O que realmente mexe nos quantis (insight institucional)</h3>
+            <p>
+              Três forças deslocam a distribuição:
+            </p>
+            <ul>
+              <li><b>μ (média):</b> aumenta o centro da distribuição, mas com retorno decrescente se σ sobe muito.</li>
+              <li><b>σ (volatilidade):</b> aumenta dispersão e aumenta risco de cair em p5/p10; pode reduzir crescimento geométrico.</li>
+              <li><b>Política (aportos + rebalanceamento + limites):</b> reduz probabilidade de falha operacional e melhora a cauda esquerda.</li>
+            </ul>
+
+            <div class="callout">
+              <b>Tradução:</b> para “primeiro milhão”, o que mais vale é melhorar a cauda esquerda.
+              A cauda direita (p90) é bônus. A cauda esquerda é sobrevivência.
+            </div>
+
+            <h2 id="sec-3">3) Risco de sequência: por que ordem dos retornos importa</h2>
+            <p>
+              Sequência de retornos (sequence-of-returns risk) é a diferença entre:
+              (i) ter retornos ruins no começo vs no fim.
+              Mesmo com a mesma média, a ordem muda o resultado quando há aportes e/ou retiradas.
+            </p>
+
+            <h3>3.1) Com aportes (fase de acumulação)</h3>
+            <p>
+              Na acumulação, retornos ruins no começo podem ser menos destrutivos do que no fim,
+              porque você ainda está comprando “barato” com aportes (desde que não abandone o plano).
+              Porém, se retorno ruim no começo causar pânico e cortar aportes, o plano quebra.
+            </p>
+
+            <div class="note">
+              <b>Insight:</b> o risco de sequência na acumulação é menos “matemático” e mais “comportamental-operacional”.
+              A carteira deve ser desenhada para evitar que você abandone o plano no primeiro grande drawdown.
+            </div>
+
+            <h3>3.2) Com drawdown e venda forçada (o verdadeiro veneno)</h3>
+            <p>
+              O cenário que destrói o plano não é “mercado caiu”. É:
+              <b>mercado caiu + renda caiu + você precisou vender</b>.
+              Isso é ruína operacional. Por isso, liquidez/reserva e bandas são parte do portfólio.
+            </p>
+
+            <div class="math">
+              <code>
+Falha (ruína operacional):
+  Choque de retorno (r_t negativo) +
+  Choque de renda (Y_t cai → C_t cai) +
+  Resgate (W_t reduzido no fundo)
+=> Perda permanente de capital e de tempo.
+              </code>
+            </div>
+
+            <h3>3.3) O “anti-sequência”: rebalanceamento via fluxo</h3>
+            <p>
+              A melhor defesa institucional na acumulação:
+              <b>rebalancear com aportes</b> e manter um core robusto. Assim, em crises:
+              você aporta mais no bloco que caiu (mais abaixo do alvo), sem vender o que subiu.
+            </p>
+
+            <h2 id="sec-4">4) Políticas comparadas: rebalanceamento, fluxo, satélite e drawdown</h2>
+
+            <h3>4.1) Rebalanceamento por bandas vs periódico</h3>
+            <table class="table" aria-label="Comparação de rebalanceamento">
+              <thead>
+                <tr>
+                  <th>Política</th>
+                  <th>Vantagens</th>
+                  <th>Riscos/Costos</th>
+                  <th>Uso institucional</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Por bandas</b></td>
+                  <td>Menor turnover, disciplina em extremos, risco controlado</td>
+                  <td>Exige monitoramento mínimo (mensal/trimestral)</td>
+                  <td>Preferida para PF por reduzir impostos e ruído</td>
+                </tr>
+                <tr>
+                  <td><b>Periódico (mensal)</b></td>
+                  <td>Simplicidade operacional</td>
+                  <td>Turnover maior; pode vender/comprar sem necessidade</td>
+                  <td>Usado quando custos/tributação são baixos e execução é fácil</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h3>4.2) Rebalanceamento via fluxo vs venda</h3>
+            <p>
+              Para renda média brasileira, via fluxo é superior porque:
+              minimiza imposto, spread e risco de “timing”.
+            </p>
+
+            <div class="math">
+              <code>
+Regra via fluxo:
+  Direcionar novo aporte ao bloco com maior desvio negativo.
+
+Venda só quando:
+  peso ultrapassa banda superior e fluxo não corrige em prazo razoável.
+              </code>
+            </div>
+
+            <h3>4.3) Satélite alto vs satélite baixo (cauda esquerda)</h3>
+            <p>
+              Satélites (apostas concentradas) aumentam σ e aumentam a chance de cair nos p5/p10.
+              Isso pode ser aceitável apenas se:
+              (i) satélite tiver teto rígido,
+              (ii) não comprometer execução de aportes,
+              (iii) houver governança (stop de contribuição ao satélite quando em drawdown).
+            </p>
+
+            <div class="warning">
+              <b>Regra institucional:</b> satélite não pode ter poder de quebrar o processo.
+              Se um satélite pode gerar drawdown que te faz vender core ou cortar aporte, ele está grande demais.
+            </div>
+
+            <h2 id="sec-5">5) Probabilidade de atingir o milhão: framework para P(WT ≥ W*)</h2>
+            <p>
+              O objetivo final é estimar e maximizar:
+            </p>
+
+            <div class="math">
+              <code>
+P = P(W_T ≥ W*)
+
+Alavancas para aumentar P:
+  ↑ C_t (aporte e crescimento real do aporte)
+  ↑ gY (crescimento real de renda / carreira)
+  ↑ μ (retorno real esperado do portfólio, com prudência)
+  ↓ σ e ↓ drawdowns extremos (robustez / diversificação / limites)
+  ↓ ruína operacional (reserva + liquidez + política de crise)
+              </code>
+            </div>
+
+            <p>
+              Institucionalmente, você quer um plano que funcione bem no p10 (mundo ruim).
+              Se você só mira no p50, você está apostando que viverá “um mundo mediano”.
+            </p>
+
+            <div class="callout">
+              <b>Definição de robustez:</b> um plano robusto é aquele em que,
+              mesmo no p10, você continua aportando, não vende no fundo e mantém o core.
+              Isso maximiza P no horizonte.
+            </div>
+
+            <h2 id="sec-6">6) Regra institucional final: política “executável” (sem virar trader)</h2>
+            <p>
+              Aqui está uma política consolidada (core/satélite + bandas + fluxo + crise), que você pode aplicar
+              sem precisar prever mercado.
+            </p>
+
+            <h3>6.1) Política base (resumo executivo)</h3>
+            <ul>
+              <li><b>Defina blocos funcionais:</b> Liquidez / RF real / Equity global / Diversificador.</li>
+              <li><b>Defina pesos-alvo</b> e <b>bandas</b> (δ_abs ou δ_rel) por bloco.</li>
+              <li><b>Aporte automático</b> D+1 após renda cair na conta (Parte 2).</li>
+              <li><b>Rebalanceamento via fluxo:</b> aporte sempre no bloco mais abaixo do alvo.</li>
+              <li><b>Venda apenas</b> se ultrapassar banda superior e fluxo não corrigir.</li>
+              <li><b>Satélite com teto rígido</b> e regra de “congelar satélite” em drawdown grande.</li>
+              <li><b>Em crise:</b> use reserva para não vender o core; reduza aporte para C_min, mas não zere o processo.</li>
+            </ul>
+
+            <h3>6.2) Bandas sugeridas (heurísticas)</h3>
+            <p class="muted">
+              Sem números mágicos, mas com heurística útil: blocos mais voláteis toleram bandas maiores;
+              blocos estáveis toleram bandas menores. A ideia é reduzir turnover.
+            </p>
+            <div class="math">
+              <code>
+Exemplo (heurístico):
+  Liquidez: banda menor (ex.: 2–4 p.p.)
+  RF real:  banda média (ex.: 3–6 p.p.)
+  Equity:   banda maior (ex.: 5–10 p.p.)
+  Diversificador: banda média/maior (dependendo do ativo)
+              </code>
+            </div>
+
+            <div class="warning">
+              <b>Importante:</b> a política não precisa ser perfeita.
+              Ela precisa ser consistente. A maior parte do ganho vem de:
+              (i) evitar ruína operacional,
+              (ii) manter aportes,
+              (iii) manter risco em linha (bandas),
+              (iv) reduzir decisões emocionais.
+            </div>
+
+            <hr class="divider-soft" />
+
+            <h2>Fechamento técnico da Parte 4</h2>
+            <p>
+              Você agora tem o arcabouço de modelagem institucional:
+              determinístico para metas e tracking, estocástico para distribuição e quantis,
+              e a lente correta de risco (sequência + ruína operacional).
+              A próxima peça é a mais difícil: <b>psicologia quantitativa</b> —
+              como desenhar regras que reduzam a chance de você mesmo sabotar o plano (Parte 5).
+            </p>
+
+            <div class="nav-ends" aria-label="Navegação entre partes">
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-3.html"><i class="fa-solid fa-arrow-left"></i> Voltar: Parte 3</a>
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-5.html">Próxima: Parte 5 <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé padrão -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        <h3>Cérebro Milionário</h3>
+        <p>Educação financeira com profundidade estratégica.</p>
+        <div style="display:flex; gap:12px; margin-top:10px; align-items:center;">
+          <a href="https://t.me/cerebromillionario" target="_blank" rel="noopener" aria-label="Telegram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none;">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://instagram.com/cerebromillionario" target="_blank" rel="noopener" aria-label="Instagram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none;">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/glossario-financeiro.html">Glossário Financeiro</a></li>
+          <li><a href="/perguntas-frequentes.html">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script menu mobile -->
+  <script>
+    (function () {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', function () {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    })();
+  </script>
+</body>
+</html>
