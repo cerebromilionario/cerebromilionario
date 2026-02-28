@@ -4,204 +4,607 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Guia Institucional de FIIs (Parte 6/8) — Ciclos, Juros, Spreads e Cap Rate | Cérebro Milionário</title>
-  <meta name="description" content="Guia Institucional de FIIs (Parte 6/8): ciclos imobiliários, curva de juros, spreads de crédito, compressão/expansão de cap rate, regime macro e impacto estrutural em tijolo, papel e FOFs." />
+  <title>Guia Institucional de FIIs (Parte 6/8) — Ciclos, Juros, Curva, Spreads e Cap Rate: Framework Macro | Cérebro Milionário</title>
+  <meta name="description" content="Guia Institucional de FIIs (Parte 6/8): o framework macro completo para FIIs. Regimes de juros/inflação, curva, spreads de crédito, cap rate, duration implícita, decomposição de retornos, stress tests e protocolos de posicionamento (tijolo, papel e FOFs)." />
+  <meta name="keywords" content="ciclos FIIs, curva de juros, cap rate, spreads de crédito, duration, regimes macro, valuation, NOI, inflação, NTN-B, CDI, crédito imobiliário, FIIs tijolo, FIIs papel" />
   <meta name="author" content="Cérebro Milionário" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/guia-institucional-fiis-parte-6.html" />
 
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/guia-institucional-fiis-parte-6.html" />
+  <meta property="og:title" content="Guia Institucional de FIIs (Parte 6/8) — Ciclos, Juros, Curva, Spreads e Cap Rate" />
+  <meta property="og:description" content="Framework macro institucional para FIIs: regimes, duration, cap rate, curva e spreads + stress tests." />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/guia-institucional-fiis-parte-6.html" />
+  <meta property="twitter:title" content="Guia Institucional de FIIs (Parte 6/8) — Ciclos, Juros, Curva, Spreads e Cap Rate" />
+  <meta property="twitter:description" content="Framework macro institucional para FIIs: regimes, duration, cap rate, curva e spreads + stress tests." />
+  <meta property="twitter:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- CSS do site -->
   <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- AdSense -->
   <meta name="google-adsense-account" content="ca-pub-4613426749830025">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
 
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Guia Institucional de FIIs (Parte 6/8) — Ciclos, Juros, Curva, Spreads e Cap Rate: Framework Macro",
+    "description":"Framework macro institucional para FIIs: regimes, curva de juros, cap rate, spreads, duration implícita, decomposição de retornos e stress tests.",
+    "author":{"@type":"Organization","name":"Cérebro Milionário"},
+    "publisher":{"@type":"Organization","name":"Cérebro Milionário"},
+    "mainEntityOfPage":"https://peppy-lollipop-54fa27.netlify.app/posts/guia-institucional-fiis-parte-6.html"
+  }
+  </script>
+
   <style>
     body{ overflow-x:hidden; }
-    .layout{ display:grid; grid-template-columns:280px 1fr; gap:18px; }
-    @media(max-width:980px){ .layout{ grid-template-columns:1fr; } }
 
-    .booknav{ position:sticky; top:88px; border:1px solid rgba(0,0,0,.08);
-      border-radius:18px; background:#fff; padding:14px; box-shadow:var(--shadow-sm); }
+    .pill{ display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background: rgba(44,44,46,.06); font-weight: 800; font-size: 12px; }
 
-    .booknav a{ display:block; padding:8px 10px; border-radius:12px;
-      text-decoration:none; margin:6px 0; border:1px solid rgba(0,0,0,.06); }
+    .layout{ display:grid; grid-template-columns: 280px 1fr; gap: 18px; align-items:start; }
+    @media (max-width: 980px){
+      .layout{ grid-template-columns: 1fr; }
+      .booknav{ position: relative; top:auto; }
+    }
 
-    .booknav a.active{ background:rgba(244,196,48,.14); }
+    .booknav{ position: sticky; top: 88px; border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); overflow:hidden; }
+    .booknav .bn-head{ padding:14px 14px 10px; border-bottom:1px solid rgba(0,0,0,.06); background: rgba(44,44,46,.03); }
+    .booknav .bn-head strong{ display:block; }
+    .booknav .bn-head span{ opacity:.78; font-size:12px; }
+    .booknav .bn-body{ padding: 12px 12px 14px; }
+    .booknav a{ display:flex; gap:10px; align-items:flex-start; padding:10px 10px; border-radius: 14px; text-decoration:none; border:1px solid rgba(0,0,0,.06); background:#fff; box-shadow: var(--shadow-sm); margin: 10px 0; }
+    .booknav a:hover{ transform: translateY(-1px); }
+    .booknav a.active{ background: rgba(244,196,48,.14); border-color: rgba(244,196,48,.40); }
+    .booknav a small{ display:block; opacity:.75; line-height:1.25; }
+    .booknav a b{ display:block; font-size: 13px; line-height: 1.2; }
 
-    .content{ max-width:900px; }
+    .content{ max-width: 920px; }
 
-    .hero{ border:1px solid rgba(0,0,0,.08); border-radius:18px;
-      background:#fff; padding:18px; box-shadow:var(--shadow-sm); }
+    .hero{ border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); padding: 16px; }
+    .hero h1{ margin: 8px 0 6px; }
+    .hero p{ margin: 0; opacity:.86; line-height:1.65; }
 
-    .toc{ margin-top:16px; border:1px solid rgba(0,0,0,.08);
-      border-radius:18px; padding:14px; background:#fff; }
+    .kpi-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+    .kpi{ border:1px solid rgba(0,0,0,.08); border-radius: 16px; background:#fff; box-shadow: var(--shadow-sm); padding: 12px 14px; }
+    .kpi strong{ display:block; font-size: 18px; }
+    .kpi span{ opacity:.8; }
+    @media (max-width: 980px){ .kpi-grid{ grid-template-columns: 1fr; } }
 
-    .math{ border:1px solid rgba(0,0,0,.08);
-      border-radius:16px; padding:14px; margin:16px 0; background:#fff; }
+    .toc{ margin-top:14px; border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); padding: 14px 16px; }
+    .toc h2{ margin: 0 0 10px; font-size:18px; }
+    .toc ol{ margin: 0 0 0 18px; }
+    .toc li{ margin: 8px 0; }
+    .toc a{ text-decoration:none; }
 
-    .warning{ border-left:4px solid #e2574c;
-      background:rgba(226,87,76,.08); padding:14px; border-radius:12px; }
+    .callout{ border-left:4px solid var(--accent-color, #f4c430); background: rgba(244,196,48,.10); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
+    .warning{ border-left:4px solid #e2574c; background: rgba(226,87,76,.08); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
+    .note{ border-left:4px solid #3b82f6; background: rgba(59,130,246,.08); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
 
-    .callout{ border-left:4px solid #f4c430;
-      background:rgba(244,196,48,.12); padding:14px; border-radius:12px; }
+    .math{ border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); padding: 14px 16px; margin: 18px 0; overflow:auto; }
+    .math code{ display:block; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 13px; line-height: 1.6; white-space: pre; }
 
-    .table{ width:100%; border-collapse:collapse;
-      margin:16px 0; background:#fff; border:1px solid rgba(0,0,0,.08); }
+    .table{ width:100%; border-collapse: collapse; border:1px solid rgba(0,0,0,.08); border-radius: 14px; overflow:hidden; background:#fff; box-shadow: var(--shadow-sm); margin: 14px 0; }
+    .table th, .table td{ padding: 12px 12px; border-bottom:1px solid rgba(0,0,0,.06); vertical-align: top; text-align:left; }
+    .table th{ background: rgba(44,44,46,.04); }
 
-    .table th,.table td{ padding:10px; border-bottom:1px solid rgba(0,0,0,.06); }
+    .content h2{ margin-top: 34px; }
+    .content h3{ margin-top: 24px; }
+    .content p{ line-height: 1.78; margin: 12px 0; }
+    .content ul{ line-height: 1.75; }
+    .content li{ margin: 8px 0; }
 
-    .nav-ends{ display:flex; justify-content:space-between; margin-top:24px; }
+    .grid2{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 980px){ .grid2{ grid-template-columns: 1fr; } }
+    .card{ border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); padding: 14px 16px; }
+    .card h3{ margin-top:0; }
+
+    .nav-ends{ display:flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+    .nav-ends a{ display:inline-flex; align-items:center; gap:10px; padding: 12px 14px; border-radius: 16px; border:1px solid rgba(0,0,0,.10); background:#fff; box-shadow: var(--shadow-sm); text-decoration:none; font-weight: 900; }
+    .nav-ends a:hover{ transform: translateY(-1px); }
+
+    .muted{ opacity:.78; }
+    .tag{ display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; font-weight:800; font-size:12px; background: rgba(44,44,46,.06); }
+
+    .divider-soft{ border:0; height:1px; background: rgba(0,0,0,.10); margin: 22px 0; }
   </style>
 </head>
 
 <body>
+  <!-- Header padrão do site -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
 
-<header class="header">
-  <div class="container header-container">
-    <div class="logo">
-      <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
     </div>
-  </div>
-</header>
+  </header>
 
-<main>
-<section class="section">
-<div class="container" style="max-width:1200px;">
-<div class="layout">
+  <main>
+    <section class="section">
+      <div class="container" style="max-width: 1200px;">
+        <div class="layout">
 
-<aside class="booknav">
-<strong>Guia Institucional de FIIs</strong>
-<p>Parte 6/8 • Macro & Regimes</p>
+          <!-- Menu lateral 8 partes -->
+          <aside class="booknav" aria-label="Navegação do guia">
+            <div class="bn-head">
+              <strong>Guia Institucional de FIIs</strong>
+              <span>Parte 6/8 • ciclos • curva • cap rate</span>
+            </div>
 
-<a href="/posts/guia-institucional-fiis-parte-1.html">Parte 1 — Fundamentos</a>
-<a href="/posts/guia-institucional-fiis-parte-2.html">Parte 2 — Modelagem</a>
-<a href="/posts/guia-institucional-fiis-parte-3.html">Parte 3 — Tijolo</a>
-<a href="/posts/guia-institucional-fiis-parte-4.html">Parte 4 — Papel</a>
-<a href="/posts/guia-institucional-fiis-parte-5.html">Parte 5 — FOFs</a>
-<a class="active" href="/posts/guia-institucional-fiis-parte-6.html">Parte 6 — Ciclos</a>
-<a href="/posts/guia-institucional-fiis-parte-7.html">Parte 7 — Carteira</a>
-<a href="/posts/guia-institucional-fiis-parte-8.html">Parte 8 — Blindagem</a>
-</aside>
+            <div class="bn-body">
+              <a href="/posts/guia-institucional-fiis-parte-1.html">
+                <i class="fa-solid fa-building-columns" style="margin-top:2px;"></i>
+                <div><b>Parte 1 — Fundamentos</b><small>estrutura, governança</small></div>
+              </a>
 
-<article class="content">
+              <a href="/posts/guia-institucional-fiis-parte-2.html">
+                <i class="fa-solid fa-chart-line" style="margin-top:2px;"></i>
+                <div><b>Parte 2 — Modelagem</b><small>NOI, cap rate, NAV</small></div>
+              </a>
 
-<div class="hero">
-<h1>Ciclos, Juros, Spreads e Cap Rate</h1>
-<p>
-Este é o capítulo que conecta tudo.
-FIIs não são avaliados no vácuo — eles vivem dentro de um regime macro.
-A compressão ou expansão de cap rate, a curva de juros, o spread de crédito
-e o ciclo imobiliário determinam o valuation.
-</p>
-</div>
+              <a href="/posts/guia-institucional-fiis-parte-3.html">
+                <i class="fa-solid fa-warehouse" style="margin-top:2px;"></i>
+                <div><b>Parte 3 — Tijolo</b><small>drivers setoriais</small></div>
+              </a>
 
-<div class="toc">
-<h3>Índice</h3>
-<ol>
-<li><a href="#c1">O que é um regime macro?</a></li>
-<li><a href="#c2">Cap rate e taxa livre de risco</a></li>
-<li><a href="#c3">Compressão vs expansão de cap rate</a></li>
-<li><a href="#c4">Curva de juros e duration implícita</a></li>
-<li><a href="#c5">Spreads de crédito e FIIs de papel</a></li>
-<li><a href="#c6">Ciclo imobiliário completo</a></li>
-<li><a href="#c7">Mapa de regimes e posicionamento</a></li>
-<li><a href="#c8">Checklist institucional</a></li>
-</ol>
-</div>
+              <a href="/posts/guia-institucional-fiis-parte-4.html">
+                <i class="fa-solid fa-file-invoice-dollar" style="margin-top:2px;"></i>
+                <div><b>Parte 4 — Papel</b><small>CRI, crédito, spread</small></div>
+              </a>
 
-<h2 id="c1">1) O que é um regime macro?</h2>
-<p>
-Regime macro é o ambiente predominante de juros, inflação,
-crescimento e crédito.
-FIIs respondem a esses vetores de maneira sistemática.
-</p>
+              <a href="/posts/guia-institucional-fiis-parte-5.html">
+                <i class="fa-solid fa-layer-group" style="margin-top:2px;"></i>
+                <div><b>Parte 5 — FOFs</b><small>NAV, desconto, custos</small></div>
+              </a>
 
-<div class="callout">
-Regime de juros baixos → compressão de cap rate → valorização de tijolo.
-Regime de juros altos → expansão de cap rate → pressão de preço.
-</div>
+              <a class="active" href="/posts/guia-institucional-fiis-parte-6.html">
+                <i class="fa-solid fa-scale-balanced" style="margin-top:2px;"></i>
+                <div><b>Parte 6 — Ciclos</b><small>curva e cap rate</small></div>
+              </a>
 
-<h2 id="c2">2) Cap rate e taxa livre de risco</h2>
+              <a href="/posts/guia-institucional-fiis-parte-7.html">
+                <i class="fa-solid fa-diagram-project" style="margin-top:2px;"></i>
+                <div><b>Parte 7 — Carteira</b><small>IPS e risco</small></div>
+              </a>
 
-<div class="math">
-Cap Rate ≈ Taxa Livre de Risco + Prêmio de Risco Imobiliário
-</div>
+              <a href="/posts/guia-institucional-fiis-parte-8.html">
+                <i class="fa-solid fa-shield-halved" style="margin-top:2px;"></i>
+                <div><b>Parte 8 — Blindagem</b><small>armadilhas</small></div>
+              </a>
 
-<p>
-Se a NTN-B sobe 150bps, o cap rate justo tende a subir,
-a menos que o prêmio de risco comprima.
-</p>
+              <hr class="divider-soft" />
+              <a href="/calculadora.html" style="margin-top:0;">
+                <i class="fa-solid fa-calculator" style="margin-top:2px;"></i>
+                <div><b>Ferramenta: Juros Compostos</b><small>simule aportes</small></div>
+              </a>
+              <a href="/aposentadoria.html" style="margin-top:10px;">
+                <i class="fa-solid fa-person-cane" style="margin-top:2px;"></i>
+                <div><b>Ferramenta: Aposentadoria</b><small>planejamento</small></div>
+              </a>
+            </div>
+          </aside>
 
-<h2 id="c3">3) Compressão vs expansão de cap rate</h2>
+          <!-- Conteúdo -->
+          <article class="content">
 
-<table class="table">
-<tr><th>Movimento</th><th>Impacto</th></tr>
-<tr><td>Compressão</td><td>Valorização patrimonial</td></tr>
-<tr><td>Expansão</td><td>Queda de valuation</td></tr>
-</table>
+            <div class="hero">
+              <span class="pill"><i class="fa-solid fa-scale-balanced"></i> Guia Institucional • Parte 6/8</span>
+              <h1>Ciclos, Juros, Curva, Spreads e Cap Rate: o Framework Macro que Move FIIs</h1>
+              <p>
+                Este capítulo é o “motor macro” do guia: ele conecta valuation, NOI, cap rate, curva de juros,
+                spreads de crédito e liquidez — e explica por que dois FIIs “bons” podem performar de forma oposta
+                dependendo do regime. O objetivo é te dar um framework neutro, replicável e com stress tests.
+              </p>
 
-<div class="warning">
-Grande parte do retorno histórico de ciclos positivos veio
-da compressão de cap rate — não apenas do crescimento do NOI.
-</div>
+              <div class="kpi-grid">
+                <div class="kpi"><strong>Valuation</strong><span>cap rate + prêmio</span></div>
+                <div class="kpi"><strong>Risco</strong><span>duration implícita</span></div>
+                <div class="kpi"><strong>Crédito</strong><span>spreads e default</span></div>
+              </div>
 
-<h2 id="c4">4) Curva de juros e duration implícita</h2>
+              <div class="warning">
+                <b>Não é previsão:</b> é estrutura. A ideia não é “adivinhar Selic”.
+                É entender o mecanismo para tomar decisões consistentes.
+              </div>
+            </div>
 
-<div class="math">
-ΔPreço ≈ -Duration × ΔYield
-</div>
+            <div class="toc">
+              <h2>Índice (clique para ir)</h2>
+              <ol>
+                <li><a href="#r1">Regimes macro: o mapa que reduz ruído</a></li>
+                <li><a href="#r2">Cap rate “justo”: taxa livre + prêmio imobiliário</a></li>
+                <li><a href="#r3">Duration implícita em FIIs: por que preço reage tanto</a></li>
+                <li><a href="#r4">Curva de juros: nível, inclinação e volatilidade</a></li>
+                <li><a href="#r5">Inflação: repasse, indexadores e assimetrias</a></li>
+                <li><a href="#r6">Spreads de crédito: como o papel ganha e como ele quebra</a></li>
+                <li><a href="#r7">Ciclo imobiliário: oferta, absorção, vacância e aluguel</a></li>
+                <li><a href="#r8">Mapa de regimes → posicionamento (tijolo, papel, FOFs)</a></li>
+                <li><a href="#r9">Stress tests institucionais (cap rate, spread, liquidez)</a></li>
+                <li><a href="#r10">Checklist e ponte para a Parte 7</a></li>
+              </ol>
+            </div>
 
-<p>
-FIIs de papel IPCA longo possuem duration maior.
-Tijolo com contratos longos também carrega duration implícita.
-</p>
+            <h2 id="r1">1) Regimes macro: o mapa que reduz ruído</h2>
+            <p>
+              Regime macro é o estado dominante de: <b>crescimento</b>, <b>inflação</b>, <b>juros</b> e <b>crédito</b>.
+              Em FIIs, regimes importam porque eles mudam (i) a taxa de desconto (cap rate) e (ii) o fluxo (NOI/cupom).
+            </p>
 
-<h2 id="c5">5) Spreads de crédito</h2>
+            <div class="card">
+              <h3>Quatro regimes úteis (simplificados)</h3>
+              <ul>
+                <li><b>Desinflação + juros caindo:</b> compressão de cap rate, re-rating de tijolo, melhora de liquidez.</li>
+                <li><b>Inflação alta + juros subindo:</b> expansão de cap rate, pressão em duration, risco de crédito aumenta.</li>
+                <li><b>Estagflação leve:</b> aluguel nem sempre repassa rápido; spreads abrem; desconto aumenta.</li>
+                <li><b>Crise de crédito:</b> liquidez some; spreads disparam; “desconto estrutural” vira risco real.</li>
+              </ul>
+            </div>
 
-<p>
-Spreads ampliam em crises.
-FIIs de papel sofrem marcação antes mesmo de default.
-</p>
+            <div class="callout">
+              <span class="tag">Regra institucional</span><br>
+              Primeiro você identifica o regime, depois decide a estrutura de risco.
+              Quem faz ao contrário (compra e só depois tenta “justificar”) toma decisões emocionais.
+            </div>
 
-<div class="warning">
-Spread aberto ≠ perda permanente.
-Mas pode gerar drawdown relevante.
-</div>
+            <h2 id="r2">2) Cap rate “justo”: taxa livre + prêmio imobiliário</h2>
+            <p>
+              Cap rate é uma taxa de desconto aplicada sobre o NOI (ou FFO ajustado). Em termos institucionais,
+              o cap rate “justo” é função da taxa livre de risco e de um prêmio que remunera
+              risco operacional, vacância, liquidez e incerteza.
+            </p>
 
-<h2 id="c6">6) Ciclo imobiliário completo</h2>
+            <div class="math"><code>
+Cap Rate Justo ≈ Taxa Livre Real + Prêmio de Risco Imobiliário
 
-<p>
-Expansão → excesso de oferta → vacância → queda de aluguel →
-absorção → novo ciclo.
-</p>
+Preço (simplificado) ≈ NOI / Cap Rate
+</code></div>
 
-<h2 id="c7">7) Mapa de regimes</h2>
+            <p>
+              Se a taxa livre real sobe, o cap rate justo tende a subir. Se o NOI não cresce proporcionalmente,
+              o preço cai. Em regimes de corte de juros e queda de taxa real, o inverso tende a acontecer:
+              compressão de cap rate e re-rating.
+            </p>
 
-<table class="table">
-<tr><th>Regime</th><th>Melhor desempenho</th></tr>
-<tr><td>Juros caindo</td><td>Tijolo prime</td></tr>
-<tr><td>Inflação alta</td><td>Papel IPCA curto</td></tr>
-<tr><td>Crédito restrito</td><td>FOFs descontados</td></tr>
-</table>
+            <div class="warning">
+              <b>Armadilha:</b> “cap rate alto” não é automaticamente bom.
+              Pode estar alto porque o NOI é frágil, o ativo é inferior, a liquidez é ruim ou o risco de vacância é alto.
+            </div>
 
-<h2 id="c8">8) Checklist institucional</h2>
+            <h2 id="r3">3) Duration implícita em FIIs: por que preço reage tanto</h2>
+            <p>
+              Duration (em renda fixa) mede sensibilidade do preço a mudanças na taxa.
+              Em FIIs, existe uma duration implícita porque o valuation é um “desconto” de fluxos
+              (NOI, aluguéis futuros, cupom de CRI).
+            </p>
 
-<ul>
-<li>Sei identificar regime predominante?</li>
-<li>Sei se cap rate está comprimido ou expandido?</li>
-<li>Entendo duration implícita do portfólio?</li>
-<li>Consigo separar risco estrutural de ruído cíclico?</li>
-</ul>
+            <div class="math"><code>
+ΔPreço ≈ -Duration × ΔTaxa (aprox.)
 
-<div class="nav-ends">
-<a href="/posts/guia-institucional-fiis-parte-5.html">← Parte 5</a>
-<a href="/posts/guia-institucional-fiis-parte-7.html">Parte 7 →</a>
-</div>
+Onde "Taxa" é a taxa de desconto (cap rate / taxa real / prêmio).
+</code></div>
 
-</article>
-</div>
-</div>
-</section>
-</main>
+            <div class="card">
+              <h3>Quem tem “duration” maior em FIIs?</h3>
+              <ul>
+                <li><b>Tijolo prime com contratos longos:</b> valuation sensível a taxa (re-rating forte).</li>
+                <li><b>Papel indexado a IPCA longo:</b> marcação sensível a taxa real e spread.</li>
+                <li><b>FOFs:</b> somam risco da carteira + risco de desconto do próprio veículo.</li>
+              </ul>
+            </div>
 
+            <h2 id="r4">4) Curva de juros: nível, inclinação e volatilidade</h2>
+            <p>
+              Curva de juros tem três componentes relevantes para FIIs:
+              <b>nível</b> (alto/baixo), <b>inclinação</b> (curva aberta/fechada) e <b>volatilidade</b> (instabilidade).
+              O investidor institucional não olha só Selic; ele olha o “custo do dinheiro” por prazo.
+            </p>
+
+            <table class="table" aria-label="Curva de juros e impacto em FIIs">
+              <thead>
+                <tr>
+                  <th>Elemento</th>
+                  <th>O que significa</th>
+                  <th>Impacto típico</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Nível alto</b></td>
+                  <td>taxa livre elevada</td>
+                  <td>cap rate sobe → pressão em tijolo / desconto em FOF</td>
+                </tr>
+                <tr>
+                  <td><b>Curva inclinada</b></td>
+                  <td>prazo longo mais caro</td>
+                  <td>duration longa sofre mais</td>
+                </tr>
+                <tr>
+                  <td><b>Volatilidade alta</b></td>
+                  <td>incerteza, prêmio aumenta</td>
+                  <td>spreads abrem + liquidez cai</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h2 id="r5">5) Inflação: repasse, indexadores e assimetrias</h2>
+            <p>
+              Inflação afeta FIIs via:
+              (i) indexação de aluguéis (IGP-M, IPCA), (ii) poder de repasse real (qualidade do ativo),
+              e (iii) custo de capital (juros reais).
+            </p>
+
+            <div class="warning">
+              <b>Assimetria importante:</b> inflação pode subir sem repasse integral no aluguel
+              se a demanda estiver fraca (vacância alta).
+              Indexador não é “garantia” de repasse econômico.
+            </div>
+
+            <div class="grid2">
+              <div class="card">
+                <h3>Tijolo</h3>
+                <ul>
+                  <li>repasse depende de demanda + qualidade + localização</li>
+                  <li>vacância alta “bloqueia” reajuste</li>
+                  <li>contratos atípicos reduzem risco de churn</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h3>Papel (CRI)</h3>
+                <ul>
+                  <li>indexação é mecânica, mas risco é crédito + extensão</li>
+                  <li>inflar demais pode aumentar inadimplência</li>
+                  <li>garantias e covenants viram centrais</li>
+                </ul>
+              </div>
+            </div>
+
+            <h2 id="r6">6) Spreads de crédito: como o papel ganha e como ele quebra</h2>
+            <p>
+              FII de papel “vive” de spread: indexador (CDI/IPCA) + spread de crédito – perdas esperadas – custos.
+              Em crises, spreads abrem e a marcação piora antes do default. O investidor institucional mede:
+              <b>perda esperada</b> e <b>perda em stress</b>.
+            </p>
+
+            <div class="math"><code>
+Retorno esperado (proxy) ≈ Indexador + Spread - (PD × LGD) - Custos
+
+PD = probabilidade de default (ou evento econômico)
+LGD = perda dado default (depois de garantias)
+</code></div>
+
+            <div class="note">
+              “Não deu default” não significa que o risco não aumentou.
+              Extensão, renegociação e carência podem ser default econômico mascarado.
+            </div>
+
+            <h2 id="r7">7) Ciclo imobiliário: oferta, absorção, vacância e aluguel</h2>
+            <p>
+              O ciclo imobiliário é lento e tende a exagerar. Quando há euforia, constrói-se demais.
+              Quando há pessimismo, a oferta para e a absorção (demanda) “pega” o estoque — e o ciclo vira.
+            </p>
+
+            <div class="card">
+              <h3>Sequência típica (simplificada)</h3>
+              <ol style="margin-left:18px;">
+                <li><b>Expansão:</b> absorção ↑, vacância ↓, aluguel ↑</li>
+                <li><b>Pico:</b> novos projetos aceleram (oferta futura ↑)</li>
+                <li><b>Excesso:</b> entrega de oferta + demanda desacelera → vacância ↑</li>
+                <li><b>Contração:</b> aluguel real cai, incentivos ↑, NOI pressiona</li>
+                <li><b>Limpeza:</b> absorção volta, oferta reduzida</li>
+                <li><b>Nova expansão:</b> ciclo reinicia</li>
+              </ol>
+            </div>
+
+            <div class="warning">
+              <b>Erro comum:</b> olhar só o aluguel atual.
+              Institucionalmente, você olha “aluguel de reposição”, pipeline de oferta e qualidade do micro-mercado.
+            </div>
+
+            <h2 id="r8">8) Mapa de regimes → posicionamento (tijolo, papel, FOFs)</h2>
+            <p>
+              Aqui está um mapa operacional (neutro). Não é recomendação, é lógica de drivers.
+            </p>
+
+            <table class="table" aria-label="Mapa de regimes e posicionamento">
+              <thead>
+                <tr>
+                  <th>Regime</th>
+                  <th>Risco dominante</th>
+                  <th>Beneficiários típicos</th>
+                  <th>Vulneráveis típicos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Juros reais caindo</b></td>
+                  <td>re-rating / duration</td>
+                  <td>tijolo prime, desconto em FOF fechando</td>
+                  <td>pior qualidade com NOI frágil</td>
+                </tr>
+                <tr>
+                  <td><b>Juros reais subindo</b></td>
+                  <td>cap rate ↑</td>
+                  <td>estruturas curtas/defensivas</td>
+                  <td>duration longa, lajes fracas, FOF caro</td>
+                </tr>
+                <tr>
+                  <td><b>Spreads abrindo</b></td>
+                  <td>crédito</td>
+                  <td>high quality + garantias fortes</td>
+                  <td>subordinado, concentração, extensão</td>
+                </tr>
+                <tr>
+                  <td><b>Crise de liquidez</b></td>
+                  <td>spread de execução</td>
+                  <td>ativos líquidos / desconto extremo</td>
+                  <td>ilíquidos + giro alto + taxa alta</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h2 id="r9">9) Stress tests institucionais (cap rate, spread, liquidez)</h2>
+            <p>
+              Stress test não é “certeza”; é preparar decisões antes do pânico.
+              Abaixo um pacote mínimo de stress para FIIs (tijolo, papel e FOFs):
+            </p>
+
+            <div class="grid2">
+              <div class="card">
+                <h3>Stress 1 — Cap rate</h3>
+                <ul>
+                  <li>cap rate +100 bps</li>
+                  <li>NOI constante (sem crescimento)</li>
+                  <li>quanto o preço cairia (aprox.)?</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h3>Stress 2 — NOI</h3>
+                <ul>
+                  <li>vacância +5 a +10pp</li>
+                  <li>aluguel real -5%</li>
+                  <li>capex extra (retrofitting)</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="grid2" style="margin-top:12px;">
+              <div class="card">
+                <h3>Stress 3 — Crédito (papel)</h3>
+                <ul>
+                  <li>spreads +200 bps</li>
+                  <li>PD dobra (proxy)</li>
+                  <li>LGD piora (garantia menos líquida)</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h3>Stress 4 — Liquidez</h3>
+                <ul>
+                  <li>volume médio cai 50%</li>
+                  <li>spread de execução aumenta</li>
+                  <li>tempo de saída vs tamanho da posição</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="callout">
+              <span class="tag">Institucional</span><br>
+              O objetivo do stress test é responder:
+              “Se isso acontecer, eu compro, mantenho, rebalanceio ou reduzo?”
+              Sem isso, você decide no susto.
+            </div>
+
+            <h2 id="r10">10) Checklist e ponte para a Parte 7</h2>
+            <div class="card">
+              <h3>Checklist (Parte 6)</h3>
+              <ul>
+                <li>Sei identificar regime macro dominante (juros, inflação, crédito, liquidez).</li>
+                <li>Consigo explicar cap rate como taxa livre + prêmio.</li>
+                <li>Entendo duration implícita e sensibilidade de preço.</li>
+                <li>Sei separar risco de mercado (re-rating) de risco estrutural (NOI/crédito).</li>
+                <li>Tenho stress tests mínimos (cap rate, NOI, crédito, liquidez).</li>
+              </ul>
+            </div>
+
+            <p>
+              Na <b>Parte 7</b>, transformamos esse framework em <b>processo</b>:
+              IPS, orçamento de risco, limites, rebalanceamento e painel de monitoramento.
+              Macro sem processo vira opinião; processo sem macro vira fragilidade.
+            </p>
+
+            <div class="nav-ends" aria-label="Navegação entre partes">
+              <a href="/posts/guia-institucional-fiis-parte-5.html"><i class="fa-solid fa-arrow-left"></i> Voltar: Parte 5</a>
+              <a href="/posts/guia-institucional-fiis-parte-7.html">Próxima: Parte 7 <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé padrão -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        <h3>Cérebro Milionário</h3>
+        <p>Educação financeira com profundidade estratégica.</p>
+        <div style="display:flex; gap:12px; margin-top:10px; align-items:center;">
+          <a href="https://t.me/cerebromillionario" target="_blank" rel="noopener" aria-label="Telegram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none;">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://instagram.com/cerebromillionario" target="_blank" rel="noopener" aria-label="Instagram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none;">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/glossario-financeiro.html">Glossário Financeiro</a></li>
+          <li><a href="/perguntas-frequentes.html">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script menu mobile -->
+  <script>
+    (function () {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', function () {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    })();
+  </script>
 </body>
 </html>
