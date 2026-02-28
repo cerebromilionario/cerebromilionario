@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Guia Institucional de FIIs (Parte 4/8) — FIIs de Papel (CRI): Crédito, Estrutura, Spread, Duration e Stress | Cérebro Milionário</title>
+  <meta name="description" content="Guia Institucional de FIIs (Parte 4/8): FIIs de papel (CRI) em nível institucional. Estrutura de crédito, garantias, subordinação, LTV/ICR, indexadores (CDI/IPCA), spread justo, duration/convexidade, marcação a mercado e stress de default." />
+  <meta name="keywords" content="FII papel, CRI, subordinação, LTV, ICR, spread de crédito, duration, convexidade, marcação a mercado, IPCA, CDI, risco de crédito, stress test" />
+  <meta name="author" content="Cérebro Milionário" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/guia-institucional-fiis-parte-4.html" />
+
+  <!-- OG -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/guia-institucional-fiis-parte-4.html" />
+  <meta property="og:title" content="Guia Institucional de FIIs (Parte 4/8) — FIIs de Papel (CRI)" />
+  <meta property="og:description" content="Crédito, estrutura, spread, duration, marcação a mercado e stress tests em FIIs de papel (CRI), nível institucional." />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/guia-institucional-fiis-parte-4.html" />
+  <meta property="twitter:title" content="Guia Institucional de FIIs (Parte 4/8) — FIIs de Papel (CRI)" />
+  <meta property="twitter:description" content="Crédito, estrutura, spread, duration, marcação a mercado e stress tests em FIIs de papel (CRI), nível institucional." />
+  <meta property="twitter:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Fonts + Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- CSS do site -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Guia Institucional de FIIs (Parte 4/8) — FIIs de Papel (CRI): Crédito, Estrutura, Spread, Duration e Stress",
+    "description":"Análise institucional de FIIs de papel (CRI): estrutura de crédito, garantias, subordinação, indexadores, spread justo, duration/convexidade, marcação a mercado e stress tests.",
+    "author":{"@type":"Organization","name":"Cérebro Milionário"},
+    "publisher":{"@type":"Organization","name":"Cérebro Milionário"},
+    "mainEntityOfPage":"https://peppy-lollipop-54fa27.netlify.app/posts/guia-institucional-fiis-parte-4.html"
+  }
+  </script>
+
+  <style>
+    body{ overflow-x:hidden; }
+    .pill{ display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background: rgba(44,44,46,.06); font-weight: 800; font-size: 12px; }
+    .layout{ display:grid; grid-template-columns: 280px 1fr; gap: 18px; align-items:start; }
+    @media(max-width: 980px){ .layout{ grid-template-columns: 1fr; } .booknav{ position: relative; top:auto; } }
+
+    .booknav{ position: sticky; top: 88px; border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); overflow:hidden; }
+    .booknav .bn-head{ padding:14px 14px 10px; border-bottom:1px solid rgba(0,0,0,.06); background: rgba(44,44,46,.03); }
+    .booknav .bn-head strong{ display:block; }
+    .booknav .bn-head span{ opacity:.78; font-size:12px; }
+    .booknav .bn-body{ padding: 12px 12px 14px; }
+    .booknav a{ display:flex; gap:10px; align-items:flex-start; padding:10px 10px; border-radius: 14px; text-decoration:none; border:1px solid rgba(0,0,0,.06); background:#fff; box-shadow: var(--shadow-sm); margin: 10px 0; }
+    .booknav a:hover{ transform: translateY(-1px); }
+    .booknav a.active{ background: rgba(244,196,48,.14); border-color: rgba(244,196,48,.40); }
+    .booknav a small{ display:block; opacity:.75; line-height:1.25; }
+    .booknav a b{ display:block; font-size: 13px; line-height: 1.2; }
+
+    .content{ max-width: 920px; }
+    .hero{ border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); padding: 16px; }
+    .hero h1{ margin: 8px 0 6px; }
+    .hero p{ margin: 0; opacity:.86; line-height:1.65; }
+
+    .toc{ margin-top:14px; border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); padding: 14px 16px; }
+    .toc h2{ margin: 0 0 10px; font-size:18px; }
+    .toc ol{ margin: 0 0 0 18px; }
+    .toc li{ margin: 8px 0; }
+    .toc a{ text-decoration:none; }
+
+    .callout{ border-left:4px solid var(--accent-color, #f4c430); background: rgba(244,196,48,.10); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
+    .warning{ border-left:4px solid #e2574c; background: rgba(226,87,76,.08); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
+    .note{ border-left:4px solid #3b82f6; background: rgba(59,130,246,.08); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
+
+    .kpi-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+    .kpi{ border:1px solid rgba(0,0,0,.08); border-radius: 16px; background:#fff; box-shadow: var(--shadow-sm); padding: 12px 14px; }
+    .kpi strong{ display:block; font-size: 18px; }
+    .kpi span{ opacity:.8; }
+    @media(max-width: 980px){ .kpi-grid{ grid-template-columns: 1fr; } }
+
+    .math{ border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); padding: 14px 16px; margin: 18px 0; overflow:auto; }
+    .math code{ display:block; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 13px; line-height: 1.6; white-space: pre; }
+
+    .table{ width:100%; border-collapse: collapse; border:1px solid rgba(0,0,0,.08); border-radius: 14px; overflow:hidden; background:#fff; box-shadow: var(--shadow-sm); margin: 14px 0; }
+    .table th, .table td{ padding: 12px 12px; border-bottom:1px solid rgba(0,0,0,.06); vertical-align: top; text-align:left; }
+    .table th{ background: rgba(44,44,46,.04); }
+    .muted{ opacity:.78; }
+
+    .content h2{ margin-top: 34px; }
+    .content h3{ margin-top: 24px; }
+    .content p{ line-height: 1.78; margin: 12px 0; }
+    .content ul{ line-height: 1.75; }
+    .content li{ margin: 8px 0; }
+
+    .nav-ends{ display:flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+    .nav-ends a{ display:inline-flex; align-items:center; gap:10px; padding: 12px 14px; border-radius: 16px; border:1px solid rgba(0,0,0,.10); background:#fff; box-shadow: var(--shadow-sm); text-decoration:none; font-weight: 900; }
+    .nav-ends a:hover{ transform: translateY(-1px); }
+    .divider-soft{ border:0; height:1px; background: rgba(0,0,0,.10); margin: 22px 0; }
+
+    .grid2{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media(max-width: 980px){ .grid2{ grid-template-columns: 1fr; } }
+    .card{ border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); padding: 14px 16px; }
+    .card h3{ margin-top: 0; }
+    .tag{ display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; font-weight:800; font-size:12px; background: rgba(44,44,46,.06); }
+  </style>
+</head>
+
+<body>
+  <!-- Header padrão -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container" style="max-width: 1200px;">
+        <div class="layout">
+
+          <!-- MENU LATERAL 8 PARTES -->
+          <aside class="booknav" aria-label="Navegação do guia">
+            <div class="bn-head">
+              <strong>Guia Institucional de FIIs</strong>
+              <span>Parte 4/8 • papel • crédito</span>
+            </div>
+
+            <div class="bn-body">
+              <a href="/posts/guia-institucional-fiis-parte-1.html">
+                <i class="fa-solid fa-building-columns" style="margin-top:2px;"></i>
+                <div><b>Parte 1 — Fundamentos</b><small>estrutura, governança</small></div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-2.html">
+                <i class="fa-solid fa-chart-line" style="margin-top:2px;"></i>
+                <div><b>Parte 2 — Modelagem</b><small>NOI, cap rate, NAV</small></div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-3.html">
+                <i class="fa-solid fa-warehouse" style="margin-top:2px;"></i>
+                <div><b>Parte 3 — Tijolo</b><small>segmentos e drivers</small></div>
+              </a>
+
+              <a class="active" href="/posts/guia-institucional-fiis-parte-4.html">
+                <i class="fa-solid fa-file-invoice-dollar" style="margin-top:2px;"></i>
+                <div><b>Parte 4 — Papel</b><small>CRI, crédito, spread</small></div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-5.html">
+                <i class="fa-solid fa-layer-group" style="margin-top:2px;"></i>
+                <div><b>Parte 5 — FOFs</b><small>tática e arbitragem</small></div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-6.html">
+                <i class="fa-solid fa-scale-balanced" style="margin-top:2px;"></i>
+                <div><b>Parte 6 — Ciclos</b><small>curva e spreads</small></div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-7.html">
+                <i class="fa-solid fa-diagram-project" style="margin-top:2px;"></i>
+                <div><b>Parte 7 — Carteira</b><small>IPS e alocação</small></div>
+              </a>
+
+              <a href="/posts/guia-institucional-fiis-parte-8.html">
+                <i class="fa-solid fa-shield-halved" style="margin-top:2px;"></i>
+                <div><b>Parte 8 — Blindagem</b><small>armadilhas e checklist</small></div>
+              </a>
+
+              <hr class="divider-soft" />
+              <a href="/calculadora.html" style="margin-top:0;">
+                <i class="fa-solid fa-calculator" style="margin-top:2px;"></i>
+                <div><b>Ferramenta: Juros Compostos</b><small>simule aportes</small></div>
+              </a>
+              <a href="/aposentadoria.html" style="margin-top:10px;">
+                <i class="fa-solid fa-person-cane" style="margin-top:2px;"></i>
+                <div><b>Ferramenta: Aposentadoria</b><small>planejamento</small></div>
+              </a>
+            </div>
+          </aside>
+
+          <!-- CONTEÚDO -->
+          <article class="content">
+            <div class="hero">
+              <span class="pill"><i class="fa-solid fa-file-invoice-dollar"></i> Guia Institucional • Parte 4/8</span>
+              <h1>FIIs de Papel (CRI): Crédito, Estrutura, Spread, Duration e Stress Tests</h1>
+              <p>
+                Em FIIs de papel, o motor deixa de ser ocupação e vira:
+                <b>crédito + estrutura</b>. O investidor institucional não compra “taxa”;
+                ele compra uma estrutura de fluxo condicionada a covenants, garantias e subordinação.
+                Aqui você aprende a modelar o spread “justo”, entender marcação a mercado e stressar default.
+              </p>
+
+              <div class="kpi-grid">
+                <div class="kpi"><strong>Risco</strong><span>default + recuperação</span></div>
+                <div class="kpi"><strong>Preço</strong><span>spread + duration</span></div>
+                <div class="kpi"><strong>Saída</strong><span>framework de crédito</span></div>
+              </div>
+
+              <div class="warning">
+                <b>Neutralidade:</b> nada aqui é recomendação. O objetivo é permitir
+                comparar estruturas e spreads com um “padrão institucional” de análise.
+              </div>
+            </div>
+
+            <div class="toc">
+              <h2>Índice (clique para ir)</h2>
+              <ol>
+                <li><a href="#p1">CRI 101 institucional: quem paga, por quê e como quebra</a></li>
+                <li><a href="#p2">Estrutura: senior/sub, subordinação e waterfall</a></li>
+                <li><a href="#p3">Garantias: LTV, DSCR/ICR, alienação, cessão e reforços</a></li>
+                <li><a href="#p4">Indexadores (CDI/IPCA) e o que realmente muda no risco</a></li>
+                <li><a href="#p5">Spread “justo”: decomposição e taxa de desconto implícita</a></li>
+                <li><a href="#p6">Marcação a mercado, duration e convexidade (FIIs de papel)</a></li>
+                <li><a href="#p7">Stress tests: default, LGD, extensão e choque de juros</a></li>
+                <li><a href="#p8">Checklist e ponte para a Parte 5 (FOFs)</a></li>
+              </ol>
+            </div>
+
+            <h2 id="p1">1) CRI 101 institucional: quem paga, por quê e como quebra</h2>
+            <p>
+              CRI é um instrumento de crédito lastreado em recebíveis do setor imobiliário.
+              Traduzindo institucionalmente: você está exposto a <b>capacidade de pagamento</b> do devedor/estrutura
+              e à <b>qualidade do colateral</b>, com variação de risco conforme a engenharia do papel.
+            </p>
+
+            <div class="math">
+              <code>
+Risco de CRI (de forma simples) = Probabilidade de Default (PD) x Perda no Default (LGD)
+
+PD: chance do fluxo não ser pago.
+LGD: quanto se perde após garantias/recuperação.
+              </code>
+            </div>
+
+            <div class="note">
+              Em papel, “yield alto” costuma ser apenas o mercado te cobrando PD/LGD ou iliquidez.
+              O método é inferir o que o spread está precificando.
+            </div>
+
+            <h2 id="p2">2) Estrutura: senior/sub, subordinação e waterfall</h2>
+            <p>
+              Estrutura é onde mora o alfa (ou o desastre). Em operações estruturadas:
+              <b>quem recebe primeiro</b>, <b>quem absorve perdas primeiro</b> e <b>quais gatilhos existem</b>
+              definem o risco real.
+            </p>
+
+            <div class="math">
+              <code>
+Waterfall (conceito):
+1) custos/servicing
+2) juros senior
+3) amortização senior
+4) juros/mezanino
+5) amortização mezanino
+6) subordinada / residual
+
+Subordinação = "colchão" que absorve perdas antes do investidor senior.
+              </code>
+            </div>
+
+            <div class="warning">
+              <b>Armadilha institucional clássica:</b> chamar “subordinação” de garantia.
+              Subordinação é proteção apenas até o tamanho do colchão e depende do timing de perdas.
+            </div>
+
+            <h2 id="p3">3) Garantias: LTV, DSCR/ICR, alienação, cessão e reforços</h2>
+            <p>
+              Em crédito imobiliário, garantias e covenants são o “motor de recuperação”.
+              Para análise institucional, você precisa de métricas mensuráveis:
+              <b>LTV</b> e <b>cobertura de serviço da dívida</b> (DSCR/ICR), além do tipo de colateral.
+            </p>
+
+            <div class="math">
+              <code>
+LTV = Dívida / Valor do colateral (ou valor do projeto)
+
+ICR/DSCR (proxy):
+DSCR = Fluxo de Caixa do Projeto / Serviço da Dívida
+
+Quanto menor LTV e maior DSCR, melhor a resiliência (em geral).
+              </code>
+            </div>
+
+            <div class="note">
+              Institucionalmente, você pergunta:
+              <b>em que cenário o DSCR cai abaixo de 1?</b>
+              e <b>qual é o caminho de execução/recuperação?</b>
+            </div>
+
+            <h2 id="p4">4) Indexadores (CDI/IPCA) e o que muda no risco</h2>
+            <p>
+              Em FIIs de papel, indexador não é só “proteção contra inflação”.
+              Ele muda:
+              (i) dinâmica de caixa, (ii) risco de inadimplência por “payment shock” e (iii) duration do ativo.
+            </p>
+
+            <table class="table" aria-label="Indexadores e implicações">
+              <thead>
+                <tr>
+                  <th>Indexador</th>
+                  <th>Vantagem aparente</th>
+                  <th>Risco relevante</th>
+                  <th>Onde o investidor erra</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>CDI + spread</b></td>
+                  <td>reprecifica rápido com juros</td>
+                  <td>marcação a mercado menor</td>
+                  <td>ignorar risco de crédito do devedor</td>
+                </tr>
+                <tr>
+                  <td><b>IPCA + spread</b></td>
+                  <td>protege poder de compra</td>
+                  <td>payment shock em inflação alta</td>
+                  <td>achar que é “livre de risco”</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="warning">
+              <b>Payment shock (conceito):</b> quando indexador acelera e a parcela explode,
+              o risco de inadimplência aumenta — mesmo que o contrato “pareça bom”.
+            </div>
+
+            <h2 id="p5">5) Spread “justo”: decomposição e taxa implícita</h2>
+            <p>
+              O spread de um CRI (sobre CDI/IPCA) precisa remunerar:
+              <b>PD</b>, <b>LGD</b>, <b>liquidez</b>, <b>complexidade</b> e <b>risco de extensão</b>.
+              A análise institucional tenta inferir se o spread está “coerente” com esses componentes.
+            </p>
+
+            <div class="math">
+              <code>
+Spread ≈ (Perda Esperada) + (Prêmio de Risco) + (Prêmio de Liquidez)
+
+Perda Esperada ≈ PD * LGD (em base anualizada/ajustada)
+              </code>
+            </div>
+
+            <div class="note">
+              Você não precisa acertar PD/LGD com precisão “acadêmica”.
+              Precisa apenas de:
+              (1) coerência, (2) comparação relativa e (3) stress tests.
+            </div>
+
+            <h2 id="p6">6) Marcação a mercado, duration e convexidade</h2>
+            <p>
+              FIIs de papel sofrem marcação a mercado, especialmente em aberturas de spreads.
+              A sensibilidade depende de duration (prazo efetivo) e do comportamento de amortização.
+            </p>
+
+            <div class="math">
+              <code>
+ΔP/P ≈ -D * Δy    (D = duration proxy, Δy = variação de yield/spread)
+
+Se spreads abrem 1% e duration proxy = 3:
+queda aproximada ≈ 3%
+              </code>
+            </div>
+
+            <div class="warning">
+              <b>Erro comum:</b> olhar só para “yield do mês”.
+              O investidor institucional olha “total return”:
+              rendimento + variação de preço (marcação) + eventos de crédito.
+            </div>
+
+            <h2 id="p7">7) Stress tests: default, LGD, extensão e choque de juros</h2>
+            <p>
+              Aqui está o núcleo. Você deve stressar 4 dimensões:
+              default, recuperação, extensão e taxa.
+            </p>
+
+            <table class="table" aria-label="Stress tests de papel">
+              <thead>
+                <tr>
+                  <th>Stress</th>
+                  <th>Como aplicar</th>
+                  <th>O que captura</th>
+                  <th>Indicador de fragilidade</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Default de 1 ativo grande</b></td>
+                  <td>zerar fluxo + aplicar LGD</td>
+                  <td>concentração</td>
+                  <td>1 CRI domina a distribuição</td>
+                </tr>
+                <tr>
+                  <td><b>LGD pior</b></td>
+                  <td>reduzir recuperação</td>
+                  <td>qualidade do colateral</td>
+                  <td>LTV alto + execução lenta</td>
+                </tr>
+                <tr>
+                  <td><b>Extensão</b></td>
+                  <td>alongar prazo efetivo</td>
+                  <td>duration real</td>
+                  <td>amortização bullet</td>
+                </tr>
+                <tr>
+                  <td><b>Choque de juros/spread</b></td>
+                  <td>aumentar yield exigido</td>
+                  <td>marcação a mercado</td>
+                  <td>duration alta em cenário ruim</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="callout">
+              <b>Institucional:</b> o objetivo do stress test não é “prever”.
+              É garantir que você entenda o que quebra o portfólio
+              e qual magnitude de choque causa perda permanente vs volatilidade temporária.
+            </div>
+
+            <h2 id="p8">8) Checklist e ponte para a Parte 5 (FOFs)</h2>
+            <div class="card">
+              <h3>Checklist (Parte 4)</h3>
+              <ul>
+                <li>Sei decompor risco em PD x LGD e mapear garantias/covenants.</li>
+                <li>Entendo senior/sub e o waterfall (quem absorve perdas).</li>
+                <li>Sei avaliar LTV e DSCR/ICR como resiliência.</li>
+                <li>Consigo pensar em spread “justo” via perda esperada + prêmios.</li>
+                <li>Sei stressar default, LGD, extensão e choque de spreads/juros.</li>
+              </ul>
+            </div>
+
+            <p>
+              Na <b>Parte 5</b>, entramos em <b>FOFs</b> (fundos de fundos):
+              onde o “ativo” é a carteira de FIIs. A análise vira:
+              <b>desconto/premium</b>, <b>custo total</b>, <b>turnover</b>, <b>tática vs core</b> e
+              como medir se o FOF cria valor ou apenas “empilha taxa”.
+            </p>
+
+            <div class="nav-ends" aria-label="Navegação entre partes">
+              <a href="/posts/guia-institucional-fiis-parte-3.html"><i class="fa-solid fa-arrow-left"></i> Voltar: Parte 3</a>
+              <a href="/posts/guia-institucional-fiis-parte-5.html">Próxima: Parte 5 <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé padrão -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        <h3>Cérebro Milionário</h3>
+        <p>Educação financeira com profundidade estratégica.</p>
+        <div style="display:flex; gap:12px; margin-top:10px; align-items:center;">
+          <a href="https://t.me/cerebromillionario" target="_blank" rel="noopener" aria-label="Telegram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none;">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://instagram.com/cerebromillionario" target="_blank" rel="noopener" aria-label="Instagram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none;">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/glossario-financeiro.html">Glossário Financeiro</a></li>
+          <li><a href="/perguntas-frequentes.html">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script menu mobile -->
+  <script>
+    (function () {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', function () {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    })();
+  </script>
+</body>
+</html>
