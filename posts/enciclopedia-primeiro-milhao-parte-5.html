@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Enciclopédia do Primeiro Milhão (Parte 5/8) — Psicologia Quantitativa e Controle de Processo | Cérebro Milionário</title>
+  <meta name="description" content="Enciclopédia do Primeiro Milhão (5/8): psicologia quantitativa aplicada. Como reduzir erros de processo, criar governança, IPS pessoal, checklists, gatilhos, anti-ruína operacional e disciplina estatística para manter aportes e rebalancear sem emoção." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/enciclopedia-primeiro-milhao-parte-5.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Enciclopédia do Primeiro Milhão (Parte 5/8) — Psicologia Quantitativa e Controle de Processo" />
+  <meta property="og:description" content="Tratado técnico: vieses, ruína comportamental, governança e regras executáveis para manter o plano no mundo real." />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/enciclopedia-primeiro-milhao-parte-5.html" />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Fonts + Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- CSS do site -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Enciclopédia do Primeiro Milhão (Parte 5/8) — Psicologia Quantitativa e Controle de Processo",
+    "description":"Psicologia quantitativa aplicada ao investimento: vieses, ruína comportamental, IPS, checklists, gatilhos e disciplina de processo para manter o plano até o primeiro milhão real.",
+    "author":{"@type":"Organization","name":"Cérebro Milionário"},
+    "publisher":{"@type":"Organization","name":"Cérebro Milionário"},
+    "mainEntityOfPage":"https://peppy-lollipop-54fa27.netlify.app/posts/enciclopedia-primeiro-milhao-parte-5.html"
+  }
+  </script>
+
+  <style>
+    body{ overflow-x:hidden; }
+
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px; border-radius:999px;
+      background: rgba(44,44,46,.06);
+      font-weight: 800; font-size: 12px;
+    }
+
+    .layout{ display:grid; grid-template-columns: 280px 1fr; gap: 18px; align-items:start; }
+    @media(max-width: 980px){ .layout{ grid-template-columns: 1fr; } .booknav{ position: relative; top:auto; } }
+
+    .booknav{
+      position: sticky; top: 88px;
+      border:1px solid rgba(0,0,0,.08);
+      border-radius: 18px;
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      overflow:hidden;
+    }
+    .booknav .bn-head{ padding:14px 14px 10px; border-bottom:1px solid rgba(0,0,0,.06); background: rgba(44,44,46,.03); }
+    .booknav .bn-head strong{ display:block; }
+    .booknav .bn-head span{ opacity:.78; font-size:12px; }
+    .booknav .bn-body{ padding: 12px 12px 14px; }
+    .booknav a{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:10px 10px; border-radius: 14px;
+      text-decoration:none;
+      border:1px solid rgba(0,0,0,.06);
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      margin: 10px 0;
+    }
+    .booknav a:hover{ transform: translateY(-1px); }
+    .booknav a.active{ background: rgba(244,196,48,.14); border-color: rgba(244,196,48,.40); }
+    .booknav a small{ display:block; opacity:.75; line-height:1.25; }
+    .booknav a b{ display:block; font-size: 13px; line-height: 1.2; }
+
+    .content{ max-width: 920px; }
+
+    .hero{
+      border:1px solid rgba(0,0,0,.08);
+      border-radius: 18px;
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      padding: 16px;
+    }
+    .hero h1{ margin: 8px 0 6px; }
+    .hero p{ margin: 0; opacity:.86; line-height:1.65; }
+
+    .toc{
+      margin-top:14px;
+      border:1px solid rgba(0,0,0,.08);
+      border-radius: 18px;
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      padding: 14px 16px;
+    }
+    .toc h2{ margin: 0 0 10px; font-size:18px; }
+    .toc ol{ margin: 0 0 0 18px; }
+    .toc li{ margin: 8px 0; }
+    .toc a{ text-decoration:none; }
+
+    .callout{ border-left:4px solid var(--accent-color, #f4c430); background: rgba(244,196,48,.10); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
+    .warning{ border-left:4px solid #e2574c; background: rgba(226,87,76,.08); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
+    .note{ border-left:4px solid #3b82f6; background: rgba(59,130,246,.08); padding: 14px 16px; border-radius: 14px; margin: 18px 0; }
+
+    .kpi-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+    .kpi{ border:1px solid rgba(0,0,0,.08); border-radius: 16px; background:#fff; box-shadow: var(--shadow-sm); padding: 12px 14px; }
+    .kpi strong{ display:block; font-size: 18px; }
+    .kpi span{ opacity:.8; }
+    @media(max-width: 980px){ .kpi-grid{ grid-template-columns: 1fr; } }
+
+    .math{
+      border:1px solid rgba(0,0,0,.08);
+      border-radius: 18px;
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      padding: 14px 16px;
+      margin: 18px 0;
+      overflow:auto;
+    }
+    .math code{
+      display:block;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      white-space: pre;
+    }
+
+    .table{
+      width:100%;
+      border-collapse: collapse;
+      border:1px solid rgba(0,0,0,.08);
+      border-radius: 14px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      margin: 14px 0;
+    }
+    .table th, .table td{
+      padding: 12px 12px;
+      border-bottom:1px solid rgba(0,0,0,.06);
+      vertical-align: top;
+      text-align:left;
+    }
+    .table th{ background: rgba(44,44,46,.04); }
+    .muted{ opacity:.78; }
+
+    .content h2{ margin-top: 34px; }
+    .content h3{ margin-top: 24px; }
+    .content p{ line-height: 1.75; margin: 12px 0; }
+    .content ul{ line-height: 1.75; }
+    .content li{ margin: 8px 0; }
+
+    .nav-ends{
+      display:flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+      margin-top: 22px;
+    }
+    .nav-ends a{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border:1px solid rgba(0,0,0,.10);
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      text-decoration:none;
+      font-weight: 900;
+    }
+    .nav-ends a:hover{ transform: translateY(-1px); }
+    .divider-soft{ border:0; height:1px; background: rgba(0,0,0,.10); margin: 22px 0; }
+
+    .badge{
+      display:inline-block;
+      font-weight: 900;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,.10);
+      background: rgba(44,44,46,.04);
+    }
+
+    .checklist{
+      border:1px solid rgba(0,0,0,.08);
+      border-radius: 18px;
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      padding: 14px 16px;
+      margin: 16px 0;
+    }
+    .checklist h3{ margin-top: 0; }
+    .checklist label{ display:flex; gap:10px; margin: 10px 0; align-items:flex-start; }
+    .checklist input{ margin-top:4px; }
+  </style>
+</head>
+
+<body>
+  <!-- Header padrão -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container" style="max-width: 1200px;">
+        <div class="layout">
+
+          <!-- NAVEGAÇÃO DO LIVRO -->
+          <aside class="booknav" aria-label="Navegação do livro">
+            <div class="bn-head">
+              <strong>Enciclopédia do Primeiro Milhão</strong>
+              <span>Livro técnico • 8 partes • meta real</span>
+            </div>
+            <div class="bn-body">
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-1.html">
+                <i class="fa-solid fa-square-root-variable" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 1 — Fundamentos reais</b>
+                  <small>modelo matemático, retorno real, premissas, risco</small>
+                </div>
+              </a>
+
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-2.html">
+                <i class="fa-solid fa-chart-line" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 2 — Motor (renda/aporte)</b>
+                  <small>taxa de investimento, crescimento salarial, alavancas</small>
+                </div>
+              </a>
+
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-3.html">
+                <i class="fa-solid fa-layer-group" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 3 — Arquitetura de carteira</b>
+                  <small>alocação por fase, risco, premissas por ativo</small>
+                </div>
+              </a>
+
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-4.html">
+                <i class="fa-solid fa-infinity" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 4 — Modelos e simulação</b>
+                  <small>determinístico/estocástico, quantis, sequência</small>
+                </div>
+              </a>
+
+              <a class="active" href="/posts/enciclopedia-primeiro-milhao-parte-5.html">
+                <i class="fa-solid fa-brain" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 5 — Psicologia quantitativa</b>
+                  <small>viés, governança, controle de processo</small>
+                </div>
+              </a>
+
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-6.html">
+                <i class="fa-solid fa-triangle-exclamation" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 6 — Riscos e armadilhas</b>
+                  <small>ruína, sequência, concentração, liquidez</small>
+                </div>
+              </a>
+
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-7.html">
+                <i class="fa-solid fa-bolt" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 7 — 500k → 1M</b>
+                  <small>efeito avalanche, convexidade, governança</small>
+                </div>
+              </a>
+
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-8.html">
+                <i class="fa-solid fa-shield-halved" style="margin-top:2px;"></i>
+                <div>
+                  <b>Parte 8 — Blindagem e consolidação</b>
+                  <small>preservação, impostos, sucessão, próximo ciclo</small>
+                </div>
+              </a>
+
+              <hr class="divider-soft" />
+              <a href="/calculadora.html" style="margin-top:0;">
+                <i class="fa-solid fa-calculator" style="margin-top:2px;"></i>
+                <div>
+                  <b>Ferramenta: Juros Compostos</b>
+                  <small>simule aportes e retorno</small>
+                </div>
+              </a>
+              <a href="/aposentadoria.html" style="margin-top:10px;">
+                <i class="fa-solid fa-person-cane" style="margin-top:2px;"></i>
+                <div>
+                  <b>Ferramenta: Aposentadoria</b>
+                  <small>planejamento de longo prazo</small>
+                </div>
+              </a>
+            </div>
+          </aside>
+
+          <!-- CONTEÚDO -->
+          <article class="content">
+
+            <div class="hero">
+              <span class="pill"><i class="fa-solid fa-brain"></i> Enciclopédia • Parte 5/8 • Psicologia quantitativa</span>
+              <h1>Psicologia quantitativa: como reduzir erros de processo (o verdadeiro “risco” do primeiro milhão)</h1>
+              <p>
+                Se as Partes 1–4 te deram <b>modelo</b> e <b>política</b>, esta parte te dá o que instituições chamam de
+                <b>governança</b>: regras, checklists, gatilhos e arquitetura psicológica para manter o plano
+                quando o mundo real tentar te tirar do trilho.
+              </p>
+
+              <div class="kpi-grid">
+                <div class="kpi"><strong>Problema real</strong><span>erro de processo</span></div>
+                <div class="kpi"><strong>Falha típica</strong><span>vender no fundo / parar aportes</span></div>
+                <div class="kpi"><strong>Solução</strong><span>governança + automação</span></div>
+              </div>
+
+              <div class="warning">
+                <b>Tese central:</b> a maior parte dos planos falha por “ruína comportamental”, não por retorno médio baixo.
+                O mercado não precisa te derrotar. Você mesmo se derrota com decisões ruins no pior momento.
+              </div>
+            </div>
+
+            <div class="toc">
+              <h2>Índice da Parte 5 (clique para ir)</h2>
+              <ol>
+                <li><a href="#sec-1">A anatomia do erro: por que pessoas quebram o próprio plano</a></li>
+                <li><a href="#sec-2">Vieses como risco mensurável (não “psicologia motivacional”)</a></li>
+                <li><a href="#sec-3">Ruína comportamental: o equivalente psicológico do risco de cauda</a></li>
+                <li><a href="#sec-4">IPS pessoal: o contrato com você mesmo (e com sua família)</a></li>
+                <li><a href="#sec-5">Checklists e gatilhos: regras executáveis para crises e euforia</a></li>
+                <li><a href="#sec-6">Controle de processo: métricas que importam (e as que enganam)</a></li>
+                <li><a href="#sec-7">Arquitetura do hábito: automação, fricção e “design” do ambiente</a></li>
+                <li><a href="#sec-8">Protocolo de 30 minutos: o que fazer em cada ciclo (mensal/trimestral/anual)</a></li>
+              </ol>
+            </div>
+
+            <h2 id="sec-1">1) A anatomia do erro: por que pessoas quebram o próprio plano</h2>
+            <p>
+              Pense no plano como um sistema dinâmico com dois motores: <b>aporte (C)</b> e <b>retorno (r)</b>.
+              O “inimigo” do primeiro milhão não é o r. É a instabilidade do C (cortar aportes) e a venda forçada
+              (reduzir W no fundo). Isso é erro de processo.
+            </p>
+
+            <div class="math">
+              <code>
+Falha estrutural:
+  C_t cai por decisão emocional (pânico) ou choque de renda
+  + venda no fundo (W_t reduzido quando preços estão baixos)
+
+Resultado:
+  perda de tempo (anos) + perda de capital (irreversível)
+              </code>
+            </div>
+
+            <p>
+              Em linguagem institucional: seu plano precisa ter <b>controles</b> e <b>travas</b> para impedir
+              decisões irreversíveis em momentos de alta emoção.
+            </p>
+
+            <h2 id="sec-2">2) Vieses como risco mensurável (não “psicologia motivacional”)</h2>
+            <p>
+              Psicologia quantitativa não é “se motive”. É reconhecer vieses como parâmetros que alteram
+              a distribuição de resultados. Em outras palavras: vieses deslocam você para a cauda esquerda.
+            </p>
+
+            <table class="table" aria-label="Vieses e como eles afetam o plano">
+              <thead>
+                <tr>
+                  <th>Viés</th>
+                  <th>Efeito típico</th>
+                  <th>Consequência no modelo</th>
+                  <th>Antídoto institucional</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Aversão à perda</b></td>
+                  <td>vender após queda para “parar dor”</td>
+                  <td>reduz W quando preços estão baixos</td>
+                  <td>bandas + regra de crise + reserva</td>
+                </tr>
+                <tr>
+                  <td><b>Recency bias</b></td>
+                  <td>extrapolar o passado recente</td>
+                  <td>comprar topo / vender fundo</td>
+                  <td>IPS + janela trimestral (não diária)</td>
+                </tr>
+                <tr>
+                  <td><b>FOMO</b></td>
+                  <td>entrar em moda com alocação grande</td>
+                  <td>aumenta σ e risco de cauda</td>
+                  <td>teto de satélite + “cooldown”</td>
+                </tr>
+                <tr>
+                  <td><b>Overconfidence</b></td>
+                  <td>excesso de trade / concentração</td>
+                  <td>turnover alto + risco idiossincrático</td>
+                  <td>regras de execução + limites</td>
+                </tr>
+                <tr>
+                  <td><b>Anchoring</b></td>
+                  <td>fixar preço de compra como referência</td>
+                  <td>decisões baseadas em “voltar ao preço”</td>
+                  <td>avaliar tese por função e risco, não preço</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="note">
+              <b>Regra:</b> se você não tem limites formais, você não tem estratégia.
+              Você tem um conjunto de impulsos que se disfarçam de estratégia.
+            </div>
+
+            <h2 id="sec-3">3) Ruína comportamental: o equivalente psicológico do risco de cauda</h2>
+            <p>
+              Ruína comportamental é quando você toma uma decisão que reduz drasticamente sua probabilidade
+              de atingir o milhão. Em termos quantitativos, é quando você “zera” ou “quebra” o processo.
+            </p>
+
+            <div class="math">
+              <code>
+Definição operacional:
+  Evento E ocorre se:
+    (i) você vende core em drawdown sem quebra de tese
+    ou (ii) você zera aportes por longos períodos
+    ou (iii) você aumenta satélite além do limite em euforia
+
+Efeito:
+  P(W_T ≥ W*) cai de forma não linear.
+              </code>
+            </div>
+
+            <p>
+              A grande diferença entre investidor iniciante e institucional:
+              o institucional tem <b>mecanismos de prevenção de erro</b>.
+              O iniciante “confia na força de vontade”.
+            </p>
+
+            <div class="warning">
+              <b>Verdade dura:</b> força de vontade falha em crises.
+              Seu sistema precisa funcionar quando você está com medo, cansado, sem tempo e com ruído.
+            </div>
+
+            <h2 id="sec-4">4) IPS pessoal: o contrato com você mesmo (e com sua família)</h2>
+            <p>
+              O IPS (Investment Policy Statement) é um contrato que define:
+              objetivo, horizonte, blocos, limites, rebalanceamento e regras de crise.
+              O valor do IPS é retirar decisões da emoção do momento.
+            </p>
+
+            <div class="math">
+              <code>
+IPS (mínimo) — versão “auditável”
+1) Meta: W* = 1.000.000 real (poder de compra).
+2) Premissas: inflação 4% a.a.; retorno real esperado 6% a.a.
+3) Aporte:
+   - C_base mensal
+   - C_min em crise (nunca zero, se possível)
+4) Blocos:
+   - Liquidez / RF real / Equity global / Diversificador / (Satélite com teto)
+5) Limites:
+   - satélite ≤ y%
+   - concentração por ativo ≤ x%
+   - crédito alto risco ≤ z%
+6) Rebalanceamento:
+   - via fluxo
+   - bandas δ por bloco
+7) Regras de crise:
+   - não vender core por pânico
+   - usar reserva para evitar venda forçada
+   - congelar satélite em drawdown
+8) Revisão:
+   - mensal: execução
+   - trimestral: governança
+   - anual: pesos estratégicos
+              </code>
+            </div>
+
+            <div class="callout">
+              <b>Formalização:</b> escreva o IPS como um documento simples e compartilhe com a pessoa
+              que divide vida financeira com você. Isso reduz a chance de decisões impulsivas (pressão social).
+            </div>
+
+            <h2 id="sec-5">5) Checklists e gatilhos: regras executáveis para crises e euforia</h2>
+            <p>
+              Instituições operam com checklists porque humanos erram sob estresse.
+              Você vai fazer o mesmo.
+            </p>
+
+            <div class="checklist">
+              <h3>Checklist de crise (quando mercado cai forte)</h3>
+              <label><input type="checkbox"> Eu tenho liquidez suficiente (reserva) para 6–12 meses sem vender core?</label>
+              <label><input type="checkbox"> Meu aporte mínimo (C_min) está definido e viável?</label>
+              <label><input type="checkbox"> As bandas foram violadas? Se sim, rebalancear via fluxo.</label>
+              <label><input type="checkbox"> Eu vou esperar 24h antes de qualquer venda do core.</label>
+              <label><input type="checkbox"> Eu congelei satélites (não aumento risco em pânico/euforia).</label>
+              <label><input type="checkbox"> Eu registrei a decisão e o motivo (audit trail).</label>
+            </div>
+
+            <div class="checklist">
+              <h3>Checklist de euforia (quando “todo mundo está ganhando”)</h3>
+              <label><input type="checkbox"> Meu satélite respeita o teto (y%)?</label>
+              <label><input type="checkbox"> Eu estou prestes a comprar por FOMO? (sim → esperar 7 dias)</label>
+              <label><input type="checkbox"> Minhas bandas estão violadas na alta? (sim → rebalancear)</label>
+              <label><input type="checkbox"> Eu consigo explicar a tese em 3 linhas? (não → não compro)</label>
+              <label><input type="checkbox"> Eu defini tamanho da posição antes de comprar?</label>
+            </div>
+
+            <div class="note">
+              <b>Audit trail:</b> mantenha um registro simples (notas) com: data, decisão, motivo, regra aplicada.
+              Isso reduz o autoengano e melhora aprendizado.
+            </div>
+
+            <h2 id="sec-6">6) Controle de processo: métricas que importam (e as que enganam)</h2>
+            <p>
+              Investidor iniciante mede sucesso por “rentabilidade do mês”.
+              Instituição mede por “aderência ao processo” e “risco”.
+            </p>
+
+            <table class="table" aria-label="Métricas úteis vs métricas enganosas">
+              <thead>
+                <tr>
+                  <th>Tipo</th>
+                  <th>Métrica</th>
+                  <th>Por que importa</th>
+                  <th>Armadilha</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Processo</b></td>
+                  <td>Aporte feito (sim/não)</td>
+                  <td>motor C mantém probabilidade alta</td>
+                  <td>—</td>
+                </tr>
+                <tr>
+                  <td><b>Processo</b></td>
+                  <td>Desvio do alvo (bandas)</td>
+                  <td>controle de risco</td>
+                  <td>—</td>
+                </tr>
+                <tr>
+                  <td><b>Risco</b></td>
+                  <td>Drawdown atual vs tolerável</td>
+                  <td>evita ruína comportamental</td>
+                  <td>ignorar e vender no fundo</td>
+                </tr>
+                <tr>
+                  <td><b>Enganosa</b></td>
+                  <td>rentabilidade mensal</td>
+                  <td>ruído e regime</td>
+                  <td>induz trade emocional</td>
+                </tr>
+                <tr>
+                  <td><b>Enganosa</b></td>
+                  <td>ranking de “melhores ativos”</td>
+                  <td>recency bias</td>
+                  <td>leva a chasing performance</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="callout">
+              <b>Regra institucional:</b> avalie performance no mínimo em janelas trimestrais/anuais,
+              e sempre em termos reais e com comparação à política (IPS), não ao “ativo da moda”.
+            </div>
+
+            <h2 id="sec-7">7) Arquitetura do hábito: automação, fricção e design do ambiente</h2>
+            <p>
+              O plano do milhão não é um “evento”. É um sistema repetido centenas de vezes.
+              Instituições automatizam. Você também deve automatizar.
+            </p>
+
+            <h3>7.1) Automação (reduz variação do C)</h3>
+            <ul>
+              <li><b>Débito automático/PIX agendado</b> no dia seguinte ao recebimento.</li>
+              <li><b>Regra de prioridade:</b> antes de qualquer gasto variável, aporte ocorre.</li>
+              <li><b>Conta separada</b> para reserva e para investimentos (fricção para resgatar).</li>
+            </ul>
+
+            <h3>7.2) Fricção (a arte de impedir decisões ruins)</h3>
+            <p>
+              Fricção é colocar pequenas barreiras para atos impulsivos:
+              <b>tempo</b>, <b>passos extras</b>, <b>regras de cooldown</b>.
+            </p>
+
+            <div class="math">
+              <code>
+Cooldown institucional (PF):
+  - Qualquer venda de core em crise: esperar 24h.
+  - Qualquer compra por euforia/FOMO: esperar 7 dias.
+  - Qualquer aumento de satélite: só na revisão trimestral.
+              </code>
+            </div>
+
+            <h3>7.3) “Arquitetura de informação” (reduzir ruído)</h3>
+            <ul>
+              <li>Evite acompanhar cotação diária (ruído).</li>
+              <li>Defina dias fixos para revisão (ex.: todo 1º domingo do mês).</li>
+              <li>Se você consome notícias, faça em janela controlada (ex.: 20 min/dia).</li>
+            </ul>
+
+            <div class="warning">
+              <b>Paradoxo:</b> quanto mais você olha, mais você age.
+              Quanto mais você age, mais você aumenta turnover e risco de erro.
+              Informação demais vira risco.
+            </div>
+
+            <h2 id="sec-8">8) Protocolo de 30 minutos: o que fazer em cada ciclo</h2>
+            <p>
+              Abaixo está um protocolo operacional, simples e repetível.
+              O objetivo é tirar decisões do “humor do dia”.
+            </p>
+
+            <h3>8.1) Rotina mensal (15 minutos)</h3>
+            <ul>
+              <li>Confirmar aporte realizado (C).</li>
+              <li>Checar pesos vs alvo (bandas).</li>
+              <li>Direcionar próximo aporte ao bloco mais abaixo do alvo.</li>
+              <li>Registrar 1 linha: “aporte ok / ajuste ok”.</li>
+            </ul>
+
+            <h3>8.2) Rotina trimestral (30 minutos)</h3>
+            <ul>
+              <li>Revisar IPS: mudou renda? mudou objetivo? (sim → ajustar C e reserva)</li>
+              <li>Revisar limites (satélite/concentração) e aderência.</li>
+              <li>Revisar rebalanceamento por bandas (ocorreu? turnover ok?).</li>
+              <li>Checar “ruína operacional”: reserva ainda cobre horizonte definido?</li>
+            </ul>
+
+            <h3>8.3) Rotina anual (60–90 minutos)</h3>
+            <ul>
+              <li>Ajustar pesos estratégicos (se necessário).</li>
+              <li>Reavaliar risco (tolerância vs realidade vivida).</li>
+              <li>Revisar plano de carreira/renda (gY) e taxa de investimento.</li>
+              <li>Atualizar documento do IPS e “lições do ano”.</li>
+            </ul>
+
+            <div class="callout">
+              <b>Resultado:</b> seu plano deixa de depender de força de vontade.
+              Ele vira um processo institucional com ciclos, controles e aprendizado.
+            </div>
+
+            <hr class="divider-soft" />
+
+            <h2>Fechamento técnico da Parte 5</h2>
+            <p>
+              A Parte 5 transformou o plano em um sistema auditável:
+              vieses → riscos mensuráveis; ruína comportamental → evitável por governança.
+              Agora, na <b>Parte 6</b>, vamos mapear as armadilhas e riscos “hard”:
+              ruína matemática, concentração, liquidez, crédito, alavancagem e imposto.
+            </p>
+
+            <div class="nav-ends" aria-label="Navegação entre partes">
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-4.html"><i class="fa-solid fa-arrow-left"></i> Voltar: Parte 4</a>
+              <a href="/posts/enciclopedia-primeiro-milhao-parte-6.html">Próxima: Parte 6 <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé padrão -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        <h3>Cérebro Milionário</h3>
+        <p>Educação financeira com profundidade estratégica.</p>
+        <div style="display:flex; gap:12px; margin-top:10px; align-items:center;">
+          <a href="https://t.me/cerebromillionario" target="_blank" rel="noopener" aria-label="Telegram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none;">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://instagram.com/cerebromillionario" target="_blank" rel="noopener" aria-label="Instagram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none;">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/glossario-financeiro.html">Glossário Financeiro</a></li>
+          <li><a href="/perguntas-frequentes.html">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script menu mobile -->
+  <script>
+    (function () {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', function () {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    })();
+  </script>
+</body>
+</html>
