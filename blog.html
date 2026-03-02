@@ -127,7 +127,14 @@
       width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;
       border:1px solid rgba(255,255,255,.14);text-decoration:none
     }
-    body{overflow-x:hidden;} /* evita scroll horizontal acidental */
+
+    /* evita scroll horizontal acidental */
+    body{overflow-x:hidden;}
+
+    /* garante que o botão fique clicável no mobile (ajuda em alguns navegadores) */
+    .header{position:relative; z-index:50;}
+    .mobile-menu-btn{position:relative; z-index:60;}
+    .navigation{position:relative; z-index:55;}
   </style>
 </head>
 
@@ -360,16 +367,42 @@
   </footer>
 
   <script>
-    // ===== Mobile menu =====
+    // ===== Mobile menu (CORRIGIDO PARA O SEU style.css) =====
     (function () {
       const btn = document.querySelector('.mobile-menu-btn');
       const nav = document.getElementById('primary-navigation');
       if (!btn || !nav) return;
 
-      btn.addEventListener('click', function () {
+      function closeMenu(){
+        btn.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('active'); // ✅ seu CSS usa .navigation.active
+      }
+
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
         const expanded = btn.getAttribute('aria-expanded') === 'true';
         btn.setAttribute('aria-expanded', String(!expanded));
-        nav.classList.toggle('open');
+        nav.classList.toggle('active'); // ✅
+      });
+
+      // fecha ao clicar em um link
+      nav.addEventListener('click', function (e) {
+        const a = e.target.closest('a');
+        if (a) closeMenu();
+      });
+
+      // fecha ao clicar fora
+      document.addEventListener('click', function (e) {
+        const isOpen = nav.classList.contains('active');
+        if (!isOpen) return;
+        if (e.target.closest('.header')) return;
+        closeMenu();
+      });
+
+      // fecha ao redimensionar
+      window.addEventListener('resize', function () {
+        closeMenu();
       });
     })();
 
@@ -556,7 +589,7 @@
       const xmlText = await res.text();
       const doc = new DOMParser().parseFromString(xmlText, 'application/xml');
 
-      // ✅ Namespace-safe: funciona com ou sem xmlns no <urlset>
+      // Namespace-safe
       let urlNodes = Array.from(doc.getElementsByTagName('url'));
       if (urlNodes.length === 0 && doc.getElementsByTagNameNS) {
         urlNodes = Array.from(doc.getElementsByTagNameNS('*', 'url'));
@@ -571,21 +604,17 @@
         };
       }).filter(u => u.loc);
 
-      // Apenas /posts/
       const posts = urls
         .map(u => ({ ...u, path: safePathFromLoc(u.loc) }))
         .filter(u => u.path.includes('/posts/'));
 
-      // Construção dos cards
       const items = posts.map(p => {
         const parts = p.path.split('/');
         const file = parts[parts.length - 1] || '';
         const slug = file.replace(/\.html$/,'');
         const niceTitle = slugToTitle(file);
 
-        // imagem padrão
         let image = '/images/blog-default.svg';
-        // se não existir, cai no cover via onerror
         const titleOverride = (slug === 'guia-completo-investimentos-iniciantes-2026') ? 'Guia Completo de Investimentos para Iniciantes (2026)' : null;
 
         return {
@@ -600,7 +629,6 @@
         };
       });
 
-      // Ordenação: mais recente primeiro (por lastmod), mantendo estabilidade
       const parseBR = (s) => {
         const m = String(s||'').match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
         if(!m) return 0;
@@ -628,4 +656,4 @@
     });
   </script>
 </body>
-</html>
+  </html>
