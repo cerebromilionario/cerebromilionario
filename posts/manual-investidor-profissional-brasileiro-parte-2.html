@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Manual do Investidor Profissional Brasileiro — Parte 2 | DSGE, RBC e Prêmio Soberano Endógeno</title>
+<meta name="description" content="Modelo DSGE completo aplicado ao Brasil: RBC, Phillips Novo-Keynesiana, restrição intertemporal do governo, condição de transversalidade e prêmio soberano endógeno em equilíbrio geral." />
+<meta name="robots" content="index, follow" />
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<script>
+window.MathJax = {
+tex: { inlineMath: [['\','\'], ['$', '$']], displayMath: [['\','\']] }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+<style>
+body{overflow-x:hidden}
+.post-wrap{max-width:1100px;margin:0 auto;padding:40px 18px 120px}
+.pill{display:inline-block;padding:6px 12px;border-radius:999px;font-weight:800;font-size:12px;background:rgba(44,44,46,.06)}
+.toc{margin-top:20px;border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;padding:18px}
+.toc a{display:block;padding:8px 12px;border-radius:14px;margin:6px 0;text-decoration:none;border:1px solid rgba(0,0,0,.06)}
+.codebox{border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;padding:18px;margin:26px 0}
+.callout{border-left:4px solid #f4c430;background:rgba(244,196,48,.10);padding:18px;border-radius:14px;margin:26px 0}
+.warning{border-left:4px solid #e2574c;background:rgba(226,87,76,.08);padding:18px;border-radius:14px;margin:26px 0}
+.hr{height:1px;background:rgba(0,0,0,.10);border:0;margin:40px 0}
+h2{margin-top:50px}
+h3{margin-top:30px}
+</style>
+</head>
+
+<body>
+<div class="post-wrap">
+
+<span class="pill">DSGE Research • Parte 2/8</span>
+<h1>Equilíbrio Geral Dinâmico com Dominância Fiscal e Prêmio Soberano Endógeno</h1>
+
+<div class="callout">
+Agora modelamos o Brasil como economia aberta emergente em equilíbrio geral,
+onde prêmio soberano é variável endógena derivada da solvência fiscal e estabilidade monetária.
+</div>
+
+<div class="toc">
+<h2>Estrutura Analítica</h2>
+<a href="#rbc">1. Modelo RBC Completo</a>
+<a href="#nkpc">2. Curva de Phillips Novo-Keynesiana</a>
+<a href="#gov">3. Restrição Intertemporal do Governo</a>
+<a href="#transv">4. Condição de Transversalidade</a>
+<a href="#risk">5. Prêmio Soberano Endógeno</a>
+<a href="#eq">6. Equilíbrio Geral com Risco Fiscal</a>
+<a href="#imp">7. Implicações para Investidor</a>
+</div>
+
+<hr class="hr">
+
+<h2 id="rbc">1. Modelo RBC Completo</h2>
+
+Família representativa maximiza utilidade intertemporal:
+
+<div class="codebox">
+\[
+\max \mathbb{E}_0 \sum_{t=0}^{\infty} \beta^t
+\left[
+\frac{C_t^{1-\sigma}}{1-\sigma} - \frac{N_t^{1+\phi}}{1+\phi}
+\right]
+\]
+</div>
+
+Sujeito à restrição orçamentária:
+
+\[
+C_t + K_{t+1} = w_t N_t + r_t K_t + (1-\delta)K_t
+\]
+
+Produção:
+
+\[
+Y_t = A_t K_t^\alpha N_t^{1-\alpha}
+\]
+
+Choque tecnológico:
+
+\[
+\ln A_t = \rho_A \ln A_{t-1} + \varepsilon_t
+\]
+
+FOCs:
+
+\[
+C_t^{-\sigma} = \beta E_t \left[ C_{t+1}^{-\sigma} (r_{t+1}+1-\delta) \right]
+\]
+
+Esse é núcleo do crescimento real.
+
+<hr class="hr">
+
+<h2 id="nkpc">2. Curva de Phillips Novo-Keynesiana</h2>
+
+Empresas enfrentam rigidez de preços (Calvo):
+
+\[
+\pi_t = \beta E_t \pi_{t+1} + \kappa x_t
+\]
+
+Onde:
+
+- x_t = hiato do produto
+- \kappa depende de rigidez
+
+Se política fiscal pressiona demanda,
+hiato aumenta → inflação sobe.
+
+<hr class="hr">
+
+<h2 id="gov">3. Restrição Intertemporal do Governo</h2>
+
+Orçamento público:
+
+\[
+B_{t+1} = (1+r_t)B_t + G_t - T_t
+\]
+
+Iterando para frente:
+
+\[
+B_t = \sum_{j=0}^{\infty}
+\frac{T_{t+j} - G_{t+j}}{\prod_{i=0}^{j}(1+r_{t+i})}
+\]
+
+Solvência exige valor presente de superávits ≥ dívida atual.
+
+<hr class="hr">
+
+<h2 id="transv">4. Condição de Transversalidade</h2>
+
+Para evitar explosão:
+
+\[
+\lim_{T\to\infty}
+\frac{B_T}{\prod_{t=0}^{T}(1+r_t)} = 0
+\]
+
+Se condição falha → prêmio sobe.
+
+<hr class="hr">
+
+<h2 id="risk">5. Prêmio Soberano Endógeno</h2>
+
+Modelamos taxa real doméstica como:
+
+\[
+r_t = r^* + \psi(B_t/Y_t) + \eta Var(\pi_t)
+\]
+
+Onde:
+
+- r^* taxa internacional
+- \psi' > 0
+
+Prêmio cresce com dívida e volatilidade inflacionária.
+
+<hr class="hr">
+
+<h2 id="eq">6. Equilíbrio Geral com Risco Fiscal</h2>
+
+Sistema fechado:
+
+1. Equação de Euler  
+2. Curva NKPC  
+3. Regra monetária (Taylor)  
+4. Restrição fiscal  
+5. Regra dívida/prêmio  
+
+Choque fiscal → aumenta dívida → eleva prêmio →
+aumenta custo de capital → reduz investimento →
+reduz crescimento potencial.
+
+Sistema é não-linear.
+
+<hr class="hr">
+
+<h2 id="imp">7. Implicações para Investidor</h2>
+
+No equilíbrio:
+
+- Aumento estrutural da dívida → prêmio estrutural maior  
+- Prêmio maior → custo de capital maior  
+- Custo maior → múltiplos menores  
+
+Logo:
+
+Valuation no Brasil é função direta de solvência fiscal.
+
+<div class="callout">
+O investidor brasileiro está alocado dentro de um modelo DSGE com risco soberano endógeno.
+Retorno esperado não é constante — é função do regime fiscal.
+</div>
+
+<hr class="hr">
+
+<h2>Conclusão</h2>
+
+Agora temos:
+
+✔ RBC real  
+✔ Phillips NK  
+✔ Restrição intertemporal  
+✔ Transversalidade  
+✔ Prêmio soberano endógeno  
+
+Na Parte 3 avançaremos para:
+
+- Modelo aberto com fluxo de capitais  
+- Paridade descoberta de juros com risco  
+- Dinâmica cambial estocástica  
+- External debt constraint  
+- Modelo de Sudden Stop  
+
+Isso será nível FMI.
+
+Seguimos?
