@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Warren Buffett — Biografia Institucional (Parte 1/8) | Origem, Formação e a Máquina Mental</title>
+  <meta name="description" content="Biografia institucional (Parte 1/8): infância, primeiros negócios, formação com Benjamin Graham, a construção da máquina mental de Buffett, princípios de value investing e os primeiros passos rumo à Berkshire Hathaway." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/warren-buffett-biografia-institucional-parte-1.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/warren-buffett-biografia-institucional-parte-1.html" />
+  <meta property="og:title" content="Warren Buffett — Biografia Institucional (Parte 1/8)" />
+  <meta property="og:description" content="Origem, formação e a máquina mental. Padrão institucional." />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Fonts + Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
+
+  <!-- MathJax (para fórmulas e notação formal) -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)'], ['$', '$']], displayMath: [['\\[','\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <style>
+    body{overflow-x:hidden}
+
+    /* ===== Layout: conteúdo + sidebar (desktop sem sobrepor) ===== */
+    .series-layout{
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 18px;
+      align-items: start;
+    }
+    @media (max-width: 1100px){
+      .series-layout{ grid-template-columns: 1fr; }
+    }
+
+    .post-wrap{max-width:980px;margin:0;padding:0}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:800;font-size:12px;background:rgba(44,44,46,.06)}
+    .muted{opacity:.78}
+
+    .hero{
+      margin-top:16px;border-radius:18px;overflow:hidden;border:1px solid rgba(0,0,0,.08);
+      box-shadow: var(--shadow-sm); background:#fff
+    }
+    .hero img{width:100%;height:auto;display:block}
+
+    .toc{
+      margin-top:18px;border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;
+      box-shadow: var(--shadow-sm); padding:16px
+    }
+    .toc h2{margin:0 0 10px 0}
+    .toc a{display:block;text-decoration:none;padding:8px 10px;border-radius:14px;border:1px solid rgba(0,0,0,.06);margin:8px 0}
+    .toc a:hover{transform:translateY(-1px)}
+
+    .callout{
+      border-left:4px solid var(--accent-color, #f4c430);
+      background: rgba(244,196,48,.10);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+    .warning{
+      border-left:4px solid #e2574c;background: rgba(226,87,76,.08);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+
+    .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+    .kpi{border:1px solid rgba(0,0,0,.08);border-radius:16px;background:#fff;box-shadow:var(--shadow-sm);padding:14px}
+    .kpi strong{display:block;font-size:18px}
+    @media(max-width:980px){.kpi-grid{grid-template-columns:1fr}}
+
+    .jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .jump a{
+      display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:14px;
+      border:1px solid rgba(0,0,0,.08);background:#fff;box-shadow:var(--shadow-sm);text-decoration:none;font-weight:900
+    }
+    .jump a:hover{transform:translateY(-1px)}
+
+    .section h2{margin-top:42px}
+    .section h3{margin-top:26px}
+    .hr{height:1px;background:rgba(0,0,0,.10);border:0;margin:26px 0}
+
+    .table{
+      width:100%;border-collapse:collapse;border:1px solid rgba(0,0,0,.08);border-radius:14px;overflow:hidden;background:#fff;
+      box-shadow:var(--shadow-sm)
+    }
+    .table th,.table td{padding:12px;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:top}
+    .table th{background:rgba(44,44,46,.04);text-align:left}
+
+    .codebox{
+      border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);padding:14px 16px;margin:18px 0
+    }
+    .mini-note{font-size:12px;opacity:.78;margin-top:8px}
+
+    /* ===== Sidebar desktop (sticky) ===== */
+    .series-nav{
+      position: sticky;
+      top: 96px;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.10);
+      border-radius: 18px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.10);
+      padding: 12px;
+      max-height: calc(100vh - 120px);
+      overflow: auto;
+    }
+    @media (max-width: 1100px){
+      .series-nav{ display:none; }
+    }
+    .series-nav-head{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      padding: 8px 8px 10px 8px;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    .series-nav-links{ display:flex; flex-direction:column; gap: 8px; padding: 10px 6px 6px; }
+    .series-nav-links a{
+      text-decoration:none;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,.08);
+      color: #1a1a1a;
+      font-weight: 800;
+    }
+    .series-nav-links a:hover{ transform: translateY(-1px); }
+    .series-nav-links a.active{
+      background: #2c2c2e;
+      color: #fff;
+      border-color: #2c2c2e;
+    }
+
+    /* ===== Mobile drawer ===== */
+    .series-fab{
+      position: fixed;
+      right: 16px;
+      bottom: 18px;
+      z-index: 10000;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 14px;
+      background: #2c2c2e;
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 18px 45px rgba(0,0,0,.30);
+      display: none;
+    }
+    .series-backdrop{
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.45);
+      z-index: 9998;
+      display: none;
+    }
+    .series-drawer{
+      position: fixed;
+      top: 0; right: 0;
+      height: 100vh;
+      width: min(360px, 92vw);
+      background: #fff;
+      z-index: 9999;
+      transform: translateX(110%);
+      transition: transform .18s ease;
+      border-left: 1px solid rgba(0,0,0,.10);
+      padding: 14px 12px;
+      overflow: auto;
+    }
+    .series-drawer.open{ transform: translateX(0); }
+    .series-backdrop.open{ display:block; }
+    .series-close{
+      border: 1px solid rgba(0,0,0,.12);
+      background: #fff;
+      border-radius: 12px;
+      width: 38px; height: 38px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    @media (max-width: 1100px){
+      .series-fab{ display:inline-flex; align-items:center; justify-content:center; }
+    }
+
+    /* ===== Extras ===== */
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+    @media(max-width:980px){.grid-3{grid-template-columns:1fr}}
+    .card{
+      border:1px solid rgba(0,0,0,.08);
+      border-radius: 18px;
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      padding: 14px;
+    }
+    .card strong{display:block;font-size:14px}
+    .card p{margin:8px 0 0 0;opacity:.86;line-height:1.5}
+
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.10);background:#fff;box-shadow:var(--shadow-sm);font-weight:900}
+    .badge i{opacity:.85}
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .checklist{margin:12px 0 0 0; padding-left: 18px}
+    .checklist li{margin:8px 0}
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile FAB + Drawer -->
+  <button class="series-fab" id="seriesFab" aria-label="Abrir navegação da série" aria-expanded="false">Buffett 1/8</button>
+  <div class="series-backdrop" id="seriesBackdrop"></div>
+
+  <aside class="series-drawer" id="seriesDrawer" aria-label="Navegação da série Warren Buffett (mobile)">
+    <div class="series-nav-head">
+      <strong>📌 Série: Buffett (1/8)</strong>
+      <button class="series-close" id="seriesClose" aria-label="Fechar">✕</button>
+    </div>
+    <nav class="series-nav-links">
+      <a href="/posts/warren-buffett-biografia-institucional-parte-1.html" class="active">Parte 1 — Origem & Máquina Mental</a>
+      <a href="/posts/warren-buffett-biografia-institucional-parte-2.html">Parte 2 — Graham, Partnership e o início do método</a>
+      <a href="/posts/warren-buffett-biografia-institucional-parte-3.html">Parte 3 — Berkshire: a virada do “cigar butt”</a>
+      <a href="/posts/warren-buffett-biografia-institucional-parte-4.html">Parte 4 — Moat, gestão, cultura e capital allocation</a>
+      <a href="/posts/warren-buffett-biografia-institucional-parte-5.html">Parte 5 — Coca-Cola, Apple e os grandes “compounds”</a>
+      <a href="/posts/warren-buffett-biografia-institucional-parte-6.html">Parte 6 — Crises, quedas e decisões sob stress</a>
+      <a href="/posts/warren-buffett-biografia-institucional-parte-7.html">Parte 7 — Erros, vieses e lições inegociáveis</a>
+      <a href="/posts/warren-buffett-biografia-institucional-parte-8.html">Parte 8 — Playbook final: regras, checklists e legado</a>
+    </nav>
+  </aside>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <span class="pill">Série Biográfica • Nível Institucional • Parte 1/8</span>
+        <h1 style="margin-top:10px;">Warren Buffett — Vida Completa em Padrão Institucional</h1>
+        <p class="muted" style="max-width: 980px;">
+          Esta série não é “história inspiradora”. É <strong>engenharia de decisões</strong>:
+          como Buffett formou seu modelo mental, como evoluiu de Graham para “moats”, como a Berkshire virou uma máquina
+          de alocação de capital e como ele construiu um histórico de décadas com regras, cultura e disciplina.
+        </p>
+
+        <div class="hero">
+          <img src="/images/blog-cover.svg" alt="Warren Buffett — Biografia Institucional" loading="lazy" />
+        </div>
+
+        <div class="kpi-grid" style="max-width: 980px;">
+          <div class="kpi"><strong>Leitura</strong><span class="muted">~ 45–75 min</span></div>
+          <div class="kpi"><strong>Foco</strong><span class="muted">Origem, formação, princípios</span></div>
+          <div class="kpi"><strong>Próximo</strong><span class="muted"><a href="/posts/warren-buffett-biografia-institucional-parte-2.html">Graham & Partnerships</a></span></div>
+        </div>
+
+        <div class="jump" style="max-width: 980px;">
+          <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+          <a href="/posts/warren-buffett-biografia-institucional-parte-2.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 2</a>
+          <a href="/posts/etf-masterclass-carteira-global-parte-1.html"><i class="fa-solid fa-bolt"></i> ETF Masterclass</a>
+          <a href="/posts/acoes-institucional-parte-1.html"><i class="fa-solid fa-chart-line"></i> Série Ações</a>
+        </div>
+
+        <div class="badges" style="max-width: 980px;">
+          <span class="badge"><i class="fa-solid fa-brain"></i> Modelo mental</span>
+          <span class="badge"><i class="fa-solid fa-scale-balanced"></i> Value + Qualidade</span>
+          <span class="badge"><i class="fa-solid fa-shield"></i> Moat</span>
+          <span class="badge"><i class="fa-solid fa-coins"></i> Capital allocation</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="series-layout">
+
+        <!-- CONTEÚDO -->
+        <article class="post-wrap">
+
+          <div class="toc">
+            <h2>Índice</h2>
+            <a href="#s1">1) Omaha, família, números e o “vírus do negócio”</a>
+            <a href="#s2">2) Primeiros negócios: jornal, pinball e a obsessão por margem</a>
+            <a href="#s3">3) A mentalidade “owner” antes de ser moda</a>
+            <a href="#s4">4) O choque com a realidade: o mercado como máquina de humor</a>
+            <a href="#s5">5) Benjamin Graham: a disciplina do valor e a margem de segurança</a>
+            <a href="#s6">6) O método inicial: “cigar butts”, net-nets e arbitragem simples</a>
+            <a href="#s7">7) A primeira virada: qualidade, Durabilidade e a influência de Munger</a>
+            <a href="#s8">8) Framework formal: retorno esperado, risco e preço pago</a>
+            <a href="#s9">Conclusão + ponte para Parte 2</a>
+          </div>
+
+          <div class="callout">
+            <strong>Leitura do tipo certo:</strong>
+            ao longo desta série, trate cada fase da vida do Buffett como uma “mudança de modelo”.
+            O que interessa é: <em>qual problema ele estava resolvendo</em>, <em>qual era a restrição</em> e <em>qual regra ele passou a seguir</em>.
+          </div>
+
+          <hr class="hr">
+
+          <h2 id="s1">1) Omaha, família, números e o “vírus do negócio”</h2>
+          <p>
+            Buffett cresce em Omaha, em um contexto que mistura pragmatismo, política e comércio local.
+            Antes de existir “finance influencer”, já existia o traço mais raro em investidores de longo prazo:
+            <strong>fascinação por contagem</strong>. Ele não só gosta de dinheiro; gosta de <em>mecanismos</em>:
+            quanto entra, quanto sai, qual é a margem, qual o risco de ruína e qual o retorno esperado.
+          </p>
+          <p>
+            Isso importa porque o “gênio” do Buffett não nasce de uma planilha mágica. Nasce de uma estrutura mental:
+            (i) pensar em probabilidades, (ii) evitar ruína, (iii) preferir compounding a “golpes”, e (iv) tomar decisões
+            com base em <strong>valor intrínseco</strong>, não em opinião do mercado.
+          </p>
+
+          <div class="grid-3">
+            <div class="card">
+              <strong>Habilidade 1: “contabilidade mental” real</strong>
+              <p>Ele mede tudo. O investidor amador “sente”; Buffett mede e registra.</p>
+            </div>
+            <div class="card">
+              <strong>Habilidade 2: foco em compounding</strong>
+              <p>O objetivo vira “crescer base” continuamente, não acertar um trade.</p>
+            </div>
+            <div class="card">
+              <strong>Habilidade 3: aversão à ruína</strong>
+              <p>Antes de pensar em retorno, ele pensa em não quebrar.</p>
+            </div>
+          </div>
+
+          <h2 id="s2">2) Primeiros negócios: jornal, pinball e a obsessão por margem</h2>
+          <p>
+            Os primeiros “negócios” do Buffett têm um padrão: pequena escala, mas com tese clara de margem e reinvestimento.
+            Entregar jornal, vender itens, rodar máquinas de pinball — o ponto não é o folclore.
+            O ponto é que ele aprende cedo a decompor qualquer atividade em:
+            <strong>capital empregado</strong>, <strong>retorno sobre capital</strong> e <strong>risco operacional</strong>.
+          </p>
+
+          <div class="codebox">
+            <strong>O “modelo” por trás de qualquer mini-negócio:</strong>
+            <p>\[
+              ROIC \approx \frac{\text{Lucro Operacional Pós-Impostos}}{\text{Capital Operacional Empregado}}
+            \]</p>
+            <p class="mini-note">
+              Mesmo antes de usar esse nome, o raciocínio é: “se eu colocar X, quanto volta por ano, e por quanto tempo?”
+            </p>
+          </div>
+
+          <p>
+            Isso vira uma obsessão saudável: negócios bons não são os “mais famosos”; são os que convertem esforço/capital em caixa
+            com previsibilidade. Esse instinto será reciclado depois em moats e capital allocation.
+          </p>
+
+          <h2 id="s3">3) A mentalidade “owner” antes de ser moda</h2>
+          <p>
+            Buffett internaliza cedo que ações representam participações em negócios. Parece óbvio, mas a maioria das pessoas
+            negocia tickers como se fossem “cartas” de um jogo. O “owner mindset” muda tudo:
+          </p>
+
+          <ul class="checklist">
+            <li>Preço é oferta do mercado, não um oráculo.</li>
+            <li>Valor vem de caixa futuro, não de manchete.</li>
+            <li>Tempo é aliado do negócio bom e inimigo do negócio ruim.</li>
+            <li>Retorno de longo prazo se parece com retorno do negócio subjacente.</li>
+          </ul>
+
+          <div class="callout">
+            <strong>Regra prática:</strong> antes de comprar uma ação, pergunte:
+            “Se a bolsa fechasse por 5 anos, eu ficaria feliz sendo sócio desse negócio?”
+          </div>
+
+          <h2 id="s4">4) O choque com a realidade: o mercado como máquina de humor</h2>
+          <p>
+            O mercado, para Buffett, é uma máquina de preço no curto prazo e uma balança no longo prazo.
+            No curto prazo, preço reflete fluxo, ruído, liquidez e psicologia. No longo prazo, preço converge para economia.
+            É aqui que nasce o famoso “Mr. Market”: você não discute com o mercado; você usa o mercado.
+          </p>
+
+          <div class="codebox">
+            <strong>Separando dois mundos:</strong>
+            <p>\[
+              \text{Preço}_t = f(\text{liquidez, sentimento, fluxo, posicionamento, notícia})
+            \]</p>
+            <p>\[
+              \text{Valor} = \sum_{t=1}^{\infty}\frac{FCF_t}{(1+r)^t}
+            \]</p>
+            <p class="mini-note">
+              O investidor amador confunde \( \text{Preço}_t \) com \( \text{Valor} \). O profissional usa a diferença.
+            </p>
+          </div>
+
+          <h2 id="s5">5) Benjamin Graham: a disciplina do valor e a margem de segurança</h2>
+          <p>
+            A entrada de Graham é o primeiro “sistema operacional” completo: valor intrínseco, margem de segurança e disciplina.
+            Buffett aprende o que a maioria nunca aprende: <strong>não existe investimento sem preço</strong>.
+            Você não compra “uma empresa boa”. Você compra a relação entre preço e valor com risco controlável.
+          </p>
+
+          <div class="callout">
+            <strong>Margem de segurança (conceito formal):</strong>
+            <p style="margin-top:10px;">
+              \[
+                MOS = 1 - \frac{P}{V}
+              \]
+            </p>
+            <p class="mini-note">
+              Quanto maior o desconto \(MOS\), maior o “colchão” contra erro de estimativa e incerteza.
+            </p>
+          </div>
+
+          <h2 id="s6">6) O método inicial: “cigar butts”, net-nets e arbitragem simples</h2>
+          <p>
+            No início, Buffett é um “Graham puro”: compra negócios baratos estatisticamente — às vezes ruins,
+            mas tão descontados que o risco/retorno era atraente. A lógica é:
+            o mercado exagera para baixo, você compra com desconto e sai quando a distorção fecha.
+          </p>
+
+          <div class="warning">
+            <strong>Limitação estrutural:</strong> esse método escala mal.
+            À medida que o capital cresce, encontrar “barganhas” suficientes vira impossível sem degradar qualidade e liquidez.
+          </div>
+
+          <h2 id="s7">7) A primeira virada: qualidade, durabilidade e a influência de Munger</h2>
+          <p>
+            O encontro com Charlie Munger vira uma migração de “barato” para “bom + razoável”.
+            A tese evolui: melhor comprar um negócio excepcional a um preço justo do que um negócio ruim barato.
+            Isso abre o caminho para moats, pricing power, cultura e decisões de longo prazo.
+          </p>
+
+          <div class="grid-3">
+            <div class="card">
+              <strong>De “desconto” para “durabilidade”</strong>
+              <p>O foco passa a ser: quanto tempo o negócio consegue manter retorno acima do custo.</p>
+            </div>
+            <div class="card">
+              <strong>De “evento” para “compounding”</strong>
+              <p>Em vez de “re-rating”, o motor vira reinvestimento com ROIC alto por anos.</p>
+            </div>
+            <div class="card">
+              <strong>De “técnica” para “cultura”</strong>
+              <p>Gestão, governança e cultura viram parte do valuation (risco de agência).</p>
+            </div>
+          </div>
+
+          <h2 id="s8">8) Framework formal: retorno esperado, risco e preço pago</h2>
+          <p>
+            A máquina mental do Buffett pode ser descrita como um triângulo:
+            <strong>(i) valor intrínseco</strong>, <strong>(ii) margem de segurança</strong>, <strong>(iii) qualidade/durabilidade</strong>.
+            Quando a qualidade aumenta, a exigência de desconto pode diminuir — mas nunca desaparece.
+          </p>
+
+          <div class="codebox">
+            <strong>Retorno esperado (forma conceitual):</strong>
+            <p>\[
+              \mathbb{E}[R] \approx \underbrace{\frac{FCF}{P}}_{\text{yield}} + \underbrace{g}_{\text{crescimento}} + \underbrace{\Delta Multiple}_{\text{re-rating}}
+            \]</p>
+            <p class="mini-note">
+              Buffett tenta reduzir a dependência de \(\Delta Multiple\) e aumentar a dependência de “yield + crescimento sustentável”.
+            </p>
+          </div>
+
+          <div class="callout">
+            <strong>Uma frase que resume a Parte 1:</strong>
+            Buffett não começa como “lenda”. Ele começa como um operador de processo:
+            mede, compra desconto com disciplina, evolui para qualidade e cria um sistema de decisão que evita ruína.
+          </div>
+
+          <h2 id="s9">Conclusão + ponte para Parte 2</h2>
+          <p>
+            Na Parte 2, a gente entra no período “profissional”: Graham-Newman, o aprendizado prático,
+            a criação das partnerships e a engenharia de performance (inclusive com arbitragem e posições especiais).
+            É aqui que ele forma o histórico que depois “vira Berkshire”.
+          </p>
+
+          <div class="jump" style="margin-top:18px;">
+            <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+            <a href="/posts/warren-buffett-biografia-institucional-parte-2.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 2</a>
+            <a href="/posts/warren-buffett-biografia-institucional-parte-1.html"><i class="fa-solid fa-rotate"></i> Recarregar Parte 1</a>
+          </div>
+
+          <hr class="hr">
+          <p class="muted" style="font-size:12px;">
+            Nota: conteúdo educacional. Não é recomendação de investimento. O objetivo é extrair modelo mental e governança de decisão.
+          </p>
+
+        </article>
+
+        <!-- SIDEBAR DESKTOP -->
+        <aside class="series-nav" aria-label="Navegação da série Warren Buffett (desktop)">
+          <div class="series-nav-head">
+            <strong>📌 Série: Buffett (1/8)</strong>
+            <span class="muted" style="font-size:12px;">Início</span>
+          </div>
+
+          <nav class="series-nav-links">
+            <a href="/posts/warren-buffett-biografia-institucional-parte-1.html" class="active">Parte 1 — Origem & Máquina Mental</a>
+            <a href="/posts/warren-buffett-biografia-institucional-parte-2.html">Parte 2 — Graham, Partnership e o início do método</a>
+            <a href="/posts/warren-buffett-biografia-institucional-parte-3.html">Parte 3 — Berkshire: a virada do “cigar butt”</a>
+            <a href="/posts/warren-buffett-biografia-institucional-parte-4.html">Parte 4 — Moat, gestão, cultura e capital allocation</a>
+            <a href="/posts/warren-buffett-biografia-institucional-parte-5.html">Parte 5 — Coca-Cola, Apple e os grandes “compounds”</a>
+            <a href="/posts/warren-buffett-biografia-institucional-parte-6.html">Parte 6 — Crises, quedas e decisões sob stress</a>
+            <a href="/posts/warren-buffett-biografia-institucional-parte-7.html">Parte 7 — Erros, vieses e lições inegociáveis</a>
+            <a href="/posts/warren-buffett-biografia-institucional-parte-8.html">Parte 8 — Playbook final: regras, checklists e legado</a>
+          </nav>
+
+          <div class="codebox" style="margin:12px 6px 6px;">
+            <strong>Atalhos do site</strong>
+            <div class="mini-note">
+              <a href="/blog.html">Blog</a> • <a href="/calculadora.html">Juros compostos</a> • <a href="/aposentadoria.html">Aposentadoria</a>
+            </div>
+          </div>
+
+          <div class="codebox" style="margin:12px 6px 6px;">
+            <strong>O que você deve “roubar” do Buffett</strong>
+            <div class="mini-note" style="margin-top:10px;">
+              <ul class="checklist">
+                <li>Processo > opinião</li>
+                <li>Preço vs valor (não confundir)</li>
+                <li>Evitar ruína</li>
+                <li>Compounding e paciência</li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        <h3>Cérebro Milionário</h3>
+        <p>Educação financeira com profundidade estratégica.</p>
+        <div class="footer-social" aria-label="Redes sociais" style="display:flex;gap:12px;align-items:center;margin-top:10px">
+          <a href="https://t.me/cerebromillionario" target="_blank" rel="noopener" aria-label="Telegram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://instagram.com/cerebromillionario" target="_blank" rel="noopener" aria-label="Instagram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/glossario-financeiro.html">Glossário Financeiro</a></li>
+          <li><a href="/perguntas-frequentes.html">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Top mobile menu (header)
+    (function () {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', function () {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    })();
+
+    // Série drawer mobile
+    (function(){
+      const fab = document.getElementById('seriesFab');
+      const drawer = document.getElementById('seriesDrawer');
+      const backdrop = document.getElementById('seriesBackdrop');
+      const closeBtn = document.getElementById('seriesClose');
+      if(!fab || !drawer || !backdrop || !closeBtn) return;
+
+      function openNav(){
+        drawer.classList.add('open');
+        backdrop.classList.add('open');
+        fab.setAttribute('aria-expanded','true');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeNav(){
+        drawer.classList.remove('open');
+        backdrop.classList.remove('open');
+        fab.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+      }
+
+      fab.addEventListener('click', openNav);
+      closeBtn.addEventListener('click', closeNav);
+      backdrop.addEventListener('click', closeNav);
+      document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeNav(); });
+    })();
+  </script>
+</body>
+</html>
