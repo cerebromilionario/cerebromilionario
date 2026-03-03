@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Manual do Investidor Profissional Brasileiro — Parte 1 | Arquitetura Estrutural do Capital Emergente</title>
+<meta name="description" content="Research monograph: estrutura dinâmica do capital no Brasil com dominância fiscal, inflação regime-dependente, modelo HJM simplificado, prêmio soberano endógeno, decomposição NTN-B, crescimento estocástico e risco de ruína." />
+<meta name="robots" content="index, follow" />
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<script>
+window.MathJax = {
+tex: { inlineMath: [['\\(','\\)'], ['$', '$']], displayMath: [['\\[','\\]']] }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+<style>
+body{overflow-x:hidden}
+.post-wrap{max-width:1100px;margin:0 auto;padding:40px 18px 120px}
+.pill{display:inline-block;padding:6px 12px;border-radius:999px;font-weight:800;font-size:12px;background:rgba(44,44,46,.06)}
+.toc{margin-top:20px;border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;padding:18px}
+.toc a{display:block;padding:8px 12px;border-radius:14px;margin:6px 0;text-decoration:none;border:1px solid rgba(0,0,0,.06)}
+.codebox{border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;padding:18px;margin:26px 0}
+.callout{border-left:4px solid #f4c430;background:rgba(244,196,48,.10);padding:18px;border-radius:14px;margin:26px 0}
+.warning{border-left:4px solid #e2574c;background:rgba(226,87,76,.08);padding:18px;border-radius:14px;margin:26px 0}
+.hr{height:1px;background:rgba(0,0,0,.10);border:0;margin:40px 0}
+h2{margin-top:50px}
+h3{margin-top:30px}
+</style>
+
+</head>
+<body>
+
+<div class="post-wrap">
+
+<span class="pill">Research Monograph • Parte 1/8</span>
+<h1>Arquitetura Estrutural do Capital em Economia Emergente: O Caso Brasileiro</h1>
+
+<div class="callout">
+Este documento modela formalmente o capital brasileiro como sistema dinâmico estocástico intertemporal,
+incorporando dominância fiscal, estrutura a termo de juros, inflação regime-dependente,
+prêmio soberano endógeno e implicações para crescimento geométrico de longo prazo.
+</div>
+
+<div class="toc">
+<h2>Estrutura Analítica</h2>
+<a href="#sec1">1. Definição Intertemporal de Capital</a>
+<a href="#sec2">2. Dinâmica da Dívida e Dominância Fiscal</a>
+<a href="#sec3">3. Modelo Estocástico da Inflação</a>
+<a href="#sec4">4. Estrutura a Termo de Juros (HJM Simplificado)</a>
+<a href="#sec5">5. Decomposição do Prêmio Real das NTN-B</a>
+<a href="#sec6">6. Custo de Capital Soberano Endógeno</a>
+<a href="#sec7">7. Crescimento Estocástico e Erosão Geométrica</a>
+<a href="#sec8">8. Simulação Estrutural Multi-Regime</a>
+<a href="#sec9">9. Modelo Contínuo de Ruína Emergente</a>
+<a href="#sec10">Conclusões Estruturais</a>
+</div>
+
+<hr class="hr">
+
+<h2 id="sec1">1. Definição Intertemporal de Capital</h2>
+
+<p>
+Capital em economia emergente deve ser modelado como processo intertemporal sujeito a risco soberano.
+O valor presente do patrimônio é:
+</p>
+
+<div class="codebox">
+\[
+W_0 = \mathbb{E}_0 \left[ \int_0^T \frac{C_t}{M_t} dt \right]
+\]
+</div>
+
+Onde \(M_t\) é o fator estocástico de desconto (SDF):
+
+\[
+M_t = e^{-\int_0^t r_s ds}
+\]
+
+Em mercados emergentes, \(r_s\) é regime-dependente.
+
+<hr class="hr">
+
+<h2 id="sec2">2. Dinâmica da Dívida e Dominância Fiscal</h2>
+
+A equação da dívida pública:
+
+\[
+D_{t+1} = \frac{(1+r_t)}{(1+g_t)} D_t - S_t
+\]
+
+Se \(r_t > g_t\) persistentemente, exige superávit primário positivo.
+
+Modelamos risco fiscal como função convexa da razão dívida/PIB:
+
+\[
+RP_t = \phi_1 D_t + \phi_2 D_t^2
+\]
+
+Não-linearidade implica risco explosivo após determinado limiar.
+
+<div class="warning">
+Dominância fiscal ocorre quando política monetária não consegue controlar inflação
+sem deteriorar solvência soberana.
+</div>
+
+<hr class="hr">
+
+<h2 id="sec3">3. Modelo Estocástico da Inflação</h2>
+
+Processo Markov Switching:
+
+\[
+\pi_t = \alpha_{S_t} + \beta_{S_t} \pi_{t-1} + \varepsilon_t
+\]
+
+Transição:
+
+\[
+P(S_{t+1}=j|S_t=i)=p_{ij}
+\]
+
+Distribuição resultante é leptocúrtica.
+
+<hr class="hr">
+
+<h2 id="sec4">4. Estrutura a Termo de Juros — HJM Simplificado</h2>
+
+Modelo Heath-Jarrow-Morton:
+
+\[
+df(t,T)=\alpha(t,T)dt+\sigma(t,T)dW_t
+\]
+
+Com restrição de ausência de arbitragem:
+
+\[
+\alpha(t,T)=\sigma(t,T)\int_t^T \sigma(t,u)du
+\]
+
+Em economia emergente, \( \sigma(t,T) \) é altamente sensível a choques fiscais.
+
+<hr class="hr">
+
+<h2 id="sec5">5. Decomposição do Prêmio Real das NTN-B</h2>
+
+Yield NTN-B:
+
+\[
+y_t^{real} = r_t^{real} + TP_t
+\]
+
+Onde termo prêmio:
+
+\[
+TP_t = \mathbb{E}_t \left[ \int_t^T RP_s ds \right] + \lambda Var(\pi_t)
+\]
+
+Componente fiscal e componente inflacionário.
+
+<hr class="hr">
+
+<h2 id="sec6">6. Custo de Capital Soberano Endógeno</h2>
+
+\[
+K_e = r_f^{US} + \beta ERP_{Global} + CDS_{Brasil}
+\]
+
+Modelando CDS:
+
+\[
+CDS_t = \delta_1 D_t + \delta_2 Vol(\pi_t) + \delta_3 Inst_t
+\]
+
+Onde \(Inst_t\) mede estabilidade institucional.
+
+<hr class="hr">
+
+<h2 id="sec7">7. Crescimento Estocástico</h2>
+
+Processo lognormal:
+
+\[
+d\ln W_t = (\mu_t - \frac{\sigma_t^2}{2})dt + \sigma_t dW_t
+\]
+
+Se volatilidade é regime-dependente:
+
+\[
+\sigma_t = \sigma_{S_t}
+\]
+
+Crescimento geométrico esperado:
+
+\[
+E[\ln W_T] = \int_0^T \left( \mu_s - \frac{\sigma_s^2}{2} \right) ds
+\]
+
+Alta volatilidade estrutural reduz CAGR.
+
+<hr class="hr">
+
+<h2 id="sec8">8. Simulação Estrutural Multi-Regime</h2>
+
+Algoritmo Monte Carlo:
+
+1. Inicializar \(D_0, \pi_0, W_0\)  
+2. Sortear regime \(S_t\)  
+3. Atualizar inflação e prêmio  
+4. Atualizar curva de juros  
+5. Atualizar patrimônio  
+
+Distribuição final apresenta cauda negativa espessa.
+
+<hr class="hr">
+
+<h2 id="sec9">9. Modelo Contínuo de Ruína</h2>
+
+\[
+P(\text{ruína}) = \exp\left(-\frac{2\mu W_0}{\sigma^2}\right)
+\]
+
+Com \(\sigma\) elevado, probabilidade cresce exponencialmente.
+
+<hr class="hr">
+
+<h2 id="sec10">Conclusões Estruturais</h2>
+
+1. Capital brasileiro é regime-dependente.  
+2. Prêmio soberano é função convexa da dívida.  
+3. Volatilidade estrutural reduz crescimento geométrico.  
+4. Diversificação internacional é hedge estrutural.  
+5. Engenharia de risco é mais importante que retorno nominal elevado.  
+
+<div class="callout">
+Investir no Brasil exige modelagem dinâmica, disciplina matemática
+e arquitetura de risco superior.
+</div>
+
+</div>
+</body>
+</html>
