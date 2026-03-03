@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Ações do Zero ao Institucional (Parte 7/8) | Ciclos, Setores, Regimes Macro e Probabilidades</title>
+  <meta name="description" content="Série institucional (Parte 7/8): ciclos econômicos, regimes (inflação/juros/crescimento), setores e estilo, decomposição de retornos, earnings cycle, margens, commodities, bancos, duration, e um framework executável de rotação/regime sem achismo." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/acoes-institucional-parte-7.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/acoes-institucional-parte-7.html" />
+  <meta property="og:title" content="Ações do Zero ao Institucional (Parte 7/8) — Ciclos & Macro" />
+  <meta property="og:description" content="Regimes macro, ciclos, setores e como pensar em probabilidades (nível institucional)." />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Fonts + Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)'], ['$', '$']], displayMath: [['\\[','\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <style>
+    body{overflow-x:hidden}
+
+    /* ===== Layout: conteúdo + sidebar (desktop sem sobrepor) ===== */
+    .series-layout{
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 18px;
+      align-items: start;
+    }
+    @media (max-width: 1100px){
+      .series-layout{ grid-template-columns: 1fr; }
+    }
+
+    .post-wrap{max-width:980px;margin:0;padding:0}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:800;font-size:12px;background:rgba(44,44,46,.06)}
+    .muted{opacity:.78}
+
+    .hero{
+      margin-top:16px;border-radius:18px;overflow:hidden;border:1px solid rgba(0,0,0,.08);
+      box-shadow: var(--shadow-sm); background:#fff
+    }
+    .hero img{width:100%;height:auto;display:block}
+
+    .toc{
+      margin-top:18px;border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;
+      box-shadow: var(--shadow-sm); padding:16px
+    }
+    .toc h2{margin:0 0 10px 0}
+    .toc a{display:block;text-decoration:none;padding:8px 10px;border-radius:14px;border:1px solid rgba(0,0,0,.06);margin:8px 0}
+    .toc a:hover{transform:translateY(-1px)}
+
+    .callout{
+      border-left:4px solid var(--accent-color, #f4c430);
+      background: rgba(244,196,48,.10);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+    .warning{
+      border-left:4px solid #e2574c;background: rgba(226,87,76,.08);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+
+    .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+    .kpi{border:1px solid rgba(0,0,0,.08);border-radius:16px;background:#fff;box-shadow:var(--shadow-sm);padding:14px}
+    .kpi strong{display:block;font-size:18px}
+    @media(max-width:980px){.kpi-grid{grid-template-columns:1fr}}
+
+    .jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .jump a{
+      display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:14px;
+      border:1px solid rgba(0,0,0,.08);background:#fff;box-shadow:var(--shadow-sm);text-decoration:none;font-weight:900
+    }
+    .jump a:hover{transform:translateY(-1px)}
+
+    .section h2{margin-top:42px}
+    .section h3{margin-top:26px}
+    .hr{height:1px;background:rgba(0,0,0,.10);border:0;margin:26px 0}
+
+    .table{
+      width:100%;border-collapse:collapse;border:1px solid rgba(0,0,0,.08);border-radius:14px;overflow:hidden;background:#fff;
+      box-shadow:var(--shadow-sm)
+    }
+    .table th,.table td{padding:12px;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:top}
+    .table th{background:rgba(44,44,46,.04);text-align:left}
+
+    .codebox{
+      border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);padding:14px 16px;margin:18px 0
+    }
+    .mini-note{font-size:12px;opacity:.78;margin-top:8px}
+
+    /* ===== Sidebar desktop (sticky) ===== */
+    .series-nav{
+      position: sticky;
+      top: 96px;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.10);
+      border-radius: 18px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.10);
+      padding: 12px;
+      max-height: calc(100vh - 120px);
+      overflow: auto;
+    }
+    @media (max-width: 1100px){
+      .series-nav{ display:none; }
+    }
+    .series-nav-head{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      padding: 8px 8px 10px 8px;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    .series-nav-links{ display:flex; flex-direction:column; gap: 8px; padding: 10px 6px 6px; }
+    .series-nav-links a{
+      text-decoration:none;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,.08);
+      color: #1a1a1a;
+      font-weight: 800;
+    }
+    .series-nav-links a:hover{ transform: translateY(-1px); }
+    .series-nav-links a.active{
+      background: #2c2c2e;
+      color: #fff;
+      border-color: #2c2c2e;
+    }
+
+    /* ===== Mobile drawer ===== */
+    .series-fab{
+      position: fixed;
+      right: 16px;
+      bottom: 18px;
+      z-index: 10000;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 14px;
+      background: #2c2c2e;
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 18px 45px rgba(0,0,0,.30);
+      display: none;
+    }
+    .series-backdrop{
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.45);
+      z-index: 9998;
+      display: none;
+    }
+    .series-drawer{
+      position: fixed;
+      top: 0; right: 0;
+      height: 100vh;
+      width: min(360px, 92vw);
+      background: #fff;
+      z-index: 9999;
+      transform: translateX(110%);
+      transition: transform .18s ease;
+      border-left: 1px solid rgba(0,0,0,.10);
+      padding: 14px 12px;
+      overflow: auto;
+    }
+    .series-drawer.open{ transform: translateX(0); }
+    .series-backdrop.open{ display:block; }
+    .series-close{
+      border: 1px solid rgba(0,0,0,.12);
+      background: #fff;
+      border-radius: 12px;
+      width: 38px; height: 38px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    @media (max-width: 1100px){
+      .series-fab{ display:inline-flex; align-items:center; justify-content:center; }
+    }
+
+    /* ===== Extra blocks ===== */
+    .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:14px 0}
+    @media(max-width:760px){.cards{grid-template-columns:1fr}}
+    .card{
+      border:1px solid rgba(0,0,0,.08);
+      border-radius: 18px;
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      padding: 14px;
+    }
+    .card strong{display:block;font-size:14px}
+    .card p{margin:8px 0 0 0;opacity:.86;line-height:1.5}
+
+    .svgbox{border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);padding:12px;margin:18px 0;overflow:auto}
+    .kbd{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:12px; padding:2px 6px; border:1px solid rgba(0,0,0,.14); border-bottom-width:2px; border-radius:8px; background:rgba(0,0,0,.03)}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.10);background:#fff;box-shadow:var(--shadow-sm);font-weight:900}
+    .badge i{opacity:.85}
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile FAB + Drawer -->
+  <button class="series-fab" id="seriesFab" aria-label="Abrir navegação da série" aria-expanded="false">Série 7/8</button>
+  <div class="series-backdrop" id="seriesBackdrop"></div>
+
+  <aside class="series-drawer" id="seriesDrawer" aria-label="Navegação da série Ações do Zero ao Institucional (mobile)">
+    <div class="series-nav-head">
+      <strong>📌 Série: Ações (7/8)</strong>
+      <button class="series-close" id="seriesClose" aria-label="Fechar">✕</button>
+    </div>
+    <nav class="series-nav-links">
+      <a href="/posts/acoes-institucional-parte-1.html">Parte 1 — Fundamentos & Microestrutura</a>
+      <a href="/posts/acoes-institucional-parte-2.html">Parte 2 — Contabilidade, ROIC e Qualidade</a>
+      <a href="/posts/acoes-institucional-parte-3.html">Parte 3 — Valuation (DCF, Múltiplos, Cenários)</a>
+      <a href="/posts/acoes-institucional-parte-4.html">Parte 4 — Risco, Stress, Drawdown e Convexidade</a>
+      <a href="/posts/acoes-institucional-parte-5.html">Parte 5 — Fatores, Estilos e Implementação</a>
+      <a href="/posts/acoes-institucional-parte-6.html">Parte 6 — Construção de Carteira e Regras</a>
+      <a href="/posts/acoes-institucional-parte-7.html" class="active">Parte 7 — Ciclos, Setores e Macro</a>
+      <a href="/posts/acoes-institucional-parte-8.html">Parte 8 — IPS, Checklist e Governança Pessoal</a>
+    </nav>
+  </aside>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <span class="pill">Série Institucional • Parte 7/8</span>
+        <h1 style="margin-top:10px;">Ciclos, Setores, Regimes Macro e Probabilidades</h1>
+        <p class="muted" style="max-width: 980px;">
+          Aqui está o “cérebro macro” do equity sem virar futurologia: como regimes (inflação/juros/crescimento) mudam
+          o <strong>desconto</strong> (taxa), o <strong>lucro</strong> (fluxo) e a <strong>liquidez</strong> (microestrutura),
+          e como isso se transmite para setores/estilos. O objetivo: um framework executável por probabilidades,
+          não “certezas”.
+        </p>
+
+        <div class="hero">
+          <img src="/images/blog-cover.svg" alt="Ciclos, setores e regimes macro" loading="lazy" />
+        </div>
+
+        <div class="kpi-grid" style="max-width: 980px;">
+          <div class="kpi"><strong>Leitura</strong><span class="muted">~ 65–110 min</span></div>
+          <div class="kpi"><strong>Entrega</strong><span class="muted">Framework de regimes</span></div>
+          <div class="kpi"><strong>Próximo</strong><span class="muted"><a href="/posts/acoes-institucional-parte-8.html">IPS & checklist</a></span></div>
+        </div>
+
+        <div class="jump" style="max-width: 980px;">
+          <a href="/posts/acoes-institucional-parte-6.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 6</a>
+          <a href="/posts/acoes-institucional-parte-8.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 8</a>
+          <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+          <a href="/calculadora.html"><i class="fa-solid fa-calculator"></i> Juros Compostos</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="series-layout">
+
+        <!-- CONTEÚDO -->
+        <article class="post-wrap">
+
+          <div class="toc">
+            <h2>Índice</h2>
+            <a href="#c1">1) Macro para ações: “taxa, lucro e liquidez”</a>
+            <a href="#c2">2) Regimes: matriz inflação × crescimento (4 quadrantes)</a>
+            <a href="#c3">3) Juros reais, curva e equity duration (o canal da taxa)</a>
+            <a href="#c4">4) Earnings cycle: margens, operating leverage e revisões</a>
+            <a href="#c5">5) Setores como exposições: bancos, commodities, defensivos, tech, utilities</a>
+            <a href="#c6">6) Estilos/fatores ao longo do ciclo: value, quality, momentum, low vol</a>
+            <a href="#c7">7) Crédito, spreads e “liquidez some”: quando o beta muda de cara</a>
+            <a href="#c8">8) Câmbio e internacionalização: quem ganha/perde</a>
+            <a href="#c9">9) Framework executável: score de regime + regras (sem achismo)</a>
+            <a href="#c10">10) Mini modelo: probabilidade, decisão e sizing (tabela)</a>
+            <a href="#c11">Conclusão + ponte para IPS (Parte 8)</a>
+          </div>
+
+          <div class="callout">
+            <strong>Tradução institucional:</strong> macro não é “prever PIB”. É mapear como mudanças em <em>taxa</em>, <em>lucro</em> e <em>liquidez</em>
+            alteram a distribuição de retornos (média, volatilidade e cauda) e ajustar o processo.
+          </div>
+
+          <hr class="hr">
+
+          <h2 id="c1">1) Macro para ações: “taxa, lucro e liquidez”</h2>
+          <p>
+            Você pode resumir o canal macro para ações em três variáveis dominantes:
+            <strong>(i) taxa de desconto</strong> (\(K_e\) = juros reais + ERP),
+            <strong>(ii) lucro</strong> (nível e crescimento de earnings/cash flows),
+            e <strong>(iii) liquidez</strong> (capacidade do mercado absorver ordens sem colapsar preço).
+          </p>
+
+          <div class="codebox">
+            <strong>Decomposição (conceitual):</strong>
+            <p>\[
+              P \approx \mathbb{E}\left[\sum_{t\ge 1}\frac{CF_t}{(1+K_e)^t}\right]
+              \quad\Rightarrow\quad
+              \Delta P \approx \underbrace{\Delta CF}_{\text{lucro}} + \underbrace{\Delta K_e}_{\text{taxa}} + \underbrace{\Delta L}_{\text{liquidez}}
+            \]</p>
+            <p class="mini-note">
+              \(L\) aqui é “liquidez” como fricção (spread/impacto/financiamento) — não entra literalmente no DCF, mas entra no preço.
+            </p>
+          </div>
+
+          <div class="warning">
+            <strong>Erro comum:</strong> achar que “macro” é só taxa Selic. Em ações, o que manda é <strong>juros reais</strong>,
+            a <strong>curva</strong> e o <strong>prêmio de risco</strong> (ERP), além do ciclo de lucros.
+          </div>
+
+          <h2 id="c2">2) Regimes: matriz inflação × crescimento (4 quadrantes)</h2>
+          <p>
+            Um framework robusto é pensar o mundo em 4 regimes, cruzando crescimento (acelera/desacelera)
+            com inflação (acelera/desacelera). Isso cria uma “matriz de probabilidades” que orienta
+            quais setores/estilos tendem a ter vento a favor — sem prometer certeza.
+          </p>
+
+          <div class="svgbox">
+            <strong>Matriz de regimes (conceitual):</strong>
+            <svg width="980" height="420" viewBox="0 0 980 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Matriz inflação x crescimento">
+              <rect x="0" y="0" width="980" height="420" fill="#ffffff"/>
+              <g font-family="Poppins, Arial" fill="#1a1a1a" font-size="13" opacity="0.9">
+                <text x="20" y="28">Crescimento →</text>
+                <text x="20" y="46" opacity="0.75">desacelera</text>
+                <text x="880" y="46" opacity="0.75">acelera</text>
+                <text x="20" y="390" opacity="0.75">Inflação ↓</text>
+                <text x="20" y="84" opacity="0.75">Inflação ↑</text>
+              </g>
+
+              <g stroke="rgba(0,0,0,.14)" stroke-width="1">
+                <rect x="90" y="70" width="820" height="300" fill="none"/>
+                <line x1="500" y1="70" x2="500" y2="370"/>
+                <line x1="90" y1="220" x2="910" y2="220"/>
+              </g>
+
+              <!-- Quadrants -->
+              <g font-family="Poppins, Arial" font-size="13" fill="#1a1a1a" opacity="0.95">
+                <text x="120" y="105" font-weight="700">Q1: Estagflação</text>
+                <text x="120" y="127" opacity="0.8">Inflação ↑ | Cresc ↓</text>
+                <text x="120" y="154" opacity="0.8">Risco: margens, taxas</text>
+
+                <text x="530" y="105" font-weight="700">Q2: Reflation</text>
+                <text x="530" y="127" opacity="0.8">Inflação ↑ | Cresc ↑</text>
+                <text x="530" y="154" opacity="0.8">Cíclicos, commodities</text>
+
+                <text x="120" y="255" font-weight="700">Q3: Desinflação com fraqueza</text>
+                <text x="120" y="277" opacity="0.8">Inflação ↓ | Cresc ↓</text>
+                <text x="120" y="304" opacity="0.8">Defensivos, quality</text>
+
+                <text x="530" y="255" font-weight="700">Q4: Goldilocks</text>
+                <text x="530" y="277" opacity="0.8">Inflação ↓ | Cresc ↑</text>
+                <text x="530" y="304" opacity="0.8">Duration ↑, growth</text>
+              </g>
+
+              <!-- Simple arrows -->
+              <g stroke="#2c2c2e" stroke-width="3" fill="none" opacity="0.8">
+                <path d="M 190 345 C 270 330, 360 305, 470 270" />
+                <path d="M 540 120 C 630 125, 720 150, 840 195" />
+              </g>
+
+              <g fill="#f4c430" stroke="#2c2c2e" stroke-width="2">
+                <circle cx="470" cy="270" r="6"/>
+                <circle cx="840" cy="195" r="6"/>
+              </g>
+            </svg>
+            <div class="mini-note">
+              Isso é um mapa de intuição e probabilidades, não um “mapa do tesouro”. Regimes mudam e são reconhecidos com atraso.
+              O objetivo é evitar erros grosseiros de exposição.
+            </div>
+          </div>
+
+          <h2 id="c3">3) Juros reais, curva e equity duration (o canal da taxa)</h2>
+          <p>
+            Em ações, o canal da taxa é dominado por: (i) juros reais, (ii) inclinação da curva, (iii) ERP.
+            Para valuation, o mais sensível é \(K_e - g\), e para estilos, a “duration” implícita:
+            empresas com fluxos mais distantes sofrem mais quando juros reais sobem.
+          </p>
+
+          <div class="codebox">
+            <strong>Intuição formal (Gordon):</strong>
+            <p>\[
+              P_0=\frac{D_1}{K_e-g}
+              \quad\Rightarrow\quad
+              \frac{\partial P_0}{\partial K_e}=-\frac{D_1}{(K_e-g)^2}
+            \]</p>
+            <p class="mini-note">
+              Quanto menor \(K_e-g\), maior a convexidade: pequenas mudanças na taxa geram grandes mudanças no preço (alta duration).
+            </p>
+          </div>
+
+          <div class="cards">
+            <div class="card">
+              <strong>Curva inclinada (steep)</strong>
+              <p>Geralmente sinaliza crescimento/inflação futuros (ou prêmio de prazo). Ajuda bancos via NIM, mas pressiona duration.</p>
+            </div>
+            <div class="card">
+              <strong>Curva invertida (inverted)</strong>
+              <p>Frequentemente sinaliza desaceleração/risco. Pode antecipar pressão em lucros cíclicos e crédito.</p>
+            </div>
+          </div>
+
+          <h2 id="c4">4) Earnings cycle: margens, operating leverage e revisões</h2>
+          <p>
+            O canal do lucro é onde o ciclo “morde”. Em desaceleração, o mercado não discute só crescimento; discute margem.
+            Ações reagem ao <strong>delta</strong> de expectativa: revisões de earnings e guidance.
+          </p>
+
+          <div class="codebox">
+            <strong>Operating leverage (conceito):</strong>
+            <p>
+              Se custos fixos são relevantes, então uma queda de receita comprime EBIT de forma desproporcional.
+              Isso cria assimetria negativa em ciclos de queda.
+            </p>
+            <p class="mini-note">
+              Por isso o institucional classifica setores por sensibilidade de margem e poder de precificação.
+            </p>
+          </div>
+
+          <h3>4.1 Margens: preço vs custo vs mix</h3>
+          <ul style="margin:10px 0 0 18px;">
+            <li><strong>Poder de precificação:</strong> repassar custo sem perder volume.</li>
+            <li><strong>Mix:</strong> vender mais do produto/segmento de maior margem.</li>
+            <li><strong>Eficiência:</strong> escala, produtividade, logística.</li>
+          </ul>
+
+          <div class="warning">
+            <strong>Armadilha:</strong> confundir margens altas com margens sustentáveis.
+            A pergunta institucional é: <em>o que mantém essa margem quando o ciclo vira?</em>
+          </div>
+
+          <h2 id="c5">5) Setores como exposições: bancos, commodities, defensivos, tech, utilities</h2>
+          <p>
+            Setores são proxies de exposições macro. Você não compra “banco”; você compra (entre outras coisas) sensibilidade a
+            curva, crédito, atividade e regulação. Você não compra “commodity”; você compra (entre outras) oferta/demanda global,
+            câmbio e inflação.
+          </p>
+
+          <table class="table" aria-label="Setores como exposições macro">
+            <thead>
+              <tr>
+                <th>Setor</th>
+                <th>Exposições típicas</th>
+                <th>Canal dominante</th>
+                <th>Risco de cauda</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Bancos</td>
+                <td>Curva/NIM, crédito, atividade</td>
+                <td>taxa + ciclo</td>
+                <td>inadimplência + funding</td>
+              </tr>
+              <tr>
+                <td>Commodities</td>
+                <td>Inflação, China/global, oferta</td>
+                <td>ciclo + preços</td>
+                <td>colapso de demanda / política</td>
+              </tr>
+              <tr>
+                <td>Defensivos (saúde/consumo básico)</td>
+                <td>Demanda estável, pricing</td>
+                <td>lucro (estabilidade)</td>
+                <td>valuation caro em taxas altas</td>
+              </tr>
+              <tr>
+                <td>Utilities</td>
+                <td>Duration, regulação</td>
+                <td>taxa</td>
+                <td>mudança regulatória / inflação</td>
+              </tr>
+              <tr>
+                <td>Tech/growth</td>
+                <td>Duration alta, múltiplos</td>
+                <td>taxa + risco</td>
+                <td>compressão de múltiplo</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 id="c6">6) Estilos/fatores ao longo do ciclo: value, quality, momentum, low vol</h2>
+          <p>
+            Fatores não são “mágica”: são exposições sistemáticas. Eles performam diferente por regime
+            porque representam (i) riscos precificados, (ii) constraints e (iii) fricções/behavior.
+          </p>
+
+          <div class="cards">
+            <div class="card">
+              <strong>Quality</strong>
+              <p>Tende a ser resiliente quando incerteza ↑ e liquidez ↓ (menor risco de cauda, ROIC forte, balanço sólido).</p>
+            </div>
+            <div class="card">
+              <strong>Value</strong>
+              <p>Pode funcionar bem em reflation (crescimento ↑) e quando o pessimismo reverte, mas sofre com “value traps”.</p>
+            </div>
+            <div class="card">
+              <strong>Momentum</strong>
+              <p>Captura persistência; pode quebrar em reversões bruscas (regime shift). Precisa de controle de risco.</p>
+            </div>
+            <div class="card">
+              <strong>Low Vol</strong>
+              <p>Frequentemente ajuda em stress; tende a ser “caro” em bull markets longos, mas protege cauda.</p>
+            </div>
+          </div>
+
+          <div class="codebox">
+            <strong>Mensagem central:</strong>
+            <p>
+              Se você não sabe quais fatores sua carteira carrega, você não sabe por que ela sobe ou cai.
+              O institucional evita “concentração oculta” por estilo.
+            </p>
+          </div>
+
+          <h2 id="c7">7) Crédito, spreads e “liquidez some”: quando o beta muda de cara</h2>
+          <p>
+            Em crises, o mercado vira “modo funding”. Spreads de crédito abrem, correlações sobem, e ativos que pareciam descorrelacionados
+            caem juntos por liquidação forçada (margin calls, resgates).
+          </p>
+
+          <div class="codebox">
+            <strong>Canal de contágio (conceitual):</strong>
+            <p>
+              Spreads ↑ → custo de capital ↑ → múltiplos ↓ → crédito restringe → lucros ↓ → risco ↑ → ERP ↑ (loop).
+            </p>
+            <p class="mini-note">
+              Por isso “liquidez” é variável macro. O processo precisa de limites e buffers.
+            </p>
+          </div>
+
+          <div class="warning">
+            <strong>Regra prática:</strong> se seu portfólio depende de vender rápido em crise, ele é frágil.
+            Planeje para o regime de pior liquidez.
+          </div>
+
+          <h2 id="c8">8) Câmbio e internacionalização: quem ganha/perde</h2>
+          <p>
+            Câmbio é um multiplicador de risco/retorno em mercados emergentes. O canal é:
+            receitas em moeda forte vs custos em moeda fraca (ou o contrário), passivos em moeda forte, e valuation por risco-país.
+          </p>
+
+          <div class="cards">
+            <div class="card">
+              <strong>Ganha com desvalorização</strong>
+              <p>Exportadores e empresas com receita em USD/EUR e custo local (se demanda sustenta).</p>
+            </div>
+            <div class="card">
+              <strong>Perde com desvalorização</strong>
+              <p>Importadores, empresas com dívida em moeda forte e pouca proteção de caixa.</p>
+            </div>
+          </div>
+
+          <h2 id="c9">9) Framework executável: score de regime + regras (sem achismo)</h2>
+          <p>
+            Você não precisa prever “o mundo”. Você precisa de um <strong>processo de atualização de probabilidades</strong>.
+            Uma forma prática é um score simples com 3 blocos: taxa, crescimento, liquidez.
+          </p>
+
+          <div class="codebox">
+            <strong>Score de regime (didático):</strong>
+            <p>
+              Defina três sinais (cada um em \(-1,0,+1\)):
+            </p>
+            <ul style="margin:10px 0 0 18px;">
+              <li><strong>Sinal de taxa:</strong> juros reais/curva (aperto = -1; neutro = 0; afrouxamento = +1)</li>
+              <li><strong>Sinal de crescimento:</strong> revisões de earnings/atividade (revisões ↓ = -1; estável = 0; ↑ = +1)</li>
+              <li><strong>Sinal de liquidez:</strong> spreads/volatilidade (stress = -1; normal = 0; fácil = +1)</li>
+            </ul>
+            <p>
+              Score total: \(\;S = S_{taxa}+S_{cres}+S_{liq}\;\in [-3, +3]\).
+            </p>
+            <p class="mini-note">
+              Não é “modelo perfeito”. É um <em>freio de mão</em> contra decisões impulsivas e um guia para limites.
+            </p>
+          </div>
+
+          <h3>9.1 Regras de mapeamento (exemplo educacional)</h3>
+          <table class="table" aria-label="Mapeamento de score para postura">
+            <thead>
+              <tr>
+                <th>Score S</th>
+                <th>Leitura</th>
+                <th>Postura</th>
+                <th>Ajuste típico (sem recomendação)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>+2 a +3</td>
+                <td>Ambiente benigno</td>
+                <td>Risco ↑ (controlado)</td>
+                <td>mais beta / mais duration (se valuation permite)</td>
+              </tr>
+              <tr>
+                <td>0 a +1</td>
+                <td>Neutro/assimétrico</td>
+                <td>Equilíbrio</td>
+                <td>quality + diversificação; bandas firmes</td>
+              </tr>
+              <tr>
+                <td>-1 a -2</td>
+                <td>Risco crescente</td>
+                <td>Defensiva</td>
+                <td>reduzir cauda: liquidez, low vol, qualidade</td>
+              </tr>
+              <tr>
+                <td>-3</td>
+                <td>Stress</td>
+                <td>Sobrevivência</td>
+                <td>evitar “forçar trade”; executar plano mínimo</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="warning">
+            <strong>Importante:</strong> isso é processo, não “chamada de mercado”. O uso correto é:
+            ajustar limites/bandas/sizing e evitar apostas binárias.
+          </div>
+
+          <h2 id="c10">10) Mini modelo: probabilidade, decisão e sizing (tabela)</h2>
+          <p>
+            O institucional pensa em cenários e probabilidades. Um exercício simples (didático) para treinar disciplina:
+            definir 3 cenários e calcular retorno esperado e risco, e então decidir sizing conservador.
+          </p>
+
+          <div class="codebox">
+            <strong>Retorno esperado por cenários:</strong>
+            <p>\[
+              \mathbb{E}[R] = \sum_{j=1}^{n} p_j \cdot R_j
+            \]</p>
+            <p class="mini-note">
+              O objetivo não é acertar números. É forçar você a explicitar o que está assumindo.
+            </p>
+          </div>
+
+          <table class="table" aria-label="Exemplo de decisão por cenários">
+            <thead>
+              <tr>
+                <th>Cenário</th>
+                <th>Prob. \(p_j\)</th>
+                <th>Driver</th>
+                <th>Retorno \(R_j\)</th>
+                <th>Risco (qualitativo)</th>
+                <th>Implicação de processo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Benigno</td>
+                <td>0,30</td>
+                <td>taxa ↓, lucros ↑</td>
+                <td>+18%</td>
+                <td>médio</td>
+                <td>manter bandas; evitar euforia</td>
+              </tr>
+              <tr>
+                <td>Base</td>
+                <td>0,50</td>
+                <td>estável</td>
+                <td>+8%</td>
+                <td>médio</td>
+                <td>rebalancear se sair do range</td>
+              </tr>
+              <tr>
+                <td>Adverso</td>
+                <td>0,20</td>
+                <td>ERP ↑, lucros ↓</td>
+                <td>-22%</td>
+                <td>alto (cauda)</td>
+                <td>limites de perda estrutural + liquidez</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="callout">
+            <strong>Leitura correta:</strong> se o cenário adverso “mata” sua carteira, o sizing está errado, não a macro.
+            O processo serve para sobreviver a probabilidades pequenas.
+          </div>
+
+          <h2 id="c11">Conclusão + ponte para Parte 8</h2>
+          <p>
+            Regimes macro alteram a distribuição de retornos de ações via taxa, lucros e liquidez. Setores e fatores são exposições,
+            e o investidor institucional trabalha com probabilidades e regras, evitando apostas binárias.
+            A Parte 8 fecha a série com um IPS pessoal e um checklist completo: governança, execução, revisão e manutenção do sistema.
+          </p>
+
+          <div class="callout">
+            <strong>Próximo:</strong> Parte 8 — IPS, Checklist e Governança Pessoal.
+          </div>
+
+          <div class="jump" style="margin-top:18px;">
+            <a href="/posts/acoes-institucional-parte-6.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 6</a>
+            <a href="/posts/acoes-institucional-parte-8.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 8</a>
+            <a href="/posts/etf-masterclass-carteira-global-parte-1.html"><i class="fa-solid fa-bolt"></i> ETF Masterclass</a>
+            <a href="/posts/biblia-da-aposentadoria-parte-1.html"><i class="fa-solid fa-book"></i> Bíblia Aposentadoria</a>
+          </div>
+
+          <hr class="hr">
+          <div class="muted" style="font-size:12px;">
+            Nota: conteúdo educacional, sem recomendação. O objetivo é ensinar estrutura técnica para análise e decisão.
+          </div>
+        </article>
+
+        <!-- SIDEBAR DESKTOP -->
+        <aside class="series-nav" aria-label="Navegação da série Ações do Zero ao Institucional (desktop)">
+          <div class="series-nav-head">
+            <strong>📌 Série: Ações (7/8)</strong>
+            <span class="muted" style="font-size:12px;">Atalhos</span>
+          </div>
+
+          <nav class="series-nav-links">
+            <a href="/posts/acoes-institucional-parte-1.html">Parte 1 — Fundamentos & Microestrutura</a>
+            <a href="/posts/acoes-institucional-parte-2.html">Parte 2 — Contabilidade, ROIC e Qualidade</a>
+            <a href="/posts/acoes-institucional-parte-3.html">Parte 3 — Valuation (DCF, Múltiplos, Cenários)</a>
+            <a href="/posts/acoes-institucional-parte-4.html">Parte 4 — Risco, Stress, Drawdown e Convexidade</a>
+            <a href="/posts/acoes-institucional-parte-5.html">Parte 5 — Fatores, Estilos e Implementação</a>
+            <a href="/posts/acoes-institucional-parte-6.html">Parte 6 — Construção de Carteira e Regras</a>
+            <a href="/posts/acoes-institucional-parte-7.html" class="active">Parte 7 — Ciclos, Setores e Macro</a>
+            <a href="/posts/acoes-institucional-parte-8.html">Parte 8 — IPS, Checklist e Governança Pessoal</a>
+          </nav>
+
+          <div class="codebox" style="margin:12px 6px 6px;">
+            <strong>Atalhos do site</strong>
+            <div class="mini-note">
+              <a href="/blog.html">Blog</a> • <a href="/calculadora.html">Juros compostos</a> • <a href="/aposentadoria.html">Aposentadoria</a>
+            </div>
+          </div>
+
+          <div class="codebox" style="margin:12px 6px 6px;">
+            <strong>Uso correto (rápido)</strong>
+            <div class="mini-note">
+              <span class="badge"><i class="fa-solid fa-chart-line"></i> Probabilidade</span>
+              <span class="badge"><i class="fa-solid fa-shield"></i> Limites</span>
+              <span class="badge"><i class="fa-solid fa-rotate"></i> Bandas</span>
+            </div>
+            <div class="mini-note" style="margin-top:10px;">
+              Se você quiser “apostar macro”, faça isso via limites e sizing — não via narrativa.
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        <h3>Cérebro Milionário</h3>
+        <p>Educação financeira com profundidade estratégica.</p>
+        <div class="footer-social" aria-label="Redes sociais" style="display:flex;gap:12px;align-items:center;margin-top:10px">
+          <a href="https://t.me/cerebromillionario" target="_blank" rel="noopener" aria-label="Telegram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://instagram.com/cerebromillionario" target="_blank" rel="noopener" aria-label="Instagram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/glossario-financeiro.html">Glossário Financeiro</a></li>
+          <li><a href="/perguntas-frequentes.html">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Top mobile menu (header)
+    (function () {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', function () {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    })();
+
+    // Série drawer mobile
+    (function(){
+      const fab = document.getElementById('seriesFab');
+      const drawer = document.getElementById('seriesDrawer');
+      const backdrop = document.getElementById('seriesBackdrop');
+      const closeBtn = document.getElementById('seriesClose');
+      if(!fab || !drawer || !backdrop || !closeBtn) return;
+
+      function openNav(){
+        drawer.classList.add('open');
+        backdrop.classList.add('open');
+        fab.setAttribute('aria-expanded','true');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeNav(){
+        drawer.classList.remove('open');
+        backdrop.classList.remove('open');
+        fab.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+      }
+
+      fab.addEventListener('click', openNav);
+      closeBtn.addEventListener('click', closeNav);
+      backdrop.addEventListener('click', closeNav);
+      document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeNav(); });
+    })();
+  </script>
+</body>
+</html>
