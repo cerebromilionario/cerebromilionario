@@ -4,16 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Manual do Investidor Profissional Brasileiro (Parte 8/8) | IPS, Governança e Disciplina Quantitativa</title>
-  <meta name="description" content="Parte 8/8 (nível institucional): Investment Policy Statement (IPS), governança pessoal, utilidade esperada, Prospect Theory, matriz bayesiana de decisão, disciplina quantitativa e sistema operacional para investir por décadas." />
+  <title>Macroeconomia Institucional para Investidores (Parte 8/8) | Framework Final, Checklist e Governança</title>
+  <meta name="description" content="Série institucional (Parte 8/8): framework final macro→carteira, governança (IPS), limites, sizing por risco, circuit breakers, auditoria de processo, checklists e disciplina quantitativa para execução consistente em ciclos." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/manual-investidor-profissional-brasileiro-parte-8.html" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/macroeconomia-institucional-parte-8.html" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/manual-investidor-profissional-brasileiro-parte-8.html" />
-  <meta property="og:title" content="Manual do Investidor Profissional Brasileiro (Parte 8/8)" />
-  <meta property="og:description" content="IPS, governança e disciplina quantitativa: como manter o plano por décadas sem ruído." />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/macroeconomia-institucional-parte-8.html" />
+  <meta property="og:title" content="Macroeconomia Institucional (Parte 8/8)" />
+  <meta property="og:description" content="Framework final, checklist e governança. Nível institucional." />
   <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
 
   <!-- Fonts + Icons -->
@@ -40,24 +40,37 @@
 
   <style>
     body{overflow-x:hidden}
+
+    /* Conteúdo */
+    .post-wrap{max-width:980px;margin:0 auto;padding:28px 16px 60px}
     .pill{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:800;font-size:12px;background:rgba(44,44,46,.06)}
     .muted{opacity:.78}
-
-    .post-wrap{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 28px 16px 60px;
-    }
-    /* ✅ desktop: reserva espaço pro menu lateral não cobrir texto */
-    @media(min-width: 981px){
-      .post-wrap{ padding-right: 360px; }
-    }
-
     .hero{
       margin-top:16px;border-radius:18px;overflow:hidden;border:1px solid rgba(0,0,0,.08);
       box-shadow: var(--shadow-sm); background:#fff
     }
     .hero img{width:100%;height:auto;display:block}
+
+    .toc{
+      margin-top:18px;border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;
+      box-shadow: var(--shadow-sm); padding:16px
+    }
+    .toc h2{margin:0 0 10px 0}
+    .toc a{
+      display:block;text-decoration:none;padding:8px 10px;border-radius:14px;border:1px solid rgba(0,0,0,.06);
+      margin:8px 0
+    }
+    .toc a:hover{transform:translateY(-1px)}
+
+    .callout{
+      border-left:4px solid var(--accent-color, #f4c430);
+      background: rgba(244,196,48,.10);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+    .warning{
+      border-left:4px solid #e2574c;background: rgba(226,87,76,.08);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
 
     .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
     .kpi{border:1px solid rgba(0,0,0,.08);border-radius:16px;background:#fff;box-shadow:var(--shadow-sm);padding:14px}
@@ -71,44 +84,51 @@
     }
     .jump a:hover{transform:translateY(-1px)}
 
-    .toc{
-      margin-top:18px;border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;
-      box-shadow: var(--shadow-sm); padding:16px
-    }
-    .toc h2{margin:0 0 10px 0}
-    .toc a{display:block;text-decoration:none;padding:8px 10px;border-radius:14px;border:1px solid rgba(0,0,0,.06);margin:8px 0}
-    .toc a:hover{transform:translateY(-1px)}
-
-    .callout{
-      border-left:4px solid var(--accent-color, #f4c430);
-      background: rgba(244,196,48,.10);
-      padding: 14px 16px;border-radius: 14px;margin: 18px 0
-    }
-    .warning{
-      border-left:4px solid #e2574c;background: rgba(226,87,76,.08);
-      padding: 14px 16px;border-radius: 14px;margin: 18px 0
-    }
+    .section{margin-top:22px}
+    .section h2{margin-top:42px}
+    .section h3{margin-top:26px}
     .hr{height:1px;background:rgba(0,0,0,.10);border:0;margin:26px 0}
+
+    .table{
+      width:100%;border-collapse:collapse;border:1px solid rgba(0,0,0,.08);border-radius:14px;overflow:hidden;background:#fff;
+      box-shadow:var(--shadow-sm)
+    }
+    .table th,.table td{padding:12px;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:top}
+    .table th{background:rgba(44,44,46,.04);text-align:left}
+
     .codebox{
       border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);
       padding:14px 16px;margin:18px 0
     }
     .mini-note{font-size:12px;opacity:.78;margin-top:8px}
-    .table{
-      width:100%;border-collapse:collapse;border:1px solid rgba(0,0,0,.08);
-      border-radius:14px;overflow:hidden;background:#fff;box-shadow:var(--shadow-sm)
-    }
-    .table th,.table td{padding:12px;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:top}
-    .table th{background:rgba(44,44,46,.04);text-align:left}
 
-    .chiprow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-    .chip{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:8px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.10);
-      background:#fff;box-shadow:var(--shadow-sm);font-weight:900;font-size:12px
+    .panel{
+      border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);
+      padding:14px 16px;margin:18px 0
+    }
+    .panel h3{margin:0 0 10px 0}
+
+    .badge{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:6px 10px;border-radius:999px;background:rgba(44,44,46,.06);
+      font-weight:900;font-size:12px
     }
 
-    /* ===== Série: sidebar desktop + drawer mobile ===== */
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    @media(max-width:980px){.grid3{grid-template-columns:1fr}}
+    @media(max-width:900px){.grid2{grid-template-columns:1fr}}
+
+    .check{
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);
+      padding:14px 16px;margin:18px 0
+    }
+    .check h3{margin:0 0 10px 0}
+    .check ul{margin:10px 0 0 18px}
+    .check li{margin:8px 0}
+
+    /* Série: sidebar desktop + drawer mobile (SEM COBRIR TEXTO) */
     .series-shell { position: relative; }
     .series-nav{
       position: fixed;
@@ -172,7 +192,17 @@
       box-shadow: 0 18px 45px rgba(0,0,0,.30);
       display: none;
     }
+
+    @media (min-width: 981px){
+      .post-wrap{
+        max-width: 980px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 380px; /* espaço do menu lateral */
+      }
+    }
     @media (max-width: 980px){
+      .post-wrap{padding-right:16px}
       .series-fab{ display: inline-flex; align-items:center; justify-content:center; }
       .series-nav{
         top: 0; right: 0; height: 100vh; max-height: none;
@@ -185,23 +215,11 @@
       .series-nav.open{ transform: translateX(0); }
       .series-backdrop.open{ display: block; }
     }
-
-    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
-    @media(max-width:980px){.grid2{grid-template-columns:1fr}}
-    .card{
-      border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);
-      padding:14px
-    }
-    .card h3{margin:0 0 8px 0}
-    .badge{
-      display:inline-flex;align-items:center;gap:6px;
-      padding:6px 10px;border-radius:999px;background:rgba(44,44,46,.06);font-weight:900;font-size:12px
-    }
   </style>
 </head>
 
 <body>
-  <!-- Header (MENU topo do site) -->
+  <!-- Header -->
   <header class="header">
     <div class="container header-container">
       <div class="logo">
@@ -220,7 +238,7 @@
           <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
           <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
           <li><a href="/aposentadoria.html">Aposentadoria</a></li>
-          <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="/blog.html">Blog</a></li>
           <li><a href="/comunidade.html">Comunidade</a></li>
         </ul>
       </nav>
@@ -232,21 +250,21 @@
     <button class="series-fab" id="seriesFab" aria-label="Abrir navegação da série" aria-expanded="false">Série 8/8</button>
     <div class="series-backdrop" id="seriesBackdrop"></div>
 
-    <aside class="series-nav" id="seriesNav" aria-label="Navegação da série Manual do Investidor Profissional Brasileiro">
+    <aside class="series-nav" id="seriesNav" aria-label="Navegação da série Macroeconomia Institucional">
       <div class="series-nav-head">
-        <strong>📌 Série: Manual (8/8)</strong>
+        <strong>📌 Série: Macro (8/8)</strong>
         <button class="series-close" id="seriesClose" aria-label="Fechar">✕</button>
       </div>
 
       <nav class="series-nav-links">
-        <a href="/posts/manual-investidor-profissional-brasileiro-parte-1.html">Parte 1 — Fundamentos & Sistema Financeiro</a>
-        <a href="/posts/manual-investidor-profissional-brasileiro-parte-2.html">Parte 2 — Juros, Term Structure e CDI Real</a>
-        <a href="/posts/manual-investidor-profissional-brasileiro-parte-3.html">Parte 3 — Macro, RBC e NKPC</a>
-        <a href="/posts/manual-investidor-profissional-brasileiro-parte-4.html">Parte 4 — Fiscal, Restrição Intertemporal e Prêmio</a>
-        <a href="/posts/manual-investidor-profissional-brasileiro-parte-5.html">Parte 5 — Regimes, Risco e Precificação</a>
-        <a href="/posts/manual-investidor-profissional-brasileiro-parte-6.html">Parte 6 — Portfólio & Alocação (MPT)</a>
-        <a href="/posts/manual-investidor-profissional-brasileiro-parte-7.html">Parte 7 — Implementação, Rebalanceamento e Custos</a>
-        <a href="/posts/manual-investidor-profissional-brasileiro-parte-8.html" class="active">Parte 8 — IPS, Governança e Disciplina Quantitativa</a>
+        <a href="/posts/macroeconomia-institucional-parte-1.html">Parte 1 — RBC, Equilíbrio e Núcleo Real</a>
+        <a href="/posts/macroeconomia-institucional-parte-2.html">Parte 2 — NK Phillips, Rigidezes e Política Monetária</a>
+        <a href="/posts/macroeconomia-institucional-parte-3.html">Parte 3 — Fiscal Intertemporal, TVC e Dominância</a>
+        <a href="/posts/macroeconomia-institucional-parte-4.html">Parte 4 — Equilíbrio Geral, Prêmio Endógeno e Risco</a>
+        <a href="/posts/macroeconomia-institucional-parte-5.html">Parte 5 — Regimes, Identificação e Nowcasting</a>
+        <a href="/posts/macroeconomia-institucional-parte-6.html">Parte 6 — Transmissão a Ativos: Juros, FX, Crédito</a>
+        <a href="/posts/macroeconomia-institucional-parte-7.html">Parte 7 — Ciclos, Curvas e Carteiras (Regras)</a>
+        <a href="/posts/macroeconomia-institucional-parte-8.html" class="active">Parte 8 — Framework Final, Checklist e Governança</a>
       </nav>
     </aside>
   </div>
@@ -255,34 +273,28 @@
     <section class="page-header">
       <div class="container">
         <span class="pill">Série Institucional • Parte 8/8</span>
-        <h1 style="margin-top:10px;">IPS, Governança e Disciplina Quantitativa</h1>
+        <h1 style="margin-top:10px;">Framework Final, Checklist e Governança (o que sustenta décadas)</h1>
         <p class="muted" style="max-width: 980px;">
-          Aqui você fecha o sistema: um <strong>Investment Policy Statement (IPS)</strong> executável, governança pessoal,
-          modelo de decisão sob incerteza (utilidade esperada + Bayes) e um “sistema operacional” para evitar sabotagem comportamental
-          (Prospect Theory, vieses e regras quantitativas).
+          Você fecha a série com o que separa amador de profissional: governança.
+          Aqui você consolida um sistema completo macro→carteira, define limites e “circuit breakers”,
+          cria checklists e mecanismos contra vieses. O objetivo é consistência em ciclos, não performance em 1 trimestre.
         </p>
 
         <div class="hero">
-          <img src="/images/blog-cover.svg" alt="IPS e Governança" loading="lazy" />
+          <img src="/images/blog-cover.svg" alt="Framework final e governança" loading="lazy" />
         </div>
 
         <div class="kpi-grid" style="max-width: 980px;">
-          <div class="kpi"><strong>Leitura</strong><span class="muted">~ 60–90 min</span></div>
-          <div class="kpi"><strong>Entrega</strong><span class="muted">IPS pronto + regras</span></div>
-          <div class="kpi"><strong>Final</strong><span class="muted">Checklist anual</span></div>
+          <div class="kpi"><strong>Leitura</strong><span class="muted">~ 70–110 min</span></div>
+          <div class="kpi"><strong>Entrega</strong><span class="muted">IPS + checklist + regras</span></div>
+          <div class="kpi"><strong>Resultado</strong><span class="muted">disciplina auditável</span></div>
         </div>
 
         <div class="jump" style="max-width: 980px;">
+          <a href="/posts/macroeconomia-institucional-parte-7.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 7</a>
           <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
-          <a href="/posts/manual-investidor-profissional-brasileiro-parte-7.html"><i class="fa-solid fa-arrow-left"></i> Parte 7</a>
-        </div>
-
-        <div class="chiprow" style="max-width:980px;">
-          <span class="chip"><i class="fa-solid fa-file-signature"></i> IPS</span>
-          <span class="chip"><i class="fa-solid fa-scale-balanced"></i> Utilidade</span>
-          <span class="chip"><i class="fa-solid fa-brain"></i> Prospect Theory</span>
-          <span class="chip"><i class="fa-solid fa-diagram-project"></i> Bayes</span>
-          <span class="chip"><i class="fa-solid fa-shield"></i> Governança</span>
+          <a href="/posts/etf-masterclass-carteira-global-parte-1.html"><i class="fa-solid fa-bolt"></i> ETF Masterclass</a>
+          <a href="/aposentadoria.html"><i class="fa-solid fa-person-cane"></i> Aposentadoria</a>
         </div>
       </div>
     </section>
@@ -292,465 +304,395 @@
 
         <div class="toc">
           <h2>Índice</h2>
-          <a href="#s1">1) Por que IPS é a “muralha” do investidor</a>
-          <a href="#s2">2) IPS formal: objetivos, restrições e política de risco</a>
-          <a href="#s3">3) Utilidade esperada: decisão sob risco (modelo formal)</a>
-          <a href="#s4">4) Prospect Theory: vieses formais e implicações práticas</a>
-          <a href="#s5">5) Atualização Bayesiana: matriz de decisão (com exemplo)</a>
-          <a href="#s6">6) Framework quantitativo de disciplina: regras, métricas e gatilhos</a>
-          <a href="#s7">7) Scorecard do investidor: KPIs mensais + auditoria de processo</a>
-          <a href="#s8">8) Template de IPS (copiar/colar) + checklist anual</a>
-          <a href="#s9">Encerramento: como manter isso por décadas</a>
+          <a href="#f1">1) O “sistema”: painel → regime → exposures → sizing → execução → auditoria</a>
+          <a href="#f2">2) IPS pessoal (Investment Policy Statement): a constituição da sua carteira</a>
+          <a href="#f3">3) Limites: risco, concentração, liquidez, alavancagem e correl. em crise</a>
+          <a href="#f4">4) Circuit breakers: quando você é proibido de piorar a situação</a>
+          <a href="#f5">5) Disciplina quantitativa: bandas, timing, custos e logs</a>
+          <a href="#f6">6) Viés e “defesas”: estrutura anti-autoengano</a>
+          <a href="#f7">7) Matriz de decisão (evidence → ação) e trilha de auditoria</a>
+          <a href="#f8">8) Checklists operacionais (pré-trade, evento, pós-trade, rebalance)</a>
+          <a href="#f9">9) Template final (copiar/colar): sua governança em 1 página</a>
+          <a href="#f10">Conclusão</a>
         </div>
 
         <div class="callout">
-          <strong>Tese final:</strong> “investir bem” é uma disputa entre o seu sistema e o seu cérebro.
-          O mercado é difícil, mas sua mente é um adversário mais constante.
+          <strong>O objetivo institucional:</strong>
+          você não tenta “ser o mais inteligente do mercado”.
+          Você tenta construir um processo que seja difícil de quebrar — especialmente quando você está emocional.
         </div>
 
         <hr class="hr">
 
-        <h2 id="s1">1) Por que IPS é a “muralha” do investidor</h2>
+        <h2 id="f1">1) O sistema completo (macro → carteira) em uma arquitetura</h2>
         <p>
-          Um investidor sem IPS opera por “estado emocional” — e estados emocionais são não estacionários.
-          Em regime benigno, você tolera risco. Em stress, você entra em modo sobrevivência e abandona o plano.
-          O IPS transforma decisões em política: reduz variância de comportamento, que é a principal fonte de erro.
-        </p>
-
-        <div class="grid2">
-          <div class="card">
-            <h3><span class="badge"><i class="fa-solid fa-triangle-exclamation"></i> Sem IPS</span></h3>
-            <ul style="margin:10px 0 0 18px;">
-              <li>Compra porque subiu / vende porque caiu</li>
-              <li>Rebalanceia por ansiedade</li>
-              <li>Muda estratégia “na dor”</li>
-              <li>Não sabe o risco real que carrega</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3><span class="badge"><i class="fa-solid fa-shield"></i> Com IPS</span></h3>
-            <ul style="margin:10px 0 0 18px;">
-              <li>Risco definido por política</li>
-              <li>Rebalanceamento por regra</li>
-              <li>Decisão via dados + Bayes</li>
-              <li>Processo auditável</li>
-            </ul>
-          </div>
-        </div>
-
-        <h2 id="s2">2) IPS formal: objetivos, restrições e política de risco</h2>
-        <p>
-          Um IPS institucional tem cinco blocos: (i) objetivos, (ii) restrições, (iii) filosofia e alocação,
-          (iv) política de risco, e (v) governança & revisão.
-          A chave é ser <strong>operacional</strong>: cada frase precisa virar uma regra ou um limite.
+          O framework final é um pipeline. Se você não consegue descrever seu processo como pipeline,
+          você está operando por narrativa.
         </p>
 
         <div class="codebox">
-          <strong>Estrutura mínima (executável):</strong>
-          <ol style="margin:10px 0 0 18px;">
-            <li><strong>Objetivo:</strong> retorno real alvo (ex.: CDI real + X) e horizonte</li>
-            <li><strong>Restrições:</strong> liquidez, aportes/saques, impostos, aversão a drawdown</li>
-            <li><strong>Universo:</strong> classes permitidas e limites por classe</li>
-            <li><strong>Risco:</strong> bandas, limites de contribuição de risco, drawdown máximo tolerável</li>
-            <li><strong>Processo:</strong> frequência de revisão, critérios de mudança, registro</li>
-          </ol>
+          <strong>Pipeline formal:</strong>
+          <p>\[
+            \underbrace{S_t}_{\text{estado}} \Rightarrow
+            \underbrace{R_t}_{\text{regime}} \Rightarrow
+            \underbrace{E_t}_{\text{exposures}} \Rightarrow
+            \underbrace{w_t}_{\text{sizing}} \Rightarrow
+            \underbrace{\text{exec}_t}_{\text{custo}} \Rightarrow
+            \underbrace{\mathcal{A}_t}_{\text{auditoria}}
+          \]</p>
+          <p class="mini-note">
+            Você mede o estado \(S_t\), classifica o regime \(R_t\), escolhe exposures \(E_t\), dimensiona \(w_t\),
+            executa com custos controlados e audita (antes/depois).
+          </p>
         </div>
 
-        <h3>2.1 Política de risco (nível gestor, pessoa física)</h3>
+        <div class="panel">
+          <h3>Componentes mínimos (para funcionar)</h3>
+          <div class="grid3">
+            <div>
+              <span class="badge"><i class="fa-solid fa-table-columns"></i> Painel</span>
+              <ul style="margin:10px 0 0 18px;">
+                <li>inflação, growth, FCI</li>
+                <li>curva (3 fatores)</li>
+                <li>crédito + vol</li>
+              </ul>
+            </div>
+            <div>
+              <span class="badge"><i class="fa-solid fa-sitemap"></i> Regras</span>
+              <ul style="margin:10px 0 0 18px;">
+                <li>bandas por classe</li>
+                <li>triggers robustos</li>
+                <li>rebalance cadenciado</li>
+              </ul>
+            </div>
+            <div>
+              <span class="badge"><i class="fa-solid fa-shield-heart"></i> Defesa</span>
+              <ul style="margin:10px 0 0 18px;">
+                <li>limites + circuit breakers</li>
+                <li>log + auditoria</li>
+                <li>controle de viés</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h2 id="f2">2) IPS pessoal (Investment Policy Statement)</h2>
         <p>
-          O investidor brasileiro deve especificar risco em pelo menos três dimensões:
-          (1) risco de preço (vol/drawdown), (2) risco de liquidez (vender em stress) e (3) risco de regime (juros/inflação/FX).
+          IPS é um documento vivo que reduz improviso. Em instituições ele é obrigatório.
+          Para pessoa física, ele é o maior “hack” de consistência — porque torna explícitas as regras quando você está calmo.
         </p>
 
-        <table class="table" aria-label="Política de risco exemplo">
+        <div class="codebox">
+          <strong>IPS (estrutura mínima):</strong>
+          <p>\[
+            IPS = \{ Objetivo,\ Horizonte,\ Restrições,\ Benchmark,\ Alocação\ alvo,\ Regras,\ Limites,\ Rotina,\ Auditoria \}
+          \]</p>
+          <p class="mini-note">
+            Quanto mais simples e executável, melhor. IPS não é literatura; é manual operacional.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h3>Exemplo (conteúdo típico do IPS)</h3>
+          <ul style="margin:10px 0 0 18px;">
+            <li><strong>Objetivo:</strong> crescimento real de patrimônio com risco controlado; evitar decisões reativas.</li>
+            <li><strong>Horizonte:</strong> 5–20+ anos (com buckets para 0–24 meses, 2–5 anos, 5+).</li>
+            <li><strong>Restrições:</strong> liquidez mínima, proibição de alavancagem, limites por emissor.</li>
+            <li><strong>Benchmark:</strong> referência de risco (ex.: vol alvo) + referência de retorno real.</li>
+            <li><strong>Regras:</strong> bandas, rebalance mensal/trimestral, triggers de stress.</li>
+          </ul>
+        </div>
+
+        <h2 id="f3">3) Limites institucionais (o que impede ruína)</h2>
+        <p>
+          Retorno é consequência. Sobrevivência é requisito.
+          Limites evitam concentração oculta e evitam “blow-up” em cenários de correlação alta.
+        </p>
+
+        <table class="table" aria-label="Limites institucionais">
           <thead>
             <tr>
-              <th>Dimensão</th>
-              <th>Métrica</th>
-              <th>Limite</th>
-              <th>Ação se violar</th>
+              <th>Categoria</th>
+              <th>Limite (exemplos)</th>
+              <th>Por quê</th>
+              <th>Como medir</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Drawdown</td>
-              <td>\(DD_{peak\to trough}\)</td>
-              <td>\(\le 18\%\)</td>
-              <td>Reduzir risco do bloco volátil em k% e rever bandas</td>
+              <td>Concentração</td>
+              <td>máx. % por ativo/setor/país</td>
+              <td>evita risco idiossincrático dominante</td>
+              <td>pesos + correlação</td>
             </tr>
             <tr>
               <td>Liquidez</td>
-              <td>% ilíquido</td>
-              <td>\(\le 20\%\)</td>
-              <td>Congelar novas compras ilíquidas + rota de redução</td>
+              <td>% mínimo em ativos líquidos</td>
+              <td>crise exige caixa, não opinião</td>
+              <td>dias para liquidar</td>
+            </tr>
+            <tr>
+              <td>Risco total</td>
+              <td>vol alvo / VaR / ES</td>
+              <td>dimensiona exposição ao ciclo</td>
+              <td>\(\hat\sigma\), ES</td>
+            </tr>
+            <tr>
+              <td>Crédito</td>
+              <td>rating mínimo / spread budget</td>
+              <td>evita carry “crash”</td>
+              <td>spreads + stress</td>
             </tr>
             <tr>
               <td>FX</td>
-              <td>% exp. cambial</td>
-              <td>\([10\%, 35\%]\)</td>
-              <td>Rebalancear quando sair da faixa (por banda)</td>
-            </tr>
-            <tr>
-              <td>Turnover</td>
-              <td>giro anual</td>
-              <td>\(\le 35\%\)</td>
-              <td>Ampliar bandas / reduzir “táticas”</td>
+              <td>exposição líquida / hedge</td>
+              <td>FX domina retornos em stress</td>
+              <td>beta FX</td>
             </tr>
           </tbody>
         </table>
 
-        <div class="warning">
-          <strong>“Limite” sem ação definida não é limite.</strong>
-          Se você não escreveu o que faz quando viola, você não tem política — tem desejo.
-        </div>
-
-        <hr class="hr">
-
-        <h2 id="s3">3) Utilidade esperada: decisão sob risco (modelo formal)</h2>
+        <h2 id="f4">4) Circuit breakers (proibições temporárias)</h2>
         <p>
-          A base da decisão racional sob risco é maximizar utilidade esperada, não retorno esperado.
-          Retorno esperado ignora a assimetria psicológica e a convexidade do “plano de vida”.
+          Circuit breaker é uma regra que limita ações sob stress. Ele reduz o risco de você piorar o drawdown.
+          Instituições têm “gates” e regras de redução de risco. Você precisa do equivalente.
         </p>
 
-        <div class="codebox">
-          <strong>Utilidade esperada:</strong>
-          <p>\[
-            \max_{\pi}\; \mathbb{E}\left[U(W_{T})\right]
-          \]</p>
-          <p class="mini-note">
-            \(\pi\) representa a política (alocação + regras). \(W_T\) é riqueza no horizonte \(T\).
-          </p>
-        </div>
-
-        <h3>3.1 Utilidade CRRA (padrão institucional)</h3>
-        <p>
-          Uma forma clássica é CRRA (Constant Relative Risk Aversion), que produz decisões coerentes com risco proporcional à riqueza.
-        </p>
-
-        <div class="codebox">
-          <p>\[
-            U(W)=
-            \begin{cases}
-              \frac{W^{1-\gamma}}{1-\gamma}, & \gamma \ne 1 \\
-              \ln(W), & \gamma = 1
-            \end{cases}
-          \]</p>
-          <p class="mini-note">
-            \(\gamma\) é aversão relativa ao risco. \(\gamma\) maior → mais conservador.
-          </p>
-        </div>
-
-        <h3>3.2 Implicação prática (o “porquê” do seu plano)</h3>
-        <p>
-          Se seu objetivo é acumular com risco controlado, você não quer maximizar “chance de jackpot”.
-          Você quer maximizar a utilidade do caminho: evitar ruína, evitar drawdowns que te fazem abandonar o processo,
-          e manter consistência de aportes.
-        </p>
-
-        <div class="callout">
-          <strong>Tradução para regra:</strong> seu IPS deve ter limites que protejam \(U(W)\), não só \(E[R]\).
-          Um portfólio que “em média” rende mais, mas te quebra psicologicamente, é inferior.
-        </div>
-
-        <hr class="hr">
-
-        <h2 id="s4">4) Prospect Theory: vieses formais e implicações</h2>
-        <p>
-          Prospect Theory (Kahneman–Tversky) explica por que investidores fazem exatamente o oposto do desejável:
-          realizam ganhos cedo e seguram perdas tarde, devido à função valor côncava para ganhos e convexa para perdas,
-          além de “loss aversion” (perdas doem mais que ganhos iguais).
-        </p>
-
-        <div class="codebox">
-          <strong>Função valor (forma típica):</strong>
-          <p>\[
-            v(x)=
-            \begin{cases}
-              x^{\alpha}, & x \ge 0 \\
-              -\lambda (-x)^{\beta}, & x < 0
-            \end{cases}
-          \]</p>
-          <p class="mini-note">
-            \(\lambda > 1\) captura aversão a perdas. \(\alpha,\beta \in (0,1)\) geram sensibilidade decrescente.
-          </p>
-        </div>
-
-        <h3>4.1 O erro estrutural: “stop emocional”</h3>
-        <p>
-          Prospect Theory cria dois comportamentos ruins:
-          (i) você reduz risco após cair (quando deveria rebalancear para o alvo), e
-          (ii) você aumenta risco após subir (quando deveria cortar excesso).
-          Ou seja: compra caro e vende barato — mas chama isso de “prudência”.
-        </p>
-
-        <div class="warning">
-          <strong>Vacina:</strong> rebalanceamento por bandas + registro de decisão + gatilhos objetivos.
-          Sem isso, você vira escravo da função \(v(x)\).
-        </div>
-
-        <hr class="hr">
-
-        <h2 id="s5">5) Matriz de decisão Bayesiana (com exemplo)</h2>
-        <p>
-          O investidor institucional não “muda tese” por manchete: ele atualiza probabilidades.
-          Bayes fornece o mecanismo: posterior ∝ likelihood × prior.
-        </p>
-
-        <div class="codebox">
-          <strong>Regra de Bayes:</strong>
-          <p>\[
-            P(H|D) = \frac{P(D|H)\,P(H)}{P(D)}
-          \]</p>
-          <p class="mini-note">
-            \(H\) é hipótese (ex.: “regime de juros real alto vai persistir”). \(D\) é dado novo (inflação, fiscal, BC).
-          </p>
-        </div>
-
-        <h3>5.1 Matriz executável: hipóteses × ações</h3>
-        <p>
-          Você define um conjunto pequeno de hipóteses (regimes) e um conjunto pequeno de ações (ajustes permitidos pelo IPS).
-          O objetivo é reduzir reatividade: mudar <em>apenas</em> quando posterior cruzar um limiar.
-        </p>
-
-        <table class="table" aria-label="Matriz Bayesiana simplificada">
-          <thead>
-            <tr>
-              <th>Hipótese (H)</th>
-              <th>Prior \(P(H)\)</th>
-              <th>Dado (D)</th>
-              <th>Likelihood \(P(D|H)\)</th>
-              <th>Posterior \(P(H|D)\)</th>
-              <th>Ação permitida (IPS)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>H1: juros reais altos persistem</td>
-              <td>0,40</td>
-              <td>D: inflação surpresa + fiscal piora</td>
-              <td>0,65</td>
-              <td>↑ (recalcula)</td>
-              <td>Aumentar banda de duration / reduzir risco de ativos de alta duration</td>
-            </tr>
-            <tr>
-              <td>H2: desinflação + queda de juros</td>
-              <td>0,35</td>
-              <td>D: inflação cai + credibilidade melhora</td>
-              <td>0,60</td>
-              <td>↑ (recalcula)</td>
-              <td>Rebalancear para duration alvo (sem “apostar” além da faixa)</td>
-            </tr>
-            <tr>
-              <td>H3: stress fiscal/FX</td>
-              <td>0,25</td>
-              <td>D: prêmio de risco e câmbio disparam</td>
-              <td>0,70</td>
-              <td>↑ (recalcula)</td>
-              <td>Acionar buffer de liquidez + evitar ilíquidos + rebalancear por bandas</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="callout">
-          <strong>Regra de ouro:</strong> Bayes não te dá certeza; ele te dá <em>calibração</em>.
-          Você não “acerta o futuro”; você evita decisões ruins com informação parcial.
-        </div>
-
-        <hr class="hr">
-
-        <h2 id="s6">6) Framework quantitativo de disciplina</h2>
-        <p>
-          Disciplina não é força de vontade. Disciplina é um <strong>sistema</strong>:
-          regras simples, gatilhos objetivos, métricas mensais e auditoria de processo.
-          O investidor vira “operador” do próprio IPS.
-        </p>
-
-        <div class="codebox">
-          <strong>Arquitetura do sistema:</strong>
-          <ol style="margin:10px 0 0 18px;">
-            <li><strong>Política</strong> (IPS): alvo, bandas, limites</li>
-            <li><strong>Gatilhos</strong>: o que dispara ação (bandas, risco, posterior Bayes)</li>
-            <li><strong>Ações</strong>: o que é permitido fazer (lista curta)</li>
-            <li><strong>Registro</strong>: por que fez (regra acionada)</li>
-            <li><strong>Auditoria</strong>: comparar decisões vs regras (mensal)</li>
-          </ol>
-        </div>
-
-        <h3>6.1 Regras quantitativas mínimas (copiáveis)</h3>
-        <div class="grid2">
-          <div class="card">
-            <h3>Regras de rebalanceamento</h3>
-            <ul style="margin:10px 0 0 18px;">
-              <li>Rebalancear apenas se \(|w_i - w_i^\*| \ge b_i\)</li>
-              <li>Bandas maiores para ativos ilíquidos</li>
-              <li>Turnover anual máximo (ex.: 35%)</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Regras de risco</h3>
-            <ul style="margin:10px 0 0 18px;">
-              <li>Se drawdown > D: reduzir risco do bloco volátil em k%</li>
-              <li>Se % ilíquido > L: congelar compras ilíquidas</li>
-              <li>Se RC de bloco > limite: rebalancear</li>
-            </ul>
-          </div>
-        </div>
-
-        <h3>6.2 “Filtro anti-Prospect Theory” (trava comportamental)</h3>
-        <div class="codebox">
-          <strong>Antes de qualquer operação, responder (sim/não):</strong>
-          <ol style="margin:10px 0 0 18px;">
-            <li>Qual regra do IPS foi acionada?</li>
-            <li>Qual métrica violou limite (bandas/risco/liquidez)?</li>
-            <li>Qual alternativa eu considerei e descartei?</li>
-            <li>Estou tentando “evitar dor” ou executar política?</li>
-          </ol>
+        <div class="check">
+          <h3>Exemplos de circuit breakers (escolha os seus)</h3>
+          <ul>
+            <li><strong>CB1 — Vol spike:</strong> se \(\hat\sigma\) do portfólio &gt; X, reduzir risco para vol alvo em T dias (gradual).</li>
+            <li><strong>CB2 — Drawdown budget:</strong> se drawdown &gt; D, proibido aumentar risco até retorno acima da média móvel.</li>
+            <li><strong>CB3 — Liquidez:</strong> se spreads abrem + depth cai, proibir ativos ilíquidos e “troca de tese”.</li>
+            <li><strong>CB4 — Evento:</strong> em evento binário (fiscal/político), reduzir sizing e esperar confirmação do painel.</li>
+          </ul>
           <div class="mini-note">
-            Se você não consegue responder (1) e (2) com precisão, a operação é emocional.
+            Circuit breaker é menos sobre “acertar” e mais sobre impedir que um erro vire irreversível.
           </div>
         </div>
 
-        <hr class="hr">
-
-        <h2 id="s7">7) Scorecard do investidor: KPIs mensais</h2>
+        <h2 id="f5">5) Disciplina quantitativa: bandas, cadência e custos</h2>
         <p>
-          O maior upgrade institucional é medir processo, não só retorno. Retorno é ruidoso no curto prazo.
-          Processo é controlável.
+          A forma mais simples de disciplina é automatizar decisões com regras de bandas e cadência.
+          Isso reduz “timing emocional”.
         </p>
 
-        <table class="table" aria-label="Scorecard mensal">
+        <div class="codebox">
+          <strong>Bandas + cadência:</strong>
+          <p>\[
+            \text{Rebalance se } |w_i - w_i^*| \ge \delta_i
+            \quad \text{e somente em datas } \{t_k\}
+          \]</p>
+          <p class="mini-note">
+            \(\delta_i\) pode ser função de vol e custo. \(\{t_k\}\) pode ser mensal/trimestral.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h3>Custos como variável do modelo</h3>
+          <ul style="margin:10px 0 0 18px;">
+            <li><strong>Taxas explícitas:</strong> corretagem, emolumentos, imposto.</li>
+            <li><strong>Custos implícitos:</strong> spread, slippage, market impact.</li>
+            <li><strong>Risco de execução:</strong> liquidez some em stress; “custo” muda de regime.</li>
+          </ul>
+        </div>
+
+        <h2 id="f6">6) Viés: estrutura anti-autoengano</h2>
+        <p>
+          Você não “remove” vieses — você cria defesas.
+          O método institucional é usar evidências, thresholds e logs para impedir decisões impulsivas.
+        </p>
+
+        <div class="panel">
+          <h3>Vieses principais e antídotos operacionais</h3>
+          <div class="grid2">
+            <div class="check">
+              <h3><i class="fa-solid fa-brain"></i> Recência &amp; narrativa</h3>
+              <ul>
+                <li>proibir mudanças fora da cadência</li>
+                <li>exigir 3 evidências independentes</li>
+                <li>usar percentis/regimes em vez de manchetes</li>
+              </ul>
+            </div>
+            <div class="check">
+              <h3><i class="fa-solid fa-fire"></i> Overconfidence</h3>
+              <ul>
+                <li>position sizing por risco (não por “convicção”)</li>
+                <li>obrigar cenário adverso + probabilidade</li>
+                <li>limite de concentração</li>
+              </ul>
+            </div>
+          </div>
+          <div class="grid2">
+            <div class="check">
+              <h3><i class="fa-solid fa-scale-balanced"></i> Confirmation bias</h3>
+              <ul>
+                <li>“red team”: listar 5 razões contra a tese</li>
+                <li>definir “kill switch” (o que invalida)</li>
+                <li>usar checklist antes de executar</li>
+              </ul>
+            </div>
+            <div class="check">
+              <h3><i class="fa-solid fa-heart-crack"></i> Loss aversion</h3>
+              <ul>
+                <li>drawdown budget + circuit breaker</li>
+                <li>não “dobrar” posição em queda sem regra</li>
+                <li>separar risco “core” do “satélite”</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h2 id="f7">7) Matriz de decisão (evidence → ação) + auditoria</h2>
+        <p>
+          Você precisa de uma matriz que converta evidência em ação. Sem isso, você reage.
+          A matriz abaixo cria uma trilha auditável: o que você viu, como classificou o regime e por que mudou peso.
+        </p>
+
+        <div class="codebox">
+          <strong>Matriz de decisão (forma):</strong>
+          <p>\[
+            a_t = \arg\max_{a \in \mathcal{A}} \ \mathbb{E}[U(W_{t+1}) \mid \mathcal{I}_t] \ - \ \lambda \cdot C(a)
+          \]</p>
+          <p class="mini-note">
+            \(a\) é a ação (ajustar pesos, hedge, reduzir risco). \(C(a)\) é custo (transação + risco de whipsaw).
+            Você não escolhe só pelo retorno esperado; escolhe pelo retorno <em>líquido</em> e pela utilidade.
+          </p>
+        </div>
+
+        <table class="table" aria-label="Trilha de auditoria">
           <thead>
             <tr>
-              <th>KPI</th>
-              <th>Como medir</th>
-              <th>Meta/limite</th>
-              <th>Se falhar</th>
+              <th>Bloco</th>
+              <th>O que registrar</th>
+              <th>Exemplo</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Aderência às bandas</td>
-              <td>% do tempo dentro das bandas</td>
-              <td>&ge; 90%</td>
-              <td>Rebalancear por regra</td>
+              <td>Painel</td>
+              <td>Inflação, growth, FCI, curva, spreads, vol</td>
+              <td>“FCI apertou 2 desvios; spreads ↑; curva invertida”</td>
             </tr>
             <tr>
-              <td>Turnover</td>
-              <td>giro 12m</td>
-              <td>&le; 35%</td>
-              <td>Alargar bandas / cortar “táticas”</td>
+              <td>Regime</td>
+              <td>Classificação + confiança</td>
+              <td>“Risk-off 70%”</td>
             </tr>
             <tr>
-              <td>Liquidez</td>
-              <td>% ilíquido</td>
-              <td>&le; 20%</td>
-              <td>Plano de redução</td>
+              <td>Ação</td>
+              <td>O que muda (e quanto)</td>
+              <td>“reduzir beta 15%; elevar liquidez 10%”</td>
             </tr>
             <tr>
-              <td>Drawdown</td>
-              <td>pico→vale</td>
-              <td>&le; 18%</td>
-              <td>Reduzir risco por regra</td>
+              <td>Invalidação</td>
+              <td>O que faria reverter</td>
+              <td>“spreads voltam ao percentil 40 e vol normaliza”</td>
             </tr>
             <tr>
-              <td>Registro</td>
-              <td>% operações com justificativa</td>
-              <td>100%</td>
-              <td>Proibir novas operações fora do processo</td>
+              <td>Resultado</td>
+              <td>Pós-trade: custo, slippage, performance</td>
+              <td>“slippage 0,18%; execução ok; regra seguida”</td>
             </tr>
           </tbody>
         </table>
 
-        <div class="callout">
-          <strong>Auditoria:</strong> 1x/mês você revisa “o que fez” vs “o que estava escrito”.
-          Você vira seu próprio comitê de investimento.
+        <h2 id="f8">8) Checklists operacionais</h2>
+
+        <div class="check">
+          <h3>Checklist A — Pré-trade (antes de mudar algo)</h3>
+          <ul>
+            <li>O ajuste está dentro da <strong>cadência</strong>? Se não, qual exceção documentada?</li>
+            <li>Quais <strong>3 evidências independentes</strong> suportam o regime?</li>
+            <li>Qual é o <strong>cenário adverso</strong> e qual a perda plausível?</li>
+            <li>A mudança viola algum <strong>limite</strong> (concentração, liquidez, FX)?</li>
+            <li>Qual é o <strong>custo total</strong> (spread + slippage + imposto) estimado?</li>
+            <li>Existe um <strong>kill switch</strong> claro (o que invalida)?</li>
+          </ul>
         </div>
 
-        <hr class="hr">
-
-        <h2 id="s8">8) Template de IPS (copiar/colar) + checklist anual</h2>
-
-        <div class="codebox">
-          <strong>IPS — versão curta (1–2 páginas):</strong>
-          <p class="mini-note">Copie e cole em um documento. Isso é o seu “contrato com você mesmo”.</p>
-
-          <p><strong>1) Objetivo</strong><br>
-          (a) Retorno real alvo: ________ (ex.: CDI real + 2%).<br>
-          (b) Horizonte: ________ (ex.: 10+ anos).<br>
-          (c) Prioridade: ( ) acumulação ( ) renda ( ) preservação.</p>
-
-          <p><strong>2) Restrições</strong><br>
-          (a) Liquidez mínima: ________ meses de despesas (buffer).<br>
-          (b) Drawdown máximo tolerável: ________%.<br>
-          (c) Aportes/saques: regras e frequência: ________.<br>
-          (d) Impostos/contas: ________.</p>
-
-          <p><strong>3) Universo permitido</strong><br>
-          Classes permitidas: ( ) pós ( ) IPCA+ ( ) crédito ( ) ações BR ( ) exterior ( ) ouro/hedge.<br>
-          Classes proibidas: ________.<br>
-          % máximo ilíquido: ________%.</p>
-
-          <p><strong>4) Alocação alvo e bandas</strong><br>
-          Alvos \(w^\*\): ________.<br>
-          Bandas \(b\): ________ (absolutas ou proporcionais).<br>
-          Rebalancear apenas se \(|w_i - w_i^\*| \ge b_i\).</p>
-
-          <p><strong>5) Política de risco</strong><br>
-          Limite de RC por bloco: ________%.<br>
-          Limite FX: ________%.<br>
-          Gatilho drawdown: se DD > ________% → ação: ________.<br>
-          Turnover anual máximo: ________%.</p>
-
-          <p><strong>6) Processo e governança</strong><br>
-          Revisão mensal: métricas + aderência.<br>
-          Revisão anual: recalibrar objetivos, bandas e limites.<br>
-          Mudança de estratégia só se: ________ (condições objetivas).</p>
-
-          <p><strong>7) Registro</strong><br>
-          Toda operação deve conter: regra acionada + métrica + alternativa considerada.</p>
+        <div class="check">
+          <h3>Checklist B — Evento (stress / notícia grande)</h3>
+          <ul>
+            <li>O evento muda <strong>estado macro</strong> ou só muda narrativa?</li>
+            <li>O movimento é de <strong>liquidez</strong> (spreads/vol) ou de fundamentos?</li>
+            <li>Ativar <strong>circuit breaker</strong>? Se sim, qual e por quanto tempo?</li>
+            <li>Proibir “troca de tese” por 24–72h (cooldown) — regra explícita.</li>
+          </ul>
         </div>
 
-        <div class="codebox">
-          <strong>Checklist anual (30–60 min):</strong>
-          <ol style="margin:10px 0 0 18px;">
-            <li>Objetivos mudaram? (renda/aposentadoria/risco)</li>
-            <li>Restrições mudaram? (liquidez, saúde, família)</li>
-            <li>Bandas ainda fazem sentido com custos e regime?</li>
-            <li>Risco total vs tolerância: DD observado é aceitável?</li>
-            <li>Turnover e custos: você está “operando demais”?</li>
-            <li>Auditoria: suas decisões seguiram o IPS?</li>
-            <li>Uma melhoria pequena para o próximo ano: ________</li>
-          </ol>
+        <div class="check">
+          <h3>Checklist C — Pós-trade (auditoria)</h3>
+          <ul>
+            <li>O trade seguiu regra? Se não, por quê (e como impedir repetição)?</li>
+            <li>Qual foi slippage/impacto real?</li>
+            <li>O regime foi bem classificado? Se não, qual sinal falhou?</li>
+            <li>Atualizar thresholds? (somente em revisão trimestral)</li>
+          </ul>
         </div>
 
-        <h2 id="s9">Encerramento: como manter isso por décadas</h2>
+        <div class="check">
+          <h3>Checklist D — Rebalance (mensal/trimestral)</h3>
+          <ul>
+            <li>Rever pesos vs bandas; rebalance somente se fora da banda.</li>
+            <li>Rever limites (liquidez, concentração, crédito).</li>
+            <li>Rever correlações (subiram em stress?) e risco total.</li>
+            <li>Registrar 1 página: painel + regime + ações.</li>
+          </ul>
+        </div>
+
+        <h2 id="f9">9) Template final (copiar/colar): governança em 1 página</h2>
+
+        <div class="codebox" style="white-space:normal;">
+          <strong>IPS — 1 página (modelo)</strong>
+          <ul style="margin:10px 0 0 18px;">
+            <li><strong>Objetivo:</strong> (ex.: retorno real X% a.a. com risco controlado)</li>
+            <li><strong>Horizonte:</strong> (ex.: 10+ anos; buckets de liquidez)</li>
+            <li><strong>Alocação alvo:</strong> (classes + pesos alvo)</li>
+            <li><strong>Bandas:</strong> \(\delta_i\) por classe</li>
+            <li><strong>Cadência:</strong> revisão mensal; rebalance trimestral (ou regra)</li>
+            <li><strong>Painel:</strong> inflação/growth/FCI + curva + spreads + vol</li>
+            <li><strong>Regimes:</strong> 2×2 + risk-on/off; thresholds</li>
+            <li><strong>Limites:</strong> concentração, liquidez, FX, crédito, risco total</li>
+            <li><strong>Circuit breakers:</strong> vol spike, drawdown, liquidez</li>
+            <li><strong>Auditoria:</strong> log de decisões + pós-mortem trimestral</li>
+          </ul>
+          <div class="mini-note">
+            Regra de ouro: mudanças “de modelo” só na revisão trimestral, com evidência e documentação.
+          </div>
+        </div>
+
+        <h2 id="f10">Conclusão</h2>
         <p>
-          O investidor profissional não é quem “prevê” o mercado. É quem constrói um sistema robusto:
-          ele sobrevive a regimes, controla custos, protege liquidez e reduz o erro humano.
-          Se você executar o IPS e auditar o processo, o tempo vira o seu melhor aliado.
+          A macro é poderosa quando vira governança: painel, regimes, exposures, sizing e regras.
+          Se você executa com disciplina e custos sob controle, você ganha a vantagem que mais importa:
+          consistência em ciclos, evitando os erros que destroem patrimônio (overtrade, concentração e pânico).
         </p>
 
         <div class="callout">
-          <strong>Fechamento (regra final):</strong>
-          você só tem duas alavancas que realmente controla:
-          <strong>processo</strong> e <strong>comportamento</strong>. O resto é ruído.
+          <strong>Parabéns — você fechou um framework institucional completo.</strong>
+          Se quiser, o próximo passo natural é aplicar esse mesmo padrão em um tema “core” de portfólio:
+          <em>crédito e spreads</em> (ou <em>alocação global com hedge</em>), ou um “manual” completo de FIIs.
         </div>
 
         <div class="jump" style="margin-top:18px;">
-          <a href="/posts/manual-investidor-profissional-brasileiro-parte-7.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 7</a>
+          <a href="/posts/macroeconomia-institucional-parte-7.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 7</a>
           <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+          <a href="/posts/etf-masterclass-carteira-global-parte-1.html"><i class="fa-solid fa-bolt"></i> ETF Masterclass</a>
+          <a href="/posts/biblia-da-aposentadoria-parte-1.html"><i class="fa-solid fa-book"></i> Bíblia da Aposentadoria</a>
         </div>
 
         <hr class="hr">
+
         <div class="muted" style="font-size:12px;">
-          Nota: conteúdo educacional, sem recomendação. O objetivo é ensinar estrutura, governança e disciplina de longo prazo.
+          Nota: material educacional. Não constitui recomendação de investimento. O objetivo é estrutura técnica e disciplina de decisão.
         </div>
 
       </div>
     </section>
   </main>
 
-  <!-- Footer (padrão do site) -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="container footer-container">
       <div>
@@ -787,7 +729,7 @@
   </footer>
 
   <script>
-    // ===== Mobile menu (topo do site) =====
+    // Mobile menu (topo)
     (function () {
       const btn = document.querySelector('.mobile-menu-btn');
       const nav = document.getElementById('primary-navigation');
@@ -800,7 +742,7 @@
       });
     })();
 
-    // ===== Série: drawer mobile =====
+    // Série drawer mobile
     (function(){
       const fab = document.getElementById('seriesFab');
       const nav = document.getElementById('seriesNav');
