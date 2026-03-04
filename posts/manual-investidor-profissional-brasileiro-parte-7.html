@@ -4,16 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Manual do Investidor Profissional Brasileiro (Parte 7/8) | Implementação, Rebalanceamento e Custos</title>
-  <meta name="description" content="Parte 7/8 (nível institucional): custos de transação (spread, slippage, impacto), execução (VWAP/TWAP), rebalanceamento por bandas, risk budgeting, controle de drawdown, stress/regimes e checklist operacional." />
+  <title>Macroeconomia Institucional para Investidores (Parte 7/8) | Ciclos, Curvas e Regras de Carteira</title>
+  <meta name="description" content="Série institucional (Parte 7/8): traduzindo macro em regras executáveis de carteira. Curva (nível/inclinação/curvatura), regimes (inflação/growth), risk-on/off, bandas de rebalanceamento, sizing por risco, hedge, carry vs crash risk e governança." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/manual-investidor-profissional-brasileiro-parte-7.html" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/macroeconomia-institucional-parte-7.html" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/manual-investidor-profissional-brasileiro-parte-7.html" />
-  <meta property="og:title" content="Manual do Investidor Profissional Brasileiro (Parte 7/8)" />
-  <meta property="og:description" content="Implementação, rebalanceamento e custos: transformar teoria em execução sem ruído." />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/macroeconomia-institucional-parte-7.html" />
+  <meta property="og:title" content="Macroeconomia Institucional (Parte 7/8)" />
+  <meta property="og:description" content="Ciclos, curvas e regras de carteira. Nível institucional." />
   <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
 
   <!-- Fonts + Icons -->
@@ -40,45 +40,26 @@
 
   <style>
     body{overflow-x:hidden}
+
+    /* Conteúdo */
+    .post-wrap{max-width:980px;margin:0 auto;padding:28px 16px 60px}
     .pill{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:800;font-size:12px;background:rgba(44,44,46,.06)}
     .muted{opacity:.78}
-
-    .post-wrap{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 28px 16px 60px;
-    }
-    /* ✅ desktop: reserva espaço pro menu lateral não cobrir texto */
-    @media(min-width: 981px){
-      .post-wrap{ padding-right: 360px; }
-    }
-
     .hero{
       margin-top:16px;border-radius:18px;overflow:hidden;border:1px solid rgba(0,0,0,.08);
       box-shadow: var(--shadow-sm); background:#fff
     }
     .hero img{width:100%;height:auto;display:block}
-
-    .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
-    .kpi{border:1px solid rgba(0,0,0,.08);border-radius:16px;background:#fff;box-shadow:var(--shadow-sm);padding:14px}
-    .kpi strong{display:block;font-size:18px}
-    @media(max-width:980px){.kpi-grid{grid-template-columns:1fr}}
-
-    .jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-    .jump a{
-      display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:14px;
-      border:1px solid rgba(0,0,0,.08);background:#fff;box-shadow:var(--shadow-sm);text-decoration:none;font-weight:900
-    }
-    .jump a:hover{transform:translateY(-1px)}
-
     .toc{
       margin-top:18px;border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;
       box-shadow: var(--shadow-sm); padding:16px
     }
     .toc h2{margin:0 0 10px 0}
-    .toc a{display:block;text-decoration:none;padding:8px 10px;border-radius:14px;border:1px solid rgba(0,0,0,.06);margin:8px 0}
+    .toc a{
+      display:block;text-decoration:none;padding:8px 10px;border-radius:14px;border:1px solid rgba(0,0,0,.06);
+      margin:8px 0
+    }
     .toc a:hover{transform:translateY(-1px)}
-
     .callout{
       border-left:4px solid var(--accent-color, #f4c430);
       background: rgba(244,196,48,.10);
@@ -88,26 +69,45 @@
       border-left:4px solid #e2574c;background: rgba(226,87,76,.08);
       padding: 14px 16px;border-radius: 14px;margin: 18px 0
     }
+    .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+    .kpi{border:1px solid rgba(0,0,0,.08);border-radius:16px;background:#fff;box-shadow:var(--shadow-sm);padding:14px}
+    .kpi strong{display:block;font-size:18px}
+    @media(max-width:980px){.kpi-grid{grid-template-columns:1fr}}
+    .jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .jump a{
+      display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:14px;
+      border:1px solid rgba(0,0,0,.08);background:#fff;box-shadow:var(--shadow-sm);text-decoration:none;font-weight:900
+    }
+    .jump a:hover{transform:translateY(-1px)}
+    .section{margin-top:22px}
+    .section h2{margin-top:42px}
+    .section h3{margin-top:26px}
     .hr{height:1px;background:rgba(0,0,0,.10);border:0;margin:26px 0}
+    .table{
+      width:100%;border-collapse:collapse;border:1px solid rgba(0,0,0,.08);border-radius:14px;overflow:hidden;background:#fff;
+      box-shadow:var(--shadow-sm)
+    }
+    .table th,.table td{padding:12px;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:top}
+    .table th{background:rgba(44,44,46,.04);text-align:left}
     .codebox{
       border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);
       padding:14px 16px;margin:18px 0
     }
     .mini-note{font-size:12px;opacity:.78;margin-top:8px}
-    .table{
-      width:100%;border-collapse:collapse;border:1px solid rgba(0,0,0,.08);
-      border-radius:14px;overflow:hidden;background:#fff;box-shadow:var(--shadow-sm)
+    .panel{
+      border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);
+      padding:14px 16px;margin:18px 0
     }
-    .table th,.table td{padding:12px;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:top}
-    .table th{background:rgba(44,44,46,.04);text-align:left}
-    .chiprow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-    .chip{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:8px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.10);
-      background:#fff;box-shadow:var(--shadow-sm);font-weight:900;font-size:12px
+    .panel h3{margin:0 0 10px 0}
+    .badge{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:6px 10px;border-radius:999px;background:rgba(44,44,46,.06);
+      font-weight:900;font-size:12px
     }
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media(max-width:900px){.grid2{grid-template-columns:1fr}}
 
-    /* ===== Série: sidebar desktop + drawer mobile ===== */
+    /* Série: sidebar desktop + drawer mobile (SEM COBRIR TEXTO) */
     .series-shell { position: relative; }
     .series-nav{
       position: fixed;
@@ -171,7 +171,17 @@
       box-shadow: 0 18px 45px rgba(0,0,0,.30);
       display: none;
     }
+
+    @media (min-width: 981px){
+      .post-wrap{
+        max-width: 980px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 380px;
+      }
+    }
     @media (max-width: 980px){
+      .post-wrap{padding-right:16px}
       .series-fab{ display: inline-flex; align-items:center; justify-content:center; }
       .series-nav{
         top: 0; right: 0; height: 100vh; max-height: none;
@@ -188,7 +198,7 @@
 </head>
 
 <body>
-  <!-- Header (MENU topo do site) -->
+  <!-- Header -->
   <header class="header">
     <div class="container header-container">
       <div class="logo">
@@ -207,7 +217,7 @@
           <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
           <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
           <li><a href="/aposentadoria.html">Aposentadoria</a></li>
-          <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="/blog.html">Blog</a></li>
           <li><a href="/comunidade.html">Comunidade</a></li>
         </ul>
       </nav>
@@ -219,21 +229,21 @@
     <button class="series-fab" id="seriesFab" aria-label="Abrir navegação da série" aria-expanded="false">Série 7/8</button>
     <div class="series-backdrop" id="seriesBackdrop"></div>
 
-    <aside class="series-nav" id="seriesNav" aria-label="Navegação da série Manual do Investidor Profissional Brasileiro">
+    <aside class="series-nav" id="seriesNav" aria-label="Navegação da série Macroeconomia Institucional">
       <div class="series-nav-head">
-        <strong>📌 Série: Manual (7/8)</strong>
+        <strong>📌 Série: Macro (7/8)</strong>
         <button class="series-close" id="seriesClose" aria-label="Fechar">✕</button>
       </div>
 
       <nav class="series-nav-links">
-        <a href="/posts/manual-investidor-profissional-brasileiro-parte-1.html">Parte 1 — Fundamentos & Sistema Financeiro</a>
-        <a href="/posts/manual-investidor-profissional-brasileiro-parte-2.html">Parte 2 — Juros, Term Structure e CDI Real</a>
-        <a href="/posts/manual-investidor-profissional-brasileiro-parte-3.html">Parte 3 — Macro, RBC e NKPC</a>
-        <a href="/posts/manual-investidor-profissional-brasileiro-parte-4.html">Parte 4 — Fiscal, Restrição Intertemporal e Prêmio</a>
-        <a href="/posts/manual-investidor-profissional-brasileiro-parte-5.html">Parte 5 — Regimes, Risco e Precificação</a>
-        <a href="/posts/manual-investidor-profissional-brasileiro-parte-6.html">Parte 6 — Portfólio & Alocação (MPT)</a>
-        <a href="/posts/manual-investidor-profissional-brasileiro-parte-7.html" class="active">Parte 7 — Implementação, Rebalanceamento e Custos</a>
-        <a href="/posts/manual-investidor-profissional-brasileiro-parte-8.html">Parte 8 — IPS, Governança e Disciplina Quantitativa</a>
+        <a href="/posts/macroeconomia-institucional-parte-1.html">Parte 1 — RBC, Equilíbrio e Núcleo Real</a>
+        <a href="/posts/macroeconomia-institucional-parte-2.html">Parte 2 — NK Phillips, Rigidezes e Política Monetária</a>
+        <a href="/posts/macroeconomia-institucional-parte-3.html">Parte 3 — Fiscal Intertemporal, TVC e Dominância</a>
+        <a href="/posts/macroeconomia-institucional-parte-4.html">Parte 4 — Equilíbrio Geral, Prêmio Endógeno e Risco</a>
+        <a href="/posts/macroeconomia-institucional-parte-5.html">Parte 5 — Regimes, Identificação e Nowcasting</a>
+        <a href="/posts/macroeconomia-institucional-parte-6.html">Parte 6 — Transmissão a Ativos: Juros, FX, Crédito</a>
+        <a href="/posts/macroeconomia-institucional-parte-7.html" class="active">Parte 7 — Ciclos, Curvas e Carteiras (Regras)</a>
+        <a href="/posts/macroeconomia-institucional-parte-8.html">Parte 8 — Framework Final, Checklist e Governança</a>
       </nav>
     </aside>
   </div>
@@ -242,34 +252,27 @@
     <section class="page-header">
       <div class="container">
         <span class="pill">Série Institucional • Parte 7/8</span>
-        <h1 style="margin-top:10px;">Implementação, Rebalanceamento e Custos</h1>
+        <h1 style="margin-top:10px;">Ciclos, Curvas e Regras de Carteira (Executáveis)</h1>
         <p class="muted" style="max-width: 980px;">
-          A diferença entre “teoria perfeita” e “resultado real” é execução. Aqui você formaliza custos (spread, slippage, impacto),
-          aprende protocolos de execução (TWAP/VWAP), cria regras de rebalanceamento por bandas e implementa controles de risco (drawdown, stress/regimes).
+          Agora a macro vira um conjunto de regras. Você vai mapear regimes em exposures (duration, carry, risco, crédito, FX),
+          definir bandas, sizing por risco e governança para não “trocar de tese” toda semana. É a ponte do modelo para execução.
         </p>
 
         <div class="hero">
-          <img src="/images/blog-cover.svg" alt="Implementação e Rebalanceamento" loading="lazy" />
+          <img src="/images/blog-cover.svg" alt="Ciclos e regras de carteira" loading="lazy" />
         </div>
 
         <div class="kpi-grid" style="max-width: 980px;">
-          <div class="kpi"><strong>Leitura</strong><span class="muted">~ 55–85 min</span></div>
-          <div class="kpi"><strong>Foco</strong><span class="muted">Execução + regras</span></div>
-          <div class="kpi"><strong>Saída</strong><span class="muted">Checklist operacional</span></div>
+          <div class="kpi"><strong>Leitura</strong><span class="muted">~ 75–120 min</span></div>
+          <div class="kpi"><strong>Entrega</strong><span class="muted">regras + bandas + sizing</span></div>
+          <div class="kpi"><strong>Final</strong><span class="muted"><a href="/posts/macroeconomia-institucional-parte-8.html">framework final</a></span></div>
         </div>
 
         <div class="jump" style="max-width: 980px;">
+          <a href="/posts/macroeconomia-institucional-parte-6.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 6</a>
+          <a href="/posts/macroeconomia-institucional-parte-8.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 8</a>
           <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
-          <a href="/posts/manual-investidor-profissional-brasileiro-parte-6.html"><i class="fa-solid fa-arrow-left"></i> Parte 6</a>
-          <a href="/posts/manual-investidor-profissional-brasileiro-parte-8.html"><i class="fa-solid fa-arrow-right"></i> Parte 8</a>
           <a href="/calculadora.html"><i class="fa-solid fa-calculator"></i> Juros Compostos</a>
-        </div>
-
-        <div class="chiprow" style="max-width:980px;">
-          <span class="chip"><i class="fa-solid fa-chart-line"></i> Slippage</span>
-          <span class="chip"><i class="fa-solid fa-hand-holding-dollar"></i> Custos totais</span>
-          <span class="chip"><i class="fa-solid fa-shield-halved"></i> Drawdown</span>
-          <span class="chip"><i class="fa-solid fa-code-branch"></i> Regras por bandas</span>
         </div>
       </div>
     </section>
@@ -279,337 +282,374 @@
 
         <div class="toc">
           <h2>Índice</h2>
-          <a href="#s1">1) A equação do retorno realizado: alfa − custos − fricções</a>
-          <a href="#s2">2) Taxonomia de custos: spread, fees, slippage, impacto e “custo de oportunidade”</a>
-          <a href="#s3">3) Slippage formal: decomposição e métricas</a>
-          <a href="#s4">4) Execução: TWAP/VWAP, participação e regras de “não fazer besteira”</a>
-          <a href="#s5">5) Rebalanceamento: calendário vs bandas (modelo formal)</a>
-          <a href="#s6">6) Risk budgeting: contribuição de risco e limites executáveis</a>
-          <a href="#s7">7) Controle de drawdown: risco de ruína e guardrails quantitativos</a>
-          <a href="#s8">8) Stress & regimes: matriz de cenários para o investidor brasileiro</a>
-          <a href="#s9">9) Checklist operacional (nível gestor) + template anual</a>
-          <a href="#s10">Conclusão + ponte para Parte 8</a>
+          <a href="#r1">1) O problema real: forecast vs regime + disciplina</a>
+          <a href="#r2">2) Estado macro como vetor: inflação, growth, condições financeiras</a>
+          <a href="#r3">3) Curva como 3 fatores: nível, inclinação e curvatura</a>
+          <a href="#r4">4) Regimes (2×2): inflação (↑/↓) × growth (↑/↓)</a>
+          <a href="#r5">5) Mapeamento de exposures: duration, equity, crédito, commodities, FX</a>
+          <a href="#r6">6) Regras executáveis: bandas, triggers e rebalanceamento</a>
+          <a href="#r7">7) Sizing por risco: risk parity, vol targeting e drawdown budget</a>
+          <a href="#r8">8) Carry vs crash risk: quando “rende” até quebrar</a>
+          <a href="#r9">9) Playbook: 12 cenários e respostas (sem opinião)</a>
+          <a href="#r10">Conclusão + ponte para governança final (Parte 8)</a>
         </div>
 
         <div class="callout">
-          <strong>Ideia central:</strong> performance não é só “escolher ativos”. É <em>construir um sistema</em> onde
-          decisões são executadas com disciplina, custo controlado e risco compatível com o horizonte.
+          <strong>Princípio de execução:</strong>
+          você não precisa prever o futuro com precisão.
+          Você precisa reconhecer regimes cedo o suficiente, proteger cauda e manter regras quando a emoção pede improviso.
         </div>
 
         <hr class="hr">
 
-        <h2 id="s1">1) A equação do retorno realizado</h2>
+        <h2 id="r1">1) Forecast vs regime + disciplina</h2>
         <p>
-          Na prática, o retorno observado do portfólio é a diferença entre retorno “teórico” e fricções:
-          custos explícitos (taxas), custos implícitos (spread/slippage), impostos, e decisões ruins de timing induzidas por emoção.
-          Um modelo mental institucional é tratar custos como <strong>taxa permanente</strong> sobre o sistema.
+          Investidor perde dinheiro não por errar “um número”, mas por errar <em>regime</em> e por não ter disciplina.
+          Forecast pontual (CPI do mês) é frágil. Já a identificação de regime (inflação desancorando, condições financeiras apertando,
+          stress de crédito) é muito mais útil para decidir exposure.
         </p>
 
         <div class="codebox">
-          <strong>Decomposição simples:</strong>
+          <strong>Decisão institucional:</strong>
           <p>\[
-            R_{realizado} \approx R_{bruto} - C_{explicito} - C_{implicito} - \Delta_{erros\ de\ processo}
+            \text{Decisão} = f(\text{Regime},\ \text{Risco},\ \text{Custos},\ \text{Restrições})
           \]</p>
           <p class="mini-note">
-            O termo \(\Delta_{erros\ de\ processo}\) existe porque seres humanos “otimizam” para alívio emocional, não para utilidade esperada.
+            Regime → exposures; risco → sizing; custos → evitar “overtrading”; restrições → liquidez/mandato.
           </p>
         </div>
 
-        <h2 id="s2">2) Taxonomia de custos</h2>
-
-        <table class="table" aria-label="Taxonomia de custos">
-          <thead>
-            <tr>
-              <th>Categoria</th>
-              <th>O que é</th>
-              <th>Como aparece</th>
-              <th>Por que importa</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Custos explícitos</td>
-              <td>Taxas, corretagem, custódia, emolumentos</td>
-              <td>Fatura/nota</td>
-              <td>Determinístico; fácil de medir e reduzir</td>
-            </tr>
-            <tr>
-              <td>Bid-ask spread</td>
-              <td>“Preço de atravessar o book”</td>
-              <td>Compra no ask, vende no bid</td>
-              <td>Corroi retorno em ativos ilíquidos; piora em stress</td>
-            </tr>
-            <tr>
-              <td>Slippage</td>
-              <td>Diferença entre preço alvo e executado</td>
-              <td>Execução parcial, volatilidade</td>
-              <td>É onde a maioria “perde sem perceber”</td>
-            </tr>
-            <tr>
-              <td>Market impact</td>
-              <td>Você move o preço contra você</td>
-              <td>Ordem grande em book raso</td>
-              <td>Faz alfa virar custo; grande em small caps</td>
-            </tr>
-            <tr>
-              <td>Custo de oportunidade</td>
-              <td>Não executar / executar tarde</td>
-              <td>Medo, “esperar melhorar”</td>
-              <td>Um dos maiores custos comportamentais</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="warning">
-          <strong>Regra de sobrevivência:</strong> em crise, “liquidez” vira um prêmio. Se você precisa vender, o mercado cobra caro.
-          Portanto, liquidez deve ser tratada como um ativo.
-        </div>
-
-        <h2 id="s3">3) Slippage formal: decomposição</h2>
+        <h2 id="r2">2) Estado macro como vetor (o “painel”)</h2>
         <p>
-          Em termos institucionais, slippage pode ser decomposto em (i) spread, (ii) impacto e (iii) timing.
-          Uma forma útil de pensar (sem depender de uma só convenção) é medir “implementation shortfall”:
-          quanto você perdeu em relação a um benchmark de decisão (ex.: preço no momento da decisão).
+          Defina um vetor de estado mínimo, porque isso evita narrativa.
+          Um painel institucional simples usa: inflação (nível + tendência), growth (nível + tendência),
+          e condições financeiras (FCI: juros reais, spreads, FX, equity drawdown, vol).
         </p>
 
-        <div class="codebox">
-          <strong>Implementation shortfall (conceito):</strong>
-          <p>\[
-            IS \approx (P_{exec} - P_{decisao})\cdot Q + Fees
-          \]</p>
-          <p class="mini-note">
-            Para compras, \(P_{exec} > P_{decisao}\) é custo; para vendas, o sinal inverte. A ideia é medir o “custo total de implementar”.
-          </p>
-        </div>
-
-        <h3>3.1 Um modelo pragmático de custo total</h3>
-        <div class="codebox">
-          <p><strong>Heurística útil:</strong></p>
-          <p>\[
-            C_{total} \approx C_{fees} + \frac{Spread}{2} + C_{impacto}(Q,ADV,\sigma) + C_{timing}
-          \]</p>
-          <p class="mini-note">
-            \(ADV\) é volume médio diário. Impacto cresce com \(Q/ADV\) e com volatilidade \(\sigma\). Timing cresce com pressa e regime.
-          </p>
-        </div>
-
-        <h2 id="s4">4) Execução: TWAP/VWAP e regras anti-besteira</h2>
-        <p>
-          O investidor pessoa física costuma executar “à mercado” e pronto — e paga o preço.
-          Uma rotina institucional mínima é <strong>não ser o preço</strong>. Isso significa evitar ordens que atravessam book grande,
-          evitar horários de baixa liquidez e usar execução fracionada quando o ativo não aguenta sua ordem.
-        </p>
-
-        <h3>4.1 TWAP e VWAP (conceito)</h3>
-        <div class="codebox">
-          <p>\[
-            TWAP: \text{executar } Q \text{ em } N \text{ fatias iguais ao longo do tempo}
-          \]</p>
-          <p>\[
-            VWAP: \text{executar seguindo o perfil de volume do dia}
-          \]</p>
-          <p class="mini-note">
-            Você não precisa “operar como mesa”, mas precisa eliminar erros estruturais: pressa, ordens grandes e book raso.
-          </p>
-        </div>
-
-        <h3>4.2 Regras simples de execução (sem glamour, só resultado)</h3>
-        <ul style="margin:10px 0 0 18px;">
-          <li>Evite abrir posição grande no primeiro/último minuto do pregão (spreads e jumps).</li>
-          <li>Se \(Q\) for relevante vs \(ADV\), fragmente a execução em janelas.</li>
-          <li>Use ordens limite quando a liquidez for baixa (reduz crossing desnecessário).</li>
-          <li>Não “perseguir preço”: defina níveis e aceite não executar (custo de oportunidade consciente).</li>
-        </ul>
-
-        <h2 id="s5">5) Rebalanceamento: calendário vs bandas</h2>
-        <p>
-          O rebalanceamento é a ponte entre alocação estratégica (SAA) e execução (TAA mínima).
-          Existem dois paradigmas: (i) calendário (mensal/trimestral) e (ii) bandas (quando desvia demais).
-          Em geral, bandas reduzem turnover e “reagem” quando risco se desloca materialmente.
-        </p>
-
-        <div class="codebox">
-          <strong>Regra por bandas (forma executável):</strong>
-          <p>\[
-            \text{Se } |w_i - w_i^\*| \ge b_i \;\Rightarrow\; \text{rebalancear em direção a } w_i^\*
-          \]</p>
-          <p class="mini-note">
-            \(w_i^\*\) é peso-alvo; \(b_i\) é banda. Bandas podem ser absolutas (ex.: 3 p.p.) ou proporcionais (ex.: 20% do peso-alvo).
-          </p>
-        </div>
-
-        <h3>5.1 Bandas ótimas (intuição)</h3>
-        <p>
-          Bandas “ótimas” equilibram dois termos: custo de transação vs custo de ficar desalocado do risco desejado.
-          Se custo é alto (crédito ilíquido, small caps), bandas devem ser mais largas. Se risco de regime é alto, bandas mais estreitas.
-        </p>
-
-        <div class="warning">
-          <strong>Erro comum:</strong> rebalancear “por ansiedade”.
-          Rebalanceamento é política, não reação emocional a manchete.
-        </div>
-
-        <h2 id="s6">6) Risk budgeting: contribuição de risco e limites</h2>
-        <p>
-          Um portfólio institucional define <strong>quanto risco</strong> cada bloco pode carregar.
-          Isso é superior a “peso por capital” porque o risco pode migrar (volatilidade sobe, correlações mudam).
-        </p>
-
-        <div class="codebox">
-          <strong>Contribuição de risco:</strong>
-          <p>\[
-            RC_i = w_i \cdot \frac{(\Sigma w)_i}{\sigma_p}
-          \]</p>
-          <p class="mini-note">
-            A soma dos \(RC_i\) é 1 (ou 100%). Você pode impor limites do tipo \(RC_i \le \bar{r_i}\).
-          </p>
-        </div>
-
-        <h3>6.1 Risk limits executáveis (exemplos de política)</h3>
-        <ul style="margin:10px 0 0 18px;">
-          <li><strong>Limite de risco por bloco:</strong> nenhum bloco acima de X% do risco total.</li>
-          <li><strong>Limite de concentração:</strong> nenhum ativo acima de Y% do patrimônio (por fragilidade).</li>
-          <li><strong>Limite de liquidez:</strong> parcela ilíquida máxima do portfólio.</li>
-          <li><strong>Limite de FX:</strong> faixa de exposição cambial (se for política do investidor).</li>
-        </ul>
-
-        <h2 id="s7">7) Controle de drawdown e risco de ruína</h2>
-        <p>
-          Institucionalmente, a pergunta não é “qual retorno máximo?” e sim “qual a probabilidade de quebrar o plano?”.
-          Drawdown importa porque ele destrói capacidade de seguir o processo: o investidor abandona a política no pior ponto.
-        </p>
-
-        <div class="codebox">
-          <strong>Risco de ruína (conceitual):</strong>
-          <p>\[
-            P(\text{ruína}) = P\left(\exists t:\; W_t \le W_{min}\right)
-          \]</p>
-          <p class="mini-note">
-            \(W_t\) é a riqueza ao longo do tempo. Ruína pode ser financeira (zerar) ou comportamental (abandonar a estratégia).
-          </p>
-        </div>
-
-        <h3>7.1 Guardrails quantitativos (regras simples)</h3>
-        <div class="codebox">
-          <ul style="margin:10px 0 0 18px;">
-            <li><strong>Stop de processo (não stop de preço):</strong> se drawdown > D, reduzir risco por regra (ex.: reduzir bloco volátil em k%).</li>
-            <li><strong>Re-entry por regra:</strong> só retoma risco após condição objetiva (ex.: volatilidade normaliza, bandas atingidas).</li>
-            <li><strong>Buffer de liquidez:</strong> manter caixa/pós para rebalancear no stress sem vender “no fogo”.</li>
-          </ul>
-          <div class="mini-note">
-            Importante: não é “trade”. É governança para impedir a destruição do plano.
+        <div class="panel">
+          <h3>Painel mínimo (operável)</h3>
+          <div class="grid2">
+            <div>
+              <span class="badge"><i class="fa-solid fa-temperature-three-quarters"></i> Inflação</span>
+              <ul style="margin:10px 0 0 18px;">
+                <li>\(\pi\) vs meta</li>
+                <li>núcleo e difusão</li>
+                <li>expectativas (curtas/longas)</li>
+              </ul>
+            </div>
+            <div>
+              <span class="badge"><i class="fa-solid fa-chart-line"></i> Growth</span>
+              <ul style="margin:10px 0 0 18px;">
+                <li>hiato/proxy (PMI, emprego)</li>
+                <li>tendência (nowcast)</li>
+                <li>surpresas (índice de surpresas)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="grid2" style="margin-top:12px;">
+            <div>
+              <span class="badge"><i class="fa-solid fa-gauge-high"></i> Condições financeiras</span>
+              <ul style="margin:10px 0 0 18px;">
+                <li>juros reais (curtos/longos)</li>
+                <li>spreads (IG/HY/EM)</li>
+                <li>FX (DXY + doméstico)</li>
+              </ul>
+            </div>
+            <div>
+              <span class="badge"><i class="fa-solid fa-triangle-exclamation"></i> Stress</span>
+              <ul style="margin:10px 0 0 18px;">
+                <li>vol (VIX/proxy) e correlações</li>
+                <li>liquidez (bid-ask/market depth)</li>
+                <li>event risk (fiscal/político)</li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <h2 id="s8">8) Stress & regimes: matriz de cenários (Brasil)</h2>
+        <h2 id="r3">3) Curva como 3 fatores: nível, inclinação e curvatura</h2>
         <p>
-          O investidor brasileiro convive com risco fiscal, inflação, juros reais e câmbio.
-          O portfólio precisa sobreviver a regimes. A forma institucional é mapear cenários e como cada bloco reage.
+          A curva de juros é o “painel” mais informativo de macro-finance. Institucionalmente, você não olha “uma taxa”:
+          você decompõe a curva em fatores (Litterman-Scheinkman): nível, inclinação e curvatura.
         </p>
 
-        <table class="table" aria-label="Matriz de regimes">
+        <div class="codebox">
+          <strong>Representação simplificada:</strong>
+          <p>\[
+            \Delta y^{(n)} \approx a_n \Delta Level + b_n \Delta Slope + c_n \Delta Curvature
+          \]</p>
+          <p class="mini-note">
+            Isso conecta diretamente a exposição por maturidade (duration bucket) ao risco que você está carregando.
+          </p>
+        </div>
+
+        <div class="warning">
+          <strong>Erro caro:</strong> comprar “prefixado longo” achando que está só comprando “juros altos”.
+          Você está comprando principalmente <em>risco de nível</em> e frequentemente risco de term premium/fiscal.
+        </div>
+
+        <h2 id="r4">4) Regimes 2×2: inflação × growth</h2>
+        <p>
+          Um framework robusto para alocar é o 2×2: inflação (subindo/caindo) e crescimento (subindo/caindo).
+          Isso não é “adivinhar”, é classificar sinais.
+        </p>
+
+        <table class="table" aria-label="Regimes 2x2">
           <thead>
             <tr>
               <th>Regime</th>
-              <th>Juros reais</th>
               <th>Inflação</th>
-              <th>FX</th>
-              <th>Risco típico</th>
-              <th>O que tende a sofrer</th>
-              <th>O que tende a ajudar</th>
+              <th>Growth</th>
+              <th>Condições típicas</th>
+              <th>Riscos dominantes</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Desinflação + queda de juros</td>
-              <td>↓</td>
-              <td>↓</td>
-              <td>neutro</td>
-              <td>re-rating</td>
-              <td>pós (carrega menos)</td>
-              <td>duration (IPCA+), ações (múltiplos)</td>
+              <td>1) Reflation</td>
+              <td>↑</td>
+              <td>↑</td>
+              <td>commodities firmes, yields sobem</td>
+              <td>duration assets sofrem</td>
             </tr>
             <tr>
-              <td>Inflação persistente</td>
-              <td>↑/→</td>
+              <td>2) Overheat</td>
               <td>↑</td>
-              <td>↑</td>
-              <td>perda de poder compra</td>
-              <td>duration longa (se juros sobem)</td>
-              <td>proteções reais, FX, setores com pricing power</td>
+              <td>↓/pico</td>
+              <td>BC hawkish, spreads podem abrir</td>
+              <td>crédito e equity cíclica</td>
             </tr>
             <tr>
-              <td>Stress fiscal</td>
-              <td>↑</td>
-              <td>↑</td>
-              <td>↑↑</td>
-              <td>prêmio de risco</td>
-              <td>crédito, small caps, duration</td>
-              <td>liquidez, FX, pós-fixado como buffer</td>
-            </tr>
-            <tr>
-              <td>Recessão</td>
-              <td>↓/→</td>
+              <td>3) Disinflation growth</td>
               <td>↓</td>
-              <td>↑/→</td>
-              <td>lucros caem</td>
-              <td>ações cíclicas, crédito</td>
-              <td>qualidade, liquidez, duration (se juros caem)</td>
+              <td>↑</td>
+              <td>policy mais acomodatícia, múltiplos sobem</td>
+              <td>bubbles/valuation</td>
+            </tr>
+            <tr>
+              <td>4) Recession / risk-off</td>
+              <td>↓ (ou choque)</td>
+              <td>↓</td>
+              <td>spreads abrem, FX risk-off</td>
+              <td>default/liquidez</td>
             </tr>
           </tbody>
         </table>
 
-        <div class="warning">
-          <strong>Regra de regime:</strong> correlação em crise muda. Teste “se tudo piorar junto” e veja se você sobrevive.
-        </div>
+        <h2 id="r5">5) Mapeamento de exposures (sem opinião, só estrutura)</h2>
+        <p>
+          A pergunta: “qual regime favorece qual conjunto de exposures?”
+          A resposta não é universal, mas as direções gerais são conhecidas (e você testa no seu universo).
+        </p>
 
-        <h2 id="s9">9) Checklist operacional (nível gestor)</h2>
-
-        <div class="codebox">
-          <strong>Checklist mensal/trimestral (executável):</strong>
-          <ol style="margin:10px 0 0 18px;">
-            <li><strong>Conferir política:</strong> pesos-alvo e bandas estão definidos e registrados?</li>
-            <li><strong>Medir risco:</strong> volatilidade do portfólio subiu? RC por bloco estourou limite?</li>
-            <li><strong>Custos:</strong> turnover do período; custos implícitos aumentaram (spreads)?</li>
-            <li><strong>Liquidez:</strong> % ilíquido subiu acima do permitido?</li>
-            <li><strong>Rebalancear por regra:</strong> apenas se bandas/limites violados — sem “achismo”.</li>
-            <li><strong>Registrar decisão:</strong> o que foi feito, por quê, qual regra disparou.</li>
-          </ol>
+        <div class="panel">
+          <h3>Mapa qualitativo (baseline)</h3>
+          <ul style="margin:10px 0 0 18px;">
+            <li><strong>Inflação ↑</strong>: duration ↓, preferência por reais/curtos; ativos com hedge natural (commodities/real assets) tendem a ajudar.</li>
+            <li><strong>Inflação ↓</strong>: duration ↑ e múltiplos tendem a expandir (se risco não dominar).</li>
+            <li><strong>Growth ↑</strong>: risco ↑ (equity/cíclicos), spreads tendem a comprimir.</li>
+            <li><strong>Growth ↓</strong>: defesa ↑ (qualidade, liquidez), spreads abrem, FX risk-off.</li>
+          </ul>
           <div class="mini-note">
-            Se não dá para escrever em 3 linhas a regra que acionou a operação, você provavelmente operou por emoção.
+            “Tendem” não é promessa — é prior. Você ajusta com o painel de condições financeiras (Parte 6).
           </div>
         </div>
 
-        <div class="callout">
-          <strong>Template anual (uma página):</strong>
-          defina objetivos, horizonte, restrições (liquidez), política de risco, bandas, regras de execução e gatilhos de risco.
-          Isso vira o “mini-IPS” que protege o investidor de si mesmo. A Parte 8 vai formalizar isso.
-        </div>
-
-        <h2 id="s10">Conclusão + ponte para Parte 8</h2>
+        <h2 id="r6">6) Regras executáveis: bandas, triggers e rebalanceamento</h2>
         <p>
-          A Parte 7 transforma alocação em realidade: custos importam, execução importa, regras de rebalanceamento importam.
-          Você define uma política (bandas + limites de risco) e executa com disciplina.
-          Na Parte 8, você fecha o sistema: IPS completo, governança pessoal, métricas e disciplina quantitativa para manter o plano por décadas.
+          O segredo não é ter a alocação perfeita, é ter regras de ajuste que minimizem ruído e maximizem consistência.
+          Use bandas para evitar “overfitting” a notícias.
         </p>
 
+        <div class="codebox">
+          <strong>Bandas de rebalanceamento (exemplo formal):</strong>
+          <p>\[
+            w_i \in [w_i^* - \delta_i,\ w_i^* + \delta_i]
+          \]</p>
+          <p class="mini-note">
+            Se \(w_i\) sai da banda, rebalanceia. \(\delta_i\) pode ser função de vol, liquidez e custo de transação.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h3>Triggers (robustos)</h3>
+          <ul style="margin:10px 0 0 18px;">
+            <li><strong>Curva:</strong> mudança sustentada de slope/term premium.</li>
+            <li><strong>Crédito:</strong> abertura de spread acima de limiar (percentil histórico/regime).</li>
+            <li><strong>FCI:</strong> aperto/afrouxamento persistente (não 1 dia).</li>
+            <li><strong>Vol:</strong> salto de vol + correlações ↑ → reduzir risco, aumentar liquidez.</li>
+          </ul>
+        </div>
+
+        <h2 id="r7">7) Sizing por risco: vol targeting, risk parity e drawdown budget</h2>
+        <p>
+          Instituições dimensionam posição por risco, não por “convicção narrativa”.
+          Um método simples é targeting de volatilidade (ou budget de drawdown).
+        </p>
+
+        <div class="codebox">
+          <strong>Vol targeting (forma):</strong>
+          <p>\[
+            w_t = w_{base}\cdot \frac{\sigma^*}{\hat{\sigma}_t}
+          \]</p>
+          <p class="mini-note">
+            Se a volatilidade estimada \(\hat{\sigma}\) sobe, o peso cai automaticamente. Isso é disciplina embutida.
+          </p>
+        </div>
+
+        <div class="codebox">
+          <strong>Risk parity (intuição):</strong>
+          <p>\[
+            RC_i = w_i \cdot \frac{\partial \sigma_p}{\partial w_i}
+          \quad \Rightarrow \quad RC_i \approx RC_j
+          \]</p>
+          <p class="mini-note">
+            Você iguala contribuições de risco. Na prática, precisa tratar correlações (que sobem em crises).
+          </p>
+        </div>
+
+        <div class="warning">
+          <strong>Falha clássica:</strong> usar vol targeting sem “floor de risco” e sem gatilho de cauda.
+          Em whipsaws, você pode vender baixo e recomprar alto. Precisa de governança (Parte 8).
+        </div>
+
+        <h2 id="r8">8) Carry vs crash risk: o trade que “paga” até não pagar</h2>
+        <p>
+          Carry (duration, crédito, FX high-yield) é uma estratégia estruturalmente atraente porque “coleta prêmio”.
+          Porém, em stress, esses prêmios são devolvidos rapidamente (crash risk).
+        </p>
+
+        <div class="codebox">
+          <strong>Decomposição de retorno (estilizada):</strong>
+          <p>\[
+            R = \underbrace{Carry}_{\text{cupom/spread}} + \underbrace{Roll-down}_{\text{curva}} + \underbrace{\Delta Spread}_{\text{reprecificação}} + \underbrace{\Delta FX}_{\text{se houver}}
+          \]</p>
+          <p class="mini-note">
+            O crash risk entra em \(\Delta Spread\) e \(\Delta FX\) com não-linearidades (saltos).
+          </p>
+        </div>
+
+        <div class="callout">
+          <strong>Regra institucional:</strong>
+          carry é ok quando você tem (i) liquidez, (ii) sizing correto, (iii) hedge de cauda ou stop de risco,
+          e (iv) regime “condições relaxando”.
+        </div>
+
+        <h2 id="r9">9) Playbook: 12 cenários e respostas (sem recomendação)</h2>
+
+        <table class="table" aria-label="Playbook macro para carteira">
+          <thead>
+            <tr>
+              <th>Cenário</th>
+              <th>Painel (sinais)</th>
+              <th>Risco dominante</th>
+              <th>Resposta estruturada</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1) Inflação desancora</td>
+              <td>breakevens ↑, FX fraco</td>
+              <td>duration/TP</td>
+              <td>reduzir duration; elevar hedge inflação</td>
+            </tr>
+            <tr>
+              <td>2) Disinflation com growth</td>
+              <td>núcleo ↓, PMI ↑</td>
+              <td>bubble/valuation</td>
+              <td>duration ok; controlar risco em equity</td>
+            </tr>
+            <tr>
+              <td>3) Risk-off global</td>
+              <td>spreads ↑, vol ↑, DXY ↑</td>
+              <td>liquidez</td>
+              <td>reduzir beta; elevar liquidez; evitar carry</td>
+            </tr>
+            <tr>
+              <td>4) Fiscal stress</td>
+              <td>long-end ↑ isolado</td>
+              <td>term premium</td>
+              <td>evitar longo; proteger cauda; revisar premissas</td>
+            </tr>
+            <tr>
+              <td>5) Commodities shock</td>
+              <td>energia ↑, inflação ↑</td>
+              <td>margens/inflação</td>
+              <td>tilt para hedge; revisar setores sensíveis</td>
+            </tr>
+            <tr>
+              <td>6) Crédito abre sem recessão “ainda”</td>
+              <td>spreads ↑, dados ok</td>
+              <td>defasagem</td>
+              <td>reduzir risco incremental; esperar confirmação</td>
+            </tr>
+            <tr>
+              <td>7) Recessão confirmada</td>
+              <td>PMI ↓, emprego piora</td>
+              <td>default</td>
+              <td>defensivo; qualidade; liquidez; cuidado HY</td>
+            </tr>
+            <tr>
+              <td>8) Pivot do BC</td>
+              <td>front-end ↓, guidance</td>
+              <td>falso pivot</td>
+              <td>aumentar duration gradualmente; confirmar regime</td>
+            </tr>
+            <tr>
+              <td>9) Soft landing</td>
+              <td>inflação ↓, growth ↔</td>
+              <td>whipsaw</td>
+              <td>bandas; sizing por risco; evitar overtrade</td>
+            </tr>
+            <tr>
+              <td>10) FX carry party</td>
+              <td>vol baixa, spreads comprimem</td>
+              <td>crash risk</td>
+              <td>carry com proteção e limites de perda</td>
+            </tr>
+            <tr>
+              <td>11) EM stress idiossincrático</td>
+              <td>basis/FX move</td>
+              <td>liquidez/fluxo</td>
+              <td>reduzir ilíquidos; hedge de FX se possível</td>
+            </tr>
+            <tr>
+              <td>12) Regime incerto</td>
+              <td>sinais mistos</td>
+              <td>erro de regime</td>
+              <td>neutralizar; aumentar diversificação; esperar</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="r10">Conclusão + ponte para Parte 8</h2>
+        <p>
+          A Parte 7 entrega o que a maioria não tem: regras. Você agora possui (i) painel de estado,
+          (ii) mapa de regimes, (iii) bandas e triggers, (iv) sizing por risco e (v) playbook.
+          A Parte 8 fecha a série: governança, checklist, auditoria de processo e como manter disciplina por anos.
+        </p>
+
+        <div class="callout">
+          <strong>Parte 8:</strong> framework final e governança — como não se sabotar.
+        </div>
+
         <div class="jump" style="margin-top:18px;">
-          <a href="/posts/manual-investidor-profissional-brasileiro-parte-6.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 6</a>
-          <a href="/posts/manual-investidor-profissional-brasileiro-parte-8.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 8</a>
+          <a href="/posts/macroeconomia-institucional-parte-6.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 6</a>
+          <a href="/posts/macroeconomia-institucional-parte-8.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 8</a>
           <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+          <a href="/posts/etf-masterclass-carteira-global-parte-1.html"><i class="fa-solid fa-bolt"></i> ETF Masterclass</a>
         </div>
 
         <hr class="hr">
 
         <div class="muted" style="font-size:12px;">
-          Nota: conteúdo educacional, sem recomendação. O objetivo é ensinar processo e disciplina operacional.
+          Nota: material educacional. Não constitui recomendação de investimento. O objetivo é estrutura técnica e disciplina de decisão.
         </div>
 
       </div>
     </section>
   </main>
 
-  <!-- Footer (padrão do site) -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="container footer-container">
       <div>
@@ -646,7 +686,7 @@
   </footer>
 
   <script>
-    // ===== Mobile menu (topo do site) =====
+    // Mobile menu (topo)
     (function () {
       const btn = document.querySelector('.mobile-menu-btn');
       const nav = document.getElementById('primary-navigation');
@@ -659,7 +699,7 @@
       });
     })();
 
-    // ===== Série: drawer mobile =====
+    // Série drawer mobile
     (function(){
       const fab = document.getElementById('seriesFab');
       const nav = document.getElementById('seriesNav');
