@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Manual do Investidor Profissional Brasileiro (Parte 6/8) | Teoria Moderna de Portfólio e Alocação</title>
+  <meta name="description" content="Parte 6/8 (nível institucional): Markowitz, fronteira eficiente, CML/CAL, portfólio de mercado, estimação, risco de erro, shrinkage, rebalanceamento e alocação estratégica aplicada ao Brasil." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/manual-investidor-profissional-brasileiro-parte-6.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/manual-investidor-profissional-brasileiro-parte-6.html" />
+  <meta property="og:title" content="Manual do Investidor Profissional Brasileiro (Parte 6/8)" />
+  <meta property="og:description" content="Teoria Moderna de Portfólio e Alocação (nível institucional): Markowitz, CML/CAL, risco de estimação e framework prático." />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Fonts + Icons (padrão do site) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- CSS do site -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)'], ['$', '$']], displayMath: [['\\[','\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <style>
+    body{overflow-x:hidden}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:800;font-size:12px;background:rgba(44,44,46,.06)}
+    .muted{opacity:.78}
+
+    /* ===== Conteúdo ===== */
+    .post-wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 16px 60px;
+    }
+    /* ✅ espaço no desktop para o menu lateral NÃO cobrir texto */
+    @media(min-width: 981px){
+      .post-wrap{ padding-right: 360px; }
+    }
+
+    .hero{
+      margin-top:16px;border-radius:18px;overflow:hidden;border:1px solid rgba(0,0,0,.08);
+      box-shadow: var(--shadow-sm); background:#fff
+    }
+    .hero img{width:100%;height:auto;display:block}
+
+    .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+    .kpi{border:1px solid rgba(0,0,0,.08);border-radius:16px;background:#fff;box-shadow:var(--shadow-sm);padding:14px}
+    .kpi strong{display:block;font-size:18px}
+    @media(max-width:980px){.kpi-grid{grid-template-columns:1fr}}
+
+    .jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .jump a{
+      display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:14px;
+      border:1px solid rgba(0,0,0,.08);background:#fff;box-shadow:var(--shadow-sm);text-decoration:none;font-weight:900
+    }
+    .jump a:hover{transform:translateY(-1px)}
+
+    .toc{
+      margin-top:18px;border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;
+      box-shadow: var(--shadow-sm); padding:16px
+    }
+    .toc h2{margin:0 0 10px 0}
+    .toc a{display:block;text-decoration:none;padding:8px 10px;border-radius:14px;border:1px solid rgba(0,0,0,.06);margin:8px 0}
+    .toc a:hover{transform:translateY(-1px)}
+
+    .callout{
+      border-left:4px solid var(--accent-color, #f4c430);
+      background: rgba(244,196,48,.10);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+    .warning{
+      border-left:4px solid #e2574c;background: rgba(226,87,76,.08);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+    .hr{height:1px;background:rgba(0,0,0,.10);border:0;margin:26px 0}
+
+    .codebox{
+      border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);
+      padding:14px 16px;margin:18px 0
+    }
+    .mini-note{font-size:12px;opacity:.78;margin-top:8px}
+
+    .table{
+      width:100%;border-collapse:collapse;border:1px solid rgba(0,0,0,.08);
+      border-radius:14px;overflow:hidden;background:#fff;box-shadow:var(--shadow-sm)
+    }
+    .table th,.table td{padding:12px;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:top}
+    .table th{background:rgba(44,44,46,.04);text-align:left}
+
+    /* ===== Série: sidebar desktop + drawer mobile ===== */
+    .series-shell { position: relative; }
+    .series-nav{
+      position: fixed;
+      top: 92px;
+      right: 18px;
+      width: 320px;
+      max-height: calc(100vh - 120px);
+      overflow: auto;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.10);
+      border-radius: 18px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.18);
+      padding: 12px;
+      z-index: 9999;
+    }
+    .series-nav-head{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      padding: 8px 8px 10px 8px;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    .series-close{
+      border: 1px solid rgba(0,0,0,.12);
+      background: #fff;
+      border-radius: 12px;
+      width: 38px; height: 38px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    .series-nav-links{ display:flex; flex-direction:column; gap: 8px; padding: 10px 6px 6px; }
+    .series-nav-links a{
+      text-decoration:none;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,.08);
+      color: #1a1a1a;
+      font-weight: 800;
+    }
+    .series-nav-links a:hover{ transform: translateY(-1px); }
+    .series-nav-links a.active{
+      background: #2c2c2e;
+      color: #fff;
+      border-color: #2c2c2e;
+    }
+    .series-backdrop{
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.45);
+      z-index: 9998;
+      display: none;
+    }
+    .series-fab{
+      position: fixed;
+      right: 16px;
+      bottom: 18px;
+      z-index: 10000;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 14px;
+      background: #2c2c2e;
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 18px 45px rgba(0,0,0,.30);
+      display: none;
+    }
+    @media (max-width: 980px){
+      .series-fab{ display: inline-flex; align-items:center; justify-content:center; }
+      .series-nav{
+        top: 0; right: 0; height: 100vh; max-height: none;
+        width: min(360px, 92vw);
+        border-radius: 0;
+        transform: translateX(110%);
+        transition: transform .18s ease;
+        padding-top: 14px;
+      }
+      .series-nav.open{ transform: translateX(0); }
+      .series-backdrop.open{ display: block; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header (MENU padrão do site) -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Série: Navegação -->
+  <div class="series-shell">
+    <button class="series-fab" id="seriesFab" aria-label="Abrir navegação da série" aria-expanded="false">Série 6/8</button>
+    <div class="series-backdrop" id="seriesBackdrop"></div>
+
+    <aside class="series-nav" id="seriesNav" aria-label="Navegação da série Manual do Investidor Profissional Brasileiro">
+      <div class="series-nav-head">
+        <strong>📌 Série: Manual (6/8)</strong>
+        <button class="series-close" id="seriesClose" aria-label="Fechar">✕</button>
+      </div>
+
+      <nav class="series-nav-links">
+        <a href="/posts/manual-investidor-profissional-brasileiro-parte-1.html">Parte 1 — Fundamentos & Sistema Financeiro</a>
+        <a href="/posts/manual-investidor-profissional-brasileiro-parte-2.html">Parte 2 — Juros, Term Structure e CDI Real</a>
+        <a href="/posts/manual-investidor-profissional-brasileiro-parte-3.html">Parte 3 — Macro, RBC e NKPC</a>
+        <a href="/posts/manual-investidor-profissional-brasileiro-parte-4.html">Parte 4 — Fiscal, Restrição Intertemporal e Prêmio</a>
+        <a href="/posts/manual-investidor-profissional-brasileiro-parte-5.html">Parte 5 — Regimes, Risco e Precificação</a>
+        <a href="/posts/manual-investidor-profissional-brasileiro-parte-6.html" class="active">Parte 6 — Portfólio & Alocação (MPT)</a>
+        <a href="/posts/manual-investidor-profissional-brasileiro-parte-7.html">Parte 7 — Implementação, Rebalanceamento e Custos</a>
+        <a href="/posts/manual-investidor-profissional-brasileiro-parte-8.html">Parte 8 — IPS, Governança e Disciplina Quantitativa</a>
+      </nav>
+    </aside>
+  </div>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <span class="pill">Série Institucional • Parte 6/8</span>
+        <h1 style="margin-top:10px;">Teoria Moderna de Portfólio e Alocação de Ativos</h1>
+        <p class="muted" style="max-width: 980px;">
+          Aqui você entra na “sala de máquinas” do investidor institucional: Markowitz, covariância, fronteira eficiente,
+          linha de alocação de capital (CAL), linha de mercado de capitais (CML), risco de erro de estimação e regras práticas
+          de alocação para o investidor brasileiro (sem recomendações, só método).
+        </p>
+
+        <div class="hero">
+          <img src="/images/blog-cover.svg" alt="Teoria Moderna de Portfólio" loading="lazy" />
+        </div>
+
+        <div class="kpi-grid" style="max-width: 980px;">
+          <div class="kpi"><strong>Leitura</strong><span class="muted">~ 50–80 min</span></div>
+          <div class="kpi"><strong>Nível</strong><span class="muted">Institucional</span></div>
+          <div class="kpi"><strong>Objetivo</strong><span class="muted">Regras + modelos executáveis</span></div>
+        </div>
+
+        <div class="jump" style="max-width: 980px;">
+          <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+          <a href="/posts/manual-investidor-profissional-brasileiro-parte-5.html"><i class="fa-solid fa-arrow-left"></i> Parte 5</a>
+          <a href="/posts/manual-investidor-profissional-brasileiro-parte-7.html"><i class="fa-solid fa-arrow-right"></i> Parte 7</a>
+          <a href="/calculadora.html"><i class="fa-solid fa-calculator"></i> Juros Compostos</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="post-wrap">
+
+        <div class="toc">
+          <h2>Índice</h2>
+          <a href="#s1">1) O problema: retorno vs risco (e por que “diversificar” é matemática)</a>
+          <a href="#s2">2) Retorno esperado e variância do portfólio</a>
+          <a href="#s3">3) Covariância, correlação e risco sistêmico “escondido”</a>
+          <a href="#s4">4) Fronteira eficiente de Markowitz (solução formal)</a>
+          <a href="#s5">5) Ativo livre de risco, CAL e Portfólio Tangente</a>
+          <a href="#s6">6) Portfólio de mercado, CML e Sharpe (interpretação institucional)</a>
+          <a href="#s7">7) O inimigo real: erro de estimação (mu e Sigma) e instabilidade</a>
+          <a href="#s8">8) Regras robustas: shrinkage, bounds, risk parity e equal-risk</a>
+          <a href="#s9">9) Framework aplicado ao Brasil (classes, restrições e governança)</a>
+          <a href="#s10">Conclusão + ponte para Parte 7</a>
+        </div>
+
+        <div class="callout">
+          <strong>Ideia central (nível gestor):</strong>
+          portfólio não é “lista de ativos”. É um <em>operador de risco</em>:
+          você escolhe exposições (fatores/risco) dadas restrições (liquidez, horizonte, tolerância, impostos, custos).
+        </div>
+
+        <hr class="hr">
+
+        <h2 id="s1">1) O problema: retorno vs risco</h2>
+        <p>
+          O investidor escolhe um vetor de pesos \(w\) em \(n\) ativos. O retorno do portfólio é uma combinação linear:
+          \(R_p = \sum_i w_i R_i\). O ponto é que <strong>risco</strong> não é linear; ele depende de covariâncias.
+          É por isso que “diversificação” não é slogan — é uma consequência do termo cruzado \(w_i w_j \sigma_{ij}\).
+        </p>
+
+        <div class="codebox">
+          <strong>Objetivo clássico:</strong>
+          <p>\[
+            \max_{w}\; E(R_p) \quad \text{sujeito a}\quad \sigma_p^2 \le \bar{\sigma}^2,\;\;\sum_i w_i=1
+          \]</p>
+          <p class="mini-note">
+            Alternativamente, minimiza-se \(\sigma_p^2\) para um retorno alvo. A estrutura é equivalente.
+          </p>
+        </div>
+
+        <h2 id="s2">2) Retorno esperado e variância do portfólio</h2>
+        <p>
+          Retorno esperado:
+        </p>
+        <div class="codebox">
+          <p>\[
+            E(R_p)=\sum_{i=1}^{n} w_i E(R_i)
+          \]</p>
+        </div>
+
+        <p>
+          Variância:
+        </p>
+        <div class="codebox">
+          <p>\[
+            \sigma_p^2 = w^\top \Sigma w
+          \]</p>
+          <p class="mini-note">
+            \(\Sigma\) é a matriz de covariância dos retornos. Ela é o “mapa” do risco do sistema.
+          </p>
+        </div>
+
+        <h2 id="s3">3) Covariância, correlação e risco “escondido”</h2>
+        <p>
+          Dois ativos podem ser “bons” isoladamente e péssimos juntos — se carregarem o mesmo risco sistêmico.
+          Em stress, correlações sobem e a matriz \(\Sigma\) muda de regime. Institucionalmente, você modela:
+          (i) \(\Sigma\) em regime normal e (ii) \(\Sigma\) em regime de crise (correlations → 1).
+        </p>
+
+        <div class="warning">
+          <strong>Armadilha comum:</strong> usar correlações históricas “tranquilas” como se fossem permanentes.
+          Em crise, o que era diversificação vira “um só trade”.
+        </div>
+
+        <h2 id="s4">4) Fronteira eficiente de Markowitz</h2>
+        <p>
+          A fronteira eficiente é o conjunto de portfólios que minimizam risco para cada retorno alvo.
+          A forma padrão:
+        </p>
+
+        <div class="codebox">
+          <p>\[
+            \min_{w}\; w^\top\Sigma w
+            \quad \text{sujeito a}\quad
+            w^\top\mu = \mu^\*,\;\;\mathbf{1}^\top w = 1
+          \]</p>
+          <p class="mini-note">
+            \(\mu\) é o vetor de retornos esperados. Sem restrições, a solução é analítica via multiplicadores de Lagrange.
+          </p>
+        </div>
+
+        <p>
+          O “pulo do gato”: a fronteira eficiente é <strong>muito sensível</strong> a \(\mu\) e \(\Sigma\).
+          Uma pequena mudança em \(E(R)\) estimado pode virar alocações extremas. Por isso a prática institucional
+          usa robustez (shrinkage, bounds, regularização).
+        </p>
+
+        <h2 id="s5">5) Ativo livre de risco, CAL e Portfólio Tangente</h2>
+        <p>
+          Quando existe um ativo livre de risco \(R_f\), a combinação de \(R_f\) com um portfólio eficiente gera uma linha no plano
+          risco-retorno: a <strong>Capital Allocation Line</strong> (CAL). O portfólio que maximiza o Sharpe é o portfólio tangente.
+        </p>
+
+        <div class="codebox">
+          <strong>Sharpe (ex-ante):</strong>
+          <p>\[
+            S(w)=\frac{E(R_p)-R_f}{\sigma_p}
+          \]</p>
+          <p class="mini-note">
+            O portfólio tangente é aquele que maximiza \(S(w)\). Com restrições reais (sem short, limites), resolve-se numericamente.
+          </p>
+        </div>
+
+        <h2 id="s6">6) Portfólio de mercado, CML e interpretação institucional</h2>
+        <p>
+          Sob hipóteses do CAPM (mercados completos, investidores mean-variance, etc.), o portfólio tangente coincide com o “portfólio de mercado”.
+          A linha de mercado de capitais (CML) descreve combinações do ativo livre de risco com o portfólio de mercado.
+        </p>
+
+        <div class="codebox">
+          <p>\[
+            E(R_p)=R_f + \frac{E(R_m)-R_f}{\sigma_m}\sigma_p
+          \]</p>
+          <p class="mini-note">
+            A inclinação é o Sharpe do mercado. A leitura é: retorno extra por unidade de risco total.
+          </p>
+        </div>
+
+        <h2 id="s7">7) O inimigo real: erro de estimação</h2>
+        <p>
+          O maior motivo de “Markowitz falhar” na prática não é a teoria; é a <strong>estimação</strong>.
+          Você não observa \(\mu\) e \(\Sigma\) verdadeiros. Você estima com amostra finita e regime variável.
+        </p>
+
+        <div class="callout">
+          <strong>Resumo institucional:</strong>
+          <ul style="margin:10px 0 0 18px;">
+            <li>\(\mu\) é muito ruidoso → otimização tende a “overfit” retorno esperado.</li>
+            <li>\(\Sigma\) é mais estável, mas muda em crise → precisa stress/regimes.</li>
+            <li>Sem limites, o otimizador cria pesos extremos (corner solutions).</li>
+          </ul>
+        </div>
+
+        <h2 id="s8">8) Regras robustas: shrinkage, bounds, risk parity</h2>
+
+        <h3>8.1 Shrinkage (intuição)</h3>
+        <p>
+          Shrinkage reduz ruído “puxando” estimativas para estruturas mais estáveis (por exemplo, correlação média).
+          Na prática: você prefere um \(\Sigma\) um pouco enviesado porém estável a um \(\Sigma\) “perfeito” e instável.
+        </p>
+
+        <h3>8.2 Bounds e regularização</h3>
+        <p>
+          Um padrão institucional é impor limites: \(w_i \in [0, w_{max}]\), ou penalizar concentração (L2/L1).
+          O objetivo é evitar fragilidade por otimização.
+        </p>
+
+        <h3>8.3 Risk Parity (visão conceitual)</h3>
+        <p>
+          Em vez de alocar por capital, você aloca por contribuição de risco.
+          A contribuição marginal ao risco do ativo \(i\):
+        </p>
+
+        <div class="codebox">
+          <p>\[
+            RC_i = w_i \cdot \frac{(\Sigma w)_i}{\sigma_p}
+          \]</p>
+          <p class="mini-note">
+            Risk parity busca \(RC_i\) “equilibrados” entre blocos (ex.: renda fixa, ações, inflação, FX), respeitando restrições.
+          </p>
+        </div>
+
+        <h2 id="s9">9) Framework aplicado ao Brasil (classes, restrições e governança)</h2>
+        <p>
+          Para o investidor brasileiro, um framework institucional típico separa o portfólio em <strong>blocos</strong>:
+        </p>
+
+        <table class="table" aria-label="Blocos de alocação">
+          <thead>
+            <tr>
+              <th>Bloco</th>
+              <th>Função</th>
+              <th>Riscos dominantes</th>
+              <th>Observações institucionais</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Caixa / pós-fixado</td>
+              <td>Liquidez, buffer</td>
+              <td>Reinvestimento, risco fiscal (via taxa)</td>
+              <td>Serve para rebalancear em stress</td>
+            </tr>
+            <tr>
+              <td>Inflação (IPCA+)</td>
+              <td>Proteção de poder de compra</td>
+              <td>Duration, mark-to-market</td>
+              <td>É “bond de duration” — sensível a juros reais</td>
+            </tr>
+            <tr>
+              <td>Crédito</td>
+              <td>Spread/Carry</td>
+              <td>Default, liquidez</td>
+              <td>Em crise, spread abre; precisa sizing e liquidez</td>
+            </tr>
+            <tr>
+              <td>Ações</td>
+              <td>Crescimento/ERP</td>
+              <td>Risco de ciclo, valuation</td>
+              <td>Regime de ERP e juros reais domina múltiplos</td>
+            </tr>
+            <tr>
+              <td>Exterior (FX + risco global)</td>
+              <td>Diversificação estrutural</td>
+              <td>Câmbio, correlação em stress</td>
+              <td>FX pode ser “seguro” em crise local</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="warning">
+          <strong>Nota institucional:</strong> “diversificar” não é ter muitos ativos; é ter riscos diferentes.
+          Se tudo depende do mesmo regime (ex.: juros locais + fiscal), você tem concentração disfarçada.
+        </div>
+
+        <h2 id="s10">Conclusão + ponte para Parte 7</h2>
+        <p>
+          Markowitz te dá a linguagem formal: \(E(R)\), \(\Sigma\), fronteira eficiente e Sharpe.
+          O nível institucional entra quando você trata o principal risco: <strong>erro de estimação e mudança de regime</strong>.
+          Por isso, a prática usa robustez (shrinkage/bounds), blocos de risco e governança para rebalancear sem emoção.
+        </p>
+
+        <div class="callout">
+          <strong>Na Parte 7</strong> vamos transformar isso em execução:
+          custos (spread/slippage), regras de rebalanceamento (bandas), controles de drawdown e como construir um processo anual (IPS-lite).
+        </div>
+
+        <div class="jump" style="margin-top:18px;">
+          <a href="/posts/manual-investidor-profissional-brasileiro-parte-5.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 5</a>
+          <a href="/posts/manual-investidor-profissional-brasileiro-parte-7.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 7</a>
+          <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+        </div>
+
+        <hr class="hr">
+
+        <div class="muted" style="font-size:12px;">
+          Nota: material educacional. Não é recomendação de investimento.
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (padrão do site) -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        <h3>Cérebro Milionário</h3>
+        <p>Educação financeira com profundidade estratégica.</p>
+        <div class="footer-social" aria-label="Redes sociais" style="display:flex;gap:12px;align-items:center;margin-top:10px">
+          <a href="https://t.me/cerebromillionario" target="_blank" rel="noopener" aria-label="Telegram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://instagram.com/cerebromillionario" target="_blank" rel="noopener" aria-label="Instagram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/glossario-financeiro.html">Glossário Financeiro</a></li>
+          <li><a href="/perguntas-frequentes.html">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== Mobile menu (topo do site) =====
+    (function () {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', function () {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    })();
+
+    // ===== Série: drawer mobile =====
+    (function(){
+      const fab = document.getElementById('seriesFab');
+      const nav = document.getElementById('seriesNav');
+      const backdrop = document.getElementById('seriesBackdrop');
+      const closeBtn = document.getElementById('seriesClose');
+      if(!fab || !nav || !backdrop || !closeBtn) return;
+
+      function openNav(){
+        nav.classList.add('open');
+        backdrop.classList.add('open');
+        fab.setAttribute('aria-expanded','true');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeNav(){
+        nav.classList.remove('open');
+        backdrop.classList.remove('open');
+        fab.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+      }
+
+      fab.addEventListener('click', openNav);
+      closeBtn.addEventListener('click', closeNav);
+      backdrop.addEventListener('click', closeNav);
+      document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeNav(); });
+    })();
+  </script>
+</body>
+</html>
