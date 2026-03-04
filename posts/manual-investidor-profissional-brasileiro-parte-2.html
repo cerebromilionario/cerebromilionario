@@ -1,846 +1,629 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Macroeconomia Institucional para Investidores (Parte 2/8) | NK Phillips, Política Monetária e Inflação</title>
+  <meta name="description" content="Série institucional (Parte 2/8): Curva de Phillips Novo-Keynesiana, equação IS (Euler), Regra de Taylor, hiato do produto, expectativas, credibilidade, metas de inflação e transmissão para ativos." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/macroeconomia-institucional-parte-2.html" />
 
-<title>Manual do Investidor Profissional Brasileiro — Parte 2 | DSGE, RBC e Equilíbrio Geral</title>
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/macroeconomia-institucional-parte-2.html" />
+  <meta property="og:title" content="Macroeconomia Institucional para Investidores (Parte 2/8)" />
+  <meta property="og:description" content="NK Phillips, política monetária e inflação. Nível institucional (CFA-like)." />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
 
-<meta name="description" content="Modelo DSGE aplicado ao Brasil: RBC completo, Phillips Curve Novo-Keynesiana, restrição intertemporal do governo e prêmio soberano endógeno." />
+  <!-- Fonts + Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<link rel="stylesheet" href="/css/style.css"/>
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="/css/style.css" />
 
-<script>
-window.MathJax = {
-tex: { inlineMath: [['\\(','\\)'], ['$', '$']], displayMath: [['\\[','\\]']] }
-};
-</script>
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
 
-<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)'], ['$', '$']], displayMath: [['\\[','\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
-<style>
+  <style>
+    body{overflow-x:hidden}
 
-.post-wrap{
-max-width:1100px;
-margin:auto;
-padding:40px 20px;
-}
+    /* Conteúdo */
+    .post-wrap{max-width:980px;margin:0 auto;padding:28px 16px 60px}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:800;font-size:12px;background:rgba(44,44,46,.06)}
+    .muted{opacity:.78}
+    .hero{
+      margin-top:16px;border-radius:18px;overflow:hidden;border:1px solid rgba(0,0,0,.08);
+      box-shadow: var(--shadow-sm); background:#fff
+    }
+    .hero img{width:100%;height:auto;display:block}
+    .toc{
+      margin-top:18px;border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;
+      box-shadow: var(--shadow-sm); padding:16px
+    }
+    .toc h2{margin:0 0 10px 0}
+    .toc a{
+      display:block;text-decoration:none;padding:8px 10px;border-radius:14px;border:1px solid rgba(0,0,0,.06);
+      margin:8px 0
+    }
+    .toc a:hover{transform:translateY(-1px)}
+    .callout{
+      border-left:4px solid var(--accent-color, #f4c430);
+      background: rgba(244,196,48,.10);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+    .warning{
+      border-left:4px solid #e2574c;background: rgba(226,87,76,.08);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+    .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+    .kpi{border:1px solid rgba(0,0,0,.08);border-radius:16px;background:#fff;box-shadow:var(--shadow-sm);padding:14px}
+    .kpi strong{display:block;font-size:18px}
+    @media(max-width:980px){.kpi-grid{grid-template-columns:1fr}}
+    .jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .jump a{
+      display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:14px;
+      border:1px solid rgba(0,0,0,.08);background:#fff;box-shadow:var(--shadow-sm);text-decoration:none;font-weight:900
+    }
+    .jump a:hover{transform:translateY(-1px)}
+    .section{margin-top:22px}
+    .section h2{margin-top:42px}
+    .section h3{margin-top:26px}
+    .hr{height:1px;background:rgba(0,0,0,.10);border:0;margin:26px 0}
+    .table{
+      width:100%;border-collapse:collapse;border:1px solid rgba(0,0,0,.08);border-radius:14px;overflow:hidden;background:#fff;
+      box-shadow:var(--shadow-sm)
+    }
+    .table th,.table td{padding:12px;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:top}
+    .table th{background:rgba(44,44,46,.04);text-align:left}
+    .codebox{
+      border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);
+      padding:14px 16px;margin:18px 0
+    }
+    .mini-note{font-size:12px;opacity:.78;margin-top:8px}
 
-.pill{
-display:inline-block;
-padding:6px 12px;
-border-radius:999px;
-font-weight:700;
-font-size:12px;
-background:#f0f0f0;
-}
+    /* Série: sidebar desktop + drawer mobile (SEM COBRIR TEXTO) */
+    .series-shell { position: relative; }
+    .series-nav{
+      position: fixed;
+      top: 92px;
+      right: 18px;
+      width: 320px;
+      max-height: calc(100vh - 120px);
+      overflow: auto;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.10);
+      border-radius: 18px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.18);
+      padding: 12px;
+      z-index: 9999;
+    }
+    .series-nav-head{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      padding: 8px 8px 10px 8px;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    .series-close{
+      border: 1px solid rgba(0,0,0,.12);
+      background: #fff;
+      border-radius: 12px;
+      width: 38px; height: 38px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    .series-nav-links{ display:flex; flex-direction:column; gap: 8px; padding: 10px 6px 6px; }
+    .series-nav-links a{
+      text-decoration:none;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,.08);
+      color: #1a1a1a;
+      font-weight: 800;
+    }
+    .series-nav-links a:hover{ transform: translateY(-1px); }
+    .series-nav-links a.active{
+      background: #2c2c2e;
+      color: #fff;
+      border-color: #2c2c2e;
+    }
+    .series-backdrop{
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.45);
+      z-index: 9998;
+      display: none;
+    }
+    .series-fab{
+      position: fixed;
+      right: 16px;
+      bottom: 18px;
+      z-index: 10000;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 14px;
+      background: #2c2c2e;
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 18px 45px rgba(0,0,0,.30);
+      display: none;
+    }
 
-.toc{
-border:1px solid rgba(0,0,0,.08);
-border-radius:16px;
-padding:20px;
-margin-top:20px;
-background:#fff;
-}
+    @media (min-width: 981px){
+      .post-wrap{
+        max-width: 980px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 380px;
+      }
+    }
 
-.toc a{
-display:block;
-margin:6px 0;
-text-decoration:none;
-padding:6px 8px;
-border-radius:10px;
-border:1px solid rgba(0,0,0,.06);
-}
-
-.codebox{
-background:#fff;
-border-radius:16px;
-border:1px solid rgba(0,0,0,.08);
-padding:20px;
-margin:24px 0;
-}
-
-.callout{
-background:#fff9e6;
-border-left:4px solid #f4c430;
-padding:20px;
-border-radius:10px;
-margin:24px 0;
-}
-
-.hr{
-height:1px;
-background:#ddd;
-border:none;
-margin:40px 0;
-}
-
-</style>
-
+    @media (max-width: 980px){
+      .post-wrap{padding-right:16px}
+      .series-fab{ display: inline-flex; align-items:center; justify-content:center; }
+      .series-nav{
+        top: 0; right: 0; height: 100vh; max-height: none;
+        width: min(360px, 92vw);
+        border-radius: 0;
+        transform: translateX(110%);
+        transition: transform .18s ease;
+        padding-top: 14px;
+      }
+      .series-nav.open{ transform: translateX(0); }
+      .series-backdrop.open{ display: block; }
+    }
+  </style>
 </head>
 
 <body>
-
-<div class="post-wrap">
-
-<span class="pill">Manual do Investidor Profissional Brasileiro • Parte 2/8</span>
-
-<h1>Equilíbrio Geral, RBC e Prêmio Soberano Endógeno</h1>
-
-<p>
-
-Na Parte 1 analisamos as forças estruturais que governam o capital em economias emergentes.
-
-Discutimos dinâmica da dívida pública, inflação regime-dependente,
-estrutura a termo de juros e implicações para o crescimento
-geométrico do patrimônio.
-
-Agora avançamos para uma estrutura mais completa:
-o **modelo DSGE (Dynamic Stochastic General Equilibrium)**.
-
-Esse tipo de modelo é amplamente utilizado por:
-
-• bancos centrais  
-• instituições multilaterais  
-• fundos macro globais  
-• departamentos de pesquisa econômica
-
-Ele permite analisar como choques econômicos
-se propagam pela economia ao longo do tempo.
-
-</p>
-
-<div class="toc">
-
-<h3>Estrutura Analítica</h3>
-
-<a href="#rbc">1 — Modelo RBC (Real Business Cycle)</a>
-<a href="#households">2 — Otimização das Famílias</a>
-<a href="#firms">3 — Problema das Firmas</a>
-<a href="#technology">4 — Choques Tecnológicos</a>
-<a href="#equilibrium">5 — Condições de Equilíbrio</a>
-
-</div>
-
-<hr class="hr">
-
-<h2 id="rbc">1 — Modelo RBC (Real Business Cycle)</h2>
-
-<p>
-
-O modelo RBC constitui o núcleo da macroeconomia moderna.
-
-Ele descreve como choques reais — principalmente tecnológicos —
-geram flutuações no produto, consumo e investimento.
-
-O modelo assume uma economia composta por três agentes principais:
-
-</p>
-
-<ul>
-
-<li>famílias representativas</li>
-
-<li>firmas competitivas</li>
-
-<li>governo</li>
-
-</ul>
-
-<p>
-
-A produção agregada é descrita por uma função Cobb-Douglas.
-
-</p>
-
-<div class="codebox">
-
-\[
-Y_t = A_t K_t^\alpha N_t^{1-\alpha}
-\]
-
-</div>
-
-<p>
-
-onde:
-
-• \(Y_t\) é produto  
-• \(A_t\) é tecnologia  
-• \(K_t\) é capital  
-• \(N_t\) é trabalho  
-
-</p>
-
-<hr class="hr">
-
-<h2 id="households">2 — Otimização das Famílias</h2>
-
-<p>
-
-As famílias escolhem consumo e trabalho para maximizar utilidade
-intertemporal.
-
-</p>
-
-<div class="codebox">
-
-\[
-\max E_0
-\sum_{t=0}^{\infty}
-\beta^t
-\left[
-\frac{C_t^{1-\sigma}}{1-\sigma}
--
-\frac{N_t^{1+\phi}}{1+\phi}
-\right]
-\]
-
-</div>
-
-<p>
-
-Essa função captura duas dimensões fundamentais:
-
-• utilidade derivada do consumo  
-• desutilidade do trabalho
-
-O parâmetro \( \beta \) representa o fator de desconto intertemporal.
-
-</p>
-
-<hr class="hr">
-
-<h2 id="firms">3 — Problema das Firmas</h2>
-
-<p>
-
-As firmas escolhem capital e trabalho
-para maximizar lucro.
-
-</p>
-
-<div class="codebox">
-
-\[
-\max
-A_t K_t^\alpha N_t^{1-\alpha}
--
-w_t N_t
--
-r_t K_t
-\]
-
-</div>
-
-<p>
-
-As condições de primeira ordem implicam:
-
-</p>
-
-<div class="codebox">
-
-\[
-w_t = (1-\alpha) \frac{Y_t}{N_t}
-\]
-
-\[
-r_t = \alpha \frac{Y_t}{K_t}
-\]
-
-</div>
-
-<p>
-
-Essas equações determinam os preços
-dos fatores de produção.
-
-</p>
-<hr class="hr">
-
-<h2 id="technology">4 — Choques Tecnológicos</h2>
-
-<p>
-
-No modelo RBC, a principal fonte de flutuações econômicas
-é o choque tecnológico.
-
-A tecnologia segue normalmente um processo estocástico autorregressivo.
-
-</p>
-
-<div class="codebox">
-
-\[
-\ln(A_t) =
-\rho_A \ln(A_{t-1})
-+
-\varepsilon_t
-\]
-
-</div>
-
-<p>
-
-Onde:
-
-• \(A_t\) representa produtividade total dos fatores  
-• \(\rho_A\) mede persistência do choque  
-• \(\varepsilon_t\) é choque aleatório
-
-Quando ocorre um choque tecnológico positivo,
-a produtividade da economia aumenta.
-
-Isso gera:
-
-• maior produção  
-• aumento de salários reais  
-• aumento de investimento  
-• expansão do consumo
-
-Esses choques explicam parte significativa
-das flutuações do ciclo econômico.
-
-</p>
-
-<hr class="hr">
-
-<h2 id="equilibrium">5 — Condições de Equilíbrio Geral</h2>
-
-<p>
-
-O equilíbrio da economia ocorre quando
-as decisões de famílias e firmas
-são consistentes entre si.
-
-A condição fundamental de equilíbrio é:
-
-</p>
-
-<div class="codebox">
-
-\[
-Y_t = C_t + I_t + G_t
-\]
-
-</div>
-
-<p>
-
-Ou seja,
-o produto total da economia
-é utilizado em três finalidades:
-
-• consumo  
-• investimento  
-• gasto público
-
-Essa identidade contábil constitui
-a base da análise macroeconômica.
-
-</p>
-
-<hr class="hr">
-
-<h2 id="nkpc">6 — Curva de Phillips Novo-Keynesiana</h2>
-
-<p>
-
-O modelo RBC tradicional assume preços flexíveis.
-
-No entanto,
-na realidade observamos rigidez de preços.
-
-Empresas não ajustam preços continuamente,
-principalmente devido a custos de menu,
-contratos e fricções institucionais.
-
-Para modelar esse fenômeno,
-utilizamos a **Curva de Phillips Novo-Keynesiana (NKPC)**.
-
-</p>
-
-<div class="codebox">
-
-\[
-\pi_t =
-\beta E_t(\pi_{t+1})
-+
-\kappa x_t
-\]
-
-</div>
-
-<p>
-
-Onde:
-
-• \( \pi_t \) é inflação  
-• \(E_t(\pi_{t+1})\) é inflação esperada  
-• \(x_t\) é hiato do produto  
-• \( \kappa \) mede sensibilidade da inflação
-
-Essa equação indica que inflação depende de dois fatores:
-
-</p>
-
-<ul>
-
-<li>expectativas de inflação futura</li>
-
-<li>pressão de demanda na economia</li>
-
-</ul>
-
-<p>
-
-Quando a economia opera acima do produto potencial,
-as empresas enfrentam maior demanda
-e tendem a aumentar preços.
-
-</p>
-
-<hr class="hr">
-
-<h2 id="calvo">7 — Rigidez de Preços (Calvo Pricing)</h2>
-
-<p>
-
-Uma forma comum de modelar rigidez de preços
-é o mecanismo de **Calvo pricing**.
-
-Nesse modelo,
-em cada período apenas uma fração das empresas
-pode ajustar preços.
-
-Se \( \theta \) representa a probabilidade
-de uma empresa não reajustar preços,
-então apenas \(1-\theta\) das empresas
-reprecificam a cada período.
-
-A inclinação da curva de Phillips depende de:
-
-</p>
-
-<div class="codebox">
-
-\[
-\kappa =
-\frac{(1-\theta)(1-\beta\theta)}{\theta}
-\]
-
-</div>
-
-<p>
-
-Quanto maior a rigidez de preços,
-menor será a sensibilidade da inflação
-às condições econômicas.
-
-</p>
-
-<hr class="hr">
-
-<h2 id="taylor">8 — Regra de Taylor</h2>
-
-<p>
-
-Para estabilizar inflação,
-bancos centrais utilizam regras de política monetária.
-
-Uma das mais conhecidas é a **Regra de Taylor**.
-
-</p>
-
-<div class="codebox">
-
-\[
-i_t =
-r^*
-+
-\pi_t
-+
-\phi_\pi(\pi_t - \pi^*)
-+
-\phi_y y_t
-\]
-
-</div>
-
-<p>
-
-Onde:
-
-• \(i_t\) é taxa nominal de juros  
-• \(r^*\) é taxa real neutra  
-• \( \pi^* \) é meta de inflação  
-• \(y_t\) é hiato do produto
-
-Essa regra estabelece que
-o banco central aumenta juros
-quando inflação está acima da meta
-ou quando a economia está superaquecida.
-
-</p>
-
-<div class="callout">
-
-A credibilidade da política monetária
-é fundamental para ancorar expectativas de inflação.
-
-</div>
-
-<hr class="hr">
-<h2 id="fiscal">9 — Restrição Intertemporal do Governo</h2>
-
-<p>
-
-Até agora analisamos a economia a partir do comportamento
-de famílias, firmas e política monetária.
-
-Entretanto, em economias emergentes,
-a política fiscal possui papel central
-na determinação do equilíbrio macroeconômico.
-
-A dinâmica da dívida pública pode ser descrita pela seguinte equação:
-
-</p>
-
-<div class="codebox">
-
-\[
-B_{t+1} =
-(1+r_t)B_t
-+
-G_t
--
-T_t
-\]
-
-</div>
-
-<p>
-
-Onde:
-
-• \(B_t\) representa o estoque de dívida pública  
-• \(r_t\) é a taxa real de juros  
-• \(G_t\) é gasto público  
-• \(T_t\) é arrecadação tributária  
-
-Essa equação indica que a dívida cresce
-quando o governo gasta mais do que arrecada
-ou quando os juros pagos sobre a dívida
-são elevados.
-
-</p>
-
-<hr class="hr">
-
-<h2 id="pv">10 — Restrição Orçamentária Intertemporal</h2>
-
-<p>
-
-Iterando a equação da dívida para frente,
-obtemos a restrição intertemporal do governo.
-
-</p>
-
-<div class="codebox">
-
-\[
-B_t =
-\sum_{j=0}^{\infty}
-\frac{T_{t+j} - G_{t+j}}
-{\prod_{i=0}^{j}(1+r_{t+i})}
-\]
-
-</div>
-
-<p>
-
-Essa equação estabelece que o valor presente
-dos superávits fiscais futuros
-deve ser suficiente para pagar
-a dívida atual.
-
-Se essa condição não for satisfeita,
-os investidores passam a exigir
-um prêmio de risco maior
-para financiar o governo.
-
-</p>
-
-<hr class="hr">
-
-<h2 id="transv">11 — Condição de Transversalidade</h2>
-
-<p>
-
-Para garantir solvência fiscal de longo prazo,
-deve existir a chamada **condição de transversalidade**.
-
-</p>
-
-<div class="codebox">
-
-\[
-\lim_{T \to \infty}
-\frac{B_T}
-{\prod_{t=0}^{T}(1+r_t)}
-=
-0
-\]
-
-</div>
-
-<p>
-
-Essa condição garante que a dívida pública
-não cresce indefinidamente
-em termos de valor presente.
-
-Quando os investidores começam a duvidar
-da capacidade do governo de cumprir essa condição,
-o prêmio de risco soberano aumenta.
-
-</p>
-
-<hr class="hr">
-
-<h2 id="riskpremium">12 — Prêmio Soberano Endógeno</h2>
-
-<p>
-
-O prêmio de risco soberano representa
-a compensação exigida pelos investidores
-para carregar dívida pública.
-
-Esse prêmio pode ser modelado como função
-do nível de endividamento
-e da volatilidade macroeconômica.
-
-</p>
-
-<div class="codebox">
-
-\[
-r_t =
-r^*
-+
-\psi\left(\frac{B_t}{Y_t}\right)
-+
-\eta Var(\pi_t)
-\]
-
-</div>
-
-<p>
-
-Onde:
-
-• \(r^*\) é taxa real internacional  
-• \(B_t/Y_t\) é razão dívida/PIB  
-• \(Var(\pi_t)\) é volatilidade inflacionária  
-
-Esse modelo implica que o custo de capital
-aumenta quando a dívida pública cresce
-ou quando a inflação se torna mais volátil.
-
-</p>
-
-<div class="callout">
-
-O prêmio soberano é uma variável endógena
-do equilíbrio macroeconômico.
-
-</div>
-
-<hr class="hr">
-
-<h2 id="propagation">13 — Propagação de Choques Fiscais</h2>
-
-<p>
-
-Choques fiscais podem se propagar
-pela economia através de diversos canais.
-
-Quando o governo aumenta gastos
-sem aumento correspondente de arrecadação,
-a dívida pública cresce.
-
-O aumento da dívida eleva
-o prêmio de risco soberano.
-
-Esse aumento de prêmio
-tem diversos efeitos macroeconômicos.
-
-</p>
-
-<ul>
-
-<li>aumento da taxa de juros real</li>
-
-<li>redução do investimento privado</li>
-
-<li>desvalorização cambial</li>
-
-<li>pressão inflacionária</li>
-
-</ul>
-
-<p>
-
-Esses mecanismos mostram como decisões fiscais
-podem afetar diretamente
-o retorno de ativos financeiros.
-
-</p>
-
-<hr class="hr">
-
-<h2 id="valuation">14 — Implicações para Valuation de Ativos</h2>
-
-<p>
-
-O valor presente de qualquer ativo financeiro
-depende da taxa de desconto utilizada.
-
-</p>
-
-<div class="codebox">
-
-\[
-P =
-\sum_{t=1}^{\infty}
-\frac{CF_t}{(1+r_t)^t}
-\]
-
-</div>
-
-<p>
-
-Quando o prêmio soberano aumenta,
-a taxa de desconto utilizada
-na precificação de ativos também aumenta.
-
-Isso implica:
-
-</p>
-
-<ul>
-
-<li>queda no preço de ações</li>
-
-<li>queda no preço de títulos</li>
-
-<li>aumento do custo de capital</li>
-
-</ul>
-
-<p>
-
-Portanto,
-a trajetória fiscal de um país
-possui impacto direto
-sobre os mercados financeiros.
-
-</p>
-
-<hr class="hr">
-
-<h2 id="investor">15 — Implicações para Investidores</h2>
-
-<p>
-
-A estrutura DSGE apresentada neste capítulo
-mostra que investidores brasileiros
-operam dentro de um sistema
-onde política fiscal, inflação
-e custo de capital estão profundamente conectados.
-
-Isso leva a algumas conclusões importantes.
-
-</p>
-
-<ul>
-
-<li>retornos financeiros dependem da solvência fiscal</li>
-
-<li>o prêmio de risco soberano influencia todos os ativos</li>
-
-<li>mudanças de regime fiscal alteram valuation de mercado</li>
-
-<li>diversificação internacional reduz exposição ao risco soberano</li>
-
-</ul>
-
-<p>
-
-Em outras palavras,
-o investidor brasileiro
-não pode analisar ativos isoladamente.
-
-Ele precisa compreender o ambiente macroeconômico
-no qual esses ativos estão inseridos.
-
-</p>
-
-<hr class="hr">
-
-<h2>Conclusão</h2>
-
-<p>
-
-Nesta segunda parte do Manual do Investidor Profissional Brasileiro,
-expandimos a análise estrutural iniciada no capítulo anterior.
-
-Apresentamos um modelo de equilíbrio geral
-capaz de integrar:
-
-</p>
-
-<ul>
-
-<li>decisões de consumo e investimento</li>
-
-<li>rigidez de preços e dinâmica inflacionária</li>
-
-<li>política monetária</li>
-
-<li>trajetória fiscal</li>
-
-<li>prêmio soberano endógeno</li>
-
-</ul>
-
-<p>
-
-Essa estrutura permite compreender
-como choques econômicos
-se propagam pela economia
-e afetam o comportamento dos mercados financeiros.
-
-Nos próximos capítulos,
-expandiremos essa análise
-para incorporar dinâmica cambial,
-fluxos de capitais internacionais
-e crises financeiras.
-
-</p>
-
-<div class="callout">
-
-Investir em economias emergentes exige
-compreensão profunda da interação
-entre política fiscal, política monetária
-e mercados financeiros.
-
-</div>
-
-</div>
-
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Série: Navegação -->
+  <div class="series-shell">
+    <button class="series-fab" id="seriesFab" aria-label="Abrir navegação da série" aria-expanded="false">Série 2/8</button>
+    <div class="series-backdrop" id="seriesBackdrop"></div>
+
+    <aside class="series-nav" id="seriesNav" aria-label="Navegação da série Macroeconomia Institucional">
+      <div class="series-nav-head">
+        <strong>📌 Série: Macro (2/8)</strong>
+        <button class="series-close" id="seriesClose" aria-label="Fechar">✕</button>
+      </div>
+
+      <nav class="series-nav-links">
+        <a href="/posts/macroeconomia-institucional-parte-1.html">Parte 1 — RBC, Equilíbrio e Núcleo Real</a>
+        <a href="/posts/macroeconomia-institucional-parte-2.html" class="active">Parte 2 — NK Phillips, Rigidezes e Política Monetária</a>
+        <a href="/posts/macroeconomia-institucional-parte-3.html">Parte 3 — Restrição Fiscal Intertemporal e Dominância</a>
+        <a href="/posts/macroeconomia-institucional-parte-4.html">Parte 4 — Equilíbrio Geral, Prêmio Endógeno e Risco</a>
+        <a href="/posts/macroeconomia-institucional-parte-5.html">Parte 5 — Regimes, Identificação e “Nowcasting”</a>
+        <a href="/posts/macroeconomia-institucional-parte-6.html">Parte 6 — Transmissão a Ativos: Juros, FX, Crédito</a>
+        <a href="/posts/macroeconomia-institucional-parte-7.html">Parte 7 — Ciclos, Curvas e Carteiras (Regras)</a>
+        <a href="/posts/macroeconomia-institucional-parte-8.html">Parte 8 — Framework Final, Checklist e Governança</a>
+      </nav>
+    </aside>
+  </div>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <span class="pill">Série Institucional • Parte 2/8</span>
+        <h1 style="margin-top:10px;">NK Phillips, Política Monetária e Inflação (sem achismo)</h1>
+        <p class="muted" style="max-width: 980px;">
+          Nesta parte, adicionamos o que o RBC não tem: rigidez nominal, expectativas e regra de política monetária.
+          O objetivo é operacional: entender como o Banco Central move o ciclo, como inflação se forma com expectativas,
+          e como isso atravessa curvas de juros, câmbio e múltiplos.
+        </p>
+
+        <div class="hero">
+          <img src="/images/blog-cover.svg" alt="NK Phillips e Política Monetária" loading="lazy" />
+        </div>
+
+        <div class="kpi-grid" style="max-width: 980px;">
+          <div class="kpi"><strong>Leitura</strong><span class="muted">~ 50–85 min</span></div>
+          <div class="kpi"><strong>Núcleo</strong><span class="muted">Expectativas + Taylor + NKPC</span></div>
+          <div class="kpi"><strong>Próximo</strong><span class="muted"><a href="/posts/macroeconomia-institucional-parte-3.html">Fiscal intertemporal</a></span></div>
+        </div>
+
+        <div class="jump" style="max-width: 980px;">
+          <a href="/posts/macroeconomia-institucional-parte-1.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 1</a>
+          <a href="/posts/macroeconomia-institucional-parte-3.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 3</a>
+          <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+          <a href="/calculadora.html"><i class="fa-solid fa-calculator"></i> Juros Compostos</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="post-wrap">
+
+        <div class="toc">
+          <h2>Índice</h2>
+          <a href="#sec-1">1) O “núcleo NK”: por que rigidez muda tudo</a>
+          <a href="#sec-2">2) Curva IS NK (Euler): hiato e taxa real “natural”</a>
+          <a href="#sec-3">3) Curva de Phillips Novo-Keynesiana (NKPC): inflação e expectativas</a>
+          <a href="#sec-4">4) Regra de Taylor: a função de reação do BC</a>
+          <a href="#sec-5">5) Credibilidade, metas e ancoragem: o ativo invisível</a>
+          <a href="#sec-6">6) Choques: demanda, oferta, markups e energia</a>
+          <a href="#sec-7">7) Da teoria à prática: decompor inflação e hiato</a>
+          <a href="#sec-8">8) Mini modelo numérico + matriz de cenários</a>
+          <a href="#sec-9">9) Implicações para ativos: curva, FX e múltiplos</a>
+          <a href="#sec-10">Conclusão + ponte para fiscal (Parte 3)</a>
+        </div>
+
+        <div class="callout">
+          <strong>Regra institucional:</strong>
+          inflação é um equilíbrio entre (i) expectativas, (ii) hiato/pressão de demanda, (iii) choques de oferta,
+          e (iv) credibilidade da regra de política. Se você não modela os quatro, você vira refém do “ruído”.
+        </div>
+
+        <hr class="hr">
+
+        <h2 id="sec-1">1) O “núcleo NK”: por que rigidez muda tudo</h2>
+        <p>
+          RBC (Parte 1) é o mundo de preços flexíveis: choques reais se traduzem em ajustes rápidos de preços relativos.
+          O Novo-Keynesiano adiciona <strong>rigidez nominal</strong> (preços e salários não ajustam instantaneamente),
+          e isso cria <strong>não-neutralidade da política monetária</strong> no curto prazo.
+        </p>
+        <p>
+          O que muda para investidor? Com rigidez, o BC consegue (temporariamente) influenciar:
+          atividade, emprego, inflação, e a inclinação da curva de juros. Ou seja: o “macro do dia a dia” vira formal.
+        </p>
+
+        <h2 id="sec-2">2) Curva IS NK (Euler): hiato e taxa real “natural”</h2>
+        <p>
+          Em NK, a demanda agregada (hiato do produto) é governada por uma Euler “aggregate”, com expectativa do futuro.
+          A forma clássica (log-linearizada) é:
+        </p>
+
+        <div class="codebox">
+          <strong>IS Novo-Keynesiana (forma padrão):</strong>
+          <p>\[
+            x_t = \mathbb{E}_t[x_{t+1}] - \frac{1}{\sigma}\left( i_t - \mathbb{E}_t[\pi_{t+1}] - r_t^n \right)
+          \]</p>
+          <p class="mini-note">
+            \(x_t\) = hiato do produto; \(i_t\) = taxa nominal; \(\pi_{t+1}\) = inflação; \(r_t^n\) = taxa real natural.
+            Se \(i_t - \mathbb{E}\pi_{t+1}\) fica acima de \(r_t^n\), política fica contracionista e hiato cai.
+          </p>
+        </div>
+
+        <p>
+          O conceito-chave é a taxa real natural \(r_t^n\): a taxa real consistente com \(x_t = 0\) (sem pressão de demanda).
+          Investidor institucional pensa assim:
+          <strong>o BC não “define” crescimento; ele tenta alinhar taxa real efetiva com taxa real natural em face de choques.</strong>
+        </p>
+
+        <div class="warning">
+          <strong>Erro de leitura de ciclo:</strong> achar que “juros altos” necessariamente derrubam atividade.
+          Em alguns regimes, \(r^n\) também subiu (ex.: choque de produtividade ou poupança baixa), então juros altos podem ser “neutros”.
+        </div>
+
+        <h2 id="sec-3">3) Curva de Phillips Novo-Keynesiana (NKPC): inflação e expectativas</h2>
+        <p>
+          A NKPC formaliza que inflação atual é função de expectativas futuras e do hiato (ou custos marginais).
+          A forma canônica:
+        </p>
+
+        <div class="codebox">
+          <strong>NKPC (expectacional):</strong>
+          <p>\[
+            \pi_t = \beta \, \mathbb{E}_t[\pi_{t+1}] + \kappa x_t + u_t
+          \]</p>
+          <p class="mini-note">
+            \(\kappa\) = sensibilidade (quanto o hiato pressiona inflação). \(u_t\) = choque de custo/markup/oferta.
+          </p>
+        </div>
+
+        <p>
+          A implicação institucional é direta: se expectativas desancoram, o BC precisa elevar juros reais
+          para derrubar \(x_t\) e reancorar \(\mathbb{E}\pi\). Por isso “credibilidade” é um ativo macro.
+        </p>
+
+        <h3>3.1 O que determina \(\kappa\)?</h3>
+        <p>
+          \(\kappa\) depende de rigidez (Calvo), indexação, estrutura de custos e mercado de trabalho.
+          Economias com alta indexação e mecanismos formais de repasse tendem a ter dinâmica inflacionária mais persistente.
+        </p>
+
+        <h2 id="sec-4">4) Regra de Taylor: a função de reação do BC</h2>
+        <p>
+          A política monetária em NK é normalmente fechada por uma regra de reação. Forma clássica:
+        </p>
+
+        <div class="codebox">
+          <strong>Taylor rule (forma simples):</strong>
+          <p>\[
+            i_t = r^* + \pi_t + \phi_{\pi}(\pi_t - \pi^*) + \phi_x x_t
+          \]</p>
+          <p class="mini-note">
+            \(r^*\) = taxa real de equilíbrio de longo prazo; \(\pi^*\) = meta; \(\phi_{\pi} > 1\) é a “condição de Taylor”
+            (reação suficiente para estabilizar inflação).
+          </p>
+        </div>
+
+        <p>
+          Para investidor: essa equação é o “código-fonte” do ciclo de juros. O mercado está sempre tentando inferir:
+          (i) qual é o \(r^*\), (ii) qual é o \(x_t\), (iii) qual é o \(\phi_{\pi}\) efetivo (credibilidade), e (iv) quão persistente será \(\pi\).
+        </p>
+
+        <h2 id="sec-5">5) Credibilidade, metas e ancoragem: o ativo invisível</h2>
+        <p>
+          Em NK, expectativas são <strong>endógenas</strong>. Se o BC tem credibilidade, \(\mathbb{E}\pi\) reage menos a choques.
+          Isso reduz custo real de desinflação (menos necessidade de derrubar \(x_t\)).
+        </p>
+
+        <div class="callout">
+          <strong>Tradução para ativos:</strong>
+          credibilidade reduz prêmio de inflação e pode reduzir prêmio de risco soberano → curva real/nominal fica “mais barata”
+          → melhora valuation de ativos long duration. O contrário também é verdade.
+        </div>
+
+        <h3>5.1 Reputação vs institucionalidade</h3>
+        <p>
+          Institucionalidade importa mais que “uma pessoa”. Regimes com arcabouço sólido (independência operacional, transparência,
+          comunicação consistente) têm expectativas mais estáveis. Em regime frágil, o mercado exige prêmio adicional.
+        </p>
+
+        <h2 id="sec-6">6) Choques: demanda, oferta, markups e energia</h2>
+        <p>
+          O investidor erra quando trata “inflação” como um número. Institucionalmente, você decompõe o choque:
+        </p>
+
+        <ul style="margin:10px 0 0 18px;">
+          <li><strong>Demanda:</strong> eleva \(x_t\) → NKPC via \(\kappa x_t\) (inflação “quente”).</li>
+          <li><strong>Oferta/custo:</strong> \(u_t\) (energia, câmbio, alimentos, gargalos) → inflação sobe mesmo com \(x_t\) fraco.</li>
+          <li><strong>Markup:</strong> poder de precificação, margens, concentração → pode deslocar NKPC.</li>
+          <li><strong>Expectativas:</strong> canal dominante em regimes de baixa credibilidade.</li>
+        </ul>
+
+        <div class="warning">
+          <strong>Diagnóstico errado = trade errado:</strong>
+          se você confunde choque de oferta com choque de demanda, você erra o caminho de juros, curva e câmbio.
+        </div>
+
+        <h2 id="sec-7">7) Da teoria à prática: decompor inflação e hiato</h2>
+        <p>
+          Na prática, o buy-side operacionaliza NK com “proxies” observáveis:
+          hiato \(\approx\) (atividade vs potencial), núcleo vs cheio, difusão, serviços vs bens, salários, expectativas (survey e mercado).
+        </p>
+
+        <div class="codebox">
+          <strong>Checklist institucional de inflação (sem recomendação):</strong>
+          <ul style="margin:10px 0 0 18px;">
+            <li><strong>Persistência:</strong> núcleo/serviços subindo? difusão alta?</li>
+            <li><strong>Expectativas:</strong> 12–24 meses acima da meta? reprecificação?</li>
+            <li><strong>Salários:</strong> crescimento nominal > produtividade? repasse?</li>
+            <li><strong>Câmbio/commodities:</strong> choque temporário ou regime?</li>
+            <li><strong>Política:</strong> reação do BC compatível com \(\phi_{\pi} > 1\)?</li>
+          </ul>
+        </div>
+
+        <h2 id="sec-8">8) Mini modelo numérico + matriz de cenários</h2>
+        <p>
+          Exercício didático: suponha meta \(\pi^* = 3\%\), \(r^* = 3\%\) (real), e uma regra de Taylor simplificada.
+          Compare dois regimes: credível vs pouco credível.
+        </p>
+
+        <table class="table" aria-label="Matriz de cenários: credibilidade e inflação">
+          <thead>
+            <tr>
+              <th>Regime</th>
+              <th>Choque</th>
+              <th>\(\mathbb{E}\pi\)</th>
+              <th>Reação do BC</th>
+              <th>Hiato</th>
+              <th>Curva de juros</th>
+              <th>Leitura</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Credível</td>
+              <td>Oferta (energia) ↑</td>
+              <td>↔</td>
+              <td>Moderada</td>
+              <td>↓ leve</td>
+              <td>Curva abre menos</td>
+              <td>Desinflação “barata” porque expectativas não desancoram</td>
+            </tr>
+            <tr>
+              <td>Pouco credível</td>
+              <td>Oferta (energia) ↑</td>
+              <td>↑↑</td>
+              <td>Forte</td>
+              <td>↓↓</td>
+              <td>Curva abre muito</td>
+              <td>BC precisa “comprar” credibilidade via recessão maior</td>
+            </tr>
+            <tr>
+              <td>Credível</td>
+              <td>Demanda ↑</td>
+              <td>↑ leve</td>
+              <td>Forte</td>
+              <td>↘</td>
+              <td>Curta sobe, longa estável</td>
+              <td>Reação rápida controla hiato antes de virar persistência</td>
+            </tr>
+            <tr>
+              <td>Pouco credível</td>
+              <td>Demanda ↑</td>
+              <td>↑↑</td>
+              <td>Reativa e tardia</td>
+              <td>volátil</td>
+              <td>Longa sobe + prêmio</td>
+              <td>Curva “precifica regime”: prêmio sobe e duration sofre</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="sec-9">9) Implicações para ativos: curva, FX e múltiplos</h2>
+        <p>
+          NK é “macro que mexe em preço” porque conecta inflação e juros a expectativas.
+          Três canais dominantes para ativos:
+        </p>
+
+        <div class="codebox">
+          <strong>Canal 1 — taxa real e desconto:</strong>
+          <p>
+            Se \(i_t - \mathbb{E}\pi_{t+1}\) sobe acima do neutro, valuation comprime (especialmente long duration).
+          </p>
+          <div class="mini-note">
+            Isso conversa diretamente com a série de ações: aumento de taxa real efetiva → compressão de múltiplos.
+          </div>
+        </div>
+
+        <div class="codebox">
+          <strong>Canal 2 — curva e prêmio de inflação:</strong>
+          <p>
+            Desancoragem eleva prêmio de inflação e prêmio de risco → longas sobem mais, curva pode “bear steepen”.
+          </p>
+        </div>
+
+        <div class="codebox">
+          <strong>Canal 3 — câmbio:</strong>
+          <p>
+            Em emergentes, diferencial de juros + risco (credibilidade/fiscal) dominam. Se o mercado “compra” credibilidade, FX pode fortalecer e ajudar desinflação.
+          </p>
+        </div>
+
+        <h2 id="sec-10">Conclusão + ponte para fiscal (Parte 3)</h2>
+        <p>
+          Você agora tem o núcleo NK: IS (Euler), NKPC (inflação) e Taylor (política). Isso te dá uma estrutura para:
+          (i) separar choque de oferta vs demanda, (ii) entender expectativas, (iii) inferir reação do BC, e (iv) mapear efeito em curva, FX e múltiplos.
+        </p>
+
+        <div class="callout">
+          <strong>Próxima etapa:</strong>
+          a Parte 3 adiciona o “outro lado do livro”: a restrição fiscal intertemporal do governo, condição de transversalidade,
+          dominância fiscal e como isso muda inflação, curva e prêmio soberano (especialmente em emergentes).
+        </div>
+
+        <div class="jump" style="margin-top:18px;">
+          <a href="/posts/macroeconomia-institucional-parte-1.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 1</a>
+          <a href="/posts/macroeconomia-institucional-parte-3.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 3</a>
+          <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+          <a href="/posts/etf-masterclass-carteira-global-parte-1.html"><i class="fa-solid fa-bolt"></i> ETF Masterclass</a>
+        </div>
+
+        <hr class="hr">
+
+        <div class="muted" style="font-size:12px;">
+          Nota: material educacional. Não constitui recomendação de investimento. O objetivo é estrutura técnica e disciplina de análise.
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        <h3>Cérebro Milionário</h3>
+        <p>Educação financeira com profundidade estratégica.</p>
+        <div class="footer-social" aria-label="Redes sociais" style="display:flex;gap:12px;align-items:center;margin-top:10px">
+          <a href="https://t.me/cerebromillionario" target="_blank" rel="noopener" aria-label="Telegram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://instagram.com/cerebromillionario" target="_blank" rel="noopener" aria-label="Instagram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/glossario-financeiro.html">Glossário Financeiro</a></li>
+          <li><a href="/perguntas-frequentes.html">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu (topo)
+    (function () {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', function () {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    })();
+
+    // Série drawer mobile
+    (function(){
+      const fab = document.getElementById('seriesFab');
+      const nav = document.getElementById('seriesNav');
+      const backdrop = document.getElementById('seriesBackdrop');
+      const closeBtn = document.getElementById('seriesClose');
+      if(!fab || !nav || !backdrop || !closeBtn) return;
+
+      function openNav(){
+        nav.classList.add('open');
+        backdrop.classList.add('open');
+        fab.setAttribute('aria-expanded','true');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeNav(){
+        nav.classList.remove('open');
+        backdrop.classList.remove('open');
+        fab.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+      }
+
+      fab.addEventListener('click', openNav);
+      closeBtn.addEventListener('click', closeNav);
+      backdrop.addEventListener('click', closeNav);
+      document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeNav(); });
+    })();
+  </script>
 </body>
 </html>
