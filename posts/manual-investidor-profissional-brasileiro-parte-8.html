@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Manual do Investidor Profissional Brasileiro (Parte 8/8) | IPS, Governança e Disciplina Quantitativa</title>
+  <meta name="description" content="Parte 8/8 (nível institucional): Investment Policy Statement (IPS), governança pessoal, utilidade esperada, Prospect Theory, matriz bayesiana de decisão, disciplina quantitativa e sistema operacional para investir por décadas." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/manual-investidor-profissional-brasileiro-parte-8.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/manual-investidor-profissional-brasileiro-parte-8.html" />
+  <meta property="og:title" content="Manual do Investidor Profissional Brasileiro (Parte 8/8)" />
+  <meta property="og:description" content="IPS, governança e disciplina quantitativa: como manter o plano por décadas sem ruído." />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Fonts + Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)'], ['$', '$']], displayMath: [['\\[','\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <style>
+    body{overflow-x:hidden}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:800;font-size:12px;background:rgba(44,44,46,.06)}
+    .muted{opacity:.78}
+
+    .post-wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 16px 60px;
+    }
+    /* ✅ desktop: reserva espaço pro menu lateral não cobrir texto */
+    @media(min-width: 981px){
+      .post-wrap{ padding-right: 360px; }
+    }
+
+    .hero{
+      margin-top:16px;border-radius:18px;overflow:hidden;border:1px solid rgba(0,0,0,.08);
+      box-shadow: var(--shadow-sm); background:#fff
+    }
+    .hero img{width:100%;height:auto;display:block}
+
+    .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+    .kpi{border:1px solid rgba(0,0,0,.08);border-radius:16px;background:#fff;box-shadow:var(--shadow-sm);padding:14px}
+    .kpi strong{display:block;font-size:18px}
+    @media(max-width:980px){.kpi-grid{grid-template-columns:1fr}}
+
+    .jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .jump a{
+      display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:14px;
+      border:1px solid rgba(0,0,0,.08);background:#fff;box-shadow:var(--shadow-sm);text-decoration:none;font-weight:900
+    }
+    .jump a:hover{transform:translateY(-1px)}
+
+    .toc{
+      margin-top:18px;border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;
+      box-shadow: var(--shadow-sm); padding:16px
+    }
+    .toc h2{margin:0 0 10px 0}
+    .toc a{display:block;text-decoration:none;padding:8px 10px;border-radius:14px;border:1px solid rgba(0,0,0,.06);margin:8px 0}
+    .toc a:hover{transform:translateY(-1px)}
+
+    .callout{
+      border-left:4px solid var(--accent-color, #f4c430);
+      background: rgba(244,196,48,.10);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+    .warning{
+      border-left:4px solid #e2574c;background: rgba(226,87,76,.08);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+    .hr{height:1px;background:rgba(0,0,0,.10);border:0;margin:26px 0}
+    .codebox{
+      border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);
+      padding:14px 16px;margin:18px 0
+    }
+    .mini-note{font-size:12px;opacity:.78;margin-top:8px}
+    .table{
+      width:100%;border-collapse:collapse;border:1px solid rgba(0,0,0,.08);
+      border-radius:14px;overflow:hidden;background:#fff;box-shadow:var(--shadow-sm)
+    }
+    .table th,.table td{padding:12px;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:top}
+    .table th{background:rgba(44,44,46,.04);text-align:left}
+
+    .chiprow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .chip{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.10);
+      background:#fff;box-shadow:var(--shadow-sm);font-weight:900;font-size:12px
+    }
+
+    /* ===== Série: sidebar desktop + drawer mobile ===== */
+    .series-shell { position: relative; }
+    .series-nav{
+      position: fixed;
+      top: 92px;
+      right: 18px;
+      width: 320px;
+      max-height: calc(100vh - 120px);
+      overflow: auto;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.10);
+      border-radius: 18px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.18);
+      padding: 12px;
+      z-index: 9999;
+    }
+    .series-nav-head{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      padding: 8px 8px 10px 8px;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    .series-close{
+      border: 1px solid rgba(0,0,0,.12);
+      background: #fff;
+      border-radius: 12px;
+      width: 38px; height: 38px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    .series-nav-links{ display:flex; flex-direction:column; gap: 8px; padding: 10px 6px 6px; }
+    .series-nav-links a{
+      text-decoration:none;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,.08);
+      color: #1a1a1a;
+      font-weight: 800;
+    }
+    .series-nav-links a:hover{ transform: translateY(-1px); }
+    .series-nav-links a.active{
+      background: #2c2c2e;
+      color: #fff;
+      border-color: #2c2c2e;
+    }
+    .series-backdrop{
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.45);
+      z-index: 9998;
+      display: none;
+    }
+    .series-fab{
+      position: fixed;
+      right: 16px;
+      bottom: 18px;
+      z-index: 10000;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 14px;
+      background: #2c2c2e;
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 18px 45px rgba(0,0,0,.30);
+      display: none;
+    }
+    @media (max-width: 980px){
+      .series-fab{ display: inline-flex; align-items:center; justify-content:center; }
+      .series-nav{
+        top: 0; right: 0; height: 100vh; max-height: none;
+        width: min(360px, 92vw);
+        border-radius: 0;
+        transform: translateX(110%);
+        transition: transform .18s ease;
+        padding-top: 14px;
+      }
+      .series-nav.open{ transform: translateX(0); }
+      .series-backdrop.open{ display: block; }
+    }
+
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+    @media(max-width:980px){.grid2{grid-template-columns:1fr}}
+    .card{
+      border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);
+      padding:14px
+    }
+    .card h3{margin:0 0 8px 0}
+    .badge{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:6px 10px;border-radius:999px;background:rgba(44,44,46,.06);font-weight:900;font-size:12px
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header (MENU topo do site) -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Série: Navegação -->
+  <div class="series-shell">
+    <button class="series-fab" id="seriesFab" aria-label="Abrir navegação da série" aria-expanded="false">Série 8/8</button>
+    <div class="series-backdrop" id="seriesBackdrop"></div>
+
+    <aside class="series-nav" id="seriesNav" aria-label="Navegação da série Manual do Investidor Profissional Brasileiro">
+      <div class="series-nav-head">
+        <strong>📌 Série: Manual (8/8)</strong>
+        <button class="series-close" id="seriesClose" aria-label="Fechar">✕</button>
+      </div>
+
+      <nav class="series-nav-links">
+        <a href="/posts/manual-investidor-profissional-brasileiro-parte-1.html">Parte 1 — Fundamentos & Sistema Financeiro</a>
+        <a href="/posts/manual-investidor-profissional-brasileiro-parte-2.html">Parte 2 — Juros, Term Structure e CDI Real</a>
+        <a href="/posts/manual-investidor-profissional-brasileiro-parte-3.html">Parte 3 — Macro, RBC e NKPC</a>
+        <a href="/posts/manual-investidor-profissional-brasileiro-parte-4.html">Parte 4 — Fiscal, Restrição Intertemporal e Prêmio</a>
+        <a href="/posts/manual-investidor-profissional-brasileiro-parte-5.html">Parte 5 — Regimes, Risco e Precificação</a>
+        <a href="/posts/manual-investidor-profissional-brasileiro-parte-6.html">Parte 6 — Portfólio & Alocação (MPT)</a>
+        <a href="/posts/manual-investidor-profissional-brasileiro-parte-7.html">Parte 7 — Implementação, Rebalanceamento e Custos</a>
+        <a href="/posts/manual-investidor-profissional-brasileiro-parte-8.html" class="active">Parte 8 — IPS, Governança e Disciplina Quantitativa</a>
+      </nav>
+    </aside>
+  </div>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <span class="pill">Série Institucional • Parte 8/8</span>
+        <h1 style="margin-top:10px;">IPS, Governança e Disciplina Quantitativa</h1>
+        <p class="muted" style="max-width: 980px;">
+          Aqui você fecha o sistema: um <strong>Investment Policy Statement (IPS)</strong> executável, governança pessoal,
+          modelo de decisão sob incerteza (utilidade esperada + Bayes) e um “sistema operacional” para evitar sabotagem comportamental
+          (Prospect Theory, vieses e regras quantitativas).
+        </p>
+
+        <div class="hero">
+          <img src="/images/blog-cover.svg" alt="IPS e Governança" loading="lazy" />
+        </div>
+
+        <div class="kpi-grid" style="max-width: 980px;">
+          <div class="kpi"><strong>Leitura</strong><span class="muted">~ 60–90 min</span></div>
+          <div class="kpi"><strong>Entrega</strong><span class="muted">IPS pronto + regras</span></div>
+          <div class="kpi"><strong>Final</strong><span class="muted">Checklist anual</span></div>
+        </div>
+
+        <div class="jump" style="max-width: 980px;">
+          <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+          <a href="/posts/manual-investidor-profissional-brasileiro-parte-7.html"><i class="fa-solid fa-arrow-left"></i> Parte 7</a>
+        </div>
+
+        <div class="chiprow" style="max-width:980px;">
+          <span class="chip"><i class="fa-solid fa-file-signature"></i> IPS</span>
+          <span class="chip"><i class="fa-solid fa-scale-balanced"></i> Utilidade</span>
+          <span class="chip"><i class="fa-solid fa-brain"></i> Prospect Theory</span>
+          <span class="chip"><i class="fa-solid fa-diagram-project"></i> Bayes</span>
+          <span class="chip"><i class="fa-solid fa-shield"></i> Governança</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="post-wrap">
+
+        <div class="toc">
+          <h2>Índice</h2>
+          <a href="#s1">1) Por que IPS é a “muralha” do investidor</a>
+          <a href="#s2">2) IPS formal: objetivos, restrições e política de risco</a>
+          <a href="#s3">3) Utilidade esperada: decisão sob risco (modelo formal)</a>
+          <a href="#s4">4) Prospect Theory: vieses formais e implicações práticas</a>
+          <a href="#s5">5) Atualização Bayesiana: matriz de decisão (com exemplo)</a>
+          <a href="#s6">6) Framework quantitativo de disciplina: regras, métricas e gatilhos</a>
+          <a href="#s7">7) Scorecard do investidor: KPIs mensais + auditoria de processo</a>
+          <a href="#s8">8) Template de IPS (copiar/colar) + checklist anual</a>
+          <a href="#s9">Encerramento: como manter isso por décadas</a>
+        </div>
+
+        <div class="callout">
+          <strong>Tese final:</strong> “investir bem” é uma disputa entre o seu sistema e o seu cérebro.
+          O mercado é difícil, mas sua mente é um adversário mais constante.
+        </div>
+
+        <hr class="hr">
+
+        <h2 id="s1">1) Por que IPS é a “muralha” do investidor</h2>
+        <p>
+          Um investidor sem IPS opera por “estado emocional” — e estados emocionais são não estacionários.
+          Em regime benigno, você tolera risco. Em stress, você entra em modo sobrevivência e abandona o plano.
+          O IPS transforma decisões em política: reduz variância de comportamento, que é a principal fonte de erro.
+        </p>
+
+        <div class="grid2">
+          <div class="card">
+            <h3><span class="badge"><i class="fa-solid fa-triangle-exclamation"></i> Sem IPS</span></h3>
+            <ul style="margin:10px 0 0 18px;">
+              <li>Compra porque subiu / vende porque caiu</li>
+              <li>Rebalanceia por ansiedade</li>
+              <li>Muda estratégia “na dor”</li>
+              <li>Não sabe o risco real que carrega</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3><span class="badge"><i class="fa-solid fa-shield"></i> Com IPS</span></h3>
+            <ul style="margin:10px 0 0 18px;">
+              <li>Risco definido por política</li>
+              <li>Rebalanceamento por regra</li>
+              <li>Decisão via dados + Bayes</li>
+              <li>Processo auditável</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 id="s2">2) IPS formal: objetivos, restrições e política de risco</h2>
+        <p>
+          Um IPS institucional tem cinco blocos: (i) objetivos, (ii) restrições, (iii) filosofia e alocação,
+          (iv) política de risco, e (v) governança & revisão.
+          A chave é ser <strong>operacional</strong>: cada frase precisa virar uma regra ou um limite.
+        </p>
+
+        <div class="codebox">
+          <strong>Estrutura mínima (executável):</strong>
+          <ol style="margin:10px 0 0 18px;">
+            <li><strong>Objetivo:</strong> retorno real alvo (ex.: CDI real + X) e horizonte</li>
+            <li><strong>Restrições:</strong> liquidez, aportes/saques, impostos, aversão a drawdown</li>
+            <li><strong>Universo:</strong> classes permitidas e limites por classe</li>
+            <li><strong>Risco:</strong> bandas, limites de contribuição de risco, drawdown máximo tolerável</li>
+            <li><strong>Processo:</strong> frequência de revisão, critérios de mudança, registro</li>
+          </ol>
+        </div>
+
+        <h3>2.1 Política de risco (nível gestor, pessoa física)</h3>
+        <p>
+          O investidor brasileiro deve especificar risco em pelo menos três dimensões:
+          (1) risco de preço (vol/drawdown), (2) risco de liquidez (vender em stress) e (3) risco de regime (juros/inflação/FX).
+        </p>
+
+        <table class="table" aria-label="Política de risco exemplo">
+          <thead>
+            <tr>
+              <th>Dimensão</th>
+              <th>Métrica</th>
+              <th>Limite</th>
+              <th>Ação se violar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Drawdown</td>
+              <td>\(DD_{peak\to trough}\)</td>
+              <td>\(\le 18\%\)</td>
+              <td>Reduzir risco do bloco volátil em k% e rever bandas</td>
+            </tr>
+            <tr>
+              <td>Liquidez</td>
+              <td>% ilíquido</td>
+              <td>\(\le 20\%\)</td>
+              <td>Congelar novas compras ilíquidas + rota de redução</td>
+            </tr>
+            <tr>
+              <td>FX</td>
+              <td>% exp. cambial</td>
+              <td>\([10\%, 35\%]\)</td>
+              <td>Rebalancear quando sair da faixa (por banda)</td>
+            </tr>
+            <tr>
+              <td>Turnover</td>
+              <td>giro anual</td>
+              <td>\(\le 35\%\)</td>
+              <td>Ampliar bandas / reduzir “táticas”</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="warning">
+          <strong>“Limite” sem ação definida não é limite.</strong>
+          Se você não escreveu o que faz quando viola, você não tem política — tem desejo.
+        </div>
+
+        <hr class="hr">
+
+        <h2 id="s3">3) Utilidade esperada: decisão sob risco (modelo formal)</h2>
+        <p>
+          A base da decisão racional sob risco é maximizar utilidade esperada, não retorno esperado.
+          Retorno esperado ignora a assimetria psicológica e a convexidade do “plano de vida”.
+        </p>
+
+        <div class="codebox">
+          <strong>Utilidade esperada:</strong>
+          <p>\[
+            \max_{\pi}\; \mathbb{E}\left[U(W_{T})\right]
+          \]</p>
+          <p class="mini-note">
+            \(\pi\) representa a política (alocação + regras). \(W_T\) é riqueza no horizonte \(T\).
+          </p>
+        </div>
+
+        <h3>3.1 Utilidade CRRA (padrão institucional)</h3>
+        <p>
+          Uma forma clássica é CRRA (Constant Relative Risk Aversion), que produz decisões coerentes com risco proporcional à riqueza.
+        </p>
+
+        <div class="codebox">
+          <p>\[
+            U(W)=
+            \begin{cases}
+              \frac{W^{1-\gamma}}{1-\gamma}, & \gamma \ne 1 \\
+              \ln(W), & \gamma = 1
+            \end{cases}
+          \]</p>
+          <p class="mini-note">
+            \(\gamma\) é aversão relativa ao risco. \(\gamma\) maior → mais conservador.
+          </p>
+        </div>
+
+        <h3>3.2 Implicação prática (o “porquê” do seu plano)</h3>
+        <p>
+          Se seu objetivo é acumular com risco controlado, você não quer maximizar “chance de jackpot”.
+          Você quer maximizar a utilidade do caminho: evitar ruína, evitar drawdowns que te fazem abandonar o processo,
+          e manter consistência de aportes.
+        </p>
+
+        <div class="callout">
+          <strong>Tradução para regra:</strong> seu IPS deve ter limites que protejam \(U(W)\), não só \(E[R]\).
+          Um portfólio que “em média” rende mais, mas te quebra psicologicamente, é inferior.
+        </div>
+
+        <hr class="hr">
+
+        <h2 id="s4">4) Prospect Theory: vieses formais e implicações</h2>
+        <p>
+          Prospect Theory (Kahneman–Tversky) explica por que investidores fazem exatamente o oposto do desejável:
+          realizam ganhos cedo e seguram perdas tarde, devido à função valor côncava para ganhos e convexa para perdas,
+          além de “loss aversion” (perdas doem mais que ganhos iguais).
+        </p>
+
+        <div class="codebox">
+          <strong>Função valor (forma típica):</strong>
+          <p>\[
+            v(x)=
+            \begin{cases}
+              x^{\alpha}, & x \ge 0 \\
+              -\lambda (-x)^{\beta}, & x < 0
+            \end{cases}
+          \]</p>
+          <p class="mini-note">
+            \(\lambda > 1\) captura aversão a perdas. \(\alpha,\beta \in (0,1)\) geram sensibilidade decrescente.
+          </p>
+        </div>
+
+        <h3>4.1 O erro estrutural: “stop emocional”</h3>
+        <p>
+          Prospect Theory cria dois comportamentos ruins:
+          (i) você reduz risco após cair (quando deveria rebalancear para o alvo), e
+          (ii) você aumenta risco após subir (quando deveria cortar excesso).
+          Ou seja: compra caro e vende barato — mas chama isso de “prudência”.
+        </p>
+
+        <div class="warning">
+          <strong>Vacina:</strong> rebalanceamento por bandas + registro de decisão + gatilhos objetivos.
+          Sem isso, você vira escravo da função \(v(x)\).
+        </div>
+
+        <hr class="hr">
+
+        <h2 id="s5">5) Matriz de decisão Bayesiana (com exemplo)</h2>
+        <p>
+          O investidor institucional não “muda tese” por manchete: ele atualiza probabilidades.
+          Bayes fornece o mecanismo: posterior ∝ likelihood × prior.
+        </p>
+
+        <div class="codebox">
+          <strong>Regra de Bayes:</strong>
+          <p>\[
+            P(H|D) = \frac{P(D|H)\,P(H)}{P(D)}
+          \]</p>
+          <p class="mini-note">
+            \(H\) é hipótese (ex.: “regime de juros real alto vai persistir”). \(D\) é dado novo (inflação, fiscal, BC).
+          </p>
+        </div>
+
+        <h3>5.1 Matriz executável: hipóteses × ações</h3>
+        <p>
+          Você define um conjunto pequeno de hipóteses (regimes) e um conjunto pequeno de ações (ajustes permitidos pelo IPS).
+          O objetivo é reduzir reatividade: mudar <em>apenas</em> quando posterior cruzar um limiar.
+        </p>
+
+        <table class="table" aria-label="Matriz Bayesiana simplificada">
+          <thead>
+            <tr>
+              <th>Hipótese (H)</th>
+              <th>Prior \(P(H)\)</th>
+              <th>Dado (D)</th>
+              <th>Likelihood \(P(D|H)\)</th>
+              <th>Posterior \(P(H|D)\)</th>
+              <th>Ação permitida (IPS)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>H1: juros reais altos persistem</td>
+              <td>0,40</td>
+              <td>D: inflação surpresa + fiscal piora</td>
+              <td>0,65</td>
+              <td>↑ (recalcula)</td>
+              <td>Aumentar banda de duration / reduzir risco de ativos de alta duration</td>
+            </tr>
+            <tr>
+              <td>H2: desinflação + queda de juros</td>
+              <td>0,35</td>
+              <td>D: inflação cai + credibilidade melhora</td>
+              <td>0,60</td>
+              <td>↑ (recalcula)</td>
+              <td>Rebalancear para duration alvo (sem “apostar” além da faixa)</td>
+            </tr>
+            <tr>
+              <td>H3: stress fiscal/FX</td>
+              <td>0,25</td>
+              <td>D: prêmio de risco e câmbio disparam</td>
+              <td>0,70</td>
+              <td>↑ (recalcula)</td>
+              <td>Acionar buffer de liquidez + evitar ilíquidos + rebalancear por bandas</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout">
+          <strong>Regra de ouro:</strong> Bayes não te dá certeza; ele te dá <em>calibração</em>.
+          Você não “acerta o futuro”; você evita decisões ruins com informação parcial.
+        </div>
+
+        <hr class="hr">
+
+        <h2 id="s6">6) Framework quantitativo de disciplina</h2>
+        <p>
+          Disciplina não é força de vontade. Disciplina é um <strong>sistema</strong>:
+          regras simples, gatilhos objetivos, métricas mensais e auditoria de processo.
+          O investidor vira “operador” do próprio IPS.
+        </p>
+
+        <div class="codebox">
+          <strong>Arquitetura do sistema:</strong>
+          <ol style="margin:10px 0 0 18px;">
+            <li><strong>Política</strong> (IPS): alvo, bandas, limites</li>
+            <li><strong>Gatilhos</strong>: o que dispara ação (bandas, risco, posterior Bayes)</li>
+            <li><strong>Ações</strong>: o que é permitido fazer (lista curta)</li>
+            <li><strong>Registro</strong>: por que fez (regra acionada)</li>
+            <li><strong>Auditoria</strong>: comparar decisões vs regras (mensal)</li>
+          </ol>
+        </div>
+
+        <h3>6.1 Regras quantitativas mínimas (copiáveis)</h3>
+        <div class="grid2">
+          <div class="card">
+            <h3>Regras de rebalanceamento</h3>
+            <ul style="margin:10px 0 0 18px;">
+              <li>Rebalancear apenas se \(|w_i - w_i^\*| \ge b_i\)</li>
+              <li>Bandas maiores para ativos ilíquidos</li>
+              <li>Turnover anual máximo (ex.: 35%)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Regras de risco</h3>
+            <ul style="margin:10px 0 0 18px;">
+              <li>Se drawdown > D: reduzir risco do bloco volátil em k%</li>
+              <li>Se % ilíquido > L: congelar compras ilíquidas</li>
+              <li>Se RC de bloco > limite: rebalancear</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>6.2 “Filtro anti-Prospect Theory” (trava comportamental)</h3>
+        <div class="codebox">
+          <strong>Antes de qualquer operação, responder (sim/não):</strong>
+          <ol style="margin:10px 0 0 18px;">
+            <li>Qual regra do IPS foi acionada?</li>
+            <li>Qual métrica violou limite (bandas/risco/liquidez)?</li>
+            <li>Qual alternativa eu considerei e descartei?</li>
+            <li>Estou tentando “evitar dor” ou executar política?</li>
+          </ol>
+          <div class="mini-note">
+            Se você não consegue responder (1) e (2) com precisão, a operação é emocional.
+          </div>
+        </div>
+
+        <hr class="hr">
+
+        <h2 id="s7">7) Scorecard do investidor: KPIs mensais</h2>
+        <p>
+          O maior upgrade institucional é medir processo, não só retorno. Retorno é ruidoso no curto prazo.
+          Processo é controlável.
+        </p>
+
+        <table class="table" aria-label="Scorecard mensal">
+          <thead>
+            <tr>
+              <th>KPI</th>
+              <th>Como medir</th>
+              <th>Meta/limite</th>
+              <th>Se falhar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Aderência às bandas</td>
+              <td>% do tempo dentro das bandas</td>
+              <td>&ge; 90%</td>
+              <td>Rebalancear por regra</td>
+            </tr>
+            <tr>
+              <td>Turnover</td>
+              <td>giro 12m</td>
+              <td>&le; 35%</td>
+              <td>Alargar bandas / cortar “táticas”</td>
+            </tr>
+            <tr>
+              <td>Liquidez</td>
+              <td>% ilíquido</td>
+              <td>&le; 20%</td>
+              <td>Plano de redução</td>
+            </tr>
+            <tr>
+              <td>Drawdown</td>
+              <td>pico→vale</td>
+              <td>&le; 18%</td>
+              <td>Reduzir risco por regra</td>
+            </tr>
+            <tr>
+              <td>Registro</td>
+              <td>% operações com justificativa</td>
+              <td>100%</td>
+              <td>Proibir novas operações fora do processo</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout">
+          <strong>Auditoria:</strong> 1x/mês você revisa “o que fez” vs “o que estava escrito”.
+          Você vira seu próprio comitê de investimento.
+        </div>
+
+        <hr class="hr">
+
+        <h2 id="s8">8) Template de IPS (copiar/colar) + checklist anual</h2>
+
+        <div class="codebox">
+          <strong>IPS — versão curta (1–2 páginas):</strong>
+          <p class="mini-note">Copie e cole em um documento. Isso é o seu “contrato com você mesmo”.</p>
+
+          <p><strong>1) Objetivo</strong><br>
+          (a) Retorno real alvo: ________ (ex.: CDI real + 2%).<br>
+          (b) Horizonte: ________ (ex.: 10+ anos).<br>
+          (c) Prioridade: ( ) acumulação ( ) renda ( ) preservação.</p>
+
+          <p><strong>2) Restrições</strong><br>
+          (a) Liquidez mínima: ________ meses de despesas (buffer).<br>
+          (b) Drawdown máximo tolerável: ________%.<br>
+          (c) Aportes/saques: regras e frequência: ________.<br>
+          (d) Impostos/contas: ________.</p>
+
+          <p><strong>3) Universo permitido</strong><br>
+          Classes permitidas: ( ) pós ( ) IPCA+ ( ) crédito ( ) ações BR ( ) exterior ( ) ouro/hedge.<br>
+          Classes proibidas: ________.<br>
+          % máximo ilíquido: ________%.</p>
+
+          <p><strong>4) Alocação alvo e bandas</strong><br>
+          Alvos \(w^\*\): ________.<br>
+          Bandas \(b\): ________ (absolutas ou proporcionais).<br>
+          Rebalancear apenas se \(|w_i - w_i^\*| \ge b_i\).</p>
+
+          <p><strong>5) Política de risco</strong><br>
+          Limite de RC por bloco: ________%.<br>
+          Limite FX: ________%.<br>
+          Gatilho drawdown: se DD > ________% → ação: ________.<br>
+          Turnover anual máximo: ________%.</p>
+
+          <p><strong>6) Processo e governança</strong><br>
+          Revisão mensal: métricas + aderência.<br>
+          Revisão anual: recalibrar objetivos, bandas e limites.<br>
+          Mudança de estratégia só se: ________ (condições objetivas).</p>
+
+          <p><strong>7) Registro</strong><br>
+          Toda operação deve conter: regra acionada + métrica + alternativa considerada.</p>
+        </div>
+
+        <div class="codebox">
+          <strong>Checklist anual (30–60 min):</strong>
+          <ol style="margin:10px 0 0 18px;">
+            <li>Objetivos mudaram? (renda/aposentadoria/risco)</li>
+            <li>Restrições mudaram? (liquidez, saúde, família)</li>
+            <li>Bandas ainda fazem sentido com custos e regime?</li>
+            <li>Risco total vs tolerância: DD observado é aceitável?</li>
+            <li>Turnover e custos: você está “operando demais”?</li>
+            <li>Auditoria: suas decisões seguiram o IPS?</li>
+            <li>Uma melhoria pequena para o próximo ano: ________</li>
+          </ol>
+        </div>
+
+        <h2 id="s9">Encerramento: como manter isso por décadas</h2>
+        <p>
+          O investidor profissional não é quem “prevê” o mercado. É quem constrói um sistema robusto:
+          ele sobrevive a regimes, controla custos, protege liquidez e reduz o erro humano.
+          Se você executar o IPS e auditar o processo, o tempo vira o seu melhor aliado.
+        </p>
+
+        <div class="callout">
+          <strong>Fechamento (regra final):</strong>
+          você só tem duas alavancas que realmente controla:
+          <strong>processo</strong> e <strong>comportamento</strong>. O resto é ruído.
+        </div>
+
+        <div class="jump" style="margin-top:18px;">
+          <a href="/posts/manual-investidor-profissional-brasileiro-parte-7.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 7</a>
+          <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+        </div>
+
+        <hr class="hr">
+        <div class="muted" style="font-size:12px;">
+          Nota: conteúdo educacional, sem recomendação. O objetivo é ensinar estrutura, governança e disciplina de longo prazo.
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (padrão do site) -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        <h3>Cérebro Milionário</h3>
+        <p>Educação financeira com profundidade estratégica.</p>
+        <div class="footer-social" aria-label="Redes sociais" style="display:flex;gap:12px;align-items:center;margin-top:10px">
+          <a href="https://t.me/cerebromillionario" target="_blank" rel="noopener" aria-label="Telegram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://instagram.com/cerebromillionario" target="_blank" rel="noopener" aria-label="Instagram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/glossario-financeiro.html">Glossário Financeiro</a></li>
+          <li><a href="/perguntas-frequentes.html">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== Mobile menu (topo do site) =====
+    (function () {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', function () {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    })();
+
+    // ===== Série: drawer mobile =====
+    (function(){
+      const fab = document.getElementById('seriesFab');
+      const nav = document.getElementById('seriesNav');
+      const backdrop = document.getElementById('seriesBackdrop');
+      const closeBtn = document.getElementById('seriesClose');
+      if(!fab || !nav || !backdrop || !closeBtn) return;
+
+      function openNav(){
+        nav.classList.add('open');
+        backdrop.classList.add('open');
+        fab.setAttribute('aria-expanded','true');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeNav(){
+        nav.classList.remove('open');
+        backdrop.classList.remove('open');
+        fab.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+      }
+
+      fab.addEventListener('click', openNav);
+      closeBtn.addEventListener('click', closeNav);
+      backdrop.addEventListener('click', closeNav);
+      document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeNav(); });
+    })();
+  </script>
+</body>
+</html>
