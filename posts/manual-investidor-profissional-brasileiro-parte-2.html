@@ -1,224 +1,846 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Manual do Investidor Profissional Brasileiro — Parte 2 | DSGE, RBC e Prêmio Soberano Endógeno</title>
-<meta name="description" content="Modelo DSGE completo aplicado ao Brasil: RBC, Phillips Novo-Keynesiana, restrição intertemporal do governo, condição de transversalidade e prêmio soberano endógeno em equilíbrio geral." />
-<meta name="robots" content="index, follow" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<link rel="stylesheet" href="/css/style.css" />
+<title>Manual do Investidor Profissional Brasileiro — Parte 2 | DSGE, RBC e Equilíbrio Geral</title>
+
+<meta name="description" content="Modelo DSGE aplicado ao Brasil: RBC completo, Phillips Curve Novo-Keynesiana, restrição intertemporal do governo e prêmio soberano endógeno." />
+
+<link rel="stylesheet" href="/css/style.css"/>
 
 <script>
 window.MathJax = {
-tex: { inlineMath: [['\','\'], ['$', '$']], displayMath: [['\','\']] }
+tex: { inlineMath: [['\\(','\\)'], ['$', '$']], displayMath: [['\\[','\\]']] }
 };
 </script>
+
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
 <style>
-body{overflow-x:hidden}
-.post-wrap{max-width:1100px;margin:0 auto;padding:40px 18px 120px}
-.pill{display:inline-block;padding:6px 12px;border-radius:999px;font-weight:800;font-size:12px;background:rgba(44,44,46,.06)}
-.toc{margin-top:20px;border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;padding:18px}
-.toc a{display:block;padding:8px 12px;border-radius:14px;margin:6px 0;text-decoration:none;border:1px solid rgba(0,0,0,.06)}
-.codebox{border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;padding:18px;margin:26px 0}
-.callout{border-left:4px solid #f4c430;background:rgba(244,196,48,.10);padding:18px;border-radius:14px;margin:26px 0}
-.warning{border-left:4px solid #e2574c;background:rgba(226,87,76,.08);padding:18px;border-radius:14px;margin:26px 0}
-.hr{height:1px;background:rgba(0,0,0,.10);border:0;margin:40px 0}
-h2{margin-top:50px}
-h3{margin-top:30px}
+
+.post-wrap{
+max-width:1100px;
+margin:auto;
+padding:40px 20px;
+}
+
+.pill{
+display:inline-block;
+padding:6px 12px;
+border-radius:999px;
+font-weight:700;
+font-size:12px;
+background:#f0f0f0;
+}
+
+.toc{
+border:1px solid rgba(0,0,0,.08);
+border-radius:16px;
+padding:20px;
+margin-top:20px;
+background:#fff;
+}
+
+.toc a{
+display:block;
+margin:6px 0;
+text-decoration:none;
+padding:6px 8px;
+border-radius:10px;
+border:1px solid rgba(0,0,0,.06);
+}
+
+.codebox{
+background:#fff;
+border-radius:16px;
+border:1px solid rgba(0,0,0,.08);
+padding:20px;
+margin:24px 0;
+}
+
+.callout{
+background:#fff9e6;
+border-left:4px solid #f4c430;
+padding:20px;
+border-radius:10px;
+margin:24px 0;
+}
+
+.hr{
+height:1px;
+background:#ddd;
+border:none;
+margin:40px 0;
+}
+
 </style>
+
 </head>
 
 <body>
+
 <div class="post-wrap">
 
-<span class="pill">DSGE Research • Parte 2/8</span>
-<h1>Equilíbrio Geral Dinâmico com Dominância Fiscal e Prêmio Soberano Endógeno</h1>
+<span class="pill">Manual do Investidor Profissional Brasileiro • Parte 2/8</span>
 
-<div class="callout">
-Agora modelamos o Brasil como economia aberta emergente em equilíbrio geral,
-onde prêmio soberano é variável endógena derivada da solvência fiscal e estabilidade monetária.
-</div>
+<h1>Equilíbrio Geral, RBC e Prêmio Soberano Endógeno</h1>
+
+<p>
+
+Na Parte 1 analisamos as forças estruturais que governam o capital em economias emergentes.
+
+Discutimos dinâmica da dívida pública, inflação regime-dependente,
+estrutura a termo de juros e implicações para o crescimento
+geométrico do patrimônio.
+
+Agora avançamos para uma estrutura mais completa:
+o **modelo DSGE (Dynamic Stochastic General Equilibrium)**.
+
+Esse tipo de modelo é amplamente utilizado por:
+
+• bancos centrais  
+• instituições multilaterais  
+• fundos macro globais  
+• departamentos de pesquisa econômica
+
+Ele permite analisar como choques econômicos
+se propagam pela economia ao longo do tempo.
+
+</p>
 
 <div class="toc">
-<h2>Estrutura Analítica</h2>
-<a href="#rbc">1. Modelo RBC Completo</a>
-<a href="#nkpc">2. Curva de Phillips Novo-Keynesiana</a>
-<a href="#gov">3. Restrição Intertemporal do Governo</a>
-<a href="#transv">4. Condição de Transversalidade</a>
-<a href="#risk">5. Prêmio Soberano Endógeno</a>
-<a href="#eq">6. Equilíbrio Geral com Risco Fiscal</a>
-<a href="#imp">7. Implicações para Investidor</a>
+
+<h3>Estrutura Analítica</h3>
+
+<a href="#rbc">1 — Modelo RBC (Real Business Cycle)</a>
+<a href="#households">2 — Otimização das Famílias</a>
+<a href="#firms">3 — Problema das Firmas</a>
+<a href="#technology">4 — Choques Tecnológicos</a>
+<a href="#equilibrium">5 — Condições de Equilíbrio</a>
+
 </div>
 
 <hr class="hr">
 
-<h2 id="rbc">1. Modelo RBC Completo</h2>
+<h2 id="rbc">1 — Modelo RBC (Real Business Cycle)</h2>
 
-Família representativa maximiza utilidade intertemporal:
+<p>
+
+O modelo RBC constitui o núcleo da macroeconomia moderna.
+
+Ele descreve como choques reais — principalmente tecnológicos —
+geram flutuações no produto, consumo e investimento.
+
+O modelo assume uma economia composta por três agentes principais:
+
+</p>
+
+<ul>
+
+<li>famílias representativas</li>
+
+<li>firmas competitivas</li>
+
+<li>governo</li>
+
+</ul>
+
+<p>
+
+A produção agregada é descrita por uma função Cobb-Douglas.
+
+</p>
 
 <div class="codebox">
-\[
-\max \mathbb{E}_0 \sum_{t=0}^{\infty} \beta^t
-\left[
-\frac{C_t^{1-\sigma}}{1-\sigma} - \frac{N_t^{1+\phi}}{1+\phi}
-\right]
-\]
-</div>
-
-Sujeito à restrição orçamentária:
-
-\[
-C_t + K_{t+1} = w_t N_t + r_t K_t + (1-\delta)K_t
-\]
-
-Produção:
 
 \[
 Y_t = A_t K_t^\alpha N_t^{1-\alpha}
 \]
 
-Choque tecnológico:
+</div>
 
-\[
-\ln A_t = \rho_A \ln A_{t-1} + \varepsilon_t
-\]
+<p>
 
-FOCs:
+onde:
 
-\[
-C_t^{-\sigma} = \beta E_t \left[ C_{t+1}^{-\sigma} (r_{t+1}+1-\delta) \right]
-\]
+• \(Y_t\) é produto  
+• \(A_t\) é tecnologia  
+• \(K_t\) é capital  
+• \(N_t\) é trabalho  
 
-Esse é núcleo do crescimento real.
+</p>
 
 <hr class="hr">
 
-<h2 id="nkpc">2. Curva de Phillips Novo-Keynesiana</h2>
+<h2 id="households">2 — Otimização das Famílias</h2>
 
-Empresas enfrentam rigidez de preços (Calvo):
+<p>
+
+As famílias escolhem consumo e trabalho para maximizar utilidade
+intertemporal.
+
+</p>
+
+<div class="codebox">
 
 \[
-\pi_t = \beta E_t \pi_{t+1} + \kappa x_t
+\max E_0
+\sum_{t=0}^{\infty}
+\beta^t
+\left[
+\frac{C_t^{1-\sigma}}{1-\sigma}
+-
+\frac{N_t^{1+\phi}}{1+\phi}
+\right]
 \]
+
+</div>
+
+<p>
+
+Essa função captura duas dimensões fundamentais:
+
+• utilidade derivada do consumo  
+• desutilidade do trabalho
+
+O parâmetro \( \beta \) representa o fator de desconto intertemporal.
+
+</p>
+
+<hr class="hr">
+
+<h2 id="firms">3 — Problema das Firmas</h2>
+
+<p>
+
+As firmas escolhem capital e trabalho
+para maximizar lucro.
+
+</p>
+
+<div class="codebox">
+
+\[
+\max
+A_t K_t^\alpha N_t^{1-\alpha}
+-
+w_t N_t
+-
+r_t K_t
+\]
+
+</div>
+
+<p>
+
+As condições de primeira ordem implicam:
+
+</p>
+
+<div class="codebox">
+
+\[
+w_t = (1-\alpha) \frac{Y_t}{N_t}
+\]
+
+\[
+r_t = \alpha \frac{Y_t}{K_t}
+\]
+
+</div>
+
+<p>
+
+Essas equações determinam os preços
+dos fatores de produção.
+
+</p>
+<hr class="hr">
+
+<h2 id="technology">4 — Choques Tecnológicos</h2>
+
+<p>
+
+No modelo RBC, a principal fonte de flutuações econômicas
+é o choque tecnológico.
+
+A tecnologia segue normalmente um processo estocástico autorregressivo.
+
+</p>
+
+<div class="codebox">
+
+\[
+\ln(A_t) =
+\rho_A \ln(A_{t-1})
++
+\varepsilon_t
+\]
+
+</div>
+
+<p>
 
 Onde:
 
-- x_t = hiato do produto
-- \kappa depende de rigidez
+• \(A_t\) representa produtividade total dos fatores  
+• \(\rho_A\) mede persistência do choque  
+• \(\varepsilon_t\) é choque aleatório
 
-Se política fiscal pressiona demanda,
-hiato aumenta → inflação sobe.
+Quando ocorre um choque tecnológico positivo,
+a produtividade da economia aumenta.
 
-<hr class="hr">
+Isso gera:
 
-<h2 id="gov">3. Restrição Intertemporal do Governo</h2>
+• maior produção  
+• aumento de salários reais  
+• aumento de investimento  
+• expansão do consumo
 
-Orçamento público:
+Esses choques explicam parte significativa
+das flutuações do ciclo econômico.
 
-\[
-B_{t+1} = (1+r_t)B_t + G_t - T_t
-\]
-
-Iterando para frente:
-
-\[
-B_t = \sum_{j=0}^{\infty}
-\frac{T_{t+j} - G_{t+j}}{\prod_{i=0}^{j}(1+r_{t+i})}
-\]
-
-Solvência exige valor presente de superávits ≥ dívida atual.
+</p>
 
 <hr class="hr">
 
-<h2 id="transv">4. Condição de Transversalidade</h2>
+<h2 id="equilibrium">5 — Condições de Equilíbrio Geral</h2>
 
-Para evitar explosão:
+<p>
+
+O equilíbrio da economia ocorre quando
+as decisões de famílias e firmas
+são consistentes entre si.
+
+A condição fundamental de equilíbrio é:
+
+</p>
+
+<div class="codebox">
 
 \[
-\lim_{T\to\infty}
-\frac{B_T}{\prod_{t=0}^{T}(1+r_t)} = 0
+Y_t = C_t + I_t + G_t
 \]
 
-Se condição falha → prêmio sobe.
+</div>
+
+<p>
+
+Ou seja,
+o produto total da economia
+é utilizado em três finalidades:
+
+• consumo  
+• investimento  
+• gasto público
+
+Essa identidade contábil constitui
+a base da análise macroeconômica.
+
+</p>
 
 <hr class="hr">
 
-<h2 id="risk">5. Prêmio Soberano Endógeno</h2>
+<h2 id="nkpc">6 — Curva de Phillips Novo-Keynesiana</h2>
 
-Modelamos taxa real doméstica como:
+<p>
+
+O modelo RBC tradicional assume preços flexíveis.
+
+No entanto,
+na realidade observamos rigidez de preços.
+
+Empresas não ajustam preços continuamente,
+principalmente devido a custos de menu,
+contratos e fricções institucionais.
+
+Para modelar esse fenômeno,
+utilizamos a **Curva de Phillips Novo-Keynesiana (NKPC)**.
+
+</p>
+
+<div class="codebox">
 
 \[
-r_t = r^* + \psi(B_t/Y_t) + \eta Var(\pi_t)
+\pi_t =
+\beta E_t(\pi_{t+1})
++
+\kappa x_t
 \]
+
+</div>
+
+<p>
 
 Onde:
 
-- r^* taxa internacional
-- \psi' > 0
+• \( \pi_t \) é inflação  
+• \(E_t(\pi_{t+1})\) é inflação esperada  
+• \(x_t\) é hiato do produto  
+• \( \kappa \) mede sensibilidade da inflação
 
-Prêmio cresce com dívida e volatilidade inflacionária.
+Essa equação indica que inflação depende de dois fatores:
+
+</p>
+
+<ul>
+
+<li>expectativas de inflação futura</li>
+
+<li>pressão de demanda na economia</li>
+
+</ul>
+
+<p>
+
+Quando a economia opera acima do produto potencial,
+as empresas enfrentam maior demanda
+e tendem a aumentar preços.
+
+</p>
 
 <hr class="hr">
 
-<h2 id="eq">6. Equilíbrio Geral com Risco Fiscal</h2>
+<h2 id="calvo">7 — Rigidez de Preços (Calvo Pricing)</h2>
 
-Sistema fechado:
+<p>
 
-1. Equação de Euler  
-2. Curva NKPC  
-3. Regra monetária (Taylor)  
-4. Restrição fiscal  
-5. Regra dívida/prêmio  
+Uma forma comum de modelar rigidez de preços
+é o mecanismo de **Calvo pricing**.
 
-Choque fiscal → aumenta dívida → eleva prêmio →
-aumenta custo de capital → reduz investimento →
-reduz crescimento potencial.
+Nesse modelo,
+em cada período apenas uma fração das empresas
+pode ajustar preços.
 
-Sistema é não-linear.
+Se \( \theta \) representa a probabilidade
+de uma empresa não reajustar preços,
+então apenas \(1-\theta\) das empresas
+reprecificam a cada período.
+
+A inclinação da curva de Phillips depende de:
+
+</p>
+
+<div class="codebox">
+
+\[
+\kappa =
+\frac{(1-\theta)(1-\beta\theta)}{\theta}
+\]
+
+</div>
+
+<p>
+
+Quanto maior a rigidez de preços,
+menor será a sensibilidade da inflação
+às condições econômicas.
+
+</p>
 
 <hr class="hr">
 
-<h2 id="imp">7. Implicações para Investidor</h2>
+<h2 id="taylor">8 — Regra de Taylor</h2>
 
-No equilíbrio:
+<p>
 
-- Aumento estrutural da dívida → prêmio estrutural maior  
-- Prêmio maior → custo de capital maior  
-- Custo maior → múltiplos menores  
+Para estabilizar inflação,
+bancos centrais utilizam regras de política monetária.
 
-Logo:
+Uma das mais conhecidas é a **Regra de Taylor**.
 
-Valuation no Brasil é função direta de solvência fiscal.
+</p>
+
+<div class="codebox">
+
+\[
+i_t =
+r^*
++
+\pi_t
++
+\phi_\pi(\pi_t - \pi^*)
++
+\phi_y y_t
+\]
+
+</div>
+
+<p>
+
+Onde:
+
+• \(i_t\) é taxa nominal de juros  
+• \(r^*\) é taxa real neutra  
+• \( \pi^* \) é meta de inflação  
+• \(y_t\) é hiato do produto
+
+Essa regra estabelece que
+o banco central aumenta juros
+quando inflação está acima da meta
+ou quando a economia está superaquecida.
+
+</p>
 
 <div class="callout">
-O investidor brasileiro está alocado dentro de um modelo DSGE com risco soberano endógeno.
-Retorno esperado não é constante — é função do regime fiscal.
+
+A credibilidade da política monetária
+é fundamental para ancorar expectativas de inflação.
+
 </div>
+
+<hr class="hr">
+<h2 id="fiscal">9 — Restrição Intertemporal do Governo</h2>
+
+<p>
+
+Até agora analisamos a economia a partir do comportamento
+de famílias, firmas e política monetária.
+
+Entretanto, em economias emergentes,
+a política fiscal possui papel central
+na determinação do equilíbrio macroeconômico.
+
+A dinâmica da dívida pública pode ser descrita pela seguinte equação:
+
+</p>
+
+<div class="codebox">
+
+\[
+B_{t+1} =
+(1+r_t)B_t
++
+G_t
+-
+T_t
+\]
+
+</div>
+
+<p>
+
+Onde:
+
+• \(B_t\) representa o estoque de dívida pública  
+• \(r_t\) é a taxa real de juros  
+• \(G_t\) é gasto público  
+• \(T_t\) é arrecadação tributária  
+
+Essa equação indica que a dívida cresce
+quando o governo gasta mais do que arrecada
+ou quando os juros pagos sobre a dívida
+são elevados.
+
+</p>
+
+<hr class="hr">
+
+<h2 id="pv">10 — Restrição Orçamentária Intertemporal</h2>
+
+<p>
+
+Iterando a equação da dívida para frente,
+obtemos a restrição intertemporal do governo.
+
+</p>
+
+<div class="codebox">
+
+\[
+B_t =
+\sum_{j=0}^{\infty}
+\frac{T_{t+j} - G_{t+j}}
+{\prod_{i=0}^{j}(1+r_{t+i})}
+\]
+
+</div>
+
+<p>
+
+Essa equação estabelece que o valor presente
+dos superávits fiscais futuros
+deve ser suficiente para pagar
+a dívida atual.
+
+Se essa condição não for satisfeita,
+os investidores passam a exigir
+um prêmio de risco maior
+para financiar o governo.
+
+</p>
+
+<hr class="hr">
+
+<h2 id="transv">11 — Condição de Transversalidade</h2>
+
+<p>
+
+Para garantir solvência fiscal de longo prazo,
+deve existir a chamada **condição de transversalidade**.
+
+</p>
+
+<div class="codebox">
+
+\[
+\lim_{T \to \infty}
+\frac{B_T}
+{\prod_{t=0}^{T}(1+r_t)}
+=
+0
+\]
+
+</div>
+
+<p>
+
+Essa condição garante que a dívida pública
+não cresce indefinidamente
+em termos de valor presente.
+
+Quando os investidores começam a duvidar
+da capacidade do governo de cumprir essa condição,
+o prêmio de risco soberano aumenta.
+
+</p>
+
+<hr class="hr">
+
+<h2 id="riskpremium">12 — Prêmio Soberano Endógeno</h2>
+
+<p>
+
+O prêmio de risco soberano representa
+a compensação exigida pelos investidores
+para carregar dívida pública.
+
+Esse prêmio pode ser modelado como função
+do nível de endividamento
+e da volatilidade macroeconômica.
+
+</p>
+
+<div class="codebox">
+
+\[
+r_t =
+r^*
++
+\psi\left(\frac{B_t}{Y_t}\right)
++
+\eta Var(\pi_t)
+\]
+
+</div>
+
+<p>
+
+Onde:
+
+• \(r^*\) é taxa real internacional  
+• \(B_t/Y_t\) é razão dívida/PIB  
+• \(Var(\pi_t)\) é volatilidade inflacionária  
+
+Esse modelo implica que o custo de capital
+aumenta quando a dívida pública cresce
+ou quando a inflação se torna mais volátil.
+
+</p>
+
+<div class="callout">
+
+O prêmio soberano é uma variável endógena
+do equilíbrio macroeconômico.
+
+</div>
+
+<hr class="hr">
+
+<h2 id="propagation">13 — Propagação de Choques Fiscais</h2>
+
+<p>
+
+Choques fiscais podem se propagar
+pela economia através de diversos canais.
+
+Quando o governo aumenta gastos
+sem aumento correspondente de arrecadação,
+a dívida pública cresce.
+
+O aumento da dívida eleva
+o prêmio de risco soberano.
+
+Esse aumento de prêmio
+tem diversos efeitos macroeconômicos.
+
+</p>
+
+<ul>
+
+<li>aumento da taxa de juros real</li>
+
+<li>redução do investimento privado</li>
+
+<li>desvalorização cambial</li>
+
+<li>pressão inflacionária</li>
+
+</ul>
+
+<p>
+
+Esses mecanismos mostram como decisões fiscais
+podem afetar diretamente
+o retorno de ativos financeiros.
+
+</p>
+
+<hr class="hr">
+
+<h2 id="valuation">14 — Implicações para Valuation de Ativos</h2>
+
+<p>
+
+O valor presente de qualquer ativo financeiro
+depende da taxa de desconto utilizada.
+
+</p>
+
+<div class="codebox">
+
+\[
+P =
+\sum_{t=1}^{\infty}
+\frac{CF_t}{(1+r_t)^t}
+\]
+
+</div>
+
+<p>
+
+Quando o prêmio soberano aumenta,
+a taxa de desconto utilizada
+na precificação de ativos também aumenta.
+
+Isso implica:
+
+</p>
+
+<ul>
+
+<li>queda no preço de ações</li>
+
+<li>queda no preço de títulos</li>
+
+<li>aumento do custo de capital</li>
+
+</ul>
+
+<p>
+
+Portanto,
+a trajetória fiscal de um país
+possui impacto direto
+sobre os mercados financeiros.
+
+</p>
+
+<hr class="hr">
+
+<h2 id="investor">15 — Implicações para Investidores</h2>
+
+<p>
+
+A estrutura DSGE apresentada neste capítulo
+mostra que investidores brasileiros
+operam dentro de um sistema
+onde política fiscal, inflação
+e custo de capital estão profundamente conectados.
+
+Isso leva a algumas conclusões importantes.
+
+</p>
+
+<ul>
+
+<li>retornos financeiros dependem da solvência fiscal</li>
+
+<li>o prêmio de risco soberano influencia todos os ativos</li>
+
+<li>mudanças de regime fiscal alteram valuation de mercado</li>
+
+<li>diversificação internacional reduz exposição ao risco soberano</li>
+
+</ul>
+
+<p>
+
+Em outras palavras,
+o investidor brasileiro
+não pode analisar ativos isoladamente.
+
+Ele precisa compreender o ambiente macroeconômico
+no qual esses ativos estão inseridos.
+
+</p>
 
 <hr class="hr">
 
 <h2>Conclusão</h2>
 
-Agora temos:
+<p>
 
-✔ RBC real  
-✔ Phillips NK  
-✔ Restrição intertemporal  
-✔ Transversalidade  
-✔ Prêmio soberano endógeno  
+Nesta segunda parte do Manual do Investidor Profissional Brasileiro,
+expandimos a análise estrutural iniciada no capítulo anterior.
 
-Na Parte 3 avançaremos para:
+Apresentamos um modelo de equilíbrio geral
+capaz de integrar:
 
-- Modelo aberto com fluxo de capitais  
-- Paridade descoberta de juros com risco  
-- Dinâmica cambial estocástica  
-- External debt constraint  
-- Modelo de Sudden Stop  
+</p>
 
-Isso será nível FMI.
+<ul>
 
-Seguimos?
+<li>decisões de consumo e investimento</li>
+
+<li>rigidez de preços e dinâmica inflacionária</li>
+
+<li>política monetária</li>
+
+<li>trajetória fiscal</li>
+
+<li>prêmio soberano endógeno</li>
+
+</ul>
+
+<p>
+
+Essa estrutura permite compreender
+como choques econômicos
+se propagam pela economia
+e afetam o comportamento dos mercados financeiros.
+
+Nos próximos capítulos,
+expandiremos essa análise
+para incorporar dinâmica cambial,
+fluxos de capitais internacionais
+e crises financeiras.
+
+</p>
+
+<div class="callout">
+
+Investir em economias emergentes exige
+compreensão profunda da interação
+entre política fiscal, política monetária
+e mercados financeiros.
+
+</div>
+
+</div>
+
+</body>
+</html>
