@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Enciclopédia da Bolsa (1/8): Como Analisar Empresas (Guia Institucional) | Cérebro Milionário</title>
-<meta name="description" content="Aprenda a analisar empresas em nível institucional: moat, ROIC, unit economics, drivers de receita, margem, reinvestimento, risco, valuation mental e checklists profissionais. Parte 1/8 da Enciclopédia da Bolsa do Cérebro Milionário.">
+<meta name="description" content="Aprenda a analisar empresas em nível institucional: moat, ROIC, unit economics, drivers de receita, margem, reinvestimento, risco e checklists profissionais. Parte 1/8 da Enciclopédia da Bolsa do Cérebro Milionário.">
 <meta name="robots" content="index, follow">
 
 <!-- Google AdSense -->
@@ -17,7 +17,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <style>
-  /* Ajustes locais (mantém seu CSS global intacto) */
+  /* ===== FIX MENU SUPERIOR (por página, caso você ainda não tenha colocado no style.css) ===== */
+  .nav-menu a{ white-space: nowrap; }
+  .nav-menu{ align-items: center; }
+
+  /* ===== Ajustes locais para leitura longa ===== */
   .post-long p{ line-height: 1.78; }
   .post-long h2{ margin-top: 34px; }
   .post-long h3{ margin-top: 26px; }
@@ -63,18 +67,11 @@
   }
 
   /* ===== Menu da Série (desktop fixo sem cobrir texto + drawer mobile) ===== */
-  .series-layout{
-    position: relative;
-  }
-  .series-content{
-    position: relative;
-  }
+  .series-layout{ position: relative; }
+  .series-content{ position: relative; }
 
-  /* Desktop: reserva espaço para a sidebar não cobrir o texto */
   @media(min-width: 1024px){
-    .series-content{
-      padding-right: 300px; /* espaço para sidebar */
-    }
+    .series-content{ padding-right: 300px; } /* espaço para sidebar */
   }
 
   .series-sidebar{
@@ -87,19 +84,10 @@
     margin: 6px 0 8px;
     font-size: 1.05rem;
   }
-  .series-sidebar a{
-    text-decoration: none;
-  }
-  .series-sidebar a:hover{
-    text-decoration: underline;
-  }
-  .series-sidebar ul{
-    margin: 0;
-    padding-left: 18px;
-  }
-  .series-sidebar li{
-    margin: 8px 0;
-  }
+  .series-sidebar a{ text-decoration: none; }
+  .series-sidebar a:hover{ text-decoration: underline; }
+  .series-sidebar ul{ margin: 0; padding-left: 18px; }
+  .series-sidebar li{ margin: 8px 0; }
   .series-pill{
     display: inline-block;
     font-size: .9rem;
@@ -110,10 +98,14 @@
     margin-bottom: 10px;
   }
 
-  /* Sidebar fixa apenas no desktop */
-  .series-sidebar-desktop{
-    display: none;
+  /* item ativo */
+  .series-active{
+    font-weight: 900;
+    text-decoration: underline;
   }
+
+  /* Desktop sidebar */
+  .series-sidebar-desktop{ display: none; }
   @media(min-width: 1024px){
     .series-sidebar-desktop{
       display: block;
@@ -206,7 +198,7 @@
         <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
         <li><a href="/calculadora.html">Calculadora</a></li>
         <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
-        <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+        <li><a href="/calculadora-ir-renda-fixa.html">IR&nbsp;Renda&nbsp;Fixa</a></li>
         <li><a href="/aposentadoria.html">Aposentadoria</a></li>
         <li><a href="/cursos.html">Cursos</a></li>
         <li><a href="/comunidade.html">Comunidade</a></li>
@@ -216,7 +208,7 @@
   </div>
 </header>
 
-<!-- Mobile drawer -->
+<!-- Drawer mobile da série -->
 <div class="series-backdrop" id="seriesBackdrop" aria-hidden="true"></div>
 <aside class="series-drawer" id="seriesDrawer" aria-hidden="true" aria-label="Menu da série Enciclopédia da Bolsa">
   <div class="drawer-header">
@@ -230,7 +222,7 @@
   <div class="series-sidebar">
     <h3>Partes</h3>
     <ul>
-      <li><strong>1) Como analisar empresas</strong></li>
+      <li><a class="series-active" aria-current="page" href="/posts/enciclopedia-da-bolsa-parte-1-como-analisar-empresas.html">1) Como analisar empresas</a></li>
       <li><a href="/posts/enciclopedia-da-bolsa-parte-2-como-ler-balancos.html">2) Como ler balanços</a></li>
       <li><a href="/posts/enciclopedia-da-bolsa-parte-3-valuation-completo.html">3) Valuation completo</a></li>
       <li><a href="/posts/enciclopedia-da-bolsa-parte-4-psicologia-do-mercado.html">4) Psicologia do mercado</a></li>
@@ -258,12 +250,12 @@
 <main class="section post-long">
   <div class="container series-layout" style="max-width: 980px;">
 
-    <!-- Sidebar desktop (fixa, sem cobrir texto) -->
+    <!-- Sidebar desktop -->
     <aside class="series-sidebar series-sidebar-desktop" aria-label="Menu da série Enciclopédia da Bolsa">
       <div class="series-pill">Enciclopédia da Bolsa • 1/8</div>
       <h3>Partes</h3>
       <ul>
-        <li><strong>1) Como analisar empresas</strong></li>
+        <li><a class="series-active" aria-current="page" href="/posts/enciclopedia-da-bolsa-parte-1-como-analisar-empresas.html">1) Como analisar empresas</a></li>
         <li><a href="/posts/enciclopedia-da-bolsa-parte-2-como-ler-balancos.html">2) Como ler balanços</a></li>
         <li><a href="/posts/enciclopedia-da-bolsa-parte-3-valuation-completo.html">3) Valuation completo</a></li>
         <li><a href="/posts/enciclopedia-da-bolsa-parte-4-psicologia-do-mercado.html">4) Psicologia do mercado</a></li>
@@ -285,11 +277,11 @@
     <article class="series-content">
 
       <h1>Enciclopédia da Bolsa (1/8): Como Analisar Empresas</h1>
-      <p class="tagline">Análise institucional não é “gostar do produto”, nem “seguir dica”. É entender como a empresa cria valor: moat, ROIC, reinvestimento, risco, qualidade de caixa e preço. Esse post te dá o framework completo.</p>
-      <p><strong>Leitura estimada:</strong> 45 a 85 minutos (nível profissional).</p>
+      <p class="tagline">Análise institucional não é “gostar do produto”. É entender como a empresa cria valor: moat, ROIC, reinvestimento, risco, qualidade de caixa e preço. Aqui está o framework.</p>
+      <p><strong>Leitura estimada:</strong> 45 a 85 minutos.</p>
 
       <div class="callout">
-        <p><strong>Regra de ouro:</strong> o investidor iniciante tenta prever o preço. O investidor profissional tenta entender o negócio. Preço é barulho; fundamentos são o motor.</p>
+        <p><strong>Regra de ouro:</strong> iniciante tenta prever preço. Profissional tenta entender o negócio e o regime. Preço é barulho; fundamentos são motor.</p>
         <p class="mini"><strong>Nota:</strong> educacional. Não é recomendação de investimento.</p>
       </div>
 
@@ -299,249 +291,142 @@
       <ul class="toc">
         <li><a href="#modelo">1) O modelo mental: empresa = máquina de caixa</a></li>
         <li><a href="#drivers">2) Drivers de valor: receita, margem, reinvestimento, risco</a></li>
-        <li><a href="#moat">3) Moat (vantagem competitiva): o que é e como testar</a></li>
-        <li><a href="#roic">4) ROIC e qualidade: o indicador que separa empresas “boas”</a></li>
-        <li><a href="#unit">5) Unit economics: onde a verdade aparece cedo</a></li>
-        <li><a href="#ciclo">6) Ciclicidade: pico, vale e o erro de comprar lucro de pico</a></li>
-        <li><a href="#gestao">7) Gestão e governança: risco oculto mais caro</a></li>
-        <li><a href="#risco">8) Riscos: o que pode quebrar a tese (checklist)</a></li>
-        <li><a href="#output">9) O output da análise: tese, preço, gatilhos e governança</a></li>
+        <li><a href="#moat">3) Moat: vantagem competitiva e teste prático</a></li>
+        <li><a href="#roic">4) ROIC: o indicador que separa empresas boas</a></li>
+        <li><a href="#unit">5) Unit economics: onde a verdade aparece</a></li>
+        <li><a href="#ciclo">6) Ciclicidade: o erro de comprar lucro de pico</a></li>
+        <li><a href="#gestao">7) Gestão e governança: risco oculto caro</a></li>
+        <li><a href="#risco">8) Riscos que quebram tese</a></li>
+        <li><a href="#output">9) Output: tese, preço, gatilhos e governança</a></li>
         <li><a href="#checklists">10) Checklists institucionais</a></li>
       </ul>
 
       <hr>
 
       <h2 id="modelo">1) O modelo mental: empresa = máquina de caixa</h2>
-      <p>Quando você compra uma ação, você compra uma fração de um negócio. Um negócio vale pelo que ele consegue produzir ao longo do tempo: <strong>caixa</strong>. Mesmo quando a empresa reinveste e não distribui, o valor vem do caixa que ela consegue gerar (direta ou indiretamente) no futuro.</p>
-      <p>O investidor iniciante olha “preço subindo”. O investidor profissional olha:</p>
+      <p>Quando você compra uma ação, você compra uma fração de um negócio. Um negócio vale pelo que consegue produzir ao longo do tempo: <strong>caixa</strong>. Mesmo quando reinveste e não distribui, o valor nasce do caixa futuro (direto ou indireto) que ele pode gerar.</p>
+      <p>O investidor iniciante olha “preço subindo”. O investidor institucional olha:</p>
       <ul>
-        <li>Qual é a fonte estrutural da receita?</li>
-        <li>Qual é a capacidade de precificação (pricing power)?</li>
-        <li>Qual é a estrutura de custos e a alavancagem operacional?</li>
-        <li>Quanto ela precisa reinvestir para manter (e crescer)?</li>
-        <li>Qual é o risco (macro, regulatório, concorrência, crédito)?</li>
+        <li>de onde vem a receita e se ela é recorrente;</li>
+        <li>se existe poder de precificação (pricing power);</li>
+        <li>como a margem se sustenta (ou depende de ciclo);</li>
+        <li>quanto precisa reinvestir para manter e crescer;</li>
+        <li>quais riscos podem quebrar a tese.</li>
       </ul>
 
       <div class="divider-title">Framework macro do valor (resumo)</div>
       <p><strong>Valor ≈</strong> (tamanho do mercado) × (participação sustentável) × (margem sustentável) × (reinvestimento) ajustado por (risco e taxa de desconto).</p>
-      <p>Você não precisa calcular tudo no começo. Você precisa aprender a <strong>pensar</strong> assim.</p>
 
       <hr>
 
-      <h2 id="drivers">2) Drivers de valor: receita, margem, reinvestimento, risco</h2>
-      <p>Quase todo valuation (sofisticado ou simples) depende de quatro blocos:</p>
+      <h2 id="drivers">2) Drivers de valor</h2>
       <table>
         <thead>
           <tr>
             <th>Bloco</th>
-            <th>Pergunta que importa</th>
-            <th>O que você procura</th>
-            <th>Sinais de alerta</th>
+            <th>Pergunta</th>
+            <th>O que procurar</th>
+            <th>Alerta</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><strong>Receita</strong></td>
-            <td>De onde vem? É recorrente?</td>
-            <td>crescimento com qualidade</td>
-            <td>crescimento comprado com desconto</td>
+            <td>cresce por quê?</td>
+            <td>qualidade e recorrência</td>
+            <td>crescimento “comprado”</td>
           </tr>
           <tr>
             <td><strong>Margem</strong></td>
-            <td>Quanto sobra e por quê?</td>
+            <td>por que sobra mais?</td>
             <td>moat + eficiência</td>
-            <td>margem inflada por ciclo</td>
+            <td>margem de pico</td>
           </tr>
           <tr>
             <td><strong>Reinvestimento</strong></td>
-            <td>Quanto precisa reinvestir?</td>
-            <td>crescer sem destruir ROIC</td>
-            <td>cresce “a qualquer custo”</td>
+            <td>crescer exige quanto?</td>
+            <td>ROIC saudável</td>
+            <td>cresce destruindo valor</td>
           </tr>
           <tr>
             <td><strong>Risco</strong></td>
-            <td>O que pode quebrar a tese?</td>
+            <td>o que pode dar errado?</td>
             <td>resiliência</td>
-            <td>alavancagem, regulação, disrupção</td>
+            <td>alavancagem/regulação</td>
           </tr>
         </tbody>
       </table>
 
-      <div class="callout">
-        <p><strong>Atalho:</strong> crescimento sozinho não é qualidade. Crescimento com ROIC alto e caixa real é qualidade.</p>
-      </div>
-
       <hr>
 
-      <h2 id="moat">3) Moat: o que é e como testar</h2>
-      <p><strong>Moat</strong> é a vantagem competitiva que permite a uma empresa sustentar retornos acima do custo de capital por muito tempo. É isso que dá “compounding”. Sem moat, concorrência come margem e o negócio vira commodity.</p>
-
-      <div class="divider-title">Tipos de moat (os principais)</div>
+      <h2 id="moat">3) Moat</h2>
       <ul>
-        <li><strong>Marca</strong> (prêmio de preço + preferência)</li>
-        <li><strong>Efeito de rede</strong> (quanto mais usuários, melhor fica)</li>
-        <li><strong>Switching costs</strong> (trocar dá dor/custo/risco)</li>
-        <li><strong>Escala e custo</strong> (custo menor que o concorrente)</li>
-        <li><strong>Regulação/licenças</strong> (barreira institucional)</li>
-        <li><strong>Distribuição</strong> (acesso a canal que o outro não replica)</li>
+        <li><strong>Marca</strong>, <strong>efeito de rede</strong>, <strong>switching costs</strong>, <strong>escala/custo</strong>, <strong>regulação</strong>, <strong>distribuição</strong>.</li>
       </ul>
 
-      <div class="divider-title">Teste institucional do moat (3 perguntas)</div>
+      <div class="divider-title">Teste prático do moat</div>
       <ol>
-        <li><strong>Se o preço subir 5–10%</strong>, o cliente continua comprando? (pricing power)</li>
-        <li><strong>Um concorrente com muito dinheiro</strong> consegue copiar em 2 anos? (barreira real)</li>
-        <li><strong>O cliente tem motivo</strong> para ficar? (trava / switching costs)</li>
+        <li>Se subir preço 5–10%, o cliente continua?</li>
+        <li>Um concorrente rico copia em 2 anos?</li>
+        <li>O cliente tem motivo real para ficar?</li>
       </ol>
 
-      <p>Se você não consegue explicar por que a empresa sustenta margem, ela provavelmente <strong>não sustenta</strong>.</p>
+      <hr>
+
+      <h2 id="roic">4) ROIC</h2>
+      <p>ROIC mede quanta eficiência a empresa tem para transformar capital em lucro operacional. Se ROIC fica acima do custo de capital por anos, ela tende a criar valor ao crescer.</p>
 
       <hr>
 
-      <h2 id="roic">4) ROIC: o indicador que separa empresas “boas”</h2>
-      <p>ROIC (retorno sobre capital investido) mede quanta eficiência a empresa tem para transformar capital em lucro operacional. Em linguagem simples: <strong>quanto ela ganha para cada “1 real” investido</strong>.</p>
-      <p>Por que isso é vital?</p>
+      <h2 id="unit">5) Unit economics</h2>
       <ul>
-        <li>Empresas com <strong>ROIC acima do custo de capital</strong> criam valor ao crescer.</li>
-        <li>Empresas com ROIC baixo podem crescer e ainda assim <strong>destruir valor</strong>.</li>
-      </ul>
-
-      <div class="callout">
-        <p><strong>Regra:</strong> crescimento só é bom se vem com ROIC saudável. Crescimento com ROIC baixo vira “crescimento caro”.</p>
-      </div>
-
-      <hr>
-
-      <h2 id="unit">5) Unit economics: onde a verdade aparece cedo</h2>
-      <p>Unit economics é olhar a economia por unidade: por cliente, por pedido, por contrato, por loja. É aqui que você descobre se o crescimento é real ou “comprado”.</p>
-
-      <div class="divider-title">Perguntas clássicas</div>
-      <ul>
-        <li>Quanto custa adquirir um cliente (CAC)?</li>
-        <li>Quanto ele gera de margem no tempo (LTV)?</li>
-        <li>Qual o payback do CAC?</li>
-        <li>Qual a taxa de churn (cancelamento)?</li>
-        <li>O crescimento piora ou melhora a margem?</li>
-      </ul>
-
-      <p>Mesmo em empresas tradicionais, existe unit economics: margem por produto, por região, por canal, por carteira, por contrato.</p>
-
-      <hr>
-
-      <h2 id="ciclo">6) Ciclicidade: o erro de comprar lucro de pico</h2>
-      <p>Muitos iniciantes compram empresas “baratas” em múltiplos quando o lucro está no pico do ciclo. O múltiplo parece baixo, o yield parece alto, e então… o ciclo vira, o lucro cai, e a ação cai junto.</p>
-
-      <div class="divider-title">Como pensar em ciclo (o básico que salva dinheiro)</div>
-      <ul>
-        <li><strong>Normalizar lucros:</strong> olhar média de ciclo, não o último trimestre.</li>
-        <li><strong>Entender driver do ciclo:</strong> commodity, crédito, demanda, oferta, juros.</li>
-        <li><strong>Stress test:</strong> “e se margem voltar ao normal?”</li>
-      </ul>
-
-      <div class="callout">
-        <p><strong>Regra de sobrevivência:</strong> nunca compre tese baseada em lucro excepcional sem provar por que ele é sustentável.</p>
-      </div>
-
-      <hr>
-
-      <h2 id="gestao">7) Gestão e governança: o risco oculto mais caro</h2>
-      <p>Gestão ruim destrói valor com uma eficiência brutal: aloca capital mal, se alavanca no momento errado, faz aquisições caras e usa contabilidade para “maquiar” performance.</p>
-
-      <div class="divider-title">Sinais de gestão boa</div>
-      <ul>
-        <li>disciplina de capital (ROIC e retorno por projeto)</li>
-        <li>alavancagem controlada</li>
-        <li>comunicação consistente (sem prometer “milagre”)</li>
-        <li>incentivos alinhados (não só bônus de curto prazo)</li>
-      </ul>
-
-      <div class="divider-title">Sinais de alerta</div>
-      <ul>
-        <li>crescimento por M&A caro sem sinergia clara</li>
-        <li>guidance otimista e revisões constantes</li>
-        <li>muita “história” e pouca margem/caja</li>
-        <li>alavancagem que depende de cenário perfeito</li>
+        <li>CAC, LTV, payback, churn, margem incremental, ganho de escala.</li>
       </ul>
 
       <hr>
 
-      <h2 id="risco">8) Riscos: o que pode quebrar a tese</h2>
-      <p>Risco não é “a ação cair 10%”. Risco é a tese estar errada. Aqui você lista, sem ego, o que pode te destruir:</p>
-
-      <div class="divider-title">Checklist de riscos (profissional)</div>
-      <ul>
-        <li><strong>Concorrência</strong>: alguém copia e reduz margem?</li>
-        <li><strong>Regulação</strong>: muda regra e mata retorno?</li>
-        <li><strong>Crédito/juros</strong>: empresa depende de refinanciamento?</li>
-        <li><strong>Commodities/câmbio</strong>: margem depende de preço externo?</li>
-        <li><strong>Tecnologia</strong>: disrupção torna produto irrelevante?</li>
-        <li><strong>Governança</strong>: controlador/gestão pode expropriar minoritário?</li>
-        <li><strong>Execução</strong>: o plano exige “perfeição” operacional?</li>
-      </ul>
-
-      <div class="callout">
-        <p><strong>Regra:</strong> se você não consegue listar riscos, você está no modo torcida — e torcida perde dinheiro.</p>
-      </div>
+      <h2 id="ciclo">6) Ciclicidade</h2>
+      <p>O erro clássico é comprar lucro de pico: múltiplo parece baixo, yield parece alto… e depois o ciclo vira. Antídoto: normalizar lucro, entender driver do ciclo e fazer stress test de margem.</p>
 
       <hr>
 
-      <h2 id="output">9) O output da análise: tese, preço, gatilhos e governança</h2>
-      <p>Analisar empresa sem transformar em “decisão” vira hobby. O output institucional tem 4 peças:</p>
+      <h2 id="gestao">7) Gestão e governança</h2>
+      <p>Gestão ruim destrói valor: aquisições caras, alavancagem no timing errado, incentivos desalinhados e contabilidade “criativa”. Gestão boa é disciplina de capital.</p>
 
-      <div class="divider-title">1) Tese (em 10 linhas)</div>
+      <hr>
+
+      <h2 id="risco">8) Riscos que quebram tese</h2>
       <ul>
-        <li>O que a empresa faz (simples).</li>
-        <li>Por que ela tem moat (se tiver).</li>
-        <li>Quais são os drivers (receita, margem, reinvestimento).</li>
-        <li>Quais são os 3 maiores riscos.</li>
-      </ul>
-
-      <div class="divider-title">2) Faixa de preço (margem de segurança)</div>
-      <p>Você não precisa fazer DCF agora (na Parte 3 faremos completo). Mas precisa ter noção de “caro vs barato” com base em lucro normalizado, ROIC e risco.</p>
-
-      <div class="divider-title">3) Gatilhos (o que você monitora)</div>
-      <ul>
-        <li>margem (estável ou caindo?)</li>
-        <li>crescimento (qualidade ou desconto?)</li>
-        <li>endividamento e custo de dívida</li>
-        <li>market share (ganhando ou perdendo?)</li>
-      </ul>
-
-      <div class="divider-title">4) Governança de posição</div>
-      <ul>
-        <li>tamanho máximo na carteira</li>
-        <li>condições para aumentar</li>
-        <li>condições para reduzir/vender (tese quebrou, risco subiu, preço esticou)</li>
+        <li>concorrência, regulação, juros/crédito, tecnologia, governança, execução.</li>
       </ul>
 
       <hr>
 
-      <h2 id="checklists">10) Checklists institucionais</h2>
+      <h2 id="output">9) Output: tese, preço, gatilhos e governança</h2>
+      <ul>
+        <li><strong>Tese:</strong> o que precisa ser verdade para você estar certo.</li>
+        <li><strong>Faixa de preço:</strong> margem de segurança (Parte 3 vai formalizar).</li>
+        <li><strong>Gatilhos:</strong> margem, crescimento, dívida, market share.</li>
+        <li><strong>Governança:</strong> tamanho máximo, regra de aumentar, regra de reduzir.</li>
+      </ul>
 
+      <hr>
+
+      <h2 id="checklists">10) Checklists</h2>
       <div class="divider-title">Checklist A — Qualidade</div>
       <ul>
-        <li>Moat claro e defensável?</li>
-        <li>ROIC consistentemente saudável?</li>
-        <li>Gera caixa real (não só lucro contábil)?</li>
-        <li>Balanço resistente (sem depender de cenário perfeito)?</li>
+        <li>Moat claro?</li>
+        <li>ROIC saudável e consistente?</li>
+        <li>Caixa real?</li>
+        <li>Balanço resistente?</li>
       </ul>
 
-      <div class="divider-title">Checklist B — Crescimento</div>
+      <div class="divider-title">Checklist B — Preço e risco</div>
       <ul>
-        <li>Crescimento vem de demanda real ou desconto?</li>
-        <li>Unit economics melhora com escala?</li>
-        <li>O reinvestimento cria valor (ROIC incremental)?</li>
+        <li>Tem margem de segurança?</li>
+        <li>Riscos mapeados?</li>
+        <li>Regras de posição definidas?</li>
       </ul>
-
-      <div class="divider-title">Checklist C — Preço e risco</div>
-      <ul>
-        <li>Você tem margem de segurança?</li>
-        <li>Você entendeu os riscos que quebram a tese?</li>
-        <li>Você tem governança de posição?</li>
-      </ul>
-
-      <div class="callout">
-        <p><strong>Resumo executivo:</strong> empresa excelente + preço ruim = retorno ruim. Empresa ok + preço ótimo = pode dar retorno bom. O jogo é sempre “qualidade + preço + risco + tempo”.</p>
-      </div>
 
       <hr>
 
@@ -551,9 +436,8 @@
 
       <p class="mini"><strong>Interlinks sugeridos (SEO interno):</strong><br>
         • ETFs e alocação global: <a href="/posts/etfs-alocacao-global-guia-2026_CFA.html">/posts/etfs-alocacao-global-guia-2026_CFA.html</a><br>
-        • Renda fixa (base do investidor): <a href="/posts/renda-fixa-guia-completo-2026.html">/posts/renda-fixa-guia-completo-2026.html</a><br>
+        • Renda fixa: <a href="/posts/renda-fixa-guia-completo-2026.html">/posts/renda-fixa-guia-completo-2026.html</a><br>
         • Construção de patrimônio: <a href="/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html">/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html</a><br>
-        • Guia de dividendos: <a href="/posts/guia-institucional-de-dividendos-mitos-matematica-estrategia.html">/posts/guia-institucional-de-dividendos-mitos-matematica-estrategia.html</a><br>
       </p>
 
     </article>
@@ -619,7 +503,7 @@
     if(el) el.textContent = new Date().getFullYear();
   })();
 
-  // Drawer do menu da série (mobile)
+  // Drawer da série (mobile)
   (function(){
     var fab = document.getElementById('seriesFab');
     var drawer = document.getElementById('seriesDrawer');
