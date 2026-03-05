@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Enciclopédia da Bolsa (8/8): Erros Fatais do Investidor (Manual Anti-Ruína) | Cérebro Milionário</title>
+<meta name="description" content="Erros fatais do investidor em nível institucional: ruína, alavancagem, concentração, narrativas, overtrading, falta de método, risco de crédito e liquidez, timing, viés comportamental e governança. Parte 8/8 da Enciclopédia da Bolsa.">
+<meta name="robots" content="index, follow">
+
+<!-- Google AdSense -->
+<meta name="google-adsense-account" content="ca-pub-4613426749830025">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025"
+     crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+  /* ===== FIX MENU SUPERIOR (ideal mover pro /css/style.css) ===== */
+  .nav-menu a{ white-space: nowrap; }
+  .nav-menu{ align-items: center; }
+
+  /* ===== Ajustes locais para leitura longa ===== */
+  .post-long p{ line-height: 1.78; }
+  .post-long h2{ margin-top: 34px; }
+  .post-long h3{ margin-top: 26px; }
+  .post-long hr{ margin: 26px 0; opacity: .35; }
+  .post-long .callout{
+    border-left: 5px solid #2c2c2e;
+    background: #f3f3f3;
+    padding: 14px 16px;
+    border-radius: 10px;
+    margin: 18px 0;
+  }
+  .post-long .mini{ font-size: 0.95rem; opacity: .9; }
+  .post-long table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 18px;
+    font-size: 0.98rem;
+  }
+  .post-long th, .post-long td{
+    border: 1px solid rgba(0,0,0,.12);
+    padding: 10px 10px;
+    vertical-align: top;
+  }
+  .post-long th{
+    background: rgba(0,0,0,.04);
+    text-align: left;
+  }
+  .post-long .toc a{ text-decoration: none; }
+  .post-long .toc a:hover{ text-decoration: underline; }
+  .post-long .tagline{ margin-top: 6px; font-weight: 800; opacity: .95; }
+  .post-long code{
+    background: rgba(0,0,0,.06);
+    padding: 2px 6px;
+    border-radius: 6px;
+  }
+  .post-long .divider-title{
+    margin: 32px 0 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(244, 196, 48, 0.20);
+    border: 1px solid rgba(244, 196, 48, 0.40);
+    font-weight: 900;
+  }
+
+  /* ===== Menu da Série (desktop fixo sem cobrir texto + drawer mobile) ===== */
+  .series-layout{ position: relative; }
+  .series-content{ position: relative; z-index: 1; }
+  @media(min-width: 1024px){
+    .series-content{ padding-right: 300px; }
+  }
+
+  .series-sidebar{
+    border: 1px solid rgba(0,0,0,.12);
+    border-radius: 14px;
+    background: rgba(0,0,0,.02);
+    padding: 12px 12px;
+    pointer-events: auto;
+  }
+  .series-sidebar h3{ margin: 6px 0 8px; font-size: 1.05rem; }
+  .series-sidebar a{ text-decoration: none; pointer-events: auto; }
+  .series-sidebar a:hover{ text-decoration: underline; }
+  .series-sidebar ul{ margin: 0; padding-left: 18px; }
+  .series-sidebar li{ margin: 8px 0; }
+  .series-pill{
+    display: inline-block;
+    font-size: .9rem;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,.12);
+    background: rgba(244, 196, 48, 0.18);
+    margin-bottom: 10px;
+  }
+  .series-active{ font-weight: 900; text-decoration: underline; }
+
+  .series-sidebar-desktop{ display: none; }
+  @media(min-width: 1024px){
+    .series-sidebar-desktop{
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 270px;
+      z-index: 50;
+    }
+  }
+
+  /* Mobile drawer */
+  .series-fab{
+    position: fixed;
+    right: 16px;
+    bottom: 18px;
+    z-index: 999;
+    border: none;
+    border-radius: 999px;
+    padding: 12px 14px;
+    box-shadow: 0 8px 22px rgba(0,0,0,.18);
+    background: #2c2c2e;
+    color: #fff;
+    font-weight: 800;
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+  }
+  @media(min-width: 1024px){
+    .series-fab{ display: none; }
+  }
+
+  .series-backdrop{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 998;
+    display: none;
+  }
+  .series-drawer{
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: min(88vw, 360px);
+    background: #fff;
+    z-index: 999;
+    transform: translateX(105%);
+    transition: transform .22s ease;
+    padding: 16px;
+    box-shadow: -10px 0 28px rgba(0,0,0,.20);
+    overflow-y: auto;
+  }
+  .series-drawer.open{ transform: translateX(0); }
+  .series-backdrop.open{ display: block; }
+
+  .drawer-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .drawer-close{
+    border: 1px solid rgba(0,0,0,.15);
+    background: rgba(0,0,0,.03);
+    border-radius: 10px;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-weight: 800;
+  }
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="container header-container">
+    <div class="logo">
+      <h1><a href="/index.html">Cérebro Milionário</a></h1>
+    </div>
+
+    <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <nav class="navigation" id="primary-navigation">
+      <ul class="nav-menu">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+        <li><a href="/calculadora.html">Calculadora</a></li>
+        <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+        <li><a href="/calculadora-ir-renda-fixa.html">IR&nbsp;Renda&nbsp;Fixa</a></li>
+        <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+        <li><a href="/cursos.html">Cursos</a></li>
+        <li><a href="/comunidade.html">Comunidade</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Drawer mobile da série -->
+<div class="series-backdrop" id="seriesBackdrop" aria-hidden="true"></div>
+<aside class="series-drawer" id="seriesDrawer" aria-hidden="true" aria-label="Menu da série Enciclopédia da Bolsa">
+  <div class="drawer-header">
+    <div>
+      <div class="series-pill">Enciclopédia da Bolsa • 8/8</div>
+      <strong>Menu da Série</strong>
+    </div>
+    <button class="drawer-close" id="seriesCloseBtn" aria-label="Fechar menu">Fechar ✕</button>
+  </div>
+
+  <div class="series-sidebar">
+    <h3>Partes</h3>
+    <ul>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-1-como-analisar-empresas.html">1) Como analisar empresas</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-2-como-ler-balancos.html">2) Como ler balanços</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-3-valuation-completo.html">3) Valuation completo</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-4-psicologia-do-mercado.html">4) Psicologia do mercado</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-5-ciclos-de-mercado.html">5) Ciclos de mercado</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-6-construcao-de-portfolio.html">6) Construção de portfólio</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-7-gestao-de-risco.html">7) Gestão de risco</a></li>
+      <li><a class="series-active" aria-current="page" href="/posts/enciclopedia-da-bolsa-parte-8-erros-fatais-do-investidor.html">8) Erros fatais do investidor</a></li>
+    </ul>
+
+    <hr>
+
+    <p class="mini"><strong>Leituras base:</strong><br>
+      <a href="/posts/etfs-alocacao-global-guia-2026_CFA.html">ETFs e alocação global</a><br>
+      <a href="/posts/renda-fixa-guia-completo-2026.html">Renda fixa</a><br>
+      <a href="/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html">Construção de patrimônio</a>
+    </p>
+  </div>
+</aside>
+
+<button class="series-fab" id="seriesFab" aria-label="Abrir menu da série">
+  <i class="fa-solid fa-layer-group"></i>
+  Série 8/8
+</button>
+
+<main class="section post-long">
+  <div class="container series-layout" style="max-width: 980px;">
+
+    <!-- Sidebar desktop -->
+    <aside class="series-sidebar series-sidebar-desktop" aria-label="Menu da série Enciclopédia da Bolsa">
+      <div class="series-pill">Enciclopédia da Bolsa • 8/8</div>
+      <h3>Partes</h3>
+      <ul>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-1-como-analisar-empresas.html">1) Como analisar empresas</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-2-como-ler-balancos.html">2) Como ler balanços</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-3-valuation-completo.html">3) Valuation completo</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-4-psicologia-do-mercado.html">4) Psicologia do mercado</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-5-ciclos-de-mercado.html">5) Ciclos de mercado</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-6-construcao-de-portfolio.html">6) Construção de portfólio</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-7-gestao-de-risco.html">7) Gestão de risco</a></li>
+        <li><a class="series-active" aria-current="page" href="/posts/enciclopedia-da-bolsa-parte-8-erros-fatais-do-investidor.html">8) Erros fatais do investidor</a></li>
+      </ul>
+
+      <hr>
+
+      <p class="mini"><strong>Leituras base:</strong><br>
+        <a href="/posts/etfs-alocacao-global-guia-2026_CFA.html">ETFs e alocação global</a><br>
+        <a href="/posts/renda-fixa-guia-completo-2026.html">Renda fixa</a><br>
+        <a href="/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html">Construção de patrimônio</a>
+      </p>
+    </aside>
+
+    <article class="series-content">
+
+      <h1>Enciclopédia da Bolsa (8/8): Erros Fatais do Investidor (Manual Anti-Ruína)</h1>
+      <p class="tagline">O mercado não precisa te enganar para você perder. Você perde porque repete erros simples sob emoção. Aqui está a lista institucional do que destrói patrimônio — e a vacina prática para nunca mais cair nessas armadilhas.</p>
+      <p><strong>Leitura estimada:</strong> 90 a 150 minutos (nível institucional).</p>
+
+      <div class="callout">
+        <p><strong>Premissa:</strong> investir é um jogo de sobrevivência. O retorno vem com o tempo — desde que você não cometa um erro terminal. A maior parte das pessoas não perde por “falta de conhecimento”, mas por falta de <strong>governança</strong>.</p>
+        <p class="mini"><strong>Nota:</strong> educacional. Não é recomendação de investimento.</p>
+      </div>
+
+      <hr>
+
+      <h2>Índice</h2>
+      <ul class="toc">
+        <li><a href="#mapa">1) A anatomia do erro fatal (mecânica)</a></li>
+        <li><a href="#erro1">2) Erro 1: investir sem tese (comprar por nome/narrativa)</a></li>
+        <li><a href="#erro2">3) Erro 2: pagar qualquer preço por “empresa boa”</a></li>
+        <li><a href="#erro3">4) Erro 3: concentrar demais (e chamar de convicção)</a></li>
+        <li><a href="#erro4">5) Erro 4: alavancagem (explícita e escondida)</a></li>
+        <li><a href="#erro5">6) Erro 5: girar demais (overtrading)</a></li>
+        <li><a href="#erro6">7) Erro 6: confundir liquidez com segurança</a></li>
+        <li><a href="#erro7">8) Erro 7: ignorar risco de crédito e balanço</a></li>
+        <li><a href="#erro8">9) Erro 8: vender no fundo e comprar no topo (comportamento)</a></li>
+        <li><a href="#erro9">10) Erro 9: “timing perfeito” como estratégia</a></li>
+        <li><a href="#erro10">11) Erro 10: não ter regras (sem governança)</a></li>
+        <li><a href="#vacina">12) A vacina institucional: sistema anti-ruína</a></li>
+        <li><a href="#checklists">13) Checklists finais + plano de 90 dias</a></li>
+      </ul>
+
+      <hr>
+
+      <h2 id="mapa">1) A anatomia do erro fatal</h2>
+      <p>Erro fatal não é “perder dinheiro em um trade”. Erro fatal é o que te expulsa do jogo. A mecânica quase sempre é:</p>
+      <ol>
+        <li><strong>decisão sem método</strong> (narrativa/pressa);</li>
+        <li><strong>sizing errado</strong> (grande demais para seu psicológico);</li>
+        <li><strong>choque</strong> (volatilidade normal ou crise);</li>
+        <li><strong>ação emocional</strong> (vender no pior ponto);</li>
+        <li><strong>abandono</strong> (ficar anos fora do mercado).</li>
+      </ol>
+
+      <div class="callout">
+        <p><strong>Regra:</strong> o mercado pune falta de processo com juros compostos negativos: você erra, perde confiança, reduz risco no fundo e volta quando já subiu. É o oposto do que deveria.</p>
+      </div>
+
+      <hr>
+
+      <h2 id="erro1">2) Erro 1: investir sem tese</h2>
+      <p>Comprar um ativo sem tese é comprar um problema. Tese mínima (10 linhas) responde:</p>
+      <ul>
+        <li>o que a empresa faz e por que ganha dinheiro;</li>
+        <li>qual o motor do crescimento;</li>
+        <li>por que ela é melhor que concorrentes (moat);</li>
+        <li>quais são os riscos;</li>
+        <li>o que invalida a tese.</li>
+      </ul>
+
+      <div class="divider-title">Sinais de alerta</div>
+      <ul>
+        <li>“todo mundo está comprando”;</li>
+        <li>“é a queridinha”;</li>
+        <li>“vai explodir”;</li>
+        <li>“não tem como dar errado”.</li>
+      </ul>
+
+      <div class="divider-title">Vacina</div>
+      <p>Tese escrita + gatilhos objetivos (Parte 1 e 4). Sem tese, não existe “longo prazo”. Existe torcer.</p>
+
+      <hr>
+
+      <h2 id="erro2">3) Erro 2: pagar qualquer preço por “empresa boa”</h2>
+      <p>Empresa boa não é investimento bom se você paga caro demais. Esse erro é silencioso porque:</p>
+      <ul>
+        <li>a empresa executa bem…</li>
+        <li>mas o múltiplo cai…</li>
+        <li>e você fica anos empatado.</li>
+      </ul>
+
+      <div class="callout">
+        <p><strong>Regra institucional:</strong> risco não é só “a empresa quebrar”. Risco é você pagar tão caro que seu retorno futuro vira estatisticamente ruim.</p>
+      </div>
+
+      <div class="divider-title">Vacina</div>
+      <p>Valuation com taxa e margem de segurança (Parte 3). O preço é parte do risco.</p>
+
+      <hr>
+
+      <h2 id="erro3">4) Erro 3: concentrar demais</h2>
+      <p>Concentração é uma arma. Pode aumentar retorno, mas aumenta risco de erro fatal. A pergunta não é “quanto pode subir”, é “quanto pode cair e eu continuar vivo?”.</p>
+
+      <div class="divider-title">Sinais de alerta</div>
+      <ul>
+        <li>você pensa no ativo o dia inteiro;</li>
+        <li>qualquer queda te tira paz;</li>
+        <li>você se torna “torcedor”;</li>
+        <li>você para de ver riscos.</li>
+      </ul>
+
+      <div class="divider-title">Vacina</div>
+      <p>Limites de sizing e blocos (Parte 6). Convicção sem governança vira roleta.</p>
+
+      <hr>
+
+      <h2 id="erro4">5) Erro 4: alavancagem (explícita e escondida)</h2>
+      <p>Alavancagem é o principal acelerador de ruína. Em crise:</p>
+      <ul>
+        <li>preço cai;</li>
+        <li>você recebe chamada de margem ou precisa pagar dívida;</li>
+        <li>você vende no fundo;</li>
+        <li>acabou.</li>
+      </ul>
+
+      <div class="divider-title">Alavancagem escondida</div>
+      <ul>
+        <li>empresas endividadas em juros subindo;</li>
+        <li>negócios com custos fixos altíssimos;</li>
+        <li>carteira concentrada em um cenário (macro).</li>
+      </ul>
+
+      <div class="divider-title">Vacina</div>
+      <p>Evitar margem/dívida no investidor iniciante. Priorizar balanço forte e liquidez em stress (Parte 7).</p>
+
+      <hr>
+
+      <h2 id="erro5">6) Erro 5: overtrading</h2>
+      <p>Girar demais é o imposto invisível. Você paga:</p>
+      <ul>
+        <li>taxas/spread;</li>
+        <li>erro emocional;</li>
+        <li>perda de foco;</li>
+        <li>falsa sensação de controle.</li>
+      </ul>
+
+      <div class="divider-title">Vacina</div>
+      <p>Regras de entrada/saída + rebalanceamento (Parte 6). O investidor disciplinado gira menos e ganha mais.</p>
+
+      <hr>
+
+      <h2 id="erro6">7) Erro 6: confundir liquidez com segurança</h2>
+      <p>Um ativo pode ser líquido e perigoso. Liquidez só garante que você consegue vender. Não garante que o preço estará “justo”.</p>
+
+      <div class="divider-title">Vacina</div>
+      <p>Separar “risco de preço” de “risco de liquidez”. E nunca depender de venda para pagar contas (Parte 7).</p>
+
+      <hr>
+
+      <h2 id="erro7">8) Erro 7: ignorar risco de crédito e balanço</h2>
+      <p>Crises são, muitas vezes, crises de crédito. Quem não tem oxigênio (caixa) vira estatística. O investidor iniciante olha só lucro; o institucional olha:</p>
+      <ul>
+        <li>dívida e vencimentos;</li>
+        <li>capacidade de rolagem;</li>
+        <li>cobertura de juros;</li>
+        <li>ciclo do setor.</li>
+      </ul>
+
+      <div class="divider-title">Vacina</div>
+      <p>Checklist de balanço (Parte 2) + stress test (Parte 7).</p>
+
+      <hr>
+
+      <h2 id="erro8">9) Erro 8: vender no fundo e comprar no topo</h2>
+      <p>Esse erro é principalmente psicológico (Parte 4). O investidor compra quando dói menos e vende quando dói mais. É a matemática do fracasso.</p>
+
+      <div class="divider-title">Vacina</div>
+      <ul>
+        <li>alocação compatível com seu emocional;</li>
+        <li>regras de rebalance;</li>
+        <li>liquidez para sobreviver;</li>
+        <li>tese escrita e revisão objetiva.</li>
+      </ul>
+
+      <hr>
+
+      <h2 id="erro9">10) Erro 9: timing perfeito como estratégia</h2>
+      <p>Tentar acertar fundo e topo consistentemente é uma forma elegante de perder. O profissional aceita incerteza e foca em:</p>
+      <ul>
+        <li>comprar com margem de segurança;</li>
+        <li>não concentrar em um cenário;</li>
+        <li>rebalancear;</li>
+        <li>evitar ruína.</li>
+      </ul>
+
+      <div class="divider-title">Vacina</div>
+      <p>Processo > previsão. Você não precisa acertar o dia. Você precisa estar vivo (Parte 7).</p>
+
+      <hr>
+
+      <h2 id="erro10">11) Erro 10: não ter regras (sem governança)</h2>
+      <p>Sem regras, você reage ao mercado. E o mercado é especialista em manipular seu emocional.</p>
+
+      <div class="divider-title">Vacina</div>
+      <p>Governança pessoal: limites, checklists, revisão e disciplina (Partes 4, 6 e 7).</p>
+
+      <hr>
+
+      <h2 id="vacina">12) A vacina institucional: sistema anti-ruína</h2>
+
+      <div class="divider-title">12.1) Regras mínimas (copiar e colar)</div>
+      <ul>
+        <li><strong>1) Núcleo obrigatório:</strong> uma parte robusta e diversificada.</li>
+        <li><strong>2) Limite por ativo:</strong> posição máxima definida por você.</li>
+        <li><strong>3) Liquidez:</strong> reserva e caixa estratégico para crises.</li>
+        <li><strong>4) Tese escrita:</strong> todo satélite exige tese e gatilhos.</li>
+        <li><strong>5) Rebalance:</strong> por tempo ou por bandas.</li>
+        <li><strong>6) Regra de crise:</strong> “pausa de 48h” antes de vender por medo.</li>
+        <li><strong>7) Revisão trimestral:</strong> ajustes só em rotina, não em pânico.</li>
+      </ul>
+
+      <div class="divider-title">12.2) O “comitê mental”</div>
+      <p>Antes de comprar ou vender, você deve ser capaz de escrever o argumento contrário com força. Se você não consegue, você está emocional, não analítico.</p>
+
+      <div class="callout">
+        <p><strong>Regra:</strong> a qualidade do investidor é a qualidade do processo — não a qualidade do palpite.</p>
+      </div>
+
+      <hr>
+
+      <h2 id="checklists">13) Checklists finais + plano de 90 dias</h2>
+
+      <div class="divider-title">Checklist final (anti-ruína)</div>
+      <ul>
+        <li>Tenho núcleo diversificado?</li>
+        <li>Tenho liquidez para sobreviver e comprar em crise?</li>
+        <li>Meu sizing máximo por ativo está definido?</li>
+        <li>Tenho rebalanceamento?</li>
+        <li>Se cair 30–40%, eu continuo aportando?</li>
+        <li>Se a tese quebrar, eu sei o que observar?</li>
+      </ul>
+
+      <div class="divider-title">Plano de 90 dias (prático)</div>
+      <ol>
+        <li><strong>Semana 1–2:</strong> organizar núcleo e limites de sizing.</li>
+        <li><strong>Semana 3–4:</strong> criar tese escrita para cada ativo satélite.</li>
+        <li><strong>Mês 2:</strong> definir rebalance (tempo ou bandas) e executar.</li>
+        <li><strong>Mês 3:</strong> montar painel mínimo de risco (crédito, juros, valuation, lucros) e rotina trimestral.</li>
+      </ol>
+
+      <div class="callout">
+        <p><strong>Fechamento:</strong> se você não quer ser melhor que o mercado, seja melhor que você mesmo. A maioria das pessoas não precisa de “alpha”. Precisa parar de cometer erros fatais.</p>
+      </div>
+
+      <hr>
+
+      <p class="mini"><strong>Parte anterior:</strong><br>
+        ← <a href="/posts/enciclopedia-da-bolsa-parte-7-gestao-de-risco.html">Enciclopédia da Bolsa (7/8): Gestão de risco</a>
+      </p>
+
+      <p class="mini"><strong>Série completa:</strong><br>
+        • <a href="/posts/enciclopedia-da-bolsa-parte-1-como-analisar-empresas.html">Parte 1 — Como analisar empresas</a><br>
+        • <a href="/posts/enciclopedia-da-bolsa-parte-2-como-ler-balancos.html">Parte 2 — Como ler balanços</a><br>
+        • <a href="/posts/enciclopedia-da-bolsa-parte-3-valuation-completo.html">Parte 3 — Valuation completo</a><br>
+        • <a href="/posts/enciclopedia-da-bolsa-parte-4-psicologia-do-mercado.html">Parte 4 — Psicologia do mercado</a><br>
+        • <a href="/posts/enciclopedia-da-bolsa-parte-5-ciclos-de-mercado.html">Parte 5 — Ciclos de mercado</a><br>
+        • <a href="/posts/enciclopedia-da-bolsa-parte-6-construcao-de-portfolio.html">Parte 6 — Construção de portfólio</a><br>
+        • <a href="/posts/enciclopedia-da-bolsa-parte-7-gestao-de-risco.html">Parte 7 — Gestão de risco</a><br>
+        • <a href="/posts/enciclopedia-da-bolsa-parte-8-erros-fatais-do-investidor.html">Parte 8 — Erros fatais do investidor</a>
+      </p>
+
+      <p class="mini"><strong>Interlinks sugeridos (SEO interno):</strong><br>
+        • ETFs e alocação global: <a href="/posts/etfs-alocacao-global-guia-2026_CFA.html">/posts/etfs-alocacao-global-guia-2026_CFA.html</a><br>
+        • Renda fixa: <a href="/posts/renda-fixa-guia-completo-2026.html">/posts/renda-fixa-guia-completo-2026.html</a><br>
+        • Construção de patrimônio: <a href="/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html">/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html</a><br>
+        • Guia de dividendos: <a href="/posts/guia-institucional-de-dividendos-mitos-matematica-estrategia.html">/posts/guia-institucional-de-dividendos-mitos-matematica-estrategia.html</a><br>
+      </p>
+
+    </article>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-column">
+        <h3 class="footer-logo">Cérebro Milionário</h3>
+        <p class="footer-text">Capacitando você a tomar decisões financeiras inteligentes para um futuro próspero.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/cerebromillionario/" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://t.me/" target="_blank" class="social-link" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Navegação</h3>
+        <ul class="footer-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/calculadora.html">Calculadoras</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Conteúdo</h3>
+        <ul class="footer-links">
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Legal</h3>
+        <ul class="footer-links">
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/contato.html">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Cérebro Milionário. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script>
+  // Ano automático
+  (function(){
+    var el = document.getElementById('year');
+    if(el) el.textContent = new Date().getFullYear();
+  })();
+
+  // Drawer da série (mobile)
+  (function(){
+    var fab = document.getElementById('seriesFab');
+    var drawer = document.getElementById('seriesDrawer');
+    var backdrop = document.getElementById('seriesBackdrop');
+    var closeBtn = document.getElementById('seriesCloseBtn');
+
+    function openDrawer(){
+      drawer.classList.add('open');
+      backdrop.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false');
+      backdrop.setAttribute('aria-hidden', 'false');
+    }
+    function closeDrawer(){
+      drawer.classList.remove('open');
+      backdrop.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+      backdrop.setAttribute('aria-hidden', 'true');
+    }
+
+    if(fab) fab.addEventListener('click', openDrawer);
+    if(closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    if(backdrop) backdrop.addEventListener('click', closeDrawer);
+
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeDrawer();
+    });
+  })();
+</script>
+
+</body>
+</html>
