@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Enciclopédia da Bolsa (4/8): Psicologia do Mercado (Vieses, Manias e Disciplina) | Cérebro Milionário</title>
+<meta name="description" content="Psicologia do mercado em nível institucional: vieses cognitivos, manias e pânicos, narrativa vs fundamento, FOMO, aversão à perda, overtrading, timing, como criar um sistema de decisão com checklists e governança. Parte 4/8 da Enciclopédia da Bolsa.">
+<meta name="robots" content="index, follow">
+
+<!-- Google AdSense -->
+<meta name="google-adsense-account" content="ca-pub-4613426749830025">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025"
+     crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+  /* ===== FIX MENU SUPERIOR (ideal mover pro /css/style.css) ===== */
+  .nav-menu a{ white-space: nowrap; }
+  .nav-menu{ align-items: center; }
+
+  /* ===== Ajustes locais para leitura longa ===== */
+  .post-long p{ line-height: 1.78; }
+  .post-long h2{ margin-top: 34px; }
+  .post-long h3{ margin-top: 26px; }
+  .post-long hr{ margin: 26px 0; opacity: .35; }
+  .post-long .callout{
+    border-left: 5px solid #2c2c2e;
+    background: #f3f3f3;
+    padding: 14px 16px;
+    border-radius: 10px;
+    margin: 18px 0;
+  }
+  .post-long .mini{ font-size: 0.95rem; opacity: .9; }
+  .post-long table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 18px;
+    font-size: 0.98rem;
+  }
+  .post-long th, .post-long td{
+    border: 1px solid rgba(0,0,0,.12);
+    padding: 10px 10px;
+    vertical-align: top;
+  }
+  .post-long th{
+    background: rgba(0,0,0,.04);
+    text-align: left;
+  }
+  .post-long .toc a{ text-decoration: none; }
+  .post-long .toc a:hover{ text-decoration: underline; }
+  .post-long .tagline{ margin-top: 6px; font-weight: 800; opacity: .95; }
+  .post-long code{
+    background: rgba(0,0,0,.06);
+    padding: 2px 6px;
+    border-radius: 6px;
+  }
+  .post-long .divider-title{
+    margin: 32px 0 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(244, 196, 48, 0.20);
+    border: 1px solid rgba(244, 196, 48, 0.40);
+    font-weight: 900;
+  }
+
+  /* ===== Menu da Série (desktop fixo sem cobrir texto + drawer mobile) ===== */
+  .series-layout{ position: relative; }
+  .series-content{ position: relative; z-index: 1; }
+  @media(min-width: 1024px){
+    .series-content{ padding-right: 300px; }
+  }
+
+  .series-sidebar{
+    border: 1px solid rgba(0,0,0,.12);
+    border-radius: 14px;
+    background: rgba(0,0,0,.02);
+    padding: 12px 12px;
+    pointer-events: auto;
+  }
+  .series-sidebar h3{ margin: 6px 0 8px; font-size: 1.05rem; }
+  .series-sidebar a{ text-decoration: none; pointer-events: auto; }
+  .series-sidebar a:hover{ text-decoration: underline; }
+  .series-sidebar ul{ margin: 0; padding-left: 18px; }
+  .series-sidebar li{ margin: 8px 0; }
+  .series-pill{
+    display: inline-block;
+    font-size: .9rem;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,.12);
+    background: rgba(244, 196, 48, 0.18);
+    margin-bottom: 10px;
+  }
+  .series-active{ font-weight: 900; text-decoration: underline; }
+
+  .series-sidebar-desktop{ display: none; }
+  @media(min-width: 1024px){
+    .series-sidebar-desktop{
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 270px;
+      z-index: 50;
+    }
+  }
+
+  /* Mobile drawer */
+  .series-fab{
+    position: fixed;
+    right: 16px;
+    bottom: 18px;
+    z-index: 999;
+    border: none;
+    border-radius: 999px;
+    padding: 12px 14px;
+    box-shadow: 0 8px 22px rgba(0,0,0,.18);
+    background: #2c2c2e;
+    color: #fff;
+    font-weight: 800;
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+  }
+  @media(min-width: 1024px){
+    .series-fab{ display: none; }
+  }
+
+  .series-backdrop{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 998;
+    display: none;
+  }
+  .series-drawer{
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: min(88vw, 360px);
+    background: #fff;
+    z-index: 999;
+    transform: translateX(105%);
+    transition: transform .22s ease;
+    padding: 16px;
+    box-shadow: -10px 0 28px rgba(0,0,0,.20);
+    overflow-y: auto;
+  }
+  .series-drawer.open{ transform: translateX(0); }
+  .series-backdrop.open{ display: block; }
+
+  .drawer-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .drawer-close{
+    border: 1px solid rgba(0,0,0,.15);
+    background: rgba(0,0,0,.03);
+    border-radius: 10px;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-weight: 800;
+  }
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="container header-container">
+    <div class="logo">
+      <h1><a href="/index.html">Cérebro Milionário</a></h1>
+    </div>
+
+    <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <nav class="navigation" id="primary-navigation">
+      <ul class="nav-menu">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+        <li><a href="/calculadora.html">Calculadora</a></li>
+        <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+        <li><a href="/calculadora-ir-renda-fixa.html">IR&nbsp;Renda&nbsp;Fixa</a></li>
+        <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+        <li><a href="/cursos.html">Cursos</a></li>
+        <li><a href="/comunidade.html">Comunidade</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Drawer mobile da série -->
+<div class="series-backdrop" id="seriesBackdrop" aria-hidden="true"></div>
+<aside class="series-drawer" id="seriesDrawer" aria-hidden="true" aria-label="Menu da série Enciclopédia da Bolsa">
+  <div class="drawer-header">
+    <div>
+      <div class="series-pill">Enciclopédia da Bolsa • 4/8</div>
+      <strong>Menu da Série</strong>
+    </div>
+    <button class="drawer-close" id="seriesCloseBtn" aria-label="Fechar menu">Fechar ✕</button>
+  </div>
+
+  <div class="series-sidebar">
+    <h3>Partes</h3>
+    <ul>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-1-como-analisar-empresas.html">1) Como analisar empresas</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-2-como-ler-balancos.html">2) Como ler balanços</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-3-valuation-completo.html">3) Valuation completo</a></li>
+      <li><a class="series-active" aria-current="page" href="/posts/enciclopedia-da-bolsa-parte-4-psicologia-do-mercado.html">4) Psicologia do mercado</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-5-ciclos-de-mercado.html">5) Ciclos de mercado</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-6-construcao-de-portfolio.html">6) Construção de portfólio</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-7-gestao-de-risco.html">7) Gestão de risco</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-8-erros-fatais-do-investidor.html">8) Erros fatais do investidor</a></li>
+    </ul>
+
+    <hr>
+
+    <p class="mini"><strong>Leituras base:</strong><br>
+      <a href="/posts/etfs-alocacao-global-guia-2026_CFA.html">ETFs e alocação global</a><br>
+      <a href="/posts/renda-fixa-guia-completo-2026.html">Renda fixa</a><br>
+      <a href="/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html">Construção de patrimônio</a>
+    </p>
+  </div>
+</aside>
+
+<button class="series-fab" id="seriesFab" aria-label="Abrir menu da série">
+  <i class="fa-solid fa-layer-group"></i>
+  Série 4/8
+</button>
+
+<main class="section post-long">
+  <div class="container series-layout" style="max-width: 980px;">
+
+    <!-- Sidebar desktop -->
+    <aside class="series-sidebar series-sidebar-desktop" aria-label="Menu da série Enciclopédia da Bolsa">
+      <div class="series-pill">Enciclopédia da Bolsa • 4/8</div>
+      <h3>Partes</h3>
+      <ul>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-1-como-analisar-empresas.html">1) Como analisar empresas</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-2-como-ler-balancos.html">2) Como ler balanços</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-3-valuation-completo.html">3) Valuation completo</a></li>
+        <li><a class="series-active" aria-current="page" href="/posts/enciclopedia-da-bolsa-parte-4-psicologia-do-mercado.html">4) Psicologia do mercado</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-5-ciclos-de-mercado.html">5) Ciclos de mercado</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-6-construcao-de-portfolio.html">6) Construção de portfólio</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-7-gestao-de-risco.html">7) Gestão de risco</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-8-erros-fatais-do-investidor.html">8) Erros fatais do investidor</a></li>
+      </ul>
+
+      <hr>
+
+      <p class="mini"><strong>Leituras base:</strong><br>
+        <a href="/posts/etfs-alocacao-global-guia-2026_CFA.html">ETFs e alocação global</a><br>
+        <a href="/posts/renda-fixa-guia-completo-2026.html">Renda fixa</a><br>
+        <a href="/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html">Construção de patrimônio</a>
+      </p>
+    </aside>
+
+    <article class="series-content">
+
+      <h1>Enciclopédia da Bolsa (4/8): Psicologia do Mercado (Vieses, Manias e Disciplina)</h1>
+      <p class="tagline">Você pode ter método, mas perder dinheiro por comportamento. Aqui você aprende como o mercado usa emoções contra você — e como montar um sistema que te impede de se autossabotar.</p>
+      <p><strong>Leitura estimada:</strong> 70 a 120 minutos (nível institucional).</p>
+
+      <div class="callout">
+        <p><strong>Regra institucional:</strong> mercado não é uma prova de inteligência — é uma prova de disciplina. A maior parte das perdas do investidor vem de decisões ruins repetidas, não de falta de informação.</p>
+        <p class="mini"><strong>Nota:</strong> educacional. Não é recomendação de investimento.</p>
+      </div>
+
+      <hr>
+
+      <h2>Índice</h2>
+      <ul class="toc">
+        <li><a href="#mercado">1) O mercado como mecanismo: leilão diário e narrativa</a></li>
+        <li><a href="#vieses">2) Vieses cognitivos: como a mente destrói retorno</a></li>
+        <li><a href="#dor">3) Aversão à perda e o erro de vender no fundo</a></li>
+        <li><a href="#fomo">4) FOMO: comprar topo disfarçado de “oportunidade”</a></li>
+        <li><a href="#ancoragem">5) Ancoragem: preço passado não é referência de valor</a></li>
+        <li><a href="#confirmacao">6) Confirmação e bolhas: a câmara de eco</a></li>
+        <li><a href="#overtrading">7) Overtrading: o imposto invisível (taxa + erro)</a></li>
+        <li><a href="#timing">8) O mito do timing perfeito (e por que profissionais evitam)</a></li>
+        <li><a href="#institucional">9) Como institucionais tomam decisão: processo & governança</a></li>
+        <li><a href="#sistema">10) O sistema anti-sabotagem (checklists e regras)</a></li>
+        <li><a href="#checklists">11) Checklists profissionais + template de diário</a></li>
+      </ul>
+
+      <hr>
+
+      <h2 id="mercado">1) O mercado como mecanismo: leilão diário e narrativa</h2>
+      <p>O mercado é um leilão contínuo. Preço é resultado de fluxo (compra/venda) e risco percebido. Isso significa que preço pode ficar errado por muito tempo, porque o curto prazo é dominado por:</p>
+      <ul>
+        <li>liquidez (juros, dólar, apetite por risco);</li>
+        <li>posicionamento (fundos, alavancagem, stops);</li>
+        <li>narrativas (histórias simples que viralizam);</li>
+        <li>medo e ganância (o combustível eterno).</li>
+      </ul>
+
+      <div class="divider-title">Narrativa vs fundamento</div>
+      <p>Narrativa é a explicação fácil que “cola” na mente. Fundamento é o motor que sustenta caixa no longo prazo. Em ciclos, narrativas mudam mais rápido do que fundamentos. O investidor que não tem processo vira refém de manchetes.</p>
+
+      <hr>
+
+      <h2 id="vieses">2) Vieses cognitivos: como a mente destrói retorno</h2>
+      <p>Seu cérebro não foi projetado para mercados. Foi projetado para sobreviver. Isso cria vieses:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Viés</th>
+            <th>Como aparece</th>
+            <th>Resultado típico</th>
+            <th>Antídoto institucional</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Aversão à perda</strong></td>
+            <td>dor de perder é maior que prazer de ganhar</td>
+            <td>vende no fundo, segura prejuízo</td>
+            <td>regras pré-definidas</td>
+          </tr>
+          <tr>
+            <td><strong>Confirmação</strong></td>
+            <td>só consome o que concorda</td>
+            <td>vira torcedor</td>
+            <td>buscar tese contrária</td>
+          </tr>
+          <tr>
+            <td><strong>Ancoragem</strong></td>
+            <td>preço passado vira “referência”</td>
+            <td>decisão errada por nostalgia</td>
+            <td>valor por drivers</td>
+          </tr>
+          <tr>
+            <td><strong>Recência</strong></td>
+            <td>últimos meses parecem “lei”</td>
+            <td>comprar moda, vender pânico</td>
+            <td>ciclos e histórico</td>
+          </tr>
+          <tr>
+            <td><strong>Excesso de confiança</strong></td>
+            <td>acha que sabe mais que sabe</td>
+            <td>alavanca, concentra, gira</td>
+            <td>sizing e margem</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr>
+
+      <h2 id="dor">3) Aversão à perda e o erro de vender no fundo</h2>
+      <p>Quando o mercado cai, seu sistema emocional interpreta como perigo real. O corpo pede ação. O investidor clica “vender” para aliviar dor. Isso é racional psicologicamente — e muitas vezes péssimo financeiramente.</p>
+
+      <div class="divider-title">A mecânica do erro</div>
+      <ol>
+        <li>você compra por narrativa (sem faixa de valor);</li>
+        <li>o preço cai (volatilidade normal);</li>
+        <li>você sente ameaça e quer “parar a dor”;</li>
+        <li>vende barato e sai do ativo;</li>
+        <li>o mercado normaliza e você fica fora.</li>
+      </ol>
+
+      <div class="callout">
+        <p><strong>Antídoto:</strong> só compre o que você sabe por que comprou, em que preço comprou, qual a tese e qual o cenário que invalida a tese. Sem isso, volatilidade vira terror.</p>
+      </div>
+
+      <hr>
+
+      <h2 id="fomo">4) FOMO: comprar topo disfarçado de “oportunidade”</h2>
+      <p>FOMO é o medo de ficar de fora. Ele aparece quando:</p>
+      <ul>
+        <li>um ativo sobe em linha reta;</li>
+        <li>todos falam dele;</li>
+        <li>parece que “dessa vez é diferente”;</li>
+        <li>você sente vergonha de não ter comprado antes.</li>
+      </ul>
+
+      <div class="divider-title">O padrão clássico</div>
+      <p>O ativo sobe, o investidor entra sem valuation, sem margem de segurança e sem sizing. Uma correção comum vira crise emocional. Ele vende no primeiro drawdown e perde duas vezes: perde dinheiro e perde confiança.</p>
+
+      <hr>
+
+      <h2 id="ancoragem">5) Ancoragem: preço passado não é referência de valor</h2>
+      <p>“Caiu 40%, agora está barato.” Isso é ancoragem. Preço passado não define valor. O que define valor é o motor de caixa futuro (Parte 1) e a taxa de desconto (Parte 3).</p>
+
+      <div class="callout">
+        <p><strong>Regra:</strong> o mercado pode ter reprecificado com razão. A pergunta é: o fundamento mudou ou o humor mudou?</p>
+      </div>
+
+      <hr>
+
+      <h2 id="confirmacao">6) Confirmação e bolhas: a câmara de eco</h2>
+      <p>Você começa a seguir perfis e vídeos que reforçam o que você já acredita. Isso cria uma câmara de eco. Bolhas nascem assim: narrativa + reforço social + alta de preço.</p>
+
+      <div class="divider-title">Como bolhas se constroem</div>
+      <ol>
+        <li>uma história simples surge (“novo paradigma”);</li>
+        <li>preço sobe e valida a história;</li>
+        <li>mais pessoas entram para não ficar de fora;</li>
+        <li>críticas são ridicularizadas;</li>
+        <li>qualquer número é justificado;</li>
+        <li>quando a liquidez muda, a bolha estoura.</li>
+      </ol>
+
+      <hr>
+
+      <h2 id="overtrading">7) Overtrading: o imposto invisível</h2>
+      <p>Giro alto parece “produtividade”, mas costuma ser vício emocional: você quer sentir controle. Na prática, giro alto gera:</p>
+      <ul>
+        <li>taxas e spreads;</li>
+        <li>erros por pressa;</li>
+        <li>compra no impulso e vende no medo;</li>
+        <li>falta de tempo para tese maturar.</li>
+      </ul>
+
+      <div class="callout">
+        <p><strong>Regra institucional:</strong> a maioria das boas teses exige tempo. Se você não aguenta volatilidade, você não tem tese — você tem aposta.</p>
+      </div>
+
+      <hr>
+
+      <h2 id="timing">8) O mito do timing perfeito</h2>
+      <p>O investidor amador tenta comprar no fundo e vender no topo. O investidor profissional aceita que isso é raríssimo, e foca em:</p>
+      <ul>
+        <li>comprar com margem de segurança;</li>
+        <li>diversificar e gerir risco;</li>
+        <li>evitar ruína (o que mata é perder tudo);</li>
+        <li>repetir processos que funcionam.</li>
+      </ul>
+
+      <div class="divider-title">A verdade sobre timing</div>
+      <p>Timing bom é consequência de processo: quando você compra barato e vende caro porque o mercado reprecificou, não porque você “adivinhou” o dia. Timing perfeito é loteria mental.</p>
+
+      <hr>
+
+      <h2 id="institucional">9) Como institucionais decidem: processo e governança</h2>
+      <p>Institucionais sobrevivem porque têm governança. Eles não deixam emoção dominar. Elementos típicos:</p>
+      <ul>
+        <li><strong>tese escrita</strong> (por que compra, qual risco, qual faixa de valor);</li>
+        <li><strong>comitê mental</strong> (argumento contrário obrigatório);</li>
+        <li><strong>regras de sizing</strong> (quanto pode perder sem te quebrar);</li>
+        <li><strong>gatilhos</strong> (o que monitorar);</li>
+        <li><strong>pós-mortem</strong> (o que aprendi, sem autoengano).</li>
+      </ul>
+
+      <hr>
+
+      <h2 id="sistema">10) Sistema anti-sabotagem (o que você copia e cola na sua vida)</h2>
+      <div class="divider-title">10.1) Regras antes de comprar</div>
+      <ul>
+        <li>Tenho tese em 10 linhas?</li>
+        <li>Tenho faixa de valor (conservador/base/otimista)?</li>
+        <li>Tenho margem de segurança?</li>
+        <li>Se cair 30%, eu consigo segurar sem pânico? (se não, sizing está errado)</li>
+        <li>Qual é o cenário que invalida a tese?</li>
+      </ul>
+
+      <div class="divider-title">10.2) Regras durante a posição</div>
+      <ul>
+        <li>Preço caiu: fundamento mudou ou humor mudou?</li>
+        <li>Tese piorou: eu reduziria hoje se estivesse começando do zero?</li>
+        <li>Preço subiu: ainda existe margem de segurança?</li>
+        <li>Meu sizing ficou grande demais por valorização?</li>
+      </ul>
+
+      <div class="divider-title">10.3) Regras de saída</div>
+      <ul>
+        <li>tese quebrou (o “por que” morreu);</li>
+        <li>risco aumentou estruturalmente;</li>
+        <li>preço passou a embutir cenário otimista demais;</li>
+        <li>alternativa melhor apareceu dentro do seu método.</li>
+      </ul>
+
+      <hr>
+
+      <h2 id="checklists">11) Checklists profissionais + diário de investimento</h2>
+
+      <div class="divider-title">Checklist de comportamento</div>
+      <ul>
+        <li>Estou comprando por tese ou por emoção?</li>
+        <li>Estou tentando “recuperar prejuízo” (viés de cassino)?</li>
+        <li>Estou seguindo narrativa ou drivers?</li>
+        <li>Estou girando porque estou ansioso?</li>
+        <li>Estou evitando olhar o risco real?</li>
+      </ul>
+
+      <div class="divider-title">Template de diário (copiar)</div>
+      <div class="callout">
+        <p><strong>Data:</strong> …</p>
+        <p><strong>Ativo / tese (10 linhas):</strong> …</p>
+        <p><strong>Faixa de valor e margem de segurança:</strong> …</p>
+        <p><strong>Riscos principais (top 3):</strong> …</p>
+        <p><strong>Por que estou comprando/agindo agora?</strong> …</p>
+        <p><strong>Emoção dominante (0 a 10):</strong> medo … / ganância … / ansiedade …</p>
+        <p><strong>Regra aplicada:</strong> (ex: comprei 1/3, sizing pequeno, revisão em 90 dias) …</p>
+        <p><strong>O que invalidaria a tese:</strong> …</p>
+      </div>
+
+      <hr>
+
+      <p class="mini"><strong>Parte anterior:</strong><br>
+        ← <a href="/posts/enciclopedia-da-bolsa-parte-3-valuation-completo.html">Enciclopédia da Bolsa (3/8): Valuation completo</a>
+      </p>
+
+      <p class="mini"><strong>Próxima parte:</strong><br>
+        → <a href="/posts/enciclopedia-da-bolsa-parte-5-ciclos-de-mercado.html">Enciclopédia da Bolsa (5/8): Ciclos de mercado</a>
+      </p>
+
+      <p class="mini"><strong>Interlinks sugeridos (SEO interno):</strong><br>
+        • ETFs e alocação global: <a href="/posts/etfs-alocacao-global-guia-2026_CFA.html">/posts/etfs-alocacao-global-guia-2026_CFA.html</a><br>
+        • Renda fixa: <a href="/posts/renda-fixa-guia-completo-2026.html">/posts/renda-fixa-guia-completo-2026.html</a><br>
+        • Construção de patrimônio: <a href="/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html">/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html</a><br>
+        • Guia de dividendos: <a href="/posts/guia-institucional-de-dividendos-mitos-matematica-estrategia.html">/posts/guia-institucional-de-dividendos-mitos-matematica-estrategia.html</a><br>
+      </p>
+
+    </article>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-column">
+        <h3 class="footer-logo">Cérebro Milionário</h3>
+        <p class="footer-text">Capacitando você a tomar decisões financeiras inteligentes para um futuro próspero.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/cerebromillionario/" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://t.me/" target="_blank" class="social-link" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Navegação</h3>
+        <ul class="footer-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/calculadora.html">Calculadoras</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Conteúdo</h3>
+        <ul class="footer-links">
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Legal</h3>
+        <ul class="footer-links">
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/contato.html">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Cérebro Milionário. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script>
+  // Ano automático
+  (function(){
+    var el = document.getElementById('year');
+    if(el) el.textContent = new Date().getFullYear();
+  })();
+
+  // Drawer da série (mobile)
+  (function(){
+    var fab = document.getElementById('seriesFab');
+    var drawer = document.getElementById('seriesDrawer');
+    var backdrop = document.getElementById('seriesBackdrop');
+    var closeBtn = document.getElementById('seriesCloseBtn');
+
+    function openDrawer(){
+      drawer.classList.add('open');
+      backdrop.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false');
+      backdrop.setAttribute('aria-hidden', 'false');
+    }
+    function closeDrawer(){
+      drawer.classList.remove('open');
+      backdrop.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+      backdrop.setAttribute('aria-hidden', 'true');
+    }
+
+    if(fab) fab.addEventListener('click', openDrawer);
+    if(closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    if(backdrop) backdrop.addEventListener('click', closeDrawer);
+
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeDrawer();
+    });
+  })();
+</script>
+
+</body>
+</html>
