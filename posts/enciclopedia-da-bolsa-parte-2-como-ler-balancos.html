@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Enciclopédia da Bolsa (2/8): Como Ler Balanços (DRE, BP e DFC) | Cérebro Milionário</title>
+<meta name="description" content="Aprenda a ler balanços em nível institucional: DRE, Balanço Patrimonial e DFC. Entenda qualidade do lucro, capital de giro, CAPEX, dívida, caixa, sinais de alerta e checklists profissionais. Parte 2/8 da Enciclopédia da Bolsa.">
+<meta name="robots" content="index, follow">
+
+<!-- Google AdSense -->
+<meta name="google-adsense-account" content="ca-pub-4613426749830025">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025"
+     crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+  /* ===== FIX MENU SUPERIOR (ideal mover pro /css/style.css) ===== */
+  .nav-menu a{ white-space: nowrap; }
+  .nav-menu{ align-items: center; }
+
+  /* ===== Ajustes locais para leitura longa ===== */
+  .post-long p{ line-height: 1.78; }
+  .post-long h2{ margin-top: 34px; }
+  .post-long h3{ margin-top: 26px; }
+  .post-long hr{ margin: 26px 0; opacity: .35; }
+  .post-long .callout{
+    border-left: 5px solid #2c2c2e;
+    background: #f3f3f3;
+    padding: 14px 16px;
+    border-radius: 10px;
+    margin: 18px 0;
+  }
+  .post-long .mini{ font-size: 0.95rem; opacity: .9; }
+  .post-long table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 18px;
+    font-size: 0.98rem;
+  }
+  .post-long th, .post-long td{
+    border: 1px solid rgba(0,0,0,.12);
+    padding: 10px 10px;
+    vertical-align: top;
+  }
+  .post-long th{
+    background: rgba(0,0,0,.04);
+    text-align: left;
+  }
+  .post-long .toc a{ text-decoration: none; }
+  .post-long .toc a:hover{ text-decoration: underline; }
+  .post-long .tagline{ margin-top: 6px; font-weight: 800; opacity: .95; }
+  .post-long code{
+    background: rgba(0,0,0,.06);
+    padding: 2px 6px;
+    border-radius: 6px;
+  }
+  .post-long .divider-title{
+    margin: 32px 0 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(244, 196, 48, 0.20);
+    border: 1px solid rgba(244, 196, 48, 0.40);
+    font-weight: 900;
+  }
+
+  /* ===== Menu da Série (desktop fixo sem cobrir texto + drawer mobile) ===== */
+  .series-layout{ position: relative; }
+  .series-content{ position: relative; z-index: 1; }
+  @media(min-width: 1024px){
+    .series-content{ padding-right: 300px; }
+  }
+
+  .series-sidebar{
+    border: 1px solid rgba(0,0,0,.12);
+    border-radius: 14px;
+    background: rgba(0,0,0,.02);
+    padding: 12px 12px;
+    pointer-events: auto;
+  }
+  .series-sidebar h3{ margin: 6px 0 8px; font-size: 1.05rem; }
+  .series-sidebar a{ text-decoration: none; pointer-events: auto; }
+  .series-sidebar a:hover{ text-decoration: underline; }
+  .series-sidebar ul{ margin: 0; padding-left: 18px; }
+  .series-sidebar li{ margin: 8px 0; }
+  .series-pill{
+    display: inline-block;
+    font-size: .9rem;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,.12);
+    background: rgba(244, 196, 48, 0.18);
+    margin-bottom: 10px;
+  }
+  .series-active{ font-weight: 900; text-decoration: underline; }
+
+  .series-sidebar-desktop{ display: none; }
+  @media(min-width: 1024px){
+    .series-sidebar-desktop{
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 270px;
+      z-index: 50;
+    }
+  }
+
+  /* Mobile drawer */
+  .series-fab{
+    position: fixed;
+    right: 16px;
+    bottom: 18px;
+    z-index: 999;
+    border: none;
+    border-radius: 999px;
+    padding: 12px 14px;
+    box-shadow: 0 8px 22px rgba(0,0,0,.18);
+    background: #2c2c2e;
+    color: #fff;
+    font-weight: 800;
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+  }
+  @media(min-width: 1024px){
+    .series-fab{ display: none; }
+  }
+
+  .series-backdrop{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 998;
+    display: none;
+  }
+  .series-drawer{
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: min(88vw, 360px);
+    background: #fff;
+    z-index: 999;
+    transform: translateX(105%);
+    transition: transform .22s ease;
+    padding: 16px;
+    box-shadow: -10px 0 28px rgba(0,0,0,.20);
+    overflow-y: auto;
+  }
+  .series-drawer.open{ transform: translateX(0); }
+  .series-backdrop.open{ display: block; }
+
+  .drawer-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .drawer-close{
+    border: 1px solid rgba(0,0,0,.15);
+    background: rgba(0,0,0,.03);
+    border-radius: 10px;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-weight: 800;
+  }
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="container header-container">
+    <div class="logo">
+      <h1><a href="/index.html">Cérebro Milionário</a></h1>
+    </div>
+
+    <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <nav class="navigation" id="primary-navigation">
+      <ul class="nav-menu">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+        <li><a href="/calculadora.html">Calculadora</a></li>
+        <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+        <li><a href="/calculadora-ir-renda-fixa.html">IR&nbsp;Renda&nbsp;Fixa</a></li>
+        <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+        <li><a href="/cursos.html">Cursos</a></li>
+        <li><a href="/comunidade.html">Comunidade</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Drawer mobile da série -->
+<div class="series-backdrop" id="seriesBackdrop" aria-hidden="true"></div>
+<aside class="series-drawer" id="seriesDrawer" aria-hidden="true" aria-label="Menu da série Enciclopédia da Bolsa">
+  <div class="drawer-header">
+    <div>
+      <div class="series-pill">Enciclopédia da Bolsa • 2/8</div>
+      <strong>Menu da Série</strong>
+    </div>
+    <button class="drawer-close" id="seriesCloseBtn" aria-label="Fechar menu">Fechar ✕</button>
+  </div>
+
+  <div class="series-sidebar">
+    <h3>Partes</h3>
+    <ul>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-1-como-analisar-empresas.html">1) Como analisar empresas</a></li>
+      <li><a class="series-active" aria-current="page" href="/posts/enciclopedia-da-bolsa-parte-2-como-ler-balancos.html">2) Como ler balanços</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-3-valuation-completo.html">3) Valuation completo</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-4-psicologia-do-mercado.html">4) Psicologia do mercado</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-5-ciclos-de-mercado.html">5) Ciclos de mercado</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-6-construcao-de-portfolio.html">6) Construção de portfólio</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-7-gestao-de-risco.html">7) Gestão de risco</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-8-erros-fatais-do-investidor.html">8) Erros fatais do investidor</a></li>
+    </ul>
+
+    <hr>
+
+    <p class="mini"><strong>Leituras base:</strong><br>
+      <a href="/posts/etfs-alocacao-global-guia-2026_CFA.html">ETFs e alocação global</a><br>
+      <a href="/posts/renda-fixa-guia-completo-2026.html">Renda fixa</a><br>
+      <a href="/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html">Construção de patrimônio</a>
+    </p>
+  </div>
+</aside>
+
+<button class="series-fab" id="seriesFab" aria-label="Abrir menu da série">
+  <i class="fa-solid fa-layer-group"></i>
+  Série 2/8
+</button>
+
+<main class="section post-long">
+  <div class="container series-layout" style="max-width: 980px;">
+
+    <!-- Sidebar desktop -->
+    <aside class="series-sidebar series-sidebar-desktop" aria-label="Menu da série Enciclopédia da Bolsa">
+      <div class="series-pill">Enciclopédia da Bolsa • 2/8</div>
+      <h3>Partes</h3>
+      <ul>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-1-como-analisar-empresas.html">1) Como analisar empresas</a></li>
+        <li><a class="series-active" aria-current="page" href="/posts/enciclopedia-da-bolsa-parte-2-como-ler-balancos.html">2) Como ler balanços</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-3-valuation-completo.html">3) Valuation completo</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-4-psicologia-do-mercado.html">4) Psicologia do mercado</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-5-ciclos-de-mercado.html">5) Ciclos de mercado</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-6-construcao-de-portfolio.html">6) Construção de portfólio</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-7-gestao-de-risco.html">7) Gestão de risco</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-8-erros-fatais-do-investidor.html">8) Erros fatais do investidor</a></li>
+      </ul>
+
+      <hr>
+
+      <p class="mini"><strong>Leituras base:</strong><br>
+        <a href="/posts/etfs-alocacao-global-guia-2026_CFA.html">ETFs e alocação global</a><br>
+        <a href="/posts/renda-fixa-guia-completo-2026.html">Renda fixa</a><br>
+        <a href="/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html">Construção de patrimônio</a>
+      </p>
+    </aside>
+
+    <article class="series-content">
+
+      <h1>Enciclopédia da Bolsa (2/8): Como Ler Balanços (DRE, BP e DFC)</h1>
+      <p class="tagline">Aqui você aprende a ler balanços como um analista: separar lucro de caixa, entender capital de giro, enxergar alavancagem escondida e identificar sinais de alerta antes do mercado.</p>
+      <p><strong>Leitura estimada:</strong> 70 a 120 minutos (nível institucional).</p>
+
+      <div class="callout">
+        <p><strong>Regra de ouro:</strong> DRE é narrativa contábil, DFC é realidade financeira e o Balanço Patrimonial revela fragilidade (ou força). Quem domina os três enxerga riscos que o iniciante nunca vê.</p>
+        <p class="mini"><strong>Nota:</strong> educacional. Não é recomendação de investimento.</p>
+      </div>
+
+      <hr>
+
+      <h2>Índice</h2>
+      <ul class="toc">
+        <li><a href="#visao">1) Visão institucional: os 3 demonstrativos contam a mesma história</a></li>
+        <li><a href="#dre">2) DRE na prática: do topo da receita ao lucro</a></li>
+        <li><a href="#margens">3) Margens: bruta, EBITDA, EBIT e líquida (o que cada uma esconde)</a></li>
+        <li><a href="#nao-recorrentes">4) Itens não recorrentes: o “maquiador” oficial do lucro</a></li>
+        <li><a href="#bp">5) Balanço Patrimonial: estrutura, dívida, liquidez e armadilhas</a></li>
+        <li><a href="#capital-giro">6) Capital de giro: o buraco que engole caixa</a></li>
+        <li><a href="#dfc">7) DFC: qualidade do lucro e o teste do caixa</a></li>
+        <li><a href="#capex">8) CAPEX: manutenção vs crescimento (e o truque clássico)</a></li>
+        <li><a href="#divida">9) Dívida, juros e covenants: risco de ruína</a></li>
+        <li><a href="#redflags">10) Red flags: sinais de alerta e indícios de manipulação</a></li>
+        <li><a href="#ratios">11) Ratios essenciais (o mínimo que você deve calcular)</a></li>
+        <li><a href="#template">12) Template institucional (copiar e usar)</a></li>
+      </ul>
+
+      <hr>
+
+      <h2 id="visao">1) Visão institucional: os 3 demonstrativos contam a mesma história</h2>
+      <p>Iniciante costuma olhar só o lucro. Profissional reconcilia: <strong>Lucro (DRE)</strong> → <strong>Ativos/Passivos (BP)</strong> → <strong>Caixa (DFC)</strong>.</p>
+      <p>Se os três não “conversam”, existe risco. Às vezes é apenas sazonalidade. Às vezes é capital de giro. Às vezes é maquiagem. Você não precisa virar contador — precisa aprender o suficiente para não ser enganado por números.</p>
+
+      <div class="divider-title">Mapa mental: a reconciliação</div>
+      <ul>
+        <li><strong>DRE</strong>: quanto a empresa ganhou (competência)</li>
+        <li><strong>BP</strong>: o que ela tem, o que deve e como financia</li>
+        <li><strong>DFC</strong>: quanto de caixa entrou e saiu (realidade)</li>
+      </ul>
+
+      <hr>
+
+      <h2 id="dre">2) DRE na prática: do topo da receita ao lucro</h2>
+      <p>A DRE é o “filme” do resultado no período. Mas o investidor precisa olhar por blocos, não por linha solta.</p>
+
+      <div class="divider-title">2.1) Receita: crescimento de verdade vs crescimento comprado</div>
+      <p>Receita pode crescer por volume (mais vendas) ou por preço (reajuste). Em empresas com moat, preço costuma ser parte do motor. Em empresas frágeis, preço vira desconto para vender. Sinais:</p>
+      <ul>
+        <li>crescimento com margem bruta estável/maior costuma ser saudável;</li>
+        <li>crescimento com margem bruta caindo pode ser desconto, competição ou mix pior;</li>
+        <li>crescimento acompanhado de capital de giro explodindo pode ser “vender sem receber”.</li>
+      </ul>
+
+      <div class="divider-title">2.2) COGS e margem bruta: o primeiro termômetro competitivo</div>
+      <p>Margem bruta cai por custo subindo, por desconto ou por mix. Se cai por muito tempo, a tese de qualidade pode estar errada.</p>
+
+      <div class="divider-title">2.3) Despesas operacionais: eficiência ou ilusão?</div>
+      <p>SG&A (despesas administrativas/comerciais) e despesas de vendas contam se a empresa precisa “comprar” crescimento. Empresas com produto forte e moat tendem a ganhar eficiência com escala.</p>
+
+      <div class="divider-title">2.4) EBIT e resultado financeiro</div>
+      <p>EBIT é lucro operacional. Resultado financeiro mostra o peso da dívida e do juros. Em juros altos, empresas alavancadas viram “reféns” do mercado.</p>
+
+      <hr>
+
+      <h2 id="margens">3) Margens: o que cada uma esconde</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Métrica</th>
+            <th>O que mede</th>
+            <th>Uso institucional</th>
+            <th>Armadilha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Margem bruta</strong></td>
+            <td>poder de preço e custo</td>
+            <td>competição e moat</td>
+            <td>mix pode distorcer</td>
+          </tr>
+          <tr>
+            <td><strong>EBITDA</strong></td>
+            <td>resultado antes de D&A</td>
+            <td>proxy de geração operacional</td>
+            <td>ignora CAPEX e capital de giro</td>
+          </tr>
+          <tr>
+            <td><strong>EBIT</strong></td>
+            <td>resultado operacional</td>
+            <td>mais próximo do econômico</td>
+            <td>D&A pode esconder manutenção</td>
+          </tr>
+          <tr>
+            <td><strong>Margem líquida</strong></td>
+            <td>resultado final</td>
+            <td>disciplina + estrutura de capital</td>
+            <td>afetada por itens não recorrentes</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <p><strong>Atalho que salva:</strong> EBITDA alto não significa caixa alto. Caixa depende de capital de giro, CAPEX e juros. O iniciante morre no “EV/EBITDA barato” sem olhar o resto.</p>
+      </div>
+
+      <hr>
+
+      <h2 id="nao-recorrentes">4) Itens não recorrentes: o “maquiador” oficial do lucro</h2>
+      <p>Empresas ajustam números com “não recorrentes”. Às vezes é legítimo. Às vezes é vício: todo trimestre tem “extraordinário”. O investidor precisa aprender a normalizar.</p>
+
+      <div class="divider-title">Sinais de alerta</div>
+      <ul>
+        <li>lucro “ajustado” sempre maior do que o lucro real;</li>
+        <li>reclassificações frequentes;</li>
+        <li>ganhos com venda de ativos tratados como operação;</li>
+        <li>provisões que sobem e descem sem explicação clara.</li>
+      </ul>
+
+      <hr>
+
+      <h2 id="bp">5) Balanço Patrimonial: estrutura, dívida, liquidez e armadilhas</h2>
+      <p>O BP é o raio-X. Ele mostra se a empresa aguenta crise. O que olhar:</p>
+
+      <div class="divider-title">5.1) Liquidez e caixa</div>
+      <ul>
+        <li>caixa vs dívida de curto prazo;</li>
+        <li>necessidade de refinanciamento;</li>
+        <li>dependência de mercado “aberto”.</li>
+      </ul>
+
+      <div class="divider-title">5.2) Ativos “bons” vs ativos “difíceis”</div>
+      <p>Caixa e recebíveis são diferentes de ativos intangíveis e goodwill. Goodwill alto pode ser sinal de aquisições caras e risco de impairment.</p>
+
+      <div class="divider-title">5.3) Passivos e alavancagem escondida</div>
+      <p>Além da dívida bancária, há passivos operacionais, arrendamentos, contingências e obrigações “fora do radar” que pressionam caixa.</p>
+
+      <hr>
+
+      <h2 id="capital-giro">6) Capital de giro: o buraco que engole caixa</h2>
+      <p>Capital de giro é onde muitas empresas “morrem sem ninguém entender”. A empresa cresce, o lucro aparece… e o caixa some.</p>
+
+      <div class="divider-title">A lógica</div>
+      <ul>
+        <li><strong>Recebíveis</strong>: vendeu, mas ainda não recebeu.</li>
+        <li><strong>Estoques</strong>: comprou insumo e prendeu caixa.</li>
+        <li><strong>Fornecedores</strong>: prazos ajudam ou apertam.</li>
+      </ul>
+
+      <div class="callout">
+        <p><strong>Regra:</strong> crescimento que exige muito capital de giro é “caro”. Você precisa ver se o ROIC sustenta isso.</p>
+      </div>
+
+      <hr>
+
+      <h2 id="dfc">7) DFC: o teste do caixa</h2>
+      <p>A DFC é onde você separa empresa saudável de empresa “contábil”. O foco institucional:</p>
+      <ul>
+        <li><strong>Caixa operacional:</strong> a operação gera caixa?</li>
+        <li><strong>CAPEX:</strong> quanto sai para manter e crescer?</li>
+        <li><strong>FCF:</strong> sobra caixa depois de manter o negócio?</li>
+        <li><strong>Financiamento:</strong> a empresa precisa de dívida/ação para sobreviver?</li>
+      </ul>
+
+      <div class="divider-title">7.1) Reconciliação do lucro com caixa</div>
+      <p>Se lucro sobe e caixa operacional cai por muitos períodos, há problema potencial: capital de giro, provisões, reconhecimento de receita, qualidade do lucro ou ciclo.</p>
+
+      <hr>
+
+      <h2 id="capex">8) CAPEX: manutenção vs crescimento</h2>
+      <p>CAPEX não é “custo qualquer”. É o investimento que mantém a máquina funcionando. O truque clássico: parecer “muito rentável” porque o CAPEX de manutenção é alto, mas o investidor olha só EBITDA.</p>
+
+      <div class="divider-title">O que fazer na prática</div>
+      <ul>
+        <li>compare CAPEX com depreciação ao longo do tempo;</li>
+        <li>se CAPEX < depreciação por muito tempo, pode estar subinvestindo;</li>
+        <li>se CAPEX explode, entenda se é ciclo, expansão ou ineficiência.</li>
+      </ul>
+
+      <hr>
+
+      <h2 id="divida">9) Dívida, juros e covenants</h2>
+      <p>O risco terminal em bolsa é a ruína financeira: quando a empresa precisa vender ativo barato, diluir acionista ou renegociar em crise.</p>
+
+      <div class="divider-title">Perguntas institucionais</div>
+      <ul>
+        <li>qual % da dívida vence no curto prazo?</li>
+        <li>qual é o custo médio da dívida e quanto sobe se juros subirem?</li>
+        <li>a empresa gera FCF para amortizar?</li>
+        <li>há covenants que podem ser quebrados em queda de EBITDA?</li>
+      </ul>
+
+      <div class="callout">
+        <p><strong>Regra:</strong> empresas quebram em duas fases: (1) alavancam no bom e (2) refinanciam no ruim. Leia o BP para ver se isso é risco real.</p>
+      </div>
+
+      <hr>
+
+      <h2 id="redflags">10) Red flags: sinais de alerta</h2>
+      <div class="divider-title">10.1) Sinais contábeis</div>
+      <ul>
+        <li>lucro recorrente “perfeito” com caixa fraco;</li>
+        <li>crescimento com recebíveis explodindo;</li>
+        <li>margem bruta caindo com narrativa otimista;</li>
+        <li>“ajustes” todo trimestre;</li>
+        <li>goodwill alto crescendo com aquisições caras;</li>
+        <li>provisões e contingências mal explicadas.</li>
+      </ul>
+
+      <div class="divider-title">10.2) Sinais financeiros</div>
+      <ul>
+        <li>dívida curta alta;</li>
+        <li>custo de dívida aumentando rápido;</li>
+        <li>capex alto sem retorno claro;</li>
+        <li>dependência de emissão de ações/dívida para financiar operação.</li>
+      </ul>
+
+      <hr>
+
+      <h2 id="ratios">11) Ratios essenciais</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Ratio</th>
+            <th>Como ler</th>
+            <th>Por que importa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Dívida líquida / EBITDA</strong></td>
+            <td>alavancagem</td>
+            <td>mostra fragilidade em crise</td>
+          </tr>
+          <tr>
+            <td><strong>Cobertura de juros</strong></td>
+            <td>EBIT / juros</td>
+            <td>se juros sobem, quem sofre primeiro</td>
+          </tr>
+          <tr>
+            <td><strong>FCF / lucro</strong></td>
+            <td>qualidade do lucro</td>
+            <td>se caixa não acompanha, risco</td>
+          </tr>
+          <tr>
+            <td><strong>Capital de giro / receita</strong></td>
+            <td>crescimento caro</td>
+            <td>caixa some com crescimento</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr>
+
+      <h2 id="template">12) Template institucional (copiar e usar)</h2>
+      <div class="callout">
+        <p><strong>DRE:</strong> receita cresce por (volume/preço)? margem bruta estável? despesas sob controle? EBIT saudável?</p>
+        <p><strong>BP:</strong> caixa cobre curto prazo? dívida concentrada? goodwill alto? contingências?</p>
+        <p><strong>DFC:</strong> caixa operacional acompanha lucro? CAPEX normal? FCF existe? empresa se financia ou se sustenta?</p>
+        <p><strong>Conclusão:</strong> lucro é real (caixa)? risco de ruína existe? o crescimento é financiável?</p>
+      </div>
+
+      <hr>
+
+      <p class="mini"><strong>Parte anterior:</strong><br>
+        ← <a href="/posts/enciclopedia-da-bolsa-parte-1-como-analisar-empresas.html">Enciclopédia da Bolsa (1/8): Como analisar empresas</a>
+      </p>
+
+      <p class="mini"><strong>Próxima parte:</strong><br>
+        → <a href="/posts/enciclopedia-da-bolsa-parte-3-valuation-completo.html">Enciclopédia da Bolsa (3/8): Valuation completo</a>
+      </p>
+
+      <p class="mini"><strong>Interlinks sugeridos (SEO interno):</strong><br>
+        • ETFs e alocação global: <a href="/posts/etfs-alocacao-global-guia-2026_CFA.html">/posts/etfs-alocacao-global-guia-2026_CFA.html</a><br>
+        • Renda fixa: <a href="/posts/renda-fixa-guia-completo-2026.html">/posts/renda-fixa-guia-completo-2026.html</a><br>
+        • Construção de patrimônio: <a href="/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html">/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html</a><br>
+        • Guia de dividendos: <a href="/posts/guia-institucional-de-dividendos-mitos-matematica-estrategia.html">/posts/guia-institucional-de-dividendos-mitos-matematica-estrategia.html</a><br>
+      </p>
+
+    </article>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-column">
+        <h3 class="footer-logo">Cérebro Milionário</h3>
+        <p class="footer-text">Capacitando você a tomar decisões financeiras inteligentes para um futuro próspero.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/cerebromillionario/" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://t.me/" target="_blank" class="social-link" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Navegação</h3>
+        <ul class="footer-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/calculadora.html">Calculadoras</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Conteúdo</h3>
+        <ul class="footer-links">
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Legal</h3>
+        <ul class="footer-links">
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/contato.html">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Cérebro Milionário. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script>
+  // Ano automático
+  (function(){
+    var el = document.getElementById('year');
+    if(el) el.textContent = new Date().getFullYear();
+  })();
+
+  // Drawer da série (mobile)
+  (function(){
+    var fab = document.getElementById('seriesFab');
+    var drawer = document.getElementById('seriesDrawer');
+    var backdrop = document.getElementById('seriesBackdrop');
+    var closeBtn = document.getElementById('seriesCloseBtn');
+
+    function openDrawer(){
+      drawer.classList.add('open');
+      backdrop.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false');
+      backdrop.setAttribute('aria-hidden', 'false');
+    }
+    function closeDrawer(){
+      drawer.classList.remove('open');
+      backdrop.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+      backdrop.setAttribute('aria-hidden', 'true');
+    }
+
+    if(fab) fab.addEventListener('click', openDrawer);
+    if(closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    if(backdrop) backdrop.addEventListener('click', closeDrawer);
+
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeDrawer();
+    });
+  })();
+</script>
+
+</body>
+</html>
