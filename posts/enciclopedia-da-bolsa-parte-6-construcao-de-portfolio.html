@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Enciclopédia da Bolsa (6/8): Construção de Portfólio (Alocação, Blocos, Rebalanceamento e Método) | Cérebro Milionário</title>
+<meta name="description" content="Construção de portfólio em nível institucional: alocação por objetivos, core-satellite, diversificação por drivers, ETFs vs ações, rebalanceamento, sizing, convexidade, disciplina e templates práticos para montar carteira sem fantasia. Parte 6/8 da Enciclopédia da Bolsa.">
+<meta name="robots" content="index, follow">
+
+<!-- Google AdSense -->
+<meta name="google-adsense-account" content="ca-pub-4613426749830025">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025"
+     crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+  /* ===== FIX MENU SUPERIOR (ideal mover pro /css/style.css) ===== */
+  .nav-menu a{ white-space: nowrap; }
+  .nav-menu{ align-items: center; }
+
+  /* ===== Ajustes locais para leitura longa ===== */
+  .post-long p{ line-height: 1.78; }
+  .post-long h2{ margin-top: 34px; }
+  .post-long h3{ margin-top: 26px; }
+  .post-long hr{ margin: 26px 0; opacity: .35; }
+  .post-long .callout{
+    border-left: 5px solid #2c2c2e;
+    background: #f3f3f3;
+    padding: 14px 16px;
+    border-radius: 10px;
+    margin: 18px 0;
+  }
+  .post-long .mini{ font-size: 0.95rem; opacity: .9; }
+  .post-long table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 18px;
+    font-size: 0.98rem;
+  }
+  .post-long th, .post-long td{
+    border: 1px solid rgba(0,0,0,.12);
+    padding: 10px 10px;
+    vertical-align: top;
+  }
+  .post-long th{
+    background: rgba(0,0,0,.04);
+    text-align: left;
+  }
+  .post-long .toc a{ text-decoration: none; }
+  .post-long .toc a:hover{ text-decoration: underline; }
+  .post-long .tagline{ margin-top: 6px; font-weight: 800; opacity: .95; }
+  .post-long code{
+    background: rgba(0,0,0,.06);
+    padding: 2px 6px;
+    border-radius: 6px;
+  }
+  .post-long .divider-title{
+    margin: 32px 0 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(244, 196, 48, 0.20);
+    border: 1px solid rgba(244, 196, 48, 0.40);
+    font-weight: 900;
+  }
+
+  /* ===== Menu da Série (desktop fixo sem cobrir texto + drawer mobile) ===== */
+  .series-layout{ position: relative; }
+  .series-content{ position: relative; z-index: 1; }
+  @media(min-width: 1024px){
+    .series-content{ padding-right: 300px; }
+  }
+
+  .series-sidebar{
+    border: 1px solid rgba(0,0,0,.12);
+    border-radius: 14px;
+    background: rgba(0,0,0,.02);
+    padding: 12px 12px;
+    pointer-events: auto;
+  }
+  .series-sidebar h3{ margin: 6px 0 8px; font-size: 1.05rem; }
+  .series-sidebar a{ text-decoration: none; pointer-events: auto; }
+  .series-sidebar a:hover{ text-decoration: underline; }
+  .series-sidebar ul{ margin: 0; padding-left: 18px; }
+  .series-sidebar li{ margin: 8px 0; }
+  .series-pill{
+    display: inline-block;
+    font-size: .9rem;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,.12);
+    background: rgba(244, 196, 48, 0.18);
+    margin-bottom: 10px;
+  }
+  .series-active{ font-weight: 900; text-decoration: underline; }
+
+  .series-sidebar-desktop{ display: none; }
+  @media(min-width: 1024px){
+    .series-sidebar-desktop{
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 270px;
+      z-index: 50;
+    }
+  }
+
+  /* Mobile drawer */
+  .series-fab{
+    position: fixed;
+    right: 16px;
+    bottom: 18px;
+    z-index: 999;
+    border: none;
+    border-radius: 999px;
+    padding: 12px 14px;
+    box-shadow: 0 8px 22px rgba(0,0,0,.18);
+    background: #2c2c2e;
+    color: #fff;
+    font-weight: 800;
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+  }
+  @media(min-width: 1024px){
+    .series-fab{ display: none; }
+  }
+
+  .series-backdrop{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 998;
+    display: none;
+  }
+  .series-drawer{
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: min(88vw, 360px);
+    background: #fff;
+    z-index: 999;
+    transform: translateX(105%);
+    transition: transform .22s ease;
+    padding: 16px;
+    box-shadow: -10px 0 28px rgba(0,0,0,.20);
+    overflow-y: auto;
+  }
+  .series-drawer.open{ transform: translateX(0); }
+  .series-backdrop.open{ display: block; }
+
+  .drawer-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .drawer-close{
+    border: 1px solid rgba(0,0,0,.15);
+    background: rgba(0,0,0,.03);
+    border-radius: 10px;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-weight: 800;
+  }
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="container header-container">
+    <div class="logo">
+      <h1><a href="/index.html">Cérebro Milionário</a></h1>
+    </div>
+
+    <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <nav class="navigation" id="primary-navigation">
+      <ul class="nav-menu">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+        <li><a href="/calculadora.html">Calculadora</a></li>
+        <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+        <li><a href="/calculadora-ir-renda-fixa.html">IR&nbsp;Renda&nbsp;Fixa</a></li>
+        <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+        <li><a href="/cursos.html">Cursos</a></li>
+        <li><a href="/comunidade.html">Comunidade</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Drawer mobile da série -->
+<div class="series-backdrop" id="seriesBackdrop" aria-hidden="true"></div>
+<aside class="series-drawer" id="seriesDrawer" aria-hidden="true" aria-label="Menu da série Enciclopédia da Bolsa">
+  <div class="drawer-header">
+    <div>
+      <div class="series-pill">Enciclopédia da Bolsa • 6/8</div>
+      <strong>Menu da Série</strong>
+    </div>
+    <button class="drawer-close" id="seriesCloseBtn" aria-label="Fechar menu">Fechar ✕</button>
+  </div>
+
+  <div class="series-sidebar">
+    <h3>Partes</h3>
+    <ul>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-1-como-analisar-empresas.html">1) Como analisar empresas</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-2-como-ler-balancos.html">2) Como ler balanços</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-3-valuation-completo.html">3) Valuation completo</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-4-psicologia-do-mercado.html">4) Psicologia do mercado</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-5-ciclos-de-mercado.html">5) Ciclos de mercado</a></li>
+      <li><a class="series-active" aria-current="page" href="/posts/enciclopedia-da-bolsa-parte-6-construcao-de-portfolio.html">6) Construção de portfólio</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-7-gestao-de-risco.html">7) Gestão de risco</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-8-erros-fatais-do-investidor.html">8) Erros fatais do investidor</a></li>
+    </ul>
+
+    <hr>
+
+    <p class="mini"><strong>Leituras base:</strong><br>
+      <a href="/posts/etfs-alocacao-global-guia-2026_CFA.html">ETFs e alocação global</a><br>
+      <a href="/posts/renda-fixa-guia-completo-2026.html">Renda fixa</a><br>
+      <a href="/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html">Construção de patrimônio</a>
+    </p>
+  </div>
+</aside>
+
+<button class="series-fab" id="seriesFab" aria-label="Abrir menu da série">
+  <i class="fa-solid fa-layer-group"></i>
+  Série 6/8
+</button>
+
+<main class="section post-long">
+  <div class="container series-layout" style="max-width: 980px;">
+
+    <!-- Sidebar desktop -->
+    <aside class="series-sidebar series-sidebar-desktop" aria-label="Menu da série Enciclopédia da Bolsa">
+      <div class="series-pill">Enciclopédia da Bolsa • 6/8</div>
+      <h3>Partes</h3>
+      <ul>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-1-como-analisar-empresas.html">1) Como analisar empresas</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-2-como-ler-balancos.html">2) Como ler balanços</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-3-valuation-completo.html">3) Valuation completo</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-4-psicologia-do-mercado.html">4) Psicologia do mercado</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-5-ciclos-de-mercado.html">5) Ciclos de mercado</a></li>
+        <li><a class="series-active" aria-current="page" href="/posts/enciclopedia-da-bolsa-parte-6-construcao-de-portfolio.html">6) Construção de portfólio</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-7-gestao-de-risco.html">7) Gestão de risco</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-8-erros-fatais-do-investidor.html">8) Erros fatais do investidor</a></li>
+      </ul>
+
+      <hr>
+
+      <p class="mini"><strong>Leituras base:</strong><br>
+        <a href="/posts/etfs-alocacao-global-guia-2026_CFA.html">ETFs e alocação global</a><br>
+        <a href="/posts/renda-fixa-guia-completo-2026.html">Renda fixa</a><br>
+        <a href="/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html">Construção de patrimônio</a>
+      </p>
+    </aside>
+
+    <article class="series-content">
+
+      <h1>Enciclopédia da Bolsa (6/8): Construção de Portfólio (Alocação, Blocos, Rebalanceamento e Método)</h1>
+      <p class="tagline">O investidor iniciante pensa em “qual ação comprar”. O investidor profissional pensa em sistema: blocos, drivers de retorno, controle de ruína, regras e rebalanceamento. Aqui está o framework completo.</p>
+      <p><strong>Leitura estimada:</strong> 80 a 140 minutos (nível institucional).</p>
+
+      <div class="callout">
+        <p><strong>Regra central:</strong> você não precisa prever o futuro para ganhar dinheiro. Você precisa de um portfólio robusto o suficiente para sobreviver a vários futuros. A palavra-chave é <strong>robustez</strong>.</p>
+        <p class="mini"><strong>Nota:</strong> educacional. Não é recomendação de investimento.</p>
+      </div>
+
+      <hr>
+
+      <h2>Índice</h2>
+      <ul class="toc">
+        <li><a href="#objetivo">1) Primeiro princípio: portfólio nasce do objetivo (não do ativo)</a></li>
+        <li><a href="#drivers">2) Drivers de retorno e risco: diversificação real</a></li>
+        <li><a href="#blocos">3) Portfólio por blocos: núcleo, satélites e proteção</a></li>
+        <li><a href="#core-satellite">4) Core-Satellite: o método mais copiável</a></li>
+        <li><a href="#acoes-etf">5) Ações vs ETFs: onde cada um faz sentido</a></li>
+        <li><a href="#alocacao">6) Alocação: risco, prazo e tolerância a drawdown</a></li>
+        <li><a href="#rebalance">7) Rebalanceamento: o “alpha” do investidor disciplinado</a></li>
+        <li><a href="#sizing">8) Sizing: quanto comprar (a parte que decide tudo)</a></li>
+        <li><a href="#concentracao">9) Concentração vs diversificação: o dilema real</a></li>
+        <li><a href="#convexidade">10) Convexidade e assimetria: como pensar “institucional”</a></li>
+        <li><a href="#templates">11) Templates de portfólio (iniciante → institucional)</a></li>
+        <li><a href="#checklists">12) Checklists e governança</a></li>
+      </ul>
+
+      <hr>
+
+      <h2 id="objetivo">1) Primeiro princípio: portfólio nasce do objetivo</h2>
+      <p>Antes de falar de ações, ETFs, FIIs ou renda fixa, você define:</p>
+      <ul>
+        <li><strong>prazo</strong> (anos até o objetivo);</li>
+        <li><strong>capacidade de risco</strong> (quanto você pode perder sem comprometer vida);</li>
+        <li><strong>tolerância emocional</strong> (quanto você aguenta ver cair);</li>
+        <li><strong>taxa de poupança</strong> (aportes mudam tudo).</li>
+      </ul>
+
+      <div class="callout">
+        <p><strong>Regra:</strong> se você não aguenta drawdown, sua alocação está errada. Não é “psicológico”; é engenharia de portfólio.</p>
+      </div>
+
+      <hr>
+
+      <h2 id="drivers">2) Drivers de retorno e risco: diversificação real</h2>
+      <p>O iniciante diversifica por quantidade: 20 ações. O profissional diversifica por <strong>drivers</strong>:</p>
+      <ul>
+        <li>crescimento doméstico vs global;</li>
+        <li>dólar vs real;</li>
+        <li>juros altos vs juros baixos;</li>
+        <li>inflação alta vs baixa;</li>
+        <li>commodities vs serviços;</li>
+        <li>crédito fácil vs crédito apertado.</li>
+      </ul>
+
+      <div class="divider-title">Por que isso importa?</div>
+      <p>Porque em crise “tudo parece cair”, mas o que define recuperação e risco terminal é o que seu portfólio carrega por baixo: moeda, duration, alavancagem, qualidade e liquidez.</p>
+
+      <hr>
+
+      <h2 id="blocos">3) Portfólio por blocos: núcleo, satélites e proteção</h2>
+      <p>Uma estrutura institucional simples:</p>
+      <ul>
+        <li><strong>Núcleo (Core):</strong> o bloco que captura prêmio de risco de longo prazo (diversificado, baixo erro).</li>
+        <li><strong>Satélites:</strong> teses específicas (setor, fator, ações escolhidas, temas).</li>
+        <li><strong>Proteção:</strong> liquidez e instrumentos que reduzem risco de ruína (depende do perfil).</li>
+      </ul>
+
+      <div class="divider-title">O erro que destrói iniciantes</div>
+      <p>Montar uma carteira só de satélites (teses) e chamar de “longo prazo”. Em pânico, ele vende o que era “convicção” porque não tinha núcleo robusto.</p>
+
+      <hr>
+
+      <h2 id="core-satellite">4) Core-Satellite: o método mais copiável</h2>
+      <p>O core-satellite é popular em gestão profissional porque reduz chance de erro fatal.</p>
+
+      <div class="divider-title">Estrutura</div>
+      <ul>
+        <li><strong>Core (60%–90%):</strong> diversificação ampla (índices/ETFs) + baixa necessidade de timing.</li>
+        <li><strong>Satélite (10%–40%):</strong> ações selecionadas, fatores, oportunidades, teses.</li>
+      </ul>
+
+      <div class="callout">
+        <p><strong>Regra:</strong> satélite é onde você busca “extra”. Core é onde você evita se destruir.</p>
+      </div>
+
+      <hr>
+
+      <h2 id="acoes-etf">5) Ações vs ETFs</h2>
+      <div class="divider-title">Quando ETFs são superiores</div>
+      <ul>
+        <li>iniciante (reduz erro de seleção e comportamento);</li>
+        <li>quer exposição ampla e disciplina;</li>
+        <li>quer capturar prêmio de mercado com baixo esforço.</li>
+      </ul>
+
+      <div class="divider-title">Quando ações individuais fazem sentido</div>
+      <ul>
+        <li>você tem método (Partes 1 a 3) + disciplina (Parte 4);</li>
+        <li>você aceita volatilidade e concentrações controladas;</li>
+        <li>você consegue acompanhar riscos sem virar torcedor.</li>
+      </ul>
+
+      <hr>
+
+      <h2 id="alocacao">6) Alocação: risco, prazo e tolerância a drawdown</h2>
+      <p>O investidor geralmente escolhe alocação por “retorno desejado”. Profissional escolhe por “drawdown tolerável”.</p>
+
+      <div class="divider-title">A pergunta correta</div>
+      <p><strong>Se meu portfólio cair 30% em um ano, eu vou continuar aportando?</strong><br>
+      Se a resposta é “não”, você precisa de um portfólio menos agressivo ou de blocos de proteção/liquidez.</p>
+
+      <hr>
+
+      <h2 id="rebalance">7) Rebalanceamento: o “alpha” do disciplinado</h2>
+      <p>Rebalanceamento é simples: voltar ao alvo. Mas a razão de funcionar é psicológica e matemática:</p>
+      <ul>
+        <li>você vende o que subiu demais (reduz risco no topo);</li>
+        <li>você compra o que caiu (compra “barato” sem adivinhar fundo);</li>
+        <li>você mantém risco constante ao longo do tempo.</li>
+      </ul>
+
+      <div class="divider-title">Dois modelos comuns</div>
+      <ul>
+        <li><strong>por tempo:</strong> trimestral / semestral / anual;</li>
+        <li><strong>por banda:</strong> quando um bloco desvia X% do alvo.</li>
+      </ul>
+
+      <div class="callout">
+        <p><strong>Regra:</strong> rebalancear dói. Se não dói, você não está fazendo certo. É vender “queridinho” e comprar “odiado”.</p>
+      </div>
+
+      <hr>
+
+      <h2 id="sizing">8) Sizing: quanto comprar</h2>
+      <p>Sizing é a parte mais ignorada — e é ela que define se você vai sobreviver aos ciclos (Parte 5) e à sua própria mente (Parte 4).</p>
+
+      <div class="divider-title">Regras institucionais simples</div>
+      <ul>
+        <li>posição individual grande demais cria risco de ruína emocional;</li>
+        <li>posição pequena demais não move ponteiro (só ansiedade);</li>
+        <li>o tamanho deve refletir: <strong>convicção + risco + liquidez</strong>.</li>
+      </ul>
+
+      <div class="divider-title">O “erro mortal”</div>
+      <p>Aumentar posição porque “caiu muito” sem saber se a tese quebrou. Averaging down sem método vira aposta.</p>
+
+      <hr>
+
+      <h2 id="concentracao">9) Concentração vs diversificação</h2>
+      <p>Concentração pode gerar retorno acima da média, mas aumenta risco de erro fatal. Diversificação reduz risco de ruína e aumenta chance de ficar no jogo por décadas.</p>
+
+      <div class="divider-title">A visão institucional</div>
+      <ul>
+        <li>Concentre quando você tem edge real e governança.</li>
+        <li>Diversifique quando você não tem certeza (a maioria dos casos).</li>
+      </ul>
+
+      <hr>
+
+      <h2 id="convexidade">10) Convexidade e assimetria</h2>
+      <p>Convexidade é quando você ganha mais do que perde em cenários extremos. O oposto (concavidade) é quando você perde muito em crises. Institucionalmente, você quer:</p>
+      <ul>
+        <li>evitar concavidade escondida (alavancagem, dívida, risco de liquidez);</li>
+        <li>ter blocos que sobrevivem em stress;</li>
+        <li>não depender de um único cenário macro.</li>
+      </ul>
+
+      <hr>
+
+      <h2 id="templates">11) Templates de portfólio</h2>
+
+      <div class="divider-title">Template 1 — Iniciante robusto (simplicidade)</div>
+      <div class="callout">
+        <p><strong>Core:</strong> exposição ampla (ETF global) + renda fixa (reserva e estabilidade).<br>
+        <strong>Satélite:</strong> pequeno (ações/temas) só após dominar método.<br>
+        <strong>Regra:</strong> aportes mensais + rebalance anual.</p>
+      </div>
+
+      <div class="divider-title">Template 2 — Intermediário (core-satellite)</div>
+      <div class="callout">
+        <p><strong>Core:</strong> 70–85% em blocos diversificados.<br>
+        <strong>Satélite:</strong> 15–30% em teses (ações, fatores, setores).<br>
+        <strong>Rebalance:</strong> por bandas.</p>
+      </div>
+
+      <div class="divider-title">Template 3 — Institucional (multi-bloco)</div>
+      <div class="callout">
+        <p><strong>Bloco A (core):</strong> prêmio de risco global.<br>
+        <strong>Bloco B (renda fixa):</strong> estabilidade + oportunidade em juros.<br>
+        <strong>Bloco C (satélites):</strong> teses com sizing controlado.<br>
+        <strong>Bloco D (proteção/liquidez):</strong> evita ruína e permite comprar em crises.</p>
+      </div>
+
+      <hr>
+
+      <h2 id="checklists">12) Checklists e governança</h2>
+
+      <div class="divider-title">Checklist de portfólio (mínimo)</div>
+      <ul>
+        <li>Meu portfólio tem núcleo?</li>
+        <li>Tenho diversificação por drivers?</li>
+        <li>Tenho regra de rebalanceamento?</li>
+        <li>Tenho sizing máximo por posição?</li>
+        <li>Meu portfólio sobreviveria a uma crise (queda grande) sem me obrigar a vender?</li>
+      </ul>
+
+      <div class="divider-title">Governança (regra de ouro)</div>
+      <p>O objetivo do portfólio é te manter investido por décadas. Se o desenho te faz abandonar o plano em drawdown, ele não é “agressivo” — ele é <strong>mal projetado</strong>.</p>
+
+      <hr>
+
+      <p class="mini"><strong>Parte anterior:</strong><br>
+        ← <a href="/posts/enciclopedia-da-bolsa-parte-5-ciclos-de-mercado.html">Enciclopédia da Bolsa (5/8): Ciclos de mercado</a>
+      </p>
+
+      <p class="mini"><strong>Próxima parte:</strong><br>
+        → <a href="/posts/enciclopedia-da-bolsa-parte-7-gestao-de-risco.html">Enciclopédia da Bolsa (7/8): Gestão de risco</a>
+      </p>
+
+      <p class="mini"><strong>Interlinks sugeridos (SEO interno):</strong><br>
+        • ETFs e alocação global: <a href="/posts/etfs-alocacao-global-guia-2026_CFA.html">/posts/etfs-alocacao-global-guia-2026_CFA.html</a><br>
+        • Renda fixa: <a href="/posts/renda-fixa-guia-completo-2026.html">/posts/renda-fixa-guia-completo-2026.html</a><br>
+        • Construção de patrimônio: <a href="/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html">/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html</a><br>
+        • Guia de dividendos: <a href="/posts/guia-institucional-de-dividendos-mitos-matematica-estrategia.html">/posts/guia-institucional-de-dividendos-mitos-matematica-estrategia.html</a><br>
+      </p>
+
+    </article>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-column">
+        <h3 class="footer-logo">Cérebro Milionário</h3>
+        <p class="footer-text">Capacitando você a tomar decisões financeiras inteligentes para um futuro próspero.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/cerebromillionario/" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://t.me/" target="_blank" class="social-link" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Navegação</h3>
+        <ul class="footer-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/calculadora.html">Calculadoras</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Conteúdo</h3>
+        <ul class="footer-links">
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Legal</h3>
+        <ul class="footer-links">
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/contato.html">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Cérebro Milionário. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script>
+  // Ano automático
+  (function(){
+    var el = document.getElementById('year');
+    if(el) el.textContent = new Date().getFullYear();
+  })();
+
+  // Drawer da série (mobile)
+  (function(){
+    var fab = document.getElementById('seriesFab');
+    var drawer = document.getElementById('seriesDrawer');
+    var backdrop = document.getElementById('seriesBackdrop');
+    var closeBtn = document.getElementById('seriesCloseBtn');
+
+    function openDrawer(){
+      drawer.classList.add('open');
+      backdrop.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false');
+      backdrop.setAttribute('aria-hidden', 'false');
+    }
+    function closeDrawer(){
+      drawer.classList.remove('open');
+      backdrop.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+      backdrop.setAttribute('aria-hidden', 'true');
+    }
+
+    if(fab) fab.addEventListener('click', openDrawer);
+    if(closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    if(backdrop) backdrop.addEventListener('click', closeDrawer);
+
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeDrawer();
+    });
+  })();
+</script>
+
+</body>
+</html>
