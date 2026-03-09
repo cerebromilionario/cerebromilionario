@@ -61,6 +61,16 @@
     <priority>0.70</priority>
     </url>
   <url>
+    <loc>https://peppy-lollipop-54fa27.netlify.app/sobre.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <priority>0.70</priority>
+    </url>
+  <url>
+    <loc>https://peppy-lollipop-54fa27.netlify.app/politica-editorial.html</loc>
+    <lastmod>2026-03-09</lastmod>
+    <priority>0.55</priority>
+    </url>
+  <url>
     <loc>https://peppy-lollipop-54fa27.netlify.app/politica-privacidade.html</loc>
     <lastmod>2026-02-12</lastmod>
     <priority>0.35</priority>
