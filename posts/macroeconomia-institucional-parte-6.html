@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Macroeconomia Institucional para Investidores (Parte 6/8) | Transmissão para Ativos: Juros, FX e Crédito</title>
+  <meta name="description" content="Série institucional (Parte 6/8): transmissão macro-finance para preços de ativos. Decomposição de juros (expectativas vs term premium), forwards e paridades no câmbio, pass-through, crédito (spreads, default, liquidez), condições financeiras e frameworks executáveis." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/macroeconomia-institucional-parte-6.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/macroeconomia-institucional-parte-6.html" />
+  <meta property="og:title" content="Macroeconomia Institucional (Parte 6/8)" />
+  <meta property="og:description" content="Transmissão para ativos: juros, FX e crédito. Nível institucional." />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Fonts + Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)'], ['$', '$']], displayMath: [['\\[','\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <style>
+    body{overflow-x:hidden}
+
+    /* Conteúdo */
+    .post-wrap{max-width:980px;margin:0 auto;padding:28px 16px 60px}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:800;font-size:12px;background:rgba(44,44,46,.06)}
+    .muted{opacity:.78}
+    .hero{
+      margin-top:16px;border-radius:18px;overflow:hidden;border:1px solid rgba(0,0,0,.08);
+      box-shadow: var(--shadow-sm); background:#fff
+    }
+    .hero img{width:100%;height:auto;display:block}
+    .toc{
+      margin-top:18px;border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;
+      box-shadow: var(--shadow-sm); padding:16px
+    }
+    .toc h2{margin:0 0 10px 0}
+    .toc a{
+      display:block;text-decoration:none;padding:8px 10px;border-radius:14px;border:1px solid rgba(0,0,0,.06);
+      margin:8px 0
+    }
+    .toc a:hover{transform:translateY(-1px)}
+    .callout{
+      border-left:4px solid var(--accent-color, #f4c430);
+      background: rgba(244,196,48,.10);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+    .warning{
+      border-left:4px solid #e2574c;background: rgba(226,87,76,.08);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+    .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+    .kpi{border:1px solid rgba(0,0,0,.08);border-radius:16px;background:#fff;box-shadow:var(--shadow-sm);padding:14px}
+    .kpi strong{display:block;font-size:18px}
+    @media(max-width:980px){.kpi-grid{grid-template-columns:1fr}}
+    .jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .jump a{
+      display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:14px;
+      border:1px solid rgba(0,0,0,.08);background:#fff;box-shadow:var(--shadow-sm);text-decoration:none;font-weight:900
+    }
+    .jump a:hover{transform:translateY(-1px)}
+    .section{margin-top:22px}
+    .section h2{margin-top:42px}
+    .section h3{margin-top:26px}
+    .hr{height:1px;background:rgba(0,0,0,.10);border:0;margin:26px 0}
+    .table{
+      width:100%;border-collapse:collapse;border:1px solid rgba(0,0,0,.08);border-radius:14px;overflow:hidden;background:#fff;
+      box-shadow:var(--shadow-sm)
+    }
+    .table th,.table td{padding:12px;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:top}
+    .table th{background:rgba(44,44,46,.04);text-align:left}
+    .codebox{
+      border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);
+      padding:14px 16px;margin:18px 0
+    }
+    .mini-note{font-size:12px;opacity:.78;margin-top:8px}
+    .panel{
+      border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);
+      padding:14px 16px;margin:18px 0
+    }
+    .panel h3{margin:0 0 10px 0}
+    .badge{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:6px 10px;border-radius:999px;background:rgba(44,44,46,.06);
+      font-weight:900;font-size:12px
+    }
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media(max-width:900px){.grid2{grid-template-columns:1fr}}
+
+    /* Série: sidebar desktop + drawer mobile (SEM COBRIR TEXTO) */
+    .series-shell { position: relative; }
+    .series-nav{
+      position: fixed;
+      top: 92px;
+      right: 18px;
+      width: 320px;
+      max-height: calc(100vh - 120px);
+      overflow: auto;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.10);
+      border-radius: 18px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.18);
+      padding: 12px;
+      z-index: 9999;
+    }
+    .series-nav-head{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      padding: 8px 8px 10px 8px;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    .series-close{
+      border: 1px solid rgba(0,0,0,.12);
+      background: #fff;
+      border-radius: 12px;
+      width: 38px; height: 38px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    .series-nav-links{ display:flex; flex-direction:column; gap: 8px; padding: 10px 6px 6px; }
+    .series-nav-links a{
+      text-decoration:none;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,.08);
+      color: #1a1a1a;
+      font-weight: 800;
+    }
+    .series-nav-links a:hover{ transform: translateY(-1px); }
+    .series-nav-links a.active{
+      background: #2c2c2e;
+      color: #fff;
+      border-color: #2c2c2e;
+    }
+    .series-backdrop{
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.45);
+      z-index: 9998;
+      display: none;
+    }
+    .series-fab{
+      position: fixed;
+      right: 16px;
+      bottom: 18px;
+      z-index: 10000;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 14px;
+      background: #2c2c2e;
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 18px 45px rgba(0,0,0,.30);
+      display: none;
+    }
+
+    @media (min-width: 981px){
+      .post-wrap{
+        max-width: 980px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 380px;
+      }
+    }
+    @media (max-width: 980px){
+      .post-wrap{padding-right:16px}
+      .series-fab{ display: inline-flex; align-items:center; justify-content:center; }
+      .series-nav{
+        top: 0; right: 0; height: 100vh; max-height: none;
+        width: min(360px, 92vw);
+        border-radius: 0;
+        transform: translateX(110%);
+        transition: transform .18s ease;
+        padding-top: 14px;
+      }
+      .series-nav.open{ transform: translateX(0); }
+      .series-backdrop.open{ display: block; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Série: Navegação -->
+  <div class="series-shell">
+    <button class="series-fab" id="seriesFab" aria-label="Abrir navegação da série" aria-expanded="false">Série 6/8</button>
+    <div class="series-backdrop" id="seriesBackdrop"></div>
+
+    <aside class="series-nav" id="seriesNav" aria-label="Navegação da série Macroeconomia Institucional">
+      <div class="series-nav-head">
+        <strong>📌 Série: Macro (6/8)</strong>
+        <button class="series-close" id="seriesClose" aria-label="Fechar">✕</button>
+      </div>
+
+      <nav class="series-nav-links">
+        <a href="/posts/macroeconomia-institucional-parte-1.html">Parte 1 — RBC, Equilíbrio e Núcleo Real</a>
+        <a href="/posts/macroeconomia-institucional-parte-2.html">Parte 2 — NK Phillips, Rigidezes e Política Monetária</a>
+        <a href="/posts/macroeconomia-institucional-parte-3.html">Parte 3 — Fiscal Intertemporal, TVC e Dominância</a>
+        <a href="/posts/macroeconomia-institucional-parte-4.html">Parte 4 — Equilíbrio Geral, Prêmio Endógeno e Risco</a>
+        <a href="/posts/macroeconomia-institucional-parte-5.html">Parte 5 — Regimes, Identificação e Nowcasting</a>
+        <a href="/posts/macroeconomia-institucional-parte-6.html" class="active">Parte 6 — Transmissão a Ativos: Juros, FX, Crédito</a>
+        <a href="/posts/macroeconomia-institucional-parte-7.html">Parte 7 — Ciclos, Curvas e Carteiras (Regras)</a>
+        <a href="/posts/macroeconomia-institucional-parte-8.html">Parte 8 — Framework Final, Checklist e Governança</a>
+      </nav>
+    </aside>
+  </div>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <span class="pill">Série Institucional • Parte 6/8</span>
+        <h1 style="margin-top:10px;">Transmissão Macro → Preços de Ativos (Juros, FX e Crédito)</h1>
+        <p class="muted" style="max-width: 980px;">
+          Agora a macro “vira dinheiro”: como choques e regimes se convertem em movimentos na curva de juros,
+          no câmbio e no crédito. O foco aqui é decomposição (expectativas vs prêmio), paridades no FX,
+          pass-through e o acelerador financeiro do crédito — com regras operacionais e diagnóstico de regime.
+        </p>
+
+        <div class="hero">
+          <img src="/images/blog-cover.svg" alt="Transmissão macro para ativos" loading="lazy" />
+        </div>
+
+        <div class="kpi-grid" style="max-width: 980px;">
+          <div class="kpi"><strong>Leitura</strong><span class="muted">~ 70–110 min</span></div>
+          <div class="kpi"><strong>Foco</strong><span class="muted">decomposição & risco</span></div>
+          <div class="kpi"><strong>Próximo</strong><span class="muted"><a href="/posts/macroeconomia-institucional-parte-7.html">ciclos + regras</a></span></div>
+        </div>
+
+        <div class="jump" style="max-width: 980px;">
+          <a href="/posts/macroeconomia-institucional-parte-5.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 5</a>
+          <a href="/posts/macroeconomia-institucional-parte-7.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 7</a>
+          <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+          <a href="/calculadora.html"><i class="fa-solid fa-calculator"></i> Juros Compostos</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="post-wrap">
+
+        <div class="toc">
+          <h2>Índice</h2>
+          <a href="#c1">1) A regra-mãe: preços = expectativas + prêmios</a>
+          <a href="#c2">2) Curva de juros: decomposição em expectativas e term premium</a>
+          <a href="#c3">3) Duration, convexidade e por que o long-end “quebra” carteiras</a>
+          <a href="#c4">4) Inflação implícita, breakevens e risco de indexação</a>
+          <a href="#c5">5) Câmbio: UIP, CIP, forwards e carry (sem misticismo)</a>
+          <a href="#c6">6) Pass-through e inflação: FX → preços → reação do BC</a>
+          <a href="#c7">7) Crédito: spread = default + liquidez + aversão a risco</a>
+          <a href="#c8">8) Acelerador financeiro: quando “condições” viram recessão</a>
+          <a href="#c9">9) Framework operável: 8 diagnósticos + ações de risco</a>
+          <a href="#c10">Conclusão + ponte para regras de carteira (Parte 7)</a>
+        </div>
+
+        <div class="callout">
+          <strong>Chave institucional:</strong>
+          antes de interpretar qualquer movimento, decomponha:
+          <em>o que mudou nas expectativas?</em> e <em>o que mudou nos prêmios?</em>.
+          Se você não faz isso, você narra o gráfico — não explica.
+        </div>
+
+        <hr class="hr">
+
+        <h2 id="c1">1) A regra-mãe: preços = expectativas + prêmios</h2>
+        <p>
+          Em macro-finance, quase tudo pode ser escrito como:
+          expectativas do caminho futuro de variáveis + prêmios por risco, liquidez e convexidade.
+          Quando você vê “juros longos subindo”, isso pode ser (i) expectativa de política mais alta,
+          (ii) inflação esperada mais alta, (iii) term premium subindo (risco fiscal/cauda), ou (iv) mistura.
+        </p>
+
+        <div class="codebox">
+          <strong>Forma genérica:</strong>
+          <p>\[
+            Preço_t = \mathbb{E}_t[\text{fundamentais futuros}] \;+\; \text{Prêmios}_t
+          \]</p>
+          <p class="mini-note">
+            O erro de amador é assumir que todo movimento é “expectativa”. Muitas vezes é “prêmio”.
+          </p>
+        </div>
+
+        <h2 id="c2">2) Curva de juros: expectativas vs term premium</h2>
+        <p>
+          A curva nominal de longo prazo pode ser decomposta em: média esperada de juros curtos futuros (policy path)
+          + term premium (risco de duração, inflação, fiscal, liquidez).
+        </p>
+
+        <div class="codebox">
+          <strong>Expectations hypothesis com prêmio:</strong>
+          <p>\[
+            y_t^{(n)} \approx \frac{1}{n}\sum_{k=0}^{n-1}\mathbb{E}_t\left(r_{t+k}^{(1)}\right) + TP_t^{(n)}
+          \]</p>
+          <p class="mini-note">
+            \(y_t^{(n)}\) = yield \(n\) períodos, \(r^{(1)}\) = short rate, \(TP\) = term premium.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h3>Diagnóstico rápido (institucional)</h3>
+          <div class="grid2">
+            <div>
+              <span class="badge"><i class="fa-solid fa-route"></i> Mov. por expectativas</span>
+              <ul style="margin:10px 0 0 18px;">
+                <li>BC muda “reaction function”</li>
+                <li>Dados mudam hiato/inflação</li>
+                <li>Front-end reage mais</li>
+              </ul>
+            </div>
+            <div>
+              <span class="badge"><i class="fa-solid fa-shield"></i> Mov. por prêmio</span>
+              <ul style="margin:10px 0 0 18px;">
+                <li>Fiscal/risco cauda (TVC)</li>
+                <li>Liquidez some</li>
+                <li>Long-end “desancora”</li>
+              </ul>
+            </div>
+          </div>
+          <div class="mini-note">
+            A Parte 3 (fiscal) entra aqui: dominância fiscal tende a aumentar \(TP\) e “quebrar” a leitura simples do guidance.
+          </div>
+        </div>
+
+        <h2 id="c3">3) Duration e convexidade: por que long-end destrói portfólios</h2>
+        <p>
+          No longo prazo, bonds e “duration assets” (growth, imóveis, etc.) têm alta sensibilidade a variações pequenas em yields.
+          Essa sensibilidade é aproximadamente a duration modificada.
+        </p>
+
+        <div class="codebox">
+          <strong>Aproximação de variação de preço:</strong>
+          <p>\[
+            \frac{\Delta P}{P} \approx -D_{mod}\Delta y + \frac{1}{2}Convexity\cdot (\Delta y)^2
+          \]</p>
+          <p class="mini-note">
+            Em choques grandes, a convexidade importa. Em stress, a convexidade pode “mudar de lado” quando liquidez some.
+          </p>
+        </div>
+
+        <div class="warning">
+          <strong>Armadilha prática:</strong>
+          “renda fixa é segura” é verdade para risco de default baixo, mas pode ser falso para risco de duration
+          em regimes de inflação/TP subindo.
+        </div>
+
+        <h2 id="c4">4) Inflação implícita: breakevens e indexação</h2>
+        <p>
+          Em mercados com instrumentos nominais e indexados, você consegue inferir uma inflação “implícita” (breakeven),
+          que mistura expectativa de inflação + prêmio de inflação + diferenças de liquidez.
+        </p>
+
+        <div class="codebox">
+          <strong>Breakeven (ideia):</strong>
+          <p>\[
+            BEI^{(n)} \approx y_{nom}^{(n)} - y_{real}^{(n)} \;=\; \mathbb{E}[\pi] + \text{prêmio de inflação} + \text{dif. liquidez}
+          \]</p>
+          <p class="mini-note">
+            Não confunda BEI com “inflação esperada pura” — há prêmio.
+          </p>
+        </div>
+
+        <h2 id="c5">5) Câmbio: UIP, CIP, forwards e carry</h2>
+        <p>
+          Câmbio é onde o “erro de narrativa” explode. Você precisa separar:
+          (i) diferencial de juros, (ii) prêmio de risco, (iii) termos de troca/fluxo, (iv) regime global (DXY),
+          (v) política/credibilidade.
+        </p>
+
+        <div class="codebox">
+          <strong>UIP (paridade descoberta) — forma:</strong>
+          <p>\[
+            \mathbb{E}_t[\Delta s_{t+1}] \approx i_t - i_t^* \;-\; \rho_t
+          \]</p>
+          <p class="mini-note">
+            \(s\) = log do câmbio (doméstico por estrangeiro), \(i-i^*\) = diferencial de juros, \(\rho\) = prêmio de risco.
+            UIP falha empiricamente porque \(\rho_t\) varia e é grande.
+          </p>
+        </div>
+
+        <div class="codebox">
+          <strong>CIP (paridade coberta) — relação de forward:</strong>
+          <p>\[
+            F_t \approx S_t\cdot \frac{(1+i_t)}{(1+i_t^*)}\cdot (1+\text{basis}_t)
+          \]</p>
+          <p class="mini-note">
+            “Basis” aparece com fricções (balanço bancário, stress, capital controls). Em crise, CIP pode distorcer.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h3>Carry: retorno “aparente” vs risco de cauda</h3>
+          <p>
+            O carry trade captura diferencial de juros, mas carrega risco de “crash” (desvalorizações abruptas em risk-off).
+            Em termos de prêmio endógeno, carry vende seguro.
+          </p>
+          <div class="codebox">
+            <p>\[
+              Retorno_{carry} \approx (i-i^*) - \Delta s - custos
+            \]</p>
+          </div>
+          <div class="mini-note">
+            Quando o prêmio de risco \(\rho_t\) sobe, o FX pode ajustar violentamente, anulando anos de carry.
+          </div>
+        </div>
+
+        <h2 id="c6">6) Pass-through: FX → inflação → reação do BC</h2>
+        <p>
+          Em economias com importação relevante, o câmbio afeta inflação via pass-through.
+          O pass-through depende de: hiato (demanda), grau de indexação, credibilidade do BC, margem de empresas e regime.
+        </p>
+
+        <div class="codebox">
+          <strong>Forma reduzida (conceitual):</strong>
+          <p>\[
+            \pi_t = \alpha \pi_{t-1} + \kappa x_t + \gamma \Delta s_t + u_t
+          \]</p>
+          <p class="mini-note">
+            \(\gamma\) é o pass-through “médio”, mas em regimes de stress pode ser maior (e não linear).
+          </p>
+        </div>
+
+        <div class="warning">
+          <strong>Erro comum:</strong>
+          assumir pass-through fixo. Em regimes com ancoragem frágil, o canal FX→inflação fica “mais forte”.
+        </div>
+
+        <h2 id="c7">7) Crédito: spread = default + liquidez + aversão a risco</h2>
+        <p>
+          Crédito é o acelerador do ciclo. Spreads sobem não só por piora esperada de default,
+          mas por prêmio de liquidez e aversão ao risco. Em stress, “liquidity component” domina.
+        </p>
+
+        <div class="codebox">
+          <strong>Decomposição estilizada:</strong>
+          <p>\[
+            Spread \approx \underbrace{\mathbb{E}[Loss]}_{\text{default}} + \underbrace{LP}_{\text{liquidez}} + \underbrace{RP}_{\text{risco}} + \underbrace{CT}_{\text{custos}}
+          \]</p>
+          <p class="mini-note">
+            Em crises, \(LP\) e \(RP\) crescem rápido — o spread não é “só fundamentals”.
+          </p>
+        </div>
+
+        <h3>7.1 Default esperado e probabilidade implícita</h3>
+        <p>
+          Mesmo sem modelar estruturalmente, o investidor institucional tenta responder:
+          “quanto de default está implícito no spread atual?” Isso evita comprar “barato” o que é apenas risco real.
+        </p>
+
+        <h2 id="c8">8) Acelerador financeiro: quando condições viram recessão</h2>
+        <p>
+          O acelerador financeiro (Bernanke-Gertler-Gilchrist) é o mecanismo em que queda de preços de ativos e aperto de crédito
+          reduzem colateral, elevam spreads e cortam investimento/consumo, realimentando a desaceleração.
+        </p>
+
+        <div class="codebox">
+          <strong>Intuição formal:</strong>
+          <p>\[
+            Spread_t = \psi(NW_t,\sigma_t,\text{liquidez}_t),\qquad I_t = I(Spread_t, q_t)
+          \]</p>
+          <p class="mini-note">
+            \(NW\) = net worth/colateral; quando cai, spreads sobem, investimento cai: feedback loop.
+          </p>
+        </div>
+
+        <div class="callout">
+          <strong>Leitura prática:</strong>
+          quando spreads abrem e a curva aperta simultaneamente, seu “painel” deve elevar probabilidade de stress —
+          mesmo que o dado de atividade ainda pareça bom (defasagem).
+        </div>
+
+        <h2 id="c9">9) Framework operável: 8 diagnósticos + ações de risco</h2>
+
+        <table class="table" aria-label="Framework operável">
+          <thead>
+            <tr>
+              <th>Diagnóstico</th>
+              <th>Sinal</th>
+              <th>Interpretação</th>
+              <th>Ação de risco (genérica)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1) Front-end ↑, long-end ↑</td>
+              <td>curva sobe toda</td>
+              <td>hawkish + prêmio</td>
+              <td>reduzir duration + revisar risk budget</td>
+            </tr>
+            <tr>
+              <td>2) Front-end ↑, long-end ↔/↓</td>
+              <td>flatten/invert</td>
+              <td>hawkish com medo de crescimento</td>
+              <td>cuidado com crédito cíclico; proteger cauda</td>
+            </tr>
+            <tr>
+              <td>3) Long-end ↑ isolado</td>
+              <td>steepening longo</td>
+              <td>TP/fiscal/inflação longa</td>
+              <td>evitar ativos de alta duration; hedge de inflação</td>
+            </tr>
+            <tr>
+              <td>4) FX deprecia + breakevens ↑</td>
+              <td>pass-through</td>
+              <td>ancoragem frágil</td>
+              <td>reduzir risco doméstico; olhar indexados</td>
+            </tr>
+            <tr>
+              <td>5) Spreads ↑, vol ↑</td>
+              <td>risk-off</td>
+              <td>prêmio endógeno dispara</td>
+              <td>liquidez + sizing; evitar ilíquidos</td>
+            </tr>
+            <tr>
+              <td>6) Spreads ↑, atividade ainda ok</td>
+              <td>antecipação</td>
+              <td>defasagem do ciclo</td>
+              <td>prepare proteção; rebalance disciplinado</td>
+            </tr>
+            <tr>
+              <td>7) Commodities ↑, FX commodity ↑</td>
+              <td>termos de troca</td>
+              <td>choque externo benigno</td>
+              <td>favorece setores/países exportadores</td>
+            </tr>
+            <tr>
+              <td>8) Curva real ↑</td>
+              <td>juros reais sobem</td>
+              <td>aperto de condições</td>
+              <td>duration assets sofrem; revisar valuation</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="c10">Conclusão + ponte para Parte 7</h2>
+        <p>
+          Você agora tem o “tradutor”: regimes e choques → decomposição de curva, FX e crédito.
+          A Parte 7 transforma isso em regras de carteira: como mapear regimes em exposições (duration, risco, carry),
+          e como evitar o erro clássico de “mudar de tese” a cada variação semanal.
+        </p>
+
+        <div class="callout">
+          <strong>Próxima parte (7):</strong>
+          ciclos, curvas e carteiras — regras executáveis, bandas, sizing e governança de rebalance.
+        </div>
+
+        <div class="jump" style="margin-top:18px;">
+          <a href="/posts/macroeconomia-institucional-parte-5.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 5</a>
+          <a href="/posts/macroeconomia-institucional-parte-7.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 7</a>
+          <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+          <a href="/posts/etf-masterclass-carteira-global-parte-1.html"><i class="fa-solid fa-bolt"></i> ETF Masterclass</a>
+        </div>
+
+        <hr class="hr">
+
+        <div class="muted" style="font-size:12px;">
+          Nota: material educacional. Não constitui recomendação de investimento. O objetivo é estrutura técnica e disciplina de análise.
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        <h3>Cérebro Milionário</h3>
+        <p>Educação financeira com profundidade estratégica.</p>
+        <div class="footer-social" aria-label="Redes sociais" style="display:flex;gap:12px;align-items:center;margin-top:10px">
+          <a href="https://t.me/cerebromillionario" target="_blank" rel="noopener" aria-label="Telegram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://instagram.com/cerebromillionario" target="_blank" rel="noopener" aria-label="Instagram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/glossario-financeiro.html">Glossário Financeiro</a></li>
+          <li><a href="/perguntas-frequentes.html">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu (topo)
+    (function () {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', function () {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    })();
+
+    // Série drawer mobile
+    (function(){
+      const fab = document.getElementById('seriesFab');
+      const nav = document.getElementById('seriesNav');
+      const backdrop = document.getElementById('seriesBackdrop');
+      const closeBtn = document.getElementById('seriesClose');
+      if(!fab || !nav || !backdrop || !closeBtn) return;
+
+      function openNav(){
+        nav.classList.add('open');
+        backdrop.classList.add('open');
+        fab.setAttribute('aria-expanded','true');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeNav(){
+        nav.classList.remove('open');
+        backdrop.classList.remove('open');
+        fab.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+      }
+
+      fab.addEventListener('click', openNav);
+      closeBtn.addEventListener('click', closeNav);
+      backdrop.addEventListener('click', closeNav);
+      document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeNav(); });
+    })();
+  </script>
+</body>
+</html>

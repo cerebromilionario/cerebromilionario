@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Ações do Zero ao Institucional (Parte 8/8) | IPS, Checklist Final e Governança de Execução</title>
+  <meta name="description" content="Série institucional (Parte 8/8): Investment Policy Statement (IPS) pessoal, governança, regras, métricas, controle de risco, checklist, rotina de revisão, logs de decisão, vieses e um sistema completo para investir em ações com disciplina institucional." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/acoes-institucional-parte-8.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/acoes-institucional-parte-8.html" />
+  <meta property="og:title" content="Ações do Zero ao Institucional (Parte 8/8) — IPS & Checklist" />
+  <meta property="og:description" content="IPS pessoal, checklist final, governança e execução. Nível institucional." />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Fonts + Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)'], ['$', '$']], displayMath: [['\\[','\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <style>
+    body{overflow-x:hidden}
+
+    /* ===== Layout: conteúdo + sidebar (desktop sem sobrepor) ===== */
+    .series-layout{
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 18px;
+      align-items: start;
+    }
+    @media (max-width: 1100px){
+      .series-layout{ grid-template-columns: 1fr; }
+    }
+
+    .post-wrap{max-width:980px;margin:0;padding:0}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:800;font-size:12px;background:rgba(44,44,46,.06)}
+    .muted{opacity:.78}
+
+    .hero{
+      margin-top:16px;border-radius:18px;overflow:hidden;border:1px solid rgba(0,0,0,.08);
+      box-shadow: var(--shadow-sm); background:#fff
+    }
+    .hero img{width:100%;height:auto;display:block}
+
+    .toc{
+      margin-top:18px;border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;
+      box-shadow: var(--shadow-sm); padding:16px
+    }
+    .toc h2{margin:0 0 10px 0}
+    .toc a{display:block;text-decoration:none;padding:8px 10px;border-radius:14px;border:1px solid rgba(0,0,0,.06);margin:8px 0}
+    .toc a:hover{transform:translateY(-1px)}
+
+    .callout{
+      border-left:4px solid var(--accent-color, #f4c430);
+      background: rgba(244,196,48,.10);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+    .warning{
+      border-left:4px solid #e2574c;background: rgba(226,87,76,.08);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+
+    .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+    .kpi{border:1px solid rgba(0,0,0,.08);border-radius:16px;background:#fff;box-shadow:var(--shadow-sm);padding:14px}
+    .kpi strong{display:block;font-size:18px}
+    @media(max-width:980px){.kpi-grid{grid-template-columns:1fr}}
+
+    .jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .jump a{
+      display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:14px;
+      border:1px solid rgba(0,0,0,.08);background:#fff;box-shadow:var(--shadow-sm);text-decoration:none;font-weight:900
+    }
+    .jump a:hover{transform:translateY(-1px)}
+
+    .section h2{margin-top:42px}
+    .section h3{margin-top:26px}
+    .hr{height:1px;background:rgba(0,0,0,.10);border:0;margin:26px 0}
+
+    .table{
+      width:100%;border-collapse:collapse;border:1px solid rgba(0,0,0,.08);border-radius:14px;overflow:hidden;background:#fff;
+      box-shadow:var(--shadow-sm)
+    }
+    .table th,.table td{padding:12px;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:top}
+    .table th{background:rgba(44,44,46,.04);text-align:left}
+
+    .codebox{
+      border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);padding:14px 16px;margin:18px 0
+    }
+    .mini-note{font-size:12px;opacity:.78;margin-top:8px}
+
+    /* ===== Sidebar desktop (sticky) ===== */
+    .series-nav{
+      position: sticky;
+      top: 96px;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.10);
+      border-radius: 18px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.10);
+      padding: 12px;
+      max-height: calc(100vh - 120px);
+      overflow: auto;
+    }
+    @media (max-width: 1100px){
+      .series-nav{ display:none; }
+    }
+    .series-nav-head{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      padding: 8px 8px 10px 8px;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    .series-nav-links{ display:flex; flex-direction:column; gap: 8px; padding: 10px 6px 6px; }
+    .series-nav-links a{
+      text-decoration:none;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,.08);
+      color: #1a1a1a;
+      font-weight: 800;
+    }
+    .series-nav-links a:hover{ transform: translateY(-1px); }
+    .series-nav-links a.active{
+      background: #2c2c2e;
+      color: #fff;
+      border-color: #2c2c2e;
+    }
+
+    /* ===== Mobile drawer ===== */
+    .series-fab{
+      position: fixed;
+      right: 16px;
+      bottom: 18px;
+      z-index: 10000;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 14px;
+      background: #2c2c2e;
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 18px 45px rgba(0,0,0,.30);
+      display: none;
+    }
+    .series-backdrop{
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.45);
+      z-index: 9998;
+      display: none;
+    }
+    .series-drawer{
+      position: fixed;
+      top: 0; right: 0;
+      height: 100vh;
+      width: min(360px, 92vw);
+      background: #fff;
+      z-index: 9999;
+      transform: translateX(110%);
+      transition: transform .18s ease;
+      border-left: 1px solid rgba(0,0,0,.10);
+      padding: 14px 12px;
+      overflow: auto;
+    }
+    .series-drawer.open{ transform: translateX(0); }
+    .series-backdrop.open{ display:block; }
+    .series-close{
+      border: 1px solid rgba(0,0,0,.12);
+      background: #fff;
+      border-radius: 12px;
+      width: 38px; height: 38px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    @media (max-width: 1100px){
+      .series-fab{ display:inline-flex; align-items:center; justify-content:center; }
+    }
+
+    /* ===== Extras ===== */
+    .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:14px 0}
+    @media(max-width:760px){.cards{grid-template-columns:1fr}}
+    .card{
+      border:1px solid rgba(0,0,0,.08);
+      border-radius: 18px;
+      background:#fff;
+      box-shadow: var(--shadow-sm);
+      padding: 14px;
+    }
+    .card strong{display:block;font-size:14px}
+    .card p{margin:8px 0 0 0;opacity:.86;line-height:1.5}
+
+    .kbd{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:12px; padding:2px 6px; border:1px solid rgba(0,0,0,.14); border-bottom-width:2px; border-radius:8px; background:rgba(0,0,0,.03)}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.10);background:#fff;box-shadow:var(--shadow-sm);font-weight:900}
+    .badge i{opacity:.85}
+    .checklist{margin:12px 0 0 0; padding-left: 18px}
+    .checklist li{margin:8px 0}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+    @media(max-width:980px){.grid-3{grid-template-columns:1fr}}
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile FAB + Drawer -->
+  <button class="series-fab" id="seriesFab" aria-label="Abrir navegação da série" aria-expanded="false">Série 8/8</button>
+  <div class="series-backdrop" id="seriesBackdrop"></div>
+
+  <aside class="series-drawer" id="seriesDrawer" aria-label="Navegação da série Ações do Zero ao Institucional (mobile)">
+    <div class="series-nav-head">
+      <strong>📌 Série: Ações (8/8)</strong>
+      <button class="series-close" id="seriesClose" aria-label="Fechar">✕</button>
+    </div>
+    <nav class="series-nav-links">
+      <a href="/posts/acoes-institucional-parte-1.html">Parte 1 — Fundamentos & Microestrutura</a>
+      <a href="/posts/acoes-institucional-parte-2.html">Parte 2 — Contabilidade, ROIC e Qualidade</a>
+      <a href="/posts/acoes-institucional-parte-3.html">Parte 3 — Valuation (DCF, Múltiplos, Cenários)</a>
+      <a href="/posts/acoes-institucional-parte-4.html">Parte 4 — Risco, Stress, Drawdown e Convexidade</a>
+      <a href="/posts/acoes-institucional-parte-5.html">Parte 5 — Fatores, Estilos e Implementação</a>
+      <a href="/posts/acoes-institucional-parte-6.html">Parte 6 — Construção de Carteira e Regras</a>
+      <a href="/posts/acoes-institucional-parte-7.html">Parte 7 — Ciclos, Setores e Macro</a>
+      <a href="/posts/acoes-institucional-parte-8.html" class="active">Parte 8 — IPS, Checklist e Governança</a>
+    </nav>
+  </aside>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <span class="pill">Série Institucional • Parte 8/8</span>
+        <h1 style="margin-top:10px;">IPS, Checklist Final e Governança de Execução</h1>
+        <p class="muted" style="max-width: 980px;">
+          Esta é a peça que separa “conteúdo” de “resultado”: um <strong>Investment Policy Statement (IPS)</strong> pessoal com
+          regras, limites, rotinas e logs — para você operar ações com disciplina institucional.
+          Aqui você transforma teoria em um <em>sistema</em>.
+        </p>
+
+        <div class="hero">
+          <img src="/images/blog-cover.svg" alt="IPS e governança de execução" loading="lazy" />
+        </div>
+
+        <div class="kpi-grid" style="max-width: 980px;">
+          <div class="kpi"><strong>Leitura</strong><span class="muted">~ 70–120 min</span></div>
+          <div class="kpi"><strong>Entrega</strong><span class="muted">IPS completo + checklist</span></div>
+          <div class="kpi"><strong>Status</strong><span class="muted">Fechamento da série</span></div>
+        </div>
+
+        <div class="jump" style="max-width: 980px;">
+          <a href="/posts/acoes-institucional-parte-7.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 7</a>
+          <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+          <a href="/posts/etf-masterclass-carteira-global-parte-1.html"><i class="fa-solid fa-bolt"></i> ETF Masterclass</a>
+          <a href="/calculadora.html"><i class="fa-solid fa-calculator"></i> Juros Compostos</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="series-layout">
+
+        <!-- CONTEÚDO -->
+        <article class="post-wrap">
+
+          <div class="toc">
+            <h2>Índice</h2>
+            <a href="#p1">1) O que é um IPS (e por que ele aumenta retorno ajustado a risco)</a>
+            <a href="#p2">2) Objetivos: retorno real, horizonte, restrições e taxa de aporte</a>
+            <a href="#p3">3) Filosofia e edge: quais apostas você está autorizado a fazer</a>
+            <a href="#p4">4) Universo, filtros e elegibilidade (o que entra e o que não entra)</a>
+            <a href="#p5">5) Regras de posição: sizing, limites, concentração, liquidez</a>
+            <a href="#p6">6) Regras de compra/venda: gatilhos, bandas e reavaliação</a>
+            <a href="#p7">7) Controle de risco: drawdown, stress tests, cauda e stop de processo</a>
+            <a href="#p8">8) Atribuição e métricas: como medir o que está funcionando</a>
+            <a href="#p9">9) Rotina operacional: calendário, checklists e “higiene de decisão”</a>
+            <a href="#p10">10) Logs, vieses e auditoria: como você se impede de se sabotar</a>
+            <a href="#p11">11) Template IPS pronto (copiar/colar) + checklist final</a>
+          </div>
+
+          <div class="callout">
+            <strong>Frase-chave:</strong> você não “investe em ações”. Você executa um processo repetível sob incerteza.
+            IPS é o documento que governa o processo quando suas emoções tentarem sequestrar a decisão.
+          </div>
+
+          <hr class="hr">
+
+          <h2 id="p1">1) O que é um IPS (e por que ele aumenta retorno ajustado a risco)</h2>
+          <p>
+            Um Investment Policy Statement é um contrato consigo mesmo que define:
+            <strong>objetivo</strong>, <strong>restrições</strong>, <strong>método</strong>, <strong>limites</strong> e
+            <strong>rotina de decisão</strong>. Ele não elimina perdas; ele elimina perdas “idiotas”: excesso de risco,
+            concentração não percebida, mudanças de tese sem evidência, e compras/vendas por ruído.
+          </p>
+
+          <div class="grid-3">
+            <div class="card">
+              <strong>Reduz erro de processo</strong>
+              <p>Você erra “menos feio”: limita os piores vieses (FOMO, pânico, overtrading).</p>
+            </div>
+            <div class="card">
+              <strong>Padroniza decisões</strong>
+              <p>Decisão vira checklist + regra, não “opinião do dia”.</p>
+            </div>
+            <div class="card">
+              <strong>Cria governança</strong>
+              <p>Regras de revisão e auditoria: você aprende com seus próprios dados.</p>
+            </div>
+          </div>
+
+          <h2 id="p2">2) Objetivos: retorno real, horizonte, restrições e taxa de aporte</h2>
+          <p>
+            Objetivo institucional precisa ser mensurável. “Ganhar dinheiro” não serve. O objetivo é expresso como
+            retorno esperado de longo prazo (idealmente <strong>real</strong>), tolerância a drawdown e horizonte.
+          </p>
+
+          <div class="codebox">
+            <strong>Exemplo de objetivo formal:</strong>
+            <p>\[
+              \text{Objetivo: maximizar } \mathbb{E}[R_{real}] \text{ sujeito a } DD_{max} \le \bar{D}, \; \sigma \le \bar{\sigma}
+            \]</p>
+            <p class="mini-note">
+              Você não controla retorno; controla risco, diversificação, custo e processo.
+            </p>
+          </div>
+
+          <h3>2.1 Restrições típicas (pessoais)</h3>
+          <ul class="checklist">
+            <li><strong>Liquidez:</strong> não usar capital de curto prazo no risco.</li>
+            <li><strong>Tempo:</strong> se você não tem tempo para acompanhar, sua estratégia precisa ser mais passiva/robusta.</li>
+            <li><strong>Psicológico:</strong> seu “DD tolerável” real costuma ser menor do que você acha.</li>
+            <li><strong>Operacional:</strong> custos, impostos, slippage, limite de execução.</li>
+          </ul>
+
+          <div class="warning">
+            <strong>Regra dura:</strong> se você não especificar \(DD_{max}\), o mercado define por você — e normalmente define “o pior possível”.
+          </div>
+
+          <h2 id="p3">3) Filosofia e edge: quais apostas você está autorizado a fazer</h2>
+          <p>
+            O investidor institucional define qual é o seu “edge” — ou seja, qual fonte de retorno ele acredita conseguir capturar
+            de forma repetível. Sem edge, o default racional é exposição diversificada com custos baixos.
+          </p>
+
+          <div class="cards">
+            <div class="card">
+              <strong>Edge de fator (systematic)</strong>
+              <p>Capturar prêmios (value/quality/momentum/low vol) com regras, rebalanceamento e controle de risco.</p>
+            </div>
+            <div class="card">
+              <strong>Edge fundamental</strong>
+              <p>Entender ROIC, reinvestimento, ciclo de margens e valuation melhor que o consenso — com disciplina de preço.</p>
+            </div>
+            <div class="card">
+              <strong>Edge comportamental</strong>
+              <p>Comprar quando a aversão a risco cria desconto e vender quando euforia comprime prêmio — sem timing “místico”.</p>
+            </div>
+            <div class="card">
+              <strong>Edge de execução</strong>
+              <p>Evitar custos ocultos, overtrading e erros operacionais que destroem retorno ao longo de décadas.</p>
+            </div>
+          </div>
+
+          <div class="callout">
+            <strong>Escolha (e escreva):</strong> “Eu capturo retorno por (A) fator, (B) fundamental, (C) misto.”
+            Se você não escrever, você muda de estratégia toda semana sem perceber.
+          </div>
+
+          <h2 id="p4">4) Universo, filtros e elegibilidade (o que entra e o que não entra)</h2>
+          <p>
+            Um IPS bom define o universo elegível para reduzir risco de “apostas aleatórias”.
+            Exemplos: liquidez mínima, governança mínima, histórico de demonstrações, transparência e dispersão de risco.
+          </p>
+
+          <table class="table" aria-label="Exemplo de critérios de elegibilidade">
+            <thead>
+              <tr>
+                <th>Filtro</th>
+                <th>Regra</th>
+                <th>Por quê (institucional)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Liquidez</td>
+                <td>Volume médio ≥ X / spread aceitável</td>
+                <td>Minimiza impacto e risco de não conseguir sair em stress</td>
+              </tr>
+              <tr>
+                <td>Governança</td>
+                <td>Critério mínimo (ex.: tag/segmento, disclosure)</td>
+                <td>Reduz risco de agência e cauda</td>
+              </tr>
+              <tr>
+                <td>Contabilidade</td>
+                <td>Histórico auditado e consistente</td>
+                <td>Evita caixa “fantasma” e reversões de lucro</td>
+              </tr>
+              <tr>
+                <td>Complexidade</td>
+                <td>Se não dá para modelar, não entra</td>
+                <td>Evita “narrativa” sem base econômica</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 id="p5">5) Regras de posição: sizing, limites, concentração, liquidez</h2>
+          <p>
+            O sizing é o componente mais subestimado do resultado. Mesmo com tese correta, sizing errado destrói portfólio.
+            Regras típicas: tamanho máximo por posição, por setor, por fator (exposição), e por risco (volatilidade/cauda).
+          </p>
+
+          <div class="codebox">
+            <strong>Heurística de sizing (educacional):</strong>
+            <p>
+              \[
+                w_i \propto \frac{\text{Convicção}_i \cdot \text{Assimetria}_i}{\text{Risco}_i}
+              \]
+            </p>
+            <p class="mini-note">
+              Não é para virar “ótimo matemático”. É para impedir que posições “arriscadas” virem enormes por emoção.
+            </p>
+          </div>
+
+          <h3>5.1 Limites mínimos recomendáveis (processo, não recomendação)</h3>
+          <ul class="checklist">
+            <li><strong>Max por ativo:</strong> evita “single name risk” destruir anos.</li>
+            <li><strong>Max por setor/tema:</strong> evita “macro disfarçado” (ex.: tudo sensível a juros).</li>
+            <li><strong>Max iliquidez:</strong> evita armadilha de não conseguir rebalancear.</li>
+            <li><strong>Max correlação interna:</strong> evita diversificação falsa (muitos tickers, um risco só).</li>
+          </ul>
+
+          <div class="warning">
+            <strong>Regra de sobrevivência:</strong> “Diversificação é para quando você está errado.”
+            E você vai estar errado com frequência.
+          </div>
+
+          <h2 id="p6">6) Regras de compra/venda: gatilhos, bandas e reavaliação</h2>
+          <p>
+            Institucionalmente, compra e venda são decisões diferentes:
+            compra é entrar com margem de segurança; venda é (i) tese quebrada, (ii) preço acima do valor,
+            (iii) custo de oportunidade, (iv) risco/limites, (v) evento de governança.
+          </p>
+
+          <div class="cards">
+            <div class="card">
+              <strong>Gatilhos de compra</strong>
+              <p>Valuation vs cenário base, qualidade (ROIC), assimetria, liquidez, e posição dentro do portfólio (overlap).</p>
+            </div>
+            <div class="card">
+              <strong>Gatilhos de venda</strong>
+              <p>Tese quebrada > “preço caiu”. Venda por tese é governança; venda por pânico é ruído.</p>
+            </div>
+          </div>
+
+          <div class="codebox">
+            <strong>Bandas (exemplo de disciplina):</strong>
+            <p>
+              Defina para cada posição um range de peso \([w_{min}, w_{max}]\). Se preço subir e passar \(w_{max}\),
+              você rebalanceia. Se cair e passar \(w_{min}\), você reavalia tese e só aumenta se tese continua.
+            </p>
+            <p class="mini-note">
+              Bandas reduzem overtrading e criam contrapeso automático a euforia/pânico.
+            </p>
+          </div>
+
+          <h2 id="p7">7) Controle de risco: drawdown, stress tests, cauda e stop de processo</h2>
+          <p>
+            Risco em ações é cauda. O institucional define o que fará antes do stress acontecer.
+            Você precisa de regras para (i) drawdown, (ii) liquidez, (iii) mudanças de regime,
+            (iv) eventos (fraude, governança, alavancagem).
+          </p>
+
+          <div class="codebox">
+            <strong>Definições formais:</strong>
+            <p>\[
+              DD_t = 1 - \frac{V_t}{\max_{s\le t} V_s}
+            \]</p>
+            <p>\[
+              VaR_\alpha \text{ (conceitual) } : \Pr(R \le -VaR_\alpha)=\alpha
+            \]</p>
+            <p class="mini-note">
+              Para pessoa física, o mais útil é DD + stress tests + limites de concentração/liq. VaR sem governança vira número decorativo.
+            </p>
+          </div>
+
+          <h3>7.1 “Stop de processo” (o que instituições fazem e PF ignora)</h3>
+          <ul class="checklist">
+            <li>Se DD bater X: <strong>não</strong> é “vender tudo”; é pausar novas compras, revisar teses, checar risco e liquidez.</li>
+            <li>Se volatilidade disparar: reduzir turnover e evitar “mexer por mexer”.</li>
+            <li>Se correlações subirem: reconhecer que diversificação caiu e ajustar limites.</li>
+          </ul>
+
+          <div class="warning">
+            <strong>O erro que destrói patrimônios:</strong> aumentar risco quando o portfólio já está fragilizado por drawdown e stress.
+          </div>
+
+          <h2 id="p8">8) Atribuição e métricas: como medir o que está funcionando</h2>
+          <p>
+            Se você não mede, você não melhora. Atribuição institucional tenta responder:
+            seu resultado veio de mercado (beta), de seleção (alpha), de timing, de fatores, ou de sorte?
+          </p>
+
+          <table class="table" aria-label="Métricas de governança">
+            <thead>
+              <tr>
+                <th>Métrica</th>
+                <th>O que mede</th>
+                <th>Uso correto</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Turnover</td>
+                <td>Quanto você gira a carteira</td>
+                <td>Detectar overtrading e custo implícito</td>
+              </tr>
+              <tr>
+                <td>Hit rate</td>
+                <td>% de acertos</td>
+                <td>Não é tudo; payoff assimétrico importa mais</td>
+              </tr>
+              <tr>
+                <td>Payoff ratio</td>
+                <td>Média ganho / média perda</td>
+                <td>Se payoff é baixo, sizing e disciplina estão errados</td>
+              </tr>
+              <tr>
+                <td>Max Drawdown</td>
+                <td>Pior queda do pico</td>
+                <td>Compatibilizar com seu psicológico e horizonte</td>
+              </tr>
+              <tr>
+                <td>Concentração</td>
+                <td>Risco de single theme</td>
+                <td>Evitar “carteira de uma aposta só”</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 id="p9">9) Rotina operacional: calendário, checklists e higiene de decisão</h2>
+          <p>
+            Investidor institucional não decide “toda hora”. Ele tem rotina.
+            A rotina reduz ruído e aumenta qualidade de atualização de probabilidade.
+          </p>
+
+          <div class="cards">
+            <div class="card">
+              <strong>Diário (5–10 min)</strong>
+              <p>Checar notícias relevantes para teses + eventos. Não mexer em posição sem gatilho.</p>
+            </div>
+            <div class="card">
+              <strong>Semanal (30–60 min)</strong>
+              <p>Revisar exposição (setor/fator), limites, liquidez e agenda de resultados.</p>
+            </div>
+            <div class="card">
+              <strong>Mensal (60–120 min)</strong>
+              <p>Rebalancear por bandas, revisar tese dos top 5 riscos e atualizar score de regime.</p>
+            </div>
+            <div class="card">
+              <strong>Trimestral (2–4 h)</strong>
+              <p>Revisar resultados, ROIC/fluxos, qualidade do lucro e se o valuation mudou.</p>
+            </div>
+          </div>
+
+          <div class="callout">
+            <strong>Higiene:</strong> use um “cooldown” mínimo antes de operar: <span class="kbd">24h</span> entre ideia e execução
+            (exceto rebalanceamento automático). Isso mata 80% das decisões emocionais.
+          </div>
+
+          <h2 id="p10">10) Logs, vieses e auditoria: como você se impede de se sabotar</h2>
+          <p>
+            O log é uma arma institucional. Antes de comprar/vender, você registra:
+            tese, premissas, sinais, cenário, valuation, risco, gatilho e plano de revisão.
+            Depois, você compara: o que aconteceu, o que você errou, o que foi azar.
+          </p>
+
+          <div class="codebox">
+            <strong>Template de log (mínimo viável):</strong>
+            <ul class="checklist">
+              <li><strong>Por que comprar?</strong> (tese em 3 linhas)</li>
+              <li><strong>O que precisa ser verdade?</strong> (premissas verificáveis)</li>
+              <li><strong>O que me faria vender?</strong> (tese quebrada vs preço)</li>
+              <li><strong>Riscos de cauda</strong> (fraude, alavancagem, ciclo, regulação)</li>
+              <li><strong>Preço/valor</strong> (range; cenário base e adverso)</li>
+              <li><strong>Prazo de tese</strong> (quando reavaliar)</li>
+            </ul>
+          </div>
+
+          <div class="warning">
+            <strong>Sem log, você sempre acha que “tinha razão”.</strong> Com log, você vê seus padrões de erro — e conserta.
+          </div>
+
+          <h2 id="p11">11) Template IPS pronto (copiar/colar) + checklist final</h2>
+
+          <div class="codebox">
+            <strong>IPS — Versão pessoal (copiar/colar e preencher):</strong>
+            <p class="mini-note">*(Conteúdo educacional; adapte à sua realidade.)*</p>
+
+            <p><strong>1) Objetivo</strong><br>
+              - Retorno real alvo (longo prazo): ____<br>
+              - Horizonte: ____ anos<br>
+              - Drawdown máximo tolerável (psicológico e operacional): ____<br>
+              - Aportes: ____ por mês (real, não “desejo”)<br>
+            </p>
+
+            <p><strong>2) Filosofia / Edge</strong><br>
+              - Minha estratégia é: ( ) fator  ( ) fundamental  ( ) mista<br>
+              - Minha vantagem é: ____<br>
+              - O que eu NÃO faço: ____ (ex.: penny stocks, alavancagem, timing intraday, tese sem dados)<br>
+            </p>
+
+            <p><strong>3) Universo elegível</strong><br>
+              - Critérios mínimos: liquidez ____; governança ____; transparência ____<br>
+              - Exclusões: ____<br>
+            </p>
+
+            <p><strong>4) Regras de portfólio</strong><br>
+              - Nº de posições: ____ a ____<br>
+              - Max por posição: ____%<br>
+              - Max por setor/tema: ____%<br>
+              - Bandas por posição: \([w_{min}, w_{max}]\) = ____ a ____<br>
+              - Caixa / buffer (se aplicável): ____%<br>
+            </p>
+
+            <p><strong>5) Regras de compra</strong><br>
+              - Só compro quando: ____ (gatilhos)<br>
+              - Checklist obrigatório: ROIC/qualidade/valuation/risco/liquidez/overlap<br>
+              - Cooldown: ____ horas entre ideia e execução (exceto rebalanceamento)<br>
+            </p>
+
+            <p><strong>6) Regras de venda</strong><br>
+              - Vendo se: (a) tese quebrada, (b) valuation excedido, (c) risco/limites, (d) governança, (e) custo oportunidade<br>
+              - Proibido: vender por manchete/ruído sem tese quebrada ou regra de banda<br>
+            </p>
+
+            <p><strong>7) Risco e stress</strong><br>
+              - Se DD atingir ____: pausar novas compras, revisar teses e limites (stop de processo)<br>
+              - Stress tests trimestrais: juros ↑, ERP ↑, lucros ↓, câmbio, crédito/spreads<br>
+            </p>
+
+            <p><strong>8) Rotina</strong><br>
+              - Diário: ____<br>
+              - Semanal: ____<br>
+              - Mensal: rebalanceamento por bandas + relatório de risco<br>
+              - Trimestral: revisão fundamental e log/auditoria<br>
+            </p>
+
+            <p><strong>9) Log obrigatório</strong><br>
+              - Toda operação precisa de: tese, premissas, gatilho, risco, plano de revisão e critérios de saída.<br>
+            </p>
+          </div>
+
+          <div class="callout">
+            <strong>Checklist final (o “padrão ouro”):</strong>
+            <ul class="checklist">
+              <li>Eu sei qual é minha fonte de retorno (beta, fator, fundamental, misto)?</li>
+              <li>Eu sei meu risco real (DD, concentração, liquidez) e estou confortável?</li>
+              <li>Tenho regras objetivas de compra/venda (bandas, gatilhos, tese quebrada)?</li>
+              <li>Minha carteira tem diversificação real (não só muitos tickers)?</li>
+              <li>Estou medindo turnover, custos e aprendendo com logs?</li>
+              <li>Tenho rotina (mensal/trimestral) para não virar “investidor reativo”?</li>
+            </ul>
+          </div>
+
+          <hr class="hr">
+          <p class="muted" style="font-size:12px;">
+            Nota final: você acabou de construir uma “mini asset manager” pessoal. Isso é o que separa resultado de opinião.
+            Conteúdo educacional, sem recomendação.
+          </p>
+
+          <div class="jump" style="margin-top:18px;">
+            <a href="/posts/acoes-institucional-parte-7.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 7</a>
+            <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+            <a href="/posts/etf-masterclass-carteira-global-parte-1.html"><i class="fa-solid fa-bolt"></i> ETF Masterclass</a>
+            <a href="/posts/biblia-da-aposentadoria-parte-1.html"><i class="fa-solid fa-book"></i> Bíblia Aposentadoria</a>
+          </div>
+
+        </article>
+
+        <!-- SIDEBAR DESKTOP -->
+        <aside class="series-nav" aria-label="Navegação da série Ações do Zero ao Institucional (desktop)">
+          <div class="series-nav-head">
+            <strong>📌 Série: Ações (8/8)</strong>
+            <span class="muted" style="font-size:12px;">Fechamento</span>
+          </div>
+
+          <nav class="series-nav-links">
+            <a href="/posts/acoes-institucional-parte-1.html">Parte 1 — Fundamentos & Microestrutura</a>
+            <a href="/posts/acoes-institucional-parte-2.html">Parte 2 — Contabilidade, ROIC e Qualidade</a>
+            <a href="/posts/acoes-institucional-parte-3.html">Parte 3 — Valuation (DCF, Múltiplos, Cenários)</a>
+            <a href="/posts/acoes-institucional-parte-4.html">Parte 4 — Risco, Stress, Drawdown e Convexidade</a>
+            <a href="/posts/acoes-institucional-parte-5.html">Parte 5 — Fatores, Estilos e Implementação</a>
+            <a href="/posts/acoes-institucional-parte-6.html">Parte 6 — Construção de Carteira e Regras</a>
+            <a href="/posts/acoes-institucional-parte-7.html">Parte 7 — Ciclos, Setores e Macro</a>
+            <a href="/posts/acoes-institucional-parte-8.html" class="active">Parte 8 — IPS, Checklist e Governança</a>
+          </nav>
+
+          <div class="codebox" style="margin:12px 6px 6px;">
+            <strong>Atalhos do site</strong>
+            <div class="mini-note">
+              <a href="/blog.html">Blog</a> • <a href="/calculadora.html">Juros compostos</a> • <a href="/aposentadoria.html">Aposentadoria</a>
+            </div>
+          </div>
+
+          <div class="codebox" style="margin:12px 6px 6px;">
+            <strong>3 regras que valem ouro</strong>
+            <div class="mini-note" style="margin-top:8px;">
+              <span class="badge"><i class="fa-solid fa-scale-balanced"></i> Bandas</span>
+              <span class="badge"><i class="fa-solid fa-clipboard-check"></i> Checklist</span>
+              <span class="badge"><i class="fa-solid fa-pen-to-square"></i> Log</span>
+            </div>
+            <div class="mini-note" style="margin-top:10px;">
+              Se você cumprir essas 3, você já está acima de 90% das pessoas.
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        <h3>Cérebro Milionário</h3>
+        <p>Educação financeira com profundidade estratégica.</p>
+        <div class="footer-social" aria-label="Redes sociais" style="display:flex;gap:12px;align-items:center;margin-top:10px">
+          <a href="https://t.me/cerebromillionario" target="_blank" rel="noopener" aria-label="Telegram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://instagram.com/cerebromillionario" target="_blank" rel="noopener" aria-label="Instagram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/glossario-financeiro.html">Glossário Financeiro</a></li>
+          <li><a href="/perguntas-frequentes.html">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Top mobile menu (header)
+    (function () {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', function () {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    })();
+
+    // Série drawer mobile
+    (function(){
+      const fab = document.getElementById('seriesFab');
+      const drawer = document.getElementById('seriesDrawer');
+      const backdrop = document.getElementById('seriesBackdrop');
+      const closeBtn = document.getElementById('seriesClose');
+      if(!fab || !drawer || !backdrop || !closeBtn) return;
+
+      function openNav(){
+        drawer.classList.add('open');
+        backdrop.classList.add('open');
+        fab.setAttribute('aria-expanded','true');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeNav(){
+        drawer.classList.remove('open');
+        backdrop.classList.remove('open');
+        fab.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+      }
+
+      fab.addEventListener('click', openNav);
+      closeBtn.addEventListener('click', closeNav);
+      backdrop.addEventListener('click', closeNav);
+      document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeNav(); });
+    })();
+  </script>
+</body>
+</html>

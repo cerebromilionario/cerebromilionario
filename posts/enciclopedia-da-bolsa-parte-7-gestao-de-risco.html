@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Enciclopédia da Bolsa (7/8): Gestão de Risco (Drawdown, Ruína, Sizing e Governança) | Cérebro Milionário</title>
+<meta name="description" content="Gestão de risco em nível institucional: drawdown, risco de ruína, correlação em crise, sizing, alavancagem escondida, liquidez, stop mental vs técnico, hedges, stress testing e governança. Parte 7/8 da Enciclopédia da Bolsa.">
+<meta name="robots" content="index, follow">
+
+<!-- Google AdSense -->
+<meta name="google-adsense-account" content="ca-pub-4613426749830025">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025"
+     crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+  /* ===== FIX MENU SUPERIOR (ideal mover pro /css/style.css) ===== */
+  .nav-menu a{ white-space: nowrap; }
+  .nav-menu{ align-items: center; }
+
+  /* ===== Ajustes locais para leitura longa ===== */
+  .post-long p{ line-height: 1.78; }
+  .post-long h2{ margin-top: 34px; }
+  .post-long h3{ margin-top: 26px; }
+  .post-long hr{ margin: 26px 0; opacity: .35; }
+  .post-long .callout{
+    border-left: 5px solid #2c2c2e;
+    background: #f3f3f3;
+    padding: 14px 16px;
+    border-radius: 10px;
+    margin: 18px 0;
+  }
+  .post-long .mini{ font-size: 0.95rem; opacity: .9; }
+  .post-long table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 18px;
+    font-size: 0.98rem;
+  }
+  .post-long th, .post-long td{
+    border: 1px solid rgba(0,0,0,.12);
+    padding: 10px 10px;
+    vertical-align: top;
+  }
+  .post-long th{
+    background: rgba(0,0,0,.04);
+    text-align: left;
+  }
+  .post-long .toc a{ text-decoration: none; }
+  .post-long .toc a:hover{ text-decoration: underline; }
+  .post-long .tagline{ margin-top: 6px; font-weight: 800; opacity: .95; }
+  .post-long code{
+    background: rgba(0,0,0,.06);
+    padding: 2px 6px;
+    border-radius: 6px;
+  }
+  .post-long .divider-title{
+    margin: 32px 0 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(244, 196, 48, 0.20);
+    border: 1px solid rgba(244, 196, 48, 0.40);
+    font-weight: 900;
+  }
+
+  /* ===== Menu da Série (desktop fixo sem cobrir texto + drawer mobile) ===== */
+  .series-layout{ position: relative; }
+  .series-content{ position: relative; z-index: 1; }
+  @media(min-width: 1024px){
+    .series-content{ padding-right: 300px; }
+  }
+
+  .series-sidebar{
+    border: 1px solid rgba(0,0,0,.12);
+    border-radius: 14px;
+    background: rgba(0,0,0,.02);
+    padding: 12px 12px;
+    pointer-events: auto;
+  }
+  .series-sidebar h3{ margin: 6px 0 8px; font-size: 1.05rem; }
+  .series-sidebar a{ text-decoration: none; pointer-events: auto; }
+  .series-sidebar a:hover{ text-decoration: underline; }
+  .series-sidebar ul{ margin: 0; padding-left: 18px; }
+  .series-sidebar li{ margin: 8px 0; }
+  .series-pill{
+    display: inline-block;
+    font-size: .9rem;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,.12);
+    background: rgba(244, 196, 48, 0.18);
+    margin-bottom: 10px;
+  }
+  .series-active{ font-weight: 900; text-decoration: underline; }
+
+  .series-sidebar-desktop{ display: none; }
+  @media(min-width: 1024px){
+    .series-sidebar-desktop{
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 270px;
+      z-index: 50;
+    }
+  }
+
+  /* Mobile drawer */
+  .series-fab{
+    position: fixed;
+    right: 16px;
+    bottom: 18px;
+    z-index: 999;
+    border: none;
+    border-radius: 999px;
+    padding: 12px 14px;
+    box-shadow: 0 8px 22px rgba(0,0,0,.18);
+    background: #2c2c2e;
+    color: #fff;
+    font-weight: 800;
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+  }
+  @media(min-width: 1024px){
+    .series-fab{ display: none; }
+  }
+
+  .series-backdrop{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 998;
+    display: none;
+  }
+  .series-drawer{
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: min(88vw, 360px);
+    background: #fff;
+    z-index: 999;
+    transform: translateX(105%);
+    transition: transform .22s ease;
+    padding: 16px;
+    box-shadow: -10px 0 28px rgba(0,0,0,.20);
+    overflow-y: auto;
+  }
+  .series-drawer.open{ transform: translateX(0); }
+  .series-backdrop.open{ display: block; }
+
+  .drawer-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .drawer-close{
+    border: 1px solid rgba(0,0,0,.15);
+    background: rgba(0,0,0,.03);
+    border-radius: 10px;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-weight: 800;
+  }
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="container header-container">
+    <div class="logo">
+      <h1><a href="/index.html">Cérebro Milionário</a></h1>
+    </div>
+
+    <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <nav class="navigation" id="primary-navigation">
+      <ul class="nav-menu">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+        <li><a href="/calculadora.html">Calculadora</a></li>
+        <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+        <li><a href="/calculadora-ir-renda-fixa.html">IR&nbsp;Renda&nbsp;Fixa</a></li>
+        <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+        <li><a href="/cursos.html">Cursos</a></li>
+        <li><a href="/comunidade.html">Comunidade</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Drawer mobile da série -->
+<div class="series-backdrop" id="seriesBackdrop" aria-hidden="true"></div>
+<aside class="series-drawer" id="seriesDrawer" aria-hidden="true" aria-label="Menu da série Enciclopédia da Bolsa">
+  <div class="drawer-header">
+    <div>
+      <div class="series-pill">Enciclopédia da Bolsa • 7/8</div>
+      <strong>Menu da Série</strong>
+    </div>
+    <button class="drawer-close" id="seriesCloseBtn" aria-label="Fechar menu">Fechar ✕</button>
+  </div>
+
+  <div class="series-sidebar">
+    <h3>Partes</h3>
+    <ul>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-1-como-analisar-empresas.html">1) Como analisar empresas</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-2-como-ler-balancos.html">2) Como ler balanços</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-3-valuation-completo.html">3) Valuation completo</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-4-psicologia-do-mercado.html">4) Psicologia do mercado</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-5-ciclos-de-mercado.html">5) Ciclos de mercado</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-6-construcao-de-portfolio.html">6) Construção de portfólio</a></li>
+      <li><a class="series-active" aria-current="page" href="/posts/enciclopedia-da-bolsa-parte-7-gestao-de-risco.html">7) Gestão de risco</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-8-erros-fatais-do-investidor.html">8) Erros fatais do investidor</a></li>
+    </ul>
+
+    <hr>
+
+    <p class="mini"><strong>Leituras base:</strong><br>
+      <a href="/posts/etfs-alocacao-global-guia-2026_CFA.html">ETFs e alocação global</a><br>
+      <a href="/posts/renda-fixa-guia-completo-2026.html">Renda fixa</a><br>
+      <a href="/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html">Construção de patrimônio</a>
+    </p>
+  </div>
+</aside>
+
+<button class="series-fab" id="seriesFab" aria-label="Abrir menu da série">
+  <i class="fa-solid fa-layer-group"></i>
+  Série 7/8
+</button>
+
+<main class="section post-long">
+  <div class="container series-layout" style="max-width: 980px;">
+
+    <!-- Sidebar desktop -->
+    <aside class="series-sidebar series-sidebar-desktop" aria-label="Menu da série Enciclopédia da Bolsa">
+      <div class="series-pill">Enciclopédia da Bolsa • 7/8</div>
+      <h3>Partes</h3>
+      <ul>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-1-como-analisar-empresas.html">1) Como analisar empresas</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-2-como-ler-balancos.html">2) Como ler balanços</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-3-valuation-completo.html">3) Valuation completo</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-4-psicologia-do-mercado.html">4) Psicologia do mercado</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-5-ciclos-de-mercado.html">5) Ciclos de mercado</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-6-construcao-de-portfolio.html">6) Construção de portfólio</a></li>
+        <li><a class="series-active" aria-current="page" href="/posts/enciclopedia-da-bolsa-parte-7-gestao-de-risco.html">7) Gestão de risco</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-8-erros-fatais-do-investidor.html">8) Erros fatais do investidor</a></li>
+      </ul>
+
+      <hr>
+
+      <p class="mini"><strong>Leituras base:</strong><br>
+        <a href="/posts/etfs-alocacao-global-guia-2026_CFA.html">ETFs e alocação global</a><br>
+        <a href="/posts/renda-fixa-guia-completo-2026.html">Renda fixa</a><br>
+        <a href="/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html">Construção de patrimônio</a>
+      </p>
+    </aside>
+
+    <article class="series-content">
+
+      <h1>Enciclopédia da Bolsa (7/8): Gestão de Risco (Drawdown, Ruína, Sizing e Governança)</h1>
+      <p class="tagline">Retorno é consequência. Risco é causa. O investidor quebra por um motivo: ele coloca o portfólio em uma posição onde uma crise normal vira um evento terminal. Aqui está o manual institucional para nunca mais ser expulso do jogo.</p>
+      <p><strong>Leitura estimada:</strong> 90 a 150 minutos (nível institucional).</p>
+
+      <div class="callout">
+        <p><strong>Regra de sobrevivência:</strong> o primeiro objetivo do investidor é <strong>não morrer</strong>. Se você sobrevive aos ciclos, o tempo trabalha a seu favor. Se você quebra, acabou — não existe “média” depois da ruína.</p>
+        <p class="mini"><strong>Nota:</strong> educacional. Não é recomendação de investimento.</p>
+      </div>
+
+      <hr>
+
+      <h2>Índice</h2>
+      <ul class="toc">
+        <li><a href="#definicao">1) O que é risco de verdade (não é volatilidade)</a></li>
+        <li><a href="#drawdown">2) Drawdown: a métrica que governa comportamento</a></li>
+        <li><a href="#ruina">3) Risco de ruína: o inimigo invisível</a></li>
+        <li><a href="#correlacao">4) Correlação em crise: quando “diversificado” vira 1 ativo</a></li>
+        <li><a href="#liquidez">5) Risco de liquidez: quando você não consegue sair</a></li>
+        <li><a href="#alavancagem">6) Alavancagem explícita e escondida</a></li>
+        <li><a href="#sizing">7) Sizing: como dimensionar posições sem se matar</a></li>
+        <li><a href="#stops">8) Stop técnico vs stop mental (e quando usar)</a></li>
+        <li><a href="#stress">9) Stress testing: simule crises antes da crise</a></li>
+        <li><a href="#protecoes">10) Proteções e hedges (sem virar trader)</a></li>
+        <li><a href="#governanca">11) Governança: regras que impedem sabotagem</a></li>
+        <li><a href="#checklists">12) Checklists institucionais e templates</a></li>
+      </ul>
+
+      <hr>
+
+      <h2 id="definicao">1) O que é risco de verdade</h2>
+      <p>O iniciante acha que risco é “oscilação”. Institucionalmente, risco é:</p>
+      <ul>
+        <li><strong>probabilidade de perda permanente de capital</strong>;</li>
+        <li><strong>risco de ruína</strong> (um evento que te expulsa do jogo);</li>
+        <li><strong>incompatibilidade entre portfólio e seu comportamento</strong> (você vende no pior momento).</li>
+      </ul>
+
+      <div class="divider-title">Volatilidade é só o barulho</div>
+      <p>Volatilidade é desconforto. Risco é terminal. Um portfólio pode ser volátil e saudável. E pode ser “calmo” e frágil (ex: exposição escondida a crédito ou alavancagem).</p>
+
+      <hr>
+
+      <h2 id="drawdown">2) Drawdown: a métrica que governa comportamento</h2>
+      <p>Drawdown é queda do pico ao vale. Ele determina se você consegue ficar investido.</p>
+
+      <div class="divider-title">Por que isso importa?</div>
+      <p>Porque o investidor não “perde dinheiro” no drawdown — ele perde quando vende no vale. Se sua carteira cai 40% e você não aguenta, sua alocação está errada.</p>
+
+      <div class="callout">
+        <p><strong>Regra:</strong> a carteira ideal é a que você consegue manter no pior cenário realista, enquanto continua aportando.</p>
+      </div>
+
+      <hr>
+
+      <h2 id="ruina">3) Risco de ruína: o inimigo invisível</h2>
+      <p>Risco de ruína é qualquer cenário em que você:</p>
+      <ul>
+        <li>é forçado a vender (margem, dívida, necessidade de caixa);</li>
+        <li>perde tanto que não consegue se recuperar psicologicamente;</li>
+        <li>fica fora do mercado por anos (perde o “rebote”).</li>
+      </ul>
+
+      <div class="divider-title">Como a ruína acontece na prática</div>
+      <ol>
+        <li>carteira agressiva demais (sem núcleo e sem liquidez);</li>
+        <li>crise normal do mercado (não precisa ser “fim do mundo”);</li>
+        <li>queda + medo + necessidade de caixa;</li>
+        <li>venda no pior momento;</li>
+        <li>abandono do plano.</li>
+      </ol>
+
+      <hr>
+
+      <h2 id="correlacao">4) Correlação em crise</h2>
+      <p>Em crise, correlações mudam. O que parecia diversificado pode cair junto, porque liquidez some e todo mundo vende o que consegue vender.</p>
+
+      <div class="divider-title">O ponto institucional</div>
+      <ul>
+        <li>diversificar por “nomes” não é suficiente;</li>
+        <li>diversificar por drivers é mais robusto (Parte 6);</li>
+        <li>o que salva em crise é qualidade, liquidez e design do sistema.</li>
+      </ul>
+
+      <hr>
+
+      <h2 id="liquidez">5) Risco de liquidez</h2>
+      <p>Liquidez é a capacidade de converter ativo em dinheiro sem perder muito no preço. Em crise, liquidez seca. A diferença entre sobreviver e quebrar muitas vezes é: você tinha liquidez?</p>
+
+      <div class="divider-title">Sinais de risco de liquidez</div>
+      <ul>
+        <li>posição grande em ativo com baixo volume;</li>
+        <li>spread alto;</li>
+        <li>fundos “fechando resgate” (no mundo institucional);</li>
+        <li>dependência de venda para cobrir despesas.</li>
+      </ul>
+
+      <hr>
+
+      <h2 id="alavancagem">6) Alavancagem explícita e escondida</h2>
+      <p>Alavancagem explícita é óbvia (empréstimo/margem). A escondida é o que destrói:</p>
+      <ul>
+        <li>empresas muito endividadas (sensíveis a juros e refinanciamento);</li>
+        <li>negócios com custos fixos altíssimos (alavancagem operacional);</li>
+        <li>carteiras com concentração em um único cenário (macro alavancado).</li>
+      </ul>
+
+      <div class="callout">
+        <p><strong>Regra:</strong> em crise, a pergunta não é “qual empresa é boa”. É “quem tem oxigênio?”. Oxigênio é caixa e balanço.</p>
+      </div>
+
+      <hr>
+
+      <h2 id="sizing">7) Sizing: como dimensionar posições</h2>
+      <p>Sizing é o maior gerador de “sobrevivência”. O iniciante erra por dois lados:</p>
+      <ul>
+        <li><strong>concentra demais:</strong> qualquer erro vira trauma;</li>
+        <li><strong>pulveriza demais:</strong> não tem método, só ansiedade e giro.</li>
+      </ul>
+
+      <div class="divider-title">Framework simples</div>
+      <ul>
+        <li><strong>posição base pequena</strong> em teses incertas;</li>
+        <li><strong>aumentar com evidência</strong> (tese se confirmando), não com emoção;</li>
+        <li><strong>limite máximo</strong> por ativo e por setor;</li>
+        <li><strong>reduzir quando risco sobe</strong> (não quando “dá medo”).</li>
+      </ul>
+
+      <hr>
+
+      <h2 id="stops">8) Stop técnico vs stop mental</h2>
+      <p>Stop não é para “evitar perder”. É para evitar <strong>perda terminal</strong> e evitar ficar preso em tese quebrada.</p>
+
+      <div class="divider-title">Stop técnico</div>
+      <ul>
+        <li>funciona melhor para trading e curto prazo;</li>
+        <li>pode tirar você de volatilidade normal;</li>
+        <li>exige método e disciplina rígida.</li>
+      </ul>
+
+      <div class="divider-title">Stop mental (institucional)</div>
+      <ul>
+        <li>você sai quando tese quebra (driver muda);</li>
+        <li>você revisa quando risco sobe (balanço, crédito, regulação);</li>
+        <li>é compatível com longo prazo.</li>
+      </ul>
+
+      <div class="callout">
+        <p><strong>Regra:</strong> para investidor, stop mental é superior — desde que você tenha tese escrita e gatilhos objetivos.</p>
+      </div>
+
+      <hr>
+
+      <h2 id="stress">9) Stress testing: simule crises antes da crise</h2>
+      <p>Stress testing é perguntar: “o que acontece com minha carteira se…”. Exemplos:</p>
+      <ul>
+        <li>bolsa cai 40%;</li>
+        <li>juros sobem forte;</li>
+        <li>dólar dispara;</li>
+        <li>crédito aperta e empresas alavancadas sofrem;</li>
+        <li>recessão derruba lucros.</li>
+      </ul>
+
+      <div class="divider-title">A pergunta que importa</div>
+      <p><strong>Eu sobrevivo sem vender?</strong> Se não, você redesenha blocos e sizing. Esse é o trabalho real.</p>
+
+      <hr>
+
+      <h2 id="protecoes">10) Proteções e hedges (sem virar trader)</h2>
+      <p>Proteção não é “zerar risco”. É reduzir risco de ruína e aumentar sua capacidade de comprar em crise.</p>
+
+      <div class="divider-title">Proteções simples</div>
+      <ul>
+        <li><strong>liquidez:</strong> reserva e caixa estratégico;</li>
+        <li><strong>diversificação global:</strong> moeda e mercados diferentes;</li>
+        <li><strong>qualidade:</strong> balanço forte e caixa;</li>
+        <li><strong>rebalanceamento:</strong> compra barato automaticamente (Parte 6).</li>
+      </ul>
+
+      <div class="divider-title">O erro comum</div>
+      <p>Transformar hedge em vício. Hedge tem custo. Se você vive hedgeando por medo, sua alocação está errada.</p>
+
+      <hr>
+
+      <h2 id="governanca">11) Governança: regras que impedem sabotagem</h2>
+      <p>Governança é o sistema que te impede de tomar decisões ruins sob emoção (Parte 4). Exemplos:</p>
+      <ul>
+        <li>regras de tamanho máximo por ativo;</li>
+        <li>regras de rebalanceamento;</li>
+        <li>regra de “pausa” antes de vender em pânico;</li>
+        <li>diário e revisão trimestral.</li>
+      </ul>
+
+      <div class="callout">
+        <p><strong>Regra:</strong> você não precisa ser forte. Você precisa ser protegido do seu pior eu.</p>
+      </div>
+
+      <hr>
+
+      <h2 id="checklists">12) Checklists e templates</h2>
+
+      <div class="divider-title">Checklist — Antes de comprar</div>
+      <ul>
+        <li>qual é a tese (10 linhas)?</li>
+        <li>qual é o risco principal (top 3)?</li>
+        <li>qual é o sizing máximo?</li>
+        <li>o que invalida a tese?</li>
+        <li>se cair 30%, eu continuo bem?</li>
+      </ul>
+
+      <div class="divider-title">Checklist — Em crise</div>
+      <ul>
+        <li>tenho liquidez para sobreviver 12 meses?</li>
+        <li>alguma posição tem risco de ruína (dívida, liquidez, concentração)?</li>
+        <li>o que caiu por “humor” e o que caiu por tese quebrada?</li>
+        <li>rebalancear faz sentido dentro do meu sistema?</li>
+      </ul>
+
+      <div class="divider-title">Template de governança (copiar)</div>
+      <div class="callout">
+        <p><strong>1) Limites:</strong> % máximo por ativo / setor …</p>
+        <p><strong>2) Rebalance:</strong> periodicidade ou bandas …</p>
+        <p><strong>3) Caixa estratégico:</strong> objetivo e uso …</p>
+        <p><strong>4) Gatilhos de revisão:</strong> tese, crédito, risco macro …</p>
+        <p><strong>5) Regra de venda:</strong> tese quebrada / risco terminal / preço irracional …</p>
+        <p><strong>6) Rotina:</strong> revisão mensal (superficial) + trimestral (profunda) …</p>
+      </div>
+
+      <hr>
+
+      <p class="mini"><strong>Parte anterior:</strong><br>
+        ← <a href="/posts/enciclopedia-da-bolsa-parte-6-construcao-de-portfolio.html">Enciclopédia da Bolsa (6/8): Construção de portfólio</a>
+      </p>
+
+      <p class="mini"><strong>Próxima parte:</strong><br>
+        → <a href="/posts/enciclopedia-da-bolsa-parte-8-erros-fatais-do-investidor.html">Enciclopédia da Bolsa (8/8): Erros fatais do investidor</a>
+      </p>
+
+      <p class="mini"><strong>Interlinks sugeridos (SEO interno):</strong><br>
+        • ETFs e alocação global: <a href="/posts/etfs-alocacao-global-guia-2026_CFA.html">/posts/etfs-alocacao-global-guia-2026_CFA.html</a><br>
+        • Renda fixa: <a href="/posts/renda-fixa-guia-completo-2026.html">/posts/renda-fixa-guia-completo-2026.html</a><br>
+        • Construção de patrimônio: <a href="/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html">/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html</a><br>
+        • Guia de dividendos: <a href="/posts/guia-institucional-de-dividendos-mitos-matematica-estrategia.html">/posts/guia-institucional-de-dividendos-mitos-matematica-estrategia.html</a><br>
+      </p>
+
+    </article>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-column">
+        <h3 class="footer-logo">Cérebro Milionário</h3>
+        <p class="footer-text">Capacitando você a tomar decisões financeiras inteligentes para um futuro próspero.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/cerebromillionario/" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://t.me/" target="_blank" class="social-link" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Navegação</h3>
+        <ul class="footer-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/calculadora.html">Calculadoras</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Conteúdo</h3>
+        <ul class="footer-links">
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Legal</h3>
+        <ul class="footer-links">
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/contato.html">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Cérebro Milionário. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script>
+  // Ano automático
+  (function(){
+    var el = document.getElementById('year');
+    if(el) el.textContent = new Date().getFullYear();
+  })();
+
+  // Drawer da série (mobile)
+  (function(){
+    var fab = document.getElementById('seriesFab');
+    var drawer = document.getElementById('seriesDrawer');
+    var backdrop = document.getElementById('seriesBackdrop');
+    var closeBtn = document.getElementById('seriesCloseBtn');
+
+    function openDrawer(){
+      drawer.classList.add('open');
+      backdrop.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false');
+      backdrop.setAttribute('aria-hidden', 'false');
+    }
+    function closeDrawer(){
+      drawer.classList.remove('open');
+      backdrop.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+      backdrop.setAttribute('aria-hidden', 'true');
+    }
+
+    if(fab) fab.addEventListener('click', openDrawer);
+    if(closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    if(backdrop) backdrop.addEventListener('click', closeDrawer);
+
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeDrawer();
+    });
+  })();
+</script>
+
+</body>
+</html>

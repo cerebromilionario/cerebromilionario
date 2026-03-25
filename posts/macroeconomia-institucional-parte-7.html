@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Macroeconomia Institucional para Investidores (Parte 7/8) | Ciclos, Curvas e Regras de Carteira</title>
+  <meta name="description" content="Série institucional (Parte 7/8): traduzindo macro em regras executáveis de carteira. Curva (nível/inclinação/curvatura), regimes (inflação/growth), risk-on/off, bandas de rebalanceamento, sizing por risco, hedge, carry vs crash risk e governança." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/macroeconomia-institucional-parte-7.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/macroeconomia-institucional-parte-7.html" />
+  <meta property="og:title" content="Macroeconomia Institucional (Parte 7/8)" />
+  <meta property="og:description" content="Ciclos, curvas e regras de carteira. Nível institucional." />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Fonts + Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)'], ['$', '$']], displayMath: [['\\[','\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <style>
+    body{overflow-x:hidden}
+
+    /* Conteúdo */
+    .post-wrap{max-width:980px;margin:0 auto;padding:28px 16px 60px}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:800;font-size:12px;background:rgba(44,44,46,.06)}
+    .muted{opacity:.78}
+    .hero{
+      margin-top:16px;border-radius:18px;overflow:hidden;border:1px solid rgba(0,0,0,.08);
+      box-shadow: var(--shadow-sm); background:#fff
+    }
+    .hero img{width:100%;height:auto;display:block}
+    .toc{
+      margin-top:18px;border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;
+      box-shadow: var(--shadow-sm); padding:16px
+    }
+    .toc h2{margin:0 0 10px 0}
+    .toc a{
+      display:block;text-decoration:none;padding:8px 10px;border-radius:14px;border:1px solid rgba(0,0,0,.06);
+      margin:8px 0
+    }
+    .toc a:hover{transform:translateY(-1px)}
+    .callout{
+      border-left:4px solid var(--accent-color, #f4c430);
+      background: rgba(244,196,48,.10);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+    .warning{
+      border-left:4px solid #e2574c;background: rgba(226,87,76,.08);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+    .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+    .kpi{border:1px solid rgba(0,0,0,.08);border-radius:16px;background:#fff;box-shadow:var(--shadow-sm);padding:14px}
+    .kpi strong{display:block;font-size:18px}
+    @media(max-width:980px){.kpi-grid{grid-template-columns:1fr}}
+    .jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .jump a{
+      display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:14px;
+      border:1px solid rgba(0,0,0,.08);background:#fff;box-shadow:var(--shadow-sm);text-decoration:none;font-weight:900
+    }
+    .jump a:hover{transform:translateY(-1px)}
+    .section{margin-top:22px}
+    .section h2{margin-top:42px}
+    .section h3{margin-top:26px}
+    .hr{height:1px;background:rgba(0,0,0,.10);border:0;margin:26px 0}
+    .table{
+      width:100%;border-collapse:collapse;border:1px solid rgba(0,0,0,.08);border-radius:14px;overflow:hidden;background:#fff;
+      box-shadow:var(--shadow-sm)
+    }
+    .table th,.table td{padding:12px;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:top}
+    .table th{background:rgba(44,44,46,.04);text-align:left}
+    .codebox{
+      border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);
+      padding:14px 16px;margin:18px 0
+    }
+    .mini-note{font-size:12px;opacity:.78;margin-top:8px}
+    .panel{
+      border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);
+      padding:14px 16px;margin:18px 0
+    }
+    .panel h3{margin:0 0 10px 0}
+    .badge{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:6px 10px;border-radius:999px;background:rgba(44,44,46,.06);
+      font-weight:900;font-size:12px
+    }
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media(max-width:900px){.grid2{grid-template-columns:1fr}}
+
+    /* Série: sidebar desktop + drawer mobile (SEM COBRIR TEXTO) */
+    .series-shell { position: relative; }
+    .series-nav{
+      position: fixed;
+      top: 92px;
+      right: 18px;
+      width: 320px;
+      max-height: calc(100vh - 120px);
+      overflow: auto;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.10);
+      border-radius: 18px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.18);
+      padding: 12px;
+      z-index: 9999;
+    }
+    .series-nav-head{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      padding: 8px 8px 10px 8px;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    .series-close{
+      border: 1px solid rgba(0,0,0,.12);
+      background: #fff;
+      border-radius: 12px;
+      width: 38px; height: 38px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    .series-nav-links{ display:flex; flex-direction:column; gap: 8px; padding: 10px 6px 6px; }
+    .series-nav-links a{
+      text-decoration:none;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,.08);
+      color: #1a1a1a;
+      font-weight: 800;
+    }
+    .series-nav-links a:hover{ transform: translateY(-1px); }
+    .series-nav-links a.active{
+      background: #2c2c2e;
+      color: #fff;
+      border-color: #2c2c2e;
+    }
+    .series-backdrop{
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.45);
+      z-index: 9998;
+      display: none;
+    }
+    .series-fab{
+      position: fixed;
+      right: 16px;
+      bottom: 18px;
+      z-index: 10000;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 14px;
+      background: #2c2c2e;
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 18px 45px rgba(0,0,0,.30);
+      display: none;
+    }
+
+    @media (min-width: 981px){
+      .post-wrap{
+        max-width: 980px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 380px;
+      }
+    }
+    @media (max-width: 980px){
+      .post-wrap{padding-right:16px}
+      .series-fab{ display: inline-flex; align-items:center; justify-content:center; }
+      .series-nav{
+        top: 0; right: 0; height: 100vh; max-height: none;
+        width: min(360px, 92vw);
+        border-radius: 0;
+        transform: translateX(110%);
+        transition: transform .18s ease;
+        padding-top: 14px;
+      }
+      .series-nav.open{ transform: translateX(0); }
+      .series-backdrop.open{ display: block; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Série: Navegação -->
+  <div class="series-shell">
+    <button class="series-fab" id="seriesFab" aria-label="Abrir navegação da série" aria-expanded="false">Série 7/8</button>
+    <div class="series-backdrop" id="seriesBackdrop"></div>
+
+    <aside class="series-nav" id="seriesNav" aria-label="Navegação da série Macroeconomia Institucional">
+      <div class="series-nav-head">
+        <strong>📌 Série: Macro (7/8)</strong>
+        <button class="series-close" id="seriesClose" aria-label="Fechar">✕</button>
+      </div>
+
+      <nav class="series-nav-links">
+        <a href="/posts/macroeconomia-institucional-parte-1.html">Parte 1 — RBC, Equilíbrio e Núcleo Real</a>
+        <a href="/posts/macroeconomia-institucional-parte-2.html">Parte 2 — NK Phillips, Rigidezes e Política Monetária</a>
+        <a href="/posts/macroeconomia-institucional-parte-3.html">Parte 3 — Fiscal Intertemporal, TVC e Dominância</a>
+        <a href="/posts/macroeconomia-institucional-parte-4.html">Parte 4 — Equilíbrio Geral, Prêmio Endógeno e Risco</a>
+        <a href="/posts/macroeconomia-institucional-parte-5.html">Parte 5 — Regimes, Identificação e Nowcasting</a>
+        <a href="/posts/macroeconomia-institucional-parte-6.html">Parte 6 — Transmissão a Ativos: Juros, FX, Crédito</a>
+        <a href="/posts/macroeconomia-institucional-parte-7.html" class="active">Parte 7 — Ciclos, Curvas e Carteiras (Regras)</a>
+        <a href="/posts/macroeconomia-institucional-parte-8.html">Parte 8 — Framework Final, Checklist e Governança</a>
+      </nav>
+    </aside>
+  </div>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <span class="pill">Série Institucional • Parte 7/8</span>
+        <h1 style="margin-top:10px;">Ciclos, Curvas e Regras de Carteira (Executáveis)</h1>
+        <p class="muted" style="max-width: 980px;">
+          Agora a macro vira um conjunto de regras. Você vai mapear regimes em exposures (duration, carry, risco, crédito, FX),
+          definir bandas, sizing por risco e governança para não “trocar de tese” toda semana. É a ponte do modelo para execução.
+        </p>
+
+        <div class="hero">
+          <img src="/images/blog-cover.svg" alt="Ciclos e regras de carteira" loading="lazy" />
+        </div>
+
+        <div class="kpi-grid" style="max-width: 980px;">
+          <div class="kpi"><strong>Leitura</strong><span class="muted">~ 75–120 min</span></div>
+          <div class="kpi"><strong>Entrega</strong><span class="muted">regras + bandas + sizing</span></div>
+          <div class="kpi"><strong>Final</strong><span class="muted"><a href="/posts/macroeconomia-institucional-parte-8.html">framework final</a></span></div>
+        </div>
+
+        <div class="jump" style="max-width: 980px;">
+          <a href="/posts/macroeconomia-institucional-parte-6.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 6</a>
+          <a href="/posts/macroeconomia-institucional-parte-8.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 8</a>
+          <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+          <a href="/calculadora.html"><i class="fa-solid fa-calculator"></i> Juros Compostos</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="post-wrap">
+
+        <div class="toc">
+          <h2>Índice</h2>
+          <a href="#r1">1) O problema real: forecast vs regime + disciplina</a>
+          <a href="#r2">2) Estado macro como vetor: inflação, growth, condições financeiras</a>
+          <a href="#r3">3) Curva como 3 fatores: nível, inclinação e curvatura</a>
+          <a href="#r4">4) Regimes (2×2): inflação (↑/↓) × growth (↑/↓)</a>
+          <a href="#r5">5) Mapeamento de exposures: duration, equity, crédito, commodities, FX</a>
+          <a href="#r6">6) Regras executáveis: bandas, triggers e rebalanceamento</a>
+          <a href="#r7">7) Sizing por risco: risk parity, vol targeting e drawdown budget</a>
+          <a href="#r8">8) Carry vs crash risk: quando “rende” até quebrar</a>
+          <a href="#r9">9) Playbook: 12 cenários e respostas (sem opinião)</a>
+          <a href="#r10">Conclusão + ponte para governança final (Parte 8)</a>
+        </div>
+
+        <div class="callout">
+          <strong>Princípio de execução:</strong>
+          você não precisa prever o futuro com precisão.
+          Você precisa reconhecer regimes cedo o suficiente, proteger cauda e manter regras quando a emoção pede improviso.
+        </div>
+
+        <hr class="hr">
+
+        <h2 id="r1">1) Forecast vs regime + disciplina</h2>
+        <p>
+          Investidor perde dinheiro não por errar “um número”, mas por errar <em>regime</em> e por não ter disciplina.
+          Forecast pontual (CPI do mês) é frágil. Já a identificação de regime (inflação desancorando, condições financeiras apertando,
+          stress de crédito) é muito mais útil para decidir exposure.
+        </p>
+
+        <div class="codebox">
+          <strong>Decisão institucional:</strong>
+          <p>\[
+            \text{Decisão} = f(\text{Regime},\ \text{Risco},\ \text{Custos},\ \text{Restrições})
+          \]</p>
+          <p class="mini-note">
+            Regime → exposures; risco → sizing; custos → evitar “overtrading”; restrições → liquidez/mandato.
+          </p>
+        </div>
+
+        <h2 id="r2">2) Estado macro como vetor (o “painel”)</h2>
+        <p>
+          Defina um vetor de estado mínimo, porque isso evita narrativa.
+          Um painel institucional simples usa: inflação (nível + tendência), growth (nível + tendência),
+          e condições financeiras (FCI: juros reais, spreads, FX, equity drawdown, vol).
+        </p>
+
+        <div class="panel">
+          <h3>Painel mínimo (operável)</h3>
+          <div class="grid2">
+            <div>
+              <span class="badge"><i class="fa-solid fa-temperature-three-quarters"></i> Inflação</span>
+              <ul style="margin:10px 0 0 18px;">
+                <li>\(\pi\) vs meta</li>
+                <li>núcleo e difusão</li>
+                <li>expectativas (curtas/longas)</li>
+              </ul>
+            </div>
+            <div>
+              <span class="badge"><i class="fa-solid fa-chart-line"></i> Growth</span>
+              <ul style="margin:10px 0 0 18px;">
+                <li>hiato/proxy (PMI, emprego)</li>
+                <li>tendência (nowcast)</li>
+                <li>surpresas (índice de surpresas)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="grid2" style="margin-top:12px;">
+            <div>
+              <span class="badge"><i class="fa-solid fa-gauge-high"></i> Condições financeiras</span>
+              <ul style="margin:10px 0 0 18px;">
+                <li>juros reais (curtos/longos)</li>
+                <li>spreads (IG/HY/EM)</li>
+                <li>FX (DXY + doméstico)</li>
+              </ul>
+            </div>
+            <div>
+              <span class="badge"><i class="fa-solid fa-triangle-exclamation"></i> Stress</span>
+              <ul style="margin:10px 0 0 18px;">
+                <li>vol (VIX/proxy) e correlações</li>
+                <li>liquidez (bid-ask/market depth)</li>
+                <li>event risk (fiscal/político)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h2 id="r3">3) Curva como 3 fatores: nível, inclinação e curvatura</h2>
+        <p>
+          A curva de juros é o “painel” mais informativo de macro-finance. Institucionalmente, você não olha “uma taxa”:
+          você decompõe a curva em fatores (Litterman-Scheinkman): nível, inclinação e curvatura.
+        </p>
+
+        <div class="codebox">
+          <strong>Representação simplificada:</strong>
+          <p>\[
+            \Delta y^{(n)} \approx a_n \Delta Level + b_n \Delta Slope + c_n \Delta Curvature
+          \]</p>
+          <p class="mini-note">
+            Isso conecta diretamente a exposição por maturidade (duration bucket) ao risco que você está carregando.
+          </p>
+        </div>
+
+        <div class="warning">
+          <strong>Erro caro:</strong> comprar “prefixado longo” achando que está só comprando “juros altos”.
+          Você está comprando principalmente <em>risco de nível</em> e frequentemente risco de term premium/fiscal.
+        </div>
+
+        <h2 id="r4">4) Regimes 2×2: inflação × growth</h2>
+        <p>
+          Um framework robusto para alocar é o 2×2: inflação (subindo/caindo) e crescimento (subindo/caindo).
+          Isso não é “adivinhar”, é classificar sinais.
+        </p>
+
+        <table class="table" aria-label="Regimes 2x2">
+          <thead>
+            <tr>
+              <th>Regime</th>
+              <th>Inflação</th>
+              <th>Growth</th>
+              <th>Condições típicas</th>
+              <th>Riscos dominantes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1) Reflation</td>
+              <td>↑</td>
+              <td>↑</td>
+              <td>commodities firmes, yields sobem</td>
+              <td>duration assets sofrem</td>
+            </tr>
+            <tr>
+              <td>2) Overheat</td>
+              <td>↑</td>
+              <td>↓/pico</td>
+              <td>BC hawkish, spreads podem abrir</td>
+              <td>crédito e equity cíclica</td>
+            </tr>
+            <tr>
+              <td>3) Disinflation growth</td>
+              <td>↓</td>
+              <td>↑</td>
+              <td>policy mais acomodatícia, múltiplos sobem</td>
+              <td>bubbles/valuation</td>
+            </tr>
+            <tr>
+              <td>4) Recession / risk-off</td>
+              <td>↓ (ou choque)</td>
+              <td>↓</td>
+              <td>spreads abrem, FX risk-off</td>
+              <td>default/liquidez</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="r5">5) Mapeamento de exposures (sem opinião, só estrutura)</h2>
+        <p>
+          A pergunta: “qual regime favorece qual conjunto de exposures?”
+          A resposta não é universal, mas as direções gerais são conhecidas (e você testa no seu universo).
+        </p>
+
+        <div class="panel">
+          <h3>Mapa qualitativo (baseline)</h3>
+          <ul style="margin:10px 0 0 18px;">
+            <li><strong>Inflação ↑</strong>: duration ↓, preferência por reais/curtos; ativos com hedge natural (commodities/real assets) tendem a ajudar.</li>
+            <li><strong>Inflação ↓</strong>: duration ↑ e múltiplos tendem a expandir (se risco não dominar).</li>
+            <li><strong>Growth ↑</strong>: risco ↑ (equity/cíclicos), spreads tendem a comprimir.</li>
+            <li><strong>Growth ↓</strong>: defesa ↑ (qualidade, liquidez), spreads abrem, FX risk-off.</li>
+          </ul>
+          <div class="mini-note">
+            “Tendem” não é promessa — é prior. Você ajusta com o painel de condições financeiras (Parte 6).
+          </div>
+        </div>
+
+        <h2 id="r6">6) Regras executáveis: bandas, triggers e rebalanceamento</h2>
+        <p>
+          O segredo não é ter a alocação perfeita, é ter regras de ajuste que minimizem ruído e maximizem consistência.
+          Use bandas para evitar “overfitting” a notícias.
+        </p>
+
+        <div class="codebox">
+          <strong>Bandas de rebalanceamento (exemplo formal):</strong>
+          <p>\[
+            w_i \in [w_i^* - \delta_i,\ w_i^* + \delta_i]
+          \]</p>
+          <p class="mini-note">
+            Se \(w_i\) sai da banda, rebalanceia. \(\delta_i\) pode ser função de vol, liquidez e custo de transação.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h3>Triggers (robustos)</h3>
+          <ul style="margin:10px 0 0 18px;">
+            <li><strong>Curva:</strong> mudança sustentada de slope/term premium.</li>
+            <li><strong>Crédito:</strong> abertura de spread acima de limiar (percentil histórico/regime).</li>
+            <li><strong>FCI:</strong> aperto/afrouxamento persistente (não 1 dia).</li>
+            <li><strong>Vol:</strong> salto de vol + correlações ↑ → reduzir risco, aumentar liquidez.</li>
+          </ul>
+        </div>
+
+        <h2 id="r7">7) Sizing por risco: vol targeting, risk parity e drawdown budget</h2>
+        <p>
+          Instituições dimensionam posição por risco, não por “convicção narrativa”.
+          Um método simples é targeting de volatilidade (ou budget de drawdown).
+        </p>
+
+        <div class="codebox">
+          <strong>Vol targeting (forma):</strong>
+          <p>\[
+            w_t = w_{base}\cdot \frac{\sigma^*}{\hat{\sigma}_t}
+          \]</p>
+          <p class="mini-note">
+            Se a volatilidade estimada \(\hat{\sigma}\) sobe, o peso cai automaticamente. Isso é disciplina embutida.
+          </p>
+        </div>
+
+        <div class="codebox">
+          <strong>Risk parity (intuição):</strong>
+          <p>\[
+            RC_i = w_i \cdot \frac{\partial \sigma_p}{\partial w_i}
+          \quad \Rightarrow \quad RC_i \approx RC_j
+          \]</p>
+          <p class="mini-note">
+            Você iguala contribuições de risco. Na prática, precisa tratar correlações (que sobem em crises).
+          </p>
+        </div>
+
+        <div class="warning">
+          <strong>Falha clássica:</strong> usar vol targeting sem “floor de risco” e sem gatilho de cauda.
+          Em whipsaws, você pode vender baixo e recomprar alto. Precisa de governança (Parte 8).
+        </div>
+
+        <h2 id="r8">8) Carry vs crash risk: o trade que “paga” até não pagar</h2>
+        <p>
+          Carry (duration, crédito, FX high-yield) é uma estratégia estruturalmente atraente porque “coleta prêmio”.
+          Porém, em stress, esses prêmios são devolvidos rapidamente (crash risk).
+        </p>
+
+        <div class="codebox">
+          <strong>Decomposição de retorno (estilizada):</strong>
+          <p>\[
+            R = \underbrace{Carry}_{\text{cupom/spread}} + \underbrace{Roll-down}_{\text{curva}} + \underbrace{\Delta Spread}_{\text{reprecificação}} + \underbrace{\Delta FX}_{\text{se houver}}
+          \]</p>
+          <p class="mini-note">
+            O crash risk entra em \(\Delta Spread\) e \(\Delta FX\) com não-linearidades (saltos).
+          </p>
+        </div>
+
+        <div class="callout">
+          <strong>Regra institucional:</strong>
+          carry é ok quando você tem (i) liquidez, (ii) sizing correto, (iii) hedge de cauda ou stop de risco,
+          e (iv) regime “condições relaxando”.
+        </div>
+
+        <h2 id="r9">9) Playbook: 12 cenários e respostas (sem recomendação)</h2>
+
+        <table class="table" aria-label="Playbook macro para carteira">
+          <thead>
+            <tr>
+              <th>Cenário</th>
+              <th>Painel (sinais)</th>
+              <th>Risco dominante</th>
+              <th>Resposta estruturada</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1) Inflação desancora</td>
+              <td>breakevens ↑, FX fraco</td>
+              <td>duration/TP</td>
+              <td>reduzir duration; elevar hedge inflação</td>
+            </tr>
+            <tr>
+              <td>2) Disinflation com growth</td>
+              <td>núcleo ↓, PMI ↑</td>
+              <td>bubble/valuation</td>
+              <td>duration ok; controlar risco em equity</td>
+            </tr>
+            <tr>
+              <td>3) Risk-off global</td>
+              <td>spreads ↑, vol ↑, DXY ↑</td>
+              <td>liquidez</td>
+              <td>reduzir beta; elevar liquidez; evitar carry</td>
+            </tr>
+            <tr>
+              <td>4) Fiscal stress</td>
+              <td>long-end ↑ isolado</td>
+              <td>term premium</td>
+              <td>evitar longo; proteger cauda; revisar premissas</td>
+            </tr>
+            <tr>
+              <td>5) Commodities shock</td>
+              <td>energia ↑, inflação ↑</td>
+              <td>margens/inflação</td>
+              <td>tilt para hedge; revisar setores sensíveis</td>
+            </tr>
+            <tr>
+              <td>6) Crédito abre sem recessão “ainda”</td>
+              <td>spreads ↑, dados ok</td>
+              <td>defasagem</td>
+              <td>reduzir risco incremental; esperar confirmação</td>
+            </tr>
+            <tr>
+              <td>7) Recessão confirmada</td>
+              <td>PMI ↓, emprego piora</td>
+              <td>default</td>
+              <td>defensivo; qualidade; liquidez; cuidado HY</td>
+            </tr>
+            <tr>
+              <td>8) Pivot do BC</td>
+              <td>front-end ↓, guidance</td>
+              <td>falso pivot</td>
+              <td>aumentar duration gradualmente; confirmar regime</td>
+            </tr>
+            <tr>
+              <td>9) Soft landing</td>
+              <td>inflação ↓, growth ↔</td>
+              <td>whipsaw</td>
+              <td>bandas; sizing por risco; evitar overtrade</td>
+            </tr>
+            <tr>
+              <td>10) FX carry party</td>
+              <td>vol baixa, spreads comprimem</td>
+              <td>crash risk</td>
+              <td>carry com proteção e limites de perda</td>
+            </tr>
+            <tr>
+              <td>11) EM stress idiossincrático</td>
+              <td>basis/FX move</td>
+              <td>liquidez/fluxo</td>
+              <td>reduzir ilíquidos; hedge de FX se possível</td>
+            </tr>
+            <tr>
+              <td>12) Regime incerto</td>
+              <td>sinais mistos</td>
+              <td>erro de regime</td>
+              <td>neutralizar; aumentar diversificação; esperar</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="r10">Conclusão + ponte para Parte 8</h2>
+        <p>
+          A Parte 7 entrega o que a maioria não tem: regras. Você agora possui (i) painel de estado,
+          (ii) mapa de regimes, (iii) bandas e triggers, (iv) sizing por risco e (v) playbook.
+          A Parte 8 fecha a série: governança, checklist, auditoria de processo e como manter disciplina por anos.
+        </p>
+
+        <div class="callout">
+          <strong>Parte 8:</strong> framework final e governança — como não se sabotar.
+        </div>
+
+        <div class="jump" style="margin-top:18px;">
+          <a href="/posts/macroeconomia-institucional-parte-6.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 6</a>
+          <a href="/posts/macroeconomia-institucional-parte-8.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 8</a>
+          <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+          <a href="/posts/etf-masterclass-carteira-global-parte-1.html"><i class="fa-solid fa-bolt"></i> ETF Masterclass</a>
+        </div>
+
+        <hr class="hr">
+
+        <div class="muted" style="font-size:12px;">
+          Nota: material educacional. Não constitui recomendação de investimento. O objetivo é estrutura técnica e disciplina de decisão.
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        <h3>Cérebro Milionário</h3>
+        <p>Educação financeira com profundidade estratégica.</p>
+        <div class="footer-social" aria-label="Redes sociais" style="display:flex;gap:12px;align-items:center;margin-top:10px">
+          <a href="https://t.me/cerebromillionario" target="_blank" rel="noopener" aria-label="Telegram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://instagram.com/cerebromillionario" target="_blank" rel="noopener" aria-label="Instagram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/glossario-financeiro.html">Glossário Financeiro</a></li>
+          <li><a href="/perguntas-frequentes.html">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu (topo)
+    (function () {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', function () {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    })();
+
+    // Série drawer mobile
+    (function(){
+      const fab = document.getElementById('seriesFab');
+      const nav = document.getElementById('seriesNav');
+      const backdrop = document.getElementById('seriesBackdrop');
+      const closeBtn = document.getElementById('seriesClose');
+      if(!fab || !nav || !backdrop || !closeBtn) return;
+
+      function openNav(){
+        nav.classList.add('open');
+        backdrop.classList.add('open');
+        fab.setAttribute('aria-expanded','true');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeNav(){
+        nav.classList.remove('open');
+        backdrop.classList.remove('open');
+        fab.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+      }
+
+      fab.addEventListener('click', openNav);
+      closeBtn.addEventListener('click', closeNav);
+      backdrop.addEventListener('click', closeNav);
+      document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeNav(); });
+    })();
+  </script>
+</body>
+</html>

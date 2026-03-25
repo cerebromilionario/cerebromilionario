@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Ações do Zero ao Institucional (Parte 4/8) | Risco, Stress, Drawdown, Convexidade e Sizing</title>
+  <meta name="description" content="Série institucional (Parte 4/8): risco em ações nível buy-side. Volatilidade vs drawdown, VaR/CVaR, risco de cauda, correlação em crise, risco de sequência, stress testing, convexidade e sizing com regras." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/acoes-institucional-parte-4.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/acoes-institucional-parte-4.html" />
+  <meta property="og:title" content="Ações do Zero ao Institucional (Parte 4/8) — Risco" />
+  <meta property="og:description" content="Risco, stress, drawdown, convexidade e sizing com regras. Nível institucional." />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Fonts + Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)'], ['$', '$']], displayMath: [['\\[','\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <style>
+    body{overflow-x:hidden}
+
+    /* ===== Estrutura: conteúdo + sidebar (desktop sem sobrepor) ===== */
+    .series-layout{
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 18px;
+      align-items: start;
+    }
+    @media (max-width: 1100px){
+      .series-layout{ grid-template-columns: 1fr; }
+    }
+
+    .post-wrap{max-width:980px;margin:0;padding:0}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:800;font-size:12px;background:rgba(44,44,46,.06)}
+    .muted{opacity:.78}
+
+    .hero{
+      margin-top:16px;border-radius:18px;overflow:hidden;border:1px solid rgba(0,0,0,.08);
+      box-shadow: var(--shadow-sm); background:#fff
+    }
+    .hero img{width:100%;height:auto;display:block}
+
+    .toc{
+      margin-top:18px;border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;
+      box-shadow: var(--shadow-sm); padding:16px
+    }
+    .toc h2{margin:0 0 10px 0}
+    .toc a{display:block;text-decoration:none;padding:8px 10px;border-radius:14px;border:1px solid rgba(0,0,0,.06);margin:8px 0}
+    .toc a:hover{transform:translateY(-1px)}
+
+    .callout{
+      border-left:4px solid var(--accent-color, #f4c430);
+      background: rgba(244,196,48,.10);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+    .warning{
+      border-left:4px solid #e2574c;background: rgba(226,87,76,.08);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+
+    .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+    .kpi{border:1px solid rgba(0,0,0,.08);border-radius:16px;background:#fff;box-shadow:var(--shadow-sm);padding:14px}
+    .kpi strong{display:block;font-size:18px}
+    @media(max-width:980px){.kpi-grid{grid-template-columns:1fr}}
+
+    .jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .jump a{
+      display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:14px;
+      border:1px solid rgba(0,0,0,.08);background:#fff;box-shadow:var(--shadow-sm);text-decoration:none;font-weight:900
+    }
+    .jump a:hover{transform:translateY(-1px)}
+
+    .section h2{margin-top:42px}
+    .section h3{margin-top:26px}
+    .hr{height:1px;background:rgba(0,0,0,.10);border:0;margin:26px 0}
+
+    .table{
+      width:100%;border-collapse:collapse;border:1px solid rgba(0,0,0,.08);border-radius:14px;overflow:hidden;background:#fff;
+      box-shadow:var(--shadow-sm)
+    }
+    .table th,.table td{padding:12px;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:top}
+    .table th{background:rgba(44,44,46,.04);text-align:left}
+
+    .codebox{
+      border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);padding:14px 16px;margin:18px 0
+    }
+    .mini-note{font-size:12px;opacity:.78;margin-top:8px}
+
+    /* ===== Sidebar desktop (sticky) ===== */
+    .series-nav{
+      position: sticky;
+      top: 96px;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.10);
+      border-radius: 18px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.10);
+      padding: 12px;
+      max-height: calc(100vh - 120px);
+      overflow: auto;
+    }
+    @media (max-width: 1100px){
+      .series-nav{ display:none; }
+    }
+    .series-nav-head{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      padding: 8px 8px 10px 8px;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    .series-nav-links{ display:flex; flex-direction:column; gap: 8px; padding: 10px 6px 6px; }
+    .series-nav-links a{
+      text-decoration:none;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,.08);
+      color: #1a1a1a;
+      font-weight: 800;
+    }
+    .series-nav-links a:hover{ transform: translateY(-1px); }
+    .series-nav-links a.active{
+      background: #2c2c2e;
+      color: #fff;
+      border-color: #2c2c2e;
+    }
+
+    /* ===== Mobile drawer ===== */
+    .series-fab{
+      position: fixed;
+      right: 16px;
+      bottom: 18px;
+      z-index: 10000;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 14px;
+      background: #2c2c2e;
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 18px 45px rgba(0,0,0,.30);
+      display: none;
+    }
+    .series-backdrop{
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.45);
+      z-index: 9998;
+      display: none;
+    }
+    .series-drawer{
+      position: fixed;
+      top: 0; right: 0;
+      height: 100vh;
+      width: min(360px, 92vw);
+      background: #fff;
+      z-index: 9999;
+      transform: translateX(110%);
+      transition: transform .18s ease;
+      border-left: 1px solid rgba(0,0,0,.10);
+      padding: 14px 12px;
+      overflow: auto;
+    }
+    .series-drawer.open{ transform: translateX(0); }
+    .series-backdrop.open{ display:block; }
+    .series-close{
+      border: 1px solid rgba(0,0,0,.12);
+      background: #fff;
+      border-radius: 12px;
+      width: 38px; height: 38px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    @media (max-width: 1100px){
+      .series-fab{ display:inline-flex; align-items:center; justify-content:center; }
+    }
+
+    /* ===== Visual extra: barras de risco (conceitual) ===== */
+    .risk-bars{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 12px 0;
+    }
+    .bar{
+      border:1px solid rgba(0,0,0,.08);
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+      padding: 12px;
+    }
+    .bar-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .bar-track{
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(44,44,46,.08);
+      overflow:hidden;
+      flex: 1;
+    }
+    .bar-fill{
+      height: 100%;
+      width: 50%;
+      background: #2c2c2e;
+    }
+    .bar small{opacity:.78}
+  </style>
+</head>
+
+<body>
+  <!-- Header (padrão do site) -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile FAB + Drawer -->
+  <button class="series-fab" id="seriesFab" aria-label="Abrir navegação da série" aria-expanded="false">Série 4/8</button>
+  <div class="series-backdrop" id="seriesBackdrop"></div>
+
+  <aside class="series-drawer" id="seriesDrawer" aria-label="Navegação da série Ações do Zero ao Institucional (mobile)">
+    <div class="series-nav-head">
+      <strong>📌 Série: Ações (4/8)</strong>
+      <button class="series-close" id="seriesClose" aria-label="Fechar">✕</button>
+    </div>
+    <nav class="series-nav-links">
+      <a href="/posts/acoes-institucional-parte-1.html">Parte 1 — Fundamentos & Microestrutura</a>
+      <a href="/posts/acoes-institucional-parte-2.html">Parte 2 — Contabilidade, ROIC e Qualidade</a>
+      <a href="/posts/acoes-institucional-parte-3.html">Parte 3 — Valuation (DCF, Múltiplos, Cenários)</a>
+      <a href="/posts/acoes-institucional-parte-4.html" class="active">Parte 4 — Risco, Stress, Drawdown e Convexidade</a>
+      <a href="/posts/acoes-institucional-parte-5.html">Parte 5 — Fatores, Estilos e Implementação</a>
+      <a href="/posts/acoes-institucional-parte-6.html">Parte 6 — Construção de Carteira e Regras</a>
+      <a href="/posts/acoes-institucional-parte-7.html">Parte 7 — Ciclos, Setores e Macro</a>
+      <a href="/posts/acoes-institucional-parte-8.html">Parte 8 — IPS, Checklist e Governança Pessoal</a>
+    </nav>
+  </aside>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <span class="pill">Série Institucional • Parte 4/8</span>
+        <h1 style="margin-top:10px;">Risco em Ações: Stress, Drawdown, Cauda, Convexidade e Sizing</h1>
+        <p class="muted" style="max-width: 980px;">
+          Aqui a conversa vira “institucional” de verdade: não basta ter tese e valuation — você precisa sobreviver ao regime adverso.
+          Nesta parte: volatilidade vs drawdown, risco de cauda, correlação em crise, VaR/CVaR, stress testing, convexidade e sizing com regras executáveis.
+        </p>
+
+        <div class="hero">
+          <img src="/images/blog-cover.svg" alt="Risco institucional em ações" loading="lazy" />
+        </div>
+
+        <div class="kpi-grid" style="max-width: 980px;">
+          <div class="kpi"><strong>Leitura</strong><span class="muted">~ 55–90 min</span></div>
+          <div class="kpi"><strong>Foco</strong><span class="muted">Drawdown + sobrevivência</span></div>
+          <div class="kpi"><strong>Saída</strong><span class="muted">Regras de sizing/risco</span></div>
+        </div>
+
+        <div class="jump" style="max-width: 980px;">
+          <a href="/posts/acoes-institucional-parte-3.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 3</a>
+          <a href="/posts/acoes-institucional-parte-5.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 5</a>
+          <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+          <a href="/calculadora.html"><i class="fa-solid fa-calculator"></i> Juros Compostos</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="series-layout">
+
+        <!-- CONTEÚDO -->
+        <article class="post-wrap">
+
+          <div class="toc">
+            <h2>Índice</h2>
+            <a href="#r1">1) Risco não é volatilidade: é probabilidade × severidade</a>
+            <a href="#r2">2) Volatilidade, drawdown e “path dependency”</a>
+            <a href="#r3">3) Correlação em crise e falácia da diversificação “ingênua”</a>
+            <a href="#r4">4) VaR e CVaR (Expected Shortfall): o que presta e o que engana</a>
+            <a href="#r5">5) Risco de cauda (tail risk): por que o normal falha</a>
+            <a href="#r6">6) Stress testing: cenários macro/mercado e choque de fatores</a>
+            <a href="#r7">7) Convexidade e assimetria: quando a distribuição te ajuda ou te destrói</a>
+            <a href="#r8">8) Sizing institucional: risco por posição, por fator e por liquidez</a>
+            <a href="#r9">9) Regras executáveis: bandas, stops de tese, rebalanceamento e “kill-switch”</a>
+            <a href="#r10">10) Checklist de risco (pré-trade e pós-trade)</a>
+            <a href="#r11">Conclusão + ponte para fatores/implementação (Parte 5)</a>
+          </div>
+
+          <div class="callout">
+            <strong>Filosofia buy-side:</strong> “o objetivo número 1 é não morrer”.
+            Retorno é consequência de um processo que controla cauda, liquidez e sizing. Sem isso, uma crise apaga anos.
+          </div>
+
+          <hr class="hr">
+
+          <h2 id="r1">1) Risco não é volatilidade: é probabilidade × severidade</h2>
+          <p>
+            Iniciantes confundem risco com volatilidade. Volatilidade é dispersão de retornos; risco econômico é
+            <strong>chance de perda permanente</strong> (ou de perda tão grande que você não recupera no horizonte relevante).
+            No institucional, risco é:
+          </p>
+
+          <div class="codebox">
+            <strong>Heurística:</strong>
+            <p>\[
+              Risk \approx P(\text{evento adverso}) \times \text{Severidade} \times \text{Exposição}
+            \]</p>
+            <p class="mini-note">
+              Exposição não é só % do portfólio — inclui alavancagem, liquidez, correlação em crise e risco de funding.
+            </p>
+          </div>
+
+          <h2 id="r2">2) Volatilidade, drawdown e “path dependency”</h2>
+          <p>
+            Volatilidade é sim relevante, mas por um motivo prático: ela produz drawdowns.
+            E drawdown importa porque o caminho importa (path dependency). Ex.: cair 50% exige subir 100% para voltar ao ponto inicial.
+          </p>
+
+          <div class="codebox">
+            <strong>Relação drawdown vs recuperação:</strong>
+            <p>\[
+              \text{Recovery} = \frac{1}{1-DD}-1
+            \]</p>
+            <p class="mini-note">
+              Se \(DD=50\%\), recuperação = \(1/(1-0.5)-1=100\%\).
+            </p>
+          </div>
+
+          <div class="warning">
+            <strong>Armadilha:</strong> “eu aguento volatilidade” até a hora em que a perda passa do ponto psicológico e força decisão ruim.
+            Risco é também “risco comportamental” sob stress.
+          </div>
+
+          <h3>2.1 Risco de sequência (sequence risk) em equity</h3>
+          <p>
+            Risco de sequência é crítico quando você faz aportes/saques (vida real).
+            Mesmos retornos médios, em ordem diferente, geram resultados finais distintos.
+            Para um investidor em acumulação, queda grande no início pode ser oportunidade (aportes a preços baixos),
+            mas se você para de aportar ou vende no fundo, vira perda permanente.
+          </p>
+
+          <h2 id="r3">3) Correlação em crise e falácia da diversificação “ingênua”</h2>
+          <p>
+            Em regimes normais, correlações parecem “boas”. Em crise, correlações sobem, liquidez cai e fatores convergem.
+            Diversificação real exige pensar em <strong>drivers</strong> (fatores), não em tickers.
+          </p>
+
+          <div class="codebox">
+            <strong>Mensagem institucional:</strong>
+            <p>
+              “10 ações” não é diversificação se todas carregam: growth + high beta + mesmo país + mesma moeda + mesma liquidez.
+            </p>
+          </div>
+
+          <h3>3.1 Correlação condicional</h3>
+          <p>
+            A correlação relevante é condicional ao stress:
+            \(\rho(\text{ativos} \mid \text{crise})\) tende a ser maior que \(\rho(\text{ativos} \mid \text{normal})\).
+            Por isso, backtests ingênuos subestimam risco de portfólio.
+          </p>
+
+          <h2 id="r4">4) VaR e CVaR (Expected Shortfall): o que presta e o que engana</h2>
+          <p>
+            VaR (Value-at-Risk) responde: “qual perda eu não devo exceder com X% de confiança em um horizonte?”
+            Problema: VaR não diz o tamanho das perdas além do VaR (cauda). Para isso, CVaR/ES é mais informativo.
+          </p>
+
+          <div class="codebox">
+            <strong>Definições (conceituais):</strong>
+            <p>\[
+              VaR_\alpha = \inf\{l: P(L \le l) \ge \alpha\}
+            \]</p>
+            <p>\[
+              CVaR_\alpha = E[L \mid L \ge VaR_\alpha]
+            \]</p>
+            <p class="mini-note">
+              \(L\) é perda (loss). \(CVaR\) (ou ES) é a perda média condicional no pior “pedaço” da distribuição.
+            </p>
+          </div>
+
+          <div class="warning">
+            <strong>Limite crítico:</strong> se você estima VaR/CVaR assumindo normalidade, você tende a subestimar a cauda.
+            Em equity, retornos têm cauda gorda e volatilidade clusterizada.
+          </div>
+
+          <h2 id="r5">5) Risco de cauda (tail risk): por que o normal falha</h2>
+          <p>
+            Em ações, eventos raros dominam o resultado: crises, quebras de liquidez, mudanças regulatórias, fraudes, guerras,
+            choques de juros e mudanças de regime. A distribuição de retornos não é “normal”:
+            tem assimetria e cauda gorda (kurtosis).
+          </p>
+
+          <div class="callout">
+            <strong>Ideia-chave:</strong> em risco, o que mata não é a média — é o extremo.
+          </div>
+
+          <h3>5.1 Volatilidade clusterizada</h3>
+          <p>
+            Volatilidade tende a clusterizar: períodos calmos → períodos calmos; períodos turbulentos → períodos turbulentos.
+            Isso faz com que o risco “suba” rápido e o investidor que usa risco histórico de janela curta fique atrasado.
+          </p>
+
+          <h2 id="r6">6) Stress testing: cenários macro/mercado e choque de fatores</h2>
+          <p>
+            Stress testing é simulação de “o que acontece se…”.
+            No institucional, você faz stress em três níveis:
+            (i) macro (juros, inflação, câmbio, crescimento),
+            (ii) mercado (re-rating do múltiplo, aumento de ERP),
+            (iii) fatores (value/growth, quality, momentum, low vol, size) e liquidez.
+          </p>
+
+          <div class="codebox">
+            <strong>Estrutura simples de stress:</strong>
+            <ul style="margin:10px 0 0 18px;">
+              <li>Choque em \(R_f\) real (+200 bps)</li>
+              <li>Choque em ERP (+150 bps)</li>
+              <li>Compressão de múltiplo (ex.: P/L -30%)</li>
+              <li>Queda de margem (ex.: -300 bps) + aumento de NWC</li>
+              <li>Liquidez: spread dobra e slippage aumenta</li>
+            </ul>
+            <div class="mini-note">
+              O ponto: separar “tese quebrada” de “regime adverso temporário”. Mas sempre medir a sobrevivência.
+            </div>
+          </div>
+
+          <h3>6.1 Stress de fatores (conceitual)</h3>
+          <div class="codebox">
+            <strong>Exemplo (conceitual):</strong>
+            <p>
+              Seu portfólio parece diversificado, mas o stress mostra que 70% da variação vem de “beta + growth duration”.
+              Isso é concentração oculta.
+            </p>
+          </div>
+
+          <h2 id="r7">7) Convexidade e assimetria: quando a distribuição te ajuda ou te destrói</h2>
+          <p>
+            Convexidade é como seu P&L responde a movimentos do subjacente.
+            Ações em geral têm convexidade “limitada”: o máximo que você perde é -100% (teoricamente),
+            mas perdas grandes podem ocorrer, e o upside é ilimitado em teoria.
+            Porém, para o investidor real (sem alavancagem), a convexidade depende do <strong>tamanho</strong>, <strong>tempo</strong> e <strong>capacidade de segurar</strong>.
+          </p>
+
+          <div class="codebox">
+            <strong>Assimetria prática:</strong>
+            <p>
+              Se você não consegue segurar drawdown de -40% sem vender, o upside “ilimitado” não existe no seu comportamento.
+            </p>
+          </div>
+
+          <h3>7.1 Barbell vs concentração</h3>
+          <p>
+            Uma forma de construir convexidade “com sobrevivência” é barbell:
+            núcleo robusto (low cost, diversificado, liquidez alta) + satélites assimétricos (teses com upside alto e sizing limitado).
+            Isso é diferente de concentrar tudo em teses de alta duration/alto beta.
+          </p>
+
+          <h2 id="r8">8) Sizing institucional: risco por posição, por fator e por liquidez</h2>
+          <p>
+            Sizing é o que transforma risco teórico em risco real. Um investidor pode acertar a tese e quebrar por sizing.
+            Em buy-side, sizing é decidido por:
+            (i) convicção e qualidade da tese,
+            (ii) risco (vol, drawdown, cauda),
+            (iii) liquidez e capacidade de sair,
+            (iv) correlação com o resto do portfólio (fator).
+          </p>
+
+          <div class="codebox">
+            <strong>Risco por posição (heurística):</strong>
+            <p>\[
+              \text{RiskBudget}_i = w_i \cdot \sigma_i \cdot \rho(\text{com portfólio})
+            \]</p>
+            <p class="mini-note">
+              Não é fórmula “final”, é uma forma de lembrar: peso × risco × correlação = contribuição de risco.
+            </p>
+          </div>
+
+          <h3>8.1 Liquidez como limite de tamanho</h3>
+          <p>
+            Se uma ação tem volume baixo e spread alto, o tamanho máximo não deve ser “o que você quer”,
+            mas “o que você consegue desmontar em X dias” sem destruir o preço.
+          </p>
+
+          <div class="risk-bars" aria-label="Barras conceituais de risco">
+            <div class="bar">
+              <div class="bar-row">
+                <strong>Risco de Mercado (beta)</strong><small>exposição sistemática</small>
+              </div>
+              <div class="bar-track" aria-hidden="true"><div class="bar-fill" style="width:68%"></div></div>
+            </div>
+            <div class="bar">
+              <div class="bar-row">
+                <strong>Risco de Duration (juros/ERP)</strong><small>sensibilidade do múltiplo</small>
+              </div>
+              <div class="bar-track" aria-hidden="true"><div class="bar-fill" style="width:74%"></div></div>
+            </div>
+            <div class="bar">
+              <div class="bar-row">
+                <strong>Risco de Liquidez</strong><small>spread/impacto em stress</small>
+              </div>
+              <div class="bar-track" aria-hidden="true"><div class="bar-fill" style="width:55%"></div></div>
+            </div>
+            <div class="bar">
+              <div class="bar-row">
+                <strong>Risco de Tese/Idiossincrático</strong><small>execução, governança, eventos</small>
+              </div>
+              <div class="bar-track" aria-hidden="true"><div class="bar-fill" style="width:62%"></div></div>
+            </div>
+          </div>
+
+          <h2 id="r9">9) Regras executáveis: bandas, stops de tese, rebalanceamento e “kill-switch”</h2>
+          <p>
+            Processo institucional não depende de “temperamento” no pior dia. Depende de regras pré-escritas.
+            Aqui estão blocos de regras que você pode implementar sem virar day trade.
+          </p>
+
+          <h3>9.1 Bands de rebalanceamento (evita overtrade)</h3>
+          <div class="codebox">
+            <strong>Exemplo (educacional):</strong>
+            <ul style="margin:10px 0 0 18px;">
+              <li>Peso-alvo \(w^\*\) por ativo/fator.</li>
+              <li>Rebalancear somente se \(|w - w^\*| \ge b\) (banda, ex.: 20% do alvo).</li>
+              <li>Em stress, rebalancear por etapas (evita “all-in” no meio da crise).</li>
+            </ul>
+          </div>
+
+          <h3>9.2 Stop de tese (não stop de preço)</h3>
+          <p>
+            Stop de preço pode te tirar do ativo certo no regime errado. Stop de tese é gatilho de revisão:
+            se a hipótese-chave que sustentava ROIC/margem/crescimento quebra, você reprecifica e ajusta posição.
+          </p>
+
+          <h3>9.3 Kill-switch de risco</h3>
+          <div class="codebox">
+            <strong>Kill-switch (educacional):</strong>
+            <ul style="margin:10px 0 0 18px;">
+              <li>Se drawdown do portfólio ≥ X% em Y dias, reduzir risco (beta) para nível “modo sobrevivência”.</li>
+              <li>Se correlação em crise ↑ e liquidez ↓, priorizar reduzir posições ilíquidas primeiro.</li>
+              <li>Se o stress test mostra perda potencial acima do tolerável, reduzir sizing antes do evento ocorrer.</li>
+            </ul>
+            <div class="mini-note">
+              Objetivo: impedir que uma sequência ruim destrua o plano inteiro.
+            </div>
+          </div>
+
+          <h2 id="r10">10) Checklist de risco (pré-trade e pós-trade)</h2>
+
+          <table class="table" aria-label="Checklist de risco">
+            <thead>
+              <tr>
+                <th>Momento</th>
+                <th>Pergunta</th>
+                <th>Se a resposta for “não”</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Pré-trade</td>
+                <td>Eu entendo o driver principal (beta, duration, fator, tese)?</td>
+                <td>Não operar / reduzir tamanho</td>
+              </tr>
+              <tr>
+                <td>Pré-trade</td>
+                <td>O downside em stress é “sobrevivível” para mim?</td>
+                <td>Reduzir sizing / exigir MOS maior</td>
+              </tr>
+              <tr>
+                <td>Pré-trade</td>
+                <td>Eu consigo sair em X dias sem destruir preço?</td>
+                <td>Limitar tamanho por liquidez</td>
+              </tr>
+              <tr>
+                <td>Pós-trade</td>
+                <td>Quais são os 2 gatilhos que invalidam a tese?</td>
+                <td>Definir stop de tese e prazos</td>
+              </tr>
+              <tr>
+                <td>Pós-trade</td>
+                <td>Como o ativo altera minha exposição a fatores?</td>
+                <td>Mapear concentração oculta</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 id="r11">Conclusão + ponte para fatores/implementação (Parte 5)</h2>
+          <p>
+            Risco em ações é regime-dependente: correlação muda, liquidez some, cauda domina.
+            A disciplina institucional é sobreviver via stress testing, sizing, regras de rebalanceamento e kill-switch.
+            Agora que você tem fundamentals (Parte 1–2), valuation (Parte 3) e risco (Parte 4),
+            o próximo passo é entender <strong>fatores e estilos</strong> e como implementar (Parte 5).
+          </p>
+
+          <div class="callout">
+            <strong>Próximo:</strong> Parte 5 — Fatores, Estilos e Implementação (portfólio real, sem ruído).
+          </div>
+
+          <div class="jump" style="margin-top:18px;">
+            <a href="/posts/acoes-institucional-parte-3.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 3</a>
+            <a href="/posts/acoes-institucional-parte-5.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 5</a>
+            <a href="/posts/etf-masterclass-carteira-global-parte-1.html"><i class="fa-solid fa-bolt"></i> ETF Masterclass</a>
+            <a href="/posts/biblia-da-aposentadoria-parte-1.html"><i class="fa-solid fa-book"></i> Bíblia Aposentadoria</a>
+          </div>
+
+          <hr class="hr">
+          <div class="muted" style="font-size:12px;">
+            Nota: conteúdo educacional, sem recomendação. O objetivo é ensinar estrutura técnica para análise e decisão.
+          </div>
+        </article>
+
+        <!-- SIDEBAR DESKTOP -->
+        <aside class="series-nav" aria-label="Navegação da série Ações do Zero ao Institucional (desktop)">
+          <div class="series-nav-head">
+            <strong>📌 Série: Ações (4/8)</strong>
+            <span class="muted" style="font-size:12px;">Atalhos</span>
+          </div>
+
+          <nav class="series-nav-links">
+            <a href="/posts/acoes-institucional-parte-1.html">Parte 1 — Fundamentos & Microestrutura</a>
+            <a href="/posts/acoes-institucional-parte-2.html">Parte 2 — Contabilidade, ROIC e Qualidade</a>
+            <a href="/posts/acoes-institucional-parte-3.html">Parte 3 — Valuation (DCF, Múltiplos, Cenários)</a>
+            <a href="/posts/acoes-institucional-parte-4.html" class="active">Parte 4 — Risco, Stress, Drawdown e Convexidade</a>
+            <a href="/posts/acoes-institucional-parte-5.html">Parte 5 — Fatores, Estilos e Implementação</a>
+            <a href="/posts/acoes-institucional-parte-6.html">Parte 6 — Construção de Carteira e Regras</a>
+            <a href="/posts/acoes-institucional-parte-7.html">Parte 7 — Ciclos, Setores e Macro</a>
+            <a href="/posts/acoes-institucional-parte-8.html">Parte 8 — IPS, Checklist e Governança Pessoal</a>
+          </nav>
+
+          <div class="codebox" style="margin:12px 6px 6px;">
+            <strong>Atalhos do site</strong>
+            <div class="mini-note">
+              <a href="/blog.html">Blog</a> • <a href="/calculadora.html">Juros compostos</a> • <a href="/aposentadoria.html">Aposentadoria</a>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (padrão do site) -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        <h3>Cérebro Milionário</h3>
+        <p>Educação financeira com profundidade estratégica.</p>
+        <div class="footer-social" aria-label="Redes sociais" style="display:flex;gap:12px;align-items:center;margin-top:10px">
+          <a href="https://t.me/cerebromillionario" target="_blank" rel="noopener" aria-label="Telegram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://instagram.com/cerebromillionario" target="_blank" rel="noopener" aria-label="Instagram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/glossario-financeiro.html">Glossário Financeiro</a></li>
+          <li><a href="/perguntas-frequentes.html">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Top mobile menu (header)
+    (function () {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', function () {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    })();
+
+    // Série drawer mobile
+    (function(){
+      const fab = document.getElementById('seriesFab');
+      const drawer = document.getElementById('seriesDrawer');
+      const backdrop = document.getElementById('seriesBackdrop');
+      const closeBtn = document.getElementById('seriesClose');
+      if(!fab || !drawer || !backdrop || !closeBtn) return;
+
+      function openNav(){
+        drawer.classList.add('open');
+        backdrop.classList.add('open');
+        fab.setAttribute('aria-expanded','true');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeNav(){
+        drawer.classList.remove('open');
+        backdrop.classList.remove('open');
+        fab.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+      }
+
+      fab.addEventListener('click', openNav);
+      closeBtn.addEventListener('click', closeNav);
+      backdrop.addEventListener('click', closeNav);
+      document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeNav(); });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ETF Masterclass (Parte 2): Markowitz, CAPM, Fatores e Câmbio (nível institucional) | Cérebro Milionário</title>
+  <meta name="description" content="ETF Masterclass (Parte 2): Teoria moderna de portfólio aplicada. Markowitz, fronteira eficiente, Sharpe, CAPM, Fama-French, fatores (quality/momentum), correlação em crise e câmbio/hedge." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/etf-masterclass-carteira-global-parte-2.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/etf-masterclass-carteira-global-parte-2.html" />
+  <meta property="og:title" content="ETF Masterclass (Parte 2): Markowitz, CAPM, Fatores e Câmbio" />
+  <meta property="og:description" content="Teoria moderna de portfólio aplicada: correlação, Sharpe, CAPM, Fama-French, fatores e câmbio/hedge." />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="ETF Masterclass (Parte 2): Markowitz, CAPM, Fatores e Câmbio" />
+  <meta property="twitter:description" content="Teoria moderna de portfólio aplicada: correlação, Sharpe, CAPM, Fama-French, fatores e câmbio/hedge." />
+  <meta property="twitter:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- CSS do site -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Schema.org Article -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"ETF Masterclass (Parte 2): Markowitz, CAPM, Fatores e Câmbio",
+    "author":{"@type":"Organization","name":"Cérebro Milionário"},
+    "publisher":{"@type":"Organization","name":"Cérebro Milionário"},
+    "datePublished":"2026-02-27",
+    "dateModified":"2026-02-27",
+    "mainEntityOfPage":"https://peppy-lollipop-54fa27.netlify.app/posts/etf-masterclass-carteira-global-parte-2.html",
+    "image":"https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg",
+    "inLanguage":"pt-BR"
+  }
+  </script>
+
+  <style>
+    .pill { display:inline-block; padding:6px 10px; border-radius:999px; font-weight:700; font-size:12px; background: rgba(44,44,46,.06); }
+    .muted { opacity:.78; }
+    .toc { border:1px solid rgba(0,0,0,.08); border-radius:18px; padding:16px; background:#fff; box-shadow: var(--shadow-sm); }
+    .toc h2 { margin-top:0; }
+    .toc a { text-decoration:none; }
+    .callout { border-left:4px solid var(--accent-color, #f4c430); background: rgba(244,196,48,.10); padding:14px 16px; border-radius:14px; }
+    .warning { border-left:4px solid #e2574c; background: rgba(226,87,76,.08); padding:14px 16px; border-radius:14px; }
+    .kpi-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; }
+    .kpi { border:1px solid rgba(0,0,0,.08); border-radius:16px; padding:14px; background:#fff; box-shadow: var(--shadow-sm); }
+    .kpi strong { display:block; font-size:18px; }
+    @media (max-width: 980px) { .kpi-grid { grid-template-columns: 1fr; } }
+
+    .navparts { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+    .navparts a { display:inline-flex; align-items:center; gap:8px; padding:10px 12px; border-radius:14px; border:1px solid rgba(0,0,0,.08); background:#fff; box-shadow: var(--shadow-sm); text-decoration:none; }
+    .navparts a:hover { transform: translateY(-1px); }
+
+    .table { width:100%; border-collapse:collapse; overflow:hidden; border-radius:14px; border:1px solid rgba(0,0,0,.08); }
+    .table th, .table td { padding:12px; border-bottom:1px solid rgba(0,0,0,.08); vertical-align:top; }
+    .table th { background: rgba(44,44,46,.04); text-align:left; }
+
+    .hr-soft { margin: 26px 0; opacity: .22; }
+    body { overflow-x: hidden; }
+    pre, code { white-space: pre-wrap; word-break: break-word; }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container" style="max-width: 980px;">
+        <span class="pill">Mega Guia • ETF Masterclass • Parte 2/4</span>
+        <h1 style="margin-top:10px;">ETF Masterclass (Parte 2): Teoria Moderna Aplicada — Markowitz, CAPM, Fatores e Câmbio</h1>
+        <p class="muted" style="max-width: 920px;">
+          Nesta parte, você vai entender o “motor” de uma carteira global bem construída: <strong>correlação</strong>,
+          <strong>fronteira eficiente</strong>, <strong>Sharpe</strong>, <strong>CAPM</strong>, <strong>fatores</strong>
+          e a tomada de decisão sobre <strong>moeda/hedge</strong> — do jeito que instituições raciocinam.
+        </p>
+
+        <div class="kpi-grid" style="margin-top:16px;">
+          <div class="kpi"><strong>Leitura</strong><span class="muted">40–55 min</span></div>
+          <div class="kpi"><strong>Foco</strong><span class="muted">Teoria aplicada</span></div>
+          <div class="kpi"><strong>Série</strong><span class="muted">Parte 2 de 4</span></div>
+        </div>
+
+        <div class="navparts" aria-label="Navegação entre partes">
+          <a href="/posts/etf-masterclass-carteira-global-parte-1.html"><i class="fa-solid fa-arrow-left"></i> Voltar: Parte 1</a>
+          <a href="/posts/etf-masterclass-carteira-global-parte-3.html"><i class="fa-solid fa-arrow-right"></i> Próxima: Parte 3</a>
+          <a href="/posts/etfs-alocacao-global-guia-2026_CFA.html"><i class="fa-solid fa-link"></i> Ver Pilar 2 (ETFs CFA)</a>
+        </div>
+
+        <div class="callout" style="margin-top:16px;">
+          <strong>Por que esta parte é decisiva?</strong>
+          <p style="margin:10px 0 0 0;">
+            O varejo costuma escolher ETFs por “histórico recente” e “taxa baixa”. O institucional escolhe por:
+            <strong>exposição</strong>, <strong>prêmio de risco</strong>, <strong>correlação</strong> e
+            <strong>robustez do portfólio em cenários ruins</strong>.
+            Aqui você aprende a justificar uma carteira global sem achismo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width: 980px;">
+
+        <div class="toc">
+          <h2>Índice (Parte 2)</h2>
+          <ol>
+            <li><a href="#markowitz">Markowitz: risco, retorno e correlação</a></li>
+            <li><a href="#sharpe">Índice de Sharpe: por que “retorno” sozinho engana</a></li>
+            <li><a href="#fronteira">Fronteira eficiente: o mapa das carteiras</a></li>
+            <li><a href="#capm">CAPM: beta, prêmio de risco e limitações</a></li>
+            <li><a href="#fatores">Fatores: Fama-French + quality/momentum/low vol</a></li>
+            <li><a href="#regimes">Correlação em crise: mudança de regime</a></li>
+            <li><a href="#moeda">Moeda e hedge: quando proteger faz sentido</a></li>
+            <li><a href="#politica">Política de investimento (regras práticas)</a></li>
+            <li><a href="#proxima">O que vem na Parte 3</a></li>
+          </ol>
+        </div>
+
+        <hr class="hr-soft"/>
+
+        <h2 id="markowitz">1) Markowitz: risco, retorno e correlação</h2>
+        <p>
+          O grande salto da teoria moderna de portfólio (Harry Markowitz) foi mostrar que risco não é só “qual ativo é melhor”,
+          mas <strong>como os ativos se combinam</strong>. O investidor iniciante busca o ativo “campeão”.
+          O investidor institucional busca o <strong>conjunto</strong> que entrega o melhor retorno <em>para um nível de risco</em>.
+        </p>
+
+        <h3>1.1 Por que correlação vale ouro</h3>
+        <p>
+          Se dois ativos sobem e caem juntos, combiná-los não reduz muita volatilidade.
+          Se eles têm correlação baixa (ou negativa), a volatilidade do conjunto pode cair significativamente.
+          Isso é a essência de “diversificação verdadeira”.
+        </p>
+
+        <div class="callout">
+          <strong>Regra mental institucional:</strong>
+          <ul style="margin:10px 0 0 18px;">
+            <li><strong>Diversificar ≠ ter muitos ativos.</strong></li>
+            <li><strong>Diversificar = combinar fontes diferentes de risco.</strong></li>
+          </ul>
+        </div>
+
+        <h3>1.2 O que é risco na prática?</h3>
+        <p>
+          A teoria usa volatilidade (desvio padrão) como proxy de risco, mas instituições também olham:
+          drawdown (quedas máximas), risco de sequência de retornos, risco de inflação e risco de liquidez.
+          Ainda assim, volatilidade é um ponto de partida útil, principalmente para comparar carteiras.
+        </p>
+
+        <hr class="hr-soft"/>
+
+        <h2 id="sharpe">2) Índice de Sharpe: retorno ajustado ao risco</h2>
+        <p>
+          Um erro comum: comparar retornos absolutos e ignorar o risco tomado para chegar lá.
+          O índice de Sharpe mede “quanto retorno excedente eu recebo por unidade de risco”.
+        </p>
+
+        <p><strong>Sharpe = (R<sub>p</sub> − R<sub>f</sub>) / σ<sub>p</sub></strong></p>
+
+        <ul>
+          <li><strong>R<sub>p</sub></strong>: retorno esperado do portfólio</li>
+          <li><strong>R<sub>f</sub></strong>: taxa livre de risco (aproximação: curto prazo soberano)</li>
+          <li><strong>σ<sub>p</sub></strong>: volatilidade do portfólio</li>
+        </ul>
+
+        <p>
+          Se dois portfólios rendem parecido, o que tiver Sharpe maior é “mais eficiente”.
+          Isso não garante melhor futuro, mas é um critério racional para comparar eficiência histórica e estrutural.
+        </p>
+
+        <div class="warning">
+          <strong>Alerta institucional:</strong> Sharpe pode “enganar” em estratégias com cauda (risco de evento raro),
+          ou em períodos curtos. Por isso instituições analisam também drawdown e comportamento em crise.
+        </div>
+
+        <hr class="hr-soft"/>
+
+        <h2 id="fronteira">3) Fronteira eficiente: o mapa das carteiras possíveis</h2>
+        <p>
+          A fronteira eficiente é o conjunto de carteiras que oferece:
+          <strong>o maior retorno esperado para um dado nível de risco</strong> (ou o menor risco para um dado retorno).
+          Tudo que fica “abaixo” da fronteira é dominado por uma combinação melhor.
+        </p>
+
+        <h3>3.1 Por que isso importa para ETFs globais?</h3>
+        <p>
+          Porque a escolha de um “core global” (all-world) e a decisão de adicionar satélites
+          (emergentes, small caps, fatores) muda o formato da fronteira eficiente da sua carteira.
+          O objetivo institucional não é “adivinhar o melhor ETF do ano”, mas construir um conjunto robusto.
+        </p>
+
+        <h3>3.2 O trade-off inevitável</h3>
+        <p>
+          Se você quer menor volatilidade, você geralmente aceita retorno esperado menor (ou usa diversificação e renda fixa).
+          Se você quer retorno esperado maior, você aceita mais risco (volatilidade e drawdowns).
+          A fronteira eficiente te mostra quais combinações fazem sentido.
+        </p>
+
+        <hr class="hr-soft"/>
+
+        <h2 id="capm">4) CAPM: beta e prêmio de risco (e por que não é a verdade absoluta)</h2>
+        <p>
+          O CAPM tenta explicar retornos esperados a partir de um único fator:
+          o risco de mercado (beta). Na forma simples:
+        </p>
+
+        <p><strong>E(R<sub>i</sub>) = R<sub>f</sub> + β<sub>i</sub> × (E(R<sub>m</sub>) − R<sub>f</sub>)</strong></p>
+
+        <p>
+          Onde <strong>β</strong> mede a sensibilidade do ativo ao mercado.
+          Um beta 1,2 tende a se mover 20% mais que o mercado (para cima e para baixo).
+        </p>
+
+        <h3>4.1 Como usar CAPM sem cair na armadilha</h3>
+        <ul>
+          <li>CAPM é um <strong>modelo</strong>, não uma lei física.</li>
+          <li>Ele ajuda a pensar em “exposição ao mercado” e prêmio de risco.</li>
+          <li>Mas o mundo real tem múltiplos riscos remunerados além do beta.</li>
+        </ul>
+
+        <h3>4.2 O limite prático do CAPM</h3>
+        <p>
+          CAPM explica parte do retorno, mas não explica bem por que ações “value” ou “small caps”
+          podem ter prêmios diferentes, ou por que qualidade/momentum aparecem em dados históricos.
+          Por isso surgem os modelos de fatores.
+        </p>
+
+        <hr class="hr-soft"/>
+
+        <h2 id="fatores">5) Fatores: Fama-French + quality/momentum/low vol</h2>
+        <p>
+          A ideia de fatores é simples: além do “mercado”, existem características sistemáticas que,
+          historicamente, estiveram associadas a retornos diferentes.
+          Instituições usam fatores para:
+          <strong>controlar exposição</strong>, <strong>diversificar fontes de retorno</strong> e
+          <strong>desenhar carteiras com comportamento desejado</strong>.
+        </p>
+
+        <h3>5.1 Fama-French (3 fatores)</h3>
+        <ul>
+          <li><strong>Market</strong>: risco de mercado (beta)</li>
+          <li><strong>SMB (Small Minus Big)</strong>: tamanho (small caps)</li>
+          <li><strong>HML (High Minus Low)</strong>: value (barato vs caro)</li>
+        </ul>
+
+        <h3>5.2 Fama-French (5 fatores)</h3>
+        <ul>
+          <li>Os 3 anteriores +</li>
+          <li><strong>RMW</strong>: lucratividade (robust minus weak)</li>
+          <li><strong>CMA</strong>: investimento (conservative minus aggressive)</li>
+        </ul>
+
+        <h3>5.3 Fatores populares no varejo (e como tratar institucionalmente)</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Fator</th>
+              <th>O que busca</th>
+              <th>Quando faz sentido</th>
+              <th>Risco/armadilha</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Quality</strong></td>
+              <td>Empresas “boas” (margens, balanço, retorno)</td>
+              <td>Core + estabilidade</td>
+              <td>Pagar “caro” demais</td>
+            </tr>
+            <tr>
+              <td><strong>Momentum</strong></td>
+              <td>Tendência (força relativa)</td>
+              <td>Regras claras e disciplina</td>
+              <td>Viradas bruscas, turnover e custo</td>
+            </tr>
+            <tr>
+              <td><strong>Low Vol</strong></td>
+              <td>Menor volatilidade</td>
+              <td>Reduz “sofrimento”</td>
+              <td>Concentração setorial</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="warning" style="margin-top:14px;">
+          <strong>Ponto institucional:</strong> fator é estratégia de longo prazo. Se você “entra e sai” por performance recente,
+          você transforma fator em especulação e tende a comprar caro e vender barato.
+        </div>
+
+        <hr class="hr-soft"/>
+
+        <h2 id="regimes">6) Correlação em crise: por que “tudo cai junto”</h2>
+        <p>
+          Em regimes normais, correlações podem ser moderadas, e a diversificação funciona muito bem.
+          Em crises, correlação entre ativos de risco tende a subir — esse é um fenômeno conhecido e esperado.
+        </p>
+        <p>
+          O institucional não se ilude achando que “diversificação evita queda”.
+          Diversificação serve para:
+        </p>
+        <ul>
+          <li>reduzir volatilidade em regimes normais;</li>
+          <li>aumentar a robustez do portfólio;</li>
+          <li>diminuir a probabilidade de ruína;</li>
+          <li>permitir continuar aportando sem abandonar o plano.</li>
+        </ul>
+
+        <div class="callout">
+          <strong>Modelo mental:</strong> uma carteira global bem feita não elimina crises.
+          Ela aumenta sua chance de <strong>sobreviver</strong> à crise sem quebrar o plano.
+        </div>
+
+        <hr class="hr-soft"/>
+
+        <h2 id="moeda">7) Moeda e hedge: quando proteger faz sentido</h2>
+        <p>
+          Câmbio é um tema onde o varejo costuma errar por excesso de certeza.
+          Instituições tratam câmbio como <strong>um fator de risco</strong> com trade-offs.
+        </p>
+
+        <h3>7.1 Ações globais: hedge nem sempre ajuda</h3>
+        <p>
+          Em ações, a moeda pode atuar como diversificador para um investidor brasileiro.
+          Quando o Brasil entra em estresse, o real tende a desvalorizar e ativos em moeda forte podem amortecer.
+          Hedgear tudo pode remover esse efeito e adicionar custo.
+        </p>
+
+        <h3>7.2 Renda fixa global: hedge costuma fazer mais sentido</h3>
+        <p>
+          Em renda fixa, o objetivo é estabilidade. Se você compra bonds globais e deixa o câmbio “solto”,
+          a volatilidade pode aumentar e destruir a função do ativo no portfólio.
+          Por isso, hedge é mais comum em renda fixa global do que em ações.
+        </p>
+
+        <h3>7.3 O que instituições fazem na prática</h3>
+        <ul>
+          <li>Definem se o objetivo do ativo é crescimento (ações) ou estabilidade (renda fixa).</li>
+          <li>Hedgeiam parcialmente ou por buckets (não “tudo ou nada”).</li>
+          <li>Reavaliam hedge em regime de juros/inflação e custo de carregamento.</li>
+        </ul>
+
+        <div class="warning">
+          <strong>Regra simples:</strong> não faça hedge “porque tem medo”.
+          Faça hedge se você tem uma razão estrutural: reduzir volatilidade onde estabilidade é necessária.
+        </div>
+
+        <hr class="hr-soft"/>
+
+        <h2 id="politica">8) Política de investimento (regras práticas que funcionam)</h2>
+        <p>
+          Investidor forte vira “institucional” quando para de depender de emoção e cria regras.
+          Uma política simples (mas poderosa) para ETFs globais pode incluir:
+        </p>
+
+        <h3>8.1 Regras de alocação</h3>
+        <ul>
+          <li>Defina um <strong>core</strong> global (all-world) como base.</li>
+          <li>Satélites só existem com propósito claro: emergentes, small caps, fatores.</li>
+          <li>Evite “acumular” ETFs redundantes (muita sobreposição).</li>
+        </ul>
+
+        <h3>8.2 Regras de rebalanceamento</h3>
+        <ul>
+          <li><strong>Calendário</strong>: a cada 6 ou 12 meses.</li>
+          <li><strong>Bandas</strong>: rebalancear se o peso desviar X pontos percentuais.</li>
+          <li>Use aportes para rebalancear antes de vender (reduz impostos e custos).</li>
+        </ul>
+
+        <h3>8.3 Regras comportamentais</h3>
+        <ul>
+          <li>Proibido mudar o plano por “notícia”.</li>
+          <li>Proibido trocar estratégia por performance de 3–6 meses.</li>
+          <li>Permitido ajustar só se houver mudança estrutural (renda, horizonte, objetivo).</li>
+        </ul>
+
+        <div class="callout">
+          <strong>Ferramenta prática:</strong> simule seu objetivo no longo prazo com sua taxa de aporte.
+          <br/>
+          <a href="/calculadora.html"><strong>→ Ir para Calculadora de Juros Compostos</strong></a>
+        </div>
+
+        <hr class="hr-soft"/>
+
+        <h2 id="proxima">9) O que vem na Parte 3 (carteiras modelo e execução)</h2>
+        <p>
+          Agora que você domina teoria aplicada e riscos, a Parte 3 vai ser “mão na massa”:
+        </p>
+        <ul>
+          <li>Carteira 1 ETF (simplicidade máxima)</li>
+          <li>Carteira 3 ETFs (controle de emergentes/small caps)</li>
+          <li>Carteira com tilt de fatores (quando faz sentido)</li>
+          <li>Perfis (conservador/moderado/arrojado) e horizontes</li>
+          <li>Rebalanceamento por bandas vs calendário</li>
+          <li>Checklist final para você não errar na implementação</li>
+        </ul>
+
+        <div class="navparts" style="margin-top:16px;">
+          <a href="/posts/etf-masterclass-carteira-global-parte-1.html"><i class="fa-solid fa-arrow-left"></i> Voltar: Parte 1</a>
+          <a href="/posts/etf-masterclass-carteira-global-parte-3.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 3</a>
+          <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+        </div>
+
+        <hr class="hr-soft"/>
+
+        <div style="margin-top:40px;padding:25px;border:1px solid rgba(0,0,0,0.08);border-radius:16px;background:#fafafa;">
+          <h3>🔷 Trilogia Estratégica Cérebro Milionário</h3>
+          <p>Este artigo faz parte do núcleo estrutural de investimentos do site:</p>
+          <ul>
+            <li><a href="/posts/renda-fixa-guia-completo-2026.html"><strong>Renda Fixa Institucional (2026)</strong></a></li>
+            <li><a href="/posts/etfs-alocacao-global-guia-2026_CFA.html"><strong>ETFs e Alocação Global (2026)</strong></a></li>
+            <li><a href="/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html"><strong>Construção de Patrimônio (2026)</strong></a></li>
+          </ul>
+          <p><em>Estude os três para visão sistêmica completa.</em></p>
+        </div>
+
+        <p style="margin-top:18px; font-size:14px; opacity:.7;">
+          Atualizado em 27/02/2026 • Cérebro Milionário
+        </p>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        <h3>Cérebro Milionário</h3>
+        <p>Educação financeira com profundidade estratégica.</p>
+      </div>
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', function () {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    })();
+  </script>
+</body>
+</html>

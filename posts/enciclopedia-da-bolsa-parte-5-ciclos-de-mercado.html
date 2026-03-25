@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Enciclopédia da Bolsa (5/8): Ciclos de Mercado (Juros, Lucros, Liquidez e Regimes) | Cérebro Milionário</title>
+<meta name="description" content="Ciclos de mercado em nível institucional: regimes (expansão, desaceleração, recessão, recuperação), juros, inflação, liquidez, lucros, múltiplos, drawdowns, indicadores, e como transformar ciclo em regras de carteira sem tentar prever o futuro. Parte 5/8 da Enciclopédia da Bolsa.">
+<meta name="robots" content="index, follow">
+
+<!-- Google AdSense -->
+<meta name="google-adsense-account" content="ca-pub-4613426749830025">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025"
+     crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+  /* ===== FIX MENU SUPERIOR (ideal mover pro /css/style.css) ===== */
+  .nav-menu a{ white-space: nowrap; }
+  .nav-menu{ align-items: center; }
+
+  /* ===== Ajustes locais para leitura longa ===== */
+  .post-long p{ line-height: 1.78; }
+  .post-long h2{ margin-top: 34px; }
+  .post-long h3{ margin-top: 26px; }
+  .post-long hr{ margin: 26px 0; opacity: .35; }
+  .post-long .callout{
+    border-left: 5px solid #2c2c2e;
+    background: #f3f3f3;
+    padding: 14px 16px;
+    border-radius: 10px;
+    margin: 18px 0;
+  }
+  .post-long .mini{ font-size: 0.95rem; opacity: .9; }
+  .post-long table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 18px;
+    font-size: 0.98rem;
+  }
+  .post-long th, .post-long td{
+    border: 1px solid rgba(0,0,0,.12);
+    padding: 10px 10px;
+    vertical-align: top;
+  }
+  .post-long th{
+    background: rgba(0,0,0,.04);
+    text-align: left;
+  }
+  .post-long .toc a{ text-decoration: none; }
+  .post-long .toc a:hover{ text-decoration: underline; }
+  .post-long .tagline{ margin-top: 6px; font-weight: 800; opacity: .95; }
+  .post-long code{
+    background: rgba(0,0,0,.06);
+    padding: 2px 6px;
+    border-radius: 6px;
+  }
+  .post-long .divider-title{
+    margin: 32px 0 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(244, 196, 48, 0.20);
+    border: 1px solid rgba(244, 196, 48, 0.40);
+    font-weight: 900;
+  }
+
+  /* ===== Menu da Série (desktop fixo sem cobrir texto + drawer mobile) ===== */
+  .series-layout{ position: relative; }
+  .series-content{ position: relative; z-index: 1; }
+  @media(min-width: 1024px){
+    .series-content{ padding-right: 300px; }
+  }
+
+  .series-sidebar{
+    border: 1px solid rgba(0,0,0,.12);
+    border-radius: 14px;
+    background: rgba(0,0,0,.02);
+    padding: 12px 12px;
+    pointer-events: auto;
+  }
+  .series-sidebar h3{ margin: 6px 0 8px; font-size: 1.05rem; }
+  .series-sidebar a{ text-decoration: none; pointer-events: auto; }
+  .series-sidebar a:hover{ text-decoration: underline; }
+  .series-sidebar ul{ margin: 0; padding-left: 18px; }
+  .series-sidebar li{ margin: 8px 0; }
+  .series-pill{
+    display: inline-block;
+    font-size: .9rem;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,.12);
+    background: rgba(244, 196, 48, 0.18);
+    margin-bottom: 10px;
+  }
+  .series-active{ font-weight: 900; text-decoration: underline; }
+
+  .series-sidebar-desktop{ display: none; }
+  @media(min-width: 1024px){
+    .series-sidebar-desktop{
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 270px;
+      z-index: 50;
+    }
+  }
+
+  /* Mobile drawer */
+  .series-fab{
+    position: fixed;
+    right: 16px;
+    bottom: 18px;
+    z-index: 999;
+    border: none;
+    border-radius: 999px;
+    padding: 12px 14px;
+    box-shadow: 0 8px 22px rgba(0,0,0,.18);
+    background: #2c2c2e;
+    color: #fff;
+    font-weight: 800;
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+  }
+  @media(min-width: 1024px){
+    .series-fab{ display: none; }
+  }
+
+  .series-backdrop{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 998;
+    display: none;
+  }
+  .series-drawer{
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: min(88vw, 360px);
+    background: #fff;
+    z-index: 999;
+    transform: translateX(105%);
+    transition: transform .22s ease;
+    padding: 16px;
+    box-shadow: -10px 0 28px rgba(0,0,0,.20);
+    overflow-y: auto;
+  }
+  .series-drawer.open{ transform: translateX(0); }
+  .series-backdrop.open{ display: block; }
+
+  .drawer-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .drawer-close{
+    border: 1px solid rgba(0,0,0,.15);
+    background: rgba(0,0,0,.03);
+    border-radius: 10px;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-weight: 800;
+  }
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="container header-container">
+    <div class="logo">
+      <h1><a href="/index.html">Cérebro Milionário</a></h1>
+    </div>
+
+    <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <nav class="navigation" id="primary-navigation">
+      <ul class="nav-menu">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+        <li><a href="/calculadora.html">Calculadora</a></li>
+        <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+        <li><a href="/calculadora-ir-renda-fixa.html">IR&nbsp;Renda&nbsp;Fixa</a></li>
+        <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+        <li><a href="/cursos.html">Cursos</a></li>
+        <li><a href="/comunidade.html">Comunidade</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Drawer mobile da série -->
+<div class="series-backdrop" id="seriesBackdrop" aria-hidden="true"></div>
+<aside class="series-drawer" id="seriesDrawer" aria-hidden="true" aria-label="Menu da série Enciclopédia da Bolsa">
+  <div class="drawer-header">
+    <div>
+      <div class="series-pill">Enciclopédia da Bolsa • 5/8</div>
+      <strong>Menu da Série</strong>
+    </div>
+    <button class="drawer-close" id="seriesCloseBtn" aria-label="Fechar menu">Fechar ✕</button>
+  </div>
+
+  <div class="series-sidebar">
+    <h3>Partes</h3>
+    <ul>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-1-como-analisar-empresas.html">1) Como analisar empresas</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-2-como-ler-balancos.html">2) Como ler balanços</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-3-valuation-completo.html">3) Valuation completo</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-4-psicologia-do-mercado.html">4) Psicologia do mercado</a></li>
+      <li><a class="series-active" aria-current="page" href="/posts/enciclopedia-da-bolsa-parte-5-ciclos-de-mercado.html">5) Ciclos de mercado</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-6-construcao-de-portfolio.html">6) Construção de portfólio</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-7-gestao-de-risco.html">7) Gestão de risco</a></li>
+      <li><a href="/posts/enciclopedia-da-bolsa-parte-8-erros-fatais-do-investidor.html">8) Erros fatais do investidor</a></li>
+    </ul>
+
+    <hr>
+
+    <p class="mini"><strong>Leituras base:</strong><br>
+      <a href="/posts/etfs-alocacao-global-guia-2026_CFA.html">ETFs e alocação global</a><br>
+      <a href="/posts/renda-fixa-guia-completo-2026.html">Renda fixa</a><br>
+      <a href="/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html">Construção de patrimônio</a>
+    </p>
+  </div>
+</aside>
+
+<button class="series-fab" id="seriesFab" aria-label="Abrir menu da série">
+  <i class="fa-solid fa-layer-group"></i>
+  Série 5/8
+</button>
+
+<main class="section post-long">
+  <div class="container series-layout" style="max-width: 980px;">
+
+    <!-- Sidebar desktop -->
+    <aside class="series-sidebar series-sidebar-desktop" aria-label="Menu da série Enciclopédia da Bolsa">
+      <div class="series-pill">Enciclopédia da Bolsa • 5/8</div>
+      <h3>Partes</h3>
+      <ul>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-1-como-analisar-empresas.html">1) Como analisar empresas</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-2-como-ler-balancos.html">2) Como ler balanços</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-3-valuation-completo.html">3) Valuation completo</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-4-psicologia-do-mercado.html">4) Psicologia do mercado</a></li>
+        <li><a class="series-active" aria-current="page" href="/posts/enciclopedia-da-bolsa-parte-5-ciclos-de-mercado.html">5) Ciclos de mercado</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-6-construcao-de-portfolio.html">6) Construção de portfólio</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-7-gestao-de-risco.html">7) Gestão de risco</a></li>
+        <li><a href="/posts/enciclopedia-da-bolsa-parte-8-erros-fatais-do-investidor.html">8) Erros fatais do investidor</a></li>
+      </ul>
+
+      <hr>
+
+      <p class="mini"><strong>Leituras base:</strong><br>
+        <a href="/posts/etfs-alocacao-global-guia-2026_CFA.html">ETFs e alocação global</a><br>
+        <a href="/posts/renda-fixa-guia-completo-2026.html">Renda fixa</a><br>
+        <a href="/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html">Construção de patrimônio</a>
+      </p>
+    </aside>
+
+    <article class="series-content">
+
+      <h1>Enciclopédia da Bolsa (5/8): Ciclos de Mercado (Juros, Lucros, Liquidez e Regimes)</h1>
+      <p class="tagline">Ciclo não é para prever. É para entender regime, calibrar risco e evitar comprar o “melhor momento” de um lucro que vai desaparecer. Aqui está o playbook institucional.</p>
+      <p><strong>Leitura estimada:</strong> 80 a 140 minutos (conteúdo denso).</p>
+
+      <div class="callout">
+        <p><strong>Ideia central:</strong> retorno em bolsa nasce de dois motores: (1) <strong>lucros</strong> e (2) <strong>múltiplos</strong>. Lucros dependem da economia e do setor. Múltiplos dependem sobretudo de <strong>juros, inflação e risco</strong>. Você não controla o ciclo, mas controla como se posiciona nele.</p>
+        <p class="mini"><strong>Nota:</strong> educacional. Não é recomendação de investimento.</p>
+      </div>
+
+      <hr>
+
+      <h2>Índice</h2>
+      <ul class="toc">
+        <li><a href="#regras">1) As regras do jogo: lucros, juros, múltiplos e liquidez</a></li>
+        <li><a href="#regimes">2) Regimes macro (4 quadrantes) e o que tende a performar</a></li>
+        <li><a href="#juros">3) Juros e duration de ações: por que múltiplos mudam</a></li>
+        <li><a href="#inflacao">4) Inflação: o imposto silencioso do valuation</a></li>
+        <li><a href="#lucros">5) Ciclo de lucros: o que o mercado antecipa</a></li>
+        <li><a href="#liquidez">6) Liquidez e “apetite por risco”: o motor oculto</a></li>
+        <li><a href="#setores">7) Rotação setorial: sensibilidade a ciclo, juros e crédito</a></li>
+        <li><a href="#credit">8) Crédito: o termômetro que antecede crises</a></li>
+        <li><a href="#indicadores">9) Indicadores (sem misticismo): o painel institucional</a></li>
+        <li><a href="#regras-carteira">10) Transformando ciclo em regras de carteira</a></li>
+        <li><a href="#checklists">11) Checklists: o que fazer em cada fase</a></li>
+      </ul>
+
+      <hr>
+
+      <h2 id="regras">1) As regras do jogo: lucros, juros, múltiplos e liquidez</h2>
+      <p>O mercado precifica o futuro. Então as variáveis que mais mexem com preço são:</p>
+      <ul>
+        <li><strong>Expectativa de lucro</strong> (crescimento e margem);</li>
+        <li><strong>Taxa de desconto</strong> (juros reais + prêmio de risco);</li>
+        <li><strong>Liquidez</strong> (quanto dinheiro “aceita risco”);</li>
+        <li><strong>Incerteza</strong> (risco macro, político, crédito).</li>
+      </ul>
+
+      <div class="divider-title">O ponto institucional</div>
+      <p>Não existe “bolsa sobe porque a economia vai bem”. Muitas vezes a bolsa sobe na desaceleração porque o mercado antecipa corte de juros. E a bolsa pode cair em crescimento forte se inflação/juros subirem. Ciclo é sobre <strong>mudança de margem</strong> e <strong>mudança de taxa</strong>, não sobre manchete.</p>
+
+      <hr>
+
+      <h2 id="regimes">2) Regimes macro (4 quadrantes)</h2>
+      <p>Uma forma prática e profissional é pensar em 2 eixos:</p>
+      <ul>
+        <li><strong>Crescimento</strong> (acelerando ou desacelerando)</li>
+        <li><strong>Inflação</strong> (subindo ou caindo)</li>
+      </ul>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Regime</th>
+            <th>Ambiente típico</th>
+            <th>Risco dominante</th>
+            <th>Tendência comum</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1) Crescimento↑ / Inflação↓</strong></td>
+            <td>expansão “boa”</td>
+            <td>euforia e overvaluation</td>
+            <td>ações em geral vão bem</td>
+          </tr>
+          <tr>
+            <td><strong>2) Crescimento↑ / Inflação↑</strong></td>
+            <td>superaquecimento</td>
+            <td>juros sobem, múltiplos caem</td>
+            <td>rotação para value/commodities</td>
+          </tr>
+          <tr>
+            <td><strong>3) Crescimento↓ / Inflação↑</strong></td>
+            <td>stagflation</td>
+            <td>lucro cai e taxa sobe</td>
+            <td>ativo de risco sofre</td>
+          </tr>
+          <tr>
+            <td><strong>4) Crescimento↓ / Inflação↓</strong></td>
+            <td>desaceleração com desinflação</td>
+            <td>crédito e recessão</td>
+            <td>juros caem; duração melhora</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <p><strong>Importante:</strong> isso não é “receita do bolo”. É um mapa. O investidor quebra quando tenta aplicar como regra fixa sem olhar risco, valuation e crédito.</p>
+      </div>
+
+      <hr>
+
+      <h2 id="juros">3) Juros e duration de ações</h2>
+      <p>“Duration” é sensibilidade do preço a juros. Em ações, a intuição é:</p>
+      <ul>
+        <li>empresas de crescimento com caixa distante (lucros no futuro) têm <strong>duration alta</strong> → sofrem quando juros sobem;</li>
+        <li>empresas com caixa mais imediato (value, maduras) têm duration menor;</li>
+        <li>quando juros caem, duration é recompensada — desde que o lucro sobreviva (crédito importa).</li>
+      </ul>
+
+      <div class="divider-title">O erro clássico do iniciante</div>
+      <p>Ele compra “empresa boa” no topo do múltiplo, quando juros estão no fundo e liquidez no máximo. Quando juros normalizam, a reprecificação destrói retorno mesmo que a empresa execute bem.</p>
+
+      <hr>
+
+      <h2 id="inflacao">4) Inflação: o imposto silencioso do valuation</h2>
+      <p>Inflação alta faz três coisas ruins para ativos de risco:</p>
+      <ul>
+        <li>pressão em margens (custos sobem);</li>
+        <li>força o banco central a manter juros altos;</li>
+        <li>aumenta incerteza e prêmio de risco.</li>
+      </ul>
+
+      <div class="divider-title">Mas existe nuance</div>
+      <p>Empresas com <strong>pricing power</strong> conseguem repassar. Empresas commoditizadas e alavancadas sofrem. Inflação é o teste real do moat: quem repassa, vive; quem não repassa, morre lentamente.</p>
+
+      <hr>
+
+      <h2 id="lucros">5) Ciclo de lucros: o que o mercado antecipa</h2>
+      <p>O mercado precifica antes dos balanços. Quando você “descobre” que a economia piorou, o preço muitas vezes já caiu. E quando o noticiário está apocalíptico, o mercado pode estar começando um novo ciclo.</p>
+
+      <div class="divider-title">Sequência típica</div>
+      <ol>
+        <li>lucros começam a desacelerar (poucos percebem);</li>
+        <li>múltiplos caem primeiro (juros/prêmio de risco);</li>
+        <li>lucros caem depois (revisões);</li>
+        <li>quando revisões ficam extremas, o mercado começa a olhar “o próximo ano”.</li>
+      </ol>
+
+      <div class="callout">
+        <p><strong>Regra:</strong> o pior momento psicológico costuma ser o melhor ponto probabilístico — desde que você tenha margem de segurança e risco sob controle.</p>
+      </div>
+
+      <hr>
+
+      <h2 id="liquidez">6) Liquidez: o motor oculto</h2>
+      <p>Liquidez é a disponibilidade de capital para comprar risco. Quando liquidez é abundante, múltiplos sobem. Quando liquidez seca, múltiplos caem — mesmo com fundamentos ok.</p>
+      <p>É por isso que em alguns períodos “tudo sobe junto” e em outros “tudo cai junto”. O mercado vira um trade de liquidez.</p>
+
+      <hr>
+
+      <h2 id="setores">7) Rotação setorial</h2>
+      <p>Setores têm sensibilidades diferentes a ciclo:</p>
+      <ul>
+        <li><strong>cíclicos:</strong> varejo discricionário, construção, bens de capital;</li>
+        <li><strong>defensivos:</strong> saúde, utilities, consumo básico;</li>
+        <li><strong>financeiro:</strong> bancos dependem de crédito, inadimplência e curva de juros;</li>
+        <li><strong>commodities:</strong> dependem de preço global e dólar;</li>
+        <li><strong>growth:</strong> dependem de taxa e liquidez (duration alta).</li>
+      </ul>
+
+      <div class="divider-title">O ponto institucional</div>
+      <p>Rotação não é “adivinhação”. É calibragem de risco: quando risco de crédito sobe, você não quer estar exposto onde o lucro implode.</p>
+
+      <hr>
+
+      <h2 id="credit">8) Crédito: o termômetro que antecede crises</h2>
+      <p>Crises de mercado geralmente passam por crédito. Quando crédito aperta:</p>
+      <ul>
+        <li>custo de dívida sobe;</li>
+        <li>refinanciamento vira problema;</li>
+        <li>empresas frágeis quebram/diluem;</li>
+        <li>o prêmio de risco do mercado aumenta.</li>
+      </ul>
+
+      <div class="callout">
+        <p><strong>Regra:</strong> em stress de crédito, você quer qualidade e balanço forte. O barato pode virar falência.</p>
+      </div>
+
+      <hr>
+
+      <h2 id="indicadores">9) Indicadores (sem misticismo): o painel institucional</h2>
+      <p>Você não precisa virar macro trader. Mas precisa de um painel simples para não operar no escuro.</p>
+
+      <div class="divider-title">Painel mínimo (conceitual)</div>
+      <ul>
+        <li><strong>inflação:</strong> tendência (subindo/caindo);</li>
+        <li><strong>juros:</strong> direção e nível real;</li>
+        <li><strong>atividade:</strong> desacelerando ou acelerando;</li>
+        <li><strong>crédito:</strong> apertando ou afrouxando;</li>
+        <li><strong>lucros:</strong> revisões (melhorando/piorando);</li>
+        <li><strong>valuation:</strong> múltiplos vs histórico (com normalização).</li>
+      </ul>
+
+      <hr>
+
+      <h2 id="regras-carteira">10) Transformando ciclo em regras de carteira</h2>
+      <p>O objetivo é criar regras robustas que funcionem sem previsão perfeita.</p>
+
+      <div class="divider-title">10.1) Regras simples (institucionais)</div>
+      <ul>
+        <li><strong>Regra 1:</strong> quanto maior a incerteza (inflação alta + crédito apertando), maior a exigência de margem de segurança.</li>
+        <li><strong>Regra 2:</strong> em juros altos, evite pagar caro por duration (growth sem margem).</li>
+        <li><strong>Regra 3:</strong> em stress, priorize balanço forte e liquidez.</li>
+        <li><strong>Regra 4:</strong> diversificação por drivers (não por quantidade de ativos).</li>
+        <li><strong>Regra 5:</strong> rebalanceamento disciplinado vence “adivinhação”.</li>
+      </ul>
+
+      <div class="divider-title">10.2) A carteira como sistema</div>
+      <p>Carteira institucional é composta por blocos: núcleo (longo prazo), satélites (teses específicas), proteção (liquidez/hedge), e rebalanceamento. Você não precisa operar como fundo — mas precisa pensar como sistema.</p>
+
+      <hr>
+
+      <h2 id="checklists">11) Checklists: o que fazer em cada fase</h2>
+
+      <div class="divider-title">Checklist — Quando juros sobem</div>
+      <ul>
+        <li>reduzir exposição a duration alta sem margem;</li>
+        <li>rever valuation com WACC maior;</li>
+        <li>priorizar empresas com caixa e pricing power.</li>
+      </ul>
+
+      <div class="divider-title">Checklist — Quando crédito aperta</div>
+      <ul>
+        <li>mapear dívida curta e refinanciamento das empresas;</li>
+        <li>evitar alavancadas e cíclicas frágeis;</li>
+        <li>exigir margem de segurança maior.</li>
+      </ul>
+
+      <div class="divider-title">Checklist — Quando tudo “parece barato”</div>
+      <ul>
+        <li>lucro está normalizado ou é pico?</li>
+        <li>o múltiplo está baixo por risco real?</li>
+        <li>o balanço aguenta um cenário ruim?</li>
+      </ul>
+
+      <div class="callout">
+        <p><strong>Resumo:</strong> ciclo não serve para fazer profecia. Serve para evitar erros grandes: comprar caro em regime errado, subestimar risco de crédito e operar sem governança.</p>
+      </div>
+
+      <hr>
+
+      <p class="mini"><strong>Parte anterior:</strong><br>
+        ← <a href="/posts/enciclopedia-da-bolsa-parte-4-psicologia-do-mercado.html">Enciclopédia da Bolsa (4/8): Psicologia do mercado</a>
+      </p>
+
+      <p class="mini"><strong>Próxima parte:</strong><br>
+        → <a href="/posts/enciclopedia-da-bolsa-parte-6-construcao-de-portfolio.html">Enciclopédia da Bolsa (6/8): Construção de portfólio</a>
+      </p>
+
+      <p class="mini"><strong>Interlinks sugeridos (SEO interno):</strong><br>
+        • ETFs e alocação global: <a href="/posts/etfs-alocacao-global-guia-2026_CFA.html">/posts/etfs-alocacao-global-guia-2026_CFA.html</a><br>
+        • Renda fixa: <a href="/posts/renda-fixa-guia-completo-2026.html">/posts/renda-fixa-guia-completo-2026.html</a><br>
+        • Construção de patrimônio: <a href="/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html">/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html</a><br>
+        • Guia de dividendos: <a href="/posts/guia-institucional-de-dividendos-mitos-matematica-estrategia.html">/posts/guia-institucional-de-dividendos-mitos-matematica-estrategia.html</a><br>
+      </p>
+
+    </article>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-column">
+        <h3 class="footer-logo">Cérebro Milionário</h3>
+        <p class="footer-text">Capacitando você a tomar decisões financeiras inteligentes para um futuro próspero.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/cerebromillionario/" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://t.me/" target="_blank" class="social-link" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Navegação</h3>
+        <ul class="footer-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/calculadora.html">Calculadoras</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Conteúdo</h3>
+        <ul class="footer-links">
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Legal</h3>
+        <ul class="footer-links">
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/contato.html">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Cérebro Milionário. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script>
+  // Ano automático
+  (function(){
+    var el = document.getElementById('year');
+    if(el) el.textContent = new Date().getFullYear();
+  })();
+
+  // Drawer da série (mobile)
+  (function(){
+    var fab = document.getElementById('seriesFab');
+    var drawer = document.getElementById('seriesDrawer');
+    var backdrop = document.getElementById('seriesBackdrop');
+    var closeBtn = document.getElementById('seriesCloseBtn');
+
+    function openDrawer(){
+      drawer.classList.add('open');
+      backdrop.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false');
+      backdrop.setAttribute('aria-hidden', 'false');
+    }
+    function closeDrawer(){
+      drawer.classList.remove('open');
+      backdrop.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+      backdrop.setAttribute('aria-hidden', 'true');
+    }
+
+    if(fab) fab.addEventListener('click', openDrawer);
+    if(closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    if(backdrop) backdrop.addEventListener('click', closeDrawer);
+
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeDrawer();
+    });
+  })();
+</script>
+
+</body>
+</html>

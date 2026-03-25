@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Macroeconomia Institucional para Investidores (Parte 4/8) | Equilíbrio Geral com Prêmio Endógeno</title>
+  <meta name="description" content="Série institucional (Parte 4/8): equilíbrio geral com risco, prêmio endógeno (time-varying risk premia), SDF, decomposição de prêmio de termo, canal de volatilidade e aversão ao risco, macro-finance e stress." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/macroeconomia-institucional-parte-4.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/macroeconomia-institucional-parte-4.html" />
+  <meta property="og:title" content="Macroeconomia Institucional (Parte 4/8)" />
+  <meta property="og:description" content="Equilíbrio geral com risco e prêmio endógeno. Nível institucional." />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Fonts + Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)'], ['$', '$']], displayMath: [['\\[','\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <style>
+    body{overflow-x:hidden}
+
+    /* Conteúdo */
+    .post-wrap{max-width:980px;margin:0 auto;padding:28px 16px 60px}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:800;font-size:12px;background:rgba(44,44,46,.06)}
+    .muted{opacity:.78}
+    .hero{
+      margin-top:16px;border-radius:18px;overflow:hidden;border:1px solid rgba(0,0,0,.08);
+      box-shadow: var(--shadow-sm); background:#fff
+    }
+    .hero img{width:100%;height:auto;display:block}
+    .toc{
+      margin-top:18px;border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;
+      box-shadow: var(--shadow-sm); padding:16px
+    }
+    .toc h2{margin:0 0 10px 0}
+    .toc a{
+      display:block;text-decoration:none;padding:8px 10px;border-radius:14px;border:1px solid rgba(0,0,0,.06);
+      margin:8px 0
+    }
+    .toc a:hover{transform:translateY(-1px)}
+    .callout{
+      border-left:4px solid var(--accent-color, #f4c430);
+      background: rgba(244,196,48,.10);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+    .warning{
+      border-left:4px solid #e2574c;background: rgba(226,87,76,.08);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+    .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+    .kpi{border:1px solid rgba(0,0,0,.08);border-radius:16px;background:#fff;box-shadow:var(--shadow-sm);padding:14px}
+    .kpi strong{display:block;font-size:18px}
+    @media(max-width:980px){.kpi-grid{grid-template-columns:1fr}}
+    .jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .jump a{
+      display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:14px;
+      border:1px solid rgba(0,0,0,.08);background:#fff;box-shadow:var(--shadow-sm);text-decoration:none;font-weight:900
+    }
+    .jump a:hover{transform:translateY(-1px)}
+    .section{margin-top:22px}
+    .section h2{margin-top:42px}
+    .section h3{margin-top:26px}
+    .hr{height:1px;background:rgba(0,0,0,.10);border:0;margin:26px 0}
+    .table{
+      width:100%;border-collapse:collapse;border:1px solid rgba(0,0,0,.08);border-radius:14px;overflow:hidden;background:#fff;
+      box-shadow:var(--shadow-sm)
+    }
+    .table th,.table td{padding:12px;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:top}
+    .table th{background:rgba(44,44,46,.04);text-align:left}
+    .codebox{
+      border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);
+      padding:14px 16px;margin:18px 0
+    }
+    .mini-note{font-size:12px;opacity:.78;margin-top:8px}
+
+    /* Diagrama conceitual */
+    .chartbox{
+      border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);
+      padding:14px 16px;margin:18px 0;overflow:auto
+    }
+
+    /* Série: sidebar desktop + drawer mobile (SEM COBRIR TEXTO) */
+    .series-shell { position: relative; }
+    .series-nav{
+      position: fixed;
+      top: 92px;
+      right: 18px;
+      width: 320px;
+      max-height: calc(100vh - 120px);
+      overflow: auto;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.10);
+      border-radius: 18px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.18);
+      padding: 12px;
+      z-index: 9999;
+    }
+    .series-nav-head{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      padding: 8px 8px 10px 8px;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    .series-close{
+      border: 1px solid rgba(0,0,0,.12);
+      background: #fff;
+      border-radius: 12px;
+      width: 38px; height: 38px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    .series-nav-links{ display:flex; flex-direction:column; gap: 8px; padding: 10px 6px 6px; }
+    .series-nav-links a{
+      text-decoration:none;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,.08);
+      color: #1a1a1a;
+      font-weight: 800;
+    }
+    .series-nav-links a:hover{ transform: translateY(-1px); }
+    .series-nav-links a.active{
+      background: #2c2c2e;
+      color: #fff;
+      border-color: #2c2c2e;
+    }
+    .series-backdrop{
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.45);
+      z-index: 9998;
+      display: none;
+    }
+    .series-fab{
+      position: fixed;
+      right: 16px;
+      bottom: 18px;
+      z-index: 10000;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 14px;
+      background: #2c2c2e;
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 18px 45px rgba(0,0,0,.30);
+      display: none;
+    }
+
+    @media (min-width: 981px){
+      .post-wrap{
+        max-width: 980px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 380px;
+      }
+    }
+    @media (max-width: 980px){
+      .post-wrap{padding-right:16px}
+      .series-fab{ display: inline-flex; align-items:center; justify-content:center; }
+      .series-nav{
+        top: 0; right: 0; height: 100vh; max-height: none;
+        width: min(360px, 92vw);
+        border-radius: 0;
+        transform: translateX(110%);
+        transition: transform .18s ease;
+        padding-top: 14px;
+      }
+      .series-nav.open{ transform: translateX(0); }
+      .series-backdrop.open{ display: block; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Série: Navegação -->
+  <div class="series-shell">
+    <button class="series-fab" id="seriesFab" aria-label="Abrir navegação da série" aria-expanded="false">Série 4/8</button>
+    <div class="series-backdrop" id="seriesBackdrop"></div>
+
+    <aside class="series-nav" id="seriesNav" aria-label="Navegação da série Macroeconomia Institucional">
+      <div class="series-nav-head">
+        <strong>📌 Série: Macro (4/8)</strong>
+        <button class="series-close" id="seriesClose" aria-label="Fechar">✕</button>
+      </div>
+
+      <nav class="series-nav-links">
+        <a href="/posts/macroeconomia-institucional-parte-1.html">Parte 1 — RBC, Equilíbrio e Núcleo Real</a>
+        <a href="/posts/macroeconomia-institucional-parte-2.html">Parte 2 — NK Phillips, Rigidezes e Política Monetária</a>
+        <a href="/posts/macroeconomia-institucional-parte-3.html">Parte 3 — Fiscal Intertemporal, TVC e Dominância</a>
+        <a href="/posts/macroeconomia-institucional-parte-4.html" class="active">Parte 4 — Equilíbrio Geral, Prêmio Endógeno e Risco</a>
+        <a href="/posts/macroeconomia-institucional-parte-5.html">Parte 5 — Regimes, Identificação e “Nowcasting”</a>
+        <a href="/posts/macroeconomia-institucional-parte-6.html">Parte 6 — Transmissão a Ativos: Juros, FX, Crédito</a>
+        <a href="/posts/macroeconomia-institucional-parte-7.html">Parte 7 — Ciclos, Curvas e Carteiras (Regras)</a>
+        <a href="/posts/macroeconomia-institucional-parte-8.html">Parte 8 — Framework Final, Checklist e Governança</a>
+      </nav>
+    </aside>
+  </div>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <span class="pill">Série Institucional • Parte 4/8</span>
+        <h1 style="margin-top:10px;">Equilíbrio Geral com Prêmio Endógeno</h1>
+        <p class="muted" style="max-width: 980px;">
+          As partes anteriores te deram a espinha macro. Agora vem o “motor financeiro”:
+          por que prêmio de risco e prêmio de termo variam com o estado, e por que eles sobem justamente
+          quando você quer que caiam. Aqui entra SDF, utilidade marginal, risco de cauda, volatilidade e macro-finance.
+        </p>
+
+        <div class="hero">
+          <img src="/images/blog-cover.svg" alt="Equilíbrio geral com prêmio endógeno" loading="lazy" />
+        </div>
+
+        <div class="kpi-grid" style="max-width: 980px;">
+          <div class="kpi"><strong>Leitura</strong><span class="muted">~ 60–95 min</span></div>
+          <div class="kpi"><strong>Core</strong><span class="muted">SDF + term premium</span></div>
+          <div class="kpi"><strong>Próximo</strong><span class="muted"><a href="/posts/macroeconomia-institucional-parte-5.html">Regimes & nowcasting</a></span></div>
+        </div>
+
+        <div class="jump" style="max-width: 980px;">
+          <a href="/posts/macroeconomia-institucional-parte-3.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 3</a>
+          <a href="/posts/macroeconomia-institucional-parte-5.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 5</a>
+          <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+          <a href="/calculadora.html"><i class="fa-solid fa-calculator"></i> Juros Compostos</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="post-wrap">
+
+        <div class="toc">
+          <h2>Índice</h2>
+          <a href="#a1">1) A ponte macro ↔ finanças: SDF e precificação</a>
+          <a href="#a2">2) Utilidade marginal, risco e por que prêmio varia com o estado</a>
+          <a href="#a3">3) SDF em log: decomposição, volatilidade e “risk-off”</a>
+          <a href="#a4">4) Prêmio de termo: expectativas vs term premium</a>
+          <a href="#a5">5) Prêmio endógeno em equilíbrio geral: mecanismo</a>
+          <a href="#a6">6) Cauda, volatilidade e o canal de “intermediary constraints”</a>
+          <a href="#a7">7) Diagrama conceitual: prêmio ↑ ↔ estresse ↑</a>
+          <a href="#a8">8) Mini modelo numérico: decomposição de yields e cenários</a>
+          <a href="#a9">9) Implicações práticas para carteira (sem recomendações)</a>
+          <a href="#a10">Conclusão + ponte para regimes (Parte 5)</a>
+        </div>
+
+        <div class="callout">
+          <strong>Ideia central:</strong>
+          preços de ativos não dependem só de “expectativas” (cenário base).
+          Dependem de <em>como</em> fluxos covariam com o estado ruim (quando utilidade marginal é alta).
+          Isso cria prêmio de risco variável no tempo.
+        </div>
+
+        <hr class="hr">
+
+        <h2 id="a1">1) A ponte macro ↔ finanças: SDF e precificação</h2>
+        <p>
+          Em finanças macro, a variável que cola tudo é o <strong>Stochastic Discount Factor</strong> (SDF),
+          também chamado de pricing kernel. Ele transforma fluxos futuros em valor presente e impõe uma condição geral:
+          qualquer ativo precifica de forma consistente com o estado do mundo.
+        </p>
+
+        <div class="codebox">
+          <strong>Condição fundamental de precificação:</strong>
+          <p>\[
+            P_t = \mathbb{E}_t\left[ M_{t+1} \, X_{t+1} \right]
+          \]</p>
+          <p class="mini-note">
+            \(X_{t+1}\) é o payoff do ativo no próximo período. \(M_{t+1}\) é o SDF (alto no “mundo ruim”, baixo no “mundo bom”).
+          </p>
+        </div>
+
+        <p>
+          O retorno esperado aparece quando isolamos \(R_{t+1}=X_{t+1}/P_t\). Reorganizando:
+        </p>
+
+        <div class="codebox">
+          <p>\[
+            1 = \mathbb{E}_t\left[ M_{t+1} \, R_{t+1} \right]
+          \]</p>
+          <p class="mini-note">
+            Isso é geral: vale para ações, bonds, FX, crédito… O que muda é a covariância com o SDF.
+          </p>
+        </div>
+
+        <h2 id="a2">2) Utilidade marginal: por que prêmio varia com o estado</h2>
+        <p>
+          Em muitos modelos, \(M_{t+1}\) é ligado à utilidade marginal do consumo. Intuição: 1 real vale mais
+          quando você está “pior” (consumo baixo). Então ativos que pagam justamente quando tudo vai mal são valiosos
+          (aceitam retorno menor). Ativos que pagam quando tudo vai bem exigem prêmio (retorno maior).
+        </p>
+
+        <div class="codebox">
+          <strong>Exemplo clássico (CRRA):</strong>
+          <p>\[
+            M_{t+1} = \beta \left(\frac{C_{t+1}}{C_t}\right)^{-\gamma}
+          \]</p>
+          <p class="mini-note">
+            \(\gamma\) é aversão ao risco. Se consumo cai, \(M\) sobe: “desconta menos” estados ruins (eles importam mais).
+          </p>
+        </div>
+
+        <p>
+          Isso já responde por que prêmio é endógeno: \(C_{t+1}\) e a distribuição de choques mudam com o regime.
+          Em crises, risco de cauda aumenta; volatilidade sobe; covariâncias mudam; então o SDF fica mais volátil
+          e prêmios aumentam.
+        </p>
+
+        <h2 id="a3">3) SDF em log: decomposição, volatilidade e “risk-off”</h2>
+        <p>
+          Em forma log-linear (para intuição), escrevemos \(m_{t+1}=\log M_{t+1}\). A precificação vira:
+        </p>
+
+        <div class="codebox">
+          <p>\[
+            \mathbb{E}_t[r_{t+1}] \approx -\text{Cov}_t(m_{t+1}, r_{t+1}) + \text{(termos de Jensen)}
+          \]</p>
+          <p class="mini-note">
+            Se o retorno do ativo cai quando \(m\) sobe (mundo ruim), o ativo é “arriscado” e exige prêmio.
+          </p>
+        </div>
+
+        <p>
+          O “risk-off” é um evento em que \(m\) sobe (aversão/precaução aumenta), e ativos com covariância negativa com \(m\)
+          (perdem quando o mundo fica ruim) sofrem. Ativos com covariância positiva com \(m\) se beneficiam (hedge).
+        </p>
+
+        <h2 id="a4">4) Prêmio de termo: expectativas vs term premium</h2>
+        <p>
+          Em bonds, a taxa longa é (i) média esperada de taxas curtas futuras <em>+ (ii) prêmio de termo</em>.
+          Investidor iniciante confunde essas duas coisas e acha que “só o BC importa”.
+        </p>
+
+        <div class="codebox">
+          <strong>Decomposição conceitual (yield):</strong>
+          <p>\[
+            y_{t}^{(n)} \approx \frac{1}{n}\sum_{j=0}^{n-1}\mathbb{E}_t\left[ y_{t+j}^{(1)} \right] + TP_t^{(n)}
+          \]</p>
+          <p class="mini-note">
+            \(TP^{(n)}\) = term premium (compensação por carregar duration/risco). Ele varia com risco, oferta/demanda e stress.
+          </p>
+        </div>
+
+        <p>
+          Em dominância fiscal (Parte 3), \(TP\) tende a ser elevado e instável. Em regimes críveis, \(TP\) pode cair
+          e a curva refletir mais “expectativas” do que risco de cauda.
+        </p>
+
+        <h2 id="a5">5) Prêmio endógeno em equilíbrio geral: mecanismo</h2>
+        <p>
+          “Endógeno” significa: o prêmio não é um parâmetro fixo. Ele emerge do equilíbrio entre agentes, restrições,
+          volatilidade e distribuição de estados.
+        </p>
+
+        <div class="callout">
+          <strong>Loop macro-finance (mecanismo mínimo):</strong>
+          <ol style="margin:10px 0 0 18px;">
+            <li>Choque aumenta incerteza / cauda → sobe volatilidade do SDF.</li>
+            <li>Prêmio de risco sobe → condições financeiras apertam (yields/credit spreads/FX).</li>
+            <li>Aperto reduz demanda/atividade → piora macro → reforça risco.</li>
+          </ol>
+        </div>
+
+        <p>
+          Modelos RBC/NK “puros” sem setor financeiro subestimam esse canal. A macro moderna incorpora
+          “financial accelerator”, restrição de intermediários, e risco de liquidez.
+        </p>
+
+        <h2 id="a6">6) Cauda, volatilidade e restrições de intermediários</h2>
+        <p>
+          Uma maneira institucional de entender crises: não é só consumo. É <strong>financiamento</strong>.
+          Intermediários (bancos, dealers, fundos) têm restrições de capital/margem. Quando volatilidade sobe,
+          haircuts sobem, limites caem, e eles reduzem risco. Isso derruba preços e eleva prêmios — justamente no pior momento.
+        </p>
+
+        <div class="codebox">
+          <strong>Intuição formal (sem prender no detalhe):</strong>
+          <p>
+            quando a capacidade de arbitragem cai, o mercado precisa “pagar mais” para alguém carregar risco → \(RP\) sobe.
+          </p>
+          <p class="mini-note">
+            É por isso que prêmios são contra-cíclicos e apresentam “overshooting” em stress.
+          </p>
+        </div>
+
+        <h2 id="a7">7) Gráfico conceitual: estresse ↑ → prêmio ↑ → condições apertam</h2>
+        <div class="chartbox">
+          <strong>Visual conceitual (macro-finance loop):</strong>
+          <svg width="980" height="420" viewBox="0 0 980 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Loop de prêmio endógeno">
+            <rect x="0" y="0" width="980" height="420" fill="#ffffff"/>
+            <g font-family="Poppins, Arial" fill="#1a1a1a" font-size="14">
+              <text x="20" y="28" font-weight="700">Prêmio endógeno: loop de estresse</text>
+            </g>
+
+            <defs>
+              <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L10,3 L0,6 z" fill="#2c2c2e" />
+              </marker>
+            </defs>
+
+            <g stroke="rgba(0,0,0,.12)" stroke-width="1">
+              <line x1="20" y1="60" x2="960" y2="60"/>
+            </g>
+
+            <g>
+              <rect x="60" y="110" width="250" height="86" rx="18" fill="rgba(244,196,48,.12)" stroke="rgba(0,0,0,.12)"/>
+              <text x="80" y="145" font-family="Poppins, Arial" font-size="13" fill="#1a1a1a" font-weight="700">Choque / incerteza ↑</text>
+              <text x="80" y="168" font-family="Poppins, Arial" font-size="12" fill="#1a1a1a" opacity="0.85">volatilidade, cauda, correlação</text>
+
+              <rect x="365" y="110" width="250" height="86" rx="18" fill="rgba(244,196,48,.08)" stroke="rgba(0,0,0,.12)"/>
+              <text x="385" y="145" font-family="Poppins, Arial" font-size="13" fill="#1a1a1a" font-weight="700">SDF mais volátil</text>
+              <text x="385" y="168" font-family="Poppins, Arial" font-size="12" fill="#1a1a1a" opacity="0.85">aversão / precaução</text>
+
+              <rect x="670" y="110" width="250" height="86" rx="18" fill="rgba(44,44,46,.06)" stroke="rgba(0,0,0,.12)"/>
+              <text x="690" y="145" font-family="Poppins, Arial" font-size="13" fill="#1a1a1a" font-weight="700">Prêmio ↑ (RP/TP)</text>
+              <text x="690" y="168" font-family="Poppins, Arial" font-size="12" fill="#1a1a1a" opacity="0.85">reprecificação de risco</text>
+
+              <rect x="365" y="250" width="250" height="86" rx="18" fill="rgba(44,44,46,.06)" stroke="rgba(0,0,0,.12)"/>
+              <text x="385" y="285" font-family="Poppins, Arial" font-size="13" fill="#1a1a1a" font-weight="700">Condições apertam</text>
+              <text x="385" y="308" font-family="Poppins, Arial" font-size="12" fill="#1a1a1a" opacity="0.85">yields, spreads, FX, crédito</text>
+
+              <rect x="60" y="250" width="250" height="86" rx="18" fill="rgba(226,87,76,.08)" stroke="rgba(0,0,0,.12)"/>
+              <text x="80" y="285" font-family="Poppins, Arial" font-size="13" fill="#1a1a1a" font-weight="700">Atividade ↓</text>
+              <text x="80" y="308" font-family="Poppins, Arial" font-size="12" fill="#1a1a1a" opacity="0.85">demanda, investimento, emprego</text>
+            </g>
+
+            <g stroke="#2c2c2e" stroke-width="3" fill="none" marker-end="url(#arrow)">
+              <path d="M310 153 C 330 153, 345 153, 365 153"/>
+              <path d="M615 153 C 635 153, 650 153, 670 153"/>
+              <path d="M795 196 C 795 220, 620 238, 615 250"/>
+              <path d="M365 293 C 345 293, 330 293, 310 293"/>
+              <path d="M185 250 C 185 220, 60 210, 60 190"/>
+            </g>
+
+            <g font-family="Poppins, Arial" font-size="12" fill="#1a1a1a" opacity="0.85">
+              <text x="670" y="210">↑ risk premium</text>
+              <text x="635" y="238">aperto financeiro</text>
+              <text x="160" y="214">feedback macro</text>
+            </g>
+          </svg>
+          <div class="mini-note">
+            Leitura: o prêmio é endógeno porque depende do estado (volatilidade, cauda, restrições).
+            Em stress, ele sobe e aperta condições, o que retroalimenta a desaceleração.
+          </div>
+        </div>
+
+        <h2 id="a8">8) Mini modelo numérico: decomposição de yield e cenários</h2>
+        <p>
+          Um exercício didático: suponha um bond 10Y. A yield é média esperada de curtas + term premium.
+          Vamos comparar cenários de risco:
+        </p>
+
+        <table class="table" aria-label="Decomposição de yield em cenários">
+          <thead>
+            <tr>
+              <th>Cenário</th>
+              <th>Média esperada de curtas (10Y)</th>
+              <th>Term premium (TP)</th>
+              <th>Yield 10Y</th>
+              <th>Interpretação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Regime crível</td>
+              <td>9,0%</td>
+              <td>1,0%</td>
+              <td>10,0%</td>
+              <td>Curva “limpa”: prêmio baixo, expectativas dominam</td>
+            </tr>
+            <tr>
+              <td>Risco fiscal moderado</td>
+              <td>9,0%</td>
+              <td>2,5%</td>
+              <td>11,5%</td>
+              <td>Term premium precifica cauda/solvência</td>
+            </tr>
+            <tr>
+              <td>Stress / dominância</td>
+              <td>9,0%</td>
+              <td>4,5%</td>
+              <td>13,5%</td>
+              <td>Prêmio sobe forte; long-end “descola”</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="warning">
+          <strong>Ponto institucional:</strong>
+          você pode errar o cenário de Selic futura e ainda “acertar” a curva se identificar o regime de prêmio.
+          E pode acertar Selic futura e errar feio se ignorar o term premium.
+        </div>
+
+        <h2 id="a9">9) Implicações práticas para carteira (sem recomendações)</h2>
+        <p>
+          Este bloco não é recomendação; é estrutura.
+        </p>
+        <ul style="margin:10px 0 0 18px;">
+          <li><strong>Macro sozinho não basta:</strong> modelos de hiato/inflação explicam expectativas, mas não o prêmio variável.</li>
+          <li><strong>Gerencie convexidade:</strong> duration e crédito embutem exposição ao prêmio. Em stress, correlações mudam.</li>
+          <li><strong>Regime é tudo:</strong> o mesmo dado (IPCA, payroll) pode gerar reação oposta dependendo do estado do prêmio.</li>
+          <li><strong>Teste de cauda:</strong> pense em choques de volatilidade e liquidez como “fator” macro-finance.</li>
+        </ul>
+
+        <h2 id="a10">Conclusão + ponte para Parte 5</h2>
+        <p>
+          Agora você entende por que prêmio e term premium não são constantes: eles emergem do equilíbrio com risco,
+          utilidade marginal e restrições financeiras. A Parte 5 transforma isso em algo executável:
+          identificação de regimes, proxies de estado e um “nowcasting institucional” para não operar no escuro.
+        </p>
+
+        <div class="callout">
+          <strong>Próxima parte (5):</strong>
+          regimes, identificação (o que observar), proxies, erros comuns e como montar um painel macro-finance para tomada de decisão.
+        </div>
+
+        <div class="jump" style="margin-top:18px;">
+          <a href="/posts/macroeconomia-institucional-parte-3.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 3</a>
+          <a href="/posts/macroeconomia-institucional-parte-5.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 5</a>
+          <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+          <a href="/posts/etf-masterclass-carteira-global-parte-1.html"><i class="fa-solid fa-bolt"></i> ETF Masterclass</a>
+        </div>
+
+        <hr class="hr">
+
+        <div class="muted" style="font-size:12px;">
+          Nota: material educacional. Não constitui recomendação de investimento. O objetivo é estrutura técnica e disciplina de análise.
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        <h3>Cérebro Milionário</h3>
+        <p>Educação financeira com profundidade estratégica.</p>
+        <div class="footer-social" aria-label="Redes sociais" style="display:flex;gap:12px;align-items:center;margin-top:10px">
+          <a href="https://t.me/cerebromillionario" target="_blank" rel="noopener" aria-label="Telegram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://instagram.com/cerebromillionario" target="_blank" rel="noopener" aria-label="Instagram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/glossario-financeiro.html">Glossário Financeiro</a></li>
+          <li><a href="/perguntas-frequentes.html">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu (topo)
+    (function () {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', function () {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    })();
+
+    // Série drawer mobile
+    (function(){
+      const fab = document.getElementById('seriesFab');
+      const nav = document.getElementById('seriesNav');
+      const backdrop = document.getElementById('seriesBackdrop');
+      const closeBtn = document.getElementById('seriesClose');
+      if(!fab || !nav || !backdrop || !closeBtn) return;
+
+      function openNav(){
+        nav.classList.add('open');
+        backdrop.classList.add('open');
+        fab.setAttribute('aria-expanded','true');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeNav(){
+        nav.classList.remove('open');
+        backdrop.classList.remove('open');
+        fab.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+      }
+
+      fab.addEventListener('click', openNav);
+      closeBtn.addEventListener('click', closeNav);
+      backdrop.addEventListener('click', closeNav);
+      document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeNav(); });
+    })();
+  </script>
+</body>
+</html>

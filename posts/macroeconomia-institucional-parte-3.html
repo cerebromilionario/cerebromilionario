@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Macroeconomia Institucional para Investidores (Parte 3/8) | Restrição Fiscal Intertemporal, TVC e Dominância</title>
+  <meta name="description" content="Série institucional (Parte 3/8): restrição intertemporal do governo, condição de transversalidade (No-Ponzi), dinâmica dívida/PIB, dominância fiscal vs monetária, inflação fiscal e implicações para curva, câmbio e prêmio soberano." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/macroeconomia-institucional-parte-3.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/macroeconomia-institucional-parte-3.html" />
+  <meta property="og:title" content="Macroeconomia Institucional (Parte 3/8)" />
+  <meta property="og:description" content="Restrição fiscal intertemporal, TVC e dominância. Nível institucional." />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Fonts + Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)'], ['$', '$']], displayMath: [['\\[','\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <style>
+    body{overflow-x:hidden}
+
+    /* Conteúdo */
+    .post-wrap{max-width:980px;margin:0 auto;padding:28px 16px 60px}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:800;font-size:12px;background:rgba(44,44,46,.06)}
+    .muted{opacity:.78}
+    .hero{
+      margin-top:16px;border-radius:18px;overflow:hidden;border:1px solid rgba(0,0,0,.08);
+      box-shadow: var(--shadow-sm); background:#fff
+    }
+    .hero img{width:100%;height:auto;display:block}
+    .toc{
+      margin-top:18px;border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;
+      box-shadow: var(--shadow-sm); padding:16px
+    }
+    .toc h2{margin:0 0 10px 0}
+    .toc a{
+      display:block;text-decoration:none;padding:8px 10px;border-radius:14px;border:1px solid rgba(0,0,0,.06);
+      margin:8px 0
+    }
+    .toc a:hover{transform:translateY(-1px)}
+    .callout{
+      border-left:4px solid var(--accent-color, #f4c430);
+      background: rgba(244,196,48,.10);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+    .warning{
+      border-left:4px solid #e2574c;background: rgba(226,87,76,.08);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+    .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+    .kpi{border:1px solid rgba(0,0,0,.08);border-radius:16px;background:#fff;box-shadow:var(--shadow-sm);padding:14px}
+    .kpi strong{display:block;font-size:18px}
+    @media(max-width:980px){.kpi-grid{grid-template-columns:1fr}}
+    .jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .jump a{
+      display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:14px;
+      border:1px solid rgba(0,0,0,.08);background:#fff;box-shadow:var(--shadow-sm);text-decoration:none;font-weight:900
+    }
+    .jump a:hover{transform:translateY(-1px)}
+    .section{margin-top:22px}
+    .section h2{margin-top:42px}
+    .section h3{margin-top:26px}
+    .hr{height:1px;background:rgba(0,0,0,.10);border:0;margin:26px 0}
+    .table{
+      width:100%;border-collapse:collapse;border:1px solid rgba(0,0,0,.08);border-radius:14px;overflow:hidden;background:#fff;
+      box-shadow:var(--shadow-sm)
+    }
+    .table th,.table td{padding:12px;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:top}
+    .table th{background:rgba(44,44,46,.04);text-align:left}
+    .codebox{
+      border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);
+      padding:14px 16px;margin:18px 0
+    }
+    .mini-note{font-size:12px;opacity:.78;margin-top:8px}
+
+    /* Série: sidebar desktop + drawer mobile (SEM COBRIR TEXTO) */
+    .series-shell { position: relative; }
+    .series-nav{
+      position: fixed;
+      top: 92px;
+      right: 18px;
+      width: 320px;
+      max-height: calc(100vh - 120px);
+      overflow: auto;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.10);
+      border-radius: 18px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.18);
+      padding: 12px;
+      z-index: 9999;
+    }
+    .series-nav-head{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      padding: 8px 8px 10px 8px;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    .series-close{
+      border: 1px solid rgba(0,0,0,.12);
+      background: #fff;
+      border-radius: 12px;
+      width: 38px; height: 38px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    .series-nav-links{ display:flex; flex-direction:column; gap: 8px; padding: 10px 6px 6px; }
+    .series-nav-links a{
+      text-decoration:none;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,.08);
+      color: #1a1a1a;
+      font-weight: 800;
+    }
+    .series-nav-links a:hover{ transform: translateY(-1px); }
+    .series-nav-links a.active{
+      background: #2c2c2e;
+      color: #fff;
+      border-color: #2c2c2e;
+    }
+    .series-backdrop{
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.45);
+      z-index: 9998;
+      display: none;
+    }
+    .series-fab{
+      position: fixed;
+      right: 16px;
+      bottom: 18px;
+      z-index: 10000;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 14px;
+      background: #2c2c2e;
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 18px 45px rgba(0,0,0,.30);
+      display: none;
+    }
+
+    @media (min-width: 981px){
+      .post-wrap{
+        max-width: 980px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 380px;
+      }
+    }
+
+    @media (max-width: 980px){
+      .post-wrap{padding-right:16px}
+      .series-fab{ display: inline-flex; align-items:center; justify-content:center; }
+      .series-nav{
+        top: 0; right: 0; height: 100vh; max-height: none;
+        width: min(360px, 92vw);
+        border-radius: 0;
+        transform: translateX(110%);
+        transition: transform .18s ease;
+        padding-top: 14px;
+      }
+      .series-nav.open{ transform: translateX(0); }
+      .series-backdrop.open{ display: block; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Série: Navegação -->
+  <div class="series-shell">
+    <button class="series-fab" id="seriesFab" aria-label="Abrir navegação da série" aria-expanded="false">Série 3/8</button>
+    <div class="series-backdrop" id="seriesBackdrop"></div>
+
+    <aside class="series-nav" id="seriesNav" aria-label="Navegação da série Macroeconomia Institucional">
+      <div class="series-nav-head">
+        <strong>📌 Série: Macro (3/8)</strong>
+        <button class="series-close" id="seriesClose" aria-label="Fechar">✕</button>
+      </div>
+
+      <nav class="series-nav-links">
+        <a href="/posts/macroeconomia-institucional-parte-1.html">Parte 1 — RBC, Equilíbrio e Núcleo Real</a>
+        <a href="/posts/macroeconomia-institucional-parte-2.html">Parte 2 — NK Phillips, Rigidezes e Política Monetária</a>
+        <a href="/posts/macroeconomia-institucional-parte-3.html" class="active">Parte 3 — Fiscal Intertemporal, TVC e Dominância</a>
+        <a href="/posts/macroeconomia-institucional-parte-4.html">Parte 4 — Equilíbrio Geral, Prêmio Endógeno e Risco</a>
+        <a href="/posts/macroeconomia-institucional-parte-5.html">Parte 5 — Regimes, Identificação e “Nowcasting”</a>
+        <a href="/posts/macroeconomia-institucional-parte-6.html">Parte 6 — Transmissão a Ativos: Juros, FX, Crédito</a>
+        <a href="/posts/macroeconomia-institucional-parte-7.html">Parte 7 — Ciclos, Curvas e Carteiras (Regras)</a>
+        <a href="/posts/macroeconomia-institucional-parte-8.html">Parte 8 — Framework Final, Checklist e Governança</a>
+      </nav>
+    </aside>
+  </div>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <span class="pill">Série Institucional • Parte 3/8</span>
+        <h1 style="margin-top:10px;">Restrição Fiscal Intertemporal, Transversalidade e Dominância</h1>
+        <p class="muted" style="max-width: 980px;">
+          Se a Parte 2 explicou <em>como</em> o BC tenta estabilizar inflação e hiato, esta parte explica <em>quando</em> ele consegue.
+          A âncora fiscal determina o “piso” de credibilidade. Aqui você domina: restrição intertemporal do governo,
+          condição de transversalidade (No-Ponzi), dinâmica dívida/PIB, dominância fiscal e inflação como ajuste fiscal.
+        </p>
+
+        <div class="hero">
+          <img src="/images/blog-cover.svg" alt="Restrição Fiscal Intertemporal e Dominância" loading="lazy" />
+        </div>
+
+        <div class="kpi-grid" style="max-width: 980px;">
+          <div class="kpi"><strong>Leitura</strong><span class="muted">~ 55–90 min</span></div>
+          <div class="kpi"><strong>Núcleo</strong><span class="muted">Debt dynamics + TVC</span></div>
+          <div class="kpi"><strong>Próximo</strong><span class="muted"><a href="/posts/macroeconomia-institucional-parte-4.html">Prêmio endógeno</a></span></div>
+        </div>
+
+        <div class="jump" style="max-width: 980px;">
+          <a href="/posts/macroeconomia-institucional-parte-2.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 2</a>
+          <a href="/posts/macroeconomia-institucional-parte-4.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 4</a>
+          <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+          <a href="/calculadora.html"><i class="fa-solid fa-calculator"></i> Juros Compostos</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="post-wrap">
+
+        <div class="toc">
+          <h2>Índice</h2>
+          <a href="#s1">1) Por que fiscal é a “âncora final”</a>
+          <a href="#s2">2) Restrição orçamentária do governo (flow) e solvência (PV)</a>
+          <a href="#s3">3) Condição de transversalidade (No-Ponzi) e interpretação</a>
+          <a href="#s4">4) Dinâmica da dívida/PIB: equação essencial</a>
+          <a href="#s5">5) Estabilização: superávit primário “necessário” e espaço fiscal</a>
+          <a href="#s6">6) Dominância monetária vs dominância fiscal</a>
+          <a href="#s7">7) FTPL: inflação como variável de ajuste fiscal</a>
+          <a href="#s8">8) Risco soberano, curva e câmbio: canais de transmissão</a>
+          <a href="#s9">9) Mini modelo numérico: cenários dívida/PIB e prêmio</a>
+          <a href="#s10">Conclusão + ponte para prêmio endógeno (Parte 4)</a>
+        </div>
+
+        <div class="callout">
+          <strong>Regra institucional (sem emoção):</strong>
+          se o fiscal não fecha no valor presente, alguém “paga” a conta: (i) impostos (futuro), (ii) default/reestruturação,
+          (iii) inflação/monetização, (iv) repressão financeira, (v) crescimento acima do esperado (raro como política).
+        </div>
+
+        <hr class="hr">
+
+        <h2 id="s1">1) Por que fiscal é a “âncora final”</h2>
+        <p>
+          A política monetária controla inflação no curto e médio prazo <em>desde que</em> exista uma âncora fiscal consistente.
+          Em linguagem de portfólio: a curva nominal não é apenas expectativa de Selic; é expectativa de
+          <strong>solvência</strong>, <strong>regime</strong> e <strong>risco</strong>.
+        </p>
+        <p>
+          Quando o mercado passa a duvidar da solvência, dois mecanismos aparecem:
+          (i) prêmio de risco soberano sobe (curva longa explode), e/ou (ii) o regime muda para inflação como “imposto”
+          (monetização explícita ou implícita). O ponto é: fiscal e monetário são um sistema, não caixinhas.
+        </p>
+
+        <h2 id="s2">2) Restrição orçamentária do governo: do fluxo ao valor presente</h2>
+        <p>
+          Começamos com a restrição de fluxo (em termos nominais). Seja \(B_t\) o estoque de dívida nominal ao final de \(t\),
+          \(i_t\) a taxa nominal, \(G_t\) gasto primário, \(T_t\) receita primária e \(M_t\) base monetária (se incluirmos senhoriagem).
+        </p>
+
+        <div class="codebox">
+          <strong>Restrição de fluxo (forma simplificada):</strong>
+          <p>\[
+            B_t = (1+i_{t-1})B_{t-1} + (G_t - T_t) - \Delta M_t
+          \]</p>
+          <p class="mini-note">
+            \((G_t - T_t)\) é déficit primário; \(-\Delta M_t\) captura financiamento via emissão monetária (senhoriagem).
+          </p>
+        </div>
+
+        <p>
+          Em economia monetária moderna, a solvência é avaliada por uma restrição em valor presente (PV). Intuição:
+          a dívida de hoje precisa ser igual ao PV de superávits primários futuros (ajustado por seigniorage).
+        </p>
+
+        <div class="codebox">
+          <strong>Restrição intertemporal (PV) — forma real:</strong>
+          <p>\[
+            \frac{B_{t-1}}{P_t}
+            =
+            \sum_{j=0}^{\infty}
+            \mathbb{E}_t\left[
+              \left(\prod_{k=0}^{j}\frac{1}{1+r_{t+k}}\right)
+              s_{t+j}
+            \right]
+            + \text{PV(seigniorage)}
+          \]</p>
+          <p class="mini-note">
+            \(P_t\) = nível de preços, \(r_t\) = taxa real relevante, \(s_t\) = superávit primário real.
+            A mensagem: dívida real hoje é “promessa” de superávits (ou inflação/monetização).
+          </p>
+        </div>
+
+        <h2 id="s3">3) Condição de transversalidade (No-Ponzi): o que ela proíbe</h2>
+        <p>
+          A condição de transversalidade (TVC) é o “no free lunch” fiscal: o governo não pode rolar dívida para sempre
+          sem que o valor presente da dívida futura descontada vá a zero. Uma forma típica:
+        </p>
+
+        <div class="codebox">
+          <strong>TVC (No-Ponzi) — forma geral:</strong>
+          <p>\[
+            \lim_{j\to\infty}
+            \mathbb{E}_t\left[
+              \left(\prod_{k=0}^{j}\frac{1}{1+r_{t+k}}\right)
+              \frac{B_{t+j}}{P_{t+j}}
+            \right]
+            = 0
+          \]</p>
+          <p class="mini-note">
+            Se essa condição falha, a “solução” do sistema exige ajuste de preços (inflação), default ou mudança de regime.
+          </p>
+        </div>
+
+        <div class="warning">
+          <strong>Interpretação para investidor:</strong>
+          TVC não é um detalhe matemático. Ela define se a dívida é “ativa segura” ou “opção” do governo sobre seu poder de tributar/inflacionar.
+        </div>
+
+        <h2 id="s4">4) Dinâmica da dívida/PIB: a equação essencial</h2>
+        <p>
+          A forma mais útil para portfólio é dívida/PIB. Defina \(b_t = B_t/(P_t Y_t)\), \(g_t\) crescimento real,
+          \(\pi_t\) inflação, \(i_t\) juros nominal e \(s_t\) superávit primário como fração do PIB.
+        </p>
+
+        <div class="codebox">
+          <strong>Debt dynamics (aproximação padrão):</strong>
+          <p>\[
+            \Delta b_t \approx (r_t - g_t)\,b_{t-1} - s_t
+          \]</p>
+          <p class="mini-note">
+            Onde \(r_t\) é juros real efetivo da dívida (aprox. \(i_t-\pi_t\) ajustado por composição).
+            Se \(r>g\), a dívida “quer” crescer; você precisa de \(s_t\) para estabilizar.
+          </p>
+        </div>
+
+        <p>
+          Essa equação é o “motor” do prêmio soberano: quanto maior \(b\), maior a sensibilidade a \(r-g\).
+          E \(r\) não é exógeno: ele aumenta com risco → realimenta a dinâmica (círculo vicioso).
+        </p>
+
+        <h2 id="s5">5) Estabilização: superávit primário necessário e espaço fiscal</h2>
+        <p>
+          Para estabilizar \(b\) (isto é, \(\Delta b_t = 0\)), o superávit primário requerido é:
+        </p>
+
+        <div class="codebox">
+          <strong>Superávit estabilizador:</strong>
+          <p>\[
+            s_t^{*} \approx (r_t - g_t)\,b_{t-1}
+          \]</p>
+          <p class="mini-note">
+            Se o governo não consegue (politicamente ou economicamente) gerar \(s^*\), o mercado precifica alternativa (inflação/default/repressão).
+          </p>
+        </div>
+
+        <p>
+          “Espaço fiscal” não é slogan; é o conjunto de trajetórias plausíveis de \(s_t\) compatíveis com estabilidade,
+          dadas instituições, base tributária, rigidez de gastos, demografia e sensibilidade a juros.
+        </p>
+
+        <h3>5.1 Sensibilidade a juros: a convexidade fiscal</h3>
+        <p>
+          Uma economia com dívida alta e duration curta é extremamente sensível a choques de juros.
+          A rolagem reprecifica rápido; \(r\) sobe; \(s^*\) sobe; o risco sobe… e você entra no loop.
+        </p>
+
+        <h2 id="s6">6) Dominância monetária vs dominância fiscal</h2>
+        <p>
+          Em dominância monetária, o BC define inflação e o fiscal ajusta (via \(s_t\)) para garantir solvência.
+          Em dominância fiscal, o fiscal define trajetória de déficits e o nível de preços ajusta para tornar a dívida “compatível”.
+        </p>
+
+        <div class="codebox">
+          <strong>Regimes (intuição):</strong>
+          <ul style="margin:10px 0 0 18px;">
+            <li><strong>Monetary dominance:</strong> política monetária “manda”; fiscal é compatível com TVC.</li>
+            <li><strong>Fiscal dominance:</strong> fiscal “manda”; inflação/prêmio ajustam para fechar PV.</li>
+          </ul>
+        </div>
+
+        <div class="warning">
+          <strong>Tradução operacional:</strong>
+          se o BC sobe juros e a solvência piora (porque \(r\) sobe, \(s^*\) sobe e o fiscal não reage),
+          o aperto pode ser “não crível” e o long-end sobe junto (bear steepening com FX pior).
+        </div>
+
+        <h2 id="s7">7) FTPL: inflação como variável de ajuste fiscal</h2>
+        <p>
+          A Fiscal Theory of the Price Level (FTPL) formaliza que, quando o fiscal não ajusta,
+          o nível de preços \(P_t\) ajusta para garantir que a dívida real seja igual ao PV de superávits.
+          Em termos simples: se superávits esperados caem, a dívida real precisa cair; como \(B\) é nominal,
+          isso exige aumento de \(P\) (inflação).
+        </p>
+
+        <div class="codebox">
+          <strong>Equação-âncora (forma intuitiva):</strong>
+          <p>\[
+            \frac{B_{t-1}}{P_t} = PV(\text{superávits futuros})
+          \]</p>
+          <p class="mini-note">
+            Se \(PV\) cai e \(B\) está dado, então \(P_t\) sobe. Isso não é “opinião”: é fechamento do sistema em regime fiscal dominante.
+          </p>
+        </div>
+
+        <h3>7.1 Onde entra “repressão financeira”</h3>
+        <p>
+          A repressão é um mecanismo intermediário: manter juros reais abaixo do crescimento (forçar \(r<g\))
+          via regulação, controles, compulsórios, direcionamento de poupança. Isso reduz \(s^*\) e estabiliza \(b\),
+          mas tem custos: alocação ruim, fuga de capital, risco de inflação futura e prêmios no FX.
+        </p>
+
+        <h2 id="s8">8) Risco soberano, curva e câmbio: canais de transmissão</h2>
+        <p>
+          Fiscal aparece em preços por três canais dominantes:
+        </p>
+
+        <div class="codebox">
+          <strong>Canal A — prêmio soberano (curva longa):</strong>
+          <p>
+            solvência duvidosa → \(\text{term premium}\) e \(\text{risk premium}\) sobem → long-end abre mesmo que a curta esteja “ancorada”.
+          </p>
+        </div>
+
+        <div class="codebox">
+          <strong>Canal B — câmbio (risk-off doméstico):</strong>
+          <p>
+            deterioração fiscal → fuga para moeda forte → FX deprecia → inflação de tradables → BC reage → ciclo piora.
+          </p>
+        </div>
+
+        <div class="codebox">
+          <strong>Canal C — “feedback” juros–dívida:</strong>
+          <p>
+            juros sobem por risco → dinâmica de dívida piora → risco sobe mais. Esse loop é o que regimes sólidos tentam evitar com credibilidade fiscal.
+          </p>
+        </div>
+
+        <h2 id="s9">9) Mini modelo numérico: dívida/PIB e superávit estabilizador</h2>
+        <p>
+          Vamos treinar a conta com números redondos. Suponha \(b=80\%\) do PIB. Compare dois regimes:
+        </p>
+
+        <table class="table" aria-label="Cenários de estabilização da dívida">
+          <thead>
+            <tr>
+              <th>Cenário</th>
+              <th>\(b\)</th>
+              <th>\(r\)</th>
+              <th>\(g\)</th>
+              <th>\(r-g\)</th>
+              <th>\(s^*=(r-g)b\)</th>
+              <th>Leitura</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Benigno</td>
+              <td>80%</td>
+              <td>3%</td>
+              <td>3%</td>
+              <td>0%</td>
+              <td>0,0% do PIB</td>
+              <td>Estabiliza sem superávit (teórico). Na prática, precisa de margem por choques.</td>
+            </tr>
+            <tr>
+              <td>Base</td>
+              <td>80%</td>
+              <td>5%</td>
+              <td>3%</td>
+              <td>2%</td>
+              <td>1,6% do PIB</td>
+              <td>Precisa de superávit primário contínuo para não “subir rampa”.</td>
+            </tr>
+            <tr>
+              <td>Adverso</td>
+              <td>80%</td>
+              <td>7%</td>
+              <td>2%</td>
+              <td>5%</td>
+              <td>4,0% do PIB</td>
+              <td>Politicamente difícil; mercado precifica alternativas (inflação/default/repressão).</td>
+            </tr>
+            <tr>
+              <td>Loop de risco</td>
+              <td>95%</td>
+              <td>9%</td>
+              <td>2%</td>
+              <td>7%</td>
+              <td>6,7% do PIB</td>
+              <td>Regime muito frágil: prêmio realimenta o próprio problema.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="warning">
+          <strong>Conclusão operacional:</strong>
+          a “tese” de inflação/curva/FX em emergentes quase sempre passa por estimar (i) \(b\), (ii) \(r-g\), (iii) plausibilidade de \(s_t\),
+          e (iv) qualidade institucional para sustentar essa trajetória.
+        </div>
+
+        <h2 id="s10">Conclusão + ponte para Parte 4</h2>
+        <p>
+          Você agora tem as duas âncoras: monetária (Parte 2) e fiscal (Parte 3). O que falta é conectar isso a
+          <strong>prêmio endógeno</strong> e <strong>equilíbrio geral com risco</strong>: por que o prêmio sobe justamente quando você mais precisa que ele caia,
+          e como isso afeta todos os ativos simultaneamente.
+        </p>
+
+        <div class="callout">
+          <strong>Próxima parte (4):</strong>
+          vamos modelar risco e prêmio como variáveis endógenas do estado (risk premium e term premium),
+          e introduzir o “macro-finance” que explica crises, stress e regimes.
+        </div>
+
+        <div class="jump" style="margin-top:18px;">
+          <a href="/posts/macroeconomia-institucional-parte-2.html"><i class="fa-solid fa-arrow-left"></i> Voltar Parte 2</a>
+          <a href="/posts/macroeconomia-institucional-parte-4.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 4</a>
+          <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+          <a href="/posts/etf-masterclass-carteira-global-parte-1.html"><i class="fa-solid fa-bolt"></i> ETF Masterclass</a>
+        </div>
+
+        <hr class="hr">
+
+        <div class="muted" style="font-size:12px;">
+          Nota: material educacional. Não constitui recomendação de investimento. O objetivo é estrutura técnica e disciplina de análise.
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        <h3>Cérebro Milionário</h3>
+        <p>Educação financeira com profundidade estratégica.</p>
+        <div class="footer-social" aria-label="Redes sociais" style="display:flex;gap:12px;align-items:center;margin-top:10px">
+          <a href="https://t.me/cerebromillionario" target="_blank" rel="noopener" aria-label="Telegram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://instagram.com/cerebromillionario" target="_blank" rel="noopener" aria-label="Instagram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/glossario-financeiro.html">Glossário Financeiro</a></li>
+          <li><a href="/perguntas-frequentes.html">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu (topo)
+    (function () {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', function () {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    })();
+
+    // Série drawer mobile
+    (function(){
+      const fab = document.getElementById('seriesFab');
+      const nav = document.getElementById('seriesNav');
+      const backdrop = document.getElementById('seriesBackdrop');
+      const closeBtn = document.getElementById('seriesClose');
+      if(!fab || !nav || !backdrop || !closeBtn) return;
+
+      function openNav(){
+        nav.classList.add('open');
+        backdrop.classList.add('open');
+        fab.setAttribute('aria-expanded','true');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeNav(){
+        nav.classList.remove('open');
+        backdrop.classList.remove('open');
+        fab.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+      }
+
+      fab.addEventListener('click', openNav);
+      closeBtn.addEventListener('click', closeNav);
+      backdrop.addEventListener('click', closeNav);
+      document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeNav(); });
+    })();
+  </script>
+</body>
+</html>

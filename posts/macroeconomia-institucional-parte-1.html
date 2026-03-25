@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Macroeconomia Institucional para Investidores (Parte 1/8) | RBC, Equilíbrio e Núcleo Real</title>
+  <meta name="description" content="Série institucional (Parte 1/8): base do modelo RBC, restrições, Euler, condição de transversalidade, equilíbrio geral real, decomposição do crescimento e implicações para retorno de ativos." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/posts/macroeconomia-institucional-parte-1.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/posts/macroeconomia-institucional-parte-1.html" />
+  <meta property="og:title" content="Macroeconomia Institucional para Investidores (Parte 1/8)" />
+  <meta property="og:description" content="RBC, equilíbrio e núcleo real. Base institucional (CFA-like) para precificação e ciclos." />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Fonts + Icons (padrão do site) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- CSS do site -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)'], ['$', '$']], displayMath: [['\\[','\\]']] },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <style>
+    body{overflow-x:hidden}
+
+    /* Conteúdo */
+    .post-wrap{max-width:980px;margin:0 auto;padding:28px 16px 60px}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:800;font-size:12px;background:rgba(44,44,46,.06)}
+    .muted{opacity:.78}
+    .hero{
+      margin-top:16px;border-radius:18px;overflow:hidden;border:1px solid rgba(0,0,0,.08);
+      box-shadow: var(--shadow-sm); background:#fff
+    }
+    .hero img{width:100%;height:auto;display:block}
+    .toc{
+      margin-top:18px;border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;
+      box-shadow: var(--shadow-sm); padding:16px
+    }
+    .toc h2{margin:0 0 10px 0}
+    .toc a{
+      display:block;text-decoration:none;padding:8px 10px;border-radius:14px;border:1px solid rgba(0,0,0,.06);
+      margin:8px 0
+    }
+    .toc a:hover{transform:translateY(-1px)}
+    .callout{
+      border-left:4px solid var(--accent-color, #f4c430);
+      background: rgba(244,196,48,.10);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+    .warning{
+      border-left:4px solid #e2574c;background: rgba(226,87,76,.08);
+      padding: 14px 16px;border-radius: 14px;margin: 18px 0
+    }
+    .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+    .kpi{border:1px solid rgba(0,0,0,.08);border-radius:16px;background:#fff;box-shadow:var(--shadow-sm);padding:14px}
+    .kpi strong{display:block;font-size:18px}
+    @media(max-width:980px){.kpi-grid{grid-template-columns:1fr}}
+    .jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .jump a{
+      display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:14px;
+      border:1px solid rgba(0,0,0,.08);background:#fff;box-shadow:var(--shadow-sm);text-decoration:none;font-weight:900
+    }
+    .jump a:hover{transform:translateY(-1px)}
+    .section{margin-top:22px}
+    .section h2{margin-top:42px}
+    .section h3{margin-top:26px}
+    .hr{height:1px;background:rgba(0,0,0,.10);border:0;margin:26px 0}
+    .table{
+      width:100%;border-collapse:collapse;border:1px solid rgba(0,0,0,.08);border-radius:14px;overflow:hidden;background:#fff;
+      box-shadow:var(--shadow-sm)
+    }
+    .table th,.table td{padding:12px;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:top}
+    .table th{background:rgba(44,44,46,.04);text-align:left}
+    .codebox{
+      border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);
+      padding:14px 16px;margin:18px 0
+    }
+    .mini-note{font-size:12px;opacity:.78;margin-top:8px}
+
+    /* ===== Série: sidebar desktop + drawer mobile (SEM COBRIR TEXTO) ===== */
+    .series-shell { position: relative; }
+
+    /* Sidebar fixa (desktop) */
+    .series-nav{
+      position: fixed;
+      top: 92px;
+      right: 18px;
+      width: 320px;
+      max-height: calc(100vh - 120px);
+      overflow: auto;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.10);
+      border-radius: 18px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.18);
+      padding: 12px;
+      z-index: 9999;
+    }
+    .series-nav-head{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      padding: 8px 8px 10px 8px;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    .series-close{
+      border: 1px solid rgba(0,0,0,.12);
+      background: #fff;
+      border-radius: 12px;
+      width: 38px; height: 38px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    .series-nav-links{ display:flex; flex-direction:column; gap: 8px; padding: 10px 6px 6px; }
+    .series-nav-links a{
+      text-decoration:none;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,.08);
+      color: #1a1a1a;
+      font-weight: 800;
+    }
+    .series-nav-links a:hover{ transform: translateY(-1px); }
+    .series-nav-links a.active{
+      background: #2c2c2e;
+      color: #fff;
+      border-color: #2c2c2e;
+    }
+
+    /* Backdrop e FAB (mobile) */
+    .series-backdrop{
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.45);
+      z-index: 9998;
+      display: none;
+    }
+    .series-fab{
+      position: fixed;
+      right: 16px;
+      bottom: 18px;
+      z-index: 10000;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 14px;
+      background: #2c2c2e;
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 18px 45px rgba(0,0,0,.30);
+      display: none;
+    }
+
+    /* ✅ EMPURRA O TEXTO NO DESKTOP PARA NUNCA FICAR SOB A SIDEBAR */
+    @media (min-width: 981px){
+      .post-wrap{
+        max-width: 980px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 380px; /* espaço real para a sidebar (320 + folga) */
+      }
+    }
+
+    /* Mobile: sidebar vira drawer (não cobre conteúdo; abre com backdrop) */
+    @media (max-width: 980px){
+      .post-wrap{padding-right:16px}
+      .series-fab{ display: inline-flex; align-items:center; justify-content:center; }
+      .series-nav{
+        top: 0; right: 0; height: 100vh; max-height: none;
+        width: min(360px, 92vw);
+        border-radius: 0;
+        transform: translateX(110%);
+        transition: transform .18s ease;
+        padding-top: 14px;
+      }
+      .series-nav.open{ transform: translateX(0); }
+      .series-backdrop.open{ display: block; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header (padrão do site) -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Série: Navegação -->
+  <div class="series-shell">
+    <button class="series-fab" id="seriesFab" aria-label="Abrir navegação da série" aria-expanded="false">Série 1/8</button>
+    <div class="series-backdrop" id="seriesBackdrop"></div>
+
+    <aside class="series-nav" id="seriesNav" aria-label="Navegação da série Macroeconomia Institucional">
+      <div class="series-nav-head">
+        <strong>📌 Série: Macro (1/8)</strong>
+        <button class="series-close" id="seriesClose" aria-label="Fechar">✕</button>
+      </div>
+
+      <nav class="series-nav-links">
+        <a href="/posts/macroeconomia-institucional-parte-1.html" class="active">Parte 1 — RBC, Equilíbrio e Núcleo Real</a>
+        <a href="/posts/macroeconomia-institucional-parte-2.html">Parte 2 — NK Phillips, Rigidezes e Política Monetária</a>
+        <a href="/posts/macroeconomia-institucional-parte-3.html">Parte 3 — Restrição Fiscal Intertemporal e Dominância</a>
+        <a href="/posts/macroeconomia-institucional-parte-4.html">Parte 4 — Equilíbrio Geral, Prêmio Endógeno e Risco</a>
+        <a href="/posts/macroeconomia-institucional-parte-5.html">Parte 5 — Regimes, Identificação e “Nowcasting”</a>
+        <a href="/posts/macroeconomia-institucional-parte-6.html">Parte 6 — Transmissão a Ativos: Juros, FX, Crédito</a>
+        <a href="/posts/macroeconomia-institucional-parte-7.html">Parte 7 — Ciclos, Curvas e Carteiras (Regras)</a>
+        <a href="/posts/macroeconomia-institucional-parte-8.html">Parte 8 — Framework Final, Checklist e Governança</a>
+      </nav>
+    </aside>
+  </div>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <span class="pill">Série Institucional • Parte 1/8</span>
+        <h1 style="margin-top:10px;">Macroeconomia Institucional para Investidores</h1>
+        <p class="muted" style="max-width: 980px;">
+          Parte 1 estabelece o “núcleo real” (RBC) e o vocabulário formal: restrições, condições de primeira ordem,
+          equilíbrio competitivo, crescimento de longo prazo, e como isso vira intuição prática para retorno real, risco e valuation.
+          Sem achismo: aqui você ganha o mesmo mapa mental usado em research macro.
+        </p>
+
+        <div class="hero">
+          <img src="/images/blog-cover.svg" alt="Macroeconomia Institucional para Investidores" loading="lazy" />
+        </div>
+
+        <div class="kpi-grid" style="max-width: 980px;">
+          <div class="kpi"><strong>Leitura</strong><span class="muted">~ 45–75 min</span></div>
+          <div class="kpi"><strong>Nível</strong><span class="muted">Institucional / CFA-like</span></div>
+          <div class="kpi"><strong>Próximo</strong><span class="muted"><a href="/posts/macroeconomia-institucional-parte-2.html">NK + Política Monetária</a></span></div>
+        </div>
+
+        <div class="jump" style="max-width: 980px;">
+          <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+          <a href="/posts/macroeconomia-institucional-parte-2.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 2</a>
+          <a href="/calculadora.html"><i class="fa-solid fa-calculator"></i> Juros Compostos</a>
+          <a href="/aposentadoria.html"><i class="fa-solid fa-person-cane"></i> Aposentadoria</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="post-wrap">
+
+        <div class="toc">
+          <h2>Índice</h2>
+          <a href="#sec-1">1) Por que o investidor precisa de um modelo (e não de “narrativa”)</a>
+          <a href="#sec-2">2) Setup RBC: tecnologia, preferências e restrições</a>
+          <a href="#sec-3">3) Problema do consumidor: Euler, poupança e taxa real</a>
+          <a href="#sec-4">4) Firma: produto marginal, investimento e capital</a>
+          <a href="#sec-5">5) Equilíbrio geral real e condição de transversalidade</a>
+          <a href="#sec-6">6) Decomposição: crescimento, produtividade e termos de troca</a>
+          <a href="#sec-7">7) Implicações para ativos: prêmio real, duration “macro” e valuation</a>
+          <a href="#sec-8">8) Mini modelo numérico + sensibilidade (tabela)</a>
+          <a href="#sec-9">9) Onde o RBC acerta e onde ele falha (ponte para NK)</a>
+          <a href="#sec-10">Conclusão + como usar isso na vida real</a>
+        </div>
+
+        <div class="callout">
+          <strong>Ideia central (institucional):</strong>
+          macro é um sistema de restrições. Quando você entende as restrições (recursos, orçamento intertemporal, política e fricções),
+          você entende o que <em>pode</em> e o que <em>não pode</em> acontecer — e para de ser refém de manchetes.
+        </div>
+
+        <hr class="hr">
+
+        <h2 id="sec-1">1) Por que o investidor precisa de um modelo (e não de “narrativa”)</h2>
+        <p>
+          O investidor iniciante consome macro como história (“o BC vai fazer X”, “o governo vai fazer Y”, “o mundo está assim”).
+          O investidor institucional consome macro como <strong>mecanismo</strong>: choques, restrições, regras de política,
+          fricções, e como isso altera preços relativos e taxas de desconto.
+        </p>
+        <p>
+          Um modelo não é “verdade”; é um motor de coerência. Ele te obriga a responder perguntas essenciais:
+          <strong>o que é exógeno?</strong> (choque) <strong>o que é endógeno?</strong> (resposta) <strong>qual é a regra de política?</strong>
+          <strong>qual variável equilibra?</strong> (taxa, câmbio, inflação, atividade) e <strong>qual é o canal de transmissão?</strong>
+        </p>
+
+        <div class="warning">
+          <strong>Armadilha comum:</strong> confundir “opinião macro” com “modelo macro”.
+          Opinião é fácil de mudar; modelo tem estrutura e consequências verificáveis.
+        </div>
+
+        <h2 id="sec-2">2) Setup RBC: tecnologia, preferências e restrições</h2>
+        <p>
+          O RBC (Real Business Cycle) começa com o mundo mais limpo possível: mercados completos, preços flexíveis,
+          sem moeda (ou moeda neutra), e choques reais (principalmente produtividade).
+          O objetivo não é “explicar tudo”, mas construir a base matemática do equilíbrio intertemporal.
+        </p>
+
+        <div class="codebox">
+          <strong>Economia de 1 bem (base):</strong>
+          <p>
+            Produção agregada com tecnologia \(A_t\), capital \(K_t\) e trabalho \(N_t\):
+          </p>
+          <p>\[
+            Y_t = A_t K_t^{\alpha} N_t^{1-\alpha}
+          \]</p>
+          <p class="mini-note">
+            \(A_t\) captura produtividade total dos fatores (TFP). Em RBC, grande parte do ciclo vem de choques em \(A_t\).
+          </p>
+        </div>
+
+        <div class="codebox">
+          <strong>Restrição de recursos:</strong>
+          <p>\[
+            Y_t = C_t + I_t + G_t
+          \]</p>
+          <p class="mini-note">
+            (Versão simples) O produto vira consumo, investimento e gasto do governo. Em RBC canônico, \(G_t\) pode ser constante ou choque.
+          </p>
+        </div>
+
+        <div class="codebox">
+          <strong>Acumulação de capital:</strong>
+          <p>\[
+            K_{t+1} = (1-\delta)K_t + I_t
+          \]</p>
+          <p class="mini-note">
+            \(\delta\) é depreciação. Investimento hoje aumenta capacidade produtiva amanhã.
+          </p>
+        </div>
+
+        <p>
+          Preferências (representativas) tipicamente são separáveis em consumo e desutilidade do trabalho:
+        </p>
+        <div class="codebox">
+          <strong>Utilidade esperada:</strong>
+          <p>\[
+            \max_{\{C_t,N_t,K_{t+1}\}} \; \mathbb{E}_0 \sum_{t=0}^{\infty}\beta^t \left( \frac{C_t^{1-\sigma}-1}{1-\sigma} - \chi\frac{N_t^{1+\varphi}}{1+\varphi} \right)
+          \]</p>
+          <p class="mini-note">
+            \(\beta\) = desconto intertemporal, \(\sigma\) = aversão ao risco / inverso da EIS, \(\varphi\) = elasticidade Frisch (via desutilidade), \(\chi\) escala trabalho.
+          </p>
+        </div>
+
+        <h2 id="sec-3">3) Problema do consumidor: Euler, poupança e taxa real</h2>
+        <p>
+          A condição de Euler é o coração do intertemporal: ela conecta consumo hoje com consumo amanhã via retorno real do ativo.
+          Em termos de investimento, é a ponte formal entre “preferências” e “taxa real”.
+        </p>
+
+        <div class="codebox">
+          <strong>Euler (forma genérica):</strong>
+          <p>\[
+            u_C(C_t) = \beta \, \mathbb{E}_t \left[ u_C(C_{t+1}) (1+R_{t+1}^{real}) \right]
+          \]</p>
+          <p class="mini-note">
+            \(u_C\) é utilidade marginal do consumo. Em CRRA, \(u_C(C)=C^{-\sigma}\).
+          </p>
+        </div>
+
+        <p>
+          Com CRRA, a Euler vira:
+        </p>
+        <div class="codebox">
+          <p>\[
+            C_t^{-\sigma} = \beta \, \mathbb{E}_t \left[ C_{t+1}^{-\sigma} (1+R_{t+1}^{real}) \right]
+          \]</p>
+          <p class="mini-note">
+            Intuição: se o retorno real esperado sobe, consumo hoje “custa mais” em termos de consumo futuro → incentivo a poupar.
+          </p>
+        </div>
+
+        <p>
+          Essa condição já te dá um insight institucional: <strong>taxa real é preço intertemporal</strong>.
+          Ela equilibra oferta de poupança e demanda por investimento (via retorno do capital) — no mundo RBC.
+          No mundo real, a política monetária e fricções mudam o mecanismo, mas a lógica intertemporal continua.
+        </p>
+
+        <h2 id="sec-4">4) Firma: produto marginal, investimento e capital</h2>
+        <p>
+          Num ambiente competitivo, a firma escolhe fatores até o ponto em que o produto marginal paga o preço do fator.
+          Isso gera as condições de precificação de trabalho e capital.
+        </p>
+
+        <div class="codebox">
+          <strong>Produto marginal do capital (MPK):</strong>
+          <p>\[
+            MPK_t = \alpha A_t K_t^{\alpha-1} N_t^{1-\alpha}
+          \]</p>
+          <p>\[
+            r_t^{k} = MPK_t - \delta
+          \]</p>
+          <p class="mini-note">
+            \(r_t^{k}\) é o retorno líquido do capital físico (aproximação).
+          </p>
+        </div>
+
+        <div class="codebox">
+          <strong>Produto marginal do trabalho (MPL) e salário real:</strong>
+          <p>\[
+            MPL_t = (1-\alpha)A_t K_t^{\alpha} N_t^{-\alpha}
+          \]</p>
+          <p>\[
+            w_t = MPL_t
+          \]</p>
+        </div>
+
+        <p>
+          Quando \(A_t\) sobe (choque positivo de produtividade), \(MPK\) e \(MPL\) sobem. Isso aumenta:
+          (i) salários reais, (ii) retorno do capital, (iii) incentivo ao investimento, e frequentemente (iv) consumo,
+          dependendo de preferências e do caminho de ajuste do capital.
+        </p>
+
+        <h2 id="sec-5">5) Equilíbrio geral real e condição de transversalidade</h2>
+        <p>
+          “Equilíbrio geral” significa que preços e quantidades se ajustam simultaneamente para limpar mercados:
+          bem (recursos), trabalho, e capital intertemporalmente.
+        </p>
+
+        <div class="codebox">
+          <strong>Condição de transversalidade (TV):</strong>
+          <p>\[
+            \lim_{T\to\infty} \beta^T \, \mathbb{E}_0 \left[ u_C(C_T) K_{T+1} \right] = 0
+          \]</p>
+          <p class="mini-note">
+            A TV evita “esquema Ponzi” intertemporal. Em termos econômicos: não dá para financiar consumo infinito com dívida infinita.
+          </p>
+        </div>
+
+        <p>
+          Para investidor, a TV é um lembrete formal: <strong>restrições intertemporais importam</strong>.
+          Você pode “empurrar” problemas por algum tempo (crédito, política), mas não pode eliminá-los sem ajuste real
+          (produtividade, poupança, impostos, inflação, default, repressão financeira, etc.). Nas Partes 3 e 4, isso vira fiscal e prêmio endógeno.
+        </p>
+
+        <h2 id="sec-6">6) Decomposição: crescimento, produtividade e termos de troca</h2>
+        <p>
+          Se você quer “macro que vira investimento”, você precisa separar:
+          <strong>(a) nível</strong> (tendência / longo prazo),
+          <strong>(b) ciclo</strong> (flutuações),
+          <strong>(c) preços relativos</strong> (termos de troca, commodities, câmbio real),
+          <strong>(d) regime</strong> (mudança estrutural).
+        </p>
+
+        <div class="callout">
+          <strong>Mapa mental:</strong>
+          crescimento de longo prazo = produtividade + capital humano + investimento (com boa alocação).
+          Ciclo = choques + fricções + resposta de política (monetária e fiscal).
+        </div>
+
+        <p>
+          Em economias emergentes, “real” também significa:
+          <strong>balança externa</strong>, <strong>restrição em moeda forte</strong>, e <strong>risco de prêmio</strong>.
+          Mesmo que o RBC canônico não tenha isso explicitamente, ele te treina no básico que depois será enriquecido.
+        </p>
+
+        <h2 id="sec-7">7) Implicações para ativos: prêmio real, duration “macro” e valuation</h2>
+        <p>
+          Em termos de finanças, o RBC te dá a ponte mais importante: a taxa real de equilíbrio e o retorno do capital
+          são endógenos a produtividade e preferências. O que isso quer dizer na prática?
+        </p>
+
+        <ul style="margin:10px 0 0 18px;">
+          <li><strong>Juros reais de longo prazo</strong> sobem quando retorno do capital e produtividade sustentada sobem (ou poupança cai).</li>
+          <li><strong>Múltiplos de ações</strong> tendem a ser maiores quando taxa real e prêmio de risco (desconto) são menores.</li>
+          <li><strong>Ativos “long duration”</strong> (crescimento, tech, etc.) são mais sensíveis a choques de taxa real.</li>
+          <li><strong>Commodities</strong> e termos de troca conectam ciclo real e renda externa (especial em emergentes).</li>
+        </ul>
+
+        <div class="codebox">
+          <strong>Valuation (ponte com a série de ações):</strong>
+          <p>\[
+            V = \sum_{t=1}^{\infty}\frac{FCF_t}{(1+r_t)^t}
+          \]</p>
+          <p class="mini-note">
+            Macro entra via \(r_t\) (taxa real + prêmio), e via \(FCF_t\) (crescimento real, margens, produtividade).
+          </p>
+        </div>
+
+        <h2 id="sec-8">8) Mini modelo numérico + sensibilidade (tabela)</h2>
+        <p>
+          Vamos fixar um exemplo didático (não é previsão): suponha que uma melhora persistente de produtividade eleva
+          crescimento real esperado e retorno do capital, mas também pode elevar a taxa real de equilíbrio.
+          O efeito em valuation depende de <strong>qual efeito domina</strong>.
+        </p>
+
+        <table class="table" aria-label="Mini sensibilidade macro -> valuation">
+          <thead>
+            <tr>
+              <th>Cenário</th>
+              <th>Choque</th>
+              <th>g real (tendência)</th>
+              <th>r real (desconto)</th>
+              <th>Efeito em múltiplos</th>
+              <th>Leitura institucional</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A (benigno)</td>
+              <td>TFP ↑ com poupança alta</td>
+              <td>↑</td>
+              <td>↔/↓</td>
+              <td>↑</td>
+              <td>Crescimento sobe e desconto não piora → valuation expande</td>
+            </tr>
+            <tr>
+              <td>B (neutro)</td>
+              <td>TFP ↑ com demanda de investimento ↑</td>
+              <td>↑</td>
+              <td>↑</td>
+              <td>↔</td>
+              <td>Crescimento e desconto sobem juntos → múltiplos podem ficar estáveis</td>
+            </tr>
+            <tr>
+              <td>C (adverso)</td>
+              <td>Choque de risco / prêmio ↑</td>
+              <td>↓/↔</td>
+              <td>↑↑</td>
+              <td>↓↓</td>
+              <td>Regime de stress: compressão de múltiplos domina</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="mini-note">
+          O ponto do exercício é: “macro” não é uma variável; é um sistema. Você precisa mapear crescimento e taxa de desconto simultaneamente.
+        </div>
+
+        <h2 id="sec-9">9) Onde o RBC acerta e onde ele falha (ponte para NK)</h2>
+        <p>
+          O RBC é poderoso para:
+          (i) lógica intertemporal,
+          (ii) relação produtividade → renda,
+          (iii) papel do capital e investimento,
+          (iv) restrições reais.
+        </p>
+        <p>
+          Mas falha em explicar de forma realista:
+          (i) inflação persistente,
+          (ii) rigidezes de preços/salários,
+          (iii) não neutralidade da moeda no curto prazo,
+          (iv) crises financeiras, spreads e prêmios endógenos,
+          (v) dominância fiscal e risco soberano.
+        </p>
+
+        <div class="callout">
+          <strong>Ponte:</strong>
+          na Parte 2, adicionamos rigidezes nominais e a Curva de Phillips Novo-Keynesiana, e mostramos como política monetária altera o ciclo.
+          A partir daí, o “macro que mexe em ativos” fica muito mais direto (juros, inflação, câmbio e crédito).
+        </div>
+
+        <h2 id="sec-10">Conclusão + como usar isso na vida real</h2>
+        <p>
+          Se você sair desta Parte 1 com uma coisa, que seja: <strong>a taxa real é um preço intertemporal endógeno</strong>.
+          Ela não é “mágica do BC”; ela emerge de produtividade, poupança e investimento — no núcleo real.
+          O mundo real tem fricções e política, mas o núcleo intertemporal permanece.
+        </p>
+        <p>
+          Na prática: sempre que você ouvir uma narrativa macro, force o modelo:
+          <strong>qual choque?</strong> (TFP, fiscal, risco, termos de troca)
+          <strong>qual restrição?</strong> (orçamento, conta externa, dívida)
+          <strong>qual regra de política?</strong> (Taylor, metas, dominância)
+          <strong>qual variável equilibra?</strong> (juros reais, inflação, câmbio)
+          <strong>qual canal para ativos?</strong> (desconto, lucro, prêmio).
+        </p>
+
+        <div class="jump" style="margin-top:18px;">
+          <a href="/posts/macroeconomia-institucional-parte-2.html"><i class="fa-solid fa-arrow-right"></i> Ir para Parte 2</a>
+          <a href="/blog.html"><i class="fa-regular fa-newspaper"></i> Voltar ao Blog</a>
+          <a href="/posts/etf-masterclass-carteira-global-parte-1.html"><i class="fa-solid fa-bolt"></i> ETF Masterclass</a>
+          <a href="/posts/biblia-da-aposentadoria-parte-1.html"><i class="fa-solid fa-book"></i> Bíblia da Aposentadoria</a>
+        </div>
+
+        <hr class="hr">
+
+        <div class="muted" style="font-size:12px;">
+          Nota: material educacional. Não constitui recomendação de investimento. O objetivo é estrutura técnica e disciplina de análise.
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (padrão do site) -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        <h3>Cérebro Milionário</h3>
+        <p>Educação financeira com profundidade estratégica.</p>
+        <div class="footer-social" aria-label="Redes sociais" style="display:flex;gap:12px;align-items:center;margin-top:10px">
+          <a href="https://t.me/cerebromillionario" target="_blank" rel="noopener" aria-label="Telegram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://instagram.com/cerebromillionario" target="_blank" rel="noopener" aria-label="Instagram"
+             style="width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.14);text-decoration:none">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/glossario-financeiro.html">Glossário Financeiro</a></li>
+          <li><a href="/perguntas-frequentes.html">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== Mobile menu (topo do site) =====
+    (function () {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn || !nav) return;
+
+      btn.addEventListener('click', function () {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+    })();
+
+    // ===== Série: drawer mobile =====
+    (function(){
+      const fab = document.getElementById('seriesFab');
+      const nav = document.getElementById('seriesNav');
+      const backdrop = document.getElementById('seriesBackdrop');
+      const closeBtn = document.getElementById('seriesClose');
+      if(!fab || !nav || !backdrop || !closeBtn) return;
+
+      function openNav(){
+        nav.classList.add('open');
+        backdrop.classList.add('open');
+        fab.setAttribute('aria-expanded','true');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeNav(){
+        nav.classList.remove('open');
+        backdrop.classList.remove('open');
+        fab.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+      }
+
+      fab.addEventListener('click', openNav);
+      closeBtn.addEventListener('click', closeNav);
+      backdrop.addEventListener('click', closeNav);
+      document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeNav(); });
+    })();
+  </script>
+</body>
+</html>
