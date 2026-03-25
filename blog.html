@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Blog | Cérebro Milionário</title>
+  <meta name="description" content="Blog do Cérebro Milionário: artigos densos, ferramentas e guias para investir melhor em renda fixa, ETFs, FIIs, ações e aposentadoria." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://peppy-lollipop-54fa27.netlify.app/blog.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://peppy-lollipop-54fa27.netlify.app/blog.html" />
+  <meta property="og:title" content="Blog | Cérebro Milionário" />
+  <meta property="og:description" content="Artigos densos e ferramentas práticas para investir melhor." />
+  <meta property="og:image" content="https://peppy-lollipop-54fa27.netlify.app/images/blog-cover.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4613426749830025">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
+
+  <style>
+    /* ===== Blog layout ===== */
+    .page-header .container{max-width:1100px}
+    .muted{opacity:.78}
+    .divider-soft{border:0;height:1px;background:rgba(0,0,0,.08);margin:18px 0}
+
+    .blog-controls{
+      display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:12px
+    }
+    .blog-controls input,
+    .blog-controls select{
+      flex:1;min-width:220px;padding:12px 14px;border-radius:14px;
+      border:1px solid rgba(0,0,0,.10);outline:none;background:#fff;
+      box-shadow:var(--shadow-sm)
+    }
+    .blog-controls input:focus,
+    .blog-controls select:focus{
+      border-color:rgba(244,196,48,.75);
+      box-shadow:0 0 0 4px rgba(244,196,48,.15)
+    }
+
+    /* Grid posts */
+    .posts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    @media(max-width:980px){.posts-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:640px){.posts-grid{grid-template-columns:1fr}}
+
+    /* Card */
+    .post-card{
+      display:flex;flex-direction:column;overflow:hidden;border-radius:18px;
+      border:1px solid rgba(0,0,0,.08);background:#fff;
+      box-shadow:var(--shadow-sm);
+      transition:transform .15s ease, box-shadow .15s ease
+    }
+    .post-card:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(0,0,0,.12)}
+    .post-card img{
+      width:100%;height:170px;object-fit:cover;background:rgba(0,0,0,.04);display:block
+    }
+    .post-body{padding:14px;display:flex;flex-direction:column;gap:10px;height:100%}
+    .post-body h3{margin:0;font-size:16px;line-height:1.25}
+    .post-body p{margin:0;opacity:.82;line-height:1.45}
+    .meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:12px;opacity:.88}
+    .tag{
+      display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;
+      background:rgba(44,44,46,.06);font-weight:800
+    }
+    .readtime,.lastmod{display:inline-flex;align-items:center;gap:6px}
+    .btn-sm{
+      display:inline-flex;align-items:center;justify-content:center;padding:10px 12px;border-radius:14px;
+      border:1px solid rgba(0,0,0,.10);background:#fff;box-shadow:var(--shadow-sm);
+      text-decoration:none;font-weight:900
+    }
+    .btn-sm:hover{transform:translateY(-1px)}
+    .post-cta{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap}
+
+    /* Empty state */
+    .empty-state{
+      border:1px solid rgba(0,0,0,.08);border-radius:18px;padding:18px;background:#fff;box-shadow:var(--shadow-sm)
+    }
+    .empty-state h3{margin:0 0 8px 0}
+
+    /* Pagination (big and pretty) */
+    .pagination{margin:18px 0 0;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+    .pagination button{
+      min-width:52px;height:52px;border-radius:16px;border:1px solid rgba(0,0,0,.10);
+      background:#fff;box-shadow:var(--shadow-sm);font-weight:900;cursor:pointer;
+      transition:transform .12s ease, box-shadow .12s ease, background .12s ease
+    }
+    .pagination button:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(0,0,0,.12);background:rgba(244,196,48,.14)}
+    .pagination button.active{background:#2c2c2e;color:#fff;border-color:#2c2c2e}
+    @media(max-width:480px){.pagination button{min-width:46px;height:46px;border-radius:14px}}
+
+    /* Featured */
+    .featured-wrap{margin-top:18px}
+    .featured-title{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .featured-title h2{margin:0;font-size:20px}
+    .featured-grid{margin-top:12px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    @media(max-width:980px){.featured-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:640px){.featured-grid{grid-template-columns:1fr}}
+    .featured-card{
+      display:flex;flex-direction:column;overflow:hidden;border-radius:18px;border:1px solid rgba(0,0,0,.08);
+      background:#fff;box-shadow:var(--shadow-sm);transition:transform .15s ease
+    }
+    .featured-card:hover{transform:translateY(-2px)}
+    .featured-card img{width:100%;height:150px;object-fit:cover;background:rgba(0,0,0,.04);display:block}
+    .featured-body{padding:14px;display:flex;flex-direction:column;gap:10px;height:100%}
+    .featured-body h3{margin:0;font-size:16px;line-height:1.25}
+    .featured-body p{margin:0;opacity:.82;line-height:1.45}
+    .featured-meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:12px;opacity:.88}
+    .featured-cta{margin-top:auto}
+
+    /* Footer social */
+    .footer-social{display:flex;gap:12px;align-items:center;margin-top:10px}
+    .footer-social a{
+      width:40px;height:40px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;
+      border:1px solid rgba(255,255,255,.14);text-decoration:none
+    }
+
+    /* evita scroll horizontal acidental */
+    body{overflow-x:hidden;}
+
+    /* garante que o botão fique clicável no mobile (ajuda em alguns navegadores) */
+    .header{position:relative; z-index:50;}
+    .mobile-menu-btn{position:relative; z-index:60;}
+    .navigation{position:relative; z-index:55;}
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1><a href="/index.html">Cérebro Milionário</a></h1>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="primary-navigation">
+        <ul class="nav-menu">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/estrategia-investimentos.html">Estratégia</a></li>
+          <li><a href="/calculadora.html">Calculadora</a></li>
+          <li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+          <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+          <li><a href="/aposentadoria.html">Aposentadoria</a></li>
+          <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="/comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Blog</h1>
+        <p class="muted" style="max-width:900px;">
+          Artigos densos e ferramentas práticas para investir melhor. Este blog puxa os posts automaticamente a partir do
+          <a href="/sitemap.xml">sitemap.xml</a>.
+        </p>
+
+        <div class="blog-controls">
+          <input id="search" type="search" placeholder="Pesquisar por título/tema (ex.: ETFs, renda fixa, IR, aposentadoria…)" />
+          <select id="tag">
+            <option value="all">Todas as categorias</option>
+          </select>
+        </div>
+
+        <!-- Featured (mantém como você já tinha: ETF Masterclass + Bíblia da Aposentadoria) -->
+        <div class="featured-wrap" aria-label="Destaques do Blog">
+          <div class="featured-title">
+            <h2>🔥 Destaques</h2>
+            <span class="muted">Séries para estudar em sequência</span>
+          </div>
+
+          <div class="featured-grid">
+            <!-- ETF Masterclass -->
+            <article class="featured-card">
+              <a href="/posts/etf-masterclass-carteira-global-parte-1.html" style="text-decoration:none;">
+                <img src="/images/blog-cover.svg" alt="ETF Masterclass Parte 1" loading="lazy" onerror="this.src='/images/blog-cover.svg';" />
+              </a>
+              <div class="featured-body">
+                <div class="featured-meta">
+                  <span class="tag"><i class="fa-solid fa-bolt"></i> Masterclass</span>
+                  <span class="readtime"><i class="fa-regular fa-clock"></i> 40–55 min</span>
+                </div>
+                <h3>ETF Masterclass (Parte 1)</h3>
+                <p>Fundação institucional: arquitetura, core/satélites, custos e como pensar como “gestor”.</p>
+                <div class="featured-cta"><a class="btn-sm" href="/posts/etf-masterclass-carteira-global-parte-1.html">Abrir</a></div>
+              </div>
+            </article>
+
+            <article class="featured-card">
+              <a href="/posts/etf-masterclass-carteira-global-parte-2.html" style="text-decoration:none;">
+                <img src="/images/blog-cover.svg" alt="ETF Masterclass Parte 2" loading="lazy" onerror="this.src='/images/blog-cover.svg';" />
+              </a>
+              <div class="featured-body">
+                <div class="featured-meta">
+                  <span class="tag"><i class="fa-solid fa-bolt"></i> Masterclass</span>
+                  <span class="readtime"><i class="fa-regular fa-clock"></i> 40–55 min</span>
+                </div>
+                <h3>ETF Masterclass (Parte 2)</h3>
+                <p>Teoria aplicada: Markowitz, Sharpe, CAPM, fatores e câmbio/hedge sem achismo.</p>
+                <div class="featured-cta"><a class="btn-sm" href="/posts/etf-masterclass-carteira-global-parte-2.html">Abrir</a></div>
+              </div>
+            </article>
+
+            <article class="featured-card">
+              <a href="/posts/etf-masterclass-carteira-global-parte-3.html" style="text-decoration:none;">
+                <img src="/images/blog-cover.svg" alt="ETF Masterclass Parte 3" loading="lazy" onerror="this.src='/images/blog-cover.svg';" />
+              </a>
+              <div class="featured-body">
+                <div class="featured-meta">
+                  <span class="tag"><i class="fa-solid fa-bolt"></i> Masterclass</span>
+                  <span class="readtime"><i class="fa-regular fa-clock"></i> 45–60 min</span>
+                </div>
+                <h3>ETF Masterclass (Parte 3)</h3>
+                <p>Carteiras modelo, sobreposição, rebalanceamento por bandas e regras executáveis.</p>
+                <div class="featured-cta"><a class="btn-sm" href="/posts/etf-masterclass-carteira-global-parte-3.html">Abrir</a></div>
+              </div>
+            </article>
+
+            <article class="featured-card">
+              <a href="/posts/etf-masterclass-carteira-global-parte-4.html" style="text-decoration:none;">
+                <img src="/images/blog-cover.svg" alt="ETF Masterclass Parte 4" loading="lazy" onerror="this.src='/images/blog-cover.svg';" />
+              </a>
+              <div class="featured-body">
+                <div class="featured-meta">
+                  <span class="tag"><i class="fa-solid fa-bolt"></i> Masterclass</span>
+                  <span class="readtime"><i class="fa-regular fa-clock"></i> 40–55 min</span>
+                </div>
+                <h3>ETF Masterclass (Parte 4)</h3>
+                <p>Fechamento: operacional, riscos, erros fatais e checklist final de execução.</p>
+                <div class="featured-cta"><a class="btn-sm" href="/posts/etf-masterclass-carteira-global-parte-4.html">Abrir</a></div>
+              </div>
+            </article>
+          </div>
+
+          <div class="featured-title" style="margin-top:16px;">
+            <h2>📘 Bíblia da Aposentadoria</h2>
+            <span class="muted">Série completa (4 partes)</span>
+          </div>
+
+          <div class="featured-grid">
+            <article class="featured-card">
+              <a href="/posts/biblia-da-aposentadoria-parte-1.html" style="text-decoration:none;">
+                <img src="/images/blog-cover.svg" alt="Bíblia da Aposentadoria Parte 1" loading="lazy" onerror="this.src='/images/blog-cover.svg';" />
+              </a>
+              <div class="featured-body">
+                <div class="featured-meta">
+                  <span class="tag"><i class="fa-solid fa-book"></i> Aposentadoria</span>
+                  <span class="readtime"><i class="fa-regular fa-clock"></i> 55–75 min</span>
+                </div>
+                <h3>Bíblia da Aposentadoria (Parte 1)</h3>
+                <p>Metas, diagnóstico e variáveis do plano: como “fechar a conta” com realismo.</p>
+                <div class="featured-cta"><a class="btn-sm" href="/posts/biblia-da-aposentadoria-parte-1.html">Abrir</a></div>
+              </div>
+            </article>
+
+            <article class="featured-card">
+              <a href="/posts/biblia-da-aposentadoria-parte-2.html" style="text-decoration:none;">
+                <img src="/images/blog-cover.svg" alt="Bíblia da Aposentadoria Parte 2" loading="lazy" onerror="this.src='/images/blog-cover.svg';" />
+              </a>
+              <div class="featured-body">
+                <div class="featured-meta">
+                  <span class="tag"><i class="fa-solid fa-book"></i> Aposentadoria</span>
+                  <span class="readtime"><i class="fa-regular fa-clock"></i> 55–75 min</span>
+                </div>
+                <h3>Bíblia da Aposentadoria (Parte 2)</h3>
+                <p>Motor da acumulação: retorno real, aportes e alocação por fases com regras.</p>
+                <div class="featured-cta"><a class="btn-sm" href="/posts/biblia-da-aposentadoria-parte-2.html">Abrir</a></div>
+              </div>
+            </article>
+
+            <article class="featured-card">
+              <a href="/posts/biblia-da-aposentadoria-parte-3.html" style="text-decoration:none;">
+                <img src="/images/blog-cover.svg" alt="Bíblia da Aposentadoria Parte 3" loading="lazy" onerror="this.src='/images/blog-cover.svg';" />
+              </a>
+              <div class="featured-body">
+                <div class="featured-meta">
+                  <span class="tag"><i class="fa-solid fa-book"></i> Aposentadoria</span>
+                  <span class="readtime"><i class="fa-regular fa-clock"></i> 60–85 min</span>
+                </div>
+                <h3>Bíblia da Aposentadoria (Parte 3)</h3>
+                <p>Fase de saque: risco de sequência, guardrails e bucket strategy com disciplina.</p>
+                <div class="featured-cta"><a class="btn-sm" href="/posts/biblia-da-aposentadoria-parte-3.html">Abrir</a></div>
+              </div>
+            </article>
+
+            <article class="featured-card">
+              <a href="/posts/biblia-da-aposentadoria-parte-4.html" style="text-decoration:none;">
+                <img src="/images/blog-cover.svg" alt="Bíblia da Aposentadoria Parte 4" loading="lazy" onerror="this.src='/images/blog-cover.svg';" />
+              </a>
+              <div class="featured-body">
+                <div class="featured-meta">
+                  <span class="tag"><i class="fa-solid fa-book"></i> Aposentadoria</span>
+                  <span class="readtime"><i class="fa-regular fa-clock"></i> 45–65 min</span>
+                </div>
+                <h3>Bíblia da Aposentadoria (Parte 4)</h3>
+                <p>Governança final: risco, proteção patrimonial e plano prático de execução anual.</p>
+                <div class="featured-cta"><a class="btn-sm" href="/posts/biblia-da-aposentadoria-parte-4.html">Abrir</a></div>
+              </div>
+            </article>
+          </div>
+
+          <hr class="divider-soft" />
+        </div>
+
+        <div id="empty" class="empty-state" style="display:none;">
+          <h3>Nenhum post encontrado</h3>
+          <p class="muted">Tente outra palavra-chave ou selecione outra categoria.</p>
+        </div>
+
+        <div id="posts" class="posts-grid" aria-label="Lista de posts"></div>
+        <div id="pagination" class="pagination" aria-label="Paginação"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        <h3>Cérebro Milionário</h3>
+        <p>Educação financeira com profundidade estratégica.</p>
+        <div class="footer-social" aria-label="Redes sociais">
+          <a href="https://t.me/cerebromillionario" target="_blank" rel="noopener" aria-label="Telegram">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://instagram.com/cerebromillionario" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/politica-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/termos-uso.html">Termos de Uso</a></li>
+          <li><a href="/glossario-financeiro.html">Glossário Financeiro</a></li>
+          <li><a href="/perguntas-frequentes.html">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== Mobile menu (CORRIGIDO PARA O SEU style.css) =====
+    (function () {
+      const btn = document.querySelector('.mobile-menu-btn');
+      const nav = document.getElementById('primary-navigation');
+      if (!btn || !nav) return;
+
+      function closeMenu(){
+        btn.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('active'); // ✅ seu CSS usa .navigation.active
+      }
+
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('active'); // ✅
+      });
+
+      // fecha ao clicar em um link
+      nav.addEventListener('click', function (e) {
+        const a = e.target.closest('a');
+        if (a) closeMenu();
+      });
+
+      // fecha ao clicar fora
+      document.addEventListener('click', function (e) {
+        const isOpen = nav.classList.contains('active');
+        if (!isOpen) return;
+        if (e.target.closest('.header')) return;
+        closeMenu();
+      });
+
+      // fecha ao redimensionar
+      window.addEventListener('resize', function () {
+        closeMenu();
+      });
+    })();
+
+    // ===== Blog logic (namespace-safe sitemap parsing) =====
+    const els = {
+      container: document.getElementById('posts'),
+      pagination: document.getElementById('pagination'),
+      empty: document.getElementById('empty'),
+      search: document.getElementById('search'),
+      tag: document.getElementById('tag')
+    };
+
+    const state = {
+      posts: [],
+      shown: [],
+      page: 1,
+      perPage: 12,
+      q: '',
+      tag: 'all'
+    };
+
+    function escapeHtml(str){
+      return String(str||'')
+        .replaceAll('&','&amp;')
+        .replaceAll('<','&lt;')
+        .replaceAll('>','&gt;')
+        .replaceAll('"','&quot;')
+        .replaceAll("'","&#039;");
+    }
+
+    function safePathFromLoc(loc){
+      try{
+        const u = new URL(loc);
+        return u.pathname || loc;
+      }catch(e){
+        if (String(loc).startsWith('/')) return loc;
+        return '/' + String(loc).replace(/^https?:\/\/[^\/]+/,'').replace(/^\//,'');
+      }
+    }
+
+    function slugToTitle(file){
+      const slug = String(file || '').replace(/\.html$/,'').replace(/[-_]+/g,' ').trim();
+      if(!slug) return 'Post';
+      return slug.split(' ').map(w => w ? (w[0].toUpperCase() + w.slice(1)) : '').join(' ');
+    }
+
+    function buildDescFromSlug(slug){
+      const s = String(slug||'').toLowerCase();
+      if (s.includes('biblia-imposto-de-renda')) return 'Série completa: regras, renda fixa, bolsa, declaração e checklist profissional.';
+      if (s.includes('imposto') || s.includes('ir')) return 'Imposto de Renda do investidor: regras, prática e organização.';
+      if (s.includes('aposentadoria')) return 'Planejamento e estratégia para aposentadoria com método e governança.';
+      if (s.includes('renda-fixa') || s.includes('cdb') || s.includes('lci') || s.includes('lca') || s.includes('ipca')) return 'Renda fixa com profundidade: retorno real, riscos e decisões práticas.';
+      if (s.includes('etf')) return 'ETFs, alocação global e estratégia de carteira.';
+      if (s.includes('fii')) return 'FIIs: análise, armadilhas e construção de renda.';
+      if (s.includes('acoes') || s.includes('ações') || s.includes('acao')) return 'Ações e estratégias de longo prazo sem ruído.';
+      if (s.includes('buffett')) return 'Biografia completa e lições práticas do maior investidor do século.';
+      return 'Conteúdo prático e direto para melhorar suas decisões.';
+    }
+
+    function inferTagFromSlug(slug){
+      const s = String(slug||'').toLowerCase();
+      if (s.includes('biblia-imposto-de-renda')) return 'Imposto de Renda';
+      if (s.includes('imposto') || s.includes('ir')) return 'Imposto de Renda';
+      if (s.includes('aposentadoria')) return 'Aposentadoria';
+      if (s.includes('renda-fixa') || s.includes('cdb') || s.includes('lci') || s.includes('lca') || s.includes('ipca')) return 'Renda Fixa';
+      if (s.includes('etf')) return 'ETFs';
+      if (s.includes('fii')) return 'FIIs';
+      if (s.includes('acoes') || s.includes('ações') || s.includes('acao')) return 'Ações';
+      if (s.includes('psicologia') || s.includes('habitos') || s.includes('hábitos')) return 'Mentalidade';
+      if (s.includes('buffett')) return 'Biografias';
+      return 'Investimentos';
+    }
+
+    function estimateReadTime(slug){
+      const s = String(slug||'').toLowerCase();
+      if (s.includes('etf-masterclass')) return '40–60 min';
+      if (s.includes('biblia-da-aposentadoria')) return '45–85 min';
+      if (s.includes('biblia-imposto-de-renda')) return '35–60 min';
+      if (s.includes('guia-completo-investimentos-iniciantes-2026')) return '20–30 min';
+      if (s.includes('guia-completo-2026') || s.includes('_cfa') || s.includes('_max')) return '55–75 min';
+      if (s.includes('buffett')) return '60+ min';
+      return '10–15 min';
+    }
+
+    function isoToBr(iso){
+      if(!iso) return '';
+      const d = new Date(iso);
+      if (isNaN(d.getTime())) return '';
+      const dd = String(d.getDate()).padStart(2,'0');
+      const mm = String(d.getMonth()+1).padStart(2,'0');
+      const yy = d.getFullYear();
+      return `${dd}/${mm}/${yy}`;
+    }
+
+    function unique(arr){ return Array.from(new Set(arr)); }
+
+    function renderTags(){
+      const tags = unique(state.posts.map(p => p.tag).filter(Boolean)).sort((a,b)=>a.localeCompare(b,'pt-BR'));
+      const current = els.tag.value || 'all';
+      els.tag.innerHTML = `<option value="all">Todas as categorias</option>` + tags.map(t => `<option value="${escapeHtml(t)}">${escapeHtml(t)}</option>`).join('');
+      els.tag.value = current;
+    }
+
+    function cardTemplate(p){
+      return `
+      <article class="post-card">
+        <a href="${p.url}" style="text-decoration:none;">
+          <img src="${p.image}" alt="${escapeHtml(p.title)}" loading="lazy" onerror="this.src='/images/blog-cover.svg';" />
+        </a>
+        <div class="post-body">
+          <div class="meta">
+            <span class="tag"><i class="fa-solid fa-tag"></i> ${escapeHtml(p.tag)}</span>
+            <span class="readtime"><i class="fa-regular fa-clock"></i> ${escapeHtml(p.readTime)}</span>
+            ${p.lastmod ? `<span class="lastmod"><i class="fa-regular fa-calendar"></i> ${escapeHtml(p.lastmod)}</span>` : ``}
+          </div>
+          <h3>${escapeHtml(p.title)}</h3>
+          <p>${escapeHtml(p.desc)}</p>
+          <div class="post-cta">
+            <a class="btn-sm" href="${p.url}">Abrir</a>
+          </div>
+        </div>
+      </article>
+      `;
+    }
+
+    function renderPagination(totalPages){
+      const cur = state.page;
+      if (totalPages <= 1){ els.pagination.innerHTML = ''; return; }
+
+      const buttons = [];
+      for (let i=1;i<=totalPages;i++){
+        buttons.push(`<button data-p="${i}" class="${i===cur?'active':''}" aria-label="Página ${i}">${i}</button>`);
+      }
+      els.pagination.innerHTML = buttons.join('');
+      els.pagination.querySelectorAll('button').forEach(b=>{
+        b.addEventListener('click', ()=>{
+          const p = Number(b.getAttribute('data-p')||'1');
+          state.page = p;
+          render();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+    }
+
+    function applyFilters(){
+      const q = (state.q || '').toLowerCase().trim();
+      const tag = state.tag || 'all';
+      let list = state.posts.slice();
+
+      if (tag !== 'all'){ list = list.filter(p => p.tag === tag); }
+      if (q){
+        list = list.filter(p =>
+          String(p.title||'').toLowerCase().includes(q) ||
+          String(p.desc||'').toLowerCase().includes(q) ||
+          String(p.tag||'').toLowerCase().includes(q) ||
+          String(p.slug||'').toLowerCase().includes(q)
+        );
+      }
+
+      state.shown = list;
+      state.page = 1;
+      render();
+    }
+
+    function render(){
+      const total = state.shown.length;
+      const totalPages = Math.max(1, Math.ceil(total / state.perPage));
+      state.page = Math.min(state.page, totalPages);
+
+      const start = (state.page - 1) * state.perPage;
+      const slice = state.shown.slice(start, start + state.perPage);
+
+      els.container.innerHTML = slice.map(cardTemplate).join('');
+      const filtering = !!(state.q || (state.tag !== 'all'));
+      els.empty.style.display = (filtering && total === 0) ? 'block' : 'none';
+
+      renderPagination(totalPages);
+    }
+
+    async function loadFromSitemap(){
+      const res = await fetch('/sitemap.xml', { cache: 'no-store' });
+      if(!res.ok) throw new Error('Não consegui acessar /sitemap.xml');
+
+      const xmlText = await res.text();
+      const doc = new DOMParser().parseFromString(xmlText, 'application/xml');
+
+      // Namespace-safe
+      let urlNodes = Array.from(doc.getElementsByTagName('url'));
+      if (urlNodes.length === 0 && doc.getElementsByTagNameNS) {
+        urlNodes = Array.from(doc.getElementsByTagNameNS('*', 'url'));
+      }
+
+      const urls = urlNodes.map(u => {
+        const locNode = u.getElementsByTagName('loc')[0] || (u.getElementsByTagNameNS ? u.getElementsByTagNameNS('*','loc')[0] : null);
+        const lastmodNode = u.getElementsByTagName('lastmod')[0] || (u.getElementsByTagNameNS ? u.getElementsByTagNameNS('*','lastmod')[0] : null);
+        return {
+          loc: (locNode?.textContent || '').trim(),
+          lastmod: (lastmodNode?.textContent || '').trim()
+        };
+      }).filter(u => u.loc);
+
+      const posts = urls
+        .map(u => ({ ...u, path: safePathFromLoc(u.loc) }))
+        .filter(u => u.path.includes('/posts/'));
+
+      const items = posts.map(p => {
+        const parts = p.path.split('/');
+        const file = parts[parts.length - 1] || '';
+        const slug = file.replace(/\.html$/,'');
+        const niceTitle = slugToTitle(file);
+
+        let image = '/images/blog-default.svg';
+        const titleOverride = (slug === 'guia-completo-investimentos-iniciantes-2026') ? 'Guia Completo de Investimentos para Iniciantes (2026)' : null;
+
+        return {
+          url: p.path,
+          slug,
+          title: titleOverride || niceTitle,
+          desc: buildDescFromSlug(slug),
+          image,
+          tag: inferTagFromSlug(slug),
+          readTime: estimateReadTime(slug),
+          lastmod: isoToBr(p.lastmod)
+        };
+      });
+
+      const parseBR = (s) => {
+        const m = String(s||'').match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+        if(!m) return 0;
+        return new Date(`${m[3]}-${m[2]}-${m[1]}T00:00:00`).getTime();
+      };
+      items.sort((a,b) => parseBR(b.lastmod) - parseBR(a.lastmod));
+
+      state.posts = items;
+      state.shown = items;
+
+      renderTags();
+      render();
+    }
+
+    els.search.addEventListener('input', e => { state.q = e.target.value || ''; applyFilters(); });
+    els.tag.addEventListener('change', e => { state.tag = e.target.value || 'all'; applyFilters(); });
+
+    loadFromSitemap().catch(err => {
+      els.container.innerHTML = `
+        <div class="empty-state">
+          <h3>Erro ao carregar posts</h3>
+          <p class="muted">${escapeHtml(String(err.message || err))}</p>
+          <p class="muted">Verifique se <a href="/sitemap.xml">/sitemap.xml</a> está acessível.</p>
+        </div>`;
+    });
+  </script>
+</body>
+  </html>
