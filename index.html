@@ -20,6 +20,165 @@
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" referrerpolicy="no-referrer" rel="stylesheet"/>
 <!-- CSS Moderno -->
 <link href="/css/style.css" rel="stylesheet"/>
+<style>
+    .news-feed-section {
+        padding: var(--s16) 0;
+    }
+
+    .market-data-header {
+        margin-bottom: var(--s4);
+    }
+
+    .market-data-header h2 {
+        margin-bottom: var(--s2);
+    }
+
+    .last-updated {
+        font-size: .85rem;
+        color: var(--text-muted);
+    }
+
+    .section-subtitle {
+        color: var(--text-secondary);
+        margin-bottom: var(--s8);
+        font-size: .95rem;
+        max-width: 720px;
+    }
+
+    .news-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: var(--s6);
+        margin-bottom: var(--s8);
+    }
+
+    .news-card {
+        background:
+            linear-gradient(180deg, rgba(201, 168, 76, .08), rgba(201, 168, 76, 0) 42%),
+            var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--r-lg);
+        padding: var(--s6);
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+        transition: transform var(--t-mid), border-color var(--t-mid), box-shadow var(--t-mid), background var(--t-mid);
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .news-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(201, 168, 76, .08), transparent 55%);
+        opacity: 0;
+        transition: opacity var(--t-mid);
+        pointer-events: none;
+    }
+
+    .news-card:hover {
+        border-color: var(--border-gold);
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-gold);
+    }
+
+    .news-card:hover::before {
+        opacity: 1;
+    }
+
+    .news-meta,
+    .news-title,
+    .news-excerpt,
+    .news-cta {
+        position: relative;
+        z-index: 1;
+    }
+
+    .news-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--s3);
+        margin-bottom: var(--s4);
+    }
+
+    .news-source {
+        font-size: .75rem;
+        font-weight: 700;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        color: var(--gold);
+        background: rgba(201, 168, 76, .12);
+        border: 1px solid rgba(201, 168, 76, .14);
+        padding: .35rem .7rem;
+        border-radius: 999px;
+    }
+
+    .news-date {
+        font-size: .75rem;
+        color: var(--text-muted);
+    }
+
+    .news-title {
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: var(--s3);
+        line-height: 1.45;
+        flex-grow: 1;
+    }
+
+    .news-excerpt {
+        font-size: .92rem;
+        color: var(--text-secondary);
+        margin-bottom: var(--s5);
+        line-height: 1.7;
+        flex-grow: 1;
+    }
+
+    .news-cta {
+        font-size: .85rem;
+        font-weight: 700;
+        color: var(--gold);
+        display: inline-flex;
+        align-items: center;
+        gap: var(--s2);
+        transition: color var(--t-fast), gap var(--t-fast);
+    }
+
+    .news-card:hover .news-cta {
+        color: var(--gold-light);
+        gap: var(--s3);
+    }
+
+    .news-footer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--s3);
+        justify-content: center;
+        margin-top: var(--s8);
+    }
+
+    @media (max-width: 768px) {
+        .news-grid {
+            grid-template-columns: 1fr;
+            gap: var(--s4);
+        }
+
+        .news-card {
+            padding: var(--s5);
+        }
+
+        .news-meta {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+    }
+</style>
 <!-- Canonical URL (Atualizar se o domínio mudar) -->
 <link href="https://cerebromilionario.site/" rel="canonical"/>
 <!-- Open Graph / Facebook -->
