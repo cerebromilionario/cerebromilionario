@@ -748,6 +748,102 @@ textarea.form-control { resize: vertical; min-height: 140px; }
 .error-page { text-align: center; padding: calc(var(--nav-h) + var(--s16)) 0 var(--s16); }
 .error-code { font-size: 6rem; font-weight: 700; color: var(--gold); opacity: .3; line-height: 1; margin-bottom: var(--s4); }
 
+/* ── NEWS FEED / RADAR SECTION ───────────────────────────── */
+.news-feed-section { padding: var(--s16) 0; }
+.market-data-header { margin-bottom: var(--s4); }
+.market-data-header h2 { margin-bottom: var(--s2); }
+.last-updated { font-size: .85rem; color: var(--text-muted); }
+.section-subtitle { color: var(--text-secondary); margin-bottom: var(--s8); font-size: .95rem; }
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--s6);
+  margin-bottom: var(--s8);
+}
+
+.news-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--s6);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--t-mid);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.news-card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-gold);
+}
+
+.news-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--s3);
+  margin-bottom: var(--s3);
+}
+
+.news-source {
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(201,168,76,.1);
+  padding: .25rem .6rem;
+  border-radius: var(--r-sm);
+}
+
+.news-date {
+  font-size: .75rem;
+  color: var(--text-muted);
+}
+
+.news-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--s3);
+  line-height: 1.4;
+  flex-grow: 1;
+}
+
+.news-excerpt {
+  font-size: .9rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--s4);
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.news-cta {
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  transition: color var(--t-fast);
+}
+
+.news-card:hover .news-cta {
+  color: var(--gold-light);
+}
+
+.news-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3);
+  justify-content: center;
+  margin-top: var(--s8);
+}
+
 /* ── RESPONSIVE ──────────────────────────────────────────── */
 @media (max-width: 960px) {
   .footer-grid { grid-template-columns: 1fr 1fr; }
