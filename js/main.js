@@ -1,3 +1,53 @@
+
+// ── Nav: scroll effect ────────────────────────────────────
+const header = document.querySelector('.header');
+if (header) {
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+}
+
+// ── Nav: mobile toggle ────────────────────────────────────
+const mobileBtn = document.querySelector('.mobile-menu-btn');
+const nav       = document.querySelector('.navigation');
+if (mobileBtn && nav) {
+  mobileBtn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    mobileBtn.setAttribute('aria-expanded', open);
+    mobileBtn.innerHTML = open
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-bars"></i>';
+  });
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (!header.contains(e.target)) {
+      nav.classList.remove('open');
+      mobileBtn.setAttribute('aria-expanded', 'false');
+      mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+  });
+}
+
+// ── Nav: active link ─────────────────────────────────────
+(function() {
+  const path = window.location.pathname.replace(/\/index\.html$/, '/');
+  document.querySelectorAll('.nav-menu a').forEach(a => {
+    const href = a.getAttribute('href').replace(/\/index\.html$/, '/');
+    if (path === href || (href !== '/' && path.startsWith(href.replace('.html','')))) {
+      a.classList.add('active');
+    }
+  });
+})();
+
+// ── FAQ toggle ────────────────────────────────────────────
+document.querySelectorAll('.faq-question').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.closest('.faq-item');
+    item.classList.toggle('open');
+  });
+});
+
+
 // Arquivo JavaScript principal para o site Cérebro Milionário
 
 document.addEventListener('DOMContentLoaded', function() {
