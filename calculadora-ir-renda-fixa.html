@@ -58,105 +58,113 @@
 <!-- Google AdSense -->
 <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025"></script>
 <style>
-        .tool-note {
-            background: rgba(244, 196, 48, 0.12);
-            border: 1px solid rgba(244, 196, 48, 0.35);
-            border-radius: 16px;
-            padding: 16px;
-            margin-top: 18px;
-            color: var(--text-color, #1a1a1a);
-        }
-        .tool-note strong { font-weight: 600; }
-        .two-col {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 24px;
-            align-items: start;
-        }
-        @media (max-width: 900px) {
-            .two-col { grid-template-columns: 1fr; }
-        }
-        .result-card {
-            background: #fff;
-            border-radius: 18px;
-            padding: 18px;
-            box-shadow: 0 10px 30px rgba(0,0,0,.06);
-            border: 1px solid rgba(0,0,0,.06);
-        }
-        .result-big {
-            font-size: 28px;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 6px;
-        }
-        .result-sub {
-            opacity: .85;
-            margin-bottom: 14px;
-        }
-        .result-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 10px;
-        }
-        .result-row {
-            display:flex;
-            justify-content: space-between;
-            gap: 12px;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(0,0,0,.06);
-        }
-        .result-row:last-child { border-bottom: 0; }
-        .badge {
-            display:inline-flex;
-            align-items:center;
-            gap: 8px;
-            font-size: 13px;
-            padding: 6px 10px;
-            border-radius: 999px;
-            background: rgba(44,44,46,.06);
-        }
-        .pill {
-            display:inline-flex;
-            gap:8px;
-            flex-wrap: wrap;
-            margin-top: 10px;
-        }
-        .mini-links {
-            display:flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 14px;
-        }
-        .mini-links a { text-decoration: none; }
-        .segmented {
-            display:flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 10px;
-        }
-        .segmented button {
-            border: 1px solid rgba(0,0,0,.14);
-            background: #fff;
-            border-radius: 999px;
-            padding: 10px 14px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-        .segmented button.active {
-            border-color: rgba(244,196,48,.8);
-            box-shadow: 0 8px 20px rgba(244,196,48,.18);
-        }
-        .help-line {
-            font-size: 13px;
-            opacity: .8;
-            margin-top: 6px;
-        }
-        .small-warning {
-            font-size: 12px;
-            opacity: .75;
-            margin-top: 10px;
-        }
-    </style>
+  /* ── Calculadora IR — dark theme ─────────────────────── */
+  .tool-note {
+    background: rgba(201,168,76,.06);
+    border: 1px solid rgba(201,168,76,.25);
+    border-radius: var(--r-lg, 16px);
+    padding: 1rem;
+    margin-top: 1.1rem;
+    color: var(--text-secondary, #9996a0);
+    font-size: .875rem; line-height: 1.6;
+  }
+  .tool-note strong { color: var(--gold, #c9a84c); }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+  @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* Left panel wrapper */
+  .calculator-container {
+    background: var(--bg-card, #17171f);
+    border: 1px solid var(--border, rgba(255,255,255,.07));
+    border-radius: var(--r-xl, 24px);
+    overflow: hidden;
+  }
+
+  /* Right panel: result card */
+  .result-card {
+    background: var(--bg-card, #17171f);
+    border: 1px solid var(--border-gold, rgba(201,168,76,.25));
+    border-radius: var(--r-xl, 24px);
+    padding: 1.5rem;
+    position: sticky;
+    top: 80px;
+  }
+
+  .result-big {
+    font-size: 2.2rem; font-weight: 700; line-height: 1.1;
+    color: var(--gold, #c9a84c); margin-bottom: .3rem;
+  }
+  .result-sub {
+    font-size: .875rem;
+    color: var(--text-secondary, #9996a0);
+    margin-bottom: 1.25rem;
+  }
+
+  /* Result rows — grid of cards */
+  .result-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .5rem;
+    margin-bottom: 1.25rem;
+  }
+  .result-row {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: .75rem; padding: .7rem .85rem;
+    background: var(--bg-surface, #13131a);
+    border: 1px solid var(--border, rgba(255,255,255,.07));
+    border-radius: var(--r-md, 10px);
+    font-size: .875rem;
+    transition: border-color .15s ease;
+  }
+  .result-row:hover { border-color: var(--border-gold, rgba(201,168,76,.25)); }
+  .result-row span { color: var(--text-secondary, #9996a0); }
+  .result-row strong { color: var(--text-primary, #f0ede8); font-weight: 600; }
+
+  /* Badge pills */
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: .75rem; padding: .3rem .75rem;
+    border-radius: 99px;
+    background: rgba(201,168,76,.08);
+    border: 1px solid rgba(201,168,76,.18);
+    color: var(--gold, #c9a84c);
+  }
+  .pill { display: inline-flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+
+  /* Segmented mode buttons */
+  .segmented { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .segmented button {
+    border: 1px solid var(--border, rgba(255,255,255,.07));
+    background: transparent;
+    color: var(--text-secondary, #9996a0);
+    border-radius: 99px;
+    padding: .5rem .9rem;
+    cursor: pointer; font-weight: 500; font-size: .85rem;
+    font-family: var(--font-sans, 'DM Sans', sans-serif);
+    transition: all .15s ease;
+  }
+  .segmented button:hover { border-color: var(--gold, #c9a84c); color: var(--gold, #c9a84c); }
+  .segmented button.active {
+    background: var(--gold, #c9a84c);
+    border-color: var(--gold, #c9a84c);
+    color: #0d0d12; font-weight: 600;
+  }
+
+  .help-line {
+    font-size: .78rem; color: var(--text-muted, #5a5768); margin-top: .35rem;
+  }
+  .small-warning {
+    font-size: .75rem; color: var(--text-muted, #5a5768); margin-top: .5rem;
+  }
+
+  .mini-links { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: 1rem; }
+</style>
 </link></head>
 <body>
 <header class="header">

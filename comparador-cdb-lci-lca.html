@@ -42,42 +42,154 @@
 <!-- Google AdSense -->
 <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025"></script>
 <style>
-    /* Pequenos ajustes locais (sem quebrar seu style.css) */
-    .tool-grid { display: grid; grid-template-columns: 1fr; gap: var(--spacing-md, 16px); }
-    @media (min-width: 992px) { .tool-grid { grid-template-columns: 1fr 1fr; } }
-    .tool-card { background: var(--color-white, #fff); border-radius: var(--radius-lg, 16px); padding: var(--spacing-md, 16px); box-shadow: var(--shadow-md, 0 10px 30px rgba(0,0,0,.08)); border: 1px solid rgba(0,0,0,.06); }
-    .tool-card h3 { margin-top: 0; margin-bottom: 8px; }
-    .tool-row { display: grid; grid-template-columns: 1fr; gap: 12px; }
-    @media (min-width: 576px) { .tool-row { grid-template-columns: 1fr 1fr; } }
-    .tool-row-3 { display: grid; grid-template-columns: 1fr; gap: 12px; }
-    @media (min-width: 992px) { .tool-row-3 { grid-template-columns: 1.4fr 1fr 1fr; } }
+  /* ── Comparador — dark theme ─────────────────────────── */
+  .tool-grid {
+    display: grid; grid-template-columns: 1fr; gap: 1rem;
+  }
+  @media (min-width: 992px) { .tool-grid { grid-template-columns: 1fr 1fr; } }
 
-    .field { display: flex; flex-direction: column; gap: 6px; }
-    .field label { font-weight: 600; font-size: .95rem; color: var(--color-text, #1a1a1a); }
-    .field small { color: rgba(0,0,0,.65); line-height: 1.35; }
-    .field input, .field select { width: 100%; padding: 12px 12px; border-radius: 12px; border: 1px solid rgba(0,0,0,.12); background: #fff; }
-    .field input:focus, .field select:focus { outline: none; border-color: rgba(244,196,48,.9); box-shadow: 0 0 0 3px rgba(244,196,48,.2); }
+  .tool-card {
+    background: var(--bg-card, #17171f);
+    border-radius: var(--r-lg, 16px);
+    padding: 1.25rem;
+    border: 1px solid var(--border, rgba(255,255,255,.07));
+  }
+  .tool-card h3 {
+    margin-top: 0; margin-bottom: .75rem;
+    color: var(--text-primary, #f0ede8); font-size: 1rem;
+  }
 
-    .btn-row { display:flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
-    .btn-row .btn { cursor: pointer; }
+  .tool-row { display: grid; grid-template-columns: 1fr; gap: .75rem; }
+  @media (min-width: 576px) { .tool-row { grid-template-columns: 1fr 1fr; } }
 
-    .result-box { margin-top: var(--spacing-md, 16px); }
-    .result-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-    @media (min-width: 992px) { .result-grid { grid-template-columns: 1fr 1fr; } }
-    .metric { background: rgba(0,0,0,.03); border: 1px solid rgba(0,0,0,.06); border-radius: 14px; padding: 14px; }
-    .metric .k { color: rgba(0,0,0,.65); font-size: .92rem; }
-    .metric .v { font-weight: 800; font-size: 1.15rem; margin-top: 4px; }
-    .metric .s { color: rgba(0,0,0,.65); font-size: .9rem; margin-top: 6px; line-height: 1.35; }
-    .badge { display:inline-flex; align-items:center; gap: 6px; padding: 6px 10px; border-radius: 999px; font-weight: 700; font-size: .85rem; }
-    .badge.good { background: rgba(34,197,94,.12); color: #0f7a35; border: 1px solid rgba(34,197,94,.22); }
-    .badge.neutral { background: rgba(59,130,246,.10); color: #1e4fae; border: 1px solid rgba(59,130,246,.20); }
+  .tool-row-3 { display: grid; grid-template-columns: 1fr; gap: .75rem; }
+  @media (min-width: 992px) { .tool-row-3 { grid-template-columns: 1.4fr 1fr 1fr; } }
 
-    .table { width: 100%; border-collapse: collapse; margin-top: 10px; overflow: hidden; border-radius: 14px; border: 1px solid rgba(0,0,0,.08); }
-    .table th, .table td { padding: 12px; border-bottom: 1px solid rgba(0,0,0,.06); text-align: left; }
-    .table th { background: rgba(0,0,0,.03); font-weight: 800; }
-    .table tr:last-child td { border-bottom: none; }
-    .note { margin-top: 10px; color: rgba(0,0,0,.72); line-height: 1.55; }
-  </style>
+  .field { display: flex; flex-direction: column; gap: 5px; }
+  .field label {
+    font-weight: 600; font-size: .85rem;
+    color: var(--text-secondary, #9996a0);
+  }
+  .field small {
+    font-size: .75rem;
+    color: var(--text-muted, #5a5768); line-height: 1.4;
+  }
+  .field input, .field select {
+    width: 100%; padding: .65rem .85rem;
+    border-radius: var(--r-md, 10px);
+    border: 1px solid var(--border, rgba(255,255,255,.07));
+    background: var(--bg-input, #1a1a24);
+    color: var(--text-primary, #f0ede8);
+    font-family: var(--font-sans, 'DM Sans', sans-serif);
+    font-size: .9rem;
+    transition: border-color .15s ease, box-shadow .15s ease;
+    -webkit-appearance: none;
+  }
+  .field input:focus, .field select:focus {
+    outline: none;
+    border-color: var(--gold, #c9a84c);
+    box-shadow: 0 0 0 3px rgba(201,168,76,.12);
+  }
+
+  .btn-row { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: .75rem; }
+  .btn-row .btn { cursor: pointer; }
+
+  /* ── Result box ──────────────────────────────────────── */
+  .result-box { margin-top: 1.25rem; }
+
+  .result-grid {
+    display: grid; grid-template-columns: 1fr; gap: .75rem;
+    margin-bottom: 1rem;
+  }
+  @media (min-width: 992px) { .result-grid { grid-template-columns: 1fr 1fr; } }
+
+  /* Override .metric from style.css for this page context */
+  .tool-card .metric,
+  .result-box .metric {
+    background: var(--bg-surface, #13131a);
+    border: 1px solid var(--border, rgba(255,255,255,.07));
+    border-radius: var(--r-lg, 16px);
+    padding: 1rem 1.1rem;
+    transition: border-color .2s ease;
+  }
+  .tool-card .metric:hover,
+  .result-box .metric:hover { border-color: var(--border-gold, rgba(201,168,76,.25)); }
+
+  .metric .k {
+    font-size: .72rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: .07em;
+    color: var(--text-muted, #5a5768);
+    margin-bottom: .25rem;
+  }
+  .metric .v {
+    font-size: 1.2rem; font-weight: 700;
+    color: var(--gold, #c9a84c);
+    line-height: 1.2; margin-top: .2rem;
+    word-break: break-word;
+  }
+  .metric .s {
+    font-size: .78rem;
+    color: var(--text-muted, #5a5768);
+    margin-top: .3rem; line-height: 1.4;
+  }
+
+  /* Badge override */
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: .3rem .75rem; border-radius: 99px;
+    font-weight: 600; font-size: .8rem;
+  }
+  .badge.good {
+    background: rgba(62,207,142,.1);
+    color: var(--green, #3ecf8e);
+    border: 1px solid rgba(62,207,142,.2);
+  }
+  .badge.neutral {
+    background: rgba(201,168,76,.08);
+    color: var(--gold, #c9a84c);
+    border: 1px solid rgba(201,168,76,.2);
+  }
+
+  /* Comparison table */
+  .table {
+    width: 100%; border-collapse: collapse; margin-top: .75rem;
+    border-radius: var(--r-lg, 16px);
+    border: 1px solid var(--border, rgba(255,255,255,.07));
+    overflow: hidden;
+  }
+  .table th, .table td {
+    padding: .7rem 1rem;
+    border-bottom: 1px solid var(--border, rgba(255,255,255,.07));
+    text-align: left; font-size: .875rem;
+  }
+  .table th {
+    background: var(--bg-hover, #1e1e28);
+    font-size: .72rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: .06em;
+    color: var(--text-muted, #5a5768);
+  }
+  .table td { color: var(--text-secondary, #9996a0); }
+  .table tr:last-child td { border-bottom: none; }
+  .table tr:hover td { background: var(--bg-hover, #1e1e28); }
+  .table td:first-child { color: var(--text-secondary, #9996a0); }
+  .table td:not(:first-child) { color: var(--text-primary, #f0ede8); font-weight: 500; }
+
+  .note {
+    margin-top: .75rem; padding: .85rem 1rem;
+    background: rgba(201,168,76,.05);
+    border-left: 3px solid var(--gold, #c9a84c);
+    border-radius: 0 var(--r-md, 10px) var(--r-md, 10px) 0;
+    color: var(--text-secondary, #9996a0);
+    font-size: .85rem; line-height: 1.6;
+  }
+  .note strong { color: var(--text-primary, #f0ede8); }
+
+  /* Calculator section wrapper */
+  .calculator-section { padding: 2rem 0 3rem; }
+  .section-header { margin-bottom: 1.5rem; }
+  .section-header h2 { margin-bottom: .4rem; }
+  .section-header p { color: var(--text-secondary, #9996a0); }
+</style>
 </head>
 <body>
 <!-- Header (mesmo padrão do site) -->
