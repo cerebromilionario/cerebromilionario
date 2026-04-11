@@ -382,7 +382,7 @@
 </footer>
 <script src="/js/main.js"></script>
 <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
+        const _cy = document.getElementById('current-year'); if (_cy) _cy.textContent = new Date().getFullYear();
 
         const IOF_TABLE = {
             1: 96, 2: 93, 3: 90, 4: 86, 5: 83, 6: 80, 7: 76, 8: 73, 9: 70, 10: 66,

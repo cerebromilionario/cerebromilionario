@@ -548,7 +548,7 @@
 <script src="/js/main.js"></script>
 <script>
     // Footer year
-    document.getElementById('current-year').textContent = new Date().getFullYear();
+    const _cy = document.getElementById('current-year'); if (_cy) _cy.textContent = new Date().getFullYear();
 
     // Helpers
     function parseNumberBR(value) {
