@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ferramentas do Investidor | Simuladores de Juros, Dividendos e Carteira | Cérebro Milionário</title>
+<meta name="description" content="Use as melhores ferramentas de investimento: calculadora de juros compostos, simulador FIRE, dividendos, valuation, IR bolsa e muito mais. Tudo gratuito."/>
+<meta name="keywords" content="ferramentas investimento, calculadora juros compostos, simulador FIRE, dividendos, valuation, IR bolsa, carteira investimentos"/>
+<meta name="author" content="Cérebro Milionário"/>
+<meta name="robots" content="index, follow"/>
+<meta name="google-adsense-account" content="ca-pub-4613426749830025"/>
+
+<!-- Canonical -->
+<link href="https://cerebromilionario.site/ferramentas.html" rel="canonical"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://cerebromilionario.site/ferramentas.html"/>
+<meta property="og:title" content="Ferramentas do Investidor | Cérebro Milionário"/>
+<meta property="og:description" content="Calculadoras e simuladores gratuitos: juros compostos, FIRE, dividendos, valuation, IR bolsa e carteira de investimentos."/>
+<meta property="og:image" content="https://cerebromilionario.site/images/blog-cover.svg"/>
+
+<!-- Twitter Card -->
+<meta property="twitter:card" content="summary_large_image"/>
+<meta property="twitter:url" content="https://cerebromilionario.site/ferramentas.html"/>
+<meta property="twitter:title" content="Ferramentas do Investidor | Cérebro Milionário"/>
+<meta property="twitter:description" content="Calculadoras e simuladores gratuitos para investidores."/>
+<meta property="twitter:image" content="https://cerebromilionario.site/images/blog-cover.svg"/>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Ferramentas do Investidor",
+  "url": "https://cerebromilionario.site/ferramentas.html",
+  "description": "Hub completo de calculadoras e simuladores financeiros gratuitos para investidores.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Cérebro Milionário",
+    "url": "https://cerebromilionario.site/"
+  }
+}
+</script>
+
+<!-- Favicon -->
+<link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+
+<!-- Font Awesome -->
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" referrerpolicy="no-referrer" rel="stylesheet"/>
+
+<!-- CSS base do site -->
+<link href="/css/style.css" rel="stylesheet"/>
+
+<!-- Google AdSense -->
+<script async crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025"></script>
+
+<!-- ─── CSS local da página de ferramentas ─────────────────── -->
+<style>
+
+/* ── Hero da página de ferramentas ────────────────────────── */
+.hub-hero {
+  padding: calc(var(--nav-h, 64px) + 4rem) 0 3.5rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.hub-hero::before {
+  content: '';
+  position: absolute;
+  top: 40%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px; height: 420px;
+  background: radial-gradient(ellipse, rgba(201,168,76,.13) 0%, transparent 68%);
+  pointer-events: none;
+}
+.hub-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold, #c9a84c);
+  background: rgba(201,168,76,.1);
+  border: 1px solid rgba(201,168,76,.2);
+  border-radius: 99px;
+  padding: .35rem .9rem;
+  margin-bottom: 1.25rem;
+}
+.hub-hero h1 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: var(--text-primary, #f0ede8);
+  margin-bottom: 1rem;
+  line-height: 1.15;
+}
+.hub-hero h1 span { color: var(--gold, #c9a84c); }
+.hub-hero p {
+  color: var(--text-secondary, #9996a0);
+  font-size: 1.1rem;
+  max-width: 580px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+.hub-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.hub-stat { text-align: center; }
+.hub-stat strong {
+  display: block;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--gold, #c9a84c);
+  line-height: 1;
+}
+.hub-stat span {
+  font-size: .78rem;
+  color: var(--text-muted, #5a5768);
+  margin-top: .25rem;
+  display: block;
+}
+
+/* ── AdSense wrapper ──────────────────────────────────────── */
+.ad-wrap {
+  text-align: center;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border, rgba(255,255,255,.07));
+  border-bottom: 1px solid var(--border, rgba(255,255,255,.07));
+  margin: 2rem 0;
+}
+.ad-wrap .ad-label {
+  display: block;
+  font-size: .68rem;
+  color: var(--text-muted, #5a5768);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: .5rem;
+}
+
+/* ── Categorias hub ───────────────────────────────────────── */
+.hub-section { padding: 3rem 0 1rem; }
+.hub-section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: .9rem;
+  border-bottom: 1px solid var(--border, rgba(255,255,255,.07));
+}
+.hub-section-icon {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+.hub-section-icon.gold  { background: rgba(201,168,76,.12); color: var(--gold,#c9a84c); }
+.hub-section-icon.green { background: rgba(62,207,142,.1);  color: var(--green,#3ecf8e); }
+.hub-section-icon.blue  { background: rgba(99,179,237,.1);  color: #63b3ed; }
+.hub-section-icon.red   { background: rgba(247,95,95,.1);   color: var(--red,#f75f5f); }
+
+.hub-section-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary, #f0ede8);
+  margin: 0;
+}
+.hub-section-sub {
+  font-size: .8rem;
+  color: var(--text-muted, #5a5768);
+  margin: 0;
+}
+
+/* ── Tool cards grid ──────────────────────────────────────── */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* ── Individual tool card ─────────────────────────────────── */
+.tool-card {
+  background: var(--bg-card, #17171f);
+  border: 1px solid var(--border, rgba(255,255,255,.07));
+  border-radius: 14px;
+  padding: 1.4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+.tool-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(201,168,76,.07), transparent 55%);
+  opacity: 0;
+  transition: opacity .2s ease;
+  pointer-events: none;
+}
+.tool-card:hover {
+  border-color: rgba(201,168,76,.3);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,0,0,.25), 0 0 18px rgba(201,168,76,.1);
+}
+.tool-card:hover::before { opacity: 1; }
+
+/* Badge "popular" */
+.tool-card.popular::after {
+  content: '🔥 Popular';
+  position: absolute;
+  top: 1rem; right: 1rem;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  background: rgba(201,168,76,.15);
+  color: var(--gold,#c9a84c);
+  border: 1px solid rgba(201,168,76,.22);
+  border-radius: 99px;
+  padding: .2rem .6rem;
+}
+.tool-card.new-badge::after {
+  content: '✨ Novo';
+  position: absolute;
+  top: 1rem; right: 1rem;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  background: rgba(62,207,142,.1);
+  color: var(--green,#3ecf8e);
+  border: 1px solid rgba(62,207,142,.2);
+  border-radius: 99px;
+  padding: .2rem .6rem;
+}
+
+.tool-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.tool-icon {
+  width: 46px; height: 46px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.tool-icon.gold  { background: rgba(201,168,76,.12); color: var(--gold,#c9a84c); }
+.tool-icon.green { background: rgba(62,207,142,.1);  color: var(--green,#3ecf8e); }
+.tool-icon.blue  { background: rgba(99,179,237,.1);  color: #63b3ed; }
+.tool-icon.red   { background: rgba(247,95,95,.1);   color: var(--red,#f75f5f); }
+.tool-icon.purple{ background: rgba(167,139,250,.1); color: #a78bfa; }
+
+.tool-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary, #f0ede8);
+  margin: 0 0 .25rem;
+  line-height: 1.3;
+}
+.tool-desc {
+  font-size: .83rem;
+  color: var(--text-secondary, #9996a0);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* Card footer: favoritar + acessar */
+.tool-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  margin-top: auto;
+  padding-top: .9rem;
+  border-top: 1px solid var(--border, rgba(255,255,255,.07));
+}
+
+/* Botão favoritar */
+.btn-fav {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: .35rem .5rem;
+  border-radius: 8px;
+  color: var(--text-muted, #5a5768);
+  font-size: .85rem;
+  display: flex; align-items: center; gap: .4rem;
+  transition: color .15s, background .15s;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .78rem;
+}
+.btn-fav:hover { background: rgba(255,255,255,.05); color: var(--gold,#c9a84c); }
+.btn-fav.active { color: var(--gold,#c9a84c); }
+.btn-fav.active i { font-weight: 900; }
+
+/* Botão acessar */
+.btn-access {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  background: var(--gold, #c9a84c);
+  color: #0d0d12;
+  font-weight: 700;
+  font-size: .82rem;
+  padding: .5rem 1.1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .15s, transform .15s;
+  white-space: nowrap;
+}
+.btn-access:hover {
+  background: var(--gold-light, #e8c96a);
+  color: #0d0d12;
+  transform: translateY(-1px);
+}
+
+/* ── Search / filter bar ──────────────────────────────────── */
+.hub-search {
+  position: relative;
+  max-width: 460px;
+  margin: 0 auto 2.5rem;
+}
+.hub-search input {
+  width: 100%;
+  background: var(--bg-card, #17171f);
+  border: 1px solid var(--border, rgba(255,255,255,.07));
+  border-radius: 12px;
+  padding: .75rem 1rem .75rem 2.8rem;
+  color: var(--text-primary, #f0ede8);
+  font-family: 'DM Sans', sans-serif;
+  font-size: .9rem;
+  transition: border-color .15s, box-shadow .15s;
+}
+.hub-search input:focus {
+  outline: none;
+  border-color: var(--gold, #c9a84c);
+  box-shadow: 0 0 0 3px rgba(201,168,76,.12);
+}
+.hub-search input::placeholder { color: var(--text-muted, #5a5768); }
+.hub-search i {
+  position: absolute;
+  left: .9rem; top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted, #5a5768);
+  font-size: .85rem;
+  pointer-events: none;
+}
+
+/* ── Favorites banner ─────────────────────────────────────── */
+#fav-banner {
+  display: none;
+  background: rgba(201,168,76,.07);
+  border: 1px solid rgba(201,168,76,.2);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 2rem;
+}
+#fav-banner h3 {
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--gold,#c9a84c);
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  margin-bottom: .6rem;
+}
+#fav-list {
+  display: flex; flex-wrap: wrap; gap: .5rem;
+}
+.fav-chip {
+  background: rgba(201,168,76,.1);
+  border: 1px solid rgba(201,168,76,.18);
+  border-radius: 99px;
+  padding: .3rem .85rem;
+  font-size: .78rem;
+  color: var(--text-primary,#f0ede8);
+  text-decoration: none;
+  transition: background .15s;
+}
+.fav-chip:hover { background: rgba(201,168,76,.2); color: var(--gold,#c9a84c); }
+
+/* ── Interlinking blog articles ───────────────────────────── */
+.hub-articles {
+  padding: 3rem 0;
+  border-top: 1px solid var(--border, rgba(255,255,255,.07));
+}
+.hub-articles h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  color: var(--text-primary,#f0ede8);
+}
+.articles-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: .85rem;
+}
+.article-chip {
+  background: var(--bg-card, #17171f);
+  border: 1px solid var(--border, rgba(255,255,255,.07));
+  border-radius: 10px;
+  padding: .85rem 1rem;
+  text-decoration: none;
+  display: flex; align-items: center; gap: .6rem;
+  transition: border-color .15s, transform .15s;
+  color: var(--text-secondary,#9996a0);
+  font-size: .85rem;
+}
+.article-chip i { color: var(--gold,#c9a84c); font-size: .8rem; flex-shrink: 0; }
+.article-chip:hover { border-color: rgba(201,168,76,.3); transform: translateY(-2px); color: var(--text-primary,#f0ede8); }
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .tools-grid { grid-template-columns: 1fr; }
+  .hub-stats { gap: 1.5rem; }
+  .hub-hero h1 { font-size: 1.9rem; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ══════════════════════════════════════════════════
+     HEADER — idêntico ao padrão do site
+══════════════════════════════════════════════════ -->
+<header class="header">
+<div class="container header-container">
+<div class="logo">
+<h1><a href="/index.html">Cérebro Milionário</a></h1>
+</div>
+<button aria-expanded="false" aria-label="Abrir menu" class="mobile-menu-btn">
+<i class="fas fa-bars"></i>
+</button>
+<nav class="navigation" id="primary-navigation">
+<ul class="nav-menu">
+<li><a href="/index.html">Home</a></li>
+<li><a href="/ferramentas.html" class="active">Ferramentas</a></li>
+<li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+<li><a href="/aposentadoria.html">Aposentadoria</a></li>
+<li><a href="/blog.html">Blog</a></li>
+<li><a href="/sobre.html">Sobre</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<main>
+
+<!-- ══════════════════════════════════════════════════
+     HERO SECTION
+══════════════════════════════════════════════════ -->
+<section class="hub-hero">
+<div class="container">
+  <div class="hub-hero-badge">
+    <i class="fas fa-tools"></i>
+    Hub de Ferramentas Financeiras
+  </div>
+
+  <h1>Ferramentas do <span>Investidor Profissional</span></h1>
+
+  <p>Simuladores e calculadoras para acelerar sua jornada rumo ao primeiro milhão.
+     Tudo gratuito, sem cadastro e com resultados em segundos.</p>
+
+  <!-- Barra de busca das ferramentas -->
+  <div class="hub-search">
+    <i class="fas fa-search"></i>
+    <input id="hub-search-input" type="text"
+           placeholder="Buscar ferramenta: dividendos, valuation, IR…"
+           aria-label="Buscar ferramenta"/>
+  </div>
+
+  <!-- Métricas de credibilidade -->
+  <div class="hub-stats">
+    <div class="hub-stat">
+      <strong>8</strong>
+      <span>Ferramentas</span>
+    </div>
+    <div class="hub-stat">
+      <strong>100%</strong>
+      <span>Gratuito</span>
+    </div>
+    <div class="hub-stat">
+      <strong>0</strong>
+      <span>Cadastros exigidos</span>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     ANÚNCIO — abaixo do hero
+══════════════════════════════════════════════════ -->
+<div class="container">
+<div class="ad-wrap">
+  <span class="ad-label">Publicidade</span>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-4613426749830025"
+       data-ad-slot="9876543230"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     FAVORITOS (aparece quando há itens salvos)
+══════════════════════════════════════════════════ -->
+<div class="container">
+  <div id="fav-banner">
+    <h3><i class="fas fa-star" style="margin-right:.4rem;"></i>Suas Ferramentas Favoritas</h3>
+    <div id="fav-list"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SEÇÃO 1 — 💰 RENDA PASSIVA
+══════════════════════════════════════════════════ -->
+<section class="hub-section" id="renda-passiva" aria-labelledby="sec-renda-passiva">
+<div class="container">
+  <div class="hub-section-header">
+    <div class="hub-section-icon gold">
+      <i class="fas fa-coins"></i>
+    </div>
+    <div>
+      <h2 class="hub-section-title" id="sec-renda-passiva">💰 Renda Passiva</h2>
+      <p class="hub-section-sub">Simule dividendos, independência financeira e liberdade do trabalho</p>
+    </div>
+  </div>
+
+  <div class="tools-grid">
+
+    <!-- Card: Simulador de Dividendos -->
+    <div class="tool-card popular" data-name="simulador dividendos renda passiva fiis ações" data-href="/simulador-dividendos.html">
+      <div class="tool-card-top">
+        <div class="tool-icon gold"><i class="fas fa-hand-holding-dollar"></i></div>
+        <div>
+          <h3 class="tool-name">Simulador de Dividendos</h3>
+          <p class="tool-desc">Calcule quanto você receberá por mês investindo em ações e FIIs pagadores de dividendos. Projete sua renda passiva mensal.</p>
+        </div>
+      </div>
+      <div class="tool-card-footer">
+        <button class="btn-fav" data-tool="dividendos" data-label="Simulador de Dividendos" data-href="/simulador-dividendos.html" onclick="toggleFav(this)" aria-label="Favoritar">
+          <i class="far fa-star"></i> Favoritar
+        </button>
+        <a href="/simulador-dividendos.html" class="btn-access">Acessar <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Card: Simulador FIRE -->
+    <div class="tool-card popular" data-name="simulador fire aposentadoria independência financeira" data-href="/aposentadoria.html">
+      <div class="tool-card-top">
+        <div class="tool-icon green"><i class="fas fa-fire-flame-curved"></i></div>
+        <div>
+          <h3 class="tool-name">Simulador FIRE (Aposentadoria)</h3>
+          <p class="tool-desc">Descubra quando você pode se aposentar. Calcule patrimônio alvo, aportes necessários e projeção em valores de hoje.</p>
+        </div>
+      </div>
+      <div class="tool-card-footer">
+        <button class="btn-fav" data-tool="fire" data-label="Simulador FIRE" data-href="/aposentadoria.html" onclick="toggleFav(this)" aria-label="Favoritar">
+          <i class="far fa-star"></i> Favoritar
+        </button>
+        <a href="/aposentadoria.html" class="btn-access">Acessar <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+  </div><!-- /tools-grid -->
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SEÇÃO 2 — 📈 CRESCIMENTO DE PATRIMÔNIO
+══════════════════════════════════════════════════ -->
+<section class="hub-section" id="crescimento" aria-labelledby="sec-crescimento">
+<div class="container">
+  <div class="hub-section-header">
+    <div class="hub-section-icon green">
+      <i class="fas fa-chart-line"></i>
+    </div>
+    <div>
+      <h2 class="hub-section-title" id="sec-crescimento">📈 Crescimento de Patrimônio</h2>
+      <p class="hub-section-sub">Simule aportes, juros compostos e construção de carteira ao longo do tempo</p>
+    </div>
+  </div>
+
+  <div class="tools-grid">
+
+    <!-- Card: Calculadora de Juros Compostos -->
+    <div class="tool-card popular" data-name="calculadora juros compostos aportes rentabilidade" data-href="/calculadora.html">
+      <div class="tool-card-top">
+        <div class="tool-icon green"><i class="fas fa-calculator"></i></div>
+        <div>
+          <h3 class="tool-name">Calculadora de Juros Compostos</h3>
+          <p class="tool-desc">Simule o crescimento do seu patrimônio com aportes regulares, taxas e prazos variados. Veja o poder dos juros compostos no tempo.</p>
+        </div>
+      </div>
+      <div class="tool-card-footer">
+        <button class="btn-fav" data-tool="juros" data-label="Calculadora de Juros" data-href="/calculadora.html" onclick="toggleFav(this)" aria-label="Favoritar">
+          <i class="far fa-star"></i> Favoritar
+        </button>
+        <a href="/calculadora.html" class="btn-access">Acessar <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Card: Simulador de Carteira -->
+    <div class="tool-card new-badge" data-name="simulador carteira alocação portfólio diversificação" data-href="/simulador-carteira.html">
+      <div class="tool-card-top">
+        <div class="tool-icon blue"><i class="fas fa-chart-pie"></i></div>
+        <div>
+          <h3 class="tool-name">Simulador de Carteira</h3>
+          <p class="tool-desc">Monte sua carteira de investimentos com diferentes ativos, veja a alocação ideal e simule o desempenho em vários cenários.</p>
+        </div>
+      </div>
+      <div class="tool-card-footer">
+        <button class="btn-fav" data-tool="carteira" data-label="Simulador de Carteira" data-href="/simulador-carteira.html" onclick="toggleFav(this)" aria-label="Favoritar">
+          <i class="far fa-star"></i> Favoritar
+        </button>
+        <a href="/simulador-carteira.html" class="btn-access">Acessar <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     ANÚNCIO — entre categorias
+══════════════════════════════════════════════════ -->
+<div class="container">
+<div class="ad-wrap">
+  <span class="ad-label">Publicidade</span>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-4613426749830025"
+       data-ad-slot="9876543231"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SEÇÃO 3 — 📊 ANÁLISE DE INVESTIMENTOS
+══════════════════════════════════════════════════ -->
+<section class="hub-section" id="analise" aria-labelledby="sec-analise">
+<div class="container">
+  <div class="hub-section-header">
+    <div class="hub-section-icon blue">
+      <i class="fas fa-magnifying-glass-chart"></i>
+    </div>
+    <div>
+      <h2 class="hub-section-title" id="sec-analise">📊 Análise de Investimentos</h2>
+      <p class="hub-section-sub">Compare produtos, calcule valuation e tome decisões com mais precisão</p>
+    </div>
+  </div>
+
+  <div class="tools-grid">
+
+    <!-- Card: Calculadora de Valuation -->
+    <div class="tool-card new-badge" data-name="valuation ações preço teto P/L empresas bolsa" data-href="/calculadora-valuation.html">
+      <div class="tool-card-top">
+        <div class="tool-icon purple"><i class="fas fa-scale-balanced"></i></div>
+        <div>
+          <h3 class="tool-name">Calculadora de Valuation</h3>
+          <p class="tool-desc">Calcule o preço justo de uma ação usando múltiplos de valuation: P/L, P/VP, EV/EBITDA e Dividend Yield. Descubra se está barata ou cara.</p>
+        </div>
+      </div>
+      <div class="tool-card-footer">
+        <button class="btn-fav" data-tool="valuation" data-label="Calculadora de Valuation" data-href="/calculadora-valuation.html" onclick="toggleFav(this)" aria-label="Favoritar">
+          <i class="far fa-star"></i> Favoritar
+        </button>
+        <a href="/calculadora-valuation.html" class="btn-access">Acessar <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Card: Comparador CDB vs LCI/LCA -->
+    <div class="tool-card popular" data-name="comparador CDB LCI LCA renda fixa rendimento líquido IR" data-href="/comparador-cdb-lci-lca.html">
+      <div class="tool-card-top">
+        <div class="tool-icon gold"><i class="fas fa-arrows-left-right"></i></div>
+        <div>
+          <h3 class="tool-name">Comparador CDB vs LCI/LCA</h3>
+          <p class="tool-desc">Compare o rendimento líquido de CDB, LCI e LCA considerando IR regressivo, IOF e equivalência de taxas. Decida com dados, não com achismo.</p>
+        </div>
+      </div>
+      <div class="tool-card-footer">
+        <button class="btn-fav" data-tool="comparador-cdb" data-label="Comparador CDB/LCI" data-href="/comparador-cdb-lci-lca.html" onclick="toggleFav(this)" aria-label="Favoritar">
+          <i class="far fa-star"></i> Favoritar
+        </button>
+        <a href="/comparador-cdb-lci-lca.html" class="btn-access">Acessar <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Card: Comparador de Investimentos -->
+    <div class="tool-card new-badge" data-name="comparador investimentos renda fixa variável comparar" data-href="/comparador-investimentos.html">
+      <div class="tool-card-top">
+        <div class="tool-icon blue"><i class="fas fa-sliders"></i></div>
+        <div>
+          <h3 class="tool-name">Comparador de Investimentos</h3>
+          <p class="tool-desc">Compare diferentes classes de ativos lado a lado: renda fixa, ETFs, FIIs e ações. Veja qual entrega mais no seu horizonte de tempo.</p>
+        </div>
+      </div>
+      <div class="tool-card-footer">
+        <button class="btn-fav" data-tool="comparador-inv" data-label="Comparador de Investimentos" data-href="/comparador-investimentos.html" onclick="toggleFav(this)" aria-label="Favoritar">
+          <i class="far fa-star"></i> Favoritar
+        </button>
+        <a href="/comparador-investimentos.html" class="btn-access">Acessar <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SEÇÃO 4 — 🧾 IMPOSTOS
+══════════════════════════════════════════════════ -->
+<section class="hub-section" id="impostos" aria-labelledby="sec-impostos">
+<div class="container">
+  <div class="hub-section-header">
+    <div class="hub-section-icon red">
+      <i class="fas fa-receipt"></i>
+    </div>
+    <div>
+      <h2 class="hub-section-title" id="sec-impostos">🧾 Impostos</h2>
+      <p class="hub-section-sub">Calcule IR, DARF e minimize o impacto fiscal nos seus investimentos</p>
+    </div>
+  </div>
+
+  <div class="tools-grid">
+
+    <!-- Card: Calculadora IR Bolsa -->
+    <div class="tool-card new-badge" data-name="IR bolsa ações DARF day trade swing trade imposto" data-href="/calculadora-ir-bolsa.html">
+      <div class="tool-card-top">
+        <div class="tool-icon red"><i class="fas fa-file-invoice-dollar"></i></div>
+        <div>
+          <h3 class="tool-name">Calculadora de IR Bolsa</h3>
+          <p class="tool-desc">Calcule o imposto de renda sobre operações em bolsa: ações, ETFs e FIIs. Apure swing trade, day trade e verifique a isenção dos R$ 20 mil.</p>
+        </div>
+      </div>
+      <div class="tool-card-footer">
+        <button class="btn-fav" data-tool="ir-bolsa" data-label="Calculadora IR Bolsa" data-href="/calculadora-ir-bolsa.html" onclick="toggleFav(this)" aria-label="Favoritar">
+          <i class="far fa-star"></i> Favoritar
+        </button>
+        <a href="/calculadora-ir-bolsa.html" class="btn-access">Acessar <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Card: Calculadora IR Renda Fixa -->
+    <div class="tool-card popular" data-name="IR renda fixa CDB IOF tabela regressiva líquido" data-href="/calculadora-ir-renda-fixa.html">
+      <div class="tool-card-top">
+        <div class="tool-icon red"><i class="fas fa-percent"></i></div>
+        <div>
+          <h3 class="tool-name">Calculadora de IR Renda Fixa</h3>
+          <p class="tool-desc">Simule o rendimento líquido de CDB, Tesouro e fundos após IR regressivo e IOF. Saiba exatamente quanto sobra no bolso.</p>
+        </div>
+      </div>
+      <div class="tool-card-footer">
+        <button class="btn-fav" data-tool="ir-rf" data-label="Calculadora IR Renda Fixa" data-href="/calculadora-ir-renda-fixa.html" onclick="toggleFav(this)" aria-label="Favoritar">
+          <i class="far fa-star"></i> Favoritar
+        </button>
+        <a href="/calculadora-ir-renda-fixa.html" class="btn-access">Acessar <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     INTERLINKING — artigos do blog relevantes
+══════════════════════════════════════════════════ -->
+<section class="hub-articles">
+<div class="container">
+  <h2>📚 Leitura complementar</h2>
+  <p style="color:var(--text-secondary);font-size:.9rem;margin-bottom:1.25rem;">
+    Artigos do blog para você entender o que está simulando e tomar melhores decisões.
+  </p>
+  <div class="articles-row">
+    <a href="/posts/tesouro-direto-para-iniciantes-guia-completo-2026.html" class="article-chip">
+      <i class="fas fa-book-open"></i> Tesouro Direto: guia completo 2026
+    </a>
+    <a href="/posts/fiis-vs-acoes-qual-gera-mais-renda-passiva.html" class="article-chip">
+      <i class="fas fa-book-open"></i> FIIs vs Ações: qual gera mais renda?
+    </a>
+    <a href="/posts/quanto-precisa-para-viver-de-renda-no-brasil.html" class="article-chip">
+      <i class="fas fa-book-open"></i> Quanto precisa para viver de renda?
+    </a>
+    <a href="/posts/selic-em-queda-o-que-fazer-com-renda-fixa.html" class="article-chip">
+      <i class="fas fa-book-open"></i> Selic em queda: o que fazer?
+    </a>
+    <a href="/posts/vt-etf-vanguard-total-world-stock-guia-completo.html" class="article-chip">
+      <i class="fas fa-book-open"></i> VT ETF: guia para brasileiros
+    </a>
+    <a href="/posts/como-declarar-acoes-imposto-de-renda-2026.html" class="article-chip">
+      <i class="fas fa-book-open"></i> Como declarar ações no IR 2026
+    </a>
+    <a href="/posts/o-poder-dos-juros-compostos.html" class="article-chip">
+      <i class="fas fa-book-open"></i> O poder dos juros compostos
+    </a>
+    <a href="/posts/construcao-patrimonio-independencia-financeira-2026_MAX.html" class="article-chip">
+      <i class="fas fa-book-open"></i> Construção de patrimônio 2026
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     ANÚNCIO — final da página
+══════════════════════════════════════════════════ -->
+<div class="container">
+<div class="ad-wrap">
+  <span class="ad-label">Publicidade</span>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-4613426749830025"
+       data-ad-slot="9876543232"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</div>
+
+</main>
+
+<!-- ══════════════════════════════════════════════════
+     FOOTER — idêntico ao padrão do site
+══════════════════════════════════════════════════ -->
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-column">
+<h3 class="footer-logo">Cérebro Milionário</h3>
+<p class="footer-text">Educação financeira com profundidade técnica e experiência real de mercado. Renda fixa, ETFs, FIIs e ações.</p>
+<div class="social-links">
+<a href="https://t.me/cerebromillionario" target="_blank" class="social-link" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+<a href="https://www.instagram.com/cerebromillionario/" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+<a href="https://youtube.com/@cerebromillionario" target="_blank" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+</div>
+</div>
+<div class="footer-column">
+<h4 class="footer-heading">Ferramentas</h4>
+<ul class="footer-links">
+<li><a href="/calculadora.html">Calculadora de Juros</a></li>
+<li><a href="/comparador-cdb-lci-lca.html">Comparador CDB/LCI</a></li>
+<li><a href="/calculadora-ir-renda-fixa.html">Calculadora IR</a></li>
+<li><a href="/aposentadoria.html">Simulador Aposentadoria</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4 class="footer-heading">Conteúdo</h4>
+<ul class="footer-links">
+<li><a href="/blog.html">Blog</a></li>
+<li><a href="/glossario-financeiro.html">Glossário</a></li>
+<li><a href="/perguntas-frequentes.html">FAQ</a></li>
+<li><a href="/guia-iniciantes.html">Guia Iniciantes</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4 class="footer-heading">Institucional</h4>
+<ul class="footer-links">
+<li><a href="/sobre.html">Sobre</a></li>
+<li><a href="/contato.html">Contato</a></li>
+<li><a href="/politica-privacidade.html">Privacidade</a></li>
+<li><a href="/termos-uso.html">Termos de Uso</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+<div style="display:flex;gap:1rem;">
+<a href="/politica-privacidade.html">Privacidade</a>
+<a href="/termos-uso.html">Termos</a>
+<a href="/contato.html">Contato</a>
+</div>
+</div>
+</div>
+</footer>
+
+<!-- ══════════════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════════════ -->
+<script src="/js/main.js"></script>
+
+<script>
+/* ─────────────────────────────────────────────────
+   FAVORITOS — persistência via localStorage
+───────────────────────────────────────────────── */
+
+// Carrega favoritos salvos
+function loadFavs() {
+  try {
+    return JSON.parse(localStorage.getItem('cm_favs') || '[]');
+  } catch { return []; }
+}
+
+// Salva favoritos
+function saveFavs(favs) {
+  localStorage.setItem('cm_favs', JSON.stringify(favs));
+}
+
+// Alterna favorito ao clicar no botão
+function toggleFav(btn) {
+  const tool  = btn.dataset.tool;
+  const label = btn.dataset.label;
+  const href  = btn.dataset.href;
+  let favs    = loadFavs();
+  const idx   = favs.findIndex(f => f.tool === tool);
+
+  if (idx === -1) {
+    // Adiciona
+    favs.push({ tool, label, href });
+    btn.classList.add('active');
+    btn.innerHTML = '<i class="fas fa-star"></i> Salvo';
+  } else {
+    // Remove
+    favs.splice(idx, 1);
+    btn.classList.remove('active');
+    btn.innerHTML = '<i class="far fa-star"></i> Favoritar';
+  }
+  saveFavs(favs);
+  renderFavBanner();
+}
+
+// Renderiza o banner de favoritos no topo
+function renderFavBanner() {
+  const favs   = loadFavs();
+  const banner = document.getElementById('fav-banner');
+  const list   = document.getElementById('fav-list');
+
+  if (!favs.length) {
+    banner.style.display = 'none';
+    return;
+  }
+  banner.style.display = 'block';
+  list.innerHTML = favs.map(f =>
+    `<a href="${f.href}" class="fav-chip"><i class="fas fa-tools" style="margin-right:.35rem;font-size:.7rem;"></i>${f.label}</a>`
+  ).join('');
+}
+
+// Aplica estado inicial dos botões
+function initFavButtons() {
+  const favs = loadFavs();
+  document.querySelectorAll('.btn-fav').forEach(btn => {
+    if (favs.find(f => f.tool === btn.dataset.tool)) {
+      btn.classList.add('active');
+      btn.innerHTML = '<i class="fas fa-star"></i> Salvo';
+    }
+  });
+}
+
+/* ─────────────────────────────────────────────────
+   BUSCA — filtra cards em tempo real
+───────────────────────────────────────────────── */
+function initSearch() {
+  const input = document.getElementById('hub-search-input');
+  if (!input) return;
+
+  input.addEventListener('input', () => {
+    const query = input.value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.tool-card');
+
+    cards.forEach(card => {
+      const searchable = (card.dataset.name || '') + ' ' +
+                         (card.querySelector('.tool-name')?.textContent || '') + ' ' +
+                         (card.querySelector('.tool-desc')?.textContent || '');
+      const match = !query || searchable.toLowerCase().includes(query);
+      card.style.display = match ? '' : 'none';
+    });
+
+    // Oculta/mostra seções se todos os cards estiverem ocultos
+    document.querySelectorAll('.hub-section').forEach(sec => {
+      const visible = [...sec.querySelectorAll('.tool-card')]
+                       .some(c => c.style.display !== 'none');
+      sec.style.display = visible ? '' : 'none';
+    });
+  });
+}
+
+/* ─────────────────────────────────────────────────
+   Cards clicáveis inteiros (além do botão)
+───────────────────────────────────────────────── */
+function initCardClick() {
+  document.querySelectorAll('.tool-card').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', e => {
+      // Ignora cliques no botão favoritar
+      if (e.target.closest('.btn-fav')) return;
+      const href = card.dataset.href;
+      if (href) window.location.href = href;
+    });
+  });
+}
+
+/* ─────────────────────────────────────────────────
+   Animação de entrada dos cards (IntersectionObserver)
+───────────────────────────────────────────────── */
+function initCardAnimations() {
+  if (!('IntersectionObserver' in window)) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }, i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.tool-card').forEach(card => {
+    card.style.opacity    = '0';
+    card.style.transform  = 'translateY(20px)';
+    card.style.transition = 'opacity .4s ease, transform .4s ease, border-color .2s ease, box-shadow .2s ease';
+    observer.observe(card);
+  });
+}
+
+/* ─────────────────────────────────────────────────
+   Footer year
+───────────────────────────────────────────────── */
+function initYear() {
+  const el = document.getElementById('current-year');
+  if (el) el.textContent = new Date().getFullYear();
+}
+
+/* ─────────────────────────────────────────────────
+   INIT — executa tudo ao carregar
+───────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  initYear();
+  initFavButtons();
+  renderFavBanner();
+  initSearch();
+  initCardClick();
+  initCardAnimations();
+});
+</script>
+
+</body>
+</html>
