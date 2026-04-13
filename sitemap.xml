@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://cerebromilionario.site/index.html</loc>
+    <loc>https://cerebromilionario.site/</loc>
     <lastmod>2026-02-12</lastmod>
     <priority>1.00</priority>
     </url>
@@ -530,4 +530,34 @@
     <lastmod>2026-03-06</lastmod>
     <priority>0.85</priority>
     </url>
-   </urlset>
+     <url>
+    <loc>https://cerebromilionario.site/posts/selic-em-queda-o-que-fazer-com-renda-fixa.html</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cerebromilionario.site/posts/como-declarar-acoes-imposto-de-renda-2026.html</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cerebromilionario.site/posts/fiis-vs-acoes-qual-gera-mais-renda-passiva.html</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cerebromilionario.site/posts/quanto-precisa-para-viver-de-renda-no-brasil.html</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cerebromilionario.site/posts/tesouro-direto-para-iniciantes-guia-completo-2026.html</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
