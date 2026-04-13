@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Calculadora de IR Bolsa do Cérebro Milionário - Calcule o imposto de renda devido em operações de bolsa. Suporta day trade, swing trade e DARF." name="description"/>
+<meta content="calculadora IR bolsa, imposto renda ações, DARF, day trade, swing trade, IR operações bolsa" name="keywords"/>
+<meta content="Cérebro Milionário" name="author"/>
+<meta content="index, follow" name="robots"/>
+<title>Calculadora de IR Bolsa | Cérebro Milionário</title>
+<meta content="ca-pub-4613426749830025" name="google-adsense-account"/>
+<link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=DM+Serif+Display:ital@0;1&amp;display=swap" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" referrerpolicy="no-referrer" rel="stylesheet"/>
+<link href="/css/style.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://cerebromilionario.site/calculadora-ir-bolsa.html" rel="canonical">
+<meta content="website" property="og:type"/>
+<meta content="https://cerebromilionario.site/calculadora-ir-bolsa.html" property="og:url"/>
+<meta content="Calculadora de IR Bolsa | Cérebro Milionário" property="og:title"/>
+<meta content="Calcule o imposto de renda devido em operações de bolsa de forma rápida e precisa." property="og:description"/>
+<meta content="summary_large_image" property="twitter:card"/>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calculadora de IR Bolsa",
+    "url": "https://cerebromilionario.site/calculadora-ir-bolsa.html",
+    "description": "Calcule o imposto de renda devido em operações de bolsa.",
+    "applicationCategory": "FinanceApplication"
+}
+</script>
+<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025"></script>
+</head>
+<body>
+<header class="header">
+<div class="container header-container">
+<div class="logo">
+<h1><a href="/index.html">Cérebro Milionário</a></h1>
+</div>
+<button aria-expanded="false" aria-label="Abrir menu" class="mobile-menu-btn">
+<i class="fas fa-bars"></i>
+</button>
+<nav class="navigation" id="primary-navigation">
+<ul class="nav-menu">
+<li><a href="/index.html">Home</a></li>
+<li><a href="/calculadora.html">Calculadora</a></li>
+<li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+<li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+<li><a href="/aposentadoria.html">Aposentadoria</a></li>
+<li><a href="/blog.html">Blog</a></li>
+<li><a href="/sobre.html">Sobre</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main>
+<section class="page-header">
+<div class="container">
+<h1>Calculadora de IR Bolsa</h1>
+<p>Calcule o imposto de renda devido em suas operações de bolsa. Suporta day trade, swing trade e operações normais com cálculo automático de DARF.</p>
+</div>
+</section>
+<section class="ad-container adsense-responsive">
+<span class="ad-label">Publicidade</span>
+<ins class="adsbygoogle" data-ad-client="ca-pub-4613426749830025" data-ad-format="auto" data-ad-slot="YOUR_AD_SLOT_ID_1" data-full-width-responsive="true" style="display:block"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</section>
+<section class="section">
+<div class="container">
+<div class="calculator-grid">
+<div class="calculator-card">
+<h2 class="calculator-title">Dados da Operação</h2>
+<div class="form-grid">
+<div class="form-group full">
+<label for="tipoOperacao">Tipo de Operação</label>
+<select class="form-control" id="tipoOperacao">
+<option value="normal">Operação Normal (Swing Trade)</option>
+<option value="dayTrade">Day Trade</option>
+</select>
+</div>
+<div class="form-group">
+<label for="lucroOperacao">Lucro da Operação (R$)</label>
+<input class="form-control" id="lucroOperacao" type="text" value="1000"/>
+</div>
+<div class="form-group">
+<label for="prejuzoAcumulado">Prejuízo Acumulado (R$)</label>
+<input class="form-control" id="prejuzoAcumulado" type="text" value="0"/>
+</div>
+<div class="form-group">
+<label for="mesOperacao">Mês da Operação</label>
+<select class="form-control" id="mesOperacao">
+<option value="1">Janeiro</option>
+<option value="2">Fevereiro</option>
+<option value="3">Março</option>
+<option value="4">Abril</option>
+<option value="5">Maio</option>
+<option value="6">Junho</option>
+<option value="7">Julho</option>
+<option value="8">Agosto</option>
+<option value="9">Setembro</option>
+<option value="10">Outubro</option>
+<option value="11">Novembro</option>
+<option value="12">Dezembro</option>
+</select>
+</div>
+<div class="form-group full">
+<button class="btn btn-primary" id="btnCalcular" style="width: 100%;" type="button">Calcular IR</button>
+</div>
+</div>
+</div>
+<div class="calculator-card">
+<h2 class="calculator-title">Resultado</h2>
+<div class="metrics">
+<div class="metric-card">
+<div class="metric-label">Lucro Tributável</div>
+<div class="metric" id="lucroTributavel">—</div>
+<div class="metric-sub">Após deduções</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Alíquota de IR</div>
+<div class="metric" id="aliquota">—</div>
+<div class="metric-sub">Percentual aplicável</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">IR Devido</div>
+<div class="metric" id="irDevido">—</div>
+<div class="metric-sub">Imposto a pagar</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Código DARF</div>
+<div class="metric" id="codigoDARF">—</div>
+<div class="metric-sub">Para pagamento</div>
+</div>
+</div>
+<div class="tags" id="metaInfo"></div>
+</div>
+</div>
+</section>
+<section class="ad-container adsense-responsive">
+<span class="ad-label">Publicidade</span>
+<ins class="adsbygoogle" data-ad-client="ca-pub-4613426749830025" data-ad-format="auto" data-ad-slot="YOUR_AD_SLOT_ID_2" data-full-width-responsive="true" style="display:block"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</section>
+<section class="features-section">
+<div class="container">
+<div class="section-header">
+<h2>Como Funciona a Calculadora de IR Bolsa</h2>
+<p>Entenda as regras de tributação em operações de bolsa</p>
+</div>
+<div class="features-grid">
+<div class="feature-card animate-fade-in">
+<div class="feature-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+<h3 class="feature-title">Operações Normais</h3>
+<p>Swing trades e operações com prazos maiores têm alíquota de 15% sobre o lucro. Prejuízos podem ser compensados com lucros futuros.</p>
+</div>
+<div class="feature-card animate-fade-in" style="animation-delay: 0.1s;">
+<div class="feature-icon"><i class="fas fa-bolt"></i></div>
+<h3 class="feature-title">Day Trade</h3>
+<p>Operações no mesmo dia têm alíquota de 20% e precisam de apuração diária. Não há compensação automática de prejuízos.</p>
+</div>
+<div class="feature-card animate-fade-in" style="animation-delay: 0.2s;">
+<div class="feature-icon"><i class="fas fa-receipt"></i></div>
+<h3 class="feature-title">DARF</h3>
+<p>Documento de Arrecadação de Receitas Federais. Use o código correto para pagar seu imposto dentro do prazo.</p>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="content-block">
+<h2>Guia Completo: Calculadora de IR Bolsa</h2>
+
+<h3>Introdução à Tributação em Bolsa</h3>
+<p>Um dos aspectos mais importantes para qualquer investidor de bolsa é entender como funciona a tributação. A Receita Federal brasileira cobra imposto de renda sobre os ganhos em operações de bolsa, e as regras variam dependendo do tipo de operação realizada.</p>
+
+<p>A falta de conhecimento sobre essas regras pode resultar em multas pesadas, juros e até processos. Por isso, é fundamental que todo investidor entenda como calcular corretamente o IR devido.</p>
+
+<h3>Tipos de Operações e Alíquotas</h3>
+<p><strong>Operações Normais (Swing Trade):</strong> São operações onde você compra uma ação e vende em um período maior (geralmente dias ou semanas). A alíquota de IR é de 15% sobre o lucro líquido da operação.</p>
+
+<p><strong>Day Trade:</strong> São operações realizadas no mesmo dia útil, onde você compra e vende a mesma ação no mesmo pregão. A alíquota é de 20% e a apuração é feita diariamente.</p>
+
+<p><strong>Operações com Lucro Inferior a R$ 20 mil:</strong> Operações normais com lucro inferior a R$ 20 mil em um mês não são tributadas. No entanto, você ainda precisa informar na declaração de IR.</p>
+
+<h3>Como Funciona a Compensação de Prejuízos</h3>
+<p>Se você teve prejuízo em uma operação, pode compensar com lucros futuros. Para operações normais, os prejuízos podem ser compensados com lucros do mesmo tipo nos meses seguintes.</p>
+
+<p>Para day trade, os prejuízos devem ser compensados apenas com lucros de day trade. Não é possível compensar prejuízo de day trade com lucro de operação normal, e vice-versa.</p>
+
+<h3>Cálculo do Lucro Tributável</h3>
+<p>O lucro tributável não é simplesmente a diferença entre o preço de venda e o preço de compra. Você pode descontar do lucro:</p>
+
+<ul>
+<li><strong>Corretagem:</strong> Taxas cobradas pela corretora</li>
+<li><strong>Emolumentos:</strong> Taxa cobrada pela bolsa</li>
+<li><strong>Impostos:</strong> ISS e outras taxas</li>
+<li><strong>Prejuízos Anteriores:</strong> Prejuízos de meses anteriores não compensados</li>
+</ul>
+
+<h3>Entendendo o DARF</h3>
+<p>DARF é o Documento de Arrecadação de Receitas Federais. É através dele que você faz o pagamento do IR devido em operações de bolsa.</p>
+
+<p>Os códigos DARF mais comuns para operações de bolsa são:</p>
+
+<ul>
+<li><strong>6015:</strong> Imposto sobre operações de bolsa (swing trade)</li>
+<li><strong>6015:</strong> Imposto sobre day trade</li>
+</ul>
+
+<p>O prazo para pagamento é até o último dia útil do mês seguinte ao da operação.</p>
+
+<h3>Exemplo Prático</h3>
+<p>Imagine que você comprou 100 ações de uma empresa por R$ 50 cada (total R$ 5.000) e vendeu por R$ 55 cada (total R$ 5.500).</p>
+
+<p>Lucro bruto: R$ 500</p>
+<p>Menos corretagem (R$ 20) e emolumentos (R$ 5): R$ 475</p>
+<p>IR a 15%: R$ 71,25</p>
+<p>Lucro líquido: R$ 403,75</p>
+
+<h3>Diferenças Entre Operações Normais e Day Trade</h3>
+<p><strong>Operações Normais:</strong></p>
+<ul>
+<li>Alíquota: 15%</li>
+<li>Apuração: Mensal</li>
+<li>Compensação: Prejuízos podem ser compensados com lucros futuros</li>
+<li>Isenção: Lucro inferior a R$ 20 mil/mês</li>
+</ul>
+
+<p><strong>Day Trade:</strong></p>
+<ul>
+<li>Alíquota: 20%</li>
+<li>Apuração: Diária</li>
+<li>Compensação: Apenas com lucros de day trade</li>
+<li>Isenção: Não há isenção</li>
+</ul>
+
+<h3>Regra dos R$ 20 Mil</h3>
+<p>Muitos investidores iniciantes não sabem que operações normais com lucro inferior a R$ 20 mil em um mês não são tributadas. No entanto, essa isenção não se aplica a day trade.</p>
+
+<p>Exemplo: Se você teve lucro de R$ 15 mil em operações normais em janeiro, não precisa pagar IR. Mas se teve R$ 5 mil em day trade, precisa pagar 20% de IR mesmo assim.</p>
+
+<h3>Prazos para Pagamento</h3>
+<p>O prazo para pagamento do IR em operações de bolsa é até o último dia útil do mês seguinte ao da operação. Se você não pagar no prazo, terá que pagar multa e juros.</p>
+
+<p>Por exemplo, se você realizou operações em janeiro, o prazo para pagamento é até o último dia útil de fevereiro.</p>
+
+<h3>Erros Comuns ao Calcular IR</h3>
+<p><strong>Erro 1:</strong> Não descontar corretagem e emolumentos. Esses custos reduzem o lucro tributável.</p>
+
+<p><strong>Erro 2:</strong> Confundir operações normais com day trade. As alíquotas e regras são diferentes.</p>
+
+<p><strong>Erro 3:</strong> Não compensar prejuízos. Se você teve prejuízo em um mês, pode compensar com lucro no mês seguinte.</p>
+
+<p><strong>Erro 4:</strong> Esquecer de informar na declaração de IR. Mesmo com isenção, você precisa informar as operações.</p>
+
+<h3>Dicas para Otimizar Sua Tributação</h3>
+<p><strong>Planeje Suas Operações:</strong> Se você está próximo do limite de R$ 20 mil em operações normais, considere adiar algumas operações para o mês seguinte.</p>
+
+<p><strong>Mantenha Registros:</strong> Guarde todos os comprovantes de operação, corretagem e impostos pagos. Isso é importante para a declaração de IR.</p>
+
+<p><strong>Considere o Timing:</strong> Se você teve prejuízo em um mês, pode ser vantajoso realizar lucros no mês seguinte para compensar.</p>
+
+<p><strong>Consulte um Especialista:</strong> Para operações complexas ou valores altos, considere consultar um contador ou especialista em IR.</p>
+
+<h3>Ferramentas Relacionadas</h3>
+<p>Confira também nossas outras ferramentas:</p>
+<ul>
+<li><a href="/calculadora-ir-renda-fixa.html">Calculadora de IR Renda Fixa</a> - Para investimentos em renda fixa</li>
+<li><a href="/calculadora.html">Calculadora de Juros Compostos</a> - Para planejamento de investimentos</li>
+<li><a href="/simulador-carteira.html">Simulador de Carteira</a> - Para diversificação</li>
+</ul>
+</div>
+</section>
+<section class="ad-container adsense-responsive">
+<span class="ad-label">Publicidade</span>
+<ins class="adsbygoogle" data-ad-client="ca-pub-4613426749830025" data-ad-format="auto" data-ad-slot="YOUR_AD_SLOT_ID_3" data-full-width-responsive="true" style="display:block"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-column">
+<h3 class="footer-logo">Cérebro Milionário</h3>
+<p class="footer-text">Educação financeira com profundidade técnica e experiência real de mercado. Renda fixa, ETFs, FIIs e ações.</p>
+<div class="social-links">
+<a href="https://t.me/cerebromillionario" target="_blank" class="social-link" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+<a href="https://www.instagram.com/cerebromillionario/" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+<a href="https://youtube.com/@cerebromillionario" target="_blank" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+</div>
+</div>
+<div class="footer-column">
+<h4 class="footer-heading">Ferramentas</h4>
+<ul class="footer-links">
+<li><a href="/calculadora.html">Calculadora de Juros</a></li>
+<li><a href="/comparador-cdb-lci-lca.html">Comparador CDB/LCI</a></li>
+<li><a href="/calculadora-ir-renda-fixa.html">Calculadora IR</a></li>
+<li><a href="/aposentadoria.html">Simulador Aposentadoria</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4 class="footer-heading">Conteúdo</h4>
+<ul class="footer-links">
+<li><a href="/blog.html">Blog</a></li>
+<li><a href="/glossario-financeiro.html">Glossário</a></li>
+<li><a href="/perguntas-frequentes.html">FAQ</a></li>
+<li><a href="/guia-iniciantes.html">Guia Iniciantes</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4 class="footer-heading">Institucional</h4>
+<ul class="footer-links">
+<li><a href="/sobre.html">Sobre</a></li>
+<li><a href="/contato.html">Contato</a></li>
+<li><a href="/politica-privacidade.html">Privacidade</a></li>
+<li><a href="/termos-uso.html">Termos de Uso</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+<div style="display:flex;gap:1rem;">
+<a href="/politica-privacidade.html">Privacidade</a>
+<a href="/termos-uso.html">Termos</a>
+<a href="/contato.html">Contato</a>
+</div>
+</div>
+</div>
+</footer>
+<script src="/js/main.js"></script>
+<script src="/js/calculadora-ir-bolsa.js"></script>
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Simulador de Dividendos do Cérebro Milionário - Calcule sua renda passiva com dividendos. Veja quanto você pode ganhar mensalmente e anualmente com investimentos em ações que pagam dividendos." name="description"/>
+<meta content="simulador dividendos, renda passiva, dividendos ações, calculadora dividendos, yield dividendos" name="keywords"/>
+<meta content="Cérebro Milionário" name="author"/>
+<meta content="index, follow" name="robots"/>
+<title>Simulador de Dividendos | Cérebro Milionário</title>
+<meta content="ca-pub-4613426749830025" name="google-adsense-account"/>
+<!-- Favicon -->
+<link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=DM+Serif+Display:ital@0;1&amp;display=swap" rel="stylesheet"/>
+<!-- Font Awesome -->
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" referrerpolicy="no-referrer" rel="stylesheet"/>
+<!-- CSS -->
+<link href="/css/style.css" rel="stylesheet"/>
+<!-- Chart.js para gráficos -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Canonical URL -->
+<link href="https://cerebromilionario.site/simulador-dividendos.html" rel="canonical">
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="https://cerebromilionario.site/simulador-dividendos.html" property="og:url"/>
+<meta content="Simulador de Dividendos | Cérebro Milionário" property="og:title"/>
+<meta content="Calcule sua renda passiva com dividendos. Veja quanto você pode ganhar mensalmente com investimentos em ações." property="og:description"/>
+<meta content="https://cerebromilionario.site/images/og-dividendos.jpg" property="og:image"/>
+<!-- Twitter -->
+<meta content="summary_large_image" property="twitter:card"/>
+<meta content="https://cerebromilionario.site/simulador-dividendos.html" property="twitter:url"/>
+<meta content="Simulador de Dividendos | Cérebro Milionário" property="twitter:title"/>
+<meta content="Calcule sua renda passiva com dividendos. Veja quanto você pode ganhar mensalmente com investimentos em ações." property="twitter:description"/>
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Simulador de Dividendos",
+    "url": "https://cerebromilionario.site/simulador-dividendos.html",
+    "description": "Simule sua renda passiva com dividendos e veja quanto você pode ganhar mensalmente.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Cérebro Milionário",
+        "url": "https://cerebromilionario.site/"
+    }
+}
+</script>
+<!-- Google AdSense -->
+<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025"></script>
+</head>
+<body>
+<!-- Header -->
+<header class="header">
+<div class="container header-container">
+<div class="logo">
+<h1><a href="/index.html">Cérebro Milionário</a></h1>
+</div>
+<button aria-expanded="false" aria-label="Abrir menu" class="mobile-menu-btn">
+<i class="fas fa-bars"></i>
+</button>
+<nav class="navigation" id="primary-navigation">
+<ul class="nav-menu">
+<li><a href="/index.html">Home</a></li>
+<li><a href="/calculadora.html">Calculadora</a></li>
+<li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+<li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+<li><a href="/aposentadoria.html">Aposentadoria</a></li>
+<li><a href="/blog.html">Blog</a></li>
+<li><a href="/sobre.html">Sobre</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="page-header">
+<div class="container">
+<h1>Simulador de Dividendos</h1>
+<p>Calcule sua renda passiva com dividendos. Descubra quanto você pode ganhar mensalmente e anualmente investindo em ações que pagam dividendos.</p>
+</div>
+</section>
+<!-- AdSense Unit - Top -->
+<section class="ad-container adsense-responsive">
+<span class="ad-label">Publicidade</span>
+<ins class="adsbygoogle" data-ad-client="ca-pub-4613426749830025" data-ad-format="auto" data-ad-slot="YOUR_AD_SLOT_ID_1" data-full-width-responsive="true" style="display:block"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</section>
+<!-- Calculator Section -->
+<section class="section">
+<div class="container">
+<div class="calculator-grid dividend-grid">
+<!-- Input Card -->
+<div class="calculator-card">
+<h2 class="calculator-title">Dados da Simulação</h2>
+<div class="form-grid">
+<div class="form-group">
+<label for="investimentoInicial">Investimento Inicial (R$)</label>
+<input class="form-control" id="investimentoInicial" min="0" type="text" value="10000"/>
+</div>
+<div class="form-group">
+<label for="aporteMensal">Aporte Mensal (R$)</label>
+<input class="form-control" id="aporteMensal" min="0" type="text" value="500"/>
+</div>
+<div class="form-group">
+<label for="dividendYield">Dividend Yield Anual (%)</label>
+<input class="form-control" id="dividendYield" min="0" step="0.1" type="number" value="6"/>
+</div>
+<div class="form-group">
+<label for="crescimentoDividendo">Crescimento Anual dos Dividendos (%)</label>
+<input class="form-control" id="crescimentoDividendo" min="0" step="0.1" type="number" value="3"/>
+</div>
+<div class="form-group">
+<label for="periodoSimulacao">Período de Simulação (anos)</label>
+<input class="form-control" id="periodoSimulacao" max="50" min="1" type="number" value="20"/>
+</div>
+<div class="form-group">
+<label for="inflacao">Inflação Anual Esperada (%)</label>
+<input class="form-control" id="inflacao" min="0" step="0.1" type="number" value="4"/>
+</div>
+<div class="form-group full">
+<button class="btn btn-primary" id="btnSimular" style="width: 100%;" type="button">Simular</button>
+</div>
+</div>
+</div>
+<!-- Results Card -->
+<div class="calculator-card">
+<h2 class="calculator-title">Resultado da Simulação</h2>
+<div class="metrics">
+<div class="metric-card">
+<div class="metric-label">Patrimônio Total</div>
+<div class="metric" id="patrimonioTotal">—</div>
+<div class="metric-sub">Valor acumulado com aportes</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Renda Mensal (Dividendos)</div>
+<div class="metric" id="rendaMensal">—</div>
+<div class="metric-sub">Em valores de hoje</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Renda Anual (Dividendos)</div>
+<div class="metric" id="rendaAnual">—</div>
+<div class="metric-sub">Renda passiva anual</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Total de Dividendos</div>
+<div class="metric" id="totalDividendos">—</div>
+<div class="metric-sub">Acumulado durante o período</div>
+</div>
+</div>
+<div class="tags" id="metaInfo"></div>
+<div class="chart-wrap">
+<canvas id="chartDividendos"></canvas>
+</div>
+</div>
+</div>
+</section>
+<!-- AdSense Unit - Middle -->
+<section class="ad-container adsense-responsive">
+<span class="ad-label">Publicidade</span>
+<ins class="adsbygoogle" data-ad-client="ca-pub-4613426749830025" data-ad-format="auto" data-ad-slot="YOUR_AD_SLOT_ID_2" data-full-width-responsive="true" style="display:block"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</section>
+<!-- Explanation Section -->
+<section class="features-section">
+<div class="container">
+<div class="section-header">
+<h2>Como Funciona o Simulador de Dividendos</h2>
+<p>Entenda os conceitos fundamentais por trás da renda passiva com dividendos</p>
+</div>
+<div class="features-grid">
+<div class="feature-card animate-fade-in">
+<div class="feature-icon"><i class="fas fa-coins"></i></div>
+<h3 class="feature-title">O Que São Dividendos</h3>
+<p>Dividendos são parcelas do lucro de uma empresa distribuídas aos acionistas. Quando você investe em ações que pagam dividendos, você recebe uma parte do lucro da empresa regularmente, geralmente trimestralmente.</p>
+</div>
+<div class="feature-card animate-fade-in" style="animation-delay: 0.1s;">
+<div class="feature-icon"><i class="fas fa-percent"></i></div>
+<h3 class="feature-title">Dividend Yield</h3>
+<p>O Dividend Yield é a taxa de retorno em dividendos sobre o valor investido. Por exemplo, um yield de 6% significa que você recebe 6% do valor investido em dividendos ao longo do ano.</p>
+</div>
+<div class="feature-card animate-fade-in" style="animation-delay: 0.2s;">
+<div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+<h3 class="feature-title">Crescimento de Dividendos</h3>
+<p>Empresas saudáveis tendem a aumentar seus dividendos ao longo do tempo. Este simulador leva em conta um crescimento anual esperado dos dividendos.</p>
+</div>
+</div>
+</section>
+<!-- Content Section -->
+<section class="section">
+<div class="container">
+<div class="content-block">
+<h2>Guia Completo: Simulador de Dividendos</h2>
+
+<h3>Introdução à Renda Passiva com Dividendos</h3>
+<p>Um dos objetivos principais de todo investidor é alcançar a independência financeira, e uma das melhores formas de fazer isso é através da renda passiva gerada por dividendos. O Simulador de Dividendos do Cérebro Milionário foi desenvolvido para ajudá-lo a entender exatamente quanto você pode ganhar investindo em ações que pagam dividendos regularmente.</p>
+
+<p>Dividendos são uma forma de retorno sobre investimento onde a empresa compartilha seus lucros com os acionistas. Diferentemente de ganhos de capital (que dependem de você vender a ação por um preço maior), os dividendos são uma renda recorrente que você recebe simplesmente por ser acionista da empresa.</p>
+
+<h3>Como Funciona o Simulador</h3>
+<p>O simulador leva em consideração vários fatores importantes para calcular sua renda com dividendos:</p>
+
+<ul>
+<li><strong>Investimento Inicial:</strong> O valor que você já tem investido em ações que pagam dividendos.</li>
+<li><strong>Aporte Mensal:</strong> O valor que você pretende investir mensalmente em novas ações.</li>
+<li><strong>Dividend Yield:</strong> A taxa de retorno em dividendos. Por exemplo, 6% ao ano.</li>
+<li><strong>Crescimento dos Dividendos:</strong> O aumento esperado nos dividendos ao longo do tempo.</li>
+<li><strong>Período de Simulação:</strong> Quantos anos você deseja simular.</li>
+<li><strong>Inflação:</strong> Ajusta os valores para refletir o poder de compra real.</li>
+</ul>
+
+<h3>Interpretando os Resultados</h3>
+<p>Após executar a simulação, você verá quatro métricas principais:</p>
+
+<p><strong>Patrimônio Total:</strong> Este é o valor total acumulado de suas ações ao final do período. Inclui seu investimento inicial, todos os aportes mensais, e o crescimento através dos dividendos reinvestidos.</p>
+
+<p><strong>Renda Mensal:</strong> A quantidade de dividendos que você receberá mensalmente ao final do período. Este valor é calculado em "valores de hoje", ou seja, ajustado pela inflação para refletir o poder de compra real.</p>
+
+<p><strong>Renda Anual:</strong> A renda passiva anual que você terá ao final do período. Multiplicando este valor por 12, você obtém a renda mensal.</p>
+
+<p><strong>Total de Dividendos:</strong> A quantidade total de dividendos que você terá recebido durante todo o período de simulação.</p>
+
+<h3>Exemplo Prático</h3>
+<p>Imagine que você tenha R$ 10.000 investidos em ações com um dividend yield de 6% ao ano. Isso significa que você receberá R$ 600 em dividendos no primeiro ano, ou R$ 50 por mês. Se você adicionar R$ 500 mensais e o dividend yield crescer 3% ao ano, em 20 anos você terá um patrimônio significativo gerando uma renda passiva considerável.</p>
+
+<h3>Estratégias para Maximizar Dividendos</h3>
+<p><strong>Reinvestimento de Dividendos:</strong> Uma estratégia poderosa é reinvestir os dividendos que você recebe. Isso cria um efeito de juros compostos, onde seus dividendos geram mais dividendos.</p>
+
+<p><strong>Diversificação:</strong> Não coloque todo seu dinheiro em uma única ação. Diversifique entre diferentes setores e empresas para reduzir riscos.</p>
+
+<p><strong>Seleção de Empresas:</strong> Escolha empresas com histórico consistente de pagamento de dividendos e crescimento. Empresas maduras e estáveis tendem a pagar dividendos mais altos.</p>
+
+<p><strong>Aportes Consistentes:</strong> A chave para construir riqueza é a consistência. Aportes mensais regulares, mesmo que pequenos, podem gerar resultados impressionantes ao longo do tempo.</p>
+
+<h3>Fatores que Afetam os Dividendos</h3>
+<p><strong>Saúde Financeira da Empresa:</strong> Empresas lucrativas e com fluxo de caixa positivo tendem a pagar dividendos maiores e mais consistentes.</p>
+
+<p><strong>Ciclo Econômico:</strong> Em períodos de recessão, algumas empresas podem reduzir ou suspender dividendos. Em períodos de crescimento, tendem a aumentar.</p>
+
+<p><strong>Setor da Economia:</strong> Alguns setores, como bancos, utilities e empresas de infraestrutura, historicamente pagam dividendos maiores.</p>
+
+<p><strong>Política de Dividendos:</strong> Cada empresa tem sua própria política. Algumas preferem reinvestir lucros no crescimento, enquanto outras distribuem a maior parte aos acionistas.</p>
+
+<h3>Diferença Entre Dividend Yield Nominal e Real</h3>
+<p>O simulador usa o conceito de "valores de hoje" para apresentar os resultados. Isso significa que os valores são ajustados pela inflação. Um dividend yield de 6% nominalmente pode ser apenas 2% em termos reais se a inflação for de 4%. Este simulador leva isso em consideração para dar uma visão mais realista de sua renda passiva.</p>
+
+<h3>Metas Realistas de Renda Passiva</h3>
+<p>Muitos investidores sonham em viver apenas de dividendos. Para isso, você precisa de um patrimônio suficiente gerando dividendos. Por exemplo, para ter uma renda mensal de R$ 5.000 com um yield de 6%, você precisaria de aproximadamente R$ 1 milhão investido.</p>
+
+<p>O simulador ajuda você a entender quanto tempo levará para atingir suas metas e que valor você precisa investir mensalmente para chegar lá.</p>
+
+<h3>Riscos e Considerações</h3>
+<p>Embora os dividendos sejam uma forma interessante de renda passiva, é importante entender os riscos:</p>
+
+<ul>
+<li><strong>Risco de Empresa:</strong> A empresa pode reduzir ou eliminar dividendos.</li>
+<li><strong>Risco de Mercado:</strong> O preço das ações pode cair, afetando seu patrimônio.</li>
+<li><strong>Risco de Inflação:</strong> A inflação pode reduzir o poder de compra de seus dividendos.</li>
+<li><strong>Risco de Taxa de Juros:</strong> Aumentos nas taxas de juros podem tornar outras aplicações mais atrativas.</li>
+</ul>
+
+<h3>Próximos Passos</h3>
+<p>Use este simulador para explorar diferentes cenários. Teste aumentar seus aportes mensais, escolher ações com yields diferentes, ou estender o período de simulação. Quanto mais você entender como os dividendos funcionam, melhor preparado estará para tomar decisões de investimento.</p>
+
+<p>Lembre-se: investimento em dividendos é uma estratégia de longo prazo. A paciência e a consistência são suas maiores aliadas na construção de riqueza através de renda passiva.</p>
+
+<h3>Ferramentas Relacionadas</h3>
+<p>Confira também nossas outras ferramentas financeiras:</p>
+<ul>
+<li><a href="/calculadora.html">Calculadora de Juros Compostos</a> - Entenda o poder dos juros compostos</li>
+<li><a href="/comparador-cdb-lci-lca.html">Comparador CDB vs LCI/LCA</a> - Compare rendimentos de renda fixa</li>
+<li><a href="/aposentadoria.html">Simulador de Aposentadoria</a> - Planeje sua aposentadoria</li>
+</ul>
+</div>
+</section>
+<!-- AdSense Unit - Bottom -->
+<section class="ad-container adsense-responsive">
+<span class="ad-label">Publicidade</span>
+<ins class="adsbygoogle" data-ad-client="ca-pub-4613426749830025" data-ad-format="auto" data-ad-slot="YOUR_AD_SLOT_ID_3" data-full-width-responsive="true" style="display:block"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</section>
+</main>
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-column">
+<h3 class="footer-logo">Cérebro Milionário</h3>
+<p class="footer-text">Educação financeira com profundidade técnica e experiência real de mercado. Renda fixa, ETFs, FIIs e ações.</p>
+<div class="social-links">
+<a href="https://t.me/cerebromillionario" target="_blank" class="social-link" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+<a href="https://www.instagram.com/cerebromillionario/" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+<a href="https://youtube.com/@cerebromillionario" target="_blank" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+</div>
+</div>
+<div class="footer-column">
+<h4 class="footer-heading">Ferramentas</h4>
+<ul class="footer-links">
+<li><a href="/calculadora.html">Calculadora de Juros</a></li>
+<li><a href="/comparador-cdb-lci-lca.html">Comparador CDB/LCI</a></li>
+<li><a href="/calculadora-ir-renda-fixa.html">Calculadora IR</a></li>
+<li><a href="/aposentadoria.html">Simulador Aposentadoria</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4 class="footer-heading">Conteúdo</h4>
+<ul class="footer-links">
+<li><a href="/blog.html">Blog</a></li>
+<li><a href="/glossario-financeiro.html">Glossário</a></li>
+<li><a href="/perguntas-frequentes.html">FAQ</a></li>
+<li><a href="/guia-iniciantes.html">Guia Iniciantes</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4 class="footer-heading">Institucional</h4>
+<ul class="footer-links">
+<li><a href="/sobre.html">Sobre</a></li>
+<li><a href="/contato.html">Contato</a></li>
+<li><a href="/politica-privacidade.html">Privacidade</a></li>
+<li><a href="/termos-uso.html">Termos de Uso</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+<div style="display:flex;gap:1rem;">
+<a href="/politica-privacidade.html">Privacidade</a>
+<a href="/termos-uso.html">Termos</a>
+<a href="/contato.html">Contato</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Scripts -->
+<script src="/js/main.js"></script>
+<script src="/js/simulador-dividendos.js"></script>
+</body>
+</html>

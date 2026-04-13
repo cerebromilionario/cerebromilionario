@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Comparador de Investimentos do Cérebro Milionário - Compare dois cenários de investimento lado a lado. Veja qual é mais rentável." name="description"/>
+<meta content="comparador investimentos, comparação cenários, análise investimentos, simulador comparativo" name="keywords"/>
+<meta content="Cérebro Milionário" name="author"/>
+<meta content="index, follow" name="robots"/>
+<title>Comparador de Investimentos | Cérebro Milionário</title>
+<meta content="ca-pub-4613426749830025" name="google-adsense-account"/>
+<link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=DM+Serif+Display:ital@0;1&amp;display=swap" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" referrerpolicy="no-referrer" rel="stylesheet"/>
+<link href="/css/style.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://cerebromilionario.site/comparador-investimentos.html" rel="canonical">
+<meta content="website" property="og:type"/>
+<meta content="https://cerebromilionario.site/comparador-investimentos.html" property="og:url"/>
+<meta content="Comparador de Investimentos | Cérebro Milionário" property="og:title"/>
+<meta content="Compare dois cenários de investimento lado a lado e veja qual é mais rentável." property="og:description"/>
+<meta content="summary_large_image" property="twitter:card"/>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Comparador de Investimentos",
+    "url": "https://cerebromilionario.site/comparador-investimentos.html",
+    "description": "Compare dois cenários de investimento lado a lado."
+}
+</script>
+<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025"></script>
+</head>
+<body>
+<header class="header">
+<div class="container header-container">
+<div class="logo">
+<h1><a href="/index.html">Cérebro Milionário</a></h1>
+</div>
+<button aria-expanded="false" aria-label="Abrir menu" class="mobile-menu-btn">
+<i class="fas fa-bars"></i>
+</button>
+<nav class="navigation" id="primary-navigation">
+<ul class="nav-menu">
+<li><a href="/index.html">Home</a></li>
+<li><a href="/calculadora.html">Calculadora</a></li>
+<li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+<li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+<li><a href="/aposentadoria.html">Aposentadoria</a></li>
+<li><a href="/blog.html">Blog</a></li>
+<li><a href="/sobre.html">Sobre</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main>
+<section class="page-header">
+<div class="container">
+<h1>Comparador de Investimentos</h1>
+<p>Compare dois cenários de investimento lado a lado. Veja qual é mais rentável e qual oferece melhor relação risco/retorno.</p>
+</div>
+</section>
+<section class="ad-container adsense-responsive">
+<span class="ad-label">Publicidade</span>
+<ins class="adsbygoogle" data-ad-client="ca-pub-4613426749830025" data-ad-format="auto" data-ad-slot="YOUR_AD_SLOT_ID_1" data-full-width-responsive="true" style="display:block"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</section>
+<section class="section">
+<div class="container">
+<div class="calculator-grid comparison-grid">
+<div class="calculator-card">
+<h2 class="calculator-title">Cenário 1</h2>
+<div class="form-grid">
+<div class="form-group full">
+<label for="nome1">Nome do Cenário</label>
+<input class="form-control" id="nome1" type="text" value="Renda Fixa"/>
+</div>
+<div class="form-group">
+<label for="capital1">Capital Inicial (R$)</label>
+<input class="form-control" id="capital1" type="text" value="10000"/>
+</div>
+<div class="form-group">
+<label for="aporte1">Aporte Mensal (R$)</label>
+<input class="form-control" id="aporte1" type="text" value="500"/>
+</div>
+<div class="form-group">
+<label for="retorno1">Retorno Anual (%)</label>
+<input class="form-control" id="retorno1" step="0.1" type="number" value="8"/>
+</div>
+<div class="form-group">
+<label for="periodo1">Período (anos)</label>
+<input class="form-control" id="periodo1" min="1" type="number" value="10"/>
+</div>
+</div>
+</div>
+<div class="calculator-card">
+<h2 class="calculator-title">Cenário 2</h2>
+<div class="form-grid">
+<div class="form-group full">
+<label for="nome2">Nome do Cenário</label>
+<input class="form-control" id="nome2" type="text" value="Ações"/>
+</div>
+<div class="form-group">
+<label for="capital2">Capital Inicial (R$)</label>
+<input class="form-control" id="capital2" type="text" value="10000"/>
+</div>
+<div class="form-group">
+<label for="aporte2">Aporte Mensal (R$)</label>
+<input class="form-control" id="aporte2" type="text" value="500"/>
+</div>
+<div class="form-group">
+<label for="retorno2">Retorno Anual (%)</label>
+<input class="form-control" id="retorno2" step="0.1" type="number" value="12"/>
+</div>
+<div class="form-group">
+<label for="periodo2">Período (anos)</label>
+<input class="form-control" id="periodo2" min="1" type="number" value="10"/>
+</div>
+</div>
+</div>
+</div>
+<div class="calculator-grid">
+<div class="calculator-card full">
+<div class="form-grid">
+<div class="form-group full">
+<button class="btn btn-primary" id="btnComparar" style="width: 100%;" type="button">Comparar Cenários</button>
+</div>
+</div>
+</div>
+</div>
+<div class="calculator-grid">
+<div class="calculator-card">
+<h2 class="calculator-title" id="titulo1">Cenário 1</h2>
+<div class="metrics">
+<div class="metric-card">
+<div class="metric-label">Valor Final</div>
+<div class="metric" id="valor1">—</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Total Investido</div>
+<div class="metric" id="investido1">—</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Ganho</div>
+<div class="metric" id="ganho1">—</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Rentabilidade</div>
+<div class="metric" id="rentabilidade1">—</div>
+</div>
+</div>
+</div>
+<div class="calculator-card">
+<h2 class="calculator-title" id="titulo2">Cenário 2</h2>
+<div class="metrics">
+<div class="metric-card">
+<div class="metric-label">Valor Final</div>
+<div class="metric" id="valor2">—</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Total Investido</div>
+<div class="metric" id="investido2">—</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Ganho</div>
+<div class="metric" id="ganho2">—</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Rentabilidade</div>
+<div class="metric" id="rentabilidade2">—</div>
+</div>
+</div>
+</div>
+</div>
+<div class="calculator-grid">
+<div class="calculator-card full">
+<h2 class="calculator-title">Diferença</h2>
+<div class="metrics">
+<div class="metric-card">
+<div class="metric-label">Diferença de Valor</div>
+<div class="metric" id="diferenca">—</div>
+<div class="metric-sub">Qual cenário é melhor</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Percentual de Diferença</div>
+<div class="metric" id="percentualDif">—</div>
+<div class="metric-sub">Vantagem relativa</div>
+</div>
+</div>
+<div class="chart-wrap">
+<canvas id="chartComparacao"></canvas>
+</div>
+</div>
+</div>
+</section>
+<section class="ad-container adsense-responsive">
+<span class="ad-label">Publicidade</span>
+<ins class="adsbygoogle" data-ad-client="ca-pub-4613426749830025" data-ad-format="auto" data-ad-slot="YOUR_AD_SLOT_ID_2" data-full-width-responsive="true" style="display:block"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</section>
+<section class="features-section">
+<div class="container">
+<div class="section-header">
+<h2>Como Usar o Comparador</h2>
+<p>Tome decisões de investimento baseadas em dados</p>
+</div>
+<div class="features-grid">
+<div class="feature-card animate-fade-in">
+<div class="feature-icon"><i class="fas fa-balance-scale"></i></div>
+<h3 class="feature-title">Comparação Lado a Lado</h3>
+<p>Veja os resultados de dois cenários diferentes lado a lado para facilitar a comparação.</p>
+</div>
+<div class="feature-card animate-fade-in" style="animation-delay: 0.1s;">
+<div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
+<h3 class="feature-title">Gráfico Dinâmico</h3>
+<p>Visualize a evolução de ambos os cenários ao longo do tempo em um gráfico interativo.</p>
+</div>
+<div class="feature-card animate-fade-in" style="animation-delay: 0.2s;">
+<div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
+<h3 class="feature-title">Insights Claros</h3>
+<p>Entenda rapidamente qual cenário é mais vantajoso e por quanto.</p>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="content-block">
+<h2>Guia Completo: Comparador de Investimentos</h2>
+
+<h3>Introdução à Comparação de Cenários</h3>
+<p>Um dos maiores desafios para investidores é escolher entre diferentes opções de investimento. O Comparador de Investimentos do Cérebro Milionário permite que você compare dois cenários diferentes lado a lado, facilitando a tomada de decisão.</p>
+
+<h3>Como Usar o Comparador</h3>
+<p>O processo é simples:</p>
+
+<ol>
+<li>Defina o nome do primeiro cenário (ex: "Renda Fixa")</li>
+<li>Insira o capital inicial e aporte mensal</li>
+<li>Defina o retorno anual esperado</li>
+<li>Escolha o período de simulação</li>
+<li>Repita para o segundo cenário</li>
+<li>Clique em "Comparar Cenários"</li>
+</ol>
+
+<h3>Interpretando os Resultados</h3>
+<p><strong>Valor Final:</strong> O montante total que você terá após o período especificado.</p>
+
+<p><strong>Total Investido:</strong> A soma de todo o capital inicial e aportes mensais.</p>
+
+<p><strong>Ganho:</strong> A diferença entre o valor final e o total investido (seu lucro).</p>
+
+<p><strong>Rentabilidade:</strong> O percentual de retorno sobre o total investido.</p>
+
+<h3>Exemplos de Comparações Úteis</h3>
+<p><strong>Renda Fixa vs Ações:</strong> Compare o retorno seguro de um CDB com o potencial maior (mas mais volátil) de ações.</p>
+
+<p><strong>Diferentes Ações:</strong> Compare o retorno esperado de duas empresas diferentes.</p>
+
+<p><strong>Com e Sem Aportes:</strong> Veja o impacto dos aportes mensais no resultado final.</p>
+
+<p><strong>Diferentes Períodos:</strong> Compare o mesmo investimento em 10 anos vs 20 anos.</p>
+
+<h3>Fatores a Considerar</h3>
+<p><strong>Retorno Esperado:</strong> Use dados históricos e análises de especialistas para estimar o retorno realista.</p>
+
+<p><strong>Risco:</strong> Cenários com maior retorno geralmente têm maior risco. Considere sua tolerância ao risco.</p>
+
+<p><strong>Horizonte de Tempo:</strong> Investimentos de longo prazo podem tolerar maior volatilidade.</p>
+
+<p><strong>Inflação:</strong> Lembre-se de considerar a inflação. Um retorno de 8% pode ser apenas 4% em termos reais se a inflação for 4%.</p>
+
+<h3>Dicas para Comparações Efetivas</h3>
+<p><strong>Use Dados Realistas:</strong> Não use retornos muito otimistas. Seja conservador nas estimativas.</p>
+
+<p><strong>Compare Cenários Similares:</strong> Para uma comparação justa, use o mesmo capital inicial e período.</p>
+
+<p><strong>Considere Custos:</strong> Alguns investimentos têm custos (corretagem, taxa de administração). Considere isso na comparação.</p>
+
+<p><strong>Revise Regularmente:</strong> Conforme novos dados surgem, revise suas estimativas e faça novas comparações.</p>
+
+<h3>Exemplo Prático</h3>
+<p>Imagine que você tem R$ 10 mil para investir e pode aportar R$ 500 mensais por 10 anos.</p>
+
+<p><strong>Cenário 1 - Renda Fixa (8% ao ano):</strong></p>
+<ul>
+<li>Valor Final: ~R$ 105 mil</li>
+<li>Total Investido: R$ 70 mil</li>
+<li>Ganho: R$ 35 mil</li>
+<li>Rentabilidade: 50%</li>
+</ul>
+
+<p><strong>Cenário 2 - Ações (12% ao ano):</strong></p>
+<ul>
+<li>Valor Final: ~R$ 135 mil</li>
+<li>Total Investido: R$ 70 mil</li>
+<li>Ganho: R$ 65 mil</li>
+<li>Rentabilidade: 93%</li>
+</ul>
+
+<p>A diferença é de R$ 30 mil a favor do cenário de ações, ou 28,6% a mais.</p>
+
+<h3>Limitações do Comparador</h3>
+<p>O comparador assume retornos constantes, o que não é realista. Na prática:</p>
+
+<ul>
+<li>Retornos variam de ano para ano</li>
+<li>Há volatilidade e risco</li>
+<li>Custos e impostos podem impactar o resultado</li>
+<li>Mudanças econômicas podem afetar os retornos</li>
+</ul>
+
+<p>Use o comparador como uma ferramenta de planejamento, não como previsão exata.</p>
+
+<h3>Próximos Passos</h3>
+<p>Após comparar cenários, considere:</p>
+
+<ul>
+<li>Consultar um assessor financeiro</li>
+<li>Estudar mais sobre os investimentos que interessam</li>
+<li>Diversificar em vez de escolher apenas um cenário</li>
+<li>Revisar e ajustar sua estratégia regularmente</li>
+</ul>
+
+<h3>Ferramentas Relacionadas</h3>
+<p>Confira também:</p>
+<ul>
+<li><a href="/calculadora.html">Calculadora de Juros Compostos</a> - Para entender o poder dos juros</li>
+<li><a href="/simulador-carteira.html">Simulador de Carteira</a> - Para diversificação</li>
+<li><a href="/calculadora-valuation.html">Calculadora de Valuation</a> - Para análise de ações</li>
+</ul>
+</div>
+</section>
+<section class="ad-container adsense-responsive">
+<span class="ad-label">Publicidade</span>
+<ins class="adsbygoogle" data-ad-client="ca-pub-4613426749830025" data-ad-format="auto" data-ad-slot="YOUR_AD_SLOT_ID_3" data-full-width-responsive="true" style="display:block"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-column">
+<h3 class="footer-logo">Cérebro Milionário</h3>
+<p class="footer-text">Educação financeira com profundidade técnica e experiência real de mercado. Renda fixa, ETFs, FIIs e ações.</p>
+<div class="social-links">
+<a href="https://t.me/cerebromillionario" target="_blank" class="social-link" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+<a href="https://www.instagram.com/cerebromillionario/" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+<a href="https://youtube.com/@cerebromillionario" target="_blank" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+</div>
+</div>
+<div class="footer-column">
+<h4 class="footer-heading">Ferramentas</h4>
+<ul class="footer-links">
+<li><a href="/calculadora.html">Calculadora de Juros</a></li>
+<li><a href="/comparador-cdb-lci-lca.html">Comparador CDB/LCI</a></li>
+<li><a href="/calculadora-ir-renda-fixa.html">Calculadora IR</a></li>
+<li><a href="/aposentadoria.html">Simulador Aposentadoria</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4 class="footer-heading">Conteúdo</h4>
+<ul class="footer-links">
+<li><a href="/blog.html">Blog</a></li>
+<li><a href="/glossario-financeiro.html">Glossário</a></li>
+<li><a href="/perguntas-frequentes.html">FAQ</a></li>
+<li><a href="/guia-iniciantes.html">Guia Iniciantes</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4 class="footer-heading">Institucional</h4>
+<ul class="footer-links">
+<li><a href="/sobre.html">Sobre</a></li>
+<li><a href="/contato.html">Contato</a></li>
+<li><a href="/politica-privacidade.html">Privacidade</a></li>
+<li><a href="/termos-uso.html">Termos de Uso</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+<div style="display:flex;gap:1rem;">
+<a href="/politica-privacidade.html">Privacidade</a>
+<a href="/termos-uso.html">Termos</a>
+<a href="/contato.html">Contato</a>
+</div>
+</div>
+</div>
+</footer>
+<script src="/js/main.js"></script>
+<script src="/js/comparador-investimentos.js"></script>
+</body>
+</html>

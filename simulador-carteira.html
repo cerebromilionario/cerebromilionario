@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Simulador de Carteira do Cérebro Milionário - Simule diferentes alocações entre renda fixa, ações e ETFs. Veja retorno esperado e volatilidade." name="description"/>
+<meta content="simulador carteira, alocação ativos, diversificação, renda fixa ações ETFs, asset allocation" name="keywords"/>
+<meta content="Cérebro Milionário" name="author"/>
+<meta content="index, follow" name="robots"/>
+<title>Simulador de Carteira | Cérebro Milionário</title>
+<meta content="ca-pub-4613426749830025" name="google-adsense-account"/>
+<link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=DM+Serif+Display:ital@0;1&amp;display=swap" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" referrerpolicy="no-referrer" rel="stylesheet"/>
+<link href="/css/style.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://cerebromilionario.site/simulador-carteira.html" rel="canonical">
+<meta content="website" property="og:type"/>
+<meta content="https://cerebromilionario.site/simulador-carteira.html" property="og:url"/>
+<meta content="Simulador de Carteira | Cérebro Milionário" property="og:title"/>
+<meta content="Simule diferentes alocações de ativos e veja o retorno esperado e volatilidade." property="og:description"/>
+<meta content="summary_large_image" property="twitter:card"/>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Simulador de Carteira",
+    "url": "https://cerebromilionario.site/simulador-carteira.html",
+    "description": "Simule diferentes alocações de ativos e veja o retorno esperado."
+}
+</script>
+<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025"></script>
+</head>
+<body>
+<header class="header">
+<div class="container header-container">
+<div class="logo">
+<h1><a href="/index.html">Cérebro Milionário</a></h1>
+</div>
+<button aria-expanded="false" aria-label="Abrir menu" class="mobile-menu-btn">
+<i class="fas fa-bars"></i>
+</button>
+<nav class="navigation" id="primary-navigation">
+<ul class="nav-menu">
+<li><a href="/index.html">Home</a></li>
+<li><a href="/calculadora.html">Calculadora</a></li>
+<li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+<li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
+<li><a href="/aposentadoria.html">Aposentadoria</a></li>
+<li><a href="/blog.html">Blog</a></li>
+<li><a href="/sobre.html">Sobre</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main>
+<section class="page-header">
+<div class="container">
+<h1>Simulador de Carteira</h1>
+<p>Simule diferentes alocações entre renda fixa, ações e ETFs. Veja o retorno esperado, volatilidade e risco da sua carteira.</p>
+</div>
+</section>
+<section class="ad-container adsense-responsive">
+<span class="ad-label">Publicidade</span>
+<ins class="adsbygoogle" data-ad-client="ca-pub-4613426749830025" data-ad-format="auto" data-ad-slot="YOUR_AD_SLOT_ID_1" data-full-width-responsive="true" style="display:block"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</section>
+<section class="section">
+<div class="container">
+<div class="calculator-grid">
+<div class="calculator-card">
+<h2 class="calculator-title">Alocação de Ativos</h2>
+<div class="form-grid">
+<div class="form-group">
+<label for="rendaFixa">Renda Fixa (%)</label>
+<input class="form-control" id="rendaFixa" max="100" min="0" type="number" value="40"/>
+</div>
+<div class="form-group">
+<label for="acoes">Ações (%)</label>
+<input class="form-control" id="acoes" max="100" min="0" type="number" value="40"/>
+</div>
+<div class="form-group">
+<label for="etfs">ETFs (%)</label>
+<input class="form-control" id="etfs" max="100" min="0" type="number" value="20"/>
+</div>
+<div class="form-group full">
+<label>Total: <span id="totalAlocacao">100</span>%</label>
+</div>
+<div class="form-group full">
+<button class="btn btn-primary" id="btnSimular" style="width: 100%;" type="button">Simular Carteira</button>
+</div>
+</div>
+</div>
+<div class="calculator-card">
+<h2 class="calculator-title">Resultado</h2>
+<div class="metrics">
+<div class="metric-card">
+<div class="metric-label">Retorno Esperado Anual</div>
+<div class="metric" id="retornoEsperado">—</div>
+<div class="metric-sub">Média ponderada</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Volatilidade (Risco)</div>
+<div class="metric" id="volatilidade">—</div>
+<div class="metric-sub">Desvio padrão</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Índice Sharpe</div>
+<div class="metric" id="sharpeIndex">—</div>
+<div class="metric-sub">Retorno/Risco</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Classificação</div>
+<div class="metric" id="classificacao">—</div>
+<div class="metric-sub">Perfil de risco</div>
+</div>
+</div>
+<div class="chart-wrap">
+<canvas id="chartCarteira"></canvas>
+</div>
+</div>
+</div>
+</section>
+<section class="ad-container adsense-responsive">
+<span class="ad-label">Publicidade</span>
+<ins class="adsbygoogle" data-ad-client="ca-pub-4613426749830025" data-ad-format="auto" data-ad-slot="YOUR_AD_SLOT_ID_2" data-full-width-responsive="true" style="display:block"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</section>
+<section class="features-section">
+<div class="container">
+<div class="section-header">
+<h2>Entenda a Alocação de Ativos</h2>
+<p>Diversificação inteligente para otimizar retorno e risco</p>
+</div>
+<div class="features-grid">
+<div class="feature-card animate-fade-in">
+<div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+<h3 class="feature-title">Renda Fixa</h3>
+<p>Investimentos seguros com retorno previsível. Incluem CDB, LCI, LCA e títulos do governo. Ideal para reduzir volatilidade.</p>
+</div>
+<div class="feature-card animate-fade-in" style="animation-delay: 0.1s;">
+<div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+<h3 class="feature-title">Ações</h3>
+<p>Maior potencial de retorno, mas com maior volatilidade. Recomendado para investidores com horizonte de longo prazo.</p>
+</div>
+<div class="feature-card animate-fade-in" style="animation-delay: 0.2s;">
+<div class="feature-icon"><i class="fas fa-sitemap"></i></div>
+<h3 class="feature-title">ETFs</h3>
+<p>Fundos que rastreiam índices. Oferecem diversificação automática e custos menores que ações individuais.</p>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="content-block">
+<h2>Guia Completo: Simulador de Carteira</h2>
+
+<h3>Introdução à Diversificação</h3>
+<p>Um dos princípios mais importantes do investimento é a diversificação. Não coloque todos os ovos na mesma cesta. O Simulador de Carteira do Cérebro Milionário ajuda você a entender como diferentes alocações de ativos afetam o retorno esperado e o risco da sua carteira.</p>
+
+<h3>O Que é Alocação de Ativos</h3>
+<p>Alocação de ativos é a divisão do seu patrimônio entre diferentes classes de investimento: renda fixa, ações e ETFs. A alocação correta depende de fatores como sua idade, horizonte de investimento, tolerância ao risco e objetivos financeiros.</p>
+
+<h3>Renda Fixa: Segurança e Previsibilidade</h3>
+<p>Investimentos em renda fixa oferecem retorno previsível e baixo risco. Incluem CDB, LCI, LCA e títulos do governo. São ideais para a base da carteira, especialmente para investidores conservadores ou próximos da aposentadoria.</p>
+
+<p>Características:</p>
+<ul>
+<li>Retorno previsível</li>
+<li>Baixa volatilidade</li>
+<li>Segurança (até R$ 250 mil por instituição no FGC)</li>
+<li>Liquidez variável</li>
+</ul>
+
+<h3>Ações: Crescimento e Volatilidade</h3>
+<p>Ações oferecem maior potencial de retorno, mas com maior volatilidade. Quando você compra uma ação, você se torna sócio da empresa. O retorno vem de dividendos e valorização.</p>
+
+<p>Características:</p>
+<ul>
+<li>Maior potencial de retorno</li>
+<li>Maior volatilidade</li>
+<li>Liquidez alta</li>
+<li>Requer análise e conhecimento</li>
+</ul>
+
+<h3>ETFs: Diversificação Automática</h3>
+<p>ETFs (Exchange Traded Funds) são fundos que rastreiam índices. Por exemplo, um ETF que rastreia o Ibovespa oferece exposição a todas as 60 maiores empresas da bolsa com um único investimento.</p>
+
+<p>Características:</p>
+<ul>
+<li>Diversificação automática</li>
+<li>Custos baixos</li>
+<li>Liquidez alta</li>
+<li>Menor necessidade de análise</li>
+</ul>
+
+<h3>Retorno Esperado</h3>
+<p>O retorno esperado é a média ponderada dos retornos de cada classe de ativo. Por exemplo:</p>
+
+<ul>
+<li>Renda Fixa: 10% ao ano</li>
+<li>Ações: 12% ao ano</li>
+<li>ETFs: 11% ao ano</li>
+</ul>
+
+<p>Se você tem 40% em renda fixa, 40% em ações e 20% em ETFs, seu retorno esperado seria:</p>
+<p>(40% × 10%) + (40% × 12%) + (20% × 11%) = 4% + 4.8% + 2.2% = 11%</p>
+
+<h3>Volatilidade e Risco</h3>
+<p>Volatilidade é a medida de quanto o valor da carteira flutua ao longo do tempo. Quanto maior a volatilidade, maior o risco. Uma carteira 100% em renda fixa tem baixa volatilidade, enquanto uma 100% em ações tem alta volatilidade.</p>
+
+<p>A diversificação reduz a volatilidade porque diferentes ativos não se movem na mesma direção ao mesmo tempo.</p>
+
+<h3>Índice Sharpe</h3>
+<p>O Índice Sharpe mede o retorno ajustado pelo risco. Ele responde à pergunta: "Quanto de retorno estou recebendo por cada unidade de risco que estou tomando?"</p>
+
+<p>Um índice Sharpe mais alto é melhor, pois significa mais retorno com menos risco.</p>
+
+<h3>Perfis de Risco</h3>
+<p><strong>Conservador:</strong> 60-80% renda fixa, 20-40% ações/ETFs. Ideal para aposentados ou investidores avessos a risco.</p>
+
+<p><strong>Moderado:</strong> 40-60% renda fixa, 40-60% ações/ETFs. Equilíbrio entre segurança e crescimento.</p>
+
+<p><strong>Agressivo:</strong> 20-40% renda fixa, 60-80% ações/ETFs. Ideal para investidores jovens com horizonte de longo prazo.</p>
+
+<h3>Rebalanceamento de Carteira</h3>
+<p>Ao longo do tempo, a alocação da sua carteira muda porque diferentes ativos têm retornos diferentes. Se você começou com 50% ações e 50% renda fixa, mas as ações cresceram mais, você pode acabar com 60% ações e 40% renda fixa.</p>
+
+<p>Rebalancear significa voltar à alocação original. Isso garante que você mantenha seu nível de risco desejado.</p>
+
+<h3>Exemplo Prático</h3>
+<p>Imagine um investidor com R$ 100 mil:</p>
+
+<p><strong>Carteira Conservadora:</strong></p>
+<ul>
+<li>R$ 70 mil em Renda Fixa (7% retorno esperado)</li>
+<li>R$ 20 mil em Ações (12% retorno esperado)</li>
+<li>R$ 10 mil em ETFs (11% retorno esperado)</li>
+<li>Retorno esperado: 8,3% ao ano</li>
+<li>Volatilidade: Baixa</li>
+</ul>
+
+<p><strong>Carteira Agressiva:</strong></p>
+<ul>
+<li>R$ 20 mil em Renda Fixa (7% retorno esperado)</li>
+<li>R$ 50 mil em Ações (12% retorno esperado)</li>
+<li>R$ 30 mil em ETFs (11% retorno esperado)</li>
+<li>Retorno esperado: 10,9% ao ano</li>
+<li>Volatilidade: Alta</li>
+</ul>
+
+<h3>Dicas para Otimizar Sua Carteira</h3>
+<p><strong>Conheça Seu Perfil:</strong> Antes de investir, entenda sua tolerância ao risco e horizonte de investimento.</p>
+
+<p><strong>Diversifique:</strong> Não coloque tudo em uma única classe de ativo. A diversificação reduz risco.</p>
+
+<p><strong>Rebalanceie Regularmente:</strong> Verifique sua alocação a cada 6 meses ou 1 ano e rebalanceie se necessário.</p>
+
+<p><strong>Considere Seus Objetivos:</strong> Sua alocação deve estar alinhada com seus objetivos financeiros e horizonte de tempo.</p>
+
+<h3>Ferramentas Relacionadas</h3>
+<p>Confira também:</p>
+<ul>
+<li><a href="/simulador-dividendos.html">Simulador de Dividendos</a> - Para renda passiva</li>
+<li><a href="/calculadora-valuation.html">Calculadora de Valuation</a> - Para análise de ações</li>
+<li><a href="/comparador-investimentos.html">Comparador de Investimentos</a> - Para comparar cenários</li>
+</ul>
+</div>
+</section>
+<section class="ad-container adsense-responsive">
+<span class="ad-label">Publicidade</span>
+<ins class="adsbygoogle" data-ad-client="ca-pub-4613426749830025" data-ad-format="auto" data-ad-slot="YOUR_AD_SLOT_ID_3" data-full-width-responsive="true" style="display:block"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-column">
+<h3 class="footer-logo">Cérebro Milionário</h3>
+<p class="footer-text">Educação financeira com profundidade técnica e experiência real de mercado. Renda fixa, ETFs, FIIs e ações.</p>
+<div class="social-links">
+<a href="https://t.me/cerebromillionario" target="_blank" class="social-link" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+<a href="https://www.instagram.com/cerebromillionario/" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+<a href="https://youtube.com/@cerebromillionario" target="_blank" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+</div>
+</div>
+<div class="footer-column">
+<h4 class="footer-heading">Ferramentas</h4>
+<ul class="footer-links">
+<li><a href="/calculadora.html">Calculadora de Juros</a></li>
+<li><a href="/comparador-cdb-lci-lca.html">Comparador CDB/LCI</a></li>
+<li><a href="/calculadora-ir-renda-fixa.html">Calculadora IR</a></li>
+<li><a href="/aposentadoria.html">Simulador Aposentadoria</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4 class="footer-heading">Conteúdo</h4>
+<ul class="footer-links">
+<li><a href="/blog.html">Blog</a></li>
+<li><a href="/glossario-financeiro.html">Glossário</a></li>
+<li><a href="/perguntas-frequentes.html">FAQ</a></li>
+<li><a href="/guia-iniciantes.html">Guia Iniciantes</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4 class="footer-heading">Institucional</h4>
+<ul class="footer-links">
+<li><a href="/sobre.html">Sobre</a></li>
+<li><a href="/contato.html">Contato</a></li>
+<li><a href="/politica-privacidade.html">Privacidade</a></li>
+<li><a href="/termos-uso.html">Termos de Uso</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
+<div style="display:flex;gap:1rem;">
+<a href="/politica-privacidade.html">Privacidade</a>
+<a href="/termos-uso.html">Termos</a>
+<a href="/contato.html">Contato</a>
+</div>
+</div>
+</div>
+</footer>
+<script src="/js/main.js"></script>
+<script src="/js/simulador-carteira.js"></script>
+</body>
+</html>
