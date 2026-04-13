@@ -1,7 +1,70 @@
 {
-  "generatedAt": "2026-02-12T12:00:00Z",
+  "generatedAt": "2026-04-12T10:00:00Z",
   "baseUrl": "https://cerebromilionario.site",
   "posts": [
+    {
+      "title": "Selic em Queda: o Que Fazer com Sua Renda Fixa Agora",
+      "excerpt": "Selic caindo muda o jogo da renda fixa. Entenda como CDB, Tesouro IPCA+, LCI e prefixados reagem a cortes de juros e o que fazer com cada produto no seu portfólio.",
+      "url": "/posts/selic-em-queda-o-que-fazer-com-renda-fixa.html",
+      "date": "12/04/2026",
+      "readTime": "14 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "Renda Fixa",
+        "Selic"
+      ]
+    },
+    {
+      "title": "Como Declarar Ações no Imposto de Renda 2026: Guia Completo",
+      "excerpt": "Guia completo para declarar ações no IR 2026: preço médio, isenção dos R$ 20 mil, DARF, day trade, dividendos e compensação de prejuízos. Passo a passo com exemplos reais.",
+      "url": "/posts/como-declarar-acoes-imposto-de-renda-2026.html",
+      "date": "12/04/2026",
+      "readTime": "15 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "Tributação",
+        "IR",
+        "Ações"
+      ]
+    },
+    {
+      "title": "FIIs vs Ações: Qual Gera Mais Renda Passiva no Brasil?",
+      "excerpt": "Comparação completa entre FIIs e ações para geração de renda passiva: dividendos, tributação, volatilidade, retorno histórico e qual escolher em cada fase da vida.",
+      "url": "/posts/fiis-vs-acoes-qual-gera-mais-renda-passiva.html",
+      "date": "12/04/2026",
+      "readTime": "14 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "FIIs",
+        "Ações",
+        "Renda Passiva"
+      ]
+    },
+    {
+      "title": "Quanto Você Precisa para Viver de Renda no Brasil? O Cálculo Real",
+      "excerpt": "Descubra quanto patrimônio você realmente precisa para viver de renda no Brasil usando a metodologia SWR. Cálculos por nível de gasto, alocação ideal e o impacto do tempo.",
+      "url": "/posts/quanto-precisa-para-viver-de-renda-no-brasil.html",
+      "date": "12/04/2026",
+      "readTime": "15 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "Independência Financeira",
+        "Renda Passiva"
+      ]
+    },
+    {
+      "title": "Tesouro Direto para Iniciantes: Guia Completo 2026",
+      "excerpt": "Tudo sobre Tesouro Direto em 2026: os três tipos de título (Selic, IPCA+, Prefixado), marcação a mercado, custos, como comprar e qual escolher para cada objetivo.",
+      "url": "/posts/tesouro-direto-para-iniciantes-guia-completo-2026.html",
+      "date": "12/04/2026",
+      "readTime": "15 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "Renda Fixa",
+        "Tesouro Direto",
+        "Iniciante"
+      ]
+    },
     {
       "title": "Guia Completo de Investimentos para Iniciantes (2026)",
       "excerpt": "Aprenda a investir do zero com segurança em 2026: reserva de emergência, renda fixa, ETFs, FIIs, ações, diversificação e um plano prático para construir patr...",
