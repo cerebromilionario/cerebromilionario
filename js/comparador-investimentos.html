@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Comparador de Investimentos do Cérebro Milionário - Compare dois cenários de investimento lado a lado. Veja qual é mais rentável." name="description"/>
-<meta content="comparador investimentos, comparação cenários, análise investimentos, simulador comparativo" name="keywords"/>
+<meta content="Compare dois cenários de investimento lado a lado. Veja valor final, ganho, rentabilidade e a diferença entre os cenários." name="description"/>
+<meta content="comparador investimentos, comparar renda fixa ações, simulador comparativo, análise investimentos" name="keywords"/>
 <meta content="Cérebro Milionário" name="author"/>
 <meta content="index, follow" name="robots"/>
 <title>Comparador de Investimentos | Cérebro Milionário</title>
@@ -12,122 +12,345 @@
 <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=DM+Serif+Display:ital@0;1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" referrerpolicy="no-referrer" rel="stylesheet"/>
 <link href="/css/style.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link href="https://cerebromilionario.site/comparador-investimentos.html" rel="canonical"/>
 <meta content="website" property="og:type"/>
 <meta content="https://cerebromilionario.site/comparador-investimentos.html" property="og:url"/>
-<meta content="Comparador de Investimentos | Cérebro Milionário" property="og:title"/>
-<meta content="Compare dois cenários de investimento lado a lado e veja qual é mais rentável." property="og:description"/>
+<meta content="Comparador de Investimentos" property="og:title"/>
+<meta content="Compare dois cenários de investimento lado a lado. Veja valor final, ganho, rentabilidade e a diferença entre os cenários." property="og:description"/>
+<meta content="https://cerebromilionario.site/images/blog-default.svg" property="og:image"/>
 <meta content="summary_large_image" property="twitter:card"/>
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Comparador de Investimentos",
-    "url": "https://cerebromilionario.site/comparador-investimentos.html",
-    "description": "Compare dois cenários de investimento lado a lado."
-}
-</script>
-<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025"></script>
+<script async crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
-/* ── Calculator layout ───────────────────────────────── */
-.calc-grid,.calculator-grid {
+
+/* ── Calculator layout ─────────────────────────────────── */
+.tool-grid {
   display: grid;
   grid-template-columns: 1fr 1.35fr;
   gap: 1.5rem;
   align-items: start;
 }
-.comparison-grid { grid-template-columns: 1fr 1fr !important; }
 .calculator-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--r-xl);
   padding: 2rem;
 }
-.calculator-card.full { grid-column: 1 / -1; }
 .calculator-title {
-  font-size: 1.15rem; font-weight: 600;
-  color: var(--text-primary); margin-bottom: 1.5rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
 }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
 .form-grid .full { grid-column: 1 / -1; }
-.form-actions { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; }
-.status-badge { font-size: .8rem; color: var(--text-muted); margin-left: auto; }
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.status-badge {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-left: auto;
+}
 .form-note {
-  font-size: .8rem; color: var(--text-muted);
-  background: rgba(255,255,255,.03); border: 1px solid var(--border);
-  border-radius: var(--r-md); padding: .75rem 1rem; line-height: 1.6;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 0.75rem 1rem;
+  line-height: 1.6;
 }
 .form-note strong { color: var(--text-secondary); }
+
+/* ── Result header ─────────────────────────────────────── */
 .result-header {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: 1.25rem; flex-wrap: wrap; gap: .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 .result-header .calculator-title { margin-bottom: 0; }
-.small-muted { font-size: .78rem; color: var(--text-muted); }
-/* ── Metric cards (padrão Aposentadoria) ─────────────── */
+.small-muted {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* ── Metrics grid (CARDS) ──────────────────────────────── */
 .metrics {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: .75rem; margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
 }
 .metric-card {
-  background: var(--bg-surface); border: 1px solid var(--border);
-  border-radius: var(--r-lg); padding: 1rem 1.1rem;
-  display: flex; flex-direction: column; gap: .2rem;
-  transition: border-color .2s ease;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  transition: border-color 0.2s ease;
 }
 .metric-card:hover { border-color: var(--border-gold); }
 .metric-label {
-  font-size: .72rem; font-weight: 600; text-transform: uppercase;
-  letter-spacing: .07em; color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
 }
 .metric {
-  font-size: 1.15rem; font-weight: 700;
-  color: var(--gold); line-height: 1.2; word-break: break-word;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1.2;
+  word-break: break-word;
 }
 .metric.good { color: var(--green); }
 .metric.bad  { color: var(--red); }
-.metric-sub  { font-size: .75rem; color: var(--text-muted); line-height: 1.4; }
-.tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: .75rem 0 1.25rem; }
+.metric-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ── Tags row ──────────────────────────────────────────── */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0 1.25rem;
+}
 .tag {
-  background: rgba(255,255,255,.04); border: 1px solid var(--border);
-  border-radius: 99px; padding: .25rem .7rem;
-  font-size: .75rem; color: var(--text-secondary);
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
 }
 .tag b { color: var(--gold); }
+
+/* ── Premium panel ─────────────────────────────────────── */
+.premium-panel {
+  background: rgba(201,168,76,.04);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--r-lg);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.premium-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.scenario-tabs {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.tab {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 0.3rem 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: all 0.15s ease;
+}
+.tab:hover { border-color: var(--gold); color: var(--gold); }
+.tab.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #0d0d12;
+  font-weight: 600;
+}
+.scenario-note {
+  margin-bottom: 1rem;
+  line-height: 1.55;
+}
+
+/* ── Scenario cards ────────────────────────────────────── */
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+.scn-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 0.85rem 0.9rem;
+}
+.scn-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.scn-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--gold);
+}
+.scn-kpi {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  word-break: break-word;
+}
+.scn-sub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ── Chart ─────────────────────────────────────────────── */
 .chart-wrap {
-  background: var(--bg-surface); border: 1px solid var(--border);
-  border-radius: var(--r-md); padding: 1rem; margin-top: .75rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 0.75rem;
   overflow: hidden;
 }
-.watermark-row { text-align: center; font-size: .75rem; color: var(--text-muted); padding: .5rem 0 0; }
+.chart-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+#retChart {
+  width: 100%;
+  display: block;
+  overflow: visible;
+}
+.ret-line { fill: none; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.ret-line.base  { stroke: var(--gold); }
+.ret-line.cons  { stroke: #555566; }
+.ret-line.aggr  { stroke: var(--green); }
+.ret-label { font-size: 11px; fill: var(--text-muted); font-family: var(--font-sans); }
+.ret-target { stroke: rgba(247,95,95,.5); stroke-width: 1.5; stroke-dasharray: 5 4; }
+.ret-grid   { stroke: rgba(255,255,255,.05); stroke-width: 1; }
+.ret-ylabel { font-size: 10px; fill: var(--text-muted); text-anchor: end; font-family: var(--font-sans); }
+
+/* ── Table ─────────────────────────────────────────────── */
+.table-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  margin-bottom: 1rem;
+}
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.data-table thead { background: var(--bg-hover); }
+.data-table th {
+  padding: 0.6rem 0.85rem;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.data-table td {
+  padding: 0.5rem 0.85rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: var(--bg-hover); }
+
+/* ── Watermark ─────────────────────────────────────────── */
+.watermark-row {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  padding: 0.5rem 0 0;
+}
+
+/* ── Responsive ────────────────────────────────────────── */
 @media (max-width: 900px) {
-  .calc-grid,.calculator-grid,.comparison-grid { grid-template-columns: 1fr !important; }
+  .tool-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
   .metrics { grid-template-columns: 1fr; }
   .form-grid { grid-template-columns: 1fr; }
+  .scenario-grid { grid-template-columns: 1fr; }
   .calculator-card { padding: 1.25rem; }
+  .premium-head { flex-direction: column; align-items: flex-start; }
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+.tool-grid-equal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+.chart-wrap {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 0.75rem;
+  overflow: hidden;
+  margin-top: 0.75rem;
+}
+@media (max-width: 900px) {
+  .tool-grid, .tool-grid-equal { grid-template-columns: 1fr !important; }
 }
 </style>
 </head>
 <body>
 <header class="header">
 <div class="container header-container">
-<div class="logo">
-<h1><a href="/index.html">Cérebro Milionário</a></h1>
-</div>
-<button aria-expanded="false" aria-label="Abrir menu" class="mobile-menu-btn">
-<i class="fas fa-bars"></i>
-</button>
+<div class="logo"><h1><a href="/index.html">Cérebro Milionário</a></h1></div>
+<button aria-expanded="false" aria-label="Abrir menu" class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
 <nav class="navigation" id="primary-navigation">
 <ul class="nav-menu">
 <li><a href="/index.html">Home</a></li>
-<li><a href="/calculadora.html">Calculadora</a></li>
-<li><a href="/comparador-cdb-lci-lca.html">Comparador</a></li>
+<li><a href="/ferramentas.html">Ferramentas</a></li>
 <li><a href="/calculadora-ir-renda-fixa.html">IR Renda Fixa</a></li>
 <li><a href="/aposentadoria.html">Aposentadoria</a></li>
 <li><a href="/blog.html">Blog</a></li>
@@ -140,305 +363,176 @@
 <section class="page-header">
 <div class="container">
 <h1>Comparador de Investimentos</h1>
-<p>Compare dois cenários de investimento lado a lado. Veja qual é mais rentável e qual oferece melhor relação risco/retorno.</p>
-</div>
-</section>
-<section class="ad-container adsense-responsive">
-<span class="ad-label">Publicidade</span>
-<ins class="adsbygoogle" data-ad-client="ca-pub-4613426749830025" data-ad-format="auto" data-ad-slot="YOUR_AD_SLOT_ID_1" data-full-width-responsive="true" style="display:block"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</section>
-<section class="section">
-<div class="container">
-<div class="calculator-grid comparison-grid">
-<div class="calculator-card">
-<h2 class="calculator-title">Cenário 1</h2>
-<div class="form-grid">
-<div class="form-group full">
-<label for="nome1">Nome do Cenário</label>
-<input class="form-control" id="nome1" type="text" value="Renda Fixa"/>
-</div>
-<div class="form-group">
-<label for="capital1">Capital Inicial (R$)</label>
-<input class="form-control" id="capital1" type="text" value="10000"/>
-</div>
-<div class="form-group">
-<label for="aporte1">Aporte Mensal (R$)</label>
-<input class="form-control" id="aporte1" type="text" value="500"/>
-</div>
-<div class="form-group">
-<label for="retorno1">Retorno Anual (%)</label>
-<input class="form-control" id="retorno1" step="0.1" type="number" value="8"/>
-</div>
-<div class="form-group">
-<label for="periodo1">Período (anos)</label>
-<input class="form-control" id="periodo1" min="1" type="number" value="10"/>
-</div>
-</div>
-</div>
-<div class="calculator-card">
-<h2 class="calculator-title">Cenário 2</h2>
-<div class="form-grid">
-<div class="form-group full">
-<label for="nome2">Nome do Cenário</label>
-<input class="form-control" id="nome2" type="text" value="Ações"/>
-</div>
-<div class="form-group">
-<label for="capital2">Capital Inicial (R$)</label>
-<input class="form-control" id="capital2" type="text" value="10000"/>
-</div>
-<div class="form-group">
-<label for="aporte2">Aporte Mensal (R$)</label>
-<input class="form-control" id="aporte2" type="text" value="500"/>
-</div>
-<div class="form-group">
-<label for="retorno2">Retorno Anual (%)</label>
-<input class="form-control" id="retorno2" step="0.1" type="number" value="12"/>
-</div>
-<div class="form-group">
-<label for="periodo2">Período (anos)</label>
-<input class="form-control" id="periodo2" min="1" type="number" value="10"/>
-</div>
-</div>
-</div>
-</div>
-<div class="calculator-grid">
-<div class="calculator-card full">
-<div class="form-grid">
-<div class="form-group full">
-<button class="btn btn-primary" id="btnComparar" style="width: 100%;" type="button">Comparar Cenários</button>
-</div>
-</div>
-</div>
-</div>
-<div class="calculator-grid">
-<div class="calculator-card">
-<div class="result-header">
-<h2 class="calculator-title" id="titulo1">Cenário 1</h2>
-<span class="small-muted" id="c-lastrun"></span>
-</div>
-<div class="metrics">
-<div class="metric-card">
-<div class="metric-label">Valor Final</div>
-<div class="metric" id="valor1">—</div>
-<div class="metric-sub">Montante total ao final do período</div>
-</div>
-<div class="metric-card">
-<div class="metric-label">Total Investido</div>
-<div class="metric" id="investido1">—</div>
-<div class="metric-sub">Capital inicial + todos os aportes</div>
-</div>
-<div class="metric-card">
-<div class="metric-label">Ganho</div>
-<div class="metric" id="ganho1">—</div>
-<div class="metric-sub">Valor final menos total investido</div>
-</div>
-<div class="metric-card">
-<div class="metric-label">Rentabilidade</div>
-<div class="metric" id="rentabilidade1">—</div>
-<div class="metric-sub">Retorno sobre o total investido</div>
-</div>
-</div>
-</div>
-<div class="calculator-card">
-<h2 class="calculator-title" id="titulo2">Cenário 2</h2>
-<div class="metrics">
-<div class="metric-card">
-<div class="metric-label">Valor Final</div>
-<div class="metric" id="valor2">—</div>
-<div class="metric-sub">Montante total ao final do período</div>
-</div>
-<div class="metric-card">
-<div class="metric-label">Total Investido</div>
-<div class="metric" id="investido2">—</div>
-<div class="metric-sub">Capital inicial + todos os aportes</div>
-</div>
-<div class="metric-card">
-<div class="metric-label">Ganho</div>
-<div class="metric" id="ganho2">—</div>
-<div class="metric-sub">Valor final menos total investido</div>
-</div>
-<div class="metric-card">
-<div class="metric-label">Rentabilidade</div>
-<div class="metric" id="rentabilidade2">—</div>
-<div class="metric-sub">Retorno sobre o total investido</div>
-</div>
-</div>
-</div>
-</div>
-<div class="calculator-grid">
-<div class="calculator-card full">
-<h2 class="calculator-title">Diferença</h2>
-<div class="metrics">
-<div class="metric-card">
-<div class="metric-label">Diferença de Valor</div>
-<div class="metric" id="diferenca">—</div>
-<div class="metric-sub">Qual cenário é melhor</div>
-</div>
-<div class="metric-card">
-<div class="metric-label">Percentual de Diferença</div>
-<div class="metric" id="percentualDif">—</div>
-<div class="metric-sub">Vantagem relativa</div>
-</div>
-</div>
-<div class="chart-wrap">
-<canvas id="chartComparacao"></canvas>
-</div>
-</div>
-</div>
-</section>
-<section class="ad-container adsense-responsive">
-<span class="ad-label">Publicidade</span>
-<ins class="adsbygoogle" data-ad-client="ca-pub-4613426749830025" data-ad-format="auto" data-ad-slot="YOUR_AD_SLOT_ID_2" data-full-width-responsive="true" style="display:block"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</section>
-<section class="features-section">
-<div class="container">
-<div class="section-header">
-<h2>Como Usar o Comparador</h2>
-<p>Tome decisões de investimento baseadas em dados</p>
-</div>
-<div class="features-grid">
-<div class="feature-card animate-fade-in">
-<div class="feature-icon"><i class="fas fa-balance-scale"></i></div>
-<h3 class="feature-title">Comparação Lado a Lado</h3>
-<p>Veja os resultados de dois cenários diferentes lado a lado para facilitar a comparação.</p>
-</div>
-<div class="feature-card animate-fade-in" style="animation-delay: 0.1s;">
-<div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
-<h3 class="feature-title">Gráfico Dinâmico</h3>
-<p>Visualize a evolução de ambos os cenários ao longo do tempo em um gráfico interativo.</p>
-</div>
-<div class="feature-card animate-fade-in" style="animation-delay: 0.2s;">
-<div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
-<h3 class="feature-title">Insights Claros</h3>
-<p>Entenda rapidamente qual cenário é mais vantajoso e por quanto.</p>
-</div>
+<p>Compare dois cenários de investimento lado a lado — valor final, ganho, rentabilidade e qual entrega mais no seu prazo.</p>
 </div>
 </section>
 <section class="section">
 <div class="container">
-<div class="content-block">
-<h2>Guia Completo: Comparador de Investimentos</h2>
-
-<h3>Introdução à Comparação de Cenários</h3>
-<p>Um dos maiores desafios para investidores é escolher entre diferentes opções de investimento. O Comparador de Investimentos do Cérebro Milionário permite que você compare dois cenários diferentes lado a lado, facilitando a tomada de decisão.</p>
-
-<h3>Como Usar o Comparador</h3>
-<p>O processo é simples:</p>
-
-<ol>
-<li>Defina o nome do primeiro cenário (ex: "Renda Fixa")</li>
-<li>Insira o capital inicial e aporte mensal</li>
-<li>Defina o retorno anual esperado</li>
-<li>Escolha o período de simulação</li>
-<li>Repita para o segundo cenário</li>
-<li>Clique em "Comparar Cenários"</li>
-</ol>
-
-<h3>Interpretando os Resultados</h3>
-<p><strong>Valor Final:</strong> O montante total que você terá após o período especificado.</p>
-
-<p><strong>Total Investido:</strong> A soma de todo o capital inicial e aportes mensais.</p>
-
-<p><strong>Ganho:</strong> A diferença entre o valor final e o total investido (seu lucro).</p>
-
-<p><strong>Rentabilidade:</strong> O percentual de retorno sobre o total investido.</p>
-
-<h3>Exemplos de Comparações Úteis</h3>
-<p><strong>Renda Fixa vs Ações:</strong> Compare o retorno seguro de um CDB com o potencial maior (mas mais volátil) de ações.</p>
-
-<p><strong>Diferentes Ações:</strong> Compare o retorno esperado de duas empresas diferentes.</p>
-
-<p><strong>Com e Sem Aportes:</strong> Veja o impacto dos aportes mensais no resultado final.</p>
-
-<p><strong>Diferentes Períodos:</strong> Compare o mesmo investimento em 10 anos vs 20 anos.</p>
-
-<h3>Fatores a Considerar</h3>
-<p><strong>Retorno Esperado:</strong> Use dados históricos e análises de especialistas para estimar o retorno realista.</p>
-
-<p><strong>Risco:</strong> Cenários com maior retorno geralmente têm maior risco. Considere sua tolerância ao risco.</p>
-
-<p><strong>Horizonte de Tempo:</strong> Investimentos de longo prazo podem tolerar maior volatilidade.</p>
-
-<p><strong>Inflação:</strong> Lembre-se de considerar a inflação. Um retorno de 8% pode ser apenas 4% em termos reais se a inflação for 4%.</p>
-
-<h3>Dicas para Comparações Efetivas</h3>
-<p><strong>Use Dados Realistas:</strong> Não use retornos muito otimistas. Seja conservador nas estimativas.</p>
-
-<p><strong>Compare Cenários Similares:</strong> Para uma comparação justa, use o mesmo capital inicial e período.</p>
-
-<p><strong>Considere Custos:</strong> Alguns investimentos têm custos (corretagem, taxa de administração). Considere isso na comparação.</p>
-
-<p><strong>Revise Regularmente:</strong> Conforme novos dados surgem, revise suas estimativas e faça novas comparações.</p>
-
-<h3>Exemplo Prático</h3>
-<p>Imagine que você tem R$ 10 mil para investir e pode aportar R$ 500 mensais por 10 anos.</p>
-
-<p><strong>Cenário 1 - Renda Fixa (8% ao ano):</strong></p>
-<ul>
-<li>Valor Final: ~R$ 105 mil</li>
-<li>Total Investido: R$ 70 mil</li>
-<li>Ganho: R$ 35 mil</li>
-<li>Rentabilidade: 50%</li>
-</ul>
-
-<p><strong>Cenário 2 - Ações (12% ao ano):</strong></p>
-<ul>
-<li>Valor Final: ~R$ 135 mil</li>
-<li>Total Investido: R$ 70 mil</li>
-<li>Ganho: R$ 65 mil</li>
-<li>Rentabilidade: 93%</li>
-</ul>
-
-<p>A diferença é de R$ 30 mil a favor do cenário de ações, ou 28,6% a mais.</p>
-
-<h3>Limitações do Comparador</h3>
-<p>O comparador assume retornos constantes, o que não é realista. Na prática:</p>
-
-<ul>
-<li>Retornos variam de ano para ano</li>
-<li>Há volatilidade e risco</li>
-<li>Custos e impostos podem impactar o resultado</li>
-<li>Mudanças econômicas podem afetar os retornos</li>
-</ul>
-
-<p>Use o comparador como uma ferramenta de planejamento, não como previsão exata.</p>
-
-<h3>Próximos Passos</h3>
-<p>Após comparar cenários, considere:</p>
-
-<ul>
-<li>Consultar um assessor financeiro</li>
-<li>Estudar mais sobre os investimentos que interessam</li>
-<li>Diversificar em vez de escolher apenas um cenário</li>
-<li>Revisar e ajustar sua estratégia regularmente</li>
-</ul>
-
-<h3>Ferramentas Relacionadas</h3>
-<p>Confira também:</p>
-<ul>
-<li><a href="/calculadora.html">Calculadora de Juros Compostos</a> - Para entender o poder dos juros</li>
-<li><a href="/simulador-carteira.html">Simulador de Carteira</a> - Para diversificação</li>
-<li><a href="/calculadora-valuation.html">Calculadora de Valuation</a> - Para análise de ações</li>
-</ul>
-</div>
-</section>
-<section class="ad-container adsense-responsive">
+<div class="ad-container adsense-responsive">
 <span class="ad-label">Publicidade</span>
-<ins class="adsbygoogle" data-ad-client="ca-pub-4613426749830025" data-ad-format="auto" data-ad-slot="YOUR_AD_SLOT_ID_3" data-full-width-responsive="true" style="display:block"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4613426749830025"
+  data-ad-slot="9876543270" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<!-- FORMULÁRIOS lado a lado -->
+<div class="tool-grid-equal" style="margin-bottom:1.5rem;">
+
+  <div class="calculator-card">
+  <h2 class="calculator-title">Cenário 1</h2>
+  <div class="form-grid">
+  <div class="form-group full">
+    <label for="nome1">Nome do cenário</label>
+    <input class="form-control" id="nome1" type="text" value="Renda Fixa"/>
+  </div>
+  <div class="form-group">
+    <label for="capital1">Capital inicial (R$)</label>
+    <input class="form-control" id="capital1" type="text" value="10.000,00"/>
+  </div>
+  <div class="form-group">
+    <label for="aporte1">Aporte mensal (R$)</label>
+    <input class="form-control" id="aporte1" type="text" value="500,00"/>
+  </div>
+  <div class="form-group">
+    <label for="retorno1">Retorno anual (%)</label>
+    <input class="form-control" id="retorno1" type="number" step="0.1" value="8"/>
+  </div>
+  <div class="form-group">
+    <label for="periodo1">Período (anos)</label>
+    <input class="form-control" id="periodo1" type="number" min="1" value="10"/>
+  </div>
+  </div>
+  </div>
+
+  <div class="calculator-card">
+  <h2 class="calculator-title">Cenário 2</h2>
+  <div class="form-grid">
+  <div class="form-group full">
+    <label for="nome2">Nome do cenário</label>
+    <input class="form-control" id="nome2" type="text" value="Ações"/>
+  </div>
+  <div class="form-group">
+    <label for="capital2">Capital inicial (R$)</label>
+    <input class="form-control" id="capital2" type="text" value="10.000,00"/>
+  </div>
+  <div class="form-group">
+    <label for="aporte2">Aporte mensal (R$)</label>
+    <input class="form-control" id="aporte2" type="text" value="500,00"/>
+  </div>
+  <div class="form-group">
+    <label for="retorno2">Retorno anual (%)</label>
+    <input class="form-control" id="retorno2" type="number" step="0.1" value="12"/>
+  </div>
+  <div class="form-group">
+    <label for="periodo2">Período (anos)</label>
+    <input class="form-control" id="periodo2" type="number" min="1" value="10"/>
+  </div>
+  </div>
+  </div>
+
+</div>
+
+<!-- BOTÃO -->
+<div style="display:flex;gap:.75rem;align-items:center;margin-bottom:1.5rem;">
+  <button class="btn btn-primary" id="btnComparar" type="button">Comparar Cenários</button>
+  <button class="btn btn-secondary" id="btnResetarComp" type="button">Resetar</button>
+  <span class="status-badge" id="c-status">Pronto para comparar</span>
+</div>
+
+<!-- RESULTADO: dois cards lado a lado -->
+<div class="tool-grid-equal" style="margin-bottom:1.5rem;" id="results-section">
+
+  <div class="calculator-card">
+  <div class="result-header">
+    <h2 class="calculator-title" id="titulo1">Cenário 1</h2>
+    <span class="small-muted" id="c-lastrun"></span>
+  </div>
+  <div class="metrics">
+    <div class="metric-card">
+      <div class="metric-label">Valor final</div>
+      <div class="metric" id="valor1">—</div>
+      <div class="metric-sub">Montante total ao final do período</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Total investido</div>
+      <div class="metric" id="investido1">—</div>
+      <div class="metric-sub">Capital inicial + aportes</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Ganho líquido</div>
+      <div class="metric" id="ganho1">—</div>
+      <div class="metric-sub">Valor final menos total investido</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Rentabilidade</div>
+      <div class="metric" id="rentabilidade1">—</div>
+      <div class="metric-sub">Retorno sobre o total investido</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="calculator-card">
+  <div class="result-header">
+    <h2 class="calculator-title" id="titulo2">Cenário 2</h2>
+  </div>
+  <div class="metrics">
+    <div class="metric-card">
+      <div class="metric-label">Valor final</div>
+      <div class="metric" id="valor2">—</div>
+      <div class="metric-sub">Montante total ao final do período</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Total investido</div>
+      <div class="metric" id="investido2">—</div>
+      <div class="metric-sub">Capital inicial + aportes</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Ganho líquido</div>
+      <div class="metric" id="ganho2">—</div>
+      <div class="metric-sub">Valor final menos total investido</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Rentabilidade</div>
+      <div class="metric" id="rentabilidade2">—</div>
+      <div class="metric-sub">Retorno sobre o total investido</div>
+    </div>
+  </div>
+  </div>
+
+</div>
+
+<!-- DIFERENÇA -->
+<div class="calculator-card" style="margin-bottom:1.5rem;">
+  <h2 class="calculator-title">Diferença entre os cenários</h2>
+  <div class="metrics">
+    <div class="metric-card">
+      <div class="metric-label">Diferença de valor</div>
+      <div class="metric good" id="diferenca">—</div>
+      <div class="metric-sub">Vantagem do melhor cenário</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Vantagem relativa</div>
+      <div class="metric good" id="percentualDif">—</div>
+      <div class="metric-sub">Percentual de superioridade</div>
+    </div>
+  </div>
+  <div class="chart-wrap">
+    <canvas id="chartComparacao"></canvas>
+  </div>
+  <div class="watermark-row"><strong>@cerebromillionario</strong> • Simulação educacional • Não é recomendação de investimento</div>
+</div>
+
+<div class="ad-container adsense-responsive">
+<span class="ad-label">Publicidade</span>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4613426749830025"
+  data-ad-slot="9876543271" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</div>
 </section>
 </main>
 <footer class="footer">
-<div class="container">
-<div class="footer-grid">
+<div class="container"><div class="footer-grid">
 <div class="footer-column">
 <h3 class="footer-logo">Cérebro Milionário</h3>
 <p class="footer-text">Educação financeira com profundidade técnica e experiência real de mercado. Renda fixa, ETFs, FIIs e ações.</p>
@@ -446,71 +540,75 @@
 <a href="https://t.me/cerebromillionario" target="_blank" class="social-link" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
 <a href="https://www.instagram.com/cerebromillionario/" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
 <a href="https://youtube.com/@cerebromillionario" target="_blank" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-</div>
-</div>
-<div class="footer-column">
-<h4 class="footer-heading">Ferramentas</h4>
+</div></div>
+<div class="footer-column"><h4 class="footer-heading">Ferramentas</h4>
 <ul class="footer-links">
+<li><a href="/ferramentas.html">Hub de Ferramentas</a></li>
 <li><a href="/calculadora.html">Calculadora de Juros</a></li>
-<li><a href="/comparador-cdb-lci-lca.html">Comparador CDB/LCI</a></li>
+<li><a href="/aposentadoria.html">Simulador FIRE</a></li>
 <li><a href="/calculadora-ir-renda-fixa.html">Calculadora IR</a></li>
-<li><a href="/aposentadoria.html">Simulador Aposentadoria</a></li>
-</ul>
-</div>
-<div class="footer-column">
-<h4 class="footer-heading">Conteúdo</h4>
+</ul></div>
+<div class="footer-column"><h4 class="footer-heading">Conteúdo</h4>
 <ul class="footer-links">
 <li><a href="/blog.html">Blog</a></li>
 <li><a href="/glossario-financeiro.html">Glossário</a></li>
 <li><a href="/perguntas-frequentes.html">FAQ</a></li>
-<li><a href="/guia-iniciantes.html">Guia Iniciantes</a></li>
-</ul>
-</div>
-<div class="footer-column">
-<h4 class="footer-heading">Institucional</h4>
+</ul></div>
+<div class="footer-column"><h4 class="footer-heading">Institucional</h4>
 <ul class="footer-links">
 <li><a href="/sobre.html">Sobre</a></li>
 <li><a href="/contato.html">Contato</a></li>
 <li><a href="/politica-privacidade.html">Privacidade</a></li>
 <li><a href="/termos-uso.html">Termos de Uso</a></li>
-</ul>
-</div>
+</ul></div>
 </div>
 <div class="footer-bottom">
 <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
-<div style="display:flex;gap:1rem;">
-<a href="/politica-privacidade.html">Privacidade</a>
-<a href="/termos-uso.html">Termos</a>
-<a href="/contato.html">Contato</a>
-</div>
-</div>
-</div>
-</footer>
+<div style="display:flex;gap:1rem;"><a href="/politica-privacidade.html">Privacidade</a><a href="/termos-uso.html">Termos</a></div>
+</div></div></footer>
 <script src="/js/main.js"></script>
 <script src="/js/comparador-investimentos.js"></script>
-
 <script>
-(function(){
-  var origBtn = document.getElementById('btnComparar');
-  if(!origBtn) return;
-  origBtn.addEventListener('click', function(){
-    var lr = document.getElementById('c-lastrun');
-    if(lr) lr.textContent = 'Comparado em ' + new Date().toLocaleString('pt-BR');
-    // Apply good/bad on ganho cards based on which is higher
-    setTimeout(function(){
-      var v1t = document.getElementById('valor1'); var v2t = document.getElementById('valor2');
-      if(!v1t || !v2t) return;
-      function parseMoney(s){ return parseFloat(String(s).replace(/[R$\s.]/g,'').replace(',','.'))||0; }
-      var v1 = parseMoney(v1t.textContent); var v2 = parseMoney(v2t.textContent);
-      if(v1 > 0 && v2 > 0){
-        v1t.className = v1 >= v2 ? 'metric good' : 'metric';
-        v2t.className = v2 >= v1 ? 'metric good' : 'metric';
+(function() {
+  function el(id) { return document.getElementById(id); }
+  function parseMoney(s) {
+    return parseFloat(String(s || 0).replace(/[R$\s.]/g, '').replace(',', '.')) || 0;
+  }
+
+  var btn = el('btnComparar');
+  if (btn) btn.addEventListener('click', function() {
+    setTimeout(function() {
+      var lr = el('c-lastrun'); if (lr) lr.textContent = 'Comparado em ' + new Date().toLocaleString('pt-BR');
+      var st = el('c-status'); if (st) st.textContent = '✅ Comparação concluída';
+      // Colorir melhor cenário
+      var v1 = parseMoney(el('valor1') && el('valor1').textContent);
+      var v2 = parseMoney(el('valor2') && el('valor2').textContent);
+      if (v1 > 0 && v2 > 0) {
+        el('valor1').className = v1 >= v2 ? 'metric good' : 'metric';
+        el('valor2').className = v2 >= v1 ? 'metric good' : 'metric';
+        el('ganho1').className  = v1 >= v2 ? 'metric good' : 'metric';
+        el('ganho2').className  = v2 >= v1 ? 'metric good' : 'metric';
       }
-      // Color difference
-      var df = document.getElementById('diferenca');
-      if(df) df.className = 'metric good';
-    }, 100);
+    }, 150);
   }, true);
+
+  var btnR = el('btnResetarComp');
+  if (btnR) btnR.addEventListener('click', function() {
+    el('capital1').value = '10.000,00'; el('aporte1').value = '500,00';
+    el('retorno1').value = '8'; el('periodo1').value = '10'; el('nome1').value = 'Renda Fixa';
+    el('capital2').value = '10.000,00'; el('aporte2').value = '500,00';
+    el('retorno2').value = '12'; el('periodo2').value = '10'; el('nome2').value = 'Ações';
+    ['valor1','valor2','investido1','investido2','ganho1','ganho2',
+     'rentabilidade1','rentabilidade2','diferenca','percentualDif'].forEach(function(id) {
+      var e = el(id); if (e) { e.textContent = '—'; e.className = 'metric'; }
+    });
+    ['titulo1','titulo2'].forEach(function(id) {
+      var e = el(id); if (e) e.textContent = id === 'titulo1' ? 'Cenário 1' : 'Cenário 2';
+    });
+    var lr = el('c-lastrun'); if (lr) lr.textContent = '';
+    var st = el('c-status'); if (st) st.textContent = 'Pronto para comparar';
+    if (window.chartComparacao) { window.chartComparacao.destroy(); window.chartComparacao = null; }
+  });
 })();
 </script>
 </body>
