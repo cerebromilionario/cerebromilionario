@@ -1,7 +1,32 @@
 {
-  "generatedAt": "2026-04-13T10:00:00Z",
+  "generatedAt": "2026-04-16T10:00:00Z",
   "baseUrl": "https://cerebromilionario.site",
   "posts": [
+    {
+      "title": "IVLU ETF iShares MSCI International Value: Guia Completo para Brasileiros",
+      "excerpt": "Guia completo do IVLU ETF da BlackRock: MSCI World ex USA Enhanced Value, holdings, países, riscos e como comprar do Brasil. Morningstar Gold Medal.",
+      "url": "/posts/ivlu-etf-ishares-msci-international-value-guia-completo.html",
+      "date": "16/04/2026",
+      "readTime": "19 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "Valor Internacional"
+      ]
+    },
+    {
+      "title": "SLYV ETF SPDR S&P 600 Small Cap Value: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o SLYV ETF: S&P SmallCap 600 Value Index, taxa 0,15%, small cap value premium, top holdings, riscos e como comprar do Brasil.",
+      "url": "/posts/slyv-etf-spdr-sp600-small-cap-value-guia-completo.html",
+      "date": "16/04/2026",
+      "readTime": "18 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "Small Cap",
+        "Value"
+      ]
+    },
     {
       "title": "Interactive Brokers para Brasileiros: Guia Completo 2026",
       "excerpt": "Guia completo da Interactive Brokers para brasileiros: como abrir conta passo a passo, taxas, depósito, plataformas e tributação.",
