@@ -1,7 +1,59 @@
 {
-  "generatedAt": "2026-04-16T10:00:00Z",
+  "generatedAt": "2026-04-16T12:00:00Z",
   "baseUrl": "https://cerebromilionario.site",
   "posts": [
+    {
+      "title": "DGS ETF WisdomTree Emerging Markets Small Cap Dividend: Guia Completo",
+      "excerpt": "Tudo sobre o DGS ETF da WisdomTree: small caps emergentes com dividendos, filtro duplo de lucratividade, Taiwan, África do Sul, holdings reais e como comprar do Brasil.",
+      "url": "/posts/dgs-wisdomtree-emerging-markets-small-cap-dividend-guia-completo.html",
+      "date": "16/04/2026",
+      "readTime": "19 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "Emergentes",
+        "Dividendos"
+      ]
+    },
+    {
+      "title": "VLUE ETF iShares MSCI USA Value Factor: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o VLUE ETF da BlackRock: Enhanced Value americano, por que tech domina a carteira, Micron, Cisco, Intel, como comprar do Brasil e VLUE vs VTV.",
+      "url": "/posts/vlue-etf-ishares-msci-usa-value-factor-guia-completo.html",
+      "date": "16/04/2026",
+      "readTime": "18 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "Value",
+        "EUA"
+      ]
+    },
+    {
+      "title": "DGS ETF WisdomTree Emerging Markets SmallCap Dividend: Guia Completo para Brasileiros",
+      "excerpt": "Guia completo do DGS ETF da WisdomTree: small cap dividend emergentes, 1.000+ posições, ponderação por dividendos e como comprar do Brasil.",
+      "url": "/posts/dgs-etf-wisdomtree-emerging-markets-smallcap-dividend-guia.html",
+      "date": "16/04/2026",
+      "readTime": "19 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "Emergentes",
+        "Dividendos"
+      ]
+    },
+    {
+      "title": "VLUE ETF iShares MSCI USA Value Factor: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o VLUE ETF da BlackRock: MSCI USA Enhanced Value, metodologia setorial neutra, taxa 0,15%, performance 2025-2026 e como comprar do Brasil.",
+      "url": "/posts/vlue-etf-ishares-msci-usa-value-factor-guia-completo.html",
+      "date": "16/04/2026",
+      "readTime": "19 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "Value",
+        "Large Cap"
+      ]
+    },
     {
       "title": "IVLU ETF iShares MSCI International Value: Guia Completo para Brasileiros",
       "excerpt": "Guia completo do IVLU ETF da BlackRock: MSCI World ex USA Enhanced Value, holdings, países, riscos e como comprar do Brasil. Morningstar Gold Medal.",
