@@ -153,7 +153,6 @@ strong { color: var(--text-primary); font-weight: 600; }
 
 /* Nav links */
 .navigation { z-index: 999; pointer-events: auto; display: flex; align-items: center; }
-    visibility: visible; opacity: 1;
 .nav-menu {
   display: flex; list-style: none;
   margin: 0; padding: 0; gap: var(--s1);
@@ -802,8 +801,7 @@ textarea.form-control { resize: vertical; min-height: 140px; }
 @media (max-width: 768px) {
   :root { --nav-h: 60px; }
 
-  .mobile-menu-btn { z-index: 1001; position: relative; min-width: 44px; min-height: 44px; -webkit-tap-highlight-color: transparent; touch-action: manipulation; display: flex; align-items: center; justify-content: center; }
-  pointer-events: auto;
+  .mobile-menu-btn { z-index: 1001; position: relative; min-width: 44px; min-height: 44px; -webkit-tap-highlight-color: transparent; touch-action: manipulation; display: flex; align-items: center; justify-content: center; pointer-events: auto; }
 
   .navigation { z-index: 999; pointer-events: auto;
     visibility: hidden; opacity: 0;
