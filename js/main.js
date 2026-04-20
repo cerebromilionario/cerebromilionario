@@ -1,383 +1,247 @@
-
-// ── Nav: scroll effect ────────────────────────────────────
-const header = document.querySelector('.header');
-if (header) {
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 40);
-  }, { passive: true });
-}
-
-// ── Nav: mobile toggle ────────────────────────────────────
-const mobileBtn = document.querySelector('.mobile-menu-btn');
-const nav       = document.querySelector('.navigation');
-if (mobileBtn && nav) {
-  mobileBtn.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    mobileBtn.setAttribute('aria-expanded', open);
-    mobileBtn.innerHTML = open
-      ? '<i class="fas fa-times"></i>'
-      : '<i class="fas fa-bars"></i>';
-  });
-  // Close on outside click
-  document.addEventListener('click', (e) => {
-    if (!header.contains(e.target)) {
-      nav.classList.remove('open');
-      mobileBtn.setAttribute('aria-expanded', 'false');
-      mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
-    }
-  });
-}
-
-// ── Nav: active link ─────────────────────────────────────
-(function() {
-  const path = window.location.pathname.replace(/\/index\.html$/, '/');
-  document.querySelectorAll('.nav-menu a').forEach(a => {
-    const href = a.getAttribute('href').replace(/\/index\.html$/, '/');
-    if (path === href || (href !== '/' && path.startsWith(href.replace('.html','')))) {
-      a.classList.add('active');
-    }
-  });
-})();
-
-// ── FAQ toggle ────────────────────────────────────────────
-document.querySelectorAll('.faq-question').forEach(q => {
-  q.addEventListener('click', () => {
-    const item = q.closest('.faq-item');
-    item.classList.toggle('open');
-  });
-});
-
-
-// Arquivo JavaScript principal para o site Cérebro Milionário
+/**
+ * Cérebro Milionário — Main JavaScript
+ * Optimized for performance and mobile UX
+ */
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar o ano atual no footer
+    // ── CONFIG & SELECTORS ────────────────────────────────
+    const header = document.querySelector('.header');
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const navigation = document.querySelector('.navigation');
     const currentYearElement = document.getElementById('current-year');
+
+    // ── FOOTER YEAR ───────────────────────────────────────
     if (currentYearElement) {
         currentYearElement.textContent = new Date().getFullYear();
     }
 
-    // Menu mobile
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navigation = document.querySelector('.navigation');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (mobileMenuBtn && navigation) {
-        mobileMenuBtn.addEventListener('click', function() {
-            navigation.classList.toggle('active');
-            const isExpanded = navigation.classList.contains('active');
-            mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
-            
-            // Alternar ícone do menu
-            const menuIcon = mobileMenuBtn.querySelector('i');
-            if (menuIcon) {
-                if (isExpanded) {
-                    menuIcon.classList.remove('fa-bars');
-                    menuIcon.classList.add('fa-times');
-                } else {
-                    menuIcon.classList.remove('fa-times');
-                    menuIcon.classList.add('fa-bars');
-                }
-            }
-        });
-    }
-
-    
-    // Fecha o menu ao clicar em um link (mobile)
-    if (navigation) {
-        navigation.querySelectorAll('a').forEach(a => {
-            a.addEventListener('click', () => {
-                navigation.classList.remove('active');
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                const menuIcon = mobileMenuBtn.querySelector('i');
-                if (menuIcon) {
-                    menuIcon.classList.remove('fa-times');
-                    menuIcon.classList.add('fa-bars');
-                }
-            });
-        });
-    }
-
-// Header fixo com mudança de estilo ao rolar
-    const header = document.querySelector('.header');
+    // ── HEADER SCROLL EFFECT ──────────────────────────────
     if (header) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+        const handleScroll = () => {
+            header.classList.toggle('scrolled', window.scrollY > 40);
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll(); // Initial check
+    }
+
+    // ── MOBILE MENU LOGIC (ROBUST) ────────────────────────
+    if (mobileBtn && navigation) {
+        const toggleMenu = (e) => {
+            if (e) e.preventDefault();
+            const isOpen = navigation.classList.toggle('open');
+            // Support both 'open' and 'active' classes if CSS uses both
+            navigation.classList.toggle('active', isOpen); 
+            
+            mobileBtn.setAttribute('aria-expanded', isOpen);
+            
+            // Update Icon
+            const icon = mobileBtn.querySelector('i');
+            if (icon) {
+                icon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+            }
+            
+            // Prevent body scroll when menu is open
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        };
+
+        // Use click for broad compatibility, but ensure it's responsive
+        mobileBtn.addEventListener('click', toggleMenu);
+
+        // Close on link click
+        navigation.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navigation.classList.remove('open', 'active');
+                mobileBtn.setAttribute('aria-expanded', 'false');
+                const icon = mobileBtn.querySelector('i');
+                if (icon) icon.className = 'fas fa-bars';
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close on outside click
+        document.addEventListener('click', (e) => {
+            if (navigation.classList.contains('open') && 
+                !header.contains(e.target) && 
+                !navigation.contains(e.target)) {
+                navigation.classList.remove('open', 'active');
+                mobileBtn.setAttribute('aria-expanded', 'false');
+                const icon = mobileBtn.querySelector('i');
+                if (icon) icon.className = 'fas fa-bars';
+                document.body.style.overflow = '';
             }
         });
     }
 
-    // Inicializar tabs (para market data, calculadora, etc)
-    initTabs();
-
-    // Carregar posts recentes na página inicial
-    loadLatestPosts();
-
-    // Formulário de newsletter
-    const newsletterForms = document.querySelectorAll('.newsletter-form');
-    if (newsletterForms.length > 0) {
-        newsletterForms.forEach(form => {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const emailInput = this.querySelector('input[type="email"]');
-                if (emailInput && emailInput.value) {
-                    // Aqui seria a lógica para enviar o email para um serviço
-                    // Por enquanto, apenas simulamos o sucesso
-                    alert('Obrigado por se inscrever! Em breve você receberá nossas novidades.');
-                    emailInput.value = '';
-                }
-            });
+    // ── ACTIVE NAV LINK ───────────────────────────────────
+    (function() {
+        const path = window.location.pathname.replace(/\/index\.html$/, '/');
+        document.querySelectorAll('.nav-menu a').forEach(a => {
+            const href = a.getAttribute('href').replace(/\/index\.html$/, '/');
+            if (path === href || (href !== '/' && path.startsWith(href.replace('.html','')))) {
+                a.classList.add('active');
+            }
         });
-    }
+    })();
 
-    // Inicializar animações de entrada
+    // ── FAQ TOGGLE ────────────────────────────────────────
+    document.querySelectorAll('.faq-question').forEach(q => {
+        q.addEventListener('click', () => {
+            const item = q.closest('.faq-item');
+            if (item) item.classList.toggle('open');
+        });
+    });
+
+    // ── INITIALIZE COMPONENTS ─────────────────────────────
+    initTabs();
+    loadLatestPosts();
     initAnimations();
+    
+    // Newsletter
+    document.querySelectorAll('.newsletter-form').forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const input = this.querySelector('input[type="email"]');
+            if (input && input.value) {
+                alert('Obrigado por se inscrever! Em breve você receberá nossas novidades.');
+                input.value = '';
+            }
+        });
+    });
 });
 
-// Função para inicializar tabs
+// ── HELPER FUNCTIONS ──────────────────────────────────────
+
 function initTabs() {
-    const tabContainers = [
+    const tabConfigs = [
         { tabs: '.market-data-tab', panels: '.market-data-panel' },
         { tabs: '.calculator-tab', panels: '.calculator-panel' }
     ];
-
-    tabContainers.forEach(container => {
-        const tabs = document.querySelectorAll(container.tabs);
-        const panels = document.querySelectorAll(container.panels);
-        
-        if (tabs.length > 0 && panels.length > 0) {
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    // Remover classe ativa de todas as tabs
-                    tabs.forEach(t => t.classList.remove('active'));
-                    
-                    // Adicionar classe ativa à tab clicada
-                    this.classList.add('active');
-                    
-                    // Esconder todos os painéis
-                    panels.forEach(panel => panel.classList.remove('active'));
-                    
-                    // Mostrar o painel correspondente
-                    const panelId = this.getAttribute('data-panel');
-                    const targetPanel = document.getElementById(panelId);
-                    if (targetPanel) {
-                        targetPanel.classList.add('active');
-                    }
-                });
+    tabConfigs.forEach(config => {
+        const tabs = document.querySelectorAll(config.tabs);
+        const panels = document.querySelectorAll(config.panels);
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.dataset.tab;
+                tabs.forEach(t => t.classList.remove('active'));
+                panels.forEach(p => p.classList.remove('active'));
+                tab.classList.add('active');
+                const targetPanel = document.getElementById(target);
+                if (targetPanel) targetPanel.classList.add('active');
             });
-        }
+        });
     });
 }
 
-// Função para carregar posts recentes na página inicial
-function loadLatestPosts() {
-    const latestPostsGrid = document.getElementById('latest-posts-grid');
-    if (!latestPostsGrid) return;
+async function fetchPostsIndex() {
+    try {
+        const res = await fetch('/posts/posts.json');
+        return await res.json();
+    } catch (e) {
+        console.error('Error fetching posts:', e);
+        return [];
+    }
+}
 
-    // Dados de exemplo para os posts recentes
-    // Em um site real, isso viria de uma API ou banco de dados
-    const latestPosts = [
-        {
-            title: 'Psicologia Financeira: Como Evitar Armadilhas',
-            excerpt: 'Os vieses que sabotam seu bolso e como criar um sistema para tomar melhores decisões.',
-            image: '/images/blog-cover.svg',
-            url: 'posts/psicologia-financeira.html',
-            date: '',
-            readTime: '15 min'
-        },
-        {
-            title: 'Planejamento de Aposentadoria: Estratégia de Longo Prazo',
-            excerpt: 'Como calcular patrimônio alvo, aportes e taxa de retirada para viver de renda.',
-            image: '/images/blog-cover.svg',
-            url: 'posts/planejamento-aposentadoria.html',
-            date: '',
-            readTime: '15 min'
-        },
-        {
-            title: 'Orçamento Familiar: Método Prático para Sobrar Dinheiro',
-            excerpt: 'Um método simples para controlar gastos, reduzir desperdícios e acelerar seus aportes.',
-            image: '/images/blog-cover.svg',
-            url: 'posts/orcamento-familiar.html',
-            date: '',
-            readTime: '15 min'
-        },
-        {
-            title: 'Minimalismo Financeiro: Gastar Melhor e Investir Mais',
-            excerpt: 'Uma abordagem prática para reduzir consumo e acelerar a construção de patrimônio.',
-            image: '/images/blog-cover.svg',
-            url: 'posts/minimalismo-financeiro.html',
-            date: '',
-            readTime: '15 min'
-        },
-        {
-            title: 'Investimentos Sustentáveis: ESG na Prática',
-            excerpt: 'Como avaliar ESG de verdade e evitar armadilhas na hora de investir com propósito.',
-            image: '/images/blog-cover.svg',
-            url: 'posts/investimentos-sustentaveis.html',
-            date: '',
-            readTime: '15 min'
-        },
-        {
-            title: 'Fundo de Emergência: O Guia Completo',
-            excerpt: 'Como montar sua reserva com segurança, liquidez e estratégia — e quando usar.',
-            image: '/images/blog-cover.svg',
-            url: 'posts/fundo-emergencia.html',
-            date: '',
-            readTime: '15 min'
-        },
-    ];
+async function loadLatestPosts() {
+    const grid = document.getElementById('latest-posts-grid');
+    if (!grid) return;
+    const posts = await fetchPostsIndex();
+    const latest = posts.slice(0, 4);
+    grid.innerHTML = latest.map(post => `
+        <a href="${post.url}" class="news-card">
+            <div class="news-card-img">
+                <img src="${post.image || '/images/blog-cover.svg'}" alt="${post.title}" loading="lazy">
+            </div>
+            <div class="news-card-content">
+                <span class="news-tag">${post.category || 'Educação'}</span>
+                <h3>${post.title}</h3>
+                <div class="news-meta">
+                    <span><i class="far fa-calendar"></i> ${post.date ? post.date.split('-').reverse().join('/') : ''}</span>
+                    <span><i class="far fa-clock"></i> ${post.readTime || ''}</span>
+                </div>
+            </div>
+        </a>
+    `).join('');
+}
 
-    let postsHTML = '';
-    latestPosts.forEach(post => {
-        postsHTML += `
-            <div class="blog-card animate-fade-in">
+function initAnimations() {
+    const elements = document.querySelectorAll('.animate-fade-in');
+    if (elements.length === 0) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    elements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        observer.observe(el);
+    });
+}
+
+function sharePost(platform, url, title) {
+    let shareUrl;
+    const u = encodeURIComponent(url);
+    const t = encodeURIComponent(title);
+    switch(platform) {
+        case 'facebook': shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${u}`; break;
+        case 'twitter':  shareUrl = `https://twitter.com/intent/tweet?url=${u}&text=${t}`; break;
+        case 'linkedin': shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${u}`; break;
+        case 'whatsapp': shareUrl = `https://api.whatsapp.com/send?text=${t}%20${u}`; break;
+    }
+    if (shareUrl) window.open(shareUrl, '_blank', 'width=600,height=400');
+    return false;
+}
+
+async function loadBlogPosts() {
+    const container = document.getElementById('posts-container');
+    const pag = document.querySelector('.pagination');
+    if (!container) return;
+    const posts = await fetchPostsIndex();
+    const perPage = 9;
+    if (!posts.length) {
+        container.innerHTML = '<p>Ainda não há posts disponíveis.</p>';
+        if (pag) pag.style.display = 'none';
+        return;
+    }
+    const totalPages = Math.ceil(posts.length / perPage);
+    const renderPage = (page) => {
+        const start = (page - 1) * perPage;
+        const slice = posts.slice(start, start + perPage);
+        container.innerHTML = slice.map(post => `
+            <div class="post-card">
                 <div class="blog-card-img">
-                    <img src="${post.image}" alt="${post.title}">
+                    <img src="${post.image || '/images/blog-cover.svg'}" alt="${post.title}" loading="lazy">
                 </div>
                 <div class="blog-card-content">
                     <div class="blog-meta">
-                        <span><i class="far fa-calendar"></i> ${post.date}</span>
-                        <span><i class="far fa-clock"></i> ${post.readTime} de leitura</span>
+                        <span><i class="far fa-calendar"></i> ${post.date ? post.date.split('-').reverse().join('/') : ''}</span>
+                        <span><i class="far fa-clock"></i> ${post.readTime || ''}</span>
                     </div>
                     <h3><a href="${post.url}">${post.title}</a></h3>
                     <p>${post.excerpt}</p>
                     <a href="${post.url}" class="btn btn-tertiary">Ler Mais</a>
                 </div>
             </div>
-        `;
-    });
-
-    latestPostsGrid.innerHTML = postsHTML;
-}
-
-// Função para inicializar animações
-function initAnimations() {
-    // Animação de fade-in para elementos com a classe animate-fade-in
-    const animatedElements = document.querySelectorAll('.animate-fade-in');
-    
-    if (animatedElements.length > 0) {
-        // Função para verificar se um elemento está visível na viewport
-        function isElementInViewport(el) {
-            const rect = el.getBoundingClientRect();
-            return (
-                rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.bottom >= 0
-            );
-        }
-        
-        // Função para animar elementos visíveis
-        function animateVisibleElements() {
-            animatedElements.forEach(element => {
-                if (isElementInViewport(element) && !element.classList.contains('animated')) {
-                    element.classList.add('animated');
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        }
-        
-        // Configurar estilo inicial para elementos animados
-        animatedElements.forEach(element => {
-            if (!element.style.opacity) {
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(20px)';
-                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            }
-        });
-        
-        // Executar animação no carregamento e no scroll
-        animateVisibleElements();
-        window.addEventListener('scroll', animateVisibleElements);
-    }
-}
-
-// Função para compartilhamento em redes sociais
-function sharePost(platform, url, title) {
-    let shareUrl;
-    
-    switch(platform) {
-        case 'facebook':
-            shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-            break;
-        case 'twitter':
-            shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
-            break;
-        case 'linkedin':
-            shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
-            break;
-        case 'whatsapp':
-            shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(title + ' ' + url)}`;
-            break;
-    }
-    
-    if (shareUrl) {
-        window.open(shareUrl, '_blank', 'width=600,height=400');
-    }
-    
-    return false;
-}
-
-
-// Blog: renderiza lista completa com paginação (9 por página) usando posts.json
-async function loadBlogPosts() {
-    const container = document.getElementById('posts-container');
-    const pag = document.querySelector('.pagination');
-    if (!container) return;
-
-    const posts = await fetchPostsIndex();
-    const perPage = 9;
-
-    if (!posts.length) {
-        container.innerHTML = '<p style="opacity:.75">Ainda não há posts disponíveis.</p>';
-        if (pag) pag.style.display = 'none';
-        return;
-    }
-
-    const totalPages = Math.max(1, Math.ceil(posts.length / perPage));
-
-    function renderPage(page) {
-        const p = Math.max(1, Math.min(totalPages, page));
-        const start = (p - 1) * perPage;
-        const slice = posts.slice(start, start + perPage);
-
-        container.innerHTML = slice.map(post => `
-            <div class="post-card">
-                <div class="blog-card-img">
-                    <img src="${escapeHtml(post.image || '/images/blog-cover.svg')}" alt="${escapeHtml(post.title)}" loading="lazy">
-                </div>
-                <div class="blog-card-content">
-                    <div class="blog-meta">
-                        <span><i class="far fa-calendar"></i> ${post.date ? escapeHtml(post.date.split('-').reverse().join('/')) : '—'}</span>
-                        <span><i class="far fa-clock"></i> ${escapeHtml(post.readTime || '—')}</span>
-                    </div>
-                    <h3><a href="${escapeHtml(post.url)}">${escapeHtml(post.title)}</a></h3>
-                    <p>${escapeHtml(post.excerpt)}</p>
-                    <a href="${escapeHtml(post.url)}" class="btn btn-tertiary">Ler Mais</a>
-                </div>
-            </div>
         `).join('');
-
-        // Pagination buttons
         if (pag) {
             pag.innerHTML = '';
             for (let i = 1; i <= totalPages; i++) {
                 const btn = document.createElement('button');
-                btn.className = 'pagination-btn' + (i === p ? ' active' : '');
-                btn.dataset.page = String(i);
-                btn.textContent = String(i);
-                btn.addEventListener('click', () => renderPage(i));
+                btn.className = 'pagination-btn' + (i === page ? ' active' : '');
+                btn.textContent = i;
+                btn.onclick = () => { renderPage(i); window.scrollTo({top: container.offsetTop - 100, behavior: 'smooth'}); };
                 pag.appendChild(btn);
             }
         }
-        // Scroll to top of posts area for better UX
-        const section = document.getElementById('blog-posts') || container;
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    // initial page
+    };
     renderPage(1);
 }
-

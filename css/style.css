@@ -152,7 +152,8 @@ strong { color: var(--text-primary); font-weight: 600; }
 .logo a:hover { color: var(--gold-light); }
 
 /* Nav links */
-.navigation { display: flex; align-items: center; }
+.navigation { z-index: 999; pointer-events: auto; display: flex; align-items: center; }
+    visibility: visible; opacity: 1;
 .nav-menu {
   display: flex; list-style: none;
   margin: 0; padding: 0; gap: var(--s1);
@@ -186,7 +187,8 @@ strong { color: var(--text-primary); font-weight: 600; }
 }
 
 /* Mobile toggle */
-.mobile-menu-btn {
+.mobile-menu-btn { z-index: 1001; position: relative; min-width: 44px; min-height: 44px; -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+  pointer-events: auto;
   display: none;
   background: none; border: none;
   color: var(--text-secondary);
@@ -371,7 +373,7 @@ strong { color: var(--text-primary); font-weight: 600; }
   background: var(--bg-hover);
   overflow: hidden;
 }
-.post-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--t-mid); }
+.post-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--t-mid), opacity var(--t-mid), visibility var(--t-mid); }
 .post-card:hover .post-card-image img { transform: scale(1.04); }
 .post-card-body { padding: var(--s5); flex: 1; display: flex; flex-direction: column; }
 .post-card-tag {
@@ -800,19 +802,21 @@ textarea.form-control { resize: vertical; min-height: 140px; }
 @media (max-width: 768px) {
   :root { --nav-h: 60px; }
 
-  .mobile-menu-btn { display: flex; align-items: center; justify-content: center; }
+  .mobile-menu-btn { z-index: 1001; position: relative; min-width: 44px; min-height: 44px; -webkit-tap-highlight-color: transparent; touch-action: manipulation; display: flex; align-items: center; justify-content: center; }
+  pointer-events: auto;
 
-  .navigation {
+  .navigation { z-index: 999; pointer-events: auto;
+    visibility: hidden; opacity: 0;
     position: fixed; top: var(--nav-h); left: 0; right: 0;
     background: rgba(13,13,18,.97);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
     padding: var(--s4) var(--s6) var(--s6);
     transform: translateY(-110%);
-    transition: transform var(--t-mid);
+    transition: transform var(--t-mid), opacity var(--t-mid), visibility var(--t-mid);
     z-index: 999;
   }
-  .navigation.open { transform: translateY(0); }
+  .navigation.open, .navigation.active { transform: translateY(0); visibility: visible; opacity: 1; }
 
   .nav-menu { flex-direction: column; gap: 0; }
   .nav-menu li { width: 100%; }
@@ -860,3 +864,4 @@ textarea.form-control { resize: vertical; min-height: 140px; }
 
 /* ── Selection ───────────────────────────────────────────── */
 ::selection { background: rgba(201,168,76,.2); color: var(--text-primary); }
+.mobile-menu-btn i { pointer-events: none; }
