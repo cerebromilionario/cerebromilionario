@@ -1,0 +1,43 @@
+# =============================================================================
+# Netlify Headers — Cérebro Milionário
+# Cache agressivo para assets estáticos + Security headers para SEO e AdSense
+# =============================================================================
+
+# CSS e JS: cache longo (1 ano) — conteúdo versionado por hash
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Imagens: cache longo (1 ano)
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Fontes: cache longo (1 ano)
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+
+# Sitemap e robots: curto (1 dia) para re-crawl rápido
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+  Content-Type: application/xml; charset=utf-8
+
+/robots.txt
+  Cache-Control: public, max-age=86400
+
+# ads.txt: sem cache para garantir atualização imediata
+/ads.txt
+  Cache-Control: no-cache, no-store
+
+# Todas as páginas HTML: sem cache no browser (sempre fresco), CDN 1 hora
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
