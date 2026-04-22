@@ -1,7 +1,72 @@
 {
-  "generatedAt": "2026-04-16T12:00:00Z",
+  "generatedAt": "2026-04-22T10:00:00Z",
   "baseUrl": "https://cerebromilionario.site",
   "posts": [
+    {
+      "title": "VOO ETF Vanguard S&P 500: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o VOO ETF da Vanguard: o maior fundo do mundo com US$ 900 bilhões, taxa 0,03%, diferença para SPY e IVV, histórico de retornos e como comprar do Brasil.",
+      "url": "/posts/voo-etf-vanguard-sp500-guia-completo.html",
+      "date": "22/04/2026",
+      "readTime": "20 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "S&P 500",
+        "Vanguard"
+      ]
+    },
+    {
+      "title": "IVV ETF iShares Core S&P 500: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o IVV ETF da BlackRock: segundo maior ETF do mundo com US$ 780 bilhões, taxa 0,03%, diferença para VOO e SPY, e como comprar do Brasil.",
+      "url": "/posts/ivv-etf-ishares-core-sp500-guia-completo.html",
+      "date": "22/04/2026",
+      "readTime": "19 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "S&P 500",
+        "BlackRock"
+      ]
+    },
+    {
+      "title": "SPY ETF SPDR S&P 500: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o SPY ETF da State Street: o primeiro ETF dos EUA criado em 1993, o mais líquido do mundo, taxa 0,0945%, e por que VOO e IVV são melhores para o longo prazo.",
+      "url": "/posts/spy-etf-spdr-sp500-guia-completo.html",
+      "date": "22/04/2026",
+      "readTime": "19 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "S&P 500",
+        "State Street"
+      ]
+    },
+    {
+      "title": "VTI ETF Vanguard Total Stock Market: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o VTI ETF da Vanguard: mercado americano completo com mais de 3.600 ações, taxa 0,03%, diferença para VOO, e como funciona a carteira de dois fundos VTI + VXUS.",
+      "url": "/posts/vti-etf-vanguard-total-stock-market-guia-completo.html",
+      "date": "22/04/2026",
+      "readTime": "20 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "Mercado Total",
+        "Vanguard"
+      ]
+    },
+    {
+      "title": "QQQ ETF Invesco Nasdaq-100: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o QQQ ETF da Invesco: Nasdaq-100, as 100 maiores empresas de tecnologia, taxa 0,18%, histórico explosivo e devastador, diferença para QQQM, e como comprar do Brasil.",
+      "url": "/posts/qqq-etf-invesco-nasdaq100-guia-completo.html",
+      "date": "22/04/2026",
+      "readTime": "21 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "Nasdaq",
+        "Tecnologia"
+      ]
+    },
     {
       "title": "DGS ETF WisdomTree Emerging Markets Small Cap Dividend: Guia Completo",
       "excerpt": "Tudo sobre o DGS ETF da WisdomTree: small caps emergentes com dividendos, filtro duplo de lucratividade, Taiwan, África do Sul, holdings reais e como comprar do Brasil.",
