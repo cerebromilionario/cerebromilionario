@@ -1,7 +1,72 @@
 {
-  "generatedAt": "2026-04-22T10:00:00Z",
+  "generatedAt": "2026-04-23T10:00:00Z",
   "baseUrl": "https://cerebromilionario.site",
   "posts": [
+    {
+      "title": "IEFA ETF iShares Core MSCI EAFE: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o IEFA ETF da BlackRock: mercados desenvolvidos fora dos EUA com ~3.600 ações, Europa, Japão e Austrália, taxa 0,07%, dividend yield ~3,5% e como comprar do Brasil.",
+      "url": "/posts/iefa-etf-ishares-core-msci-eafe-guia-completo.html",
+      "date": "23/04/2026",
+      "readTime": "19 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "Internacional",
+        "BlackRock"
+      ]
+    },
+    {
+      "title": "VTV ETF Vanguard Value: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o VTV ETF da Vanguard: large cap value americano com ~340 ações, taxa 0,03%, dividend yield ~2%, por que value está superando growth em 2026 e como comprar do Brasil.",
+      "url": "/posts/vtv-etf-vanguard-value-guia-completo.html",
+      "date": "23/04/2026",
+      "readTime": "18 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "Value",
+        "Vanguard"
+      ]
+    },
+    {
+      "title": "GLD ETF SPDR Gold Shares: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o GLD ETF da State Street: ouro físico em ETF, retorno de 42% em 1 ano, taxa 0,40%, como funciona, GLD vs GLDM vs IAU e como comprar do Brasil.",
+      "url": "/posts/gld-etf-spdr-gold-shares-guia-completo.html",
+      "date": "23/04/2026",
+      "readTime": "19 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "Ouro",
+        "Commodities"
+      ]
+    },
+    {
+      "title": "BND ETF Vanguard Total Bond Market: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o BND ETF da Vanguard: renda fixa americana completa com mais de 11.000 títulos, taxa 0,03%, yield ~3,9% mensal em dólar, risco de duration e como comprar do Brasil.",
+      "url": "/posts/bnd-etf-vanguard-total-bond-market-guia-completo.html",
+      "date": "23/04/2026",
+      "readTime": "18 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "Renda Fixa",
+        "Vanguard"
+      ]
+    },
+    {
+      "title": "IEMG ETF iShares Core MSCI Emerging Markets: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o IEMG ETF da BlackRock: mercados emergentes com mais de 2.700 ações, China, Índia, Taiwan, taxa 0,09%, riscos geopolíticos e como comprar do Brasil.",
+      "url": "/posts/iemg-etf-ishares-core-msci-emerging-markets-guia-completo.html",
+      "date": "23/04/2026",
+      "readTime": "20 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "Emergentes",
+        "BlackRock"
+      ]
+    },
     {
       "title": "VOO ETF Vanguard S&P 500: Guia Completo para Investidores Brasileiros",
       "excerpt": "Tudo sobre o VOO ETF da Vanguard: o maior fundo do mundo com US$ 900 bilhões, taxa 0,03%, diferença para SPY e IVV, histórico de retornos e como comprar do Brasil.",
