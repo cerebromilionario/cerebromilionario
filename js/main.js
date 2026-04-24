@@ -135,7 +135,8 @@ function initTabs() {
 async function fetchPostsIndex() {
     try {
         const res = await fetch('/posts/posts.json');
-        return await res.json();
+        const data = await res.json();
+        return Array.isArray(data) ? data : (data.posts || []);
     } catch (e) {
         console.error('Error fetching posts:', e);
         return [];
