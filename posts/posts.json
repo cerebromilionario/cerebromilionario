@@ -1,7 +1,72 @@
 {
-  "generatedAt": "2026-04-23T10:00:00Z",
+  "generatedAt": "2026-04-24T10:00:00Z",
   "baseUrl": "https://cerebromilionario.site",
   "posts": [
+    {
+      "title": "VXUS ETF Vanguard Total International Stock: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o VXUS ETF da Vanguard: o mundo inteiro fora dos EUA em um único ETF, mais de 8.500 ações em 47 países, taxa 0,05%, yield 3,2% e o famoso combo VTI+VXUS.",
+      "url": "/posts/vxus-etf-vanguard-total-international-stock-guia-completo.html",
+      "date": "24/04/2026",
+      "readTime": "20 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "Internacional",
+        "Vanguard"
+      ]
+    },
+    {
+      "title": "AGG ETF iShares Core US Aggregate Bond: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o AGG ETF da BlackRock: renda fixa americana completa com mais de 11.000 títulos, taxa 0,03%, yield ~4% mensal em dólar, comparação com BND e como comprar do Brasil.",
+      "url": "/posts/agg-etf-ishares-core-us-aggregate-bond-guia-completo.html",
+      "date": "24/04/2026",
+      "readTime": "18 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "Renda Fixa",
+        "BlackRock"
+      ]
+    },
+    {
+      "title": "IWF ETF iShares Russell 1000 Growth: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o IWF ETF da BlackRock: Russell 1000 Growth com ~430 ações de crescimento americano, taxa 0,19%, retorno de 16,5% ao ano em 10 anos, diferença para QQQ e como comprar do Brasil.",
+      "url": "/posts/iwf-etf-ishares-russell-1000-growth-guia-completo.html",
+      "date": "24/04/2026",
+      "readTime": "19 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "Growth",
+        "BlackRock"
+      ]
+    },
+    {
+      "title": "VGT ETF Vanguard Information Technology: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o VGT ETF da Vanguard: tecnologia americana pura com ~320 ações, NVIDIA + Apple + Microsoft = 55% do fundo, taxa 0,10%, retorno de 20% ao ano em 10 anos e como comprar do Brasil.",
+      "url": "/posts/vgt-etf-vanguard-information-technology-guia-completo.html",
+      "date": "24/04/2026",
+      "readTime": "19 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "Tecnologia",
+        "Vanguard"
+      ]
+    },
+    {
+      "title": "NOBL ETF ProShares S&P 500 Dividend Aristocrats: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o NOBL ETF da ProShares: as 67 empresas do S&P 500 com 25+ anos de crescimento consecutivo de dividendos, equiponderadas, taxa 0,35% e como comprar do Brasil.",
+      "url": "/posts/nobl-etf-proshares-sp500-dividend-aristocrats-guia-completo.html",
+      "date": "24/04/2026",
+      "readTime": "20 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "Dividendos",
+        "ProShares"
+      ]
+    },
     {
       "title": "IEFA ETF iShares Core MSCI EAFE: Guia Completo para Investidores Brasileiros",
       "excerpt": "Tudo sobre o IEFA ETF da BlackRock: mercados desenvolvidos fora dos EUA com ~3.600 ações, Europa, Japão e Austrália, taxa 0,07%, dividend yield ~3,5% e como comprar do Brasil.",
