@@ -1,7 +1,72 @@
 {
-  "generatedAt": "2026-04-24T10:00:00Z",
+  "generatedAt": "2026-04-25T10:00:00Z",
   "baseUrl": "https://cerebromilionario.site",
   "posts": [
+    {
+      "title": "VNQ ETF Vanguard Real Estate: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o VNQ ETF da Vanguard: o maior ETF de REITs do mundo com US$ 65 bi, 159 posições, taxa 0,13%, yield 3,6% e como comprar do Brasil. O equivalente americano dos FIIs.",
+      "url": "/posts/vnq-etf-vanguard-real-estate-guia-completo.html",
+      "date": "25/04/2026",
+      "readTime": "20 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "REITs",
+        "Vanguard"
+      ]
+    },
+    {
+      "title": "IYR ETF iShares U.S. Real Estate: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o IYR ETF da BlackRock: REITs americanos com 65 posições, taxa 0,38%, o mais antigo ETF de imóveis (2000), diferença para VNQ e SCHH e como comprar do Brasil.",
+      "url": "/posts/iyr-etf-ishares-us-real-estate-guia-completo.html",
+      "date": "25/04/2026",
+      "readTime": "18 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "REITs",
+        "BlackRock"
+      ]
+    },
+    {
+      "title": "SCHH ETF Schwab U.S. REIT: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o SCHH ETF da Schwab: o ETF de REITs mais barato do mercado com taxa de apenas 0,07% ao ano, ~100 posições de equity REITs puros e como comprar do Brasil.",
+      "url": "/posts/schh-etf-schwab-us-reit-guia-completo.html",
+      "date": "25/04/2026",
+      "readTime": "17 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "REITs",
+        "Schwab"
+      ]
+    },
+    {
+      "title": "RWR ETF SPDR Dow Jones REIT: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o RWR ETF da SPDR: Dow Jones REIT com ~102 posições, taxa 0,25%, yield ~3,8%, e quando faz sentido escolhê-lo em vez do SCHH ou VNQ.",
+      "url": "/posts/rwr-etf-spdr-dow-jones-reit-guia-completo.html",
+      "date": "25/04/2026",
+      "readTime": "17 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "REITs",
+        "SPDR"
+      ]
+    },
+    {
+      "title": "XLRE ETF Real Estate Select Sector SPDR: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o XLRE ETF da SPDR: apenas os REITs do S&P 500 em ~30 posições concentradas, taxa 0,08%, 40% em data centers e torres de celular e como comprar do Brasil.",
+      "url": "/posts/xlre-etf-real-estate-select-sector-spdr-guia-completo.html",
+      "date": "25/04/2026",
+      "readTime": "18 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs",
+        "REITs",
+        "SPDR"
+      ]
+    },
     {
       "title": "VXUS ETF Vanguard Total International Stock: Guia Completo para Investidores Brasileiros",
       "excerpt": "Tudo sobre o VXUS ETF da Vanguard: o mundo inteiro fora dos EUA em um único ETF, mais de 8.500 ações em 47 países, taxa 0,05%, yield 3,2% e o famoso combo VTI+VXUS.",
