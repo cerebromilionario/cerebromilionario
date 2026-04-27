@@ -1,10 +1,4 @@
-# Forçar HTTPS e remover WWW
-http://www.cerebromilionario.site/* https://cerebromilionario.site/:splat 301!
-https://www.cerebromilionario.site/* https://cerebromilionario.site/:splat 301!
-http://cerebromilionario.site/* https://cerebromilionario.site/:splat 301!
+# Regras de domínio (http/www → https sem www) estão em netlify.toml
 
-# Redirecionar URLs com .html para a versão limpa (opcional, mas recomendado para SEO)
-# /comparador-cdb-lci-lca.html /comparador-cdb-lci-lca 301
-
-# Redirecionar post DGS com URL errada para o post correto
+# Redirecionar post DGS com URL antiga para a URL correta
 /posts/dgs-etf-wisdomtree-emerging-markets-smallcap-dividend-guia /posts/dgs-wisdomtree-emerging-markets-small-cap-dividend-guia-completo 301
