@@ -1,0 +1,27 @@
+[build]
+  publish = "."
+
+# Redirecionar variantes de domínio para o domínio canônico (HTTPS sem www)
+[[redirects]]
+  from   = "http://www.cerebromilionario.site/*"
+  to     = "https://cerebromilionario.site/:splat"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "https://www.cerebromilionario.site/*"
+  to     = "https://cerebromilionario.site/:splat"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "http://cerebromilionario.site/*"
+  to     = "https://cerebromilionario.site/:splat"
+  status = 301
+  force  = true
+
+# Redirecionar URL antiga do post DGS para a URL correta
+[[redirects]]
+  from   = "/posts/dgs-etf-wisdomtree-emerging-markets-smallcap-dividend-guia"
+  to     = "/posts/dgs-wisdomtree-emerging-markets-small-cap-dividend-guia-completo"
+  status = 301
