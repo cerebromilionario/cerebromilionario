@@ -4,16 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Blog | Cérebro Milionário</title>
-  <meta name="description" content="Blog do Cérebro Milionário: artigos densos, ferramentas e guias para investir melhor em renda fixa, ETFs, FIIs, ações e aposentadoria." />
+  <title>Blog de Educação Financeira e Investimentos | Cérebro Milionário</title>
+  <meta name="description" content="Blog do Cérebro Milionário: artigos densos, ferramentas e guias para investir melhor em renda fixa, ETFs, FIIs, ações e aposentadoria. Conteúdo gratuito e sem achismos." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://cerebromilionario.site/blog" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://cerebromilionario.site/blog" />
-  <meta property="og:title" content="Blog | Cérebro Milionário" />
-  <meta property="og:description" content="Artigos densos e ferramentas práticas para investir melhor." />
+  <meta property="og:title" content="Blog de Educação Financeira e Investimentos | Cérebro Milionário" />
+  <meta property="og:description" content="Artigos densos, guias práticos e ferramentas para você investir melhor. Da renda fixa à aposentadoria, tudo explicado com profundidade." />
   <meta property="og:image" content="https://cerebromilionario.site/images/blog-cover.svg" />
 
   <!-- Fonts -->
@@ -128,6 +128,80 @@
       border:1px solid rgba(255,255,255,.14);text-decoration:none
     }
 
+    /* ── NOVO: Conteúdo editorial rico ───────────────────── */
+    .editorial-section {
+      background: #fff;
+      border-radius: 18px;
+      padding: 2rem 2.5rem;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,.05);
+      line-height: 1.7;
+    }
+    .editorial-section h2 {
+      font-size: 1.8rem;
+      margin-top: 1.8rem;
+      margin-bottom: 0.6rem;
+      color: #1a1a1a;
+    }
+    .editorial-section h3 {
+      font-size: 1.3rem;
+      margin-top: 1.6rem;
+      color: #2c2c2e;
+    }
+    .editorial-section p {
+      color: #444;
+      margin: 0.8rem 0;
+    }
+    .editorial-section ul, .editorial-section ol {
+      padding-left: 1.5rem;
+      margin: 0.8rem 0;
+    }
+    .editorial-section li {
+      margin-bottom: 0.5rem;
+    }
+    .start-here-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.75rem;
+      margin: 1rem 0 1.5rem;
+    }
+    .start-here-card {
+      background: #fafafa;
+      border: 1px solid rgba(0,0,0,.06);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      text-decoration: none;
+      color: #2c2c2e;
+      transition: background .2s, transform .2s;
+    }
+    .start-here-card:hover {
+      background: #f4f4f4;
+      transform: translateY(-2px);
+    }
+    .start-here-card strong {
+      display: block;
+      font-size: 1.05rem;
+      margin-bottom: 0.3rem;
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(0,0,0,.05);
+      padding: 1rem 0;
+    }
+    .faq-item h4 {
+      margin: 0 0 0.3rem;
+      color: #1a1a1a;
+    }
+    .faq-item p {
+      margin: 0;
+      color: #555;
+    }
+    @media (max-width: 640px) {
+      .editorial-section {
+        padding: 1.5rem;
+      }
+    }
+
     /* evita scroll horizontal acidental */
     body{overflow-x:hidden;}
 
@@ -176,6 +250,84 @@
           <select id="tag">
             <option value="all">Todas as categorias</option>
           </select>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!-- NOVA SEÇÃO EDITORIAL: Introdução e comece por aqui -->
+        <!-- ═══════════════════════════════════════ -->
+        <div class="editorial-section">
+          <h2>📘 Educação Financeira que transforma patrimônio</h2>
+          <p>
+            Investir não é sobre atalhos ou fórmulas mágicas. É sobre <strong>consistência, conhecimento sólido e decisões informadas</strong>. 
+            O blog do Cérebro Milionário existe para entregar exatamente isso: artigos que vão além do básico, explicando <strong>renda fixa, ETFs, FIIs, ações, aposentadoria e impostos</strong> 
+            com a profundidade que você merece, mas numa linguagem que não precisa de diploma em economia.
+          </p>
+          <p>
+            Nosso conteúdo é pensado para quem saiu da poupança e quer construir renda passiva, para quem planeja a liberdade financeira (FIRE) e para 
+            investidores experientes que buscam otimizar carteiras com rigor técnico. <strong>Tudo gratuito, sem e-mail, sem pegadinha.</strong>
+          </p>
+
+          <h3>🗺️ Comece por aqui (roteiros de leitura)</h3>
+          <p>Se você é novo no mundo dos investimentos, siga um destes caminhos para aprender do jeito certo:</p>
+          <div class="start-here-grid">
+            <a href="/posts/guia-completo-investimentos-iniciantes-2026" class="start-here-card">
+              <strong>Guia Completo para Iniciantes</strong>
+              <span>O ponto de partida: conceitos, classes de ativos e primeiros passos.</span>
+            </a>
+            <a href="/posts/tesouro-direto-para-iniciantes-guia-completo-2026" class="start-here-card">
+              <strong>Domine o Tesouro Direto</strong>
+              <span>Entenda títulos públicos, inflação e rentabilidade real.</span>
+            </a>
+            <a href="/posts/etf-masterclass-carteira-global-parte-1" class="start-here-card">
+              <strong>ETF Masterclass (Parte 1)</strong>
+              <span>Construa uma carteira global diversificada com inteligência.</span>
+            </a>
+            <a href="/posts/biblia-da-aposentadoria-parte-1" class="start-here-card">
+              <strong>Planejamento de Aposentadoria</strong>
+              <span>Quanto você precisa? Como acumular e depois sacar?</span>
+            </a>
+            <a href="/posts/como-declarar-acoes-imposto-de-renda-2026" class="start-here-card">
+              <strong>IR na Bolsa sem Mistério</strong>
+              <span>Aprenda a declarar ações, ETFs e FIIs e evite multas.</span>
+            </a>
+            <a href="/calculadora" class="start-here-card">
+              <strong>Calculadora de Juros Compostos</strong>
+              <span>Simule seus investimentos e veja o poder dos aportes.</span>
+            </a>
+          </div>
+
+          <h3>📂 Categorias do Blog</h3>
+          <p>Os artigos são automaticamente categorizados a partir do sitemap, mas aqui estão os principais temas que você encontrará:</p>
+          <ul>
+            <li><strong>Renda Fixa:</strong> CDB, LCI, LCA, Tesouro Direto, IPCA+, IR regressivo e comparativos.</li>
+            <li><strong>ETFs:</strong> Carteiras globais, eficiência fiscal, rebalanceamento e teoria de Markowitz.</li>
+            <li><strong>FIIs e Ações:</strong> Valuation, dividendos, análise de múltiplos e construção de renda passiva.</li>
+            <li><strong>Aposentadoria e FIRE:</strong> Acumulação, taxa de retirada segura (SWR), bucket strategy e riscos.</li>
+            <li><strong>Imposto de Renda:</strong> Investimentos no exterior, bolsa brasileira, DARF e regras práticas.</li>
+            <li><strong>Mentalidade e Biografias:</strong> Lições de grandes investidores, psicologia financeira e hábitos.</li>
+          </ul>
+
+          <h3>❓ Perguntas Frequentes (FAQ)</h3>
+          <div class="faq-item">
+            <h4>O blog é realmente gratuito? Preciso de cadastro?</h4>
+            <p>Sim, 100% gratuito e sem necessidade de cadastro. Você pode ler todos os artigos, usar todas as ferramentas e até baixar materiais complementares quando existirem.</p>
+          </div>
+          <div class="faq-item">
+            <h4>Com que frequência novos artigos são publicados?</h4>
+            <p>Publicamos de 2 a 4 novos conteúdos por mês, sempre com profundidade e revisão técnica. Alguns artigos recebem atualizações anuais (ex: guias de IR).</p>
+          </div>
+          <div class="faq-item">
+            <h4>Os artigos contêm recomendações de investimento?</h4>
+            <p>Não. Todo conteúdo é educacional e informativo. Não fazemos recomendações personalizadas. Consulte sempre um profissional.</p>
+          </div>
+          <div class="faq-item">
+            <h4>Como o blog se relaciona com as ferramentas do site?</h4>
+            <p>Cada ferramenta (juros compostos, comparador CDB/LCI, valuation, etc.) possui um artigo de apoio no blog. Você pode usar a ferramenta e depois ler o guia completo para entender a teoria por trás.</p>
+          </div>
+          <div class="faq-item">
+            <h4>Posso sugerir temas para novos artigos?</h4>
+            <p>Com certeza! Entre em contato pelo Instagram ou Telegram. Ideias de leitores frequentemente viram artigos.</p>
+          </div>
         </div>
 
         <!-- Featured (mantém como você já tinha: ETF Masterclass + Bíblia da Aposentadoria) -->
