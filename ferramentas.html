@@ -427,11 +427,84 @@
 .article-chip i { color: var(--gold,#c9a84c); font-size: .8rem; flex-shrink: 0; }
 .article-chip:hover { border-color: rgba(201,168,76,.3); transform: translateY(-2px); color: var(--text-primary,#f0ede8); }
 
-/* ── Responsive ───────────────────────────────────────────── */
+/* ── NOVO: Seção editorial rica ───────────────────────────── */
+.hub-editorial {
+  background: var(--bg-card, #17171f);
+  border: 1px solid var(--border, rgba(255,255,255,.07));
+  border-radius: 18px;
+  padding: 2rem 2.5rem;
+  margin: 3rem 0 2rem;
+  line-height: 1.7;
+  color: var(--text-secondary, #9996a0);
+}
+.hub-editorial h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary, #f0ede8);
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
+}
+.hub-editorial h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary, #f0ede8);
+  margin-top: 1.8rem;
+  margin-bottom: 0.6rem;
+}
+.hub-editorial p {
+  margin: 0.8rem 0;
+}
+.hub-editorial ul, .hub-editorial ol {
+  padding-left: 1.5rem;
+  margin: 0.8rem 0;
+}
+.hub-editorial li {
+  margin-bottom: 0.5rem;
+}
+.faq-item {
+  border-bottom: 1px solid var(--border, rgba(255,255,255,.07));
+  padding: 1rem 0;
+}
+.faq-item:last-child { border-bottom: none; }
+.faq-item h4 {
+  margin: 0 0 0.3rem;
+  color: var(--text-primary, #f0ede8);
+  font-weight: 600;
+}
+.faq-item p {
+  margin: 0;
+  color: var(--text-secondary, #9996a0);
+}
+.highlight-box {
+  background: rgba(201,168,76,.05);
+  border-left: 3px solid var(--gold, #c9a84c);
+  padding: 1rem 1.5rem;
+  border-radius: 0 var(--r-md, 10px) var(--r-md, 10px) 0;
+  margin: 1.5rem 0;
+}
+.tool-comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.tool-comparison-card {
+  background: rgba(255,255,255,.02);
+  border: 1px solid var(--border, rgba(255,255,255,.07));
+  border-radius: 12px;
+  padding: 1.2rem;
+}
+.tool-comparison-card strong {
+  display: block;
+  color: var(--text-primary, #f0ede8);
+  margin-bottom: 0.4rem;
+}
+
 @media (max-width: 640px) {
   .tools-grid { grid-template-columns: 1fr; }
   .hub-stats { gap: 1.5rem; }
   .hub-hero h1 { font-size: 1.9rem; }
+  .hub-editorial { padding: 1.5rem; }
 }
 </style>
 </head>
@@ -821,6 +894,105 @@
       <i class="fas fa-book-open"></i> Construção de patrimônio 2026
     </a>
   </div>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     NOVA SEÇÃO EDITORIAL: GUIA COMPLETO DAS FERRAMENTAS
+══════════════════════════════════════════════════════ -->
+<section style="padding: 0 0 3rem;">
+<div class="container">
+<div class="hub-editorial">
+  <h2>🧭 Como usar este hub de ferramentas (e por que ele acelera seu patrimônio)</h2>
+  <p>
+    Ferramentas financeiras não são enfeites. Elas substituem achismos por números e permitem que você tome decisões com a frieza que o dinheiro exige. 
+    Esta página reúne todos os simuladores e calculadoras gratuitos do Cérebro Milionário, organizados por objetivo, para você nunca mais investir no escuro.
+  </p>
+  <p>
+    Se você está começando agora, um bom caminho é: primeiro, use a <strong>Calculadora de Juros Compostos</strong> para entender o efeito do tempo nos investimentos. 
+    Depois, vá para o <strong>Simulador de Aposentadoria</strong> e calcule seu número mágico. Com o valor em mente, explore o <strong>Simulador de Dividendos</strong> e o 
+    <strong>Comparador CDB/LCI</strong> para montar a parte tática do plano. As ferramentas de valuation e IR são para quando você já estiver no detalhe.
+  </p>
+
+  <h2>💡 Por que cada ferramenta existe e para quem serve</h2>
+  <p>Abaixo, uma visão expandida de cada calculadora, extraindo o máximo do que você pode fazer com elas.</p>
+
+  <div class="tool-comparison-grid">
+    <div class="tool-comparison-card">
+      <strong>💰 Simulador de Dividendos</strong>
+      <p>Perfeito para quem quer viver de renda passiva. Ele projeta pagamentos mensais a partir de ações e FIIs, mostrando quanto você receberia com base no capital investido e no dividend yield médio. Use para testar cenários: “e se eu tiver R$ 500 mil em FIIs?”.</p>
+    </div>
+    <div class="tool-comparison-card">
+      <strong>🔥 Simulador FIRE (Aposentadoria)</strong>
+      <p>O mais completo para planejar a liberdade financeira. Combina rentabilidade real, inflação, aportes crescentes e taxa de retirada segura (SWR). Ele devolve o patrimônio alvo e mostra se você está no caminho certo ou precisa ajustar algo.</p>
+    </div>
+    <div class="tool-comparison-card">
+      <strong>📈 Calculadora de Juros Compostos</strong>
+      <p>Versátil. Três modos: crescimento com aportes, aporte necessário para uma meta e tempo para atingir um objetivo. Ideal tanto para visualizar o efeito bola de neve quanto para planejar metas de curto e médio prazo.</p>
+    </div>
+    <div class="tool-comparison-card">
+      <strong>🧩 Simulador de Carteira</strong>
+      <p>Monte combinações de ativos (renda fixa, ETFs, FIIs, ações) e veja o retorno esperado e os riscos. Ajuda a entender diversificação e a calibrar alocações.</p>
+    </div>
+    <div class="tool-comparison-card">
+      <strong>⚖️ Calculadora de Valuation</strong>
+      <p>Focada em análise fundamentalista: preço justo via modelo de Gordon, LPA, P/L e margem de segurança. Use antes de comprar qualquer ação.</p>
+    </div>
+    <div class="tool-comparison-card">
+      <strong>🔁 Comparador CDB vs LCI/LCA</strong>
+      <p>Resolve a eterna dúvida da renda fixa: qual paga mais líquido? Considera IR regressivo, IOF e taxa equivalente. Resultado direto na tela.</p>
+    </div>
+    <div class="tool-comparison-card">
+      <strong>📊 Comparador de Investimentos</strong>
+      <p>Coloca diferentes classes de ativos lado a lado com projeções visuais. Útil para apresentar cenários ou decidir onde alocar uma quantia nova.</p>
+    </div>
+    <div class="tool-comparison-card">
+      <strong>🧾 Calculadoras de IR (Bolsa e Renda Fixa)</strong>
+      <p>Fazem as contas chatas do imposto: DARF, isenção de R$ 20 mil, IR regressivo e IOF. Essenciais para não pagar multa nem achar que ganhou mais do que realmente ganhou.</p>
+    </div>
+  </div>
+
+  <h2>🤔 Comparações rápidas para escolher</h2>
+  <ul>
+    <li><strong>Simulador de Dividendos × Simulador FIRE:</strong> O primeiro foca na renda passiva recorrente; o segundo, na acumulação até a independência total. Um complementa o outro.</li>
+    <li><strong>Calculadora de Juros Compostos × Simulador FIRE:</strong> A de juros compostos é mais genérica e imediata; a FIRE traz inflação, SWR e análise de gap.</li>
+    <li><strong>Comparador CDB/LCI × Calculadora IR Renda Fixa:</strong> O comparador serve para decidir onde aplicar; a calculadora de IR serve para saber o líquido de um produto já contratado.</li>
+    <li><strong>Calculadora de Valuation × Simulador de Carteira:</strong> Valuation avalia um ativo individual; o Simulador de Carteira olha o conjunto e a correlação entre eles.</li>
+  </ul>
+
+  <div class="highlight-box">
+    <strong>Dica de ouro:</strong> use fav 💾 para salvar as ferramentas que mais usa. Elas aparecerão no banner no topo da página, como atalho rápido.
+  </div>
+
+  <h2>❓ Perguntas Frequentes (FAQ)</h2>
+  <div class="faq-item">
+    <h4>As ferramentas são realmente gratuitas? Preciso me cadastrar?</h4>
+    <p>Todas as ferramentas são 100% gratuitas e não exigem cadastro, login ou fornecimento de dados pessoais. Você acessa e usa imediatamente.</p>
+  </div>
+  <div class="faq-item">
+    <h4>Posso usar no celular?</h4>
+    <p>Sim. Todas as páginas são responsivas e funcionam perfeitamente em smartphones e tablets.</p>
+  </div>
+  <div class="faq-item">
+    <h4>As simulações consideram taxas e impostos reais?</h4>
+    <p>Sim. Tabelas como IR regressivo, IOF, inflação e taxas de administração são consideradas onde aplicável, com valores atualizados.</p>
+  </div>
+  <div class="faq-item">
+    <h4>As ferramentas salvam meus dados ou compartilham com terceiros?</h4>
+    <p>Não. Nenhum dado é armazenado em servidores. O histórico de simulações não fica registrado.</p>
+  </div>
+  <div class="faq-item">
+    <h4>Como esses simuladores se relacionam com os artigos do blog?</h4>
+    <p>Cada ferramenta tem um artigo (ou série) de apoio no blog, explicando a teoria por trás. Ao usar uma calculadora, você pode ler o guia completo para dominar o assunto.</p>
+  </div>
+
+  <h2>🔁 Próximos passos</h2>
+  <p>
+    Depois de explorar as ferramentas, acesse a seção <a href="/blog" style="color:var(--gold);">Blog</a> para os artigos que aprofundam cada tema. 
+    Se quiser um roteiro guiado, comece pelo <a href="/posts/guia-completo-investimentos-iniciantes-2026" style="color:var(--gold);">Guia Completo para Iniciantes</a> 
+    ou pela série <a href="/posts/etf-masterclass-carteira-global-parte-1" style="color:var(--gold);">ETF Masterclass</a>.
+  </p>
+</div>
 </div>
 </section>
 
