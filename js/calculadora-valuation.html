@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Calcule o preço justo de uma ação usando o modelo de Gordon. Veja LPA, P/L e margem de segurança." name="description"/>
-<meta content="calculadora valuation, preço justo ação, modelo Gordon, LPA, P/L, análise fundamentalista" name="keywords"/>
+<meta content="Calculadora de Valuation do Cérebro Milionário - Calcule o preço justo de uma ação usando o modelo de crescimento de Gordon e análise DCF." name="description"/>
+<meta content="calculadora valuation, preço justo ação, DCF, Gordon Growth Model, análise fundamental" name="keywords"/>
 <meta content="Cérebro Milionário" name="author"/>
 <meta content="index, follow" name="robots"/>
 <title>Calculadora de Valuation | Cérebro Milionário</title>
@@ -12,335 +12,26 @@
 <link href="/images/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=DM+Serif+Display:ital@0;1&amp;display=swap" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" referrerpolicy="no-referrer" rel="stylesheet"/>
 <link href="/css/style.css" rel="stylesheet"/>
-<link rel="canonical" href="https://cerebromilionario.site/calculadora-valuation"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="canonical" href="https://cerebromilionario.site/calculadora-valuation">
 <meta content="website" property="og:type"/>
-<meta content="https://cerebromilionario.site/calculadora-valuation.html" property="og:url"/>
-<meta content="Calculadora de Valuation" property="og:title"/>
-<meta content="Calcule o preço justo de uma ação usando o modelo de Gordon. Veja LPA, P/L e margem de segurança." property="og:description"/>
-<meta content="https://cerebromilionario.site/images/blog-default.svg" property="og:image"/>
+<meta content="https://cerebromilionario.site/calculadora-valuation" property="og:url"/>
+<meta content="Calculadora de Valuation | Cérebro Milionário" property="og:title"/>
+<meta content="Calcule o preço justo de uma ação usando modelos de valuation profissionais." property="og:description"/>
 <meta content="summary_large_image" property="twitter:card"/>
-<script async crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025"></script>
-
-<style>
-
-/* ── Calculator layout ─────────────────────────────────── */
-.tool-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.35fr;
-  gap: 1.5rem;
-  align-items: start;
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calculadora de Valuation",
+    "url": "https://cerebromilionario.site/calculadora-valuation.html",
+    "description": "Calcule o preço justo de uma ação."
 }
-.calculator-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--r-xl);
-  padding: 2rem;
-}
-.calculator-title {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 1.5rem;
-}
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-.form-grid .full { grid-column: 1 / -1; }
-.form-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-.status-badge {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-left: auto;
-}
-.form-note {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  background: rgba(255,255,255,.03);
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  padding: 0.75rem 1rem;
-  line-height: 1.6;
-}
-.form-note strong { color: var(--text-secondary); }
-
-/* ── Result header ─────────────────────────────────────── */
-.result-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.25rem;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-.result-header .calculator-title { margin-bottom: 0; }
-.small-muted {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-}
-
-/* ── Metrics grid (CARDS) ──────────────────────────────── */
-.metrics {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-}
-.metric-card {
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-  padding: 1rem 1.1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  transition: border-color 0.2s ease;
-}
-.metric-card:hover { border-color: var(--border-gold); }
-.metric-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: var(--text-muted);
-}
-.metric {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--gold);
-  line-height: 1.2;
-  word-break: break-word;
-}
-.metric.good { color: var(--green); }
-.metric.bad  { color: var(--red); }
-.metric-sub {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  line-height: 1.4;
-}
-
-/* ── Tags row ──────────────────────────────────────────── */
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 0.75rem 0 1.25rem;
-}
-.tag {
-  background: rgba(255,255,255,.04);
-  border: 1px solid var(--border);
-  border-radius: 99px;
-  padding: 0.25rem 0.7rem;
-  font-size: 0.75rem;
-  color: var(--text-secondary);
-}
-.tag b { color: var(--gold); }
-
-/* ── Premium panel ─────────────────────────────────────── */
-.premium-panel {
-  background: rgba(201,168,76,.04);
-  border: 1px solid var(--border-gold);
-  border-radius: var(--r-lg);
-  padding: 1.25rem;
-  margin-bottom: 1.5rem;
-}
-.premium-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-.scenario-tabs {
-  display: flex;
-  gap: 0.4rem;
-  flex-wrap: wrap;
-}
-.tab {
-  background: transparent;
-  border: 1px solid var(--border);
-  border-radius: var(--r-sm);
-  padding: 0.3rem 0.75rem;
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-  cursor: pointer;
-  font-family: var(--font-sans);
-  transition: all 0.15s ease;
-}
-.tab:hover { border-color: var(--gold); color: var(--gold); }
-.tab.active {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: #0d0d12;
-  font-weight: 600;
-}
-.scenario-note {
-  margin-bottom: 1rem;
-  line-height: 1.55;
-}
-
-/* ── Scenario cards ────────────────────────────────────── */
-.scenario-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.6rem;
-  margin-bottom: 1rem;
-}
-.scn-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  padding: 0.85rem 0.9rem;
-}
-.scn-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
-  flex-wrap: wrap;
-  gap: 0.3rem;
-}
-.scn-pill {
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: var(--gold);
-}
-.scn-kpi {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 0.25rem;
-  word-break: break-word;
-}
-.scn-sub {
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-
-/* ── Chart ─────────────────────────────────────────────── */
-.chart-wrap {
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  padding: 0.75rem;
-  overflow: hidden;
-}
-.chart-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-#retChart {
-  width: 100%;
-  display: block;
-  overflow: visible;
-}
-.ret-line { fill: none; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
-.ret-line.base  { stroke: var(--gold); }
-.ret-line.cons  { stroke: #555566; }
-.ret-line.aggr  { stroke: var(--green); }
-.ret-label { font-size: 11px; fill: var(--text-muted); font-family: var(--font-sans); }
-.ret-target { stroke: rgba(247,95,95,.5); stroke-width: 1.5; stroke-dasharray: 5 4; }
-.ret-grid   { stroke: rgba(255,255,255,.05); stroke-width: 1; }
-.ret-ylabel { font-size: 10px; fill: var(--text-muted); text-anchor: end; font-family: var(--font-sans); }
-
-/* ── Table ─────────────────────────────────────────────── */
-.table-title {
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-  margin-bottom: 0.75rem;
-}
-.table-wrap {
-  overflow-x: auto;
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-  margin-bottom: 1rem;
-}
-.data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-.data-table thead { background: var(--bg-hover); }
-.data-table th {
-  padding: 0.6rem 0.85rem;
-  text-align: left;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  border-bottom: 1px solid var(--border);
-  white-space: nowrap;
-}
-.data-table td {
-  padding: 0.5rem 0.85rem;
-  color: var(--text-secondary);
-  border-bottom: 1px solid var(--border);
-}
-.data-table tr:last-child td { border-bottom: none; }
-.data-table tr:hover td { background: var(--bg-hover); }
-
-/* ── Watermark ─────────────────────────────────────────── */
-.watermark-row {
-  text-align: center;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  padding: 0.5rem 0 0;
-}
-
-/* ── Responsive ────────────────────────────────────────── */
-@media (max-width: 900px) {
-  .tool-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 600px) {
-  .metrics { grid-template-columns: 1fr; }
-  .form-grid { grid-template-columns: 1fr; }
-  .scenario-grid { grid-template-columns: 1fr; }
-  .calculator-card { padding: 1.25rem; }
-  .premium-head { flex-direction: column; align-items: flex-start; }
-}
-
-.tool-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.35fr;
-  gap: 1.5rem;
-  align-items: start;
-}
-.tool-grid-equal {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  align-items: start;
-}
-.chart-wrap {
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  padding: 0.75rem;
-  overflow: hidden;
-  margin-top: 0.75rem;
-}
-@media (max-width: 900px) {
-  .tool-grid, .tool-grid-equal { grid-template-columns: 1fr !important; }
-}
-</style>
+</script>
+<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025"></script>
 </head>
 <body>
 <header class="header">
@@ -369,99 +60,226 @@
 <section class="page-header">
 <div class="container">
 <h1>Calculadora de Valuation</h1>
-<p>Calcule o preço justo de uma ação usando o Modelo de Gordon. Identifique margem de segurança e múltiplos de valuation.</p>
+<p>Calcule o preço justo de uma ação usando modelos de valuation profissionais. Identifique oportunidades de investimento com margem de segurança.</p>
 </div>
+</section>
+<section class="ad-container adsense-responsive">
+<span class="ad-label">Publicidade</span>
+<!-- ADSENSE: Insira aqui o código do bloco de anúncio real do seu painel AdSense -->
 </section>
 <section class="section">
 <div class="container">
-<div class="ad-container adsense-responsive">
-<span class="ad-label">Publicidade</span>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4613426749830025"
-  data-ad-slot="9876543260" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-<div class="tool-grid">
-
-<!-- FORMULÁRIO -->
+<div class="calculator-grid">
 <div class="calculator-card">
 <h2 class="calculator-title">Dados da Empresa</h2>
 <div class="form-grid">
 <div class="form-group">
-  <label for="lucroLiquido">Lucro líquido anual (R$ milhões)</label>
-  <input class="form-control" id="lucroLiquido" type="text" value="100"/>
+<label for="lucroLiquido">Lucro Líquido Anual (R$ milhões)</label>
+<input class="form-control" id="lucroLiquido" min="0" type="text" value="100"/>
 </div>
 <div class="form-group">
-  <label for="numeroAcoes">Número de ações (milhões)</label>
-  <input class="form-control" id="numeroAcoes" type="text" value="50"/>
+<label for="numeroAcoes">Número de Ações (milhões)</label>
+<input class="form-control" id="numeroAcoes" min="0" type="text" value="50"/>
 </div>
 <div class="form-group">
-  <label for="crescimentoEsperado">Crescimento esperado (%)</label>
-  <input class="form-control" id="crescimentoEsperado" type="number" step="0.1" min="0" value="5"/>
+<label for="crescimentoEsperado">Crescimento Esperado (%)</label>
+<input class="form-control" id="crescimentoEsperado" min="0" step="0.1" type="number" value="5"/>
 </div>
 <div class="form-group">
-  <label for="taxaDesconto">Taxa de desconto / WACC (%)</label>
-  <input class="form-control" id="taxaDesconto" type="number" step="0.1" min="0.01" value="10"/>
+<label for="taxaDesconto">Taxa de Desconto (%) - WACC</label>
+<input class="form-control" id="taxaDesconto" min="0" step="0.1" type="number" value="10"/>
+</div>
+<div class="form-group">
+<label for="precoAtual">Preço Atual da Ação (R$)</label>
+<input class="form-control" id="precoAtual" min="0" type="text" value="50"/>
 </div>
 <div class="form-group full">
-  <label for="precoAtual">Preço atual da ação (R$)</label>
-  <input class="form-control" id="precoAtual" type="text" value="50"/>
-</div>
-<div class="form-actions full">
-  <button class="btn btn-primary" id="btnCalcular" type="button">Calcular Valuation</button>
-  <button class="btn btn-secondary" id="btnResetarVal" type="button">Resetar</button>
-  <span class="status-badge" id="v-status">Pronto para calcular</span>
-</div>
-<div class="form-note full">
-  <strong>Modelo de Gordon:</strong> Preço Justo = (LPA × (1 + g)) / (WACC − g).
-  Ideal para empresas maduras com crescimento estável. Quanto maior a margem de segurança, mais barata está a ação.
+<button class="btn btn-primary" id="btnCalcular" style="width: 100%;" type="button">Calcular Valuation</button>
 </div>
 </div>
 </div>
-
-<!-- RESULTADO -->
 <div class="calculator-card">
-<div class="result-header">
-  <h2 class="calculator-title">Resultado</h2>
-  <span class="small-muted" id="v-lastrun">Ainda não calculado</span>
-</div>
+<h2 class="calculator-title">Resultado</h2>
 <div class="metrics">
-  <div class="metric-card">
-    <div class="metric-label">Preço justo (Gordon)</div>
-    <div class="metric" id="precoJustoGordon">—</div>
-    <div class="metric-sub">Valor intrínseco estimado pelo modelo</div>
-  </div>
-  <div class="metric-card">
-    <div class="metric-label">Margem de segurança</div>
-    <div class="metric" id="margemSeguranca">—</div>
-    <div class="metric-sub">Desconto em relação ao preço justo</div>
-  </div>
-  <div class="metric-card">
-    <div class="metric-label">LPA (Lucro por ação)</div>
-    <div class="metric" id="lpa">—</div>
-    <div class="metric-sub">Lucro líquido / nº de ações</div>
-  </div>
-  <div class="metric-card">
-    <div class="metric-label">P/L (Price / Earnings)</div>
-    <div class="metric" id="pl">—</div>
-    <div class="metric-sub">Quantos anos de lucro você paga</div>
-  </div>
+<div class="metric-card">
+<div class="metric-label">Preço Justo (Gordon)</div>
+<div class="metric" id="precoJustoGordon">—</div>
+<div class="metric-sub">Modelo de crescimento perpétuo</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Margem de Segurança</div>
+<div class="metric" id="margemSeguranca">—</div>
+<div class="metric-sub">Desconto em relação ao preço justo</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">LPA (Lucro por Ação)</div>
+<div class="metric" id="lpa">—</div>
+<div class="metric-sub">Lucro por ação</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">P/L (Price to Earnings)</div>
+<div class="metric" id="pl">—</div>
+<div class="metric-sub">Múltiplo de valuation</div>
+</div>
 </div>
 <div class="tags" id="metaInfo"></div>
-<div class="watermark-row"><strong>@cerebromillionario</strong> • Análise educacional • Não é recomendação de investimento</div>
-</div>
-
-</div>
-<div class="ad-container adsense-responsive">
-<span class="ad-label">Publicidade</span>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4613426749830025"
-  data-ad-slot="9876543261" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 </div>
 </section>
+<section class="ad-container adsense-responsive">
+<span class="ad-label">Publicidade</span>
+<!-- ADSENSE: Insira aqui o código do bloco de anúncio real do seu painel AdSense -->
+</section>
+<section class="features-section">
+<div class="container">
+<div class="section-header">
+<h2>Entenda a Valuation de Ações</h2>
+<p>Técnicas profissionais para identificar oportunidades</p>
+</div>
+<div class="features-grid">
+<div class="feature-card animate-fade-in">
+<div class="feature-icon"><i class="fas fa-calculator"></i></div>
+<h3 class="feature-title">Modelo de Gordon</h3>
+<p>Calcula o preço justo baseado em crescimento perpétuo de dividendos. Ideal para empresas maduras e estáveis.</p>
+</div>
+<div class="feature-card animate-fade-in" style="animation-delay: 0.1s;">
+<div class="feature-icon"><i class="fas fa-shield-check"></i></div>
+<h3 class="feature-title">Margem de Segurança</h3>
+<p>Desconto em relação ao preço justo. Warren Buffett recomenda comprar com pelo menos 25% de desconto.</p>
+</div>
+<div class="feature-card animate-fade-in" style="animation-delay: 0.2s;">
+<div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
+<h3 class="feature-title">Múltiplos de Valuation</h3>
+<p>P/L, P/B e outros múltiplos ajudam a comparar empresas e identificar oportunidades.</p>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="content-block">
+<h2>Guia Completo: Calculadora de Valuation</h2>
+
+<h3>Por que Valuation importa? Preço ≠ Valor</h3>
+<p>Você já deve ter visto uma ação cair 10% num dia e subir 15% no outro sem nenhuma notícia relevante. O mercado age por emoção, mas o valor de uma empresa não muda da noite para o dia. Valuation é a arte de colocar um preço justo nesse negócio, com base em números concretos, não em euforia ou pânico. Como Warren Buffett gosta de dizer: "preço é o que você paga, valor é o que você leva". E é por isso que uma boa calculadora de valuation não serve para prever cotações amanhã — serve para mostrar se, no longo prazo, você está comprando uma barganha ou um mico.</p>
+
+<p>Na prática, o valuation responde: "se eu fosse comprar a empresa inteira e não apenas um pedacinho, quanto ela vale?" Ao trazer essa lógica para a ação, você para de enxergar um ticker piscando e começa a enxergar um negócio com receitas, custos, concorrência e potencial de crescimento. A calculadora que você tem aqui simplifica o modelo de Gordon, um dos pilares da análise fundamentalista, para que você tome decisões com um pé bem firme na realidade.</p>
+
+<h3>Introdução à Valuation de Ações</h3>
+<p>Um dos maiores desafios para investidores é determinar se uma ação está cara ou barata. A valuation é a técnica usada para calcular o "preço justo" de uma ação. Existem vários modelos de valuation, e a Calculadora de Valuation do Cérebro Milionário usa o modelo de Gordon, um dos mais populares e respeitados.</p>
+
+<h3>O Modelo de Gordon (Gordon Growth Model)</h3>
+<p>O modelo de Gordon calcula o valor presente de uma série infinita de dividendos crescentes. A fórmula é:</p>
+
+<p>Preço Justo = (Dividendo × (1 + Taxa de Crescimento)) / (Taxa de Desconto - Taxa de Crescimento)</p>
+
+<p>Onde:</p>
+<ul>
+<li><strong>Dividendo:</strong> O dividendo esperado no próximo período</li>
+<li><strong>Taxa de Crescimento:</strong> A taxa esperada de crescimento perpétuo</li>
+<li><strong>Taxa de Desconto:</strong> O retorno mínimo exigido pelo investidor (WACC)</li>
+</ul>
+
+<h3>Quem foi Myron Gordon e por que o modelo leva seu nome?</h3>
+<p>Myron Gordon foi um economista que, nos anos 1950, publicou um artigo revolucionário sobre como investidores avaliam ações que pagam dividendos. Ele percebeu que, se uma empresa distribui parte dos lucros e esses dividendos crescem a uma taxa constante, dava para projetar o valor presente disso tudo usando uma matemática simples de progressão infinita. O modelo ganhou fama porque une dois fatores que todo investidor deveria monitorar: o retorno esperado e o crescimento sustentável.</p>
+
+<p>Quando você insere os dados na nossa calculadora, é como se estivesse sentado com Gordon em uma mesa de bar, rabiscando guardanapos. A diferença é que a ferramenta faz a conta em milissegundos e ainda te entrega o LPA e o P/L de brinde.</p>
+
+<h3>Componentes da Valuation</h3>
+<p><strong>Lucro Líquido:</strong> O lucro da empresa após todas as despesas e impostos. Quanto maior o lucro, maior o valor da empresa.</p>
+
+<p><strong>Número de Ações:</strong> O número total de ações em circulação. Isso afeta o lucro por ação (LPA).</p>
+
+<p><strong>Taxa de Crescimento:</strong> A taxa esperada de crescimento do lucro. Deve ser realista e baseada em histórico e perspectivas da empresa.</p>
+
+<p><strong>Taxa de Desconto (WACC):</strong> O custo médio ponderado de capital. Representa o retorno mínimo que o investidor exige. Geralmente varia entre 8% e 12%.</p>
+
+<h3>Escolhendo a taxa de crescimento — pé no chão sempre</h3>
+<p>A parte mais sensível do modelo é a taxa de crescimento. Colocar um número exagerado (tipo 20% ao ano para sempre) destrói qualquer análise. Empresas de tecnologia podem crescer muito por alguns anos, mas é impossível crescer acima do PIB mundial eternamente. Por isso, para negócios maduros (bancos, elétricas, alimentos) use algo entre 3% e 6%. Setores mais aquecidos podem chegar a 8% com boas justificativas. Acima disso, só se você realmente conhece a companhia nos mínimos detalhes.
+
+<p>Uma dica de ouro: pegue o crescimento médio dos últimos 5 anos do lucro, ignore picos isolados e corte pela metade se tiver dúvida. O valuation conservador protege sua carteira. Lembre-se: perder uma oportunidade por excesso de cautela dói menos do que comprar topo achando que era barato.</p>
+
+<h3>Lucro por Ação (LPA)</h3>
+<p>O LPA é calculado dividindo o lucro líquido pelo número de ações. Por exemplo, se uma empresa tem lucro de R$ 100 milhões e 50 milhões de ações, o LPA é R$ 2.</p>
+
+<p>O LPA é importante porque permite comparar empresas de diferentes tamanhos.</p>
+
+<h3>Múltiplo P/L (Price to Earnings)</h3>
+<p>O múltiplo P/L é calculado dividindo o preço da ação pelo LPA. Por exemplo, se a ação custa R$ 50 e o LPA é R$ 2, o P/L é 25.</p>
+
+<p>Um P/L de 25 significa que você está pagando R$ 25 por cada R$ 1 de lucro. Quanto menor o P/L, mais barata a ação (em teoria).</p>
+
+<p>No entanto, P/L baixo nem sempre significa oportunidade. Pode indicar que a empresa está em dificuldades ou que o mercado espera crescimento baixo.</p>
+
+<h3>Margem de Segurança — o colchão que todo investidor precisa</h3>
+<p>A margem de segurança é o desconto entre o preço justo calculado e o preço atual. Por exemplo, se o preço justo é R$ 60 e a ação custa R$ 50, a margem de segurança é de 16,7%.</p>
+
+<p>Warren Buffett, um dos maiores investidores do mundo, recomenda comprar apenas quando há margem de segurança de pelo menos 25%. Isso protege contra erros na análise.</p>
+
+<p>Pense assim: se você calculou que uma casa vale R$ 500 mil e o dono está vendendo por R$ 350 mil, você tem uma gordura de 30% para cobrir eventuais reformas, impostos inesperados ou uma desvalorização do bairro. Com ações é a mesma lógica. Sua análise nunca será 100% exata, então compre só quando o mercado te der um desconto confortável. A calculadora escancara esse número pra você não precisar fazer conta de cabeça.</p>
+
+<h3>Taxa de Desconto (WACC) na vida real do investidor pessoa física</h3>
+<p>Em teoria, o WACC considera o custo de capital próprio e de terceiros, mas para você que investe seu próprio dinheiro, a taxa de desconto deve refletir o que você quer ganhar como retorno mínimo. No Brasil, muita gente usa a Taxa Selic mais um prêmio de risco. Por exemplo, se a Selic está em 9% e você acha que ações devem pagar ao menos 3% a mais que a renda fixa, sua taxa de desconto seria 12%. Empresas pequenas e arriscadas pedem um prêmio ainda maior; gigantes consolidadas podem trabalhar com algo entre 8% e 10%. Teste diferentes cenários na calculadora e veja como o preço justo muda drasticamente – isso mostra o quanto o valuation é sensível às premissas, e reforça a importância de ser conservador.</p>
+
+<h3>Exemplo Prático Passo a Passo</h3>
+<p>Vamos simular uma empresa de alimentos, bem previsível, que lucrou R$ 200 milhões no último ano, tem 80 milhões de ações, cresceu em média 5% nos últimos 5 anos e você exige um retorno de 11% ao ano. A ação está cotada a R$ 45. Ao digitar esses números na calculadora, você verá:</p>
+<ul>
+<li>LPA = R$ 2,50</li>
+<li>Preço Justo (Gordon) = (2,50 × 1,05) / (0,11 – 0,05) = 2,625 / 0,06 = R$ 43,75</li>
+<li>Margem de Segurança = (43,75 – 45) / 43,75 = -2,8% (negativa, portanto sem desconto)</li>
+<li>P/L atual = 45 / 2,50 = 18</li>
+</ul>
+<p>Resultado: mesmo com bons fundamentos, a ação está ligeiramente cara em relação ao seu preço justo. Se o mercado corrigir para R$ 35, a margem de segurança saltaria para 20%, e aí sim seria um excelente ponto de entrada. Esse é o tipo de raciocínio que o valuation coloca na sua cabeça.</p>
+
+<h3>Limitações do Modelo de Gordon (e quando ignorá-lo)</h3>
+<p>O modelo de Gordon tem limitações importantes:</p>
+<ul>
+<li>Assume crescimento perpétuo, o que pode não ser realista</li>
+<li>É sensível à taxa de desconto e taxa de crescimento</li>
+<li>Não funciona bem para empresas em crescimento acelerado</li>
+<li>Requer estimativas que podem ser imprecisas</li>
+</ul>
+<p>Por isso, é importante usar múltiplos modelos e comparar resultados.</p>
+<p>Além disso, o modelo foi pensado para ações que pagam dividendos. Se a empresa retém 100% do lucro, tecnicamente o dividendo é zero e a fórmula quebra. Nesses casos, você pode adaptar usando um "dividendo potencial" baseado em um payout razoável (ex: 50% do lucro). Startups e empresas de crescimento acelerado pedem modelos diferentes, como fluxo de caixa descontado em dois estágios. A calculadora do Cérebro Milionário é excelente para empresas maduras, lucrativas e com histórico estável. Use-a com sabedoria, sempre complementando com outros indicadores.</p>
+
+<h3>Como interpretar os resultados e agir como um investidor paciente</h3>
+<p>Depois de calcular, a tentação é sair comprando se a margem de segurança for positiva. Mas calma. Primeiro, confira seus inputs: o lucro é recorrente ou teve um evento não recorrente? O número de ações está atualizado (incluindo diluições recentes)? A taxa de crescimento é sustentável? Depois, compare o preço justo com a cotação histórica: se a ação nunca chegou perto desse valor, talvez suas premissas estejam otimistas demais. Por fim, anote tudo. Daqui a seis meses, refaça as contas e veja se a tese ainda vale. Valuation é processo, não evento.</p>
+
+<h3>Dicas para Usar a Calculadora</h3>
+<p><strong>Seja Conservador:</strong> Use estimativas conservadoras de crescimento. É melhor ser pessimista e se surpreender positivamente.</p>
+
+<p><strong>Compare com Pares:</strong> Compare o preço justo calculado com outras empresas do mesmo setor.</p>
+<p><strong>Revise Regularmente:</strong> Conforme novos dados surgem, revise suas estimativas e recalcule.</p>
+
+<p><strong>Use Múltiplos Modelos:</strong> Não confie em um único modelo. Use DCF, P/L, P/B e outros para validar.</p>
+
+<h3>Perguntas Frequentes sobre Valuation (FAQ)</h3>
+
+<h4>Posso usar essa calculadora para qualquer ação?</h4>
+<p>Ela funciona melhor para empresas com lucros consistentes e previsíveis, que distribuem dividendos e atuam em setores maduros. Para bancos, utilities, seguradoras e indústrias cíclicas, funciona bem. Para startups de biotecnologia ou mineradoras juniores, é melhor buscar um modelo DCF com estágios.</p>
+
+<h4>Devo usar o lucro contábil ou o caixa gerado?</h4>
+<p>A versão tradicional usa lucro líquido, mas se você tiver acesso ao fluxo de caixa livre (FCF), pode adaptar o dividendo para refletir o caixa disponível para o acionista. Muitos analistas preferem o FCF, pois o lucro contábil pode esconder despesas não caixa. Nossa calculadora usa o lucro líquido como proxy; se quiser ser mais preciso, faça a conta com FCF manualmente e compare.</p>
+
+<h4>O que fazer quando a taxa de crescimento fica maior que a taxa de desconto?</h4>
+<p>Isso gera um resultado negativo ou infinito — o modelo simplesmente não funciona. Na prática, se g > k, significa que você acredita num crescimento explosivo eterno, o que é irreal. Recorra a um modelo de dois ou três estágios, ou ajuste suas premissas para algo mais modesto nos anos perpétuos.</p>
+
+<h3>Ferramentas Relacionadas</h3>
+<p>Confira também:</p>
+<ul>
+<li><a href="/simulador-dividendos">Simulador de Dividendos</a> - Para renda passiva</li>
+<li><a href="/simulador-carteira">Simulador de Carteira</a> - Para diversificação</li>
+<li><a href="/comparador-investimentos">Comparador de Investimentos</a> - Para comparar cenários</li>
+</ul>
+</div>
+</section>
+<section class="ad-container adsense-responsive">
+<span class="ad-label">Publicidade</span>
+<!-- ADSENSE: Insira aqui o código do bloco de anúncio real do seu painel AdSense -->
+</section>
 </main>
 <footer class="footer">
-<div class="container"><div class="footer-grid">
+<div class="container">
+<div class="footer-grid">
 <div class="footer-column">
 <h3 class="footer-logo">Cérebro Milionário</h3>
 <p class="footer-text">Educação financeira com profundidade técnica e experiência real de mercado. Renda fixa, ETFs, FIIs e ações.</p>
@@ -469,79 +287,47 @@
 <a href="https://t.me/cerebromillionario" target="_blank" class="social-link" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
 <a href="https://www.instagram.com/cerebromillionario/" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
 <a href="https://youtube.com/@cerebromillionario" target="_blank" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-</div></div>
-<div class="footer-column"><h4 class="footer-heading">Ferramentas</h4>
+</div>
+</div>
+<div class="footer-column">
+<h4 class="footer-heading">Ferramentas</h4>
 <ul class="footer-links">
-<li><a href="/ferramentas">Hub de Ferramentas</a></li>
 <li><a href="/calculadora">Calculadora de Juros</a></li>
-<li><a href="/aposentadoria">Simulador FIRE</a></li>
+<li><a href="/comparador-cdb-lci-lca">Comparador CDB/LCI</a></li>
 <li><a href="/calculadora-ir-renda-fixa">Calculadora IR</a></li>
-</ul></div>
-<div class="footer-column"><h4 class="footer-heading">Conteúdo</h4>
+<li><a href="/aposentadoria">Simulador Aposentadoria</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4 class="footer-heading">Conteúdo</h4>
 <ul class="footer-links">
 <li><a href="/blog">Blog</a></li>
 <li><a href="/glossario-financeiro">Glossário</a></li>
 <li><a href="/perguntas-frequentes">FAQ</a></li>
-</ul></div>
-<div class="footer-column"><h4 class="footer-heading">Institucional</h4>
+<li><a href="/guia-iniciantes">Guia Iniciantes</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4 class="footer-heading">Institucional</h4>
 <ul class="footer-links">
 <li><a href="/sobre">Sobre</a></li>
 <li><a href="/contato">Contato</a></li>
 <li><a href="/politica-privacidade">Privacidade</a></li>
 <li><a href="/termos-uso">Termos de Uso</a></li>
-</ul></div>
+</ul>
+</div>
 </div>
 <div class="footer-bottom">
 <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
-<div style="display:flex;gap:1rem;"><a href="/politica-privacidade">Privacidade</a><a href="/termos-uso">Termos</a></div>
-</div></div></footer>
+<div style="display:flex;gap:1rem;">
+<a href="/politica-privacidade">Privacidade</a>
+<a href="/termos-uso">Termos</a>
+<a href="/contato">Contato</a>
+</div>
+</div>
+</div>
+</footer>
 <script src="/js/main.js"></script>
 <script src="/js/calculadora-valuation.js"></script>
-<script>
-(function() {
-  function el(id) { return document.getElementById(id); }
-
-  // Colorir margem de segurança e atualizar status/lastrun
-  var btnC = el('btnCalcular');
-  if (btnC) btnC.addEventListener('click', function() {
-    setTimeout(function() {
-      var ms = el('margemSeguranca');
-      var lr = el('v-lastrun');
-      var st = el('v-status');
-      if (lr) lr.textContent = 'Calculado em ' + new Date().toLocaleString('pt-BR');
-      if (!ms) return;
-      var txt = ms.textContent || '';
-      if (txt.includes('Barata')) {
-        ms.className = 'metric good';
-        if (st) st.textContent = '✅ Ação abaixo do preço justo';
-      } else if (txt.includes('Cara')) {
-        ms.className = 'metric bad';
-        if (st) st.textContent = '⚠️ Ação acima do preço justo';
-      } else {
-        ms.className = 'metric';
-      }
-    }, 50);
-  }, true);
-
-  // Resetar
-  var btnR = el('btnResetarVal');
-  if (btnR) btnR.addEventListener('click', function() {
-    el('lucroLiquido').value = '100'; el('numeroAcoes').value = '50';
-    el('crescimentoEsperado').value = '5'; el('taxaDesconto').value = '10';
-    el('precoAtual').value = '50';
-    ['lpa','precoJustoGordon','margemSeguranca','pl'].forEach(function(id) {
-      var e = el(id); if (e) { e.textContent = '—'; e.className = 'metric'; }
-    });
-    var mi = el('metaInfo'); if (mi) mi.innerHTML = '';
-    var lr = el('v-lastrun'); if (lr) lr.textContent = 'Ainda não calculado';
-    var st = el('v-status'); if (st) st.textContent = 'Pronto para calcular';
-  });
-
-  // Calcular ao carregar
-  window.addEventListener('load', function() {
-    if (btnC) btnC.click();
-  });
-})();
-</script>
 </body>
 </html>
