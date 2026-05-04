@@ -251,20 +251,43 @@ async function loadBlogPosts() {
 function initCookieBanner() {
     const cookieBanner = document.getElementById('cookie-banner');
     const acceptBtn = document.getElementById('cookie-accept');
-    
+
     if (!cookieBanner || !acceptBtn) return;
 
-    // Check if user already accepted
-    if (!localStorage.getItem('cookies-accepted')) {
+    const actionsContainer = acceptBtn.parentElement;
+    const legacyAccepted = localStorage.getItem('cookies-accepted') === 'true';
+    const consentStatus = localStorage.getItem('cookie-consent-status');
+
+    const shouldShowBanner = !consentStatus && !legacyAccepted;
+    if (shouldShowBanner) {
         setTimeout(() => {
             cookieBanner.classList.add('show');
         }, 2000);
     }
 
-    acceptBtn.addEventListener('click', () => {
-        localStorage.setItem('cookies-accepted', 'true');
+    const setConsentAndClose = (status) => {
+        localStorage.setItem('cookie-consent-status', status);
+        localStorage.setItem('cookies-accepted', status === 'accepted' ? 'true' : 'false');
         cookieBanner.classList.remove('show');
-    });
+    };
+
+    const rejectBtn = document.createElement('button');
+    rejectBtn.id = 'cookie-reject';
+    rejectBtn.className = 'btn-cookie-reject';
+    rejectBtn.type = 'button';
+    rejectBtn.textContent = 'Reject';
+
+    const prefsBtn = document.createElement('a');
+    prefsBtn.id = 'cookie-preferences';
+    prefsBtn.className = 'btn-cookie-preferences';
+    prefsBtn.href = '/politica-privacidade';
+    prefsBtn.textContent = 'Preferences';
+
+    actionsContainer.prepend(prefsBtn);
+    actionsContainer.prepend(rejectBtn);
+
+    acceptBtn.addEventListener('click', () => setConsentAndClose('accepted'));
+    rejectBtn.addEventListener('click', () => setConsentAndClose('rejected'));
 }
 
 // Add to DOMContentLoaded
