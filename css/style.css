@@ -928,6 +928,27 @@ textarea.form-control { resize: vertical; min-height: 140px; }
   transform: translateY(-2px);
 }
 
+.btn-cookie-reject,
+.btn-cookie-preferences {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-gold);
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--r-sm);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all var(--t-fast);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.btn-cookie-reject:hover,
+.btn-cookie-preferences:hover {
+  background: rgba(201, 168, 76, 0.12);
+  transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
   .cookie-container {
     flex-direction: column;
