@@ -246,3 +246,26 @@ async function loadBlogPosts() {
     };
     renderPage(1);
 }
+
+// ── COOKIE CONSENT LOGIC ──────────────────────────────────
+function initCookieBanner() {
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('cookie-accept');
+    
+    if (!cookieBanner || !acceptBtn) return;
+
+    // Check if user already accepted
+    if (!localStorage.getItem('cookies-accepted')) {
+        setTimeout(() => {
+            cookieBanner.classList.add('show');
+        }, 2000);
+    }
+
+    acceptBtn.addEventListener('click', () => {
+        localStorage.setItem('cookies-accepted', 'true');
+        cookieBanner.classList.remove('show');
+    });
+}
+
+// Add to DOMContentLoaded
+document.addEventListener('DOMContentLoaded', initCookieBanner);
