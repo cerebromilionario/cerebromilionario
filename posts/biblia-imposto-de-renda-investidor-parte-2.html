@@ -26,7 +26,7 @@
 <header class="header">
 <div class="container header-container">
 <div class="logo">
-<p class="logo-name"><a href="/">Cérebro Milionário</a></p>
+<h1><a href="/">Cérebro Milionário</a></h1>
 </div>
 <button aria-expanded="false" aria-label="Abrir menu" class="mobile-menu-btn">
 <i class="fas fa-bars"></i>
@@ -46,6 +46,10 @@
 </div>
 </header>
 <main>
+    <div class="series-shell">
+      <div class="series-layout">
+        <article class="post-wrap">
+          
 <section class="hero-section"><div class="container"><div class="post-header">
 <h1 class="post-title">Bíblia do IR do Investidor — Parte 2: Renda Fixa, Fundos e Previdência</h1>
 <div class="post-meta"><span><i class="far fa-calendar"></i> 20/01/2026</span><span><i class="far fa-clock"></i> 13 min de leitura</span><span><i class="far fa-folder"></i> Tributação</span></div>
@@ -160,6 +164,24 @@
 <p><strong>Próximo passo:</strong> siga pelo <a href="/hub#cluster-bolsa">hub temático</a> e aplique os conceitos com <a href="/calculadora-valuation">ferramenta prática</a> e <a href="/calculadora-ir-bolsa">simulador relacionado</a>.</p>
 </section>
 
+
+        </article>
+        <aside class="series-nav" id="seriesNav" aria-label="Navegação da série Bíblia do IR">
+          <div class="series-nav-head">
+            <strong>📌 Série: IR (2/4)</strong>
+            <button class="series-close" id="seriesClose" aria-label="Fechar">✕</button>
+          </div>
+          <nav class="series-nav-links">
+            <a href="/posts/biblia-imposto-de-renda-investidor-parte-1">Parte 1 — A Arquitetura do Sistema Tributário</a>
+            <a href="/posts/biblia-imposto-de-renda-investidor-parte-2" class="active">Parte 2 — Renda Fixa, Fundos e Previdência</a>
+            <a href="/posts/biblia-imposto-de-renda-investidor-parte-3">Parte 3 — Ações, FIIs, ETFs e Bolsa</a>
+            <a href="/posts/biblia-imposto-de-renda-investidor-parte-4">Parte 4 — Declaração Completa e Checklist</a>
+          </nav>
+        </aside>
+      </div>
+      <button class="series-fab" id="seriesFab" aria-label="Abrir navegação da série" aria-expanded="false">Série 2/4</button>
+      <div class="series-backdrop" id="seriesBackdrop"></div>
+    </div>
 </main>
 
 <!-- Footer -->
@@ -239,5 +261,34 @@
             </div>
         </div>
     </div>
+
+  <script>
+    (function () {
+      const fab = document.getElementById('seriesFab');
+      const nav = document.getElementById('seriesNav');
+      const backdrop = document.getElementById('seriesBackdrop');
+      const closeBtn = document.getElementById('seriesClose');
+      if(!fab || !nav || !backdrop || !closeBtn) return;
+
+      function openNav(){
+        nav.classList.add('open');
+        backdrop.classList.add('open');
+        fab.setAttribute('aria-expanded','true');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeNav(){
+        nav.classList.remove('open');
+        backdrop.classList.remove('open');
+        fab.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+      }
+
+      fab.addEventListener('click', openNav);
+      closeBtn.addEventListener('click', closeNav);
+      backdrop.addEventListener('click', closeNav);
+      document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeNav(); });
+    })();
+  </script>
+
 </body>
 </html>
