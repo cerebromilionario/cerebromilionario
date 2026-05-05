@@ -616,13 +616,18 @@ tr:hover td { background: var(--bg-hover); }
 .list-clean li strong { color: var(--text-primary); }
 
 /* ── ADSENSE ─────────────────────────────────────────────── */
-.ad-container { margin: var(--s8) 0; text-align: center; }
+.ad-container { margin: var(--s8) auto; text-align: center; max-width: 100%; clear: both; }
 .ad-label {
   display: block; font-size: .7rem; color: var(--text-muted);
   text-transform: uppercase; letter-spacing: .08em;
   margin-bottom: var(--s2);
 }
 .adsense-responsive { min-height: 90px; }
+.post-content .ad-container { scroll-margin-top: 120px; }
+.post-content .ad-container + .ad-container { display: none; }
+@media (max-width: 768px) {
+  .post-content .ad-container { margin: var(--s6) 0; min-height: 70px; }
+}
 
 /* ── FOOTER ──────────────────────────────────────────────── */
 .footer {
