@@ -1,18 +1,126 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Renda Fixa Descomplicada: Guia Completo e Estratégico (2026)</title>
-<meta name="description" content="Guia definitivo e aprofundado de renda fixa com abordagem técnica, estratégica e prática.">
-<link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Renda Fixa: Guia Completo e Estratégico (2026) | Cérebro Milionário</title>
+<meta name="description" content="Guia completo de renda fixa: tipos de ativos, tabela IR regressivo, FGC, marcação a mercado, duration, breakeven de inflação, ladder/barbell/bullet e comparação CDB vs LCI/LCA vs Tesouro. Do básico ao nível CFA."/>
+<meta name="robots" content="index, follow"/>
+<meta name="author" content="Cérebro Milionário"/>
+<meta name="google-adsense-account" content="ca-pub-4613426749830025"/>
 <link rel="canonical" href="https://cerebromilionario.site/posts/renda-fixa-guia-completo-2026"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://cerebromilionario.site/posts/renda-fixa-guia-completo-2026"/>
+<meta property="og:title" content="Renda Fixa: Guia Completo e Estratégico (2026)"/>
+<meta property="og:description" content="Tipos de ativos, IR regressivo, FGC, marcação a mercado, duration, breakeven de inflação e estratégias por prazo. Do básico ao nível CFA."/>
+<meta property="og:image" content="https://cerebromilionario.site/images/blog-default.svg"/>
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image"/>
+<meta property="twitter:title" content="Renda Fixa: Guia Completo e Estratégico (2026)"/>
+<meta property="twitter:description" content="Tipos de ativos, IR regressivo, FGC, marcação a mercado, duration e estratégias por prazo. Do básico ao nível CFA."/>
+<meta property="twitter:image" content="https://cerebromilionario.site/images/blog-default.svg"/>
+
+<!-- Schema BlogPosting + speakable + FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Renda Fixa: Guia Completo e Estratégico (2026)",
+  "image": "https://cerebromilionario.site/images/blog-default.svg",
+  "datePublished": "2026-02-25T10:00:00+00:00",
+  "dateModified": "2026-05-07T10:00:00+00:00",
+  "author": {"@type": "Organization", "name": "Cérebro Milionário", "url": "https://cerebromilionario.site/"},
+  "publisher": {"@type": "Organization", "name": "Cérebro Milionário", "logo": {"@type": "ImageObject", "url": "https://cerebromilionario.site/images/logo.png"}},
+  "description": "Guia completo de renda fixa: tipos de ativos, tabela IR regressivo, FGC, marcação a mercado, duration, breakeven de inflação, ladder/barbell/bullet e comparação CDB vs LCI/LCA vs Tesouro.",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://cerebromilionario.site/posts/renda-fixa-guia-completo-2026"},
+  "inLanguage": "pt-BR",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", "h2", ".callout", ".warning-box"]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que é marcação a mercado e por que ela faz títulos de renda fixa oscilarem?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Marcação a mercado (MtM) é a precificação diária dos títulos de renda fixa pelo preço que eles valeriam se fossem vendidos hoje — não pelo valor contratado. Quando as taxas de juros sobem, os títulos prefixados e IPCA+ perdem valor no mercado (você venderia por menos). Quando as taxas caem, esses títulos valorizam. Isso só importa se você vender antes do vencimento: quem carrega até o vencimento recebe exatamente a taxa contratada, independentemente das oscilações diárias."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual o limite de cobertura do FGC para renda fixa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O FGC (Fundo Garantidor de Créditos) cobre até R$ 250.000 por CPF por CNPJ de conglomerado financeiro, com teto global de R$ 1.000.000 por CPF a cada 4 anos. O ponto crítico é 'por conglomerado': bancos do mesmo grupo econômico (ex.: Nubank + NuInvest) compartilham o limite. Para maximizar a cobertura, distribua entre emissores de conglomerados diferentes. Tesouro Direto não tem limite — é garantido pelo governo federal diretamente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "CDB ou Tesouro IPCA+: qual é melhor para o longo prazo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende do spread e da necessidade de liquidez. O Tesouro IPCA+ tem o menor risco de crédito possível (governo federal) e liquidez diária garantida pelo Tesouro Nacional. CDB de banco médio pode pagar IPCA + 7-9% contra IPCA + 6,5% do Tesouro — o spread compensa o risco de crédito adicional e a menor liquidez. Para reservas de aposentadoria de longo prazo com prazo definido, CDB de banco médio pode ser superior. Para quem precisa de liquidez ou tem aversão a risco de crédito, Tesouro IPCA+ é preferível."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como comparar CDB com LCI/LCA de forma correta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a fórmula de gross-up: taxa CDB equivalente = taxa LCI ÷ (1 − alíquota IR). Exemplo: LCI 93% CDI isenta de IR. Para alíquota IR de 15% (prazo acima de 720 dias): CDB equivalente = 93% ÷ (1 − 0,15) = 109,4% CDI. Se o CDB disponível paga menos de 109,4% CDI, a LCI é melhor. Se paga mais, o CDB é melhor. Atenção: desde CMN 5.118/2023, LCI tem carência mínima de 12 meses e LCA de 9 meses — considere isso na comparação de liquidez."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando o título prefixado faz mais sentido do que o IPCA+?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O prefixado vence quando: (1) a inflação realizada ficar abaixo do breakeven de inflação (inflação implícita = taxa prefixada ÷ (1 + taxa real IPCA+) − 1), e (2) as taxas caem depois da compra, gerando valorização no preço do título (se você vender antes do vencimento). Prefixado é a aposta de que a inflação ficará abaixo do esperado E/OU que os juros vão cair. Em períodos de incerteza inflacionária alta, IPCA+ oferece proteção explícita que o prefixado não tem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual a alíquota de IR para renda fixa e como funciona a tabela regressiva?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O IR em renda fixa segue a tabela regressiva: 22,5% para até 180 dias; 20% de 181 a 360 dias; 17,5% de 361 a 720 dias; 15% acima de 720 dias. Além disso, há IOF nos primeiros 30 dias (começa em 96% no dia 1 e vai a zero no dia 30). Para maximizar o retorno líquido, mantenha aplicações por mais de 2 anos (720 dias) para atingir a alíquota mínima de 15%. LCI, LCA, CRI e CRA são isentos de IR para pessoa física."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="/css/style.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025" crossorigin="anonymous"></script>
+
+<style>
+  .info-table { width:100%; border-collapse:collapse; border:1px solid rgba(0,0,0,.08); border-radius:14px; overflow:hidden; margin:16px 0; background:#fff; }
+  .info-table th, .info-table td { padding:11px 14px; border-bottom:1px solid rgba(0,0,0,.07); text-align:left; vertical-align:top; }
+  .info-table th { background:rgba(44,44,46,.04); font-weight:700; }
+  .warning-box { border-left:4px solid #e2574c; background:rgba(226,87,76,.08); padding:14px 16px; border-radius:14px; margin:18px 0; }
+  .note-box { border-left:4px solid #3b82f6; background:rgba(59,130,246,.08); padding:14px 16px; border-radius:14px; margin:18px 0; }
+  .faq-item { border:1px solid rgba(0,0,0,.08); border-radius:14px; padding:16px; margin-bottom:12px; background:#fff; }
+  .faq-item h3 { margin-top:0; font-size:16px; }
+  .faq-item p { margin-bottom:0; }
+  .math-box { border:1px solid rgba(0,0,0,.08); border-radius:14px; background:#fff; padding:14px 16px; margin:16px 0; overflow:auto; }
+  .math-box code { display:block; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size:13px; line-height:1.6; white-space:pre; }
+  .toc-list { border:1px solid rgba(0,0,0,.08); border-radius:14px; padding:16px 20px; background:#fff; margin:20px 0; }
+  .toc-list h2 { margin-top:0; font-size:18px; }
+</style>
 </head>
 
 <body>
-
 <header class="header">
 <div class="container header-container">
 <div class="logo">
@@ -39,201 +147,571 @@
 <main class="section">
 <div class="container" style="max-width: 900px;">
 
-<h1>Renda Fixa Descomplicada: Guia Completo e Estratégico (2026)</h1>
-<p><strong>Leitura estimada:</strong> 35 a 45 minutos</p>
+<div class="post-header">
+  <h1 class="post-title">Renda Fixa: Guia Completo e Estratégico (2026)</h1>
+  <div class="post-meta">
+    <span><i class="far fa-calendar"></i> 25/02/2026</span>
+    <span><i class="far fa-clock"></i> 30–40 min de leitura</span>
+    <span><i class="far fa-folder"></i> Renda Fixa</span>
+  </div>
+</div>
 
-<hr>
+<div class="ad-container adsense-responsive" style="margin:18px 0;">
+<span class="ad-label">Publicidade</span>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4613426749830025" data-ad-slot="9876543226" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
 
-<h2>Índice</h2>
-<ul>
-<li><a href="#conceito">1. Conceito Profundo de Renda Fixa</a></li>
-<li><a href="#tipos">2. Tipos de Renda Fixa</a></li>
-<li><a href="#ir">3. Tributação e IR Regressivo</a></li>
-<li><a href="#risco">4. Risco de Crédito</a></li>
-<li><a href="#mercado">5. Marcação a Mercado</a></li>
-<li><a href="#estrategias">6. Estratégias por Prazo</a></li>
-<li><a href="#simulacoes">7. Estudos Técnicos Avançados</a></li>
-<li><a href="#conclusao">8. Conclusão Estratégica</a></li>
-</ul>
+<div class="toc-list">
+  <h2>Índice</h2>
+  <ol>
+    <li><a href="#conceito">Conceito e tipos de renda fixa: mapa completo</a></li>
+    <li><a href="#ir">Tributação: IR regressivo, IOF e produtos isentos</a></li>
+    <li><a href="#fgc">Risco de crédito e FGC</a></li>
+    <li><a href="#mercado">Marcação a mercado: por que títulos oscilam</a></li>
+    <li><a href="#estrategias">Estratégias por prazo e objetivo</a></li>
+    <li><a href="#estudo-1">Estudo Técnico 1 — Duration e convexidade</a></li>
+    <li><a href="#estudo-2">Estudo Técnico 2 — IPCA+ vs prefixado (breakeven)</a></li>
+    <li><a href="#estudo-3">Estudo Técnico 3 — Crédito: spread, PD, LGD</a></li>
+    <li><a href="#estudo-4">Estudo Técnico 4 — Equivalência CDB vs LCI/LCA</a></li>
+    <li><a href="#estudo-5">Estudo Técnico 5 — Liquidez e risco de reinvestimento</a></li>
+    <li><a href="#estudo-6">Estudo Técnico 6 — Ladder, barbell e bullet</a></li>
+    <li><a href="#estudo-7">Estudo Técnico 7 — Stress test (2020 e 2022)</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#conclusao">Conclusão estratégica</a></li>
+  </ol>
+</div>
 
-<hr>
-
-<h2 id="conceito">1. Conceito Profundo de Renda Fixa</h2>
+<h2 id="conceito">1) Conceito e tipos de renda fixa: mapa completo</h2>
 <p>
-Renda fixa é um instrumento financeiro cuja fórmula de rentabilidade é definida no momento da aplicação.
-Ela pode ser prefixada, pós-fixada ou híbrida. A previsibilidade contratual é o grande diferencial,
-mas isso não elimina risco — apenas o torna mensurável.
+Renda fixa é qualquer instrumento financeiro cuja fórmula de rentabilidade é definida ou previsível no momento da aplicação.
+"Fixa" não significa que o rendimento não varia — significa que a <strong>regra de cálculo</strong> é conhecida antecipadamente.
+Um CDB a 110% do CDI tem rendimento variável (depende do CDI), mas a regra é fixa.
 </p>
 
+<p>Os três tipos de indexação definem o comportamento do título ao longo do tempo:</p>
+
+<table class="info-table" aria-label="Tipos de indexação em renda fixa">
+  <thead>
+    <tr><th>Tipo</th><th>Como funciona</th><th>Exemplos</th><th>Melhor quando</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Prefixado</strong></td>
+      <td>Taxa nominal fixada na contratação (ex.: 13,5% a.a.). Você sabe exatamente quanto receberá no vencimento.</td>
+      <td>Tesouro Prefixado, CDB prefixado, LCI prefixada</td>
+      <td>Juros vão cair e/ou inflação ficará abaixo do esperado</td>
+    </tr>
+    <tr>
+      <td><strong>Pós-fixado (CDI/Selic)</strong></td>
+      <td>Rende um % do CDI ou Selic. Valor varia conforme o banco central sobe/desce os juros.</td>
+      <td>Tesouro Selic, CDB CDI, LCI CDI, LCA CDI</td>
+      <td>Proteção em qualquer cenário; reserva de emergência e liquidez</td>
+    </tr>
+    <tr>
+      <td><strong>Híbrido (IPCA+)</strong></td>
+      <td>Paga inflação (IPCA) + taxa real fixada na contratação (ex.: IPCA + 6,5%).</td>
+      <td>Tesouro IPCA+, CDB IPCA+, NTN-B, CRI/CRA IPCA+</td>
+      <td>Proteção real garantida; aposentadoria e objetivos de longo prazo</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Mapa dos principais instrumentos de renda fixa</h3>
+
+<table class="info-table" aria-label="Mapa de instrumentos de renda fixa">
+  <thead>
+    <tr><th>Instrumento</th><th>Emissor</th><th>IR (PF)</th><th>FGC</th><th>Liquidez</th><th>Prazo típico</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Tesouro Selic (LFT)</strong></td>
+      <td>Governo federal</td>
+      <td>Sim (regressivo)</td>
+      <td>Não (risco soberano)</td>
+      <td>Diária (D+1)</td>
+      <td>Qualquer</td>
+    </tr>
+    <tr>
+      <td><strong>Tesouro IPCA+ (NTN-B)</strong></td>
+      <td>Governo federal</td>
+      <td>Sim (regressivo)</td>
+      <td>Não</td>
+      <td>Diária (D+1)</td>
+      <td>2–2040</td>
+    </tr>
+    <tr>
+      <td><strong>Tesouro Prefixado (LTN)</strong></td>
+      <td>Governo federal</td>
+      <td>Sim (regressivo)</td>
+      <td>Não</td>
+      <td>Diária (D+1)</td>
+      <td>1–5 anos</td>
+    </tr>
+    <tr>
+      <td><strong>CDB</strong></td>
+      <td>Bancos e financeiras</td>
+      <td>Sim (regressivo)</td>
+      <td>Sim (R$250k/conglomerado)</td>
+      <td>Varia (D+0 a vencimento)</td>
+      <td>30 dias a 5 anos</td>
+    </tr>
+    <tr>
+      <td><strong>LCI</strong></td>
+      <td>Bancos</td>
+      <td><strong>Isento</strong></td>
+      <td>Sim (R$250k/conglomerado)</td>
+      <td>Carência mín. 12 meses (CMN 5.118/2023)</td>
+      <td>12 meses+</td>
+    </tr>
+    <tr>
+      <td><strong>LCA</strong></td>
+      <td>Bancos</td>
+      <td><strong>Isento</strong></td>
+      <td>Sim (R$250k/conglomerado)</td>
+      <td>Carência mín. 9 meses (CMN 5.118/2023)</td>
+      <td>9 meses+</td>
+    </tr>
+    <tr>
+      <td><strong>CRI</strong></td>
+      <td>Securitizadoras (lastro imobiliário)</td>
+      <td><strong>Isento</strong></td>
+      <td><strong>Não</strong></td>
+      <td>Secundário (baixa liquidez)</td>
+      <td>3–15 anos</td>
+    </tr>
+    <tr>
+      <td><strong>CRA</strong></td>
+      <td>Securitizadoras (lastro agro)</td>
+      <td><strong>Isento</strong></td>
+      <td><strong>Não</strong></td>
+      <td>Secundário (baixa liquidez)</td>
+      <td>3–10 anos</td>
+    </tr>
+    <tr>
+      <td><strong>Debêntures comuns</strong></td>
+      <td>Empresas</td>
+      <td>Sim (regressivo)</td>
+      <td>Não</td>
+      <td>Secundário (baixa liquidez)</td>
+      <td>3–10 anos</td>
+    </tr>
+    <tr>
+      <td><strong>Debêntures incentivadas</strong></td>
+      <td>Empresas (infraestrutura)</td>
+      <td><strong>Isento</strong></td>
+      <td>Não</td>
+      <td>Secundário</td>
+      <td>5–15 anos</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="warning-box">
+  <strong>CRI, CRA e debêntures não têm FGC.</strong> São isentos de IR, mas o risco de crédito recai 100% sobre o investidor.
+  Analise o lastro, o emissor e as garantias antes de investir — a isenção fiscal não compensa inadimplência.
+  Veja o detalhamento em <a href="/posts/cdb-vs-lci-lca-quando-compensa"><strong>CDB vs LCI/LCA: Quando Cada Um Compensa</strong></a>.
+</div>
+
+<h2 id="ir">2) Tributação: IR regressivo, IOF e produtos isentos</h2>
 <p>
-O investidor sofisticado entende que renda fixa não é sinônimo de baixa rentabilidade,
-mas sim de estruturação estratégica do patrimônio.
+A tributação afeta diretamente o retorno líquido. Existem dois regimes: <strong>tabela regressiva de IR</strong> (para produtos tributados)
+e <strong>isenção total</strong> (para LCI, LCA, CRI, CRA, debêntures incentivadas).
 </p>
 
-<h2 id="tipos">2. Tipos de Renda Fixa</h2>
+<h3>Tabela regressiva de IR para renda fixa</h3>
+<table class="info-table" aria-label="Tabela regressiva de IR para renda fixa">
+  <thead>
+    <tr><th>Prazo de aplicação</th><th>Alíquota IR</th><th>Retorno líquido de CDB 100% CDI (CDI=13%)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Até 180 dias</td><td><strong>22,5%</strong></td><td>10,1% a.a.</td></tr>
+    <tr><td>181 a 360 dias</td><td><strong>20,0%</strong></td><td>10,4% a.a.</td></tr>
+    <tr><td>361 a 720 dias</td><td><strong>17,5%</strong></td><td>10,7% a.a.</td></tr>
+    <tr><td>Acima de 720 dias</td><td><strong>15,0%</strong></td><td>11,1% a.a.</td></tr>
+  </tbody>
+</table>
+
+<h3>IOF nos primeiros 30 dias</h3>
+<table class="info-table" aria-label="Tabela de IOF em renda fixa">
+  <thead><tr><th>Dia de resgate</th><th>IOF sobre o rendimento</th><th>Dia de resgate</th><th>IOF sobre o rendimento</th></tr></thead>
+  <tbody>
+    <tr><td>Dia 1</td><td>96%</td><td>Dia 16</td><td>46%</td></tr>
+    <tr><td>Dia 5</td><td>76%</td><td>Dia 20</td><td>30%</td></tr>
+    <tr><td>Dia 10</td><td>66%</td><td>Dia 25</td><td>16%</td></tr>
+    <tr><td>Dia 15</td><td>50%</td><td>Dia 30+</td><td>0%</td></tr>
+  </tbody>
+</table>
+
+<div class="callout">
+  <strong>Estratégia:</strong> para maximizar o retorno líquido, mantenha aplicações tributadas por mais de 720 dias (alíquota mínima de 15%).
+  Para objetivos de curto prazo (&lt; 12 meses), LCI/LCA isentas têm vantagem mesmo com taxa menor — use o
+  <a href="/comparador-cdb-lci-lca"><strong>Comparador CDB vs LCI/LCA</strong></a> para a equivalência exata.
+  Para calcular o impacto preciso do IR no retorno, use a <a href="/calculadora-ir-renda-fixa"><strong>Calculadora de IR Regressivo</strong></a>.
+</div>
+
+<h2 id="fgc">3) Risco de crédito e FGC</h2>
 <p>
-Os principais instrumentos incluem Tesouro Direto, CDB, LCI, LCA, debêntures e CRIs/CRAs.
-Cada um possui estrutura de risco, tributação e liquidez diferente.
+O risco de crédito em renda fixa é o risco de o emissor não pagar o que prometeu.
+Para bancos e financeiras, o <strong>FGC (Fundo Garantidor de Créditos)</strong> oferece proteção limitada.
+Para títulos do governo federal (Tesouro Direto), o risco é soberano — o mais baixo possível no Brasil.
 </p>
 
-<h2 id="ir">3. Tributação e IR Regressivo</h2>
+<table class="info-table" aria-label="Cobertura do FGC">
+  <thead><tr><th>Parâmetro</th><th>Valor (2026)</th><th>Detalhe</th></tr></thead>
+  <tbody>
+    <tr><td>Limite por CPF por conglomerado</td><td><strong>R$ 250.000</strong></td><td>Inclui principal + rendimentos</td></tr>
+    <tr><td>Limite global por CPF</td><td><strong>R$ 1.000.000</strong></td><td>Válido a cada 4 anos após acionamento</td></tr>
+    <tr><td>Prazo de pagamento</td><td>20–30 dias úteis</td><td>Após decreto de intervenção/liquidação</td></tr>
+    <tr><td>Produtos cobertos</td><td>CDB, LCI, LCA, LF, poupança</td><td>Depósitos em conta corrente também</td></tr>
+    <tr><td>Produtos NÃO cobertos</td><td>CRI, CRA, debêntures, fundos</td><td>Risco do emissor/securitizadora</td></tr>
+  </tbody>
+</table>
+
+<div class="warning-box">
+  <strong>Armadilha do conglomerado:</strong> o limite de R$ 250.000 é por <em>conglomerado financeiro</em>, não por CNPJ.
+  Banco A e Banco B do mesmo grupo econômico compartilham o mesmo limite.
+  Para maximizar a cobertura, distribua entre emissores de conglomerados diferentes e verifique no site do FGC.
+</div>
+
 <p>
-A tabela regressiva do imposto de renda impacta diretamente a rentabilidade líquida.
-Investimentos acima de 720 dias possuem alíquota de 15%.
+Para quem quer retorno acima do Tesouro sem abrir mão do FGC, CDBs de bancos médios com solidez comprovada
+e taxa acima de 110% CDI são a opção mais eficiente. Para entender quando LCI e LCA compensam vs CDB,
+veja a análise completa com tabelas de equivalência em
+<a href="/posts/cdb-vs-lci-lca-quando-compensa"><strong>CDB vs LCI/LCA: Quando Cada Um Compensa</strong></a>.
 </p>
 
-<h2 id="risco">4. Risco de Crédito</h2>
+<h2 id="mercado">4) Marcação a mercado: por que títulos de renda fixa oscilam</h2>
 <p>
-O risco de crédito está relacionado à capacidade de pagamento do emissor.
-CDBs contam com cobertura do FGC até R$ 250 mil por CPF por instituição.
+Muita gente se surpreende ao ver o extrato do Tesouro IPCA+ no vermelho.
+A explicação é a <strong>marcação a mercado (MtM)</strong>: os títulos são precificados diariamente pelo preço que valeriam se vendidos hoje —
+não pelo valor contratado no futuro.
 </p>
 
-<h2 id="mercado">5. Marcação a Mercado</h2>
-<p>
-Títulos de renda fixa sofrem variação de preço quando negociados antes do vencimento.
-Essa oscilação decorre das mudanças nas taxas de juros da economia.
-</p>
+<p>A relação é inversa: quando as taxas de juros sobem, os preços dos títulos caem. Quando as taxas caem, os preços sobem. A intensidade da variação depende da <strong>duration</strong> do título.</p>
 
-<h2 id="estrategias">6. Estratégias por Prazo</h2>
-<p>
-Curto prazo: liquidez e proteção.
-Médio prazo: balanceamento entre CDI e IPCA.
-Longo prazo: IPCA+ com juros reais consistentes.
-</p>
+<div class="math-box">
+  <code>
+Exemplo: Tesouro IPCA+ 2035 com duration modificada de 8 anos
 
+Se a taxa IPCA+ sobe de 6,5% para 7,0% (Δy = +0,5%):
+ΔP/P ≈ −D_mod × Δy = −8 × 0,005 = −4,0%
 
-<h2 id="simulacoes">Estudos técnicos (nível CFA) + simulações</h2>
+Se você tem R$ 100.000 nesse título:
+Perda de MtM ≈ R$ 4.000 no extrato
+
+Mas: se você carregar até 2035, recebe exatamente IPCA + 6,5%
+A oscilação só importa se você VENDER antes do vencimento
+  </code>
+</div>
+
+<div class="callout">
+  <strong>Regra prática:</strong> o Tesouro Selic NÃO oscila com MtM (duration ~0).
+  Tesouro Prefixado e IPCA+ longos oscilam muito (duration alta).
+  Para quem pode precisar resgatar antes do vencimento, prefira títulos de menor duration
+  ou Tesouro Selic como reserva de liquidez.
+  Veja o guia completo em <a href="/posts/tesouro-direto-para-iniciantes-guia-completo-2026"><strong>Tesouro Direto: Guia Completo 2026</strong></a>.
+</div>
+
+<div class="ad-container adsense-responsive" style="margin:18px 0;">
+<span class="ad-label">Publicidade</span>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4613426749830025" data-ad-slot="9876543227" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<h2 id="estrategias">5) Estratégias por prazo e objetivo</h2>
+
+<table class="info-table" aria-label="Estratégias de renda fixa por prazo e objetivo">
+  <thead>
+    <tr><th>Horizonte</th><th>Objetivo</th><th>Ativos recomendados</th><th>Cuidado</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Reserva de emergência (liquidez imediata)</strong></td>
+      <td>Liquidez total; zero risco de MtM</td>
+      <td>Tesouro Selic, CDB liquidez diária de banco sólido</td>
+      <td>Evitar qualquer ativo com carência ou duration</td>
+    </tr>
+    <tr>
+      <td><strong>Curto prazo (3–12 meses)</strong></td>
+      <td>Meta específica: viagem, entrada, imposto</td>
+      <td>CDB curto com FGC, Tesouro Selic, LFT</td>
+      <td>IOF nos primeiros 30 dias; não use LCI/LCA (carência &gt; 9 meses)</td>
+    </tr>
+    <tr>
+      <td><strong>Médio prazo (1–3 anos)</strong></td>
+      <td>Proteção + rendimento acima do CDI</td>
+      <td>LCI/LCA (91%+ CDI isento), CDB 110%+ CDI com FGC</td>
+      <td>Verificar carência; comparar net yield real</td>
+    </tr>
+    <tr>
+      <td><strong>Longo prazo (3–10 anos+)</strong></td>
+      <td>Proteção real do poder de compra + crescimento</td>
+      <td>Tesouro IPCA+ longo, CDB IPCA+ banco médio, CRI/CRA IPCA+</td>
+      <td>MtM alto; carregar até o vencimento; diversificar emissores</td>
+    </tr>
+    <tr>
+      <td><strong>Aposentadoria (&gt; 10 anos)</strong></td>
+      <td>Retorno real garantido acima da inflação</td>
+      <td>Tesouro IPCA+ 2035/2045, CDB IPCA+ &gt; 720 dias (IR 15%)</td>
+      <td>Nunca vender em queda de MtM; horizonte define estratégia</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr style="margin:28px 0; opacity:.2;"/>
+
+<h2 id="simulacoes">Estudos técnicos (nível CFA + simulações)</h2>
 <p>
-A seguir, vamos sair do “conceito” e entrar na engenharia da renda fixa: precificação, risco de taxa (duration/convexidade),
-inflação implícita, crédito (spread x perda esperada), impostos e construção de carteira por prazo.
-A ideia aqui é você conseguir <strong>tomar decisões com linguagem de gestor</strong>, sem depender de “dicas”.
+A seguir, saímos do "conceito" e entramos na engenharia da renda fixa: precificação, risco de taxa (duration/convexidade),
+inflação implícita, crédito (spread × perda esperada), impostos e construção de carteira por prazo.
+O objetivo é você conseguir <strong>tomar decisões com linguagem de gestor</strong>, sem depender de "dicas".
 </p>
 
 <div class="callout">
   <strong>Nota importante (marcação a mercado):</strong>
-  em renda fixa, “não perder dinheiro” depende do <em>horizonte</em>. Se você precisar vender antes do vencimento,
+  em renda fixa, "não perder dinheiro" depende do <em>horizonte</em>. Se você precisar vender antes do vencimento,
   o preço do título vai refletir a taxa vigente no mercado. É por isso que duration e convexidade importam.
 </div>
 
-<h3 id="estudo-1">Estudo Técnico 1 — Duration/Convexidade (sensibilidade a juros)</h3>
+<h3 id="estudo-1">Estudo Técnico 1 — Duration e convexidade (sensibilidade a juros)</h3>
 <p>
 Para um título de fluxo fixo, a aproximação de 1ª ordem do impacto de uma mudança na taxa é:
 <strong>ΔP/P ≈ −D<sub>mod</sub> · Δy</strong>.
 A convexidade ajusta o erro dessa aproximação em movimentos maiores:
 <strong>ΔP/P ≈ −D<sub>mod</sub> · Δy + ½·Conv·(Δy)²</strong>.
 </p>
+
+<table class="info-table" aria-label="Duration de títulos típicos do Tesouro Direto">
+  <thead><tr><th>Título</th><th>Duration modificada aprox.</th><th>Impacto de +1% nas taxas</th></tr></thead>
+  <tbody>
+    <tr><td>Tesouro Selic (qualquer vencimento)</td><td>~0,1–0,3 anos</td><td>~−0,1% a −0,3% no preço</td></tr>
+    <tr><td>Tesouro IPCA+ 2029</td><td>~3–4 anos</td><td>~−3% a −4% no preço</td></tr>
+    <tr><td>Tesouro IPCA+ 2035</td><td>~7–9 anos</td><td>~−7% a −9% no preço</td></tr>
+    <tr><td>Tesouro IPCA+ 2045</td><td>~12–15 anos</td><td>~−12% a −15% no preço</td></tr>
+    <tr><td>Tesouro Prefixado 2026</td><td>~1 ano</td><td>~−1% no preço</td></tr>
+    <tr><td>Tesouro Prefixado 2029</td><td>~3–4 anos</td><td>~−3% a −4% no preço</td></tr>
+  </tbody>
+</table>
+
 <ul>
   <li><strong>Leitura prática:</strong> quanto maior a duration, maior a oscilação do preço para a mesma variação de taxa.</li>
-  <li><strong>Implicação de carteira:</strong> se você não tolera volatilidade, encurte duration (prazo/fluxos mais próximos).</li>
+  <li><strong>Implicação de carteira:</strong> se você não tolera volatilidade de MtM, encurte duration (prefira Tesouro Selic ou títulos com vencimento próximo).</li>
 </ul>
 
-<h3 id="estudo-2">Estudo Técnico 2 — “IPCA+ x Prefixado” e a inflação implícita (breakeven)</h3>
+<h3 id="estudo-2">Estudo Técnico 2 — IPCA+ vs prefixado e a inflação implícita (breakeven)</h3>
 <p>
 Comparar IPCA+ com prefixado exige olhar a <strong>inflação de equilíbrio</strong> (breakeven inflation):
-é, em termos simples, a inflação média que iguala o retorno esperado do nominal e do real.
-Se você compra IPCA+ e a inflação realizada ficar <em>acima</em> do breakeven (mantidas as demais premissas),
-o IPCA+ tende a “ganhar” do prefixado — e vice-versa.
+é a inflação média que iguala o retorno esperado do nominal e do real.
 </p>
-<div class="kpi-grid" style="margin: 12px 0;">
-  <div class="kpi"><strong>Quando IPCA+ faz sentido</strong><span class="muted">Horizonte longo + proteção real</span></div>
-  <div class="kpi"><strong>Quando prefixado brilha</strong><span class="muted">Queda de juros + inflação controlada</span></div>
-  <div class="kpi"><strong>Pegadinha</strong><span class="muted">Duration alta = MTM forte</span></div>
+
+<div class="math-box">
+  <code>
+Inflação implícita (breakeven) ≈ taxa prefixada / (1 + taxa real IPCA+) − 1
+
+Exemplo (mai/2026):
+  Tesouro Prefixado 2029: 13,8% a.a.
+  Tesouro IPCA+ 2029:     IPCA + 6,5%
+
+  Breakeven = (1,138 / 1,065) − 1 ≈ 6,85% a.a.
+
+Interpretação:
+  Se o IPCA médio dos próximos 3 anos ficar ACIMA de 6,85% → IPCA+ ganha
+  Se o IPCA médio ficar ABAIXO de 6,85% → Prefixado ganha
+  </code>
 </div>
 
-<h3 id="estudo-3">Estudo Técnico 3 — Crédito: spread, PD, LGD e “perda esperada”</h3>
+<div class="kpi-grid" style="margin: 12px 0;">
+  <div class="kpi"><strong>IPCA+ faz sentido</strong><span class="muted">Horizonte longo + proteção real garantida</span></div>
+  <div class="kpi"><strong>Prefixado brilha</strong><span class="muted">Queda de juros + inflação &lt; breakeven</span></div>
+  <div class="kpi"><strong>Pegadinha</strong><span class="muted">Duration alta = MtM forte nos dois</span></div>
+</div>
+
+<p>Para uma análise mais aprofundada de quando o IPCA+ faz mais sentido na carteira, leia
+<a href="/posts/renda-fixa-quando-ipca-mais-faz-sentido"><strong>Quando o IPCA+ Faz Sentido na Carteira</strong></a>.</p>
+
+<h3 id="estudo-3">Estudo Técnico 3 — Crédito: spread, PD, LGD e perda esperada</h3>
 <p>
-O spread de crédito (taxa acima do “livre de risco”) compensa, em parte, a <strong>perda esperada</strong> do emissor.
-Em termos de finanças de crédito, uma intuição útil é:
-<strong>Perda Esperada ≈ PD · LGD</strong> (probabilidade de default × perda dado default).
+O spread de crédito (taxa acima do "livre de risco") compensa, em parte, a <strong>perda esperada</strong> do emissor.
 </p>
+
+<div class="math-box">
+  <code>
+Perda Esperada (EL) = PD × LGD × EAD
+
+Onde:
+  PD  = probabilidade de default (ex.: 2% ao ano para emissor B+)
+  LGD = loss given default = 1 − taxa de recuperação (ex.: 60% em crédito sem garantia)
+  EAD = exposure at default (valor exposto)
+
+EL = 2% × 60% = 1,2% ao ano
+
+Um spread de 1,5% sobre o CDI seria "razoável" se o risco for esse.
+Um spread de 0,5% sobre o CDI seria muito barato para esse risco.
+  </code>
+</div>
+
 <ul>
-  <li><strong>Spread “barato”:</strong> quando o mercado paga pouco acima do risco (assimetria ruim).</li>
-  <li><strong>Spread “caro”:</strong> quando o mercado exagera o medo (pode ser oportunidade, se a tese for sólida).</li>
-  <li><strong>Checklist:</strong> rating, covenants, garantias, setor, concentração de receita, liquidez do papel.</li>
+  <li><strong>Spread "barato":</strong> quando o mercado paga pouco acima do risco (assimetria ruim para o investidor).</li>
+  <li><strong>Spread "caro":</strong> quando o mercado exagera o medo — pode ser oportunidade, se a tese de crédito for sólida.</li>
+  <li><strong>Checklist mínimo:</strong> rating do emissor, covenants, garantias reais, setor, concentração de receita, liquidez do papel no secundário.</li>
 </ul>
 
-<h3 id="estudo-4">Estudo Técnico 4 — Impostos e equivalência: “líquido x bruto” (CDB x LCI/LCA)</h3>
+<h3 id="estudo-4">Estudo Técnico 4 — Impostos e equivalência: CDB vs LCI/LCA</h3>
 <p>
-Para comparar produtos com tributação diferente, use equivalência de retorno.
-Se um CDB rende <strong>R</strong> ao ano e a alíquota efetiva é <strong>t</strong>, então o retorno líquido aproximado é
-<strong>R<sub>liq</sub> ≈ R · (1 − t)</strong> (ignorando particularidades de base e datas).
-Para achar o “CDB equivalente” de uma LCI/LCA isenta, você faz o <em>gross-up</em>:
-<strong>R<sub>bruto eq</sub> ≈ R<sub>isenta</sub> / (1 − t)</strong>.
+Para comparar produtos com tributação diferente, use a equivalência de retorno.
+Se um CDB rende <strong>R</strong> ao ano e a alíquota efetiva é <strong>t</strong>, o retorno líquido é
+<strong>R<sub>liq</sub> = R × (1 − t)</strong>.
+Para achar o "CDB equivalente" de uma LCI/LCA isenta, faça o <em>gross-up</em>:
+<strong>R<sub>bruto eq</sub> = R<sub>isenta</sub> ÷ (1 − t)</strong>.
 </p>
+
+<div class="math-box">
+  <code>
+Exemplo: LCI a 93% CDI (isenta de IR)
+Prazo: 24 meses → alíquota IR aplicável ao CDB: 15%
+
+CDB equivalente = 93% ÷ (1 − 0,15) = 109,4% CDI
+
+Se o banco oferece CDB a 108% CDI → LCI é MELHOR
+Se o banco oferece CDB a 111% CDI → CDB é MELHOR
+
+Para prazo de 6 meses (IR 22,5%):
+CDB equivalente = 93% ÷ (1 − 0,225) = 120,0% CDI
+→ LCI ganha quase sempre no curto prazo
+  </code>
+</div>
+
 <p class="muted">
-Dica: no seu site, use também o <a href="/comparador-cdb-lci-lca">Comparador CDB x LCI/LCA</a> e a
-<a href="/calculadora-ir-renda-fixa">Calculadora de IR Regressivo</a> para padronizar o raciocínio.
+  Use o <a href="/comparador-cdb-lci-lca"><strong>Comparador CDB vs LCI/LCA</strong></a> e a
+  <a href="/calculadora-ir-renda-fixa"><strong>Calculadora de IR Regressivo</strong></a> para calcular automaticamente.
 </p>
 
-<h3 id="estudo-5">Estudo Técnico 5 — Liquidez, reinvestimento e “opcionalidades” escondidas</h3>
-<p>
-Dois riscos pouco discutidos por iniciante:
-</p>
-<ol class="steps">
-  <li><strong>Risco de reinvestimento</strong>: ao receber cupons/vencimentos em um ciclo de queda de juros, você reinveste a taxas menores.</li>
-  <li><strong>Risco de liquidez</strong>: papéis “bons” podem ter <em>spread</em> de compra/venda ruim; vender cedo pode custar caro.</li>
+<div class="ad-container adsense-responsive" style="margin:18px 0;">
+<span class="ad-label">Publicidade</span>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4613426749830025" data-ad-slot="9876543228" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<h3 id="estudo-5">Estudo Técnico 5 — Liquidez, reinvestimento e opcionalidades escondidas</h3>
+<p>Dois riscos pouco discutidos por iniciantes:</p>
+<ol>
+  <li><strong>Risco de reinvestimento:</strong> ao receber cupons/vencimentos em um ciclo de queda de juros, você reinveste a taxas menores que as originalmente contratadas. Títulos prefixados de cupom zero (como Tesouro Prefixado) eliminam esse risco — todo o rendimento fica composto até o vencimento.</li>
+  <li><strong>Risco de liquidez:</strong> papéis "bons" de crédito privado (CRI, CRA, debêntures) podem ter spread de compra/venda ruim no mercado secundário. Vender cedo pode custar 2–5% de desconto sobre o preço justo. Sempre considere o horizonte antes de comprar esses ativos.</li>
 </ol>
-<p>
-Além disso, alguns produtos têm opcionalidades (características semelhantes a opções) como resgate antecipado, call/put etc.,
-que mudam o risco de taxa e o retorno esperado.
-</p>
 
-<h3 id="estudo-6">Estudo Técnico 6 — Construção por prazo: ladder, barbell e “casamento de objetivos”</h3>
+<p>Além disso, alguns produtos têm opcionalidades (características semelhantes a opções) como resgate antecipado, call/put, conversão — que mudam o risco de taxa e o retorno esperado. Para CDBs com liquidez diária, você tem uma "opção de saída" gratuita que tem valor — geralmente refletida em taxa menor que um CDB sem liquidez.</p>
+
+<p>Para comparar Tesouro Selic vs CDB de liquidez diária em detalhe, veja
+<a href="/posts/tesouro-selic-vs-cdb-liquidez-diaria"><strong>Tesouro Selic vs CDB: Qual Rende Mais?</strong></a></p>
+
+<h3 id="estudo-6">Estudo Técnico 6 — Ladder, barbell e bullet: arquiteturas por prazo</h3>
 <p>
 Três arquiteturas clássicas (usadas por gestores) para alinhar prazo do investimento com prazo da meta:
 </p>
-<table class="table">
-  <thead><tr><th>Estratégia</th><th>Como é</th><th>Quando usar</th></tr></thead>
+
+<table class="info-table" aria-label="Estratégias de construção de carteira de renda fixa">
+  <thead><tr><th>Estratégia</th><th>Como é</th><th>Quando usar</th><th>Vantagem</th></tr></thead>
   <tbody>
     <tr>
       <td><strong>Ladder (escadinha)</strong></td>
-      <td>Vencimentos distribuídos (ex.: 6m, 12m, 24m, 36m...)</td>
-      <td>Reduz risco de timing e melhora liquidez ao longo do tempo</td>
+      <td>Vencimentos distribuídos em intervalos regulares (ex.: 6m, 12m, 24m, 36m, 48m)</td>
+      <td>Renda recorrente; reduzir risco de timing de taxa</td>
+      <td>Liquidez periódica + diversificação de taxas</td>
     </tr>
     <tr>
       <td><strong>Barbell</strong></td>
-      <td>Curto + longo (pouco no meio)</td>
+      <td>Concentra no curto (liquidez) e no longo (retorno); pouco no médio</td>
       <td>Quer liquidez + aposta controlada em duration longa</td>
+      <td>Convexidade superior ao bullet de mesmo prazo médio</td>
     </tr>
     <tr>
       <td><strong>Bullet</strong></td>
-      <td>Concentra vencimento em um ponto</td>
-      <td>Meta com data fixa (ex.: entrada de imóvel em 24 meses)</td>
+      <td>Concentra vencimento em um único ponto no tempo</td>
+      <td>Meta com data fixa (ex.: entrada de imóvel em 36 meses)</td>
+      <td>Elimina risco de reinvestimento para o objetivo específico</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="estudo-7">Estudo Técnico 7 — Stress test: 2020 (choque) x 2022 (aperto monetário)</h3>
+<h3 id="estudo-7">Estudo Técnico 7 — Stress test: 2020 (choque) e 2022 (aperto monetário)</h3>
 <p>
-Um exercício mental que melhora decisões: pergunte “o que acontece se…”
+Um exercício mental que melhora decisões: pergunte "o que acontece com minha carteira se…"
 </p>
 <ul>
-  <li><strong>Choque de aversão a risco (2020):</strong> prêmio de crédito sobe; liquidez seca; melhor ter caixa/FGC e evitar concentração em crédito privado.</li>
-  <li><strong>Aperto monetário (2022):</strong> taxas sobem; duration longa sofre no MTM; carregar até o vencimento reduz o impacto se o fluxo for compatível com seu prazo.</li>
+  <li><strong>Choque de aversão a risco (2020):</strong> prêmio de crédito explode; liquidez seca; quem tinha crédito privado (CRI, CRA, debêntures) sofreu spreads de 3–5% acima do normal no secundário. Lição: FGC + liquidez são fundamentais em qualquer portfólio, não opcionais.</li>
+  <li><strong>Aperto monetário agressivo (2022):</strong> Selic de 2% para 13,75% em 18 meses. Tesouro IPCA+ 2045 caiu ~25% no MtM; Tesouro Prefixado longo caiu ~15%. Quem carregou até o vencimento não perdeu nada — mas quem vendeu sofreu perdas reais.</li>
 </ul>
 <p>
-Esse é o motivo de gestores insistirem em <strong>diversificação por emissor</strong>, <strong>prazo</strong>, <strong>indexador</strong> e <strong>liquidez</strong>.
+Esse é o motivo por que gestores insistem em <strong>diversificação por emissor</strong>, <strong>prazo</strong>, <strong>indexador</strong> e <strong>liquidez</strong> — não como teoria, mas como proteção real contra cenários adversos.
 </p>
 
-<h2 id="conclusao">8. Conclusão Estratégica</h2>
+<h2>FAQ — Perguntas frequentes sobre renda fixa</h2>
+
+<div class="faq-item">
+  <h3>O que é marcação a mercado e por que títulos oscilam?</h3>
+  <p>Marcação a mercado é a precificação diária dos títulos pelo preço que valeriam se vendidos hoje. Quando as taxas de juros sobem, títulos prefixados e IPCA+ perdem valor no extrato. Quando as taxas caem, eles valorizam. Isso só importa se você vender antes do vencimento — quem carrega até o final recebe exatamente a taxa contratada.</p>
+</div>
+
+<div class="faq-item">
+  <h3>Qual o limite de cobertura do FGC?</h3>
+  <p>R$ 250.000 por CPF por conglomerado financeiro, com teto global de R$ 1.000.000 por CPF a cada 4 anos. Atenção: bancos do mesmo grupo econômico compartilham o limite. Para maximizar, distribua entre conglomerados diferentes. Tesouro Direto não tem limite — é garantido pelo governo federal.</p>
+</div>
+
+<div class="faq-item">
+  <h3>CDB ou Tesouro IPCA+: qual é melhor para o longo prazo?</h3>
+  <p>Depende do spread e da liquidez necessária. Tesouro IPCA+ tem o menor risco de crédito e liquidez diária garantida. CDB de banco médio pode pagar IPCA + 7-9% vs IPCA + 6,5% do Tesouro — o spread compensa risco de crédito adicional e menor liquidez. Para aposentadoria com prazo definido e tolerância a risco de crédito, CDB banco médio pode ser superior.</p>
+</div>
+
+<div class="faq-item">
+  <h3>Como comparar CDB com LCI/LCA de forma correta?</h3>
+  <p>Gross-up: taxa CDB equivalente = taxa LCI ÷ (1 − alíquota IR). Exemplo: LCI 93% CDI com IR 15% → CDB equivalente = 93% ÷ 0,85 = 109,4% CDI. Se o CDB paga menos de 109,4% CDI, a LCI é melhor. Atenção: LCI tem carência de 12 meses e LCA de 9 meses desde CMN 5.118/2023.</p>
+</div>
+
+<div class="faq-item">
+  <h3>Quando o título prefixado faz mais sentido do que o IPCA+?</h3>
+  <p>Quando a inflação realizada ficar abaixo do breakeven (inflação implícita = taxa prefixada ÷ (1 + taxa real) − 1) E/OU as taxas caírem após a compra, gerando valorização por MtM. Em períodos de incerteza inflacionária alta, IPCA+ oferece proteção explícita que o prefixado não tem.</p>
+</div>
+
+<div class="faq-item">
+  <h3>Qual a alíquota de IR para renda fixa?</h3>
+  <p>Tabela regressiva: 22,5% (até 180 dias), 20% (181–360 dias), 17,5% (361–720 dias), 15% (acima de 720 dias). IOF nos primeiros 30 dias: começa em 96% no dia 1 e vai a zero no dia 30. LCI, LCA, CRI, CRA e debêntures incentivadas são isentos de IR para pessoa física.</p>
+</div>
+
+<h2 id="conclusao">Conclusão estratégica</h2>
 <p>
 Renda fixa é a base estrutural de qualquer carteira inteligente.
-Ela protege, estabiliza e permite assumir riscos calculados na renda variável.
+Ela protege, estabiliza e permite assumir riscos calculados na renda variável — mas exige entendimento real, não apenas aplicação automática no CDB do banco grande.
 </p>
 
-<p style="font-size:14px;opacity:0.7;">
-Atualizado em 25/02/2026 • Cérebro Milionário
+<p>
+O investidor que domina <strong>duration, equivalência de taxa, breakeven de inflação e construção por objetivo</strong>
+toma decisões de renda fixa com a mesma segurança que um gestor profissional.
+Use as ferramentas do site para transformar teoria em decisão:
+<a href="/comparador-cdb-lci-lca"><strong>Comparador CDB vs LCI/LCA</strong></a>,
+<a href="/calculadora-ir-renda-fixa"><strong>Calculadora IR Regressivo</strong></a> e
+<a href="/calculadora"><strong>Juros Compostos</strong></a>.
 </p>
 
+<p>
+Para aprofundar em tópicos específicos, continue com:
+<a href="/posts/biblia-imposto-de-renda-investidor-parte-1"><strong>Bíblia do IR para Investidores</strong></a>
+e <a href="/posts/renda-fixa-ir-regressivo-entenda"><strong>IR Regressivo: Entenda na Prática</strong></a>.
+</p>
+
+<p style="font-size:14px; opacity:0.7;">Atualizado em 07/05/2026 • Cérebro Milionário</p>
 
 <section class="callout" data-interlink="cluster" style="margin-top:2.5rem;">
   <h3>Leia também</h3>
   <ul>
-    <li><a href="/posts/tesouro-direto-para-iniciantes-guia-completo-2026">Aprofunde o tema com este conteúdo relacionado</a></li>
-    <li><a href="/posts/cdb-vs-lci-lca-quando-compensa">Veja uma análise complementar do mesmo cluster</a></li>
-    <li><a href="/posts/renda-fixa-ir-regressivo-entenda">Complete o estudo com mais um artigo estratégico</a></li>
+    <li><a href="/posts/tesouro-direto-para-iniciantes-guia-completo-2026"><strong>Tesouro Direto: Guia Completo 2026</strong></a> — Selic, IPCA+ e prefixado com estratégia por objetivo</li>
+    <li><a href="/posts/cdb-vs-lci-lca-quando-compensa"><strong>CDB vs LCI/LCA: Quando Cada Um Compensa</strong></a> — tabela de equivalência completa com CMN 5.118/2023</li>
+    <li><a href="/posts/renda-fixa-ir-regressivo-entenda"><strong>IR Regressivo em Renda Fixa: Entenda na Prática</strong></a> — como o IR afeta o retorno real por prazo de aplicação</li>
+    <li><a href="/posts/renda-fixa-quando-ipca-mais-faz-sentido"><strong>Quando o IPCA+ Faz Sentido na Carteira</strong></a> — análise de breakeven e cenários de inflação</li>
+    <li><a href="/posts/tesouro-selic-vs-cdb-liquidez-diaria"><strong>Tesouro Selic vs CDB com Liquidez Diária</strong></a> — comparativo com números reais</li>
+    <li><a href="/posts/biblia-imposto-de-renda-investidor-parte-1"><strong>Bíblia do IR para Investidores (Parte 1)</strong></a> — tributação completa por classe de ativo</li>
   </ul>
-  <p><strong>Próximo passo:</strong> acesse o <a href="/hub#cluster-renda-fixa">hub deste cluster</a> para seguir uma trilha de aprendizado e, depois, use <a href="/comparador-cdb-lci-lca">esta ferramenta prática</a> e <a href="/calculadora-ir-renda-fixa">este simulador complementar</a> para transformar teoria em decisão.</p>
+  <p><strong>Próximo passo:</strong> acesse o <a href="/hub#cluster-renda-fixa">hub de renda fixa</a> e use o <a href="/comparador-cdb-lci-lca">comparador CDB vs LCI/LCA</a> e a <a href="/calculadora-ir-renda-fixa">calculadora de IR regressivo</a> para transformar teoria em decisão.</p>
 </section>
 
 </div>
@@ -296,7 +774,7 @@ Atualizado em 25/02/2026 • Cérebro Milionário
     <div id="cookie-banner" class="cookie-banner">
         <div class="container cookie-container">
             <p class="cookie-text">
-                We use cookies to improve your experience and analyze traffic. By clicking “Accept”, you agree to our use of optional cookies. Read our <a href="/politica-privacidade">Privacy Policy</a>.
+                We use cookies to improve your experience and analyze traffic. By clicking "Accept", you agree to our use of optional cookies. Read our <a href="/politica-privacidade">Privacy Policy</a>.
             </p>
             <div class="cookie-actions">
                 <button id="cookie-accept" class="btn-cookie-accept">Accept</button>
