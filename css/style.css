@@ -431,6 +431,31 @@ strong { color: var(--text-primary); font-weight: 600; }
 .post-content a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
 .post-content a:hover { color: var(--gold-light); }
 
+
+.sources-section {
+  max-width: 760px;
+  margin: var(--s10) auto var(--s6);
+  padding: var(--s6);
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+}
+.sources-section h2 {
+  margin: 0 0 var(--s3);
+  padding-top: 0;
+  border-top: none;
+  font-size: 1.25rem;
+}
+.sources-section .sources-note {
+  margin-bottom: var(--s4);
+  color: var(--text-secondary);
+  font-size: .9rem;
+}
+.sources-section ul { margin-bottom: 0; }
+.sources-section li { margin-bottom: var(--s2); }
+.sources-section a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.sources-section a:hover { color: var(--gold-light); }
+
 /* ── TOOLS / CALCULATORS ─────────────────────────────────── */
 .tool-section {
   background: var(--bg-card);
