@@ -256,8 +256,31 @@ function initCookieBanner() {
     if (!cookieBanner || !acceptBtn) return;
 
     const actionsContainer = acceptBtn.parentElement;
+    let rejectBtn = document.getElementById('cookie-reject');
+    let prefsBtn = document.getElementById('cookie-preferences');
     const legacyAccepted = localStorage.getItem('cookies-accepted') === 'true';
     const consentStatus = localStorage.getItem('cookie-consent-status');
+
+    acceptBtn.textContent = 'Aceitar';
+    acceptBtn.type = 'button';
+
+    if (!rejectBtn) {
+        rejectBtn = document.createElement('button');
+        rejectBtn.id = 'cookie-reject';
+        rejectBtn.className = 'btn-cookie-reject';
+        rejectBtn.type = 'button';
+        actionsContainer.prepend(rejectBtn);
+    }
+    rejectBtn.textContent = 'Recusar';
+
+    if (!prefsBtn) {
+        prefsBtn = document.createElement('a');
+        prefsBtn.id = 'cookie-preferences';
+        prefsBtn.className = 'btn-cookie-preferences';
+        prefsBtn.href = '/politica-privacidade';
+        actionsContainer.insertBefore(prefsBtn, acceptBtn);
+    }
+    prefsBtn.textContent = 'Gerenciar preferências';
 
     const shouldShowBanner = !consentStatus && !legacyAccepted;
     if (shouldShowBanner) {
@@ -271,21 +294,6 @@ function initCookieBanner() {
         localStorage.setItem('cookies-accepted', status === 'accepted' ? 'true' : 'false');
         cookieBanner.classList.remove('show');
     };
-
-    const rejectBtn = document.createElement('button');
-    rejectBtn.id = 'cookie-reject';
-    rejectBtn.className = 'btn-cookie-reject';
-    rejectBtn.type = 'button';
-    rejectBtn.textContent = 'Reject';
-
-    const prefsBtn = document.createElement('a');
-    prefsBtn.id = 'cookie-preferences';
-    prefsBtn.className = 'btn-cookie-preferences';
-    prefsBtn.href = '/politica-privacidade';
-    prefsBtn.textContent = 'Preferences';
-
-    actionsContainer.prepend(prefsBtn);
-    actionsContainer.prepend(rejectBtn);
 
     acceptBtn.addEventListener('click', () => setConsentAndClose('accepted'));
     rejectBtn.addEventListener('click', () => setConsentAndClose('rejected'));

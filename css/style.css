@@ -911,6 +911,8 @@ textarea.form-control { resize: vertical; min-height: 140px; }
 
 .cookie-actions {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   gap: var(--s3);
   flex-shrink: 0;
 }
@@ -959,6 +961,9 @@ textarea.form-control { resize: vertical; min-height: 140px; }
     flex-direction: column;
     text-align: center;
     gap: var(--s4);
+  }
+  .cookie-actions {
+    justify-content: center;
   }
   .cookie-banner {
     padding: var(--s6) 0;
