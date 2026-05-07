@@ -113,6 +113,10 @@
   <input type="hidden" name="_next" value="https://cerebromilionario.site/obrigado.html">
   <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_blacklist" value="spam,viagra,casino,bitcoin">
+
+  <!-- Campo anti-spam do FormSubmit: usuários reais não devem preencher. -->
+  <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
   <div class="form-group">
     <label for="name">Nome Completo</label>
@@ -121,7 +125,7 @@
 
   <div class="form-group">
     <label for="email">Email</label>
-    <input class="form-control" id="email" name="email" type="email" placeholder="seu@email.com" required/>
+    <input class="form-control" id="email" name="email" type="email" placeholder="seu@email.com" autocomplete="email" required/>
   </div>
 
 
@@ -216,33 +220,7 @@
 </footer>
 <!-- Scripts JS -->
 <script src="/js/main.js"></script>
-<script>
-        // Atualiza o ano no rodapé
-        
-        // Funcionalidade do formulário de contato
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contactForm');
-            const formSuccess = document.getElementById('formSuccess');
-            
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Simulação de envio do formulário
-                    // Em um site real, aqui seria feita uma requisição AJAX para um backend
-                    
-                    // Esconde o formulário e mostra a mensagem de sucesso
-                    contactForm.style.display = 'none';
-                    formSuccess.style.display = 'block';
-                    
-                    // Limpa o formulário
-                    contactForm.reset();
-                });
-            }
-        });
-    </script>
-
-    <!-- Cookie Consent Banner -->
+<!-- Cookie Consent Banner -->
     <div id="cookie-banner" class="cookie-banner">
         <div class="container cookie-container">
             <p class="cookie-text">
