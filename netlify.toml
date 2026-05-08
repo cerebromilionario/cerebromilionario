@@ -21,6 +21,31 @@
   status = 301
   force  = true
 
+# Canonicalizar URLs .html para URLs limpas
+[[redirects]]
+  from   = "/index.html"
+  to     = "/"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/posts/dgs-etf-wisdomtree-emerging-markets-smallcap-dividend-guia.html"
+  to     = "/posts/dgs-wisdomtree-emerging-markets-small-cap-dividend-guia-completo"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/posts/:slug.html"
+  to     = "/posts/:slug"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/:slug.html"
+  to     = "/:slug"
+  status = 301
+  force  = true
+
 # Redirecionar URL antiga do post DGS para a URL correta
 [[redirects]]
   from   = "/posts/dgs-etf-wisdomtree-emerging-markets-smallcap-dividend-guia"
