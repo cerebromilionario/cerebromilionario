@@ -49,6 +49,8 @@ def to_url(rel_path: Path) -> str:
         path = "/"
     elif path.endswith("/index.html"):
         path = path[:-10] + "/"
+    elif path.endswith(".html"):
+        path = path[:-5]
     return BASE_URL + path
 
 
@@ -64,7 +66,7 @@ def priority_for(rel_path: Path) -> str:
 
 
 def changefreq_for(rel_path: Path) -> str:
-    return "daily" if rel_path.as_posix().startswith("posts/") else "weekly"
+    return "monthly" if rel_path.as_posix().startswith("posts/") else "weekly"
 
 
 def generate_sitemap(site_root: Path, pages: list[Path]) -> Path:
@@ -83,7 +85,9 @@ def generate_sitemap(site_root: Path, pages: list[Path]) -> Path:
 
     output = site_root / "sitemap.xml"
     tree = ET.ElementTree(urlset)
+    ET.indent(tree, space="  ")
     tree.write(output, encoding="utf-8", xml_declaration=True)
+    output.write_text(output.read_text(encoding="utf-8") + "\n", encoding="utf-8")
     return output
 
 
