@@ -4,9 +4,8 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import hashlib
-import os
+from html.parser import HTMLParser
 from pathlib import Path
-import re
 import sys
 import xml.etree.ElementTree as ET
 
@@ -16,17 +15,57 @@ ROOT = Path(__file__).resolve().parent
 EXCLUDE_DIRS = {".git", "node_modules", "images", "css", "js", "scripts", "vendor"}
 EXCLUDE_FILES = {"404.html", "trilogia_snippet.html"}
 
-TITLE_RE = re.compile(r"<title>(.*?)</title>", re.IGNORECASE | re.DOTALL)
-DESC_RE = re.compile(
-    r"<meta[^>]+name=[\"']description[\"'][^>]*content=[\"'](.*?)[\"'][^>]*>",
-    re.IGNORECASE | re.DOTALL,
-)
-CANONICAL_RE = re.compile(
-    r"<link[^>]+rel=[\"']canonical[\"'][^>]*href=[\"'](.*?)[\"'][^>]*>",
-    re.IGNORECASE | re.DOTALL,
-)
-VIEWPORT_RE = re.compile(r"<meta[^>]+name=[\"']viewport[\"'][^>]*>", re.IGNORECASE)
-H1_RE = re.compile(r"<h1\b", re.IGNORECASE)
+
+class SEOHTMLParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.title_parts: list[str] = []
+        self.description: str | None = None
+        self.canonical: str | None = None
+        self.has_viewport = False
+        self.h1_count = 0
+        self._in_title = False
+
+    @property
+    def title(self) -> str:
+        return "".join(self.title_parts).strip()
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        tag = tag.lower()
+        attrs_map = {name.lower(): (value or "") for name, value in attrs}
+
+        if tag == "title":
+            self._in_title = True
+        elif tag == "meta":
+            name = attrs_map.get("name", "").strip().lower()
+            if name == "description" and self.description is None:
+                self.description = attrs_map.get("content", "")
+            elif name == "viewport":
+                self.has_viewport = True
+        elif tag == "link":
+            rel_values = attrs_map.get("rel", "").lower().split()
+            if "canonical" in rel_values and self.canonical is None:
+                self.canonical = attrs_map.get("href", "")
+        elif tag == "h1":
+            self.h1_count += 1
+
+    def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        self.handle_starttag(tag, attrs)
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag.lower() == "title":
+            self._in_title = False
+
+    def handle_data(self, data: str) -> None:
+        if self._in_title:
+            self.title_parts.append(data)
+
+
+def parse_html_metadata(text: str) -> SEOHTMLParser:
+    parser = SEOHTMLParser()
+    parser.feed(text)
+    parser.close()
+    return parser
 
 
 def find_html_pages(site_root: Path) -> list[Path]:
@@ -107,33 +146,32 @@ def validate_seo(site_root: Path, pages: list[Path], strict: bool) -> int:
         text = page.read_text(encoding="utf-8", errors="ignore")
         page_errors = []
 
-        title_match = TITLE_RE.search(text)
-        title = title_match.group(1).strip() if title_match else ""
+        metadata = parse_html_metadata(text)
+
+        title = metadata.title
         if not title:
             page_errors.append("missing <title>")
         else:
             digest = hashlib.md5(title.lower().encode()).hexdigest()
             title_map.setdefault(digest, []).append(rel.as_posix())
 
-        desc_match = DESC_RE.search(text)
-        desc = desc_match.group(1).strip() if desc_match else ""
-        if not desc_match:
+        desc = metadata.description.strip() if metadata.description is not None else ""
+        if metadata.description is None:
             page_errors.append("missing meta description")
         elif not desc:
             page_errors.append("empty meta description")
 
-        if len(H1_RE.findall(text)) != 1:
+        if metadata.h1_count != 1:
             page_errors.append("page must contain exactly one <h1>")
 
-        canonical_match = CANONICAL_RE.search(text)
-        if not canonical_match:
+        if metadata.canonical is None:
             page_errors.append("missing canonical")
         else:
-            found = canonical_match.group(1).strip()
+            found = metadata.canonical.strip()
             if not canonical_matches(found, rel):
                 page_errors.append(f"canonical mismatch (found: {found})")
 
-        if not VIEWPORT_RE.search(text):
+        if not metadata.has_viewport:
             page_errors.append("missing meta viewport")
 
         if page_errors:
