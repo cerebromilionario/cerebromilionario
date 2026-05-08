@@ -105,7 +105,7 @@
     }
 
     const simHi = simulate({ ...params, pmt: hi });
-    if (simHi.wealthAtRetire < simHi.targetWealth) return null;
+    if (simHi.wealthAtRetire < simHi.targetWealth) return false;
 
     for (let i = 0; i < maxIter; i++) {
       const mid = (lo + hi) / 2;
@@ -132,7 +132,7 @@
       if (balance >= target) return month;
       if (month % 12 === 0) pmt *= (1 + params.pmtGrowAnnual);
     }
-    return null;
+    return false;
   }
 
   // ---------- Premium scenarios ----------
@@ -346,7 +346,7 @@
       const simC = simulate({ ...user, nominalReturnAnnual: presets.custom.nominalReturnAnnual, inflationAnnual: presets.custom.inflationAnnual });
       seriesMap.custom = { points: simC.monthlyBalances.map(d => ({ x: d.month, y: d.balance })) };
     } else {
-      seriesMap.custom = null;
+      seriesMap.custom = false;
     }
 
     // Primary output uses ACTIVE scenario
@@ -379,11 +379,11 @@
       : "No prazo definido, você ficaria abaixo do patrimônio alvo.";
 
     const req = requiredMonthlyContribution(activeParams);
-    el("neededPmt").textContent = req === null ? "Impossível com estes parâmetros" : formatBRL(req);
+    el("neededPmt").textContent = req === false ? "Impossível com estes parâmetros" : formatBRL(req);
 
     if (!ok) {
       const t = timeToTarget(activeParams);
-      if (t === null) {
+      if (t === false) {
         el("statusNote").textContent = "Mantendo o aporte atual, você não atinge o alvo em um horizonte muito longo. Ajuste aporte, prazo ou rentabilidade.";
       } else {
         const years = t / 12;
@@ -430,9 +430,9 @@
     el("wealthAtRetireNote").textContent = "—";
     el("statusNote").textContent = "—";
     el("metaInfo").innerHTML = "";
-    renderTable(null);
+    renderTable(false);
 
-    // premium placeholders
+    // áreas de cenários premium
     const grid = el("scenarioGrid");
     if (grid) grid.innerHTML = "";
     const svg = el("retChart");

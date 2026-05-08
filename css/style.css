@@ -487,7 +487,6 @@ strong { color: var(--text-primary); font-weight: 600; }
   border-color: var(--gold);
   box-shadow: 0 0 0 3px rgba(201,168,76,.12);
 }
-.form-control::placeholder { color: var(--text-muted); }
 
 select.form-control { cursor: pointer; }
 
@@ -695,7 +694,6 @@ tr:hover td { background: var(--bg-hover); }
   color: var(--text-primary); font-size: .85rem; font-family: var(--font-sans);
 }
 .newsletter-form input:focus { outline: none; border-color: var(--gold); }
-.newsletter-form input::placeholder { color: var(--text-muted); }
 .newsletter-form button {
   background: var(--gold); color: #0d0d12; border: none;
   border-radius: var(--r-md); padding: .55rem var(--s4);
@@ -928,7 +926,7 @@ textarea.form-control { resize: vertical; min-height: 140px; }
   flex-shrink: 0;
 }
 
-.btn-cookie-accept {
+.btn-cookie-aceitar {
   background: var(--gold);
   color: #0d0d12;
   border: none;
@@ -941,13 +939,13 @@ textarea.form-control { resize: vertical; min-height: 140px; }
   white-space: nowrap;
 }
 
-.btn-cookie-accept:hover {
+.btn-cookie-aceitar:hover {
   background: var(--gold-light);
   transform: translateY(-2px);
 }
 
-.btn-cookie-reject,
-.btn-cookie-preferences {
+.btn-cookie-recusar,
+.btn-cookie-preferencias {
   background: transparent;
   color: var(--text-primary);
   border: 1px solid var(--border-gold);
@@ -961,8 +959,8 @@ textarea.form-control { resize: vertical; min-height: 140px; }
   text-decoration: none;
 }
 
-.btn-cookie-reject:hover,
-.btn-cookie-preferences:hover {
+.btn-cookie-recusar:hover,
+.btn-cookie-preferencias:hover {
   background: rgba(201, 168, 76, 0.12);
   transform: translateY(-2px);
 }
@@ -1158,7 +1156,7 @@ textarea.form-control { resize: vertical; min-height: 140px; }
 }
 
 .btn-prefs-reject,
-.btn-prefs-accept,
+.btn-prefs-aceitar,
 .btn-prefs-save {
   padding: 0.55rem 1.1rem;
   border-radius: 6px;
@@ -1180,13 +1178,13 @@ textarea.form-control { resize: vertical; min-height: 140px; }
   color: var(--text-primary, #f0f0f0);
 }
 
-.btn-prefs-accept {
+.btn-prefs-aceitar {
   background: transparent;
   border: 1px solid var(--border-gold);
   color: var(--gold, #f4c430);
 }
 
-.btn-prefs-accept:hover {
+.btn-prefs-aceitar:hover {
   background: rgba(201, 168, 76, 0.12);
 }
 

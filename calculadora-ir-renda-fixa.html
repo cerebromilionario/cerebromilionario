@@ -249,12 +249,12 @@
   <div class="tool-row-3">
     <div class="field">
       <label for="principal">Valor investido (R$)</label>
-      <input id="principal" inputmode="decimal" placeholder="Ex.: 10.000" value="10000"/>
+      <input id="principal" inputmode="decimal" value="10000"/>
       <small>Aceita ponto ou vírgula. Ex.: 10000 ou 10.000</small>
     </div>
     <div class="field">
       <label for="prazo">Prazo</label>
-      <input id="prazo" inputmode="numeric" placeholder="Ex.: 365" value="365"/>
+      <input id="prazo" inputmode="numeric" value="365"/>
     </div>
     <div class="field">
       <label for="prazoUnidade">Unidade</label>
@@ -288,12 +288,12 @@
     </div>
     <div class="field" id="taxaField">
       <label for="taxa">Taxa</label>
-      <input id="taxa" inputmode="decimal" placeholder="Ex.: 110" value="110"/>
+      <input id="taxa" inputmode="decimal" value="110"/>
       <small id="taxaHelp">Ex.: 110 significa 110% do CDI.</small>
     </div>
     <div class="field" id="cdiField">
       <label for="cdi">CDI atual (a.a.)</label>
-      <input id="cdi" inputmode="decimal" placeholder="Ex.: 10,65" value="10,65"/>
+      <input id="cdi" inputmode="decimal" value="10,65"/>
       <small>Taxa CDI anual para calcular o rendimento.</small>
     </div>
   </div>
@@ -302,7 +302,7 @@
   <div class="tool-row" style="margin-top:12px;">
     <div class="field" id="ipcaField" style="display:none;">
       <label for="ipca">IPCA estimado (a.a.)</label>
-      <input id="ipca" inputmode="decimal" placeholder="Ex.: 4,00" value="4,00"/>
+      <input id="ipca" inputmode="decimal" value="4,00"/>
       <small>Estimativa do IPCA para projetar o rendimento IPCA+.</small>
     </div>
     <div class="field">
@@ -533,7 +533,7 @@
 </ul>
 <p>Se esse mesmo valor ficasse por menos de 6 meses (até 180 dias), a alíquota seria 22,5%, e o IR cobrado seria proporcionalmente maior. Pequenas variações de prazo podem mudar a faixa da tabela e economizar centenas ou até milhares de reais em imposto.</p>
 
-<h3>Dica: use o prazo para pagar menos imposto de forma legal</h3>
+<h3>Como usar o prazo para reduzir o imposto de forma legal</h3>
 <p>Se você está próximo do limite de uma faixa, vale considerar manter o investimento por mais alguns dias para cair na faixa menor. Por exemplo, se o vencimento do CDB cai no 358º dia (alíquota 20%), mas você pode aguardar até o 365º dia (alíquota 17,5%), essa pequena espera reduz o IR de forma legal e legítima. A calculadora permite simular diferentes prazos para ver o impacto real.</p>
 
 <h3>Perguntas Frequentes</h3>
@@ -599,6 +599,8 @@
   <li><a href="/sobre">Sobre</a></li>
   <li><a href="/politica-privacidade">Política de Privacidade</a></li>
   <li><a href="/termos-uso">Termos de Uso</a></li>
+<li><a href="/politica-editorial">Política Editorial</a></li>
+<li><a href="/contato">Contato</a></li>
   <li><a href="/mapa-do-site">Mapa do Site</a></li>
 </ul>
 </div>
@@ -607,7 +609,7 @@
 <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
 <div style="display:flex;gap:1rem;">
   <a href="/politica-privacidade">Política de Privacidade</a>
-  <a href="/termos-uso">Termos</a>
+  <a href="/termos-uso">Termos de Uso</a>
   <a href="/contato">Contato</a>
   <a href="/mapa-do-site">Mapa do Site</a>
 </div>
@@ -618,7 +620,7 @@
 <script src="/js/main.js"></script>
 <script>
   function parseNumberBR(value) {
-    if (value === null || value === undefined) return 0;
+    if (value == void 0) return 0;
     const s = String(value).trim().replace(/\./g, '').replace(',', '.');
     const n = Number(s);
     return Number.isFinite(n) ? n : 0;
@@ -833,9 +835,9 @@
       Usamos cookies para melhorar sua experiência, analisar o tráfego e personalizar conteúdo e anúncios. Você pode aceitar, recusar ou gerenciar suas preferências a qualquer momento. Leia nossa <a href="/politica-privacidade">Política de Privacidade</a>.
     </p>
     <div class="cookie-actions">
-      <button id="cookie-reject" class="btn-cookie-reject" type="button">Recusar</button>
-      <a id="cookie-preferences" class="btn-cookie-preferences" href="/politica-privacidade">Gerenciar preferências</a>
-      <button id="cookie-accept" class="btn-cookie-accept" type="button">Aceitar</button>
+      <button id="cookie-recusar" class="btn-cookie-recusar" type="button">Recusar</button>
+      <a id="cookie-preferencias" class="btn-cookie-preferencias" href="/politica-privacidade">Gerenciar preferências</a>
+      <button id="cookie-aceitar" class="btn-cookie-aceitar" type="button">Aceitar</button>
     </div>
   </div>
 </div>
