@@ -3972,9 +3972,19 @@
 
     function renderTags(){
       const tags = unique(state.posts.map(p => p.tag).filter(Boolean)).sort((a,b)=>a.localeCompare(b,'pt-BR'));
-      const current = els.tag.value || 'all';
+      const availableTags = new Set(['all', ...tags]);
+      const current = availableTags.has(els.tag.value) ? els.tag.value : 'all';
       els.tag.innerHTML = `<option value="all">Todas as categorias</option>` + tags.map(t => `<option value="${escapeHtml(t)}">${escapeHtml(t)}</option>`).join('');
       els.tag.value = current;
+    }
+
+    function resetInitialFilters(){
+      state.q = '';
+      state.tag = 'all';
+      state.hasInteractedWithFilters = false;
+      els.search.value = '';
+      els.tag.value = 'all';
+      els.empty.hidden = true;
     }
 
     function cardTemplate(p){
@@ -4055,6 +4065,7 @@
     }
 
     function loadStaticPosts(){
+      resetInitialFilters();
       state.posts = STATIC_BLOG_POSTS.slice();
       state.shown = state.posts.slice();
       renderTags();
