@@ -1,695 +1,1580 @@
 {
-  "generatedAt": "2026-04-25T10:00:00Z",
-  "baseUrl": "https://cerebromilionario.site",
+  "generatedAt": "2026-05-08T01:44:23Z",
+  "totalPosts": 124,
   "posts": [
     {
-      "title": "VNQ ETF Vanguard Real Estate: Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o VNQ ETF da Vanguard: o maior ETF de REITs do mundo com US$ 65 bi, 159 posições, taxa 0,13%, yield 3,6% e como comprar do Brasil. O equivalente americano dos FIIs.",
-      "url": "/posts/vnq-etf-vanguard-real-estate-guia-completo.html",
-      "date": "25/04/2026",
-      "readTime": "20 min de leitura",
-      "image": "/images/blog-default.svg",
-      "tags": [
-        "ETFs",
-        "REITs",
-        "Vanguard"
-      ]
-    },
-    {
       "title": "IYR ETF iShares U.S. Real Estate: Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o IYR ETF da BlackRock: REITs americanos com 65 posições, taxa 0,38%, o mais antigo ETF de imóveis (2000), diferença para VNQ e SCHH e como comprar do Brasil.",
-      "url": "/posts/iyr-etf-ishares-us-real-estate-guia-completo.html",
+      "excerpt": "Guia completo sobre o IYR ETF da iShares: REITs americanos com 65 posições, taxa 0,38%, lançado em 2000, diferença para VNQ e SCHH e como comprar do Brasil.",
+      "url": "/posts/iyr-etf-ishares-us-real-estate-guia-completo",
+      "slug": "iyr-etf-ishares-us-real-estate-guia-completo",
       "date": "25/04/2026",
       "readTime": "18 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "ETFs",
-        "REITs",
-        "BlackRock"
-      ]
-    },
-    {
-      "title": "SCHH ETF Schwab U.S. REIT: Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o SCHH ETF da Schwab: o ETF de REITs mais barato do mercado com taxa de apenas 0,07% ao ano, ~100 posições de equity REITs puros e como comprar do Brasil.",
-      "url": "/posts/schh-etf-schwab-us-reit-guia-completo.html",
-      "date": "25/04/2026",
-      "readTime": "17 min de leitura",
-      "image": "/images/blog-default.svg",
-      "tags": [
-        "ETFs",
-        "REITs",
-        "Schwab"
+        "IYR ETF",
+        "iShares US Real Estate ETF",
+        "como comprar IYR do Brasil",
+        "IYR vs VNQ"
       ]
     },
     {
       "title": "RWR ETF SPDR Dow Jones REIT: Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o RWR ETF da SPDR: Dow Jones REIT com ~102 posições, taxa 0,25%, yield ~3,8%, e quando faz sentido escolhê-lo em vez do SCHH ou VNQ.",
-      "url": "/posts/rwr-etf-spdr-dow-jones-reit-guia-completo.html",
+      "excerpt": "Guia completo sobre o RWR ETF da SPDR: Dow Jones REIT com ~102 posições, taxa 0,25%, exposição clássica ao mercado imobiliário americano e como comprar do Brasil.",
+      "url": "/posts/rwr-etf-spdr-dow-jones-reit-guia-completo",
+      "slug": "rwr-etf-spdr-dow-jones-reit-guia-completo",
       "date": "25/04/2026",
       "readTime": "17 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "ETFs",
-        "REITs",
-        "SPDR"
+        "RWR ETF",
+        "SPDR Dow Jones REIT ETF",
+        "como comprar RWR do Brasil",
+        "RWR vs VNQ"
+      ]
+    },
+    {
+      "title": "SCHH ETF Schwab U.S. REIT: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Guia completo sobre o SCHH ETF da Schwab: o ETF de REITs mais barato do mercado, taxa 0,07%, ~100 posições, yield ~3,5% e como comprar do Brasil.",
+      "url": "/posts/schh-etf-schwab-us-reit-guia-completo",
+      "slug": "schh-etf-schwab-us-reit-guia-completo",
+      "date": "25/04/2026",
+      "readTime": "17 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "SCHH ETF",
+        "Schwab US REIT ETF",
+        "como comprar SCHH do Brasil",
+        "SCHH vs VNQ"
+      ]
+    },
+    {
+      "title": "VNQ ETF Vanguard Real Estate: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Guia completo sobre o VNQ ETF da Vanguard: o maior ETF de REITs do mundo com US$ 65 bi, 159 posições, taxa 0,13%, yield 3,6% e como comprar do Brasil.",
+      "url": "/posts/vnq-etf-vanguard-real-estate-guia-completo",
+      "slug": "vnq-etf-vanguard-real-estate-guia-completo",
+      "date": "25/04/2026",
+      "readTime": "20 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "VNQ ETF",
+        "Vanguard Real Estate ETF",
+        "como comprar VNQ do Brasil",
+        "ETF REITs americanos"
       ]
     },
     {
       "title": "XLRE ETF Real Estate Select Sector SPDR: Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o XLRE ETF da SPDR: apenas os REITs do S&P 500 em ~30 posições concentradas, taxa 0,08%, 40% em data centers e torres de celular e como comprar do Brasil.",
-      "url": "/posts/xlre-etf-real-estate-select-sector-spdr-guia-completo.html",
+      "excerpt": "Guia completo sobre o XLRE ETF da SPDR: REITs do S&P 500 com ~30 posições concentradas, taxa 0,08%, 40% em data centers e torres, e como comprar do Brasil.",
+      "url": "/posts/xlre-etf-real-estate-select-sector-spdr-guia-completo",
+      "slug": "xlre-etf-real-estate-select-sector-spdr-guia-completo",
       "date": "25/04/2026",
       "readTime": "18 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "ETFs",
-        "REITs",
-        "SPDR"
-      ]
-    },
-    {
-      "title": "VXUS ETF Vanguard Total International Stock: Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o VXUS ETF da Vanguard: o mundo inteiro fora dos EUA em um único ETF, mais de 8.500 ações em 47 países, taxa 0,05%, yield 3,2% e o famoso combo VTI+VXUS.",
-      "url": "/posts/vxus-etf-vanguard-total-international-stock-guia-completo.html",
-      "date": "24/04/2026",
-      "readTime": "20 min de leitura",
-      "image": "/images/blog-default.svg",
-      "tags": [
-        "ETFs",
-        "Internacional",
-        "Vanguard"
+        "XLRE ETF",
+        "Real Estate Select Sector SPDR",
+        "como comprar XLRE do Brasil",
+        "XLRE vs VNQ"
       ]
     },
     {
       "title": "AGG ETF iShares Core US Aggregate Bond: Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o AGG ETF da BlackRock: renda fixa americana completa com mais de 11.000 títulos, taxa 0,03%, yield ~4% mensal em dólar, comparação com BND e como comprar do Brasil.",
-      "url": "/posts/agg-etf-ishares-core-us-aggregate-bond-guia-completo.html",
+      "excerpt": "Guia completo sobre o AGG ETF da iShares: renda fixa americana total com mais de 11.000 títulos, taxa 0,03%, yield ~4%, AGG vs BND e como comprar do Brasil.",
+      "url": "/posts/agg-etf-ishares-core-us-aggregate-bond-guia-completo",
+      "slug": "agg-etf-ishares-core-us-aggregate-bond-guia-completo",
       "date": "24/04/2026",
       "readTime": "18 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "ETFs",
-        "Renda Fixa",
-        "BlackRock"
+        "AGG ETF",
+        "iShares Core US Aggregate Bond ETF",
+        "como comprar AGG do Brasil",
+        "AGG vs BND"
       ]
     },
     {
       "title": "IWF ETF iShares Russell 1000 Growth: Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o IWF ETF da BlackRock: Russell 1000 Growth com ~430 ações de crescimento americano, taxa 0,19%, retorno de 16,5% ao ano em 10 anos, diferença para QQQ e como comprar do Brasil.",
-      "url": "/posts/iwf-etf-ishares-russell-1000-growth-guia-completo.html",
+      "excerpt": "Guia completo sobre o IWF ETF da iShares: Russell 1000 Growth com ~430 ações, taxa 0,19%, crescimento large cap americano, diferença para QQQ e como comprar do Brasil.",
+      "url": "/posts/iwf-etf-ishares-russell-1000-growth-guia-completo",
+      "slug": "iwf-etf-ishares-russell-1000-growth-guia-completo",
       "date": "24/04/2026",
       "readTime": "19 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "ETFs",
-        "Growth",
-        "BlackRock"
-      ]
-    },
-    {
-      "title": "VGT ETF Vanguard Information Technology: Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o VGT ETF da Vanguard: tecnologia americana pura com ~320 ações, NVIDIA + Apple + Microsoft = 55% do fundo, taxa 0,10%, retorno de 20% ao ano em 10 anos e como comprar do Brasil.",
-      "url": "/posts/vgt-etf-vanguard-information-technology-guia-completo.html",
-      "date": "24/04/2026",
-      "readTime": "19 min de leitura",
-      "image": "/images/blog-default.svg",
-      "tags": [
-        "ETFs",
-        "Tecnologia",
-        "Vanguard"
+        "IWF ETF",
+        "iShares Russell 1000 Growth ETF",
+        "como comprar IWF do Brasil",
+        "IWF vs QQQ"
       ]
     },
     {
       "title": "NOBL ETF ProShares S&P 500 Dividend Aristocrats: Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o NOBL ETF da ProShares: as 67 empresas do S&P 500 com 25+ anos de crescimento consecutivo de dividendos, equiponderadas, taxa 0,35% e como comprar do Brasil.",
-      "url": "/posts/nobl-etf-proshares-sp500-dividend-aristocrats-guia-completo.html",
+      "excerpt": "Guia completo sobre o NOBL ETF da ProShares: S&P 500 Dividend Aristocrats com 67 empresas que aumentaram dividendos por 25+ anos, taxa 0,35% e como comprar do Brasil.",
+      "url": "/posts/nobl-etf-proshares-sp500-dividend-aristocrats-guia-completo",
+      "slug": "nobl-etf-proshares-sp500-dividend-aristocrats-guia-completo",
       "date": "24/04/2026",
       "readTime": "20 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "ETFs",
-        "Dividendos",
-        "ProShares"
+        "NOBL ETF",
+        "ProShares S&P 500 Dividend Aristocrats ETF",
+        "como comprar NOBL do Brasil",
+        "ETF dividendos crescentes americanos"
       ]
     },
     {
-      "title": "IEFA ETF iShares Core MSCI EAFE: Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o IEFA ETF da BlackRock: mercados desenvolvidos fora dos EUA com ~3.600 ações, Europa, Japão e Austrália, taxa 0,07%, dividend yield ~3,5% e como comprar do Brasil.",
-      "url": "/posts/iefa-etf-ishares-core-msci-eafe-guia-completo.html",
-      "date": "23/04/2026",
+      "title": "VGT ETF Vanguard Information Technology: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Guia completo sobre o VGT ETF da Vanguard: tecnologia americana pura com ~320 ações, taxa 0,10%, NVIDIA, Apple, Microsoft e como comprar do Brasil.",
+      "url": "/posts/vgt-etf-vanguard-information-technology-guia-completo",
+      "slug": "vgt-etf-vanguard-information-technology-guia-completo",
+      "date": "24/04/2026",
       "readTime": "19 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "ETFs",
-        "Internacional",
-        "BlackRock"
+        "VGT ETF",
+        "Vanguard Information Technology ETF",
+        "como comprar VGT do Brasil",
+        "VGT vs QQQ"
       ]
     },
     {
-      "title": "VTV ETF Vanguard Value: Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o VTV ETF da Vanguard: large cap value americano com ~340 ações, taxa 0,03%, dividend yield ~2%, por que value está superando growth em 2026 e como comprar do Brasil.",
-      "url": "/posts/vtv-etf-vanguard-value-guia-completo.html",
-      "date": "23/04/2026",
-      "readTime": "18 min de leitura",
+      "title": "VXUS ETF Vanguard Total International Stock: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Guia completo sobre o VXUS ETF da Vanguard: ações internacionais fora dos EUA com mais de 8.500 posições, taxa 0,05%, 47 países e como comprar do Brasil.",
+      "url": "/posts/vxus-etf-vanguard-total-international-stock-guia-completo",
+      "slug": "vxus-etf-vanguard-total-international-stock-guia-completo",
+      "date": "24/04/2026",
+      "readTime": "20 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "ETFs",
-        "Value",
-        "Vanguard"
-      ]
-    },
-    {
-      "title": "GLD ETF SPDR Gold Shares: Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o GLD ETF da State Street: ouro físico em ETF, retorno de 42% em 1 ano, taxa 0,40%, como funciona, GLD vs GLDM vs IAU e como comprar do Brasil.",
-      "url": "/posts/gld-etf-spdr-gold-shares-guia-completo.html",
-      "date": "23/04/2026",
-      "readTime": "19 min de leitura",
-      "image": "/images/blog-default.svg",
-      "tags": [
-        "ETFs",
-        "Ouro",
-        "Commodities"
+        "VXUS ETF",
+        "Vanguard Total International Stock ETF",
+        "como comprar VXUS do Brasil",
+        "VXUS vs IEFA"
       ]
     },
     {
       "title": "BND ETF Vanguard Total Bond Market: Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o BND ETF da Vanguard: renda fixa americana completa com mais de 11.000 títulos, taxa 0,03%, yield ~3,9% mensal em dólar, risco de duration e como comprar do Brasil.",
-      "url": "/posts/bnd-etf-vanguard-total-bond-market-guia-completo.html",
+      "excerpt": "Guia completo sobre o BND ETF da Vanguard: mercado total de renda fixa americana, mais de 11.000 títulos, taxa 0,03%, yield 3,9% e como comprar do Brasil.",
+      "url": "/posts/bnd-etf-vanguard-total-bond-market-guia-completo",
+      "slug": "bnd-etf-vanguard-total-bond-market-guia-completo",
       "date": "23/04/2026",
       "readTime": "18 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "ETFs",
-        "Renda Fixa",
-        "Vanguard"
+        "BND ETF",
+        "Vanguard Total Bond Market ETF",
+        "como comprar BND do Brasil",
+        "BND vs AGG"
+      ]
+    },
+    {
+      "title": "GLD ETF SPDR Gold Shares: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Guia completo sobre o GLD ETF SPDR Gold Shares: como funciona o ouro físico em ETF, taxa 0,40%, retorno de 42% em 1 ano, GLD vs GLDM vs IAU e como comprar do Brasil.",
+      "url": "/posts/gld-etf-spdr-gold-shares-guia-completo",
+      "slug": "gld-etf-spdr-gold-shares-guia-completo",
+      "date": "23/04/2026",
+      "readTime": "19 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "GLD ETF",
+        "SPDR Gold Shares",
+        "como comprar GLD do Brasil",
+        "GLD vs GLDM"
+      ]
+    },
+    {
+      "title": "IEFA ETF iShares Core MSCI EAFE: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Guia completo sobre o IEFA ETF da iShares: mercados desenvolvidos fora dos EUA, Europa, Japão e Austrália, taxa 0,07%, ~3.600 ações e como comprar do Brasil.",
+      "url": "/posts/iefa-etf-ishares-core-msci-eafe-guia-completo",
+      "slug": "iefa-etf-ishares-core-msci-eafe-guia-completo",
+      "date": "23/04/2026",
+      "readTime": "19 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "IEFA ETF",
+        "iShares Core MSCI EAFE",
+        "como comprar IEFA do Brasil",
+        "IEFA vs VEA"
       ]
     },
     {
       "title": "IEMG ETF iShares Core MSCI Emerging Markets: Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o IEMG ETF da BlackRock: mercados emergentes com mais de 2.700 ações, China, Índia, Taiwan, taxa 0,09%, riscos geopolíticos e como comprar do Brasil.",
-      "url": "/posts/iemg-etf-ishares-core-msci-emerging-markets-guia-completo.html",
+      "excerpt": "Guia completo sobre o IEMG ETF da iShares: mercados emergentes com mais de 2.700 ações, China, Índia, Taiwan, taxa 0,09%, yield ~3% e como comprar do Brasil.",
+      "url": "/posts/iemg-etf-ishares-core-msci-emerging-markets-guia-completo",
+      "slug": "iemg-etf-ishares-core-msci-emerging-markets-guia-completo",
       "date": "23/04/2026",
       "readTime": "20 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "ETFs",
-        "Emergentes",
-        "BlackRock"
+        "IEMG ETF",
+        "iShares Core MSCI Emerging Markets",
+        "como comprar IEMG do Brasil",
+        "IEMG vs VWO"
       ]
     },
     {
-      "title": "VOO ETF Vanguard S&P 500: Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o VOO ETF da Vanguard: o maior fundo do mundo com US$ 900 bilhões, taxa 0,03%, diferença para SPY e IVV, histórico de retornos e como comprar do Brasil.",
-      "url": "/posts/voo-etf-vanguard-sp500-guia-completo.html",
-      "date": "22/04/2026",
-      "readTime": "20 min de leitura",
+      "title": "VTV ETF Vanguard Value: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Guia completo sobre o VTV ETF da Vanguard: large cap value americano, ~340 ações, taxa 0,03%, dividend yield 2%, como funciona o fator valor e como comprar do Brasil.",
+      "url": "/posts/vtv-etf-vanguard-value-guia-completo",
+      "slug": "vtv-etf-vanguard-value-guia-completo",
+      "date": "23/04/2026",
+      "readTime": "18 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "ETFs",
-        "S&P 500",
-        "Vanguard"
+        "VTV ETF",
+        "Vanguard Value ETF",
+        "como comprar VTV do Brasil",
+        "VTV vs VLUE"
       ]
     },
     {
       "title": "IVV ETF iShares Core S&P 500: Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o IVV ETF da BlackRock: segundo maior ETF do mundo com US$ 780 bilhões, taxa 0,03%, diferença para VOO e SPY, e como comprar do Brasil.",
-      "url": "/posts/ivv-etf-ishares-core-sp500-guia-completo.html",
+      "excerpt": "Guia completo sobre o IVV ETF da iShares BlackRock: o que é, como funciona, taxa 0,03%, diferença para VOO e SPY, holdings e como comprar do Brasil.",
+      "url": "/posts/ivv-etf-ishares-core-sp500-guia-completo",
+      "slug": "ivv-etf-ishares-core-sp500-guia-completo",
       "date": "22/04/2026",
       "readTime": "19 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "ETFs",
-        "S&P 500",
-        "BlackRock"
-      ]
-    },
-    {
-      "title": "SPY ETF SPDR S&P 500: Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o SPY ETF da State Street: o primeiro ETF dos EUA criado em 1993, o mais líquido do mundo, taxa 0,0945%, e por que VOO e IVV são melhores para o longo prazo.",
-      "url": "/posts/spy-etf-spdr-sp500-guia-completo.html",
-      "date": "22/04/2026",
-      "readTime": "19 min de leitura",
-      "image": "/images/blog-default.svg",
-      "tags": [
-        "ETFs",
-        "S&P 500",
-        "State Street"
-      ]
-    },
-    {
-      "title": "VTI ETF Vanguard Total Stock Market: Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o VTI ETF da Vanguard: mercado americano completo com mais de 3.600 ações, taxa 0,03%, diferença para VOO, e como funciona a carteira de dois fundos VTI + VXUS.",
-      "url": "/posts/vti-etf-vanguard-total-stock-market-guia-completo.html",
-      "date": "22/04/2026",
-      "readTime": "20 min de leitura",
-      "image": "/images/blog-default.svg",
-      "tags": [
-        "ETFs",
-        "Mercado Total",
-        "Vanguard"
+        "IVV ETF",
+        "iShares Core S&P 500 ETF",
+        "como comprar IVV do Brasil",
+        "IVV vs VOO"
       ]
     },
     {
       "title": "QQQ ETF Invesco Nasdaq-100: Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o QQQ ETF da Invesco: Nasdaq-100, as 100 maiores empresas de tecnologia, taxa 0,18%, histórico explosivo e devastador, diferença para QQQM, e como comprar do Brasil.",
-      "url": "/posts/qqq-etf-invesco-nasdaq100-guia-completo.html",
+      "excerpt": "Guia completo sobre o QQQ ETF da Invesco: Nasdaq-100, as 100 maiores empresas de tecnologia, taxa 0,18%, histórico explosivo e como comprar do Brasil.",
+      "url": "/posts/qqq-etf-invesco-nasdaq100-guia-completo",
+      "slug": "qqq-etf-invesco-nasdaq100-guia-completo",
       "date": "22/04/2026",
       "readTime": "21 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "ETFs",
-        "Nasdaq",
-        "Tecnologia"
+        "QQQ ETF",
+        "Invesco QQQ Trust",
+        "como comprar QQQ do Brasil",
+        "QQQ vs VOO"
+      ]
+    },
+    {
+      "title": "SPY ETF SPDR S&P 500: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Guia completo sobre o SPY ETF da State Street: o primeiro ETF dos EUA, como funciona, taxa 0,0945%, diferença para VOO e IVV, e como comprar do Brasil.",
+      "url": "/posts/spy-etf-spdr-sp500-guia-completo",
+      "slug": "spy-etf-spdr-sp500-guia-completo",
+      "date": "22/04/2026",
+      "readTime": "19 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "SPY ETF",
+        "SPDR S&P 500 ETF Trust",
+        "como comprar SPY do Brasil",
+        "SPY vs VOO"
+      ]
+    },
+    {
+      "title": "VOO ETF Vanguard S&P 500: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Guia completo sobre o VOO ETF da Vanguard: o que é, como funciona o S&P 500, taxa 0,03%, holdings, histórico de retornos, riscos e como comprar do Brasil.",
+      "url": "/posts/voo-etf-vanguard-sp500-guia-completo",
+      "slug": "voo-etf-vanguard-sp500-guia-completo",
+      "date": "22/04/2026",
+      "readTime": "20 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "VOO ETF",
+        "Vanguard S&P 500 ETF",
+        "como comprar VOO do Brasil",
+        "VOO vs SPY"
+      ]
+    },
+    {
+      "title": "VTI ETF Vanguard Total Stock Market: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Guia completo sobre o VTI ETF da Vanguard: mercado total americano com mais de 3.600 ações, taxa 0,03%, diferença para VOO, e como comprar do Brasil.",
+      "url": "/posts/vti-etf-vanguard-total-stock-market-guia-completo",
+      "slug": "vti-etf-vanguard-total-stock-market-guia-completo",
+      "date": "22/04/2026",
+      "readTime": "20 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "VTI ETF",
+        "Vanguard Total Stock Market ETF",
+        "como comprar VTI do Brasil",
+        "VTI vs VOO"
       ]
     },
     {
       "title": "DGS ETF WisdomTree Emerging Markets Small Cap Dividend: Guia Completo",
-      "excerpt": "Tudo sobre o DGS ETF da WisdomTree: small caps emergentes com dividendos, filtro duplo de lucratividade, Taiwan, África do Sul, holdings reais e como comprar do Brasil.",
-      "url": "/posts/dgs-wisdomtree-emerging-markets-small-cap-dividend-guia-completo.html",
+      "excerpt": "Tudo sobre o DGS ETF da WisdomTree: small caps emergentes com dividendos, taxa 0,58%, Taiwan, África do Sul, holdings reais e como comprar do Brasil.",
+      "url": "/posts/dgs-wisdomtree-emerging-markets-small-cap-dividend-guia-completo",
+      "slug": "dgs-wisdomtree-emerging-markets-small-cap-dividend-guia-completo",
       "date": "16/04/2026",
       "readTime": "19 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "ETFs",
-        "Emergentes",
-        "Dividendos"
-      ]
-    },
-    {
-      "title": "VLUE ETF iShares MSCI USA Value Factor: Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o VLUE ETF da BlackRock: Enhanced Value americano, por que tech domina a carteira, Micron, Cisco, Intel, como comprar do Brasil e VLUE vs VTV.",
-      "url": "/posts/vlue-etf-ishares-msci-usa-value-factor-guia-completo.html",
-      "date": "16/04/2026",
-      "readTime": "18 min de leitura",
-      "image": "/images/blog-default.svg",
-      "tags": [
-        "ETFs",
-        "Value",
-        "EUA"
-      ]
-    },
-    {
-      "title": "VLUE ETF iShares MSCI USA Value Factor: Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o VLUE ETF da BlackRock: MSCI USA Enhanced Value, metodologia setorial neutra, taxa 0,15%, performance 2025-2026 e como comprar do Brasil.",
-      "url": "/posts/vlue-etf-ishares-msci-usa-value-factor-guia-completo.html",
-      "date": "16/04/2026",
-      "readTime": "19 min de leitura",
-      "image": "/images/blog-default.svg",
-      "tags": [
-        "ETFs",
-        "Value",
-        "Large Cap"
+        "DGS ETF",
+        "WisdomTree emerging markets small cap dividend",
+        "DGS ETF brasileiro",
+        "small cap emergente dividendo"
       ]
     },
     {
       "title": "IVLU ETF iShares MSCI International Value: Guia Completo para Brasileiros",
-      "excerpt": "Guia completo do IVLU ETF da BlackRock: MSCI World ex USA Enhanced Value, holdings, países, riscos e como comprar do Brasil. Morningstar Gold Medal.",
-      "url": "/posts/ivlu-etf-ishares-msci-international-value-guia-completo.html",
+      "excerpt": "Guia completo do IVLU ETF da BlackRock: MSCI World ex USA Enhanced Value, taxa 0,30%, top holdings, países, riscos e como comprar do Brasil.",
+      "url": "/posts/ivlu-etf-ishares-msci-international-value-guia-completo",
+      "slug": "ivlu-etf-ishares-msci-international-value-guia-completo",
       "date": "16/04/2026",
       "readTime": "19 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "ETFs",
-        "Valor Internacional"
+        "IVLU ETF",
+        "iShares MSCI international value",
+        "valor internacional ETF",
+        "enhanced value ETF"
       ]
     },
     {
       "title": "SLYV ETF SPDR S&P 600 Small Cap Value: Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o SLYV ETF: S&P SmallCap 600 Value Index, taxa 0,15%, small cap value premium, top holdings, riscos e como comprar do Brasil.",
-      "url": "/posts/slyv-etf-spdr-sp600-small-cap-value-guia-completo.html",
+      "excerpt": "Tudo sobre o SLYV ETF da State Street: o que é, como funciona o S&P 600 Value, taxa 0,15%, holdings, riscos e como comprar do Brasil.",
+      "url": "/posts/slyv-etf-spdr-sp600-small-cap-value-guia-completo",
+      "slug": "slyv-etf-spdr-sp600-small-cap-value-guia-completo",
       "date": "16/04/2026",
       "readTime": "18 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "ETFs",
-        "Small Cap",
-        "Value"
+        "SLYV ETF",
+        "SPDR S&P 600 small cap value",
+        "small cap value ETF brasileiro",
+        "como comprar SLYV"
       ]
     },
     {
-      "title": "Interactive Brokers para Brasileiros: Guia Completo 2026",
-      "excerpt": "Guia completo da Interactive Brokers para brasileiros: como abrir conta passo a passo, taxas, depósito, plataformas e tributação.",
-      "url": "/posts/interactive-brokers-guia-completo-brasileiro.html",
+      "title": "VLUE ETF iShares MSCI USA Value Factor: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Tudo sobre o VLUE ETF da BlackRock: MSCI USA Enhanced Value, taxa 0,15%, por que tech domina o portfólio, holdings, riscos e como comprar do Brasil.",
+      "url": "/posts/vlue-etf-ishares-msci-usa-value-factor-guia-completo",
+      "slug": "vlue-etf-ishares-msci-usa-value-factor-guia-completo",
+      "date": "16/04/2026",
+      "readTime": "18 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "VLUE ETF",
+        "iShares MSCI USA value factor",
+        "value ETF americano",
+        "VLUE vs VTV"
+      ]
+    },
+    {
+      "title": "Interactive Brokers para Brasileiros: Guia Completo 2026 — Como Abrir Conta, Taxas e Como Usar",
+      "excerpt": "Guia completo da Interactive Brokers para brasileiros: como abrir conta passo a passo, taxas, depósito, plataformas TWS e IBKR Mobile, tributação e comparação com a Nomad.",
+      "url": "/posts/interactive-brokers-guia-completo-brasileiro",
+      "slug": "interactive-brokers-guia-completo-brasileiro",
       "date": "13/04/2026",
       "readTime": "17 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "Corretoras",
-        "Investimentos Internacionais"
+        "Interactive Brokers brasileiro",
+        "como abrir conta IBKR Brasil",
+        "Interactive Brokers taxas",
+        "IBKR passo a passo"
       ]
     },
     {
-      "title": "Nomad: Guia Completo da Conta Internacional e de Investimentos",
-      "excerpt": "Guia completo da Nomad 2026: como abrir conta, taxas, cartão internacional, conta investimento e como investir em ETFs americanos.",
-      "url": "/posts/nomad-conta-internacional-investimentos-guia-completo.html",
+      "title": "Nomad: Guia Completo da Conta Internacional e de Investimentos para Brasileiros",
+      "excerpt": "Guia completo da Nomad 2026: como abrir conta, taxas, cartão internacional, conta investimento, como investir em ETFs e ações americanas do Brasil.",
+      "url": "/posts/nomad-conta-internacional-investimentos-guia-completo",
+      "slug": "nomad-conta-internacional-investimentos-guia-completo",
       "date": "13/04/2026",
       "readTime": "16 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "Corretoras",
-        "Conta Internacional"
+        "Nomad conta internacional",
+        "Nomad investimentos",
+        "como abrir conta Nomad",
+        "Nomad taxas"
       ]
     },
     {
-      "title": "VWO ETF Vanguard: Mercados Emergentes — Guia Completo para Brasileiros",
-      "excerpt": "Tudo sobre o ETF VWO da Vanguard: China, Índia, Taiwan, taxa 0,07%, riscos específicos e como posicionar em carteira global.",
-      "url": "/posts/vwo-etf-vanguard-mercados-emergentes-guia-completo.html",
+      "title": "VEA ETF Vanguard: Guia Completo para Investidores Brasileiros (2026)",
+      "excerpt": "Guia completo do VEA ETF da Vanguard: composição, desempenho histórico, comparação VEA vs EFA vs IEFA, tributação para brasileiros e como montar a carteira Three-Fund Portfolio.",
+      "url": "/posts/vea-etf-vanguard-mercados-desenvolvidos-guia-completo",
+      "slug": "vea-etf-vanguard-mercados-desenvolvidos-guia-completo",
       "date": "13/04/2026",
-      "readTime": "14 min de leitura",
+      "readTime": "18 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "ETFs",
-        "Emergentes"
+        "VEA ETF",
+        "Vanguard FTSE Developed Markets",
+        "VEA ETF brasileiro",
+        "mercados desenvolvidos ETF"
       ]
     },
     {
-      "title": "VEA ETF Vanguard: Mercados Desenvolvidos Fora dos EUA — Guia Completo",
-      "excerpt": "Guia completo do ETF VEA da Vanguard: o que é, taxa 0,03%, países, holdings, VEA vs EFA e como comprar do Brasil.",
-      "url": "/posts/vea-etf-vanguard-mercados-desenvolvidos-guia-completo.html",
+      "title": "VT ETF Vanguard Total World: Guia Completo para Investidores Brasileiros",
+      "excerpt": "Composição, retornos históricos, tributação brasileira e comparação com VOO, VTI e VEA. Tudo que você precisa saber antes de comprar o VT.",
+      "url": "/posts/vt-etf-vanguard-total-world-stock-guia-completo",
+      "slug": "vt-etf-vanguard-total-world-stock-guia-completo",
       "date": "13/04/2026",
-      "readTime": "13 min de leitura",
+      "readTime": "20 min de leitura",
       "image": "/images/blog-default.svg",
-      "tags": [
-        "ETFs",
-        "Mercados Desenvolvidos"
-      ]
+      "tags": []
     },
     {
-      "title": "VT ETF Vanguard Total World: O Guia Completo para Investidores Brasileiros",
-      "excerpt": "Tudo sobre o ETF VT da Vanguard: o que é, como funciona, taxa 0,06%, holdings, como comprar do Brasil e comparação com VOO e VTI.",
-      "url": "/posts/vt-etf-vanguard-total-world-stock-guia-completo.html",
+      "title": "VWO ETF Vanguard: Guia Completo de Mercados Emergentes para Brasileiros (2026)",
+      "excerpt": "Guia completo do VWO ETF da Vanguard: China, Índia, Taiwan, riscos reais dos emergentes, VWO vs EEM vs IEMG, tributação para brasileiros e como posicionar na carteira global.",
+      "url": "/posts/vwo-etf-vanguard-mercados-emergentes-guia-completo",
+      "slug": "vwo-etf-vanguard-mercados-emergentes-guia-completo",
       "date": "13/04/2026",
-      "readTime": "14 min de leitura",
+      "readTime": "18 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "ETFs",
-        "Global"
-      ]
-    },
-    {
-      "title": "Selic em Queda: o Que Fazer com Sua Renda Fixa Agora",
-      "excerpt": "Selic caindo muda o jogo da renda fixa. Entenda como CDB, Tesouro IPCA+, LCI e prefixados reagem a cortes de juros e o que fazer com cada produto no seu portfólio.",
-      "url": "/posts/selic-em-queda-o-que-fazer-com-renda-fixa.html",
-      "date": "12/04/2026",
-      "readTime": "14 min de leitura",
-      "image": "/images/blog-default.svg",
-      "tags": [
-        "Renda Fixa",
-        "Selic"
+        "VWO ETF",
+        "Vanguard Emerging Markets",
+        "VWO ETF brasileiro",
+        "mercados emergentes ETF"
       ]
     },
     {
       "title": "Como Declarar Ações no Imposto de Renda 2026: Guia Completo",
       "excerpt": "Guia completo para declarar ações no IR 2026: preço médio, isenção dos R$ 20 mil, DARF, day trade, dividendos e compensação de prejuízos. Passo a passo com exemplos reais.",
-      "url": "/posts/como-declarar-acoes-imposto-de-renda-2026.html",
+      "url": "/posts/como-declarar-acoes-imposto-de-renda-2026",
+      "slug": "como-declarar-acoes-imposto-de-renda-2026",
       "date": "12/04/2026",
       "readTime": "15 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "Tributação",
-        "IR",
-        "Ações"
+        "como declarar ações imposto de renda 2026",
+        "IR ações",
+        "declarar ações IRPF",
+        "DARF renda variável"
       ]
     },
     {
       "title": "FIIs vs Ações: Qual Gera Mais Renda Passiva no Brasil?",
       "excerpt": "Comparação completa entre FIIs e ações para geração de renda passiva: dividendos, tributação, volatilidade, retorno histórico e qual escolher em cada fase da vida.",
-      "url": "/posts/fiis-vs-acoes-qual-gera-mais-renda-passiva.html",
+      "url": "/posts/fiis-vs-acoes-qual-gera-mais-renda-passiva",
+      "slug": "fiis-vs-acoes-qual-gera-mais-renda-passiva",
       "date": "12/04/2026",
       "readTime": "14 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "FIIs",
-        "Ações",
-        "Renda Passiva"
+        "FIIs vs ações",
+        "renda passiva FIIs",
+        "dividendos ações",
+        "qual melhor FIIs ou ações"
       ]
     },
     {
       "title": "Quanto Você Precisa para Viver de Renda no Brasil? O Cálculo Real",
       "excerpt": "Descubra quanto patrimônio você realmente precisa para viver de renda no Brasil usando a metodologia SWR. Cálculos por nível de gasto, alocação ideal e o impacto do tempo.",
-      "url": "/posts/quanto-precisa-para-viver-de-renda-no-brasil.html",
+      "url": "/posts/quanto-precisa-para-viver-de-renda-no-brasil",
+      "slug": "quanto-precisa-para-viver-de-renda-no-brasil",
       "date": "12/04/2026",
       "readTime": "15 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "Independência Financeira",
-        "Renda Passiva"
+        "quanto precisa viver de renda",
+        "independência financeira Brasil",
+        "viver de renda patrimônio",
+        "safe withdrawal rate Brasil"
+      ]
+    },
+    {
+      "title": "Selic em Queda: o Que Fazer com Sua Renda Fixa Agora",
+      "excerpt": "Selic caindo muda o jogo da renda fixa. Entenda como CDB, Tesouro IPCA+, LCI e prefixados reagem a cortes de juros e o que fazer com cada produto no seu portfólio.",
+      "url": "/posts/selic-em-queda-o-que-fazer-com-renda-fixa",
+      "slug": "selic-em-queda-o-que-fazer-com-renda-fixa",
+      "date": "12/04/2026",
+      "readTime": "14 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "selic em queda",
+        "o que fazer renda fixa",
+        "tesouro ipca+ juros caindo",
+        "CDB selic queda"
       ]
     },
     {
       "title": "Tesouro Direto para Iniciantes: Guia Completo 2026",
       "excerpt": "Tudo sobre Tesouro Direto em 2026: os três tipos de título (Selic, IPCA+, Prefixado), marcação a mercado, custos, como comprar e qual escolher para cada objetivo.",
-      "url": "/posts/tesouro-direto-para-iniciantes-guia-completo-2026.html",
+      "url": "/posts/tesouro-direto-para-iniciantes-guia-completo-2026",
+      "slug": "tesouro-direto-para-iniciantes-guia-completo-2026",
       "date": "12/04/2026",
       "readTime": "15 min de leitura",
       "image": "/images/blog-default.svg",
       "tags": [
-        "Renda Fixa",
-        "Tesouro Direto",
-        "Iniciante"
+        "tesouro direto para iniciantes",
+        "tesouro direto 2026",
+        "como investir tesouro direto",
+        "tesouro selic tesouro IPCA"
       ]
+    },
+    {
+      "title": "Rebalanceamento de carteira: método, frequência e como fazer com aportes",
+      "excerpt": "Guia completo sobre rebalanceamento: por que funciona, método por calendário vs banda, como usar aportes para rebalancear sem vender e exemplo prático com números.",
+      "url": "/posts/rebalanceamento-carteira-como-fazer",
+      "slug": "rebalanceamento-carteira-como-fazer",
+      "date": "28/02/2026",
+      "readTime": "13 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "rebalanceamento carteira",
+        "como rebalancear investimentos",
+        "carteira ETFs rebalanceamento",
+        "controle risco carteira"
+      ]
+    },
+    {
+      "title": "IR regressivo na renda fixa: como calcular o líquido e otimizar legalmente",
+      "excerpt": "Guia completo do IR regressivo na renda fixa: a tabela de alíquotas, IOF, impacto real nos retornos, como comparar CDB vs LCI/LCA e estratégias legais de otimização.",
+      "url": "/posts/renda-fixa-ir-regressivo-entenda",
+      "slug": "renda-fixa-ir-regressivo-entenda",
+      "date": "28/02/2026",
+      "readTime": "13 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "IR regressivo renda fixa",
+        "tabela IR CDB",
+        "IOF renda fixa",
+        "rendimento líquido CDB"
+      ]
+    },
+    {
+      "title": "Tesouro IPCA+: Guia Completo com Simulações, Marcação a Mercado e Tributação (2026)",
+      "excerpt": "Tesouro IPCA+: entenda marcação a mercado, duration, tributação, simulações reais e quando o título faz — ou não faz — sentido para a sua carteira de renda fixa.",
+      "url": "/posts/renda-fixa-quando-ipca-mais-faz-sentido",
+      "slug": "renda-fixa-quando-ipca-mais-faz-sentido",
+      "date": "28/02/2026",
+      "readTime": "19 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "Tesouro IPCA+",
+        "quando comprar IPCA+",
+        "marcação a mercado renda fixa",
+        "proteção inflacionária investimentos"
+      ]
+    },
+    {
+      "title": "Tesouro Selic vs CDB Liquidez Diária: Comparação Completa com Números Reais (2026)",
+      "excerpt": "Tesouro Selic vs CDB com liquidez diária: comparação de rendimento líquido, risco de crédito, FGC, liquidez real e a estratégia de camadas para a reserva de emergência.",
+      "url": "/posts/tesouro-selic-vs-cdb-liquidez-diaria",
+      "slug": "tesouro-selic-vs-cdb-liquidez-diaria",
+      "date": "28/02/2026",
+      "readTime": "17 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "Tesouro Selic vs CDB",
+        "reserva de emergência",
+        "CDB liquidez diária",
+        "qual melhor reserva"
+      ]
+    },
+    {
+      "title": "Bíblia da Aposentadoria Parte 1: Fundamentos, Metas e Diagnóstico Financeiro",
+      "excerpt": "Guia institucional de aposentadoria: calcule o patrimônio necessário, faça o diagnóstico financeiro real e monte seu plano de execução.",
+      "url": "/posts/biblia-da-aposentadoria-parte-1",
+      "slug": "biblia-da-aposentadoria-parte-1",
+      "date": "27/02/2026",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Bíblia da Aposentadoria (Parte 2): Aportes, Retorno Real e Alocação por Fases",
+      "excerpt": "Tabelas de aporte por prazo, retorno real histórico brasileiro, alocação por fases e risco de sequência de retornos.",
+      "url": "/posts/biblia-da-aposentadoria-parte-2",
+      "slug": "biblia-da-aposentadoria-parte-2",
+      "date": "27/02/2026",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Bíblia da Aposentadoria (Parte 3): Saque Seguro, Guardrails e Bucket Strategy",
+      "excerpt": "Como transformar patrimônio em renda: sequência de retornos, guardrails, buckets e rebalanceamento com saques.",
+      "url": "/posts/biblia-da-aposentadoria-parte-3",
+      "slug": "biblia-da-aposentadoria-parte-3",
+      "date": "27/02/2026",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "ETF Masterclass (Parte 1): Fundamentos Institucionais, Índices e Custos",
+      "excerpt": "Estrutura de ETF (AP/NAV), tipos de replicação, índices globais, tracking error/difference, custos totais, liquidez e checklist institucional.",
+      "url": "/posts/etf-masterclass-carteira-global-parte-1",
+      "slug": "etf-masterclass-carteira-global-parte-1",
+      "date": "27/02/2026",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "ETF Masterclass (Parte 2): Markowitz, CAPM, Fatores e Câmbio",
+      "excerpt": "Teoria moderna de portfólio aplicada: correlação, Sharpe, CAPM, Fama-French, fatores e câmbio/hedge.",
+      "url": "/posts/etf-masterclass-carteira-global-parte-2",
+      "slug": "etf-masterclass-carteira-global-parte-2",
+      "date": "27/02/2026",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "ETF Masterclass (Parte 3): Carteiras Modelo e Rebalanceamento",
+      "excerpt": "Modelos institucionais: 1 ETF, 3 ETFs, fatores, perfis e rebalanceamento por bandas.",
+      "url": "/posts/etf-masterclass-carteira-global-parte-3",
+      "slug": "etf-masterclass-carteira-global-parte-3",
+      "date": "27/02/2026",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "ETF Masterclass (Parte 4): Impostos, Operacional, Erros Fatais e Checklist Final",
+      "excerpt": "Fechamento institucional: tributação (visão prática), operacional, riscos, erros fatais, checklist e plano de 12 meses.",
+      "url": "/posts/etf-masterclass-carteira-global-parte-4",
+      "slug": "etf-masterclass-carteira-global-parte-4",
+      "date": "27/02/2026",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "FIIs: quando DY alto é armadilha e como analisar corretamente",
+      "excerpt": "DY alto em FIIs pode ser sinal de risco, não de oportunidade. Aprenda a decompor a origem dos dividendos, os 12 sinais de armadilha e o método de análise em 4 blocos.",
+      "url": "/posts/fiis-dividend-yield-alto-armadilha",
+      "slug": "fiis-dividend-yield-alto-armadilha",
+      "date": "25/02/2026",
+      "readTime": "14 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "FIIs dividend yield",
+        "análise FIIs",
+        "vacância FIIs",
+        "FIIs armadilha"
+      ]
+    },
+    {
+      "title": "Renda Fixa: Guia Completo e Estratégico (2026)",
+      "excerpt": "Tipos de ativos, IR regressivo, FGC, marcação a mercado, duration, breakeven de inflação e estratégias por prazo. Do básico ao nível CFA.",
+      "url": "/posts/renda-fixa-guia-completo-2026",
+      "slug": "renda-fixa-guia-completo-2026",
+      "date": "25/02/2026",
+      "readTime": "40 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": []
+    },
+    {
+      "title": "ETFs e Alocação Global: CAPM, Fama-French e Carteira Institucional (2026)",
+      "excerpt": "Alocação global com ETFs: CAPM, Fama-French 5 fatores, fronteira eficiente, prêmios históricos por fator, smart beta, correlações entre mercados e carteira institucional com tickers reais.",
+      "url": "/posts/etfs-alocacao-global-guia-2026_CFA",
+      "slug": "etfs-alocacao-global-guia-2026_CFA",
+      "date": "20/02/2026",
+      "readTime": "22 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "ETFs alocação global",
+        "CAPM ETFs",
+        "Fama-French ETFs fatoriais",
+        "fronteira eficiente carteira"
+      ]
+    },
+    {
+      "title": "Como Escolher ETFs para Carregar a Vida Inteira: Guia com Dados Reais (2026)",
+      "excerpt": "Como escolher ETFs para carregar a vida inteira: critérios reais, comparação B3 vs internacional, tabela de custos, tributação e três modelos de carteira com tickers e dados concretos.",
+      "url": "/posts/etfs-como-escolher-3-para-vida-inteira",
+      "slug": "etfs-como-escolher-3-para-vida-inteira",
+      "date": "20/02/2026",
+      "readTime": "20 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "como escolher ETFs",
+        "ETFs Brasil",
+        "carteira ETFs 3 fundos",
+        "BOVA11 IVVB11"
+      ]
+    },
+    {
+      "title": "Construção de Patrimônio e Independência Financeira: Guia Completo (2026)",
+      "excerpt": "Taxa de poupança, patrimônio-alvo por renda desejada, tipos de FIRE, alocação por fase e comportamento. Com tabelas e números para o contexto brasileiro.",
+      "url": "/posts/construcao-patrimonio-independencia-financeira-2026_MAX",
+      "slug": "construcao-patrimonio-independencia-financeira-2026_MAX",
+      "date": "15/02/2026",
+      "readTime": "22 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": []
+    },
+    {
+      "title": "Como Economizar Dinheiro: Estratégias Práticas para Sobrar Mais Todo Mês",
+      "excerpt": "Aprenda as estratégias técnicas e comportamentais para economizar dinheiro de forma consistente: pague-se primeiro, orçamento de base zero e os gastos que mais impactam.",
+      "url": "/posts/como-economizar-dinheiro",
+      "slug": "como-economizar-dinheiro",
+      "date": "10/02/2026",
+      "readTime": "11 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "como economizar dinheiro",
+        "taxa de poupança",
+        "orçamento pessoal",
+        "pague-se primeiro"
+      ]
+    },
+    {
+      "title": "Investimentos para Iniciantes: Guia Técnico para Começar do Zero",
+      "excerpt": "Entenda a lógica que conecta objetivos financeiros aos instrumentos corretos: fundo de emergência, renda fixa, ETFs e ações. Guia técnico completo para quem está começando.",
+      "url": "/posts/investimentos-para-iniciantes",
+      "slug": "investimentos-para-iniciantes",
+      "date": "10/02/2026",
+      "readTime": "13 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "investimentos para iniciantes",
+        "como investir",
+        "tesouro direto",
+        "CDB"
+      ]
+    },
+    {
+      "title": "O Poder dos Juros Compostos: Mecanismo, Fórmulas e Impacto Real",
+      "excerpt": "Entenda a matemática por trás dos juros compostos, a Regra dos 72, o impacto da inflação, o custo das dívidas e por que o tempo é a variável mais poderosa nos investimentos.",
+      "url": "/posts/o-poder-dos-juros-compostos",
+      "slug": "o-poder-dos-juros-compostos",
+      "date": "10/02/2026",
+      "readTime": "12 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "juros compostos",
+        "como funcionam os juros compostos",
+        "regra dos 72",
+        "investimentos longo prazo"
+      ]
+    },
+    {
+      "title": "CDB vs LCI/LCA: como comparar pelo rendimento líquido em 2026",
+      "excerpt": "Fórmula de equivalência de taxas, tabela CDI equivalente, simulação R$50.000 e regras de carência 2023. Saiba quando CDB ou LCI/LCA compensa de verdade.",
+      "url": "/posts/cdb-vs-lci-lca-quando-compensa",
+      "slug": "cdb-vs-lci-lca-quando-compensa",
+      "date": "05/02/2026",
+      "readTime": "16 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "CDB LCI LCA comparação",
+        "rendimento líquido renda fixa",
+        "equivalência CDB LCI",
+        "quando LCI compensa"
+      ]
+    },
+    {
+      "title": "Bíblia do IR do Investidor Parte 1: Arquitetura do Sistema Tributário 2026",
+      "excerpt": "Os três regimes de tributação, mapa completo por produto, tabela regressiva com simulação, come-cotas, IOF e planejamento tributário legal. Guia completo 2026.",
+      "url": "/posts/biblia-imposto-de-renda-investidor-parte-1",
+      "slug": "biblia-imposto-de-renda-investidor-parte-1",
+      "date": "20/01/2026",
+      "readTime": "18 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "imposto de renda investidor",
+        "IR renda fixa",
+        "IR renda variável",
+        "tabela regressiva IR"
+      ]
+    },
+    {
+      "title": "Bíblia do IR do Investidor — Parte 2: Renda Fixa, Fundos e Previdência",
+      "excerpt": "Parte 2: tributação de CDB, LCI/LCA, Tesouro Direto, come-cotas em fundos e a diferença estratégica entre PGBL e VGBL na previdência privada.",
+      "url": "/posts/biblia-imposto-de-renda-investidor-parte-2",
+      "slug": "biblia-imposto-de-renda-investidor-parte-2",
+      "date": "20/01/2026",
+      "readTime": "13 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "IR renda fixa",
+        "CDB tributação",
+        "LCI LCA isenção",
+        "come-cotas fundos"
+      ]
+    },
+    {
+      "title": "Bíblia do IR do Investidor — Parte 3: Ações, FIIs, ETFs e Bolsa",
+      "excerpt": "Parte 3: isenção dos R$ 20 mil em ações, day trade, tributação de FIIs e ETFs, compensação de prejuízos e como calcular e pagar o DARF mensalmente.",
+      "url": "/posts/biblia-imposto-de-renda-investidor-parte-3",
+      "slug": "biblia-imposto-de-renda-investidor-parte-3",
+      "date": "20/01/2026",
+      "readTime": "12 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "IR ações bolsa",
+        "isenção 20 mil ações",
+        "DARF renda variável",
+        "tributação FIIs"
+      ]
+    },
+    {
+      "title": "Bíblia do IR do Investidor Parte 4: Declaração Completa, DARF e Checklist Profissional 2026",
+      "excerpt": "Como preencher cada ficha da declaração (Bens e Direitos, Rendimentos, Renda Variável), calcular preço médio, emitir DARF e evitar malha fina. Guia completo 2026.",
+      "url": "/posts/biblia-imposto-de-renda-investidor-parte-4",
+      "slug": "biblia-imposto-de-renda-investidor-parte-4",
+      "date": "20/01/2026",
+      "readTime": "18 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "declaração IR investidor",
+        "ficha bens direitos ações",
+        "renda variável declaração",
+        "preço médio ações"
+      ]
+    },
+    {
+      "title": "Bíblia da Aposentadoria — Parte 4: Risco, Proteção e Governança do Plano",
+      "excerpt": "Parte 4 da série: os 6 riscos reais de uma aposentadoria, taxa de retirada sustentável, alocação na fase de distribuição e o processo de revisão anual do plano.",
+      "url": "/posts/biblia-da-aposentadoria-parte-4",
+      "slug": "biblia-da-aposentadoria-parte-4",
+      "date": "15/01/2026",
+      "readTime": "14 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": [
+        "aposentadoria",
+        "risco sequência retornos",
+        "taxa de retirada",
+        "planejamento aposentadoria"
+      ]
+    },
+    {
+      "title": "Guia Institucional de FIIs (Parte 3/8) — FIIs de Tijolo: Segmentos, NOI e Risco Operacional",
+      "excerpt": "WAULT, capex por segmento, concentração de inquilinos, NOI margin e stress tests operacionais para FIIs de tijolo.",
+      "url": "/posts/guia-institucional-fiis-parte-3",
+      "slug": "guia-institucional-fiis-parte-3",
+      "date": "15/01/2026",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Guia Institucional de FIIs Parte 8: Blindagem Total — Armadilhas e Protocolo de Crise",
+      "excerpt": "DY ilusório, diluição dilutiva, alavancagem oculta, extensão em CRI e capex. Protocolo de crise em 10 passos e checklist institucional.",
+      "url": "/posts/guia-institucional-fiis-parte-8",
+      "slug": "guia-institucional-fiis-parte-8",
+      "date": "15/01/2026",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": [
+        "armadilhas FIIs",
+        "DY alto ilusório",
+        "diluição FII",
+        "alavancagem FII"
+      ]
+    },
+    {
+      "title": "Ações do Zero ao Institucional (Parte 1/8)",
+      "excerpt": "Fundamentos, retorno esperado e microestrutura. Nível institucional.",
+      "url": "/posts/acoes-institucional-parte-1",
+      "slug": "acoes-institucional-parte-1",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Ações do Zero ao Institucional (Parte 2/8)",
+      "excerpt": "Contabilidade econômica, ROIC, crescimento e qualidade do lucro. Nível institucional.",
+      "url": "/posts/acoes-institucional-parte-2",
+      "slug": "acoes-institucional-parte-2",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Ações do Zero ao Institucional (Parte 3/8) — Valuation",
+      "excerpt": "DCF, múltiplos, cenários e sensibilidade. Nível institucional.",
+      "url": "/posts/acoes-institucional-parte-3",
+      "slug": "acoes-institucional-parte-3",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Ações do Zero ao Institucional (Parte 4/8) — Risco",
+      "excerpt": "Risco, stress, drawdown, convexidade e sizing com regras. Nível institucional.",
+      "url": "/posts/acoes-institucional-parte-4",
+      "slug": "acoes-institucional-parte-4",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Ações do Zero ao Institucional (Parte 5/8) — Fatores & Implementação",
+      "excerpt": "Fatores, estilos e como implementar no mundo real: custos, turnover, crowding e regras.",
+      "url": "/posts/acoes-institucional-parte-5",
+      "slug": "acoes-institucional-parte-5",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Ações do Zero ao Institucional (Parte 6/8) — Carteira & Regras",
+      "excerpt": "Orçamento de risco, sizing, diversificação, liquidez e regras executáveis (nível institucional).",
+      "url": "/posts/acoes-institucional-parte-6",
+      "slug": "acoes-institucional-parte-6",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Ações do Zero ao Institucional (Parte 7/8) — Ciclos & Macro",
+      "excerpt": "Regimes macro, ciclos, setores e como pensar em probabilidades (nível institucional).",
+      "url": "/posts/acoes-institucional-parte-7",
+      "slug": "acoes-institucional-parte-7",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Ações do Zero ao Institucional (Parte 8/8) — IPS & Checklist",
+      "excerpt": "IPS pessoal, checklist final, governança e execução. Nível institucional.",
+      "url": "/posts/acoes-institucional-parte-8",
+      "slug": "acoes-institucional-parte-8",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Bíblia da Renda Variável para Iniciantes (Sem Fantasia)",
+      "excerpt": "Guia institucional e sem fantasia de renda variável para iniciantes: o que realmente move retornos, como evitar erros fatais, como montar estratégia, governança de carteira, risco, ciclos e um plano prático de execução.",
+      "url": "/posts/biblia-da-renda-variavel-para-iniciantes",
+      "slug": "biblia-da-renda-variavel-para-iniciantes",
+      "date": "",
+      "readTime": "90 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": []
+    },
+    {
+      "title": "Como o Dinheiro é Criado: Sistema Bancário, Crédito e Política Monetária (Guia Institucional)",
+      "excerpt": "Entenda, em nível institucional, como o dinheiro é criado no sistema moderno: bancos comerciais, crédito, depósitos, reservas, mercado interbancário, Banco Central, juros, QE, repos, shadow banking e como a política monetária se transmite para inflação, emprego e preços de ativos.",
+      "url": "/posts/como-o-dinheiro-e-criado-sistema-bancario-credito-politica-monetaria",
+      "slug": "como-o-dinheiro-e-criado-sistema-bancario-credito-politica-monetaria",
+      "date": "",
+      "readTime": "95 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": []
+    },
+    {
+      "title": "Enciclopédia da Bolsa (1/8): Como Analisar Empresas (Nível Institucional)",
+      "excerpt": "Guia institucional para analisar empresas: modelo mental, drivers de valor, moat, ROIC/FCF, unit economics, ciclicidade, governança, riscos, checklist e template de tese. Parte 1/8 da Enciclopédia da Bolsa.",
+      "url": "/posts/enciclopedia-da-bolsa-parte-1-como-analisar-empresas",
+      "slug": "enciclopedia-da-bolsa-parte-1-como-analisar-empresas",
+      "date": "",
+      "readTime": "110 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": []
+    },
+    {
+      "title": "Enciclopédia da Bolsa (2/8): Como Ler Balanços (DRE, BP e DFC)",
+      "excerpt": "Aprenda a ler balanços em nível institucional: DRE, Balanço Patrimonial e DFC. Entenda qualidade do lucro, capital de giro, CAPEX, dívida, caixa, sinais de alerta e checklists profissionais. Parte 2/8 da Enciclopédia da Bolsa.",
+      "url": "/posts/enciclopedia-da-bolsa-parte-2-como-ler-balancos",
+      "slug": "enciclopedia-da-bolsa-parte-2-como-ler-balancos",
+      "date": "",
+      "readTime": "120 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": []
+    },
+    {
+      "title": "Enciclopédia da Bolsa (3/8): Valuation Completo (DCF, WACC, ROIC e Margem de Segurança)",
+      "excerpt": "Valuation institucional: DCF passo a passo, WACC sem fantasia, ROIC vs WACC, múltiplos (P/L, EV/EBITDA, EV/EBIT), normalização de lucros, margem de segurança, checklists e erros fatais. Parte 3/8 da Enciclopédia da Bolsa.",
+      "url": "/posts/enciclopedia-da-bolsa-parte-3-valuation-completo",
+      "slug": "enciclopedia-da-bolsa-parte-3-valuation-completo",
+      "date": "",
+      "readTime": "140 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": []
+    },
+    {
+      "title": "Enciclopédia da Bolsa (4/8): Psicologia do Mercado (Vieses, Manias e Disciplina)",
+      "excerpt": "Psicologia do mercado em nível institucional: vieses cognitivos, manias e pânicos, narrativa vs fundamento, FOMO, aversão à perda, overtrading, timing, como criar um sistema de decisão com checklists e governança. Parte 4/8 da Enciclopédia da Bolsa.",
+      "url": "/posts/enciclopedia-da-bolsa-parte-4-psicologia-do-mercado",
+      "slug": "enciclopedia-da-bolsa-parte-4-psicologia-do-mercado",
+      "date": "",
+      "readTime": "120 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": []
+    },
+    {
+      "title": "Enciclopédia da Bolsa (5/8): Ciclos de Mercado (Juros, Lucros, Liquidez e Regimes)",
+      "excerpt": "Ciclos de mercado em nível institucional: regimes (expansão, desaceleração, recessão, recuperação), juros, inflação, liquidez, lucros, múltiplos, drawdowns, indicadores, e como transformar ciclo em regras de carteira sem tentar prever o futuro. Parte 5/8 da Enciclopédia da Bolsa.",
+      "url": "/posts/enciclopedia-da-bolsa-parte-5-ciclos-de-mercado",
+      "slug": "enciclopedia-da-bolsa-parte-5-ciclos-de-mercado",
+      "date": "",
+      "readTime": "140 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": []
+    },
+    {
+      "title": "Enciclopédia da Bolsa (6/8): Construção de Portfólio (Alocação, Blocos, Rebalanceamento e Método)",
+      "excerpt": "Construção de portfólio em nível institucional: alocação por objetivos, core-satellite, diversificação por drivers, ETFs vs ações, rebalanceamento, sizing, convexidade, disciplina e templates práticos para montar carteira sem fantasia. Parte 6/8 da Enciclopédia da Bolsa.",
+      "url": "/posts/enciclopedia-da-bolsa-parte-6-construcao-de-portfolio",
+      "slug": "enciclopedia-da-bolsa-parte-6-construcao-de-portfolio",
+      "date": "",
+      "readTime": "140 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": []
+    },
+    {
+      "title": "Enciclopédia da Bolsa (7/8): Gestão de Risco (Drawdown, Ruína, Sizing e Governança)",
+      "excerpt": "Gestão de risco em nível institucional: drawdown, risco de ruína, correlação em crise, sizing, alavancagem escondida, liquidez, stop mental vs técnico, hedges, stress testing e governança. Parte 7/8 da Enciclopédia da Bolsa.",
+      "url": "/posts/enciclopedia-da-bolsa-parte-7-gestao-de-risco",
+      "slug": "enciclopedia-da-bolsa-parte-7-gestao-de-risco",
+      "date": "",
+      "readTime": "150 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": []
+    },
+    {
+      "title": "Enciclopédia da Bolsa (8/8): Erros Fatais do Investidor (Manual Anti-Ruína)",
+      "excerpt": "Erros fatais do investidor em nível institucional: ruína, alavancagem, concentração, narrativas, overtrading, falta de método, risco de crédito e liquidez, timing, viés comportamental e governança. Parte 8/8 da Enciclopédia da Bolsa.",
+      "url": "/posts/enciclopedia-da-bolsa-parte-8-erros-fatais-do-investidor",
+      "slug": "enciclopedia-da-bolsa-parte-8-erros-fatais-do-investidor",
+      "date": "",
+      "readTime": "150 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": []
+    },
+    {
+      "title": "Enciclopédia do Primeiro Milhão (Parte 1/8) — Fundamentos Matemáticos Reais",
+      "excerpt": "Tratado técnico: meta real, inflação 4% a.a., retorno real 6% a.a. Modelos determinísticos + base probabilística.",
+      "url": "/posts/enciclopedia-primeiro-milhao-parte-1",
+      "slug": "enciclopedia-primeiro-milhao-parte-1",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Enciclopédia do Primeiro Milhão (Parte 2/8) — Motor (Renda, Aporte e Política)",
+      "excerpt": "Tratado técnico: taxa de investimento, crescimento real de renda, política de aportes e tempo para o milhão em termos reais.",
+      "url": "/posts/enciclopedia-primeiro-milhao-parte-2",
+      "slug": "enciclopedia-primeiro-milhao-parte-2",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Enciclopédia do Primeiro Milhão (Parte 3/8) — Arquitetura de Carteira (Nível Institucional)",
+      "excerpt": "Tratado técnico: premissas, risco, correlação, budget de risco, core/satélite e rebalanceamento por bandas para a construção do primeiro milhão em termos reais.",
+      "url": "/posts/enciclopedia-primeiro-milhao-parte-3",
+      "slug": "enciclopedia-primeiro-milhao-parte-3",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Enciclopédia do Primeiro Milhão (Parte 4/8) — Modelos e Simulação (Determinístico + Estocástico)",
+      "excerpt": "Tratado técnico: tempo para o milhão em termos reais, simulação estocástica, quantis, risco de sequência e políticas de execução robustas.",
+      "url": "/posts/enciclopedia-primeiro-milhao-parte-4",
+      "slug": "enciclopedia-primeiro-milhao-parte-4",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Enciclopédia do Primeiro Milhão (Parte 5/8) — Psicologia Quantitativa e Controle de Processo",
+      "excerpt": "Tratado técnico: vieses, ruína comportamental, governança e regras executáveis para manter o plano no mundo real.",
+      "url": "/posts/enciclopedia-primeiro-milhao-parte-5",
+      "slug": "enciclopedia-primeiro-milhao-parte-5",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Enciclopédia do Primeiro Milhão (Parte 6/8) — Riscos e Armadilhas",
+      "excerpt": "Tratado técnico: ruína, concentração, crédito, liquidez, alavancagem e impostos — o que realmente destrói planos de longo prazo.",
+      "url": "/posts/enciclopedia-primeiro-milhao-parte-6",
+      "slug": "enciclopedia-primeiro-milhao-parte-6",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Enciclopédia do Primeiro Milhão (Parte 7/8) — De 500k a 1M",
+      "excerpt": "Tratado técnico: como o efeito avalanche muda o jogo do 500k para 1M e quais regras institucionais aceleram sem aumentar ruína.",
+      "url": "/posts/enciclopedia-primeiro-milhao-parte-7",
+      "slug": "enciclopedia-primeiro-milhao-parte-7",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Enciclopédia do Primeiro Milhão (Parte 8/8) — Blindagem e Consolidação",
+      "excerpt": "Tratado técnico: preservação, imposto, sucessão, política pós-meta e anti-ruína vitalícia.",
+      "url": "/posts/enciclopedia-primeiro-milhao-parte-8",
+      "slug": "enciclopedia-primeiro-milhao-parte-8",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
     },
     {
       "title": "Guia Completo de Investimentos para Iniciantes (2026)",
-      "excerpt": "Aprenda a investir do zero com segurança em 2026: reserva de emergência, renda fixa, ETFs, FIIs, ações, diversificação e um plano prático para construir patr...",
-      "url": "/posts/guia-completo-investimentos-iniciantes-2026.html",
+      "excerpt": "Do zero ao plano de longo prazo: reserva, renda fixa, ETFs, FIIs, ações e checklist prático para construir patrimônio.",
+      "url": "/posts/guia-completo-investimentos-iniciantes-2026",
+      "slug": "guia-completo-investimentos-iniciantes-2026",
       "date": "",
-      "readTime": "20–30 min de leitura",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Guia Institucional de Dividendos: Mitos, Matemática e Estratégia (Sem Fantasia)",
+      "excerpt": "Um guia institucional e extremamente denso sobre dividendos: mitos comuns, matemática real (retorno total, yield, payout, buybacks), estratégia para acumulação e renda, riscos, armadilhas de dividend yield, regimes macro, governança e checklists profissionais.",
+      "url": "/posts/guia-institucional-de-dividendos-mitos-matematica-estrategia",
+      "slug": "guia-institucional-de-dividendos-mitos-matematica-estrategia",
+      "date": "",
+      "readTime": "95 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": []
+    },
+    {
+      "title": "Guia Institucional de FIIs (Parte 1/8) — Fundamentos Estruturais",
+      "excerpt": "Estrutura jurídica, governança, natureza econômica e matriz institucional de riscos dos FIIs. Nível profissional, neutro e técnico.",
+      "url": "/posts/guia-institucional-fiis-parte-1",
+      "slug": "guia-institucional-fiis-parte-1",
+      "date": "",
+      "readTime": "",
       "image": "/images/blog-cover.svg",
       "tags": [
-        "Iniciante"
+        "fundos imobiliários",
+        "FII",
+        "governança",
+        "CVM"
       ]
     },
     {
-      "title": "CDB vs LCI/LCA: quando compensa (líquido vs bruto, IR, carência e prazo)",
-      "excerpt": "Compare CDB e LCI/LCA do jeito certo: líquido vs bruto, IR regressivo, IOF, carência e equivalência de taxa. Guia completo com regras práticas.",
-      "url": "/posts/cdb-vs-lci-lca-quando-compensa.html",
+      "title": "Guia Institucional de FIIs (Parte 2/8) — Modelagem Econômica",
+      "excerpt": "NOI, Cap Rate, NAV, prêmio/desconto, DCF e stress tests. Valuation institucional com exemplos numéricos hipotéticos.",
+      "url": "/posts/guia-institucional-fiis-parte-2",
+      "slug": "guia-institucional-fiis-parte-2",
       "date": "",
-      "readTime": "3 min de leitura",
+      "readTime": "",
       "image": "/images/blog-cover.svg",
       "tags": [
-        "Renda Fixa"
+        "FII",
+        "NOI",
+        "cap rate",
+        "NAV"
       ]
     },
     {
-      "title": "Criptomoedas para Iniciantes: Guia Completo para Começar a Investir",
-      "excerpt": "Criptomoedas para Iniciantes: Guia Completo para Começar a Investir - Aprenda os fundamentos das criptomoedas, como funcionam, riscos e oportunidades para in...",
-      "url": "/posts/como-economizar-dinheiro.html",
+      "title": "Guia Institucional de FIIs (Parte 4/8) — FIIs de Papel (CRI)",
+      "excerpt": "Crédito, estrutura, spread, duration, marcação a mercado e stress tests em FIIs de papel (CRI), nível institucional.",
+      "url": "/posts/guia-institucional-fiis-parte-4",
+      "slug": "guia-institucional-fiis-parte-4",
       "date": "",
-      "readTime": "3 min de leitura",
-      "image": "/images/post-criptomoedas.jpg",
-      "tags": [
-        "Finanças Pessoais"
-      ]
-    },
-    {
-      "title": "Criptomoedas para Iniciantes: Guia Completo para Começar a Investir",
-      "excerpt": "Criptomoedas para Iniciantes: Guia Completo para Começar a Investir - Aprenda os fundamentos das criptomoedas, como funcionam, riscos e oportunidades para in...",
-      "url": "/posts/criptomoedas-para-iniciantes.html",
-      "date": "",
-      "readTime": "22 min de leitura",
-      "image": "/images/post-criptomoedas.jpg",
-      "tags": [
-        "Iniciante",
-        "Cripto"
-      ]
-    },
-    {
-      "title": "Criptomoedas para Iniciantes: Guia Completo para Começar a Investir",
-      "excerpt": "Criptomoedas para Iniciantes: Guia Completo para Começar a Investir - Aprenda os fundamentos das criptomoedas, como funcionam, riscos e oportunidades para in...",
-      "url": "/posts/investimentos-para-iniciantes.html",
-      "date": "",
-      "readTime": "3 min de leitura",
-      "image": "/images/post-criptomoedas.jpg",
-      "tags": [
-        "Iniciante"
-      ]
-    },
-    {
-      "title": "Criptomoedas para Iniciantes: Guia Completo para Começar a Investir",
-      "excerpt": "Criptomoedas para Iniciantes: Guia Completo para Começar a Investir - Aprenda os fundamentos das criptomoedas, como funcionam, riscos e oportunidades para in...",
-      "url": "/posts/o-poder-dos-juros-compostos.html",
-      "date": "",
-      "readTime": "3 min de leitura",
-      "image": "/images/post-criptomoedas.jpg",
-      "tags": [
-        "Investimentos"
-      ]
-    },
-    {
-      "title": "Educação Financeira nas Escolas: Formando a Próxima Geração de Investidores",
-      "excerpt": "Educação Financeira nas Escolas: Formando a Próxima Geração de Investidores - Descubra como a educação financeira nas escolas pode transformar o futuro finan...",
-      "url": "/posts/educacao-financeira-escolas.html",
-      "date": "",
-      "readTime": "7 min de leitura",
-      "image": "/images/post-educacao-financeira-escolas.jpg",
-      "tags": [
-        "Investimentos"
-      ]
-    },
-    {
-      "title": "Estratégias de Investimento para Diferentes Perfis de Risco",
-      "excerpt": "Estratégias de Investimento para Diferentes Perfis de Risco - Descubra qual perfil de investidor você é e as melhores estratégias para cada nível de tolerânc...",
-      "url": "/posts/estrategias-investimento-perfis-risco.html",
-      "date": "",
-      "readTime": "20 min de leitura",
-      "image": "/images/post-estrategias-investimento.jpg",
-      "tags": [
-        "Investimentos"
-      ]
-    },
-    {
-      "title": "ETFs: como escolher 3 para a vida inteira (checklist, modelos e rebalanceamento)",
-      "excerpt": "Um método completo para montar uma base com 3 ETFs: critérios, custos, diversificação real, sobreposição, modelos de carteira e regra simples de rebalanceame...",
-      "url": "/posts/etfs-como-escolher-3-para-vida-inteira.html",
-      "date": "",
-      "readTime": "4 min de leitura",
+      "readTime": "",
       "image": "/images/blog-cover.svg",
       "tags": [
-        "ETFs"
+        "FII papel",
+        "CRI",
+        "subordinação",
+        "LTV"
       ]
     },
     {
-      "title": "FIIs: Dividend Yield alto é armadilha? (métricas, sinais e checklist completo)",
-      "excerpt": "Entenda quando DY alto em FIIs é oportunidade e quando é cilada. Um método em blocos com sinais, métricas, governança e checklist para decidir.",
-      "url": "/posts/fiis-dividend-yield-alto-armadilha.html",
+      "title": "Guia Institucional de FIIs (Parte 5/8) — FOFs",
+      "excerpt": "NAV vs preço, desconto, custo total, rotação e attribution em FOFs. Framework institucional e stress tests.",
+      "url": "/posts/guia-institucional-fiis-parte-5",
+      "slug": "guia-institucional-fiis-parte-5",
       "date": "",
-      "readTime": "4 min de leitura",
+      "readTime": "",
       "image": "/images/blog-cover.svg",
       "tags": [
-        "FIIs"
+        "FOF",
+        "fundo de fundos",
+        "NAV",
+        "desconto"
       ]
     },
     {
-      "title": "Finanças para Casais: Como Gerenciar o Dinheiro a Dois",
-      "excerpt": "Finanças para Casais: Como Gerenciar o Dinheiro a Dois - Aprenda estratégias eficazes para administrar as finanças em conjunto e evitar conflitos relacionado...",
-      "url": "/posts/financas-para-casais.html",
+      "title": "Guia Institucional de FIIs (Parte 6/8) — Ciclos, Juros, Curva, Spreads e Cap Rate",
+      "excerpt": "Framework macro institucional para FIIs: regimes, duration, cap rate, curva e spreads + stress tests.",
+      "url": "/posts/guia-institucional-fiis-parte-6",
+      "slug": "guia-institucional-fiis-parte-6",
       "date": "",
-      "readTime": "22 min de leitura",
-      "image": "/images/post-financas-casais.jpg",
-      "tags": [
-        "Finanças Pessoais"
-      ]
-    },
-    {
-      "title": "Fundo de Emergência: Por Que Você Precisa e Como Construir o Seu",
-      "excerpt": "Fundo de Emergência: Por Que Você Precisa e Como Construir o Seu - Aprenda a importância de ter um fundo de emergência e estratégias práticas para construí-l...",
-      "url": "/posts/fundo-emergencia.html",
-      "date": "",
-      "readTime": "14 min de leitura",
-      "image": "/images/post-fundo-emergencia.jpg",
-      "tags": [
-        "Investimentos"
-      ]
-    },
-    {
-      "title": "Investimentos Sustentáveis: Como Lucrar Enquanto Contribui para um Mundo Melhor",
-      "excerpt": "Investimentos Sustentáveis: Como Lucrar Enquanto Contribui para um Mundo Melhor - Descubra como alinhar seus investimentos com valores ambientais, sociais e...",
-      "url": "/posts/investimentos-sustentaveis.html",
-      "date": "",
-      "readTime": "14 min de leitura",
-      "image": "/images/post-investimentos-sustentaveis.jpg",
-      "tags": [
-        "Investimentos"
-      ]
-    },
-    {
-      "title": "IR regressivo na renda fixa: entenda, simule e maximize o líquido (legalmente)",
-      "excerpt": "Guia completo do IR regressivo: como funciona, como o prazo muda o líquido, IOF até 29 dias e estratégias práticas para pagar menos imposto legalmente.",
-      "url": "/posts/renda-fixa-ir-regressivo-entenda.html",
-      "date": "",
-      "readTime": "3 min de leitura",
+      "readTime": "",
       "image": "/images/blog-cover.svg",
       "tags": [
-        "Renda Fixa"
+        "ciclos FIIs",
+        "curva de juros",
+        "cap rate",
+        "spreads de crédito"
       ]
     },
     {
-      "title": "Minimalismo Financeiro: Como Simplificar Suas Finanças e Viver Melhor",
-      "excerpt": "Minimalismo Financeiro: Como Simplificar Suas Finanças e Viver Melhor - Descubra como aplicar os princípios do minimalismo às suas finanças para reduzir o es...",
-      "url": "/posts/minimalismo-financeiro.html",
+      "title": "Guia Institucional de FIIs (Parte 7/8) — Carteira Institucional",
+      "excerpt": "IPS, orçamento de risco, diversificação, limites e rebalanceamento — framework institucional para carteira de FIIs.",
+      "url": "/posts/guia-institucional-fiis-parte-7",
+      "slug": "guia-institucional-fiis-parte-7",
       "date": "",
-      "readTime": "12 min de leitura",
-      "image": "/images/post-minimalismo-financeiro.jpg",
-      "tags": [
-        "Investimentos"
-      ]
-    },
-    {
-      "title": "Orçamento Familiar: Guia Completo para Organizar as Finanças da Sua Família",
-      "excerpt": "Orçamento Familiar: Guia Completo para Organizar as Finanças da Sua Família - Aprenda a criar e gerenciar um orçamento familiar eficiente para alcançar seus...",
-      "url": "/posts/orcamento-familiar.html",
-      "date": "",
-      "readTime": "13 min de leitura",
-      "image": "/images/post-orcamento-familiar.jpg",
-      "tags": [
-        "Finanças Pessoais"
-      ]
-    },
-    {
-      "title": "Planejamento de Aposentadoria: Como Garantir um Futuro Financeiramente Tranquilo",
-      "excerpt": "Planejamento de Aposentadoria: Como Garantir um Futuro Financeiramente Tranquilo - Aprenda estratégias eficazes para planejar sua aposentadoria e garantir se...",
-      "url": "/posts/planejamento-aposentadoria.html",
-      "date": "",
-      "readTime": "21 min de leitura",
-      "image": "/images/post-planejamento-aposentadoria.jpg",
-      "tags": [
-        "Investimentos"
-      ]
-    },
-    {
-      "title": "Psicologia Financeira: Como Sua Mente Influencia Suas Decisões de Dinheiro",
-      "excerpt": "Psicologia Financeira: Como Sua Mente Influencia Suas Decisões de Dinheiro - Entenda os vieses cognitivos e emocionais que afetam suas escolhas financeiras e...",
-      "url": "/posts/psicologia-financeira.html",
-      "date": "",
-      "readTime": "16 min de leitura",
-      "image": "/images/post-psicologia-financeira.jpg",
-      "tags": [
-        "Mentalidade"
-      ]
-    },
-    {
-      "title": "Rebalanceamento de carteira: o guia definitivo (regras, exemplos e checklist)",
-      "excerpt": "Aprenda rebalanceamento do zero: por que fazer, quando rebalancear, como usar aportes, regras prontas (calendário/banda) e erros que sabotam resultados.",
-      "url": "/posts/rebalanceamento-carteira-como-fazer.html",
-      "date": "",
-      "readTime": "3 min de leitura",
+      "readTime": "",
       "image": "/images/blog-cover.svg",
       "tags": [
-        "Carteira"
+        "carteira de FIIs",
+        "IPS",
+        "orçamento de risco",
+        "correlação"
       ]
     },
     {
-      "title": "Renda fixa: quando IPCA+ faz mais sentido (e quando evitar) — guia completo",
-      "excerpt": "Entenda IPCA+ com profundidade: taxa real, marcação a mercado, prazos e estratégias para usar com segurança em objetivos longos como aposentadoria.",
-      "url": "/posts/renda-fixa-quando-ipca-mais-faz-sentido.html",
+      "title": "A História Completa das Crises Financeiras (1637–2024) | Padrões, Modelos e Como Investidores Reais Sobrevivem",
+      "excerpt": "Um guia institucional e extremamente denso sobre crises financeiras: da Tulip Mania (1637) a 2024. Entenda os padrões que se repetem, as engrenagens de crédito, alavancagem, liquidez e o que investidores profissionais fazem antes, durante e depois do pânico.",
+      "url": "/posts/historia-das-crises-financeiras-1637-2024",
+      "slug": "historia-das-crises-financeiras-1637-2024",
       "date": "",
-      "readTime": "3 min de leitura",
+      "readTime": "70 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": []
+    },
+    {
+      "title": "Macroeconomia Institucional para Investidores (Parte 1/8)",
+      "excerpt": "RBC, equilíbrio e núcleo real. Base institucional (CFA-like) para precificação e ciclos.",
+      "url": "/posts/macroeconomia-institucional-parte-1",
+      "slug": "macroeconomia-institucional-parte-1",
+      "date": "",
+      "readTime": "",
       "image": "/images/blog-cover.svg",
-      "tags": [
-        "Renda Fixa"
-      ]
+      "tags": []
+    },
+    {
+      "title": "Macroeconomia Institucional para Investidores (Parte 2/8)",
+      "excerpt": "NK Phillips, política monetária e inflação. Nível institucional (CFA-like).",
+      "url": "/posts/macroeconomia-institucional-parte-2",
+      "slug": "macroeconomia-institucional-parte-2",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Macroeconomia Institucional (Parte 3/8)",
+      "excerpt": "Restrição fiscal intertemporal, TVC e dominância. Nível institucional.",
+      "url": "/posts/macroeconomia-institucional-parte-3",
+      "slug": "macroeconomia-institucional-parte-3",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Macroeconomia Institucional (Parte 4/8)",
+      "excerpt": "Equilíbrio geral com risco e prêmio endógeno. Nível institucional.",
+      "url": "/posts/macroeconomia-institucional-parte-4",
+      "slug": "macroeconomia-institucional-parte-4",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Macroeconomia Institucional (Parte 5/8)",
+      "excerpt": "Regimes, identificação e nowcasting para investidores. Nível institucional.",
+      "url": "/posts/macroeconomia-institucional-parte-5",
+      "slug": "macroeconomia-institucional-parte-5",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Macroeconomia Institucional (Parte 6/8)",
+      "excerpt": "Transmissão para ativos: juros, FX e crédito. Nível institucional.",
+      "url": "/posts/macroeconomia-institucional-parte-6",
+      "slug": "macroeconomia-institucional-parte-6",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Macroeconomia Institucional (Parte 7/8)",
+      "excerpt": "Ciclos, curvas e regras de carteira. Nível institucional.",
+      "url": "/posts/macroeconomia-institucional-parte-7",
+      "slug": "macroeconomia-institucional-parte-7",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Macroeconomia Institucional (Parte 8/8)",
+      "excerpt": "Framework final, checklist e governança. Nível institucional.",
+      "url": "/posts/macroeconomia-institucional-parte-8",
+      "slug": "macroeconomia-institucional-parte-8",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
     },
     {
       "title": "Reserva de emergência: onde guardar (e onde NÃO) — guia completo",
       "excerpt": "Aprenda a montar uma reserva de emergência em camadas: valor ideal, onde guardar com liquidez e segurança, e as 10 armadilhas que destroem sua proteção.",
-      "url": "/posts/reserva-de-emergencia-onde-guardar-e-onde-nao.html",
+      "url": "/posts/reserva-de-emergencia-onde-guardar-e-onde-nao",
+      "slug": "reserva-de-emergencia-onde-guardar-e-onde-nao",
       "date": "",
-      "readTime": "4 min de leitura",
+      "readTime": "",
       "image": "/images/blog-cover.svg",
       "tags": [
-        "Investimentos"
+        "reserva de emergência",
+        "onde guardar",
+        "tesouro selic",
+        "cdb liquidez diária"
       ]
     },
     {
-      "title": "Tesouro Selic vs CDB liquidez diária: qual escolher (guia completo e prático)",
-      "excerpt": "Comparação profunda entre Tesouro Selic e CDB de liquidez diária: liquidez real, impostos, custos e como escolher por objetivo com regras claras.",
-      "url": "/posts/tesouro-selic-vs-cdb-liquidez-diaria.html",
+      "title": "Valuation Institucional: Guia Completo (DCF, WACC, ROIC e Margem de Segurança)",
+      "excerpt": "Um guia institucional e extremamente denso de valuation: DCF do zero ao avançado, WACC profundo, ROIC vs WACC como motor de valor, crescimento que cria ou destrói valor, múltiplos sem armadilhas, cenários, margem de segurança e governança de carteira.",
+      "url": "/posts/valuation-institucional-guia-completo",
+      "slug": "valuation-institucional-guia-completo",
       "date": "",
-      "readTime": "3 min de leitura",
+      "readTime": "90 min de leitura",
+      "image": "/images/blog-default.svg",
+      "tags": []
+    },
+    {
+      "title": "Warren Buffett — Biografia Institucional (Parte 1/8)",
+      "excerpt": "Origem, formação e a máquina mental. Padrão institucional.",
+      "url": "/posts/warren-buffett-biografia-institucional-parte-1",
+      "slug": "warren-buffett-biografia-institucional-parte-1",
+      "date": "",
+      "readTime": "",
       "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Warren Buffett — Biografia Institucional (Parte 2/8)",
+      "excerpt": "Graham, Partnerships e método operacional. Padrão institucional.",
+      "url": "/posts/warren-buffett-biografia-institucional-parte-2",
+      "slug": "warren-buffett-biografia-institucional-parte-2",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Warren Buffett — Biografia Institucional (Parte 3/8)",
+      "excerpt": "Berkshire, a virada do ‘cigar butt’ e a máquina de capital allocation.",
+      "url": "/posts/warren-buffett-biografia-institucional-parte-3",
+      "slug": "warren-buffett-biografia-institucional-parte-3",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Warren Buffett — Biografia Institucional (Parte 4/8)",
+      "excerpt": "Moats, cultura, gestão e capital allocation como vantagem competitiva.",
+      "url": "/posts/warren-buffett-biografia-institucional-parte-4",
+      "slug": "warren-buffett-biografia-institucional-parte-4",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Warren Buffett — Parte 5/8 (Carta Anual)",
+      "excerpt": "Compounding, concentração e economia real de negócios — no estilo carta anual.",
+      "url": "/posts/warren-buffett-biografia-institucional-parte-5",
+      "slug": "warren-buffett-biografia-institucional-parte-5",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Warren Buffett — Parte 6/8 (Carta Anual)",
+      "excerpt": "Risco, crises e liquidez — a disciplina que permite o compounding sobreviver.",
+      "url": "/posts/warren-buffett-biografia-institucional-parte-6",
+      "slug": "warren-buffett-biografia-institucional-parte-6",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-cover.svg",
+      "tags": []
+    },
+    {
+      "title": "Warren Buffett — Parte 7/8 | Carta Anual: Filosofia, Temperamento e Disciplina Quantitativa",
+      "excerpt": "Parte 7/8 em nível carta anual: círculo de competência, temperamento, utilidade esperada, prospect theory, decisão bayesiana e um framework quantitativo de disciplina para compounding.",
+      "url": "/posts/warren-buffett-biografia-institucional-parte-7",
+      "slug": "warren-buffett-biografia-institucional-parte-7",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-default.svg",
+      "tags": []
+    },
+    {
+      "title": "Warren Buffett — Parte 8/8 | Carta Anual Final: IPS, Checklist, Governança e Execução do Compounding",
+      "excerpt": "Parte 8/8 em nível carta anual: sucessão e governança Berkshire, doutrina final de compounding, IPS pessoal estilo Buffett, checklist executável, métricas e rotinas de decisão.",
+      "url": "/posts/warren-buffett-biografia-institucional-parte-8",
+      "slug": "warren-buffett-biografia-institucional-parte-8",
+      "date": "",
+      "readTime": "",
+      "image": "/images/blog-default.svg",
+      "tags": []
+    },
+    {
+      "title": "Criptomoedas para Iniciantes: Guia Completo para Começar a Investir",
+      "excerpt": "Aprenda os fundamentos das criptomoedas, como funcionam, riscos e oportunidades para investidores iniciantes.",
+      "url": "/posts/criptomoedas-para-iniciantes",
+      "slug": "criptomoedas-para-iniciantes",
+      "date": "28/05/2025",
+      "readTime": "15 min de leitura",
+      "image": "/images/post-criptomoedas.jpg",
       "tags": [
-        "Renda Fixa"
+        "criptomoedas",
+        "bitcoin",
+        "ethereum",
+        "blockchain"
+      ]
+    },
+    {
+      "title": "Educação Financeira nas Escolas: Formando a Próxima Geração de Investidores",
+      "excerpt": "Descubra como a educação financeira nas escolas pode transformar o futuro financeiro das crianças e adolescentes.",
+      "url": "/posts/educacao-financeira-escolas",
+      "slug": "educacao-financeira-escolas",
+      "date": "28/05/2025",
+      "readTime": "10 min de leitura",
+      "image": "/images/post-educacao-financeira-escolas.jpg",
+      "tags": [
+        "educação financeira",
+        "escolas",
+        "crianças",
+        "adolescentes"
+      ]
+    },
+    {
+      "title": "Estratégias de Investimento para Diferentes Perfis de Risco",
+      "excerpt": "Descubra qual perfil de investidor você é e as melhores estratégias para cada nível de tolerância ao risco.",
+      "url": "/posts/estrategias-investimento-perfis-risco",
+      "slug": "estrategias-investimento-perfis-risco",
+      "date": "28/05/2025",
+      "readTime": "12 min de leitura",
+      "image": "/images/post-estrategias-investimento.jpg",
+      "tags": [
+        "perfil de investidor",
+        "estratégias de investimento",
+        "conservador",
+        "moderado"
+      ]
+    },
+    {
+      "title": "Finanças para Casais: Como Gerenciar o Dinheiro a Dois",
+      "excerpt": "Aprenda estratégias eficazes para administrar as finanças em conjunto e evitar conflitos relacionados a dinheiro no relacionamento.",
+      "url": "/posts/financas-para-casais",
+      "slug": "financas-para-casais",
+      "date": "28/05/2025",
+      "readTime": "14 min de leitura",
+      "image": "/images/post-financas-casais.jpg",
+      "tags": [
+        "finanças para casais",
+        "dinheiro no relacionamento",
+        "orçamento familiar",
+        "planejamento financeiro casal"
+      ]
+    },
+    {
+      "title": "Fundo de Emergência: Por Que Você Precisa e Como Construir o Seu",
+      "excerpt": "Aprenda a importância de ter um fundo de emergência e estratégias práticas para construí-lo mesmo com orçamento apertado.",
+      "url": "/posts/fundo-emergencia",
+      "slug": "fundo-emergencia",
+      "date": "28/05/2025",
+      "readTime": "10 min de leitura",
+      "image": "/images/post-fundo-emergencia.jpg",
+      "tags": [
+        "fundo de emergência",
+        "reserva financeira",
+        "segurança financeira",
+        "planejamento financeiro"
+      ]
+    },
+    {
+      "title": "Investimentos Sustentáveis: Como Lucrar Enquanto Contribui para um Mundo Melhor",
+      "excerpt": "Descubra como alinhar seus investimentos com valores ambientais, sociais e de governança sem abrir mão da rentabilidade.",
+      "url": "/posts/investimentos-sustentaveis",
+      "slug": "investimentos-sustentaveis",
+      "date": "28/05/2025",
+      "readTime": "12 min de leitura",
+      "image": "/images/post-investimentos-sustentaveis.jpg",
+      "tags": [
+        "investimentos sustentáveis",
+        "ESG",
+        "investimento responsável",
+        "finanças sustentáveis"
+      ]
+    },
+    {
+      "title": "Minimalismo Financeiro: Como Simplificar Suas Finanças e Viver Melhor",
+      "excerpt": "Descubra como aplicar os princípios do minimalismo às suas finanças para reduzir o estresse e aumentar sua qualidade de vida.",
+      "url": "/posts/minimalismo-financeiro",
+      "slug": "minimalismo-financeiro",
+      "date": "28/05/2025",
+      "readTime": "12 min de leitura",
+      "image": "/images/post-minimalismo-financeiro.jpg",
+      "tags": [
+        "minimalismo financeiro",
+        "finanças pessoais",
+        "simplificação financeira",
+        "consumo consciente"
+      ]
+    },
+    {
+      "title": "Orçamento Familiar: Guia Completo para Organizar as Finanças da Sua Família",
+      "excerpt": "Aprenda a criar e gerenciar um orçamento familiar eficiente para alcançar seus objetivos financeiros.",
+      "url": "/posts/orcamento-familiar",
+      "slug": "orcamento-familiar",
+      "date": "28/05/2025",
+      "readTime": "11 min de leitura",
+      "image": "/images/post-orcamento-familiar.jpg",
+      "tags": [
+        "orçamento familiar",
+        "finanças pessoais",
+        "planejamento financeiro",
+        "economia doméstica"
+      ]
+    },
+    {
+      "title": "Planejamento de Aposentadoria: Como Garantir um Futuro Financeiramente Tranquilo",
+      "excerpt": "Aprenda estratégias eficazes para planejar sua aposentadoria e garantir segurança financeira no futuro.",
+      "url": "/posts/planejamento-aposentadoria",
+      "slug": "planejamento-aposentadoria",
+      "date": "28/05/2025",
+      "readTime": "13 min de leitura",
+      "image": "/images/post-planejamento-aposentadoria.jpg",
+      "tags": [
+        "planejamento de aposentadoria",
+        "previdência",
+        "independência financeira",
+        "aposentadoria"
+      ]
+    },
+    {
+      "title": "Psicologia Financeira: Como Sua Mente Influencia Suas Decisões de Dinheiro",
+      "excerpt": "Entenda os vieses cognitivos e emocionais que afetam suas escolhas financeiras e aprenda a tomar decisões mais racionais.",
+      "url": "/posts/psicologia-financeira",
+      "slug": "psicologia-financeira",
+      "date": "28/05/2025",
+      "readTime": "11 min de leitura",
+      "image": "/images/post-psicologia-financeira.jpg",
+      "tags": [
+        "psicologia financeira",
+        "vieses cognitivos",
+        "comportamento financeiro",
+        "finanças comportamentais"
       ]
     }
   ]
