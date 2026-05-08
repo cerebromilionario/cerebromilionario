@@ -310,19 +310,9 @@ function saveConsent(prefs) {
 }
 
 // ── SCRIPT LOADERS (gated on consent) ────────────────────
-// Replace analytics placeholders when the account is active.
 
 function loadAnalytics() {
-    // GA4 — uncomment and replace G-XXXXXXXXXX when property is ready
-    // if (document.querySelector('script[src*="googletagmanager"]')) return;
-    // const s = document.createElement('script');
-    // s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
-    // s.async = true;
-    // document.head.appendChild(s);
-    // window.dataLayer = window.dataLayer || [];
-    // function gtag(){dataLayer.push(arguments);}
-    // gtag('js', new Date());
-    // gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+    // Analytics consent is stored without loading a provider script by default.
 }
 
 function loadAds() {
