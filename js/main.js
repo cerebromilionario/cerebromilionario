@@ -148,17 +148,23 @@ async function loadLatestPosts() {
     const grid = document.getElementById('latest-posts-grid');
     if (!grid) return;
     const posts = await fetchPostsIndex();
+    if (!posts.length) return;
     const latest = posts.slice(0, 4);
+    // Only overwrite if the first rendered card doesn't match the latest post URL
+    // (static HTML and JS data are in sync — skip re-render to avoid flash)
+    const firstCard = grid.querySelector('.news-card');
+    if (firstCard && firstCard.getAttribute('href') === latest[0].url) return;
     grid.innerHTML = latest.map(post => `
         <a href="${post.url}" class="news-card">
             <div class="news-card-img">
-                <img src="${post.image || '/images/blog-cover.svg'}" alt="${post.title}" loading="lazy">
+                <img src="${post.image || '/images/blog-default.svg'}" alt="${post.title}" loading="lazy">
             </div>
             <div class="news-card-content">
-                <span class="news-tag">${post.category || 'Educação'}</span>
+                <span class="news-tag">${(post.tags && post.tags[0]) || post.category || 'Educação'}</span>
                 <h3>${post.title}</h3>
+                <p class="news-excerpt">${post.excerpt || ''}</p>
                 <div class="news-meta">
-                    <span><i class="far fa-calendar"></i> ${post.date ? post.date.split('-').reverse().join('/') : ''}</span>
+                    <span><i class="far fa-calendar"></i> ${post.date || ''}</span>
                     <span><i class="far fa-clock"></i> ${post.readTime || ''}</span>
                 </div>
             </div>
