@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Comparador CDB vs LCI/LCA (Bruto x Líquido) | Cérebro Milionário</title>
-<meta content="Compare CDB vs LCI/LCA com cálculo de rendimento bruto e líquido, IR regressivo, IOF (opcional) e equivalência de taxas. Ferramenta gratuita do Cérebro Milionário." name="description"/>
+<title>Calculadora de IR Renda Fixa — Quanto Você Paga de Imposto? | Cérebro Milionário</title>
+<meta content="Calcule exatamente quanto de IR regressivo você paga no seu CDB, LCI, LCA ou Tesouro Direto. Veja o lucro líquido, a alíquota pelo prazo e o valor final. Ferramenta gratuita." name="description"/>
 <!-- Icons -->
 <link href="/images/favicon.png" rel="icon"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" referrerpolicy="no-referrer" rel="stylesheet"/>
@@ -15,23 +15,23 @@
 <!-- Open Graph -->
 <meta content="website" property="og:type"/>
 <meta content="https://cerebromilionario.site/calculadora-ir-renda-fixa" property="og:url"/>
-<meta content="Comparador CDB vs LCI/LCA (Bruto x Líquido) | Cérebro Milionário" property="og:title"/>
-<meta content="Compare CDB vs LCI/LCA com cálculo de rendimento bruto e líquido, IR regressivo, IOF (opcional) e equivalência de taxas." property="og:description"/>
+<meta content="Calculadora de IR Renda Fixa | Cérebro Milionário" property="og:title"/>
+<meta content="Calcule exatamente quanto de IR regressivo você paga no seu CDB, LCI, LCA ou Tesouro Direto. Veja o lucro líquido e o valor final após impostos." property="og:description"/>
 <meta content="https://cerebromilionario.site/images/og-calculadora.jpg" property="og:image"/>
 <!-- Twitter -->
 <meta content="summary_large_image" property="twitter:card"/>
 <meta content="https://cerebromilionario.site/calculadora-ir-renda-fixa" property="twitter:url"/>
-<meta content="Comparador CDB vs LCI/LCA (Bruto x Líquido) | Cérebro Milionário" property="twitter:title"/>
-<meta content="Compare CDB vs LCI/LCA com cálculo de rendimento bruto e líquido, IR regressivo, IOF (opcional) e equivalência de taxas." property="twitter:description"/>
+<meta content="Calculadora de IR Renda Fixa | Cérebro Milionário" property="twitter:title"/>
+<meta content="Calcule exatamente quanto de IR regressivo você paga no seu CDB, LCI, LCA ou Tesouro Direto. Veja o lucro líquido e o valor final após impostos." property="twitter:description"/>
 <meta content="https://cerebromilionario.site/images/og-calculadora.jpg" property="twitter:image"/>
 <!-- Structured Data -->
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Comparador CDB vs LCI/LCA",
-    "url": "https://cerebromilionario.site/comparador-cdb-lci-lca",
-    "description": "Ferramenta gratuita para comparar CDB vs LCI/LCA com cálculo de rendimento bruto e líquido, IR regressivo, IOF (opcional) e equivalência de taxas.",
+    "name": "Calculadora de IR Renda Fixa",
+    "url": "https://cerebromilionario.site/calculadora-ir-renda-fixa",
+    "description": "Ferramenta gratuita para calcular o Imposto de Renda regressivo sobre CDB, LCI, LCA, Tesouro Direto e outros investimentos de renda fixa.",
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "Any",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
@@ -39,12 +39,6 @@
   }
 </script>
 <style>
-  /* ── Comparador — dark theme ─────────────────────────── */
-  .tool-grid {
-    display: grid; grid-template-columns: 1fr; gap: 1rem;
-  }
-  @media (min-width: 992px) { .tool-grid { grid-template-columns: 1fr 1fr; } }
-
   .tool-card {
     background: var(--bg-card, #17171f);
     border-radius: var(--r-lg, 16px);
@@ -61,6 +55,10 @@
 
   .tool-row-3 { display: grid; grid-template-columns: 1fr; gap: .75rem; }
   @media (min-width: 992px) { .tool-row-3 { grid-template-columns: 1.4fr 1fr 1fr; } }
+
+  .tool-row-4 { display: grid; grid-template-columns: 1fr; gap: .75rem; }
+  @media (min-width: 576px) { .tool-row-4 { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 992px) { .tool-row-4 { grid-template-columns: 1fr 1fr 1fr 1fr; } }
 
   .field { display: flex; flex-direction: column; gap: 5px; }
   .field label {
@@ -91,16 +89,15 @@
   .btn-row { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: .75rem; }
   .btn-row .btn { cursor: pointer; }
 
-  /* ── Result box ──────────────────────────────────────── */
-  .result-box { margin-top: 1.25rem; }
+  .result-box { margin-top: 1.5rem; }
 
-  .result-grid {
+  .result-grid-main {
     display: grid; grid-template-columns: 1fr; gap: .75rem;
     margin-bottom: 1rem;
   }
-  @media (min-width: 992px) { .result-grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 576px) { .result-grid-main { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 992px) { .result-grid-main { grid-template-columns: repeat(3, 1fr); } }
 
-  /* Override .metric from style.css for this page context */
   .tool-card .metric,
   .result-box .metric {
     background: var(--bg-surface, #13131a);
@@ -124,30 +121,30 @@
     line-height: 1.2; margin-top: .2rem;
     word-break: break-word;
   }
+  .metric .v.highlight-green { color: var(--green, #3ecf8e); }
+  .metric .v.highlight-red { color: #e05a5a; }
   .metric .s {
     font-size: .78rem;
     color: var(--text-muted, #5a5768);
     margin-top: .3rem; line-height: 1.4;
   }
 
-  /* Badge override */
   .badge {
     display: inline-flex; align-items: center; gap: 6px;
     padding: .3rem .75rem; border-radius: 99px;
     font-weight: 600; font-size: .8rem;
   }
-  .badge.good {
+  .badge.isento {
     background: rgba(62,207,142,.1);
     color: var(--green, #3ecf8e);
     border: 1px solid rgba(62,207,142,.2);
   }
-  .badge.neutral {
-    background: rgba(201,168,76,.08);
-    color: var(--gold, #c9a84c);
-    border: 1px solid rgba(201,168,76,.2);
+  .badge.tributado {
+    background: rgba(224,90,90,.08);
+    color: #e05a5a;
+    border: 1px solid rgba(224,90,90,.2);
   }
 
-  /* Comparison table */
   .table {
     width: 100%; border-collapse: collapse; margin-top: .75rem;
     border-radius: var(--r-lg, 16px);
@@ -170,6 +167,8 @@
   .table tr:hover td { background: var(--bg-hover, #1e1e28); }
   .table td:first-child { color: var(--text-secondary, #9996a0); }
   .table td:not(:first-child) { color: var(--text-primary, #f0ede8); font-weight: 500; }
+  .table .row-active td { background: rgba(201,168,76,.06); }
+  .table .row-active td:first-child { color: var(--gold, #c9a84c); font-weight: 600; }
 
   .note {
     margin-top: .75rem; padding: .85rem 1rem;
@@ -181,15 +180,26 @@
   }
   .note strong { color: var(--text-primary, #f0ede8); }
 
-  /* Calculator section wrapper */
   .calculator-section { padding: 2rem 0 3rem; }
   .section-header { margin-bottom: 1.5rem; }
   .section-header h2 { margin-bottom: .4rem; }
   .section-header p { color: var(--text-secondary, #9996a0); }
+
+  .ir-table-ref {
+    margin-top: 1.5rem;
+    background: var(--bg-card, #17171f);
+    border-radius: var(--r-lg, 16px);
+    padding: 1.25rem;
+    border: 1px solid var(--border, rgba(255,255,255,.07));
+  }
+  .ir-table-ref h3 {
+    margin: 0 0 .75rem; font-size: .95rem;
+    color: var(--text-primary, #f0ede8);
+  }
 </style>
 </head>
 <body>
-<!-- Header (mesmo padrão do site) -->
+<!-- Header -->
 <header class="header">
 <div class="container header-container">
 <div class="logo">
@@ -217,361 +227,342 @@
 <section class="hero-section">
 <div class="container">
 <div class="hero-content animate-fade-in">
-<h1>Comparador CDB vs LCI/LCA</h1>
+<h1>Calculadora de IR para Renda Fixa</h1>
 <p>
-            Compare o <strong>rendimento bruto x líquido</strong> considerando <strong>IR regressivo</strong> (CDB),
-            <strong>isenção</strong> (LCI/LCA) e <strong>IOF</strong> (opcional). Também calcula <strong>taxa equivalente</strong>.
-          </p>
+          Descubra exatamente <strong>quanto de Imposto de Renda</strong> você paga no seu CDB, LCI, LCA ou Tesouro Direto.
+          A alíquota do IR é <strong>regressiva pelo prazo</strong>: quanto mais tempo investido, menos imposto você paga.
+        </p>
 </div>
 </div>
 </section>
-<!-- Tool -->
+
+<!-- Calculator -->
 <section class="calculator-section">
 <div class="container">
 <div class="section-header">
-<h2>Simulação</h2>
-<p>Preencha os dados e clique em <strong>Comparar</strong>. Se quiser máxima precisão, use o prazo real e informe CDI/IPCA atual.</p>
+<h2>Simule o IR do seu investimento</h2>
+<p>Preencha os dados abaixo e clique em <strong>Calcular</strong> para ver o detalhamento completo do imposto.</p>
 </div>
+
 <div class="tool-card">
-<div class="tool-row-3">
-<div class="field">
-<label for="principal">Valor investido (R$)</label>
-<input id="principal" inputmode="decimal" placeholder="Ex.: 10.000" value="10000"/>
-<small>Digite sem ponto de milhar, se preferir. Aceita vírgula.</small>
+  <!-- Linha 1: valor, prazo, unidade -->
+  <div class="tool-row-3">
+    <div class="field">
+      <label for="principal">Valor investido (R$)</label>
+      <input id="principal" inputmode="decimal" placeholder="Ex.: 10.000" value="10000"/>
+      <small>Aceita ponto ou vírgula. Ex.: 10000 ou 10.000</small>
+    </div>
+    <div class="field">
+      <label for="prazo">Prazo</label>
+      <input id="prazo" inputmode="numeric" placeholder="Ex.: 365" value="365"/>
+    </div>
+    <div class="field">
+      <label for="prazoUnidade">Unidade</label>
+      <select id="prazoUnidade">
+        <option selected="" value="dias">Dias corridos</option>
+        <option value="meses">Meses</option>
+      </select>
+      <small>Meses são convertidos para dias (média de 30,42 dias).</small>
+    </div>
+  </div>
+
+  <!-- Linha 2: tipo, indexador, taxa, CDI/IPCA -->
+  <div class="tool-row-4" style="margin-top:12px;">
+    <div class="field">
+      <label for="tipo">Tipo de investimento</label>
+      <select id="tipo">
+        <option selected="" value="CDB">CDB</option>
+        <option value="LCI">LCI (isenta de IR)</option>
+        <option value="LCA">LCA (isenta de IR)</option>
+        <option value="TESOURO">Tesouro Direto / outros</option>
+      </select>
+      <small>LCI e LCA são isentas de IR para pessoa física.</small>
+    </div>
+    <div class="field">
+      <label for="indexador">Rentabilidade</label>
+      <select id="indexador">
+        <option selected="" value="CDI">% do CDI</option>
+        <option value="PRE">Prefixado (a.a.)</option>
+        <option value="IPCA">IPCA + (a.a.)</option>
+      </select>
+    </div>
+    <div class="field" id="taxaField">
+      <label for="taxa">Taxa</label>
+      <input id="taxa" inputmode="decimal" placeholder="Ex.: 110" value="110"/>
+      <small id="taxaHelp">Ex.: 110 significa 110% do CDI.</small>
+    </div>
+    <div class="field" id="cdiField">
+      <label for="cdi">CDI atual (a.a.)</label>
+      <input id="cdi" inputmode="decimal" placeholder="Ex.: 10,65" value="10,65"/>
+      <small>Taxa CDI anual para calcular o rendimento.</small>
+    </div>
+  </div>
+
+  <!-- Linha 3: IPCA e IOF (opcionais) -->
+  <div class="tool-row" style="margin-top:12px;">
+    <div class="field" id="ipcaField" style="display:none;">
+      <label for="ipca">IPCA estimado (a.a.)</label>
+      <input id="ipca" inputmode="decimal" placeholder="Ex.: 4,00" value="4,00"/>
+      <small>Estimativa do IPCA para projetar o rendimento IPCA+.</small>
+    </div>
+    <div class="field">
+      <label for="considerarIof">IOF (resgates antes de 30 dias)</label>
+      <select id="considerarIof">
+        <option selected="" value="nao">Não considerar IOF</option>
+        <option value="sim">Considerar IOF (prazo &lt; 30 dias)</option>
+      </select>
+      <small>IOF incide sobre o lucro nos primeiros 29 dias. Acima de 30 dias, não há IOF.</small>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-primary" id="btnCalcular"><i class="fa-solid fa-calculator"></i> Calcular</button>
+    <button class="btn btn-secondary" id="btnReset"><i class="fa-solid fa-rotate-left"></i> Limpar</button>
+  </div>
 </div>
-<div class="field">
-<label for="prazo">Prazo</label>
-<input id="prazo" inputmode="numeric" placeholder="Ex.: 365" value="365"/>
-</div>
-<div class="field">
-<label for="prazoUnidade">Unidade</label>
-<select id="prazoUnidade">
-<option selected="" value="dias">Dias corridos</option>
-<option value="meses">Meses</option>
-</select>
-<small>Meses serão convertidos para dias (média).</small>
-</div>
-</div>
-<div class="tool-row" style="margin-top:12px;">
-<div class="field">
-<label for="cdi">CDI (a.a.) — se usar "% do CDI"</label>
-<input id="cdi" inputmode="decimal" placeholder="Ex.: 10,65" value="10,65"/>
-<small>Informe o CDI anual atual (em % ao ano).</small>
-</div>
-<div class="field">
-<label for="ipca">IPCA (a.a.) — se usar "IPCA +"</label>
-<input id="ipca" inputmode="decimal" placeholder="Ex.: 4,00" value="4,00"/>
-<small>Use uma estimativa (em % ao ano) só para projeção.</small>
-</div>
-</div>
-<div class="tool-row" style="margin-top:12px;">
-<div class="field">
-<label for="considerarIof">IOF (até 29 dias)</label>
-<select id="considerarIof">
-<option selected="" value="nao">Não considerar IOF</option>
-<option value="sim">Considerar IOF (se prazo &lt; 30 dias)</option>
-</select>
-<small>Na prática, o IOF incide sobre o lucro quando o resgate é antes de 30 dias.</small>
-</div>
-<div class="field">
-<label for="diasUteisMode">Dias úteis</label>
-<select id="diasUteisMode">
-<option selected="" value="aprox">Aproximar (252/365)</option>
-<option value="corridos">Usar dias corridos mesmo</option>
-</select>
-<small>Para "% do CDI", o padrão é aproximar dias úteis.</small>
-</div>
-</div>
-<div class="tool-grid" style="margin-top: 16px;">
-<!-- Produto A -->
-<div class="tool-card" style="box-shadow:none; border:1px dashed rgba(0,0,0,.18);">
-<h3><i class="fa-solid fa-a"></i> Produto A</h3>
-<div class="tool-row">
-<div class="field">
-<label for="tipoA">Tipo</label>
-<select id="tipoA">
-<option selected="" value="CDB">CDB</option>
-<option value="LCI">LCI</option>
-<option value="LCA">LCA</option>
-</select>
-</div>
-<div class="field">
-<label for="indexadorA">Rentabilidade</label>
-<select id="indexadorA">
-<option selected="" value="CDI">% do CDI</option>
-<option value="PRE">Prefixado (a.a.)</option>
-<option value="IPCA">IPCA + (a.a.)</option>
-</select>
-</div>
-</div>
-<div class="tool-row" style="margin-top: 12px;">
-<div class="field" id="taxaAField">
-<label for="taxaA">Taxa (% do CDI)</label>
-<input id="taxaA" inputmode="decimal" placeholder="Ex.: 110 (para 110% CDI)" value="110"/>
-<small id="taxaAHelp">Ex.: 110 significa 110% do CDI.</small>
-</div>
-<div class="field">
-<label>Imposto de Renda</label>
-<div class="metric" style="padding:12px;">
-<div class="k">IR</div>
-<div class="v" id="irAInfo">Calculado pelo prazo</div>
-<div class="s">LCI/LCA: isento. CDB: tabela regressiva.</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Produto B -->
-<div class="tool-card" style="box-shadow:none; border:1px dashed rgba(0,0,0,.18);">
-<h3><i class="fa-solid fa-b"></i> Produto B</h3>
-<div class="tool-row">
-<div class="field">
-<label for="tipoB">Tipo</label>
-<select id="tipoB">
-<option value="CDB">CDB</option>
-<option selected="" value="LCI">LCI</option>
-<option value="LCA">LCA</option>
-</select>
-</div>
-<div class="field">
-<label for="indexadorB">Rentabilidade</label>
-<select id="indexadorB">
-<option selected="" value="CDI">% do CDI</option>
-<option value="PRE">Prefixado (a.a.)</option>
-<option value="IPCA">IPCA + (a.a.)</option>
-</select>
-</div>
-</div>
-<div class="tool-row" style="margin-top: 12px;">
-<div class="field" id="taxaBField">
-<label for="taxaB">Taxa (% do CDI)</label>
-<input id="taxaB" inputmode="decimal" placeholder="Ex.: 95 (para 95% CDI)" value="95"/>
-<small id="taxaBHelp">Ex.: 95 significa 95% do CDI.</small>
-</div>
-<div class="field">
-<label>Imposto de Renda</label>
-<div class="metric" style="padding:12px;">
-<div class="k">IR</div>
-<div class="v" id="irBInfo">Calculado pelo prazo</div>
-<div class="s">LCI/LCA: isento. CDB: tabela regressiva.</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="btn-row">
-<button class="btn btn-primary" id="btnComparar"><i class="fa-solid fa-scale-balanced"></i> Comparar</button>
-<button class="btn btn-secondary" id="btnReset"><i class="fa-solid fa-rotate-left"></i> Reset</button>
-</div>
+
+<!-- Result -->
 <div class="result-box" id="resultBox" style="display:none;">
-<div class="section-header" style="text-align:left; margin-top: 18px;">
-<h2 style="margin-bottom:6px;">Resultado</h2>
-<p id="headlineResult" style="margin:0;"></p>
+  <div class="section-header" style="text-align:left; margin-top: 24px;">
+    <h2 style="margin-bottom:6px;">Resultado</h2>
+    <p id="headlineResult" style="margin:0;"></p>
+  </div>
+
+  <div class="result-grid-main">
+    <div class="metric">
+      <div class="k">Valor final líquido</div>
+      <div class="v highlight-green" id="rFinalLiquido">—</div>
+      <div class="s" id="rLucroLiquido">—</div>
+    </div>
+    <div class="metric">
+      <div class="k">Alíquota de IR aplicável</div>
+      <div class="v" id="rAliquota">—</div>
+      <div class="s" id="rAliquotaInfo">—</div>
+    </div>
+    <div class="metric">
+      <div class="k">Valor pago de IR</div>
+      <div class="v highlight-red" id="rValorIr">—</div>
+      <div class="s" id="rIrInfo">—</div>
+    </div>
+  </div>
+
+  <table aria-label="Detalhamento do cálculo" class="table">
+    <thead>
+      <tr>
+        <th>Detalhamento</th>
+        <th>Valor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Capital inicial</td>
+        <td id="dPrincipal">—</td>
+      </tr>
+      <tr>
+        <td>Rendimento bruto</td>
+        <td id="dRendBruto">—</td>
+      </tr>
+      <tr>
+        <td>Valor bruto final</td>
+        <td id="dFinalBruto">—</td>
+      </tr>
+      <tr id="iofRow">
+        <td>IOF descontado</td>
+        <td id="dIof">—</td>
+      </tr>
+      <tr>
+        <td>IR descontado</td>
+        <td id="dIr">—</td>
+      </tr>
+      <tr>
+        <td>Rendimento líquido</td>
+        <td id="dRendLiquido">—</td>
+      </tr>
+      <tr>
+        <td>Valor final líquido</td>
+        <td id="dFinalLiquido">—</td>
+      </tr>
+      <tr>
+        <td>Rentabilidade líquida no período</td>
+        <td id="dRentPeriodo">—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="note">
+    <strong>Atenção:</strong> os valores são uma estimativa educacional. Resultados reais podem variar conforme a data exata de aplicação e resgate, dias úteis, ajustes do emissor e regras específicas do produto. Para cálculos de declaração de IR, use o informe de rendimentos emitido pela instituição financeira.
+  </p>
 </div>
-<div class="result-grid" style="margin-top: 12px;">
-<div class="metric">
-<div class="k">Produto A — Valor final líquido</div>
-<div class="v" id="aFinal">—</div>
-<div class="s" id="aMeta">—</div>
+
+<!-- IR table reference -->
+<div class="ir-table-ref">
+  <h3><i class="fa-solid fa-table"></i> Tabela de IR Regressivo — Renda Fixa</h3>
+  <table aria-label="Tabela IR regressivo renda fixa" class="table" style="margin-top:0;">
+    <thead>
+      <tr>
+        <th>Prazo do investimento</th>
+        <th>Alíquota de IR</th>
+        <th>Incide sobre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr id="irRow1">
+        <td>Até 180 dias</td>
+        <td>22,5%</td>
+        <td>Lucro</td>
+      </tr>
+      <tr id="irRow2">
+        <td>De 181 a 360 dias</td>
+        <td>20,0%</td>
+        <td>Lucro</td>
+      </tr>
+      <tr id="irRow3">
+        <td>De 361 a 720 dias</td>
+        <td>17,5%</td>
+        <td>Lucro</td>
+      </tr>
+      <tr id="irRow4">
+        <td>Acima de 720 dias</td>
+        <td>15,0%</td>
+        <td>Lucro</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:.82rem; color:var(--text-muted,#5a5768); margin-top:.6rem;">
+    LCI e LCA são isentas de IR para pessoa física. IOF incide apenas nos primeiros 29 dias (regressivo de 96% a 3%).
+  </p>
 </div>
-<div class="metric">
-<div class="k">Produto B — Valor final líquido</div>
-<div class="v" id="bFinal">—</div>
-<div class="s" id="bMeta">—</div>
-</div>
-</div>
-<table aria-label="Tabela comparativa" class="table">
-<thead>
-<tr>
-<th>Item</th>
-<th>Produto A</th>
-<th>Produto B</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Valor final bruto</td>
-<td id="aBruto">—</td>
-<td id="bBruto">—</td>
-</tr>
-<tr>
-<td>Lucro bruto</td>
-<td id="aLucroBruto">—</td>
-<td id="bLucroBruto">—</td>
-</tr>
-<tr>
-<td>IOF (se aplicável)</td>
-<td id="aIof">—</td>
-<td id="bIof">—</td>
-</tr>
-<tr>
-<td>IR</td>
-<td id="aIr">—</td>
-<td id="bIr">—</td>
-</tr>
-<tr>
-<td>Lucro líquido</td>
-<td id="aLucroLiquido">—</td>
-<td id="bLucroLiquido">—</td>
-</tr>
-<tr>
-<td>Rentabilidade líquida no período</td>
-<td id="aRentPeriodo">—</td>
-<td id="bRentPeriodo">—</td>
-</tr>
-</tbody>
-</table>
-<div class="metric" style="margin-top:12px;">
-<div class="k">Taxa equivalente (atalho mental)</div>
-<div class="v" id="equivalencia">—</div>
-<div class="s">Cálculo de equivalência é mais útil quando ambos estão no mesmo indexador (ex.: %CDI).</div>
-</div>
-<p class="note">
-<strong>Atenção:</strong> esta ferramenta é educacional. Resultados podem variar por emissor, liquidez, carência, datas exatas e regras específicas do produto.
-              Para "% do CDI", usamos a opção de <em>dias úteis aproximados</em> (252/365) por padrão.
-            </p>
-</div>
-</div>
-<!-- Links internos (para SEO e navegação) -->
+
+<!-- Próximos passos -->
 <section style="margin-top: var(--spacing-lg, 24px);">
-<div class="section-header">
-<h2>Próximos passos (recomendado)</h2>
-<p>Use estes atalhos para aprofundar e manter o usuário no seu ecossistema.</p>
-</div>
-<div class="posts-grid">
-<div class="blog-card">
-<div class="blog-card-img">
-<img alt="Calculadora de Juros Compostos" src="/images/post-juros-compostos.jpg"/>
-</div>
-<div class="blog-card-content">
-<h3><a href="/calculadora">Calculadora de Juros Compostos</a></h3>
-<p>Simule aportes e o crescimento do seu patrimônio com gráficos e cenários.</p>
-<a class="btn btn-tertiary" href="/calculadora">Abrir</a>
-</div>
-</div>
-<div class="blog-card">
-<div class="blog-card-img">
-<img alt="Guia completo para iniciantes" src="/images/post-investimentos-iniciantes.jpg"/>
-</div>
-<div class="blog-card-content">
-<h3><a href="/posts/guia-completo-investimentos-iniciantes-2026">Artigo Pilar (2026)</a></h3>
-<p>O guia mais completo do site, com links para todos os temas essenciais.</p>
-<a class="btn btn-tertiary" href="/posts/guia-completo-investimentos-iniciantes-2026">Ler</a>
-</div>
-</div>
-<div class="blog-card">
-<div class="blog-card-img">
-<img alt="Aposentadoria" src="/images/post-aposentadoria.jpg"/>
-</div>
-<div class="blog-card-content">
-<h3><a href="/aposentadoria">Calculadora de Aposentadoria</a></h3>
-<p>Projete quando você pode se aposentar, com aportes e rentabilidade.</p>
-<a class="btn btn-tertiary" href="/aposentadoria">Simular</a>
-</div>
-</div>
-</div>
+  <div class="section-header">
+    <h2>Continue aprendendo</h2>
+    <p>Ferramentas e conteúdos para aprofundar suas decisões de investimento.</p>
+  </div>
+  <div class="posts-grid">
+    <div class="blog-card">
+      <div class="blog-card-img">
+        <img alt="Comparador CDB vs LCI/LCA" src="/images/post-renda-fixa.jpg"/>
+      </div>
+      <div class="blog-card-content">
+        <h3><a href="/comparador-cdb-lci-lca">Comparador CDB vs LCI/LCA</a></h3>
+        <p>Compare dois investimentos lado a lado e veja qual entrega mais dinheiro no bolso após IR e IOF.</p>
+        <a class="btn btn-tertiary" href="/comparador-cdb-lci-lca">Comparar</a>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-card-img">
+        <img alt="Calculadora de Juros Compostos" src="/images/post-juros-compostos.jpg"/>
+      </div>
+      <div class="blog-card-content">
+        <h3><a href="/calculadora">Calculadora de Juros Compostos</a></h3>
+        <p>Simule o crescimento do seu patrimônio com aportes mensais, juros e cenários de longo prazo.</p>
+        <a class="btn btn-tertiary" href="/calculadora">Simular</a>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-card-img">
+        <img alt="Guia completo de investimentos para iniciantes" src="/images/post-investimentos-iniciantes.jpg"/>
+      </div>
+      <div class="blog-card-content">
+        <h3><a href="/posts/guia-completo-investimentos-iniciantes-2026">Guia Completo de Investimentos 2026</a></h3>
+        <p>Do básico ao avançado: renda fixa, ações, FIIs e tudo que você precisa saber para investir bem.</p>
+        <a class="btn btn-tertiary" href="/posts/guia-completo-investimentos-iniciantes-2026">Ler</a>
+      </div>
+    </div>
+  </div>
 </section>
+
 </div>
 </section>
 
-<!-- GUIA COMPLETO ENRIQUECIDO -->
+<!-- Guia completo -->
 <section class="section">
 <div class="container">
 <div class="content-block">
-<h2>Guia Completo: CDB, LCI e LCA — Qual Vale Mais a Pena?</h2>
+<h2>Guia Completo: IR Regressivo na Renda Fixa</h2>
 
-<h3>Por que comparar CDB com LCI/LCA não é tão simples quanto parece</h3>
-<p>À primeira vista, decidir entre um CDB que paga 110% do CDI e uma LCI que paga 95% do CDI parece um jogo de adivinhação. O primeiro número é maior, então o CDB ganha, certo? Errado. O CDB tem imposto de renda, que come uma fatia do lucro. A LCI e a LCA são isentas de IR para pessoa física. Dependendo do prazo, a alíquota do CDB pode ser de 22,5%, 20%, 17,5% ou 15%. Por isso, 95% do CDI isento pode entregar mais dinheiro líquido do que 110% do CDI com IR. O nosso comparador faz essa conta em segundos, e o resultado muitas vezes surpreende.</p>
+<h3>O que é o IR regressivo e por que ele favorece investidores de longo prazo</h3>
+<p>O Imposto de Renda sobre renda fixa no Brasil segue uma <strong>tabela regressiva</strong>: quanto mais tempo o dinheiro fica investido, menor a alíquota. A lógica é simples — o governo quer incentivar o investimento de longo prazo. Quem resgata em menos de 6 meses paga 22,5% do lucro; quem mantém por mais de 2 anos paga apenas 15%. Essa diferença pode parecer pequena em percentual, mas representa uma fatia relevante do seu rendimento real.</p>
 
-<p>Além do IR, existe o IOF para resgates em menos de 30 dias, que incide sobre o lucro de forma regressiva. Embora investimentos de renda fixa não devam ser usados para prazos tão curtos (melhor uma conta remunerada ou Tesouro Selic), é comum o investidor novato aplicar num CDB de liquidez diária e sacar em 20 dias, levando um susto com o imposto. A ferramenta já considera esse cenário se você ativar a opção de IOF.</p>
+<p>Por exemplo: se você ganhou R$ 1.000 de rendimento bruto, a diferença entre pagar 22,5% (resgate em 3 meses) e 15% (resgate em 3 anos) é de R$ 75. Em R$ 100.000 investidos, essa diferença chega a R$ 7.500. Vale muito a pena entender a tabela antes de escolher o prazo do seu investimento.</p>
 
-<h3>O que são CDB, LCI e LCA? Uma explicação sem economês</h3>
-<p><strong>CDB (Certificado de Depósito Bancário):</strong> é um empréstimo que você faz a um banco. O banco usa esse dinheiro para financiar suas operações e, em troca, paga juros. Tem cobertura do FGC (Fundo Garantidor de Créditos) até R$ 250 mil por CPF por instituição financeira. O CDB pode ser prefixado, pós-fixado (atrelado ao CDI) ou híbrido (IPCA + taxa fixa).</p>
-<p><strong>LCI (Letra de Crédito Imobiliário):</strong> é um empréstimo que você faz ao setor imobiliário, por meio de um banco. O dinheiro financia empreendimentos imobiliários. Também tem cobertura do FGC e é isenta de IR para pessoa física.</p>
-<p><strong>LCA (Letra de Crédito do Agronegócio):</strong> mesmo princípio, mas voltada ao agronegócio. Financia produtores, cooperativas e cadeias do agro. Isenta de IR e também protegida pelo FGC.</p>
-<p>Na prática, LCI e LCA são muito parecidas entre si; a diferença está no setor que recebe o crédito. A grande vantagem delas sobre o CDB é justamente a isenção fiscal. A desvantagem costuma ser a liquidez: muitas LCI/LCA têm carência (período mínimo antes de poder resgatar) e não permitem saque imediato.</p>
-
-<h3>Tabela regressiva do IR: como o prazo muda tudo</h3>
-<p>A alíquota do IR para CDBs segue a tabela regressiva da renda fixa:</p>
+<h3>Quais investimentos pagam IR na renda fixa?</h3>
+<p>A tabela regressiva se aplica a:</p>
 <ul>
-<li><strong>Até 180 dias:</strong> 22,5% sobre o lucro.</li>
-<li><strong>De 181 a 360 dias:</strong> 20%.</li>
-<li><strong>De 361 a 720 dias:</strong> 17,5%.</li>
-<li><strong>Acima de 720 dias:</strong> 15%.</li>
+  <li><strong>CDB</strong> (Certificado de Depósito Bancário)</li>
+  <li><strong>Tesouro Direto</strong> (Tesouro Selic, Tesouro Prefixado, Tesouro IPCA+)</li>
+  <li><strong>Debêntures</strong> (exceto as incentivadas de infraestrutura)</li>
+  <li><strong>CRI e CRA</strong> para pessoas jurídicas (PF são isentos)</li>
+  <li><strong>Fundos de renda fixa</strong> (com come-cotas semestral)</li>
 </ul>
-<p>Quanto mais tempo o dinheiro fica aplicado, menos imposto você paga proporcionalmente. Isso é um incentivo para o longo prazo. A LCI/LCA, por ser isenta, não tem essa tabela — seu lucro líquido já é o bruto (descontado apenas IOF se menos de 30 dias). Por isso, num prazo de 3 anos, um CDB a 110% do CDI pode empatar com uma LCI a ~95% do CDI; em 6 meses, a LCI precisaria de uma taxa bem menor para vencer. A ferramenta ajusta automaticamente conforme o prazo informado.</p>
+<p>Já <strong>LCI</strong> (Letra de Crédito Imobiliário) e <strong>LCA</strong> (Letra de Crédito do Agronegócio) são completamente isentas de IR para pessoa física. Por isso, uma LCI que paga 95% do CDI pode ser mais vantajosa do que um CDB que paga 110% do CDI, dependendo do prazo. Use a calculadora acima para ver o resultado exato no seu caso.</p>
 
-<h3>Como usar a taxa equivalente (o macete do "de cabeça")</h3>
-<p>Para comparar rapidamente sem abrir a calculadora, existe uma fórmula simples. Pegue a taxa da LCI/LCA e divida por (1 - alíquota do IR). Por exemplo, LCI a 95% do CDI, prazo de 2 anos (IR 15%): 95% ÷ (1 - 0,15) = 95% ÷ 0,85 ≈ 111,76% do CDI. Isso significa que uma LCI a 95% equivale a um CDB a aproximadamente 111,8% do CDI. Se o banco te oferece um CDB a 110%, a LCI de 95% ganha. A ferramenta mostra essa equivalência automaticamente, considerando o prazo e as taxas reais.</p>
+<h3>Como calcular o IR na prática</h3>
+<p>O IR incide apenas sobre o <strong>lucro</strong>, nunca sobre o capital investido. O cálculo é direto:</p>
+<ol>
+  <li>Calcule o rendimento bruto: valor final − capital inicial.</li>
+  <li>Aplique a alíquota conforme o prazo da tabela regressiva.</li>
+  <li>Subtraia o IR do rendimento bruto para obter o rendimento líquido.</li>
+  <li>Some o rendimento líquido ao capital inicial para ter o valor final.</li>
+</ol>
+<p>A calculadora acima faz tudo isso automaticamente. Basta informar o valor investido, o prazo, o tipo do produto e a taxa de rentabilidade.</p>
 
-<p>Mas atenção: essa conta funciona bem quando ambos os produtos são atrelados ao mesmo indexador (CDI). Se um for prefixado e o outro IPCA+, a comparação depende de projeções de inflação e CDI — a calculadora também resolve, mas lembre-se de que são cenários diferentes.</p>
+<h3>O IOF: o vilão dos resgates antes de 30 dias</h3>
+<p>Além do IR, existe o <strong>IOF</strong> (Imposto sobre Operações Financeiras) para resgates realizados nos primeiros 29 dias. A alíquota começa em 96% do lucro no primeiro dia e cai progressivamente até 3% no 29º dia. No 30º dia, o IOF é zero. Ou seja: se você resgatar um CDB em 20 dias, pode perder quase todo o lucro para IOF e IR juntos.</p>
+<p>A regra prática: <strong>nunca invista em renda fixa dinheiro que pode precisar antes de 30 dias</strong>. Para reservas de curtíssimo prazo, use uma conta remunerada ou Tesouro Selic (que tem IOF zero após o 2º dia em algumas situações). Ative a opção de IOF na calculadora se quiser visualizar o impacto exato.</p>
 
-<h3>IOF: o vilão dos resgates antes de 30 dias</h3>
-<p>O IOF é regressivo durante os primeiros 29 dias. No primeiro dia, come a maior parte do lucro (96%). Vai caindo até chegar a zero no 30º dia. Por isso, nenhum investimento de renda fixa deve ser usado como conta-corrente. Se você sabe que o dinheiro pode ser usado em menos de 30 dias, deixe em uma conta remunerada ou num fundo DI com taxa zero. Nossa calculadora pode considerar ou ignorar o IOF; mantenha a opção "Não considerar IOF" para prazos acima de 30 dias.</p>
-
-<h3>Exemplo prático: R$ 10 mil por 2 anos</h3>
-<p>Investidor Maria tem R$ 10.000 e quer aplicar por 2 anos (720 dias). O CDI está em 10,65% ao ano. Ela encontra:</p>
+<h3>Tabela regressiva detalhada</h3>
+<p>Resumo da alíquota de IR conforme o prazo de aplicação:</p>
 <ul>
-<li>CDB a 110% do CDI (IR 15% pelo prazo).</li>
-<li>LCI a 95% do CDI (isenta).</li>
+  <li><strong>Até 180 dias:</strong> 22,5% sobre o lucro.</li>
+  <li><strong>De 181 a 360 dias:</strong> 20% sobre o lucro.</li>
+  <li><strong>De 361 a 720 dias:</strong> 17,5% sobre o lucro.</li>
+  <li><strong>Acima de 720 dias:</strong> 15% sobre o lucro.</li>
 </ul>
-<p>Com a ferramenta, simulamos:</p>
+<p>A data de corte é contada a partir da data de aplicação até a data de resgate, em dias corridos. O prazo de vencimento do título não importa — o que vale é o dia em que você efetivamente resgatou.</p>
+
+<h3>Exemplo prático com a calculadora</h3>
+<p>Suponha que você investe R$ 50.000 em um CDB a 110% do CDI, com CDI de 10,65% ao ano, por 18 meses (549 dias):</p>
 <ul>
-<li>CDB: valor final líquido ≈ R$ 11.990.</li>
-<li>LCI: valor final líquido ≈ R$ 12.040.</li>
+  <li>Alíquota de IR: 17,5% (prazo entre 361 e 720 dias).</li>
+  <li>Rendimento bruto estimado: aproximadamente R$ 9.400.</li>
+  <li>IR: ≈ R$ 1.645.</li>
+  <li>Rendimento líquido: ≈ R$ 7.755.</li>
+  <li>Valor final líquido: ≈ R$ 57.755.</li>
 </ul>
-<p>A LCI venceu por R$ 50. Não parece muito, mas em R$ 100 mil seriam R$ 500 de diferença. E se o prazo fosse menor (6 meses, IR 22,5%), a diferença seria ainda maior a favor da LCI. A calculadora mostra isso em segundos, evitando que você faça a escolha errada só porque o percentual do CDI parecia maior.</p>
+<p>Se esse mesmo valor ficasse por menos de 6 meses (até 180 dias), a alíquota seria 22,5%, e o IR cobrado seria proporcionalmente maior. Pequenas variações de prazo podem mudar a faixa da tabela e economizar centenas ou até milhares de reais em imposto.</p>
 
-<h3>Quando o CDB vence a LCI/LCA?</h3>
-<p>O CDB tende a vencer quando a taxa oferecida é consideravelmente maior e o prazo é longo (IR menor). Por exemplo, um CDB de bancos médios que paga 120% do CDI pode superar LCIs de 90-95% do CDI em prazos acima de 2 anos. Além disso, CDBs costumam ter liquidez diária (possibilidade de resgatar antes do vencimento sem perder rendimento), enquanto muitas LCI/LCA têm carência de 9 a 12 meses. Se liquidez importa, o CDB pode ser a escolha mesmo pagando mais imposto. A ferramenta não considera carência diretamente, mas você pode simular o prazo real que pretende manter o dinheiro.</p>
-
-<h3>Riscos e garantias: FGC cobre os três</h3>
-<p>CDB, LCI e LCA contam com a proteção do Fundo Garantidor de Créditos (FGC) até R$ 250 mil por CPF por instituição financeira, com teto global de R$ 1 milhão renovável a cada 4 anos. Isso significa que, se o banco emissor quebrar, você recebe o valor de volta até esse limite. Portanto, para valores dentro da garantia, o risco de crédito é baixo. Para valores acima, é prudente diversificar entre emissores.</p>
-
-<p>A qualidade do emissor também influencia a taxa. Bancos grandes oferecem CDBs e LCIs com taxas menores; bancos médios e pequenos pagam mais. A regra é clara: maior retorno implica maior risco de crédito. Se você confia no FGC e não ultrapassa o limite, pode buscar as melhores taxas. Mas sempre verifique a saúde financeira da instituição.</p>
-
-<h3>Prefixado, CDI ou IPCA+? Como escolher o indexador</h3>
-<p>O comparador permite simular três indexadores: % do CDI, prefixado e IPCA+. Cada um tem seu momento:</p>
-<ul>
-<li><strong>% do CDI:</strong> ideal para prazos curtos e médios, acompanha a taxa básica de juros. Se a Selic sobe, sua rentabilidade sobe; se cai, acompanha. É o mais comum para reserva de emergência e objetivos de até 2 anos.</li>
-<li><strong>Prefixado:</strong> fixa a taxa desde o início. Vantajoso quando os juros estão altos e você acredita que cairão. Mas se a inflação disparar, você fica preso a uma taxa que pode se tornar negativa em termos reais.</li>
-<li><strong>IPCA+:</strong> garante proteção contra a inflação mais um juro real. Excelente para objetivos de longo prazo, como aposentadoria. Mas cuidado: se você precisar vender antes do vencimento, o preço de mercado pode oscilar bastante.</li>
-</ul>
-<p>Teste os diferentes indexadores na calculadora, mantendo os outros parâmetros iguais, e veja como o resultado final se comporta.</p>
+<h3>Dica: use o prazo para pagar menos imposto de forma legal</h3>
+<p>Se você está próximo do limite de uma faixa, vale considerar manter o investimento por mais alguns dias para cair na faixa menor. Por exemplo, se o vencimento do CDB cai no 358º dia (alíquota 20%), mas você pode aguardar até o 365º dia (alíquota 17,5%), essa pequena espera reduz o IR de forma legal e legítima. A calculadora permite simular diferentes prazos para ver o impacto real.</p>
 
 <h3>Perguntas Frequentes</h3>
 
-<h4>LCI e LCA são sempre melhores que CDB?</h4>
-<p>Não. Depende da taxa oferecida e do prazo. Um CDB a 130% do CDI com IR de 15% pode superar uma LCI a 95% com folga. A isenção fiscal é uma vantagem, mas não anula a taxa. Use a calculadora para ter certeza.</p>
+<h4>O IR é cobrado na fonte ou preciso declarar?</h4>
+<p>Na renda fixa (CDB, Tesouro Direto), o IR é recolhido na fonte pela instituição financeira no momento do resgate ou vencimento. Você não precisa calcular e pagar separadamente — o banco ou corretora já desconta automaticamente. Porém, se você tiver rendimentos tributáveis e precisar fazer a declaração anual do IRPF, os rendimentos de renda fixa entram como "rendimentos sujeitos à tributação exclusiva/definitiva" e não aumentam sua base de cálculo do IR anual.</p>
 
-<h4>Posso sacar LCI/LCA a qualquer momento?</h4>
-<p>Depende do produto. Muitas LCI/LCA têm carência (90 dias, 9 meses, 12 meses etc.) e só permitem resgate no vencimento. Outras têm liquidez após a carência. Leia as condições antes de investir. Se você precisa de liquidez imediata, CDB com liquidez diária ou Tesouro Selic podem ser mais adequados.</p>
+<h4>LCI e LCA realmente não pagam IR?</h4>
+<p>Sim, LCI e LCA são isentas de IR para pessoa física desde 2002. Não importa o prazo — o rendimento é sempre 100% líquido. Por isso, ao comparar com um CDB, é preciso calcular a taxa equivalente. Uma LCI a 92% do CDI com prazo de 2 anos equivale (antes do IR) a um CDB de cerca de 108% do CDI. Use o comparador CDB vs LCI/LCA para ver essa equivalência automaticamente.</p>
 
-<h4>Por que a calculadora pergunta se quero considerar IOF?</h4>
-<p>Para simular corretamente resgates em menos de 30 dias. Se o seu prazo é maior, deixe "Não considerar IOF". A opção está aí para você ver quanto o IOF come do lucro se o dinheiro ficar parado pouco tempo.</p>
+<h4>Fundos de renda fixa seguem a mesma tabela?</h4>
+<p>Sim, mas com uma diferença importante: fundos de renda fixa têm o <strong>come-cotas</strong>, uma antecipação do IR que ocorre duas vezes por ano (em maio e novembro), mesmo sem resgate. A alíquota do come-cotas é de 15% (para fundos de longo prazo) ou 20% (curto prazo). Esse mecanismo reduz os juros compostos ao longo do tempo. Por isso, CDBs e Tesouro Direto geralmente são mais eficientes que fundos de renda fixa para aplicações de longo prazo.</p>
 
-<h4>O que significa "dias úteis aproximados"?</h4>
-<p>Para indexadores atrelados ao CDI, a rentabilidade diária considera apenas dias úteis (por volta de 252 por ano). Nossa aproximação converte dias corridos em dias úteis pela proporção 252/365, que é o padrão de mercado. Se você quiser simular com o número exato de dias úteis, precisaria de uma planilha específica; a aproximação é suficiente para decisões de investimento.</p>
+<h4>A calculadora considera dias úteis ou corridos?</h4>
+<p>Para CDBs atrelados ao CDI, a rentabilidade diária segue dias úteis (aproximadamente 252 por ano). A calculadora usa a aproximação 252/365 ao converter dias corridos em dias úteis, que é o padrão de mercado e suficiente para fins de decisão. Para o enquadramento na tabela de IR, o prazo sempre é contado em dias corridos.</p>
 
-<h3>Dicas finais para escolher bem</h3>
-<ul>
-<li><strong>Defina o prazo realista.</strong> Não adianta escolher LCI com vencimento em 3 anos se você pode precisar do dinheiro em 6 meses.</li>
-<li><strong>Compare sempre o líquido.</strong> O que entra no bolso é o que importa. A taxa bruta engana.</li>
-<li><strong>Diversifique.</strong> Não coloque todo o dinheiro num único emissor, mesmo com FGC.</li>
-<li><strong>Acompanhe as taxas.</strong> O que era bom ontem pode não ser hoje. Use a calculadora sempre que um novo investimento aparecer.</li>
-</ul>
-
-<h3>Ferramentas Relacionadas</h3>
+<h3>Ferramentas relacionadas</h3>
 <p>Confira também:</p>
 <ul>
-<li><a href="/calculadora">Calculadora de Juros Compostos</a> — projeções de longo prazo.</li>
-<li><a href="/calculadora-ir-renda-fixa">Calculadora de IR Renda Fixa</a> — veja quanto o imposto come do seu lucro.</li>
-<li><a href="/aposentadoria">Calculadora de Aposentadoria</a> — planeje sua liberdade financeira.</li>
+  <li><a href="/comparador-cdb-lci-lca">Comparador CDB vs LCI/LCA</a> — compare dois investimentos e veja qual entrega mais após IR.</li>
+  <li><a href="/calculadora">Calculadora de Juros Compostos</a> — projeções de patrimônio de longo prazo.</li>
+  <li><a href="/aposentadoria">Calculadora de Aposentadoria</a> — planeje sua independência financeira.</li>
 </ul>
 </div>
 </div>
 </section>
 </main>
-<!-- Footer (mesmo padrão do site) -->
+
+<!-- Footer -->
 <footer class="footer">
 <div class="container">
 <div class="footer-grid">
@@ -605,320 +596,248 @@
 <div class="footer-column">
 <h4 class="footer-heading">Institucional</h4>
 <ul class="footer-links">
-                        <li><a href="/sobre">Sobre</a></li>
-                        <li><a href="/politica-privacidade">Privacidade</a></li>
-                        <li><a href="/termos-uso">Termos de Uso</a></li>
-                        <li><a href="/mapa-do-site">Mapa do Site</a></li>
-                    </ul>
+  <li><a href="/sobre">Sobre</a></li>
+  <li><a href="/politica-privacidade">Privacidade</a></li>
+  <li><a href="/termos-uso">Termos de Uso</a></li>
+  <li><a href="/mapa-do-site">Mapa do Site</a></li>
+</ul>
 </div>
 </div>
 <div class="footer-bottom">
 <p>&copy; 2026 Cérebro Milionário. Todos os direitos reservados.</p>
 <div style="display:flex;gap:1rem;">
-                    <a href="/politica-privacidade">Privacidade</a>
-                    <a href="/termos-uso">Termos</a>
-                    <a href="/contato">Contato</a>
-                    <a href="/mapa-do-site">Mapa do Site</a>
-                </div>
+  <a href="/politica-privacidade">Privacidade</a>
+  <a href="/termos-uso">Termos</a>
+  <a href="/contato">Contato</a>
+  <a href="/mapa-do-site">Mapa do Site</a>
+</div>
 </div>
 </div>
 </footer>
-<!-- Scripts do site -->
+
 <script src="/js/main.js"></script>
 <script>
-    // Footer year
+  function parseNumberBR(value) {
+    if (value === null || value === undefined) return 0;
+    const s = String(value).trim().replace(/\./g, '').replace(',', '.');
+    const n = Number(s);
+    return Number.isFinite(n) ? n : 0;
+  }
 
-    // Helpers
-    function parseNumberBR(value) {
-      if (value === null || value === undefined) return 0;
-      const s = String(value).trim().replace(/\./g, '').replace(',', '.');
-      const n = Number(s);
-      return Number.isFinite(n) ? n : 0;
+  function formatBRL(n) {
+    return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(n);
+  }
+
+  function formatPct(n, digits = 2) {
+    return (n * 100).toFixed(digits).replace('.', ',') + '%';
+  }
+
+  function irRateByDays(days) {
+    if (days <= 180) return 0.225;
+    if (days <= 360) return 0.20;
+    if (days <= 720) return 0.175;
+    return 0.15;
+  }
+
+  function irRowId(days) {
+    if (days <= 180) return 'irRow1';
+    if (days <= 360) return 'irRow2';
+    if (days <= 720) return 'irRow3';
+    return 'irRow4';
+  }
+
+  const IOF_TABLE = [
+    0,
+    0.96, 0.93, 0.90, 0.86, 0.83, 0.80, 0.76, 0.73, 0.70, 0.66,
+    0.63, 0.60, 0.56, 0.53, 0.50, 0.46, 0.43, 0.40, 0.36, 0.33,
+    0.30, 0.26, 0.23, 0.20, 0.16, 0.13, 0.10, 0.06, 0.03
+  ];
+
+  function iofRateByDays(days) {
+    if (days >= 30) return 0;
+    if (days <= 0) return 0;
+    return IOF_TABLE[Math.min(days, 29)] || 0;
+  }
+
+  function daysFromInput(prazo, unidade) {
+    if (unidade === 'meses') return prazo * 30.4167;
+    return prazo;
+  }
+
+  function effectiveReturn(indexador, taxa, days, cdiAA, ipcaAA) {
+    const t = taxa / 100;
+    const cdi = cdiAA / 100;
+    const ipca = ipcaAA / 100;
+
+    if (indexador === 'CDI') {
+      const bdays = days * 252 / 365;
+      const cdiDaily = Math.pow(1 + cdi, 1 / 252) - 1;
+      const dailyRate = cdiDaily * t;
+      return Math.pow(1 + dailyRate, bdays) - 1;
     }
-
-    function formatBRL(n) {
-      return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(n);
+    if (indexador === 'PRE') {
+      return Math.pow(1 + t, days / 365) - 1;
     }
-
-    function formatPct(n, digits = 2) {
-      return (n * 100).toFixed(digits).replace('.', ',') + '%';
+    if (indexador === 'IPCA') {
+      const fatorIpca = Math.pow(1 + ipca, days / 365);
+      const fatorSpread = Math.pow(1 + t, days / 365);
+      return (fatorIpca * fatorSpread) - 1;
     }
+    return 0;
+  }
 
-    // IR regressivo (Brasil) - sobre o lucro
-    function irRateByDays(days) {
-      if (days <= 180) return 0.225;
-      if (days <= 360) return 0.20;
-      if (days <= 720) return 0.175;
-      return 0.15;
-    }
-
-    // IOF regressivo (Brasil) - percentual do lucro (1..29 dias). Dia >= 30 -> 0
-    const IOF_TABLE = [
-      0,   // index 0 (não usado)
-      0.96, 0.93, 0.90, 0.86, 0.83, 0.80, 0.76, 0.73, 0.70, 0.66,
-      0.63, 0.60, 0.56, 0.53, 0.50, 0.46, 0.43, 0.40, 0.36, 0.33,
-      0.30, 0.26, 0.23, 0.20, 0.16, 0.13, 0.10, 0.06, 0.03
-    ];
-
-    function iofRateByDays(days) {
-      if (days >= 30) return 0;
-      if (days <= 0) return 0;
-      return IOF_TABLE[Math.min(days, 29)] || 0;
-    }
-
-    function daysFromInput(prazo, unidade) {
-      if (unidade === 'meses') return prazo * 30.4167; // média (365/12)
-      return prazo;
-    }
-
-    function effectiveReturn(indexador, taxa, days, cdiAA, ipcaAA, useBusinessDaysApprox) {
-      const t = taxa / 100;     // taxa em decimal (ex. 110% => 1.10; 12% => 0.12)
-      const cdi = cdiAA / 100;
-      const ipca = ipcaAA / 100;
-
-      if (indexador === 'CDI') {
-        // Aproxima CDI por 252 dias úteis. Se prazo está em dias corridos, aproximamos dias úteis.
-        const bdays = useBusinessDaysApprox ? (days * 252 / 365) : days;
-        const cdiDaily = Math.pow(1 + cdi, 1/252) - 1;
-        const dailyRate = cdiDaily * t; // %CDI * CDI diário
-        return Math.pow(1 + dailyRate, bdays) - 1;
-      }
-
-      if (indexador === 'PRE') {
-        return Math.pow(1 + t, days/365) - 1;
-      }
-
-      if (indexador === 'IPCA') {
-        // Aproximação: (1+ipca)^(t) * (1+spread)^(t) - 1
-        const spread = t;
-        const fatorIpca = Math.pow(1 + ipca, days/365);
-        const fatorSpread = Math.pow(1 + spread, days/365);
-        return (fatorIpca * fatorSpread) - 1;
-      }
-
-      return 0;
-    }
-
-    function simulateProduct({ tipo, indexador, taxa, principal, days, cdiAA, ipcaAA, considerIOF, useBusinessDaysApprox }) {
-      const periodReturn = effectiveReturn(indexador, taxa, days, cdiAA, ipcaAA, useBusinessDaysApprox);
-      const finalBruto = principal * (1 + periodReturn);
-      const lucroBruto = Math.max(0, finalBruto - principal);
-
-      // IOF (opcional) - sobre o lucro
-      const iofRate = considerIOF ? iofRateByDays(Math.floor(days)) : 0;
-      const iof = lucroBruto * iofRate;
-
-      const lucroAposIof = Math.max(0, lucroBruto - iof);
-
-      // IR
-      let irRate = 0;
-      if (tipo === 'CDB') irRate = irRateByDays(Math.floor(days));
-      // LCI/LCA são isentas de IR para PF
-      const ir = lucroAposIof * irRate;
-
-      const lucroLiquido = Math.max(0, lucroAposIof - ir);
-      const finalLiquido = principal + lucroLiquido;
-
-      const rentPeriodo = principal > 0 ? (finalLiquido / principal - 1) : 0;
-
-      return {
-        finalBruto, lucroBruto,
-        iofRate, iof,
-        irRate, ir,
-        lucroLiquido, finalLiquido,
-        rentPeriodo
-      };
-    }
-
-    function taxaHelpText(indexador) {
-      if (indexador === 'CDI') return 'Ex.: 110 significa 110% do CDI.';
-      if (indexador === 'PRE') return 'Ex.: 12 significa 12% ao ano.';
-      return 'Ex.: 6 significa IPCA + 6% ao ano.';
-    }
-
-    function updateTaxaHelp(which) {
-      const idx = document.getElementById('indexador' + which).value;
-      document.getElementById('taxa' + which + 'Help').textContent = taxaHelpText(idx);
-      const label = document.querySelector('#taxa' + which + 'Field label');
-      if (label) label.textContent = (idx === 'CDI') ? 'Taxa (% do CDI)' : 'Taxa (a.a.)';
-    }
-
-    function updateIRInfo(which) {
-      const tipo = document.getElementById('tipo' + which).value;
-      const prazo = parseNumberBR(document.getElementById('prazo').value);
-      const unidade = document.getElementById('prazoUnidade').value;
-      const days = daysFromInput(prazo, unidade);
-
-      if (tipo === 'CDB') {
-        const rate = irRateByDays(Math.floor(days));
-        document.getElementById('ir' + which + 'Info').textContent = (rate*100).toFixed(1).replace('.', ',') + '% (regressivo)';
-      } else {
-        document.getElementById('ir' + which + 'Info').textContent = 'Isento (PF)';
-      }
-    }
-
-    function equivalenciaText(days) {
-      // Só calcula equivalência simples quando ambos forem %CDI, e um for LCI/LCA e outro for CDB
-      const aTipo = document.getElementById('tipoA').value;
-      const bTipo = document.getElementById('tipoB').value;
-      const aIdx = document.getElementById('indexadorA').value;
-      const bIdx = document.getElementById('indexadorB').value;
-
-      if (aIdx !== 'CDI' || bIdx !== 'CDI') {
-        return 'Para equivalência direta, use o mesmo indexador (idealmente %CDI em ambos).';
-      }
-
-      const ir = irRateByDays(Math.floor(days));
-      const irPct = (ir*100).toFixed(1).replace('.', ',') + '%';
-
-      const taxaA = parseNumberBR(document.getElementById('taxaA').value);
-      const taxaB = parseNumberBR(document.getElementById('taxaB').value);
-
-      // Se A é LCI/LCA e B é CDB:
-      if ((aTipo === 'LCI' || aTipo === 'LCA') && bTipo === 'CDB') {
-        const eq = taxaA / (1 - ir);
-        return `${taxaA.toFixed(2).replace('.', ',')}% do CDI (LCI/LCA) ≈ ${eq.toFixed(2).replace('.', ',')}% do CDI em CDB (considerando IR ${irPct} pelo prazo).`;
-      }
-      // Se B é LCI/LCA e A é CDB:
-      if ((bTipo === 'LCI' || bTipo === 'LCA') && aTipo === 'CDB') {
-        const eq = taxaB / (1 - ir);
-        return `${taxaB.toFixed(2).replace('.', ',')}% do CDI (LCI/LCA) ≈ ${eq.toFixed(2).replace('.', ',')}% do CDI em CDB (considerando IR ${irPct} pelo prazo).`;
-      }
-
-      return 'Equivalência é mais relevante quando comparamos CDB (com IR) versus LCI/LCA (isenta).';
-    }
-
-    function compare() {
-      const principal = parseNumberBR(document.getElementById('principal').value);
-      const prazo = parseNumberBR(document.getElementById('prazo').value);
-      const unidade = document.getElementById('prazoUnidade').value;
-      const days = daysFromInput(prazo, unidade);
-
-      const cdiAA = parseNumberBR(document.getElementById('cdi').value);
-      const ipcaAA = parseNumberBR(document.getElementById('ipca').value);
-
-      const considerIOF = document.getElementById('considerarIof').value === 'sim';
-      const useBusinessDaysApprox = document.getElementById('diasUteisMode').value === 'aprox';
-
-      const a = simulateProduct({
-        tipo: document.getElementById('tipoA').value,
-        indexador: document.getElementById('indexadorA').value,
-        taxa: parseNumberBR(document.getElementById('taxaA').value),
-        principal, days, cdiAA, ipcaAA, considerIOF, useBusinessDaysApprox
-      });
-
-      const b = simulateProduct({
-        tipo: document.getElementById('tipoB').value,
-        indexador: document.getElementById('indexadorB').value,
-        taxa: parseNumberBR(document.getElementById('taxaB').value),
-        principal, days, cdiAA, ipcaAA, considerIOF, useBusinessDaysApprox
-      });
-
-      // Headline
-      const diff = b.finalLiquido - a.finalLiquido;
-      let badge = 'neutral';
-      let icon = 'fa-circle-info';
-      let label = 'Empate técnico';
-      if (Math.abs(diff) > Math.max(1, principal * 0.001)) {
-        if (diff > 0) { badge = 'good'; icon = 'fa-arrow-up-right-dots'; label = 'Produto B venceu'; }
-        else { badge = 'good'; icon = 'fa-arrow-up-right-dots'; label = 'Produto A venceu'; }
-      }
-      document.getElementById('headlineResult').innerHTML =
-        `<span class="badge ${badge}"><i class="fa-solid ${icon}"></i> ${label}</span>
-         &nbsp; Diferença: <strong>${formatBRL(Math.abs(diff))}</strong> (líquido).`;
-
-      // Fill metrics
-      document.getElementById('aFinal').textContent = formatBRL(a.finalLiquido);
-      document.getElementById('bFinal').textContent = formatBRL(b.finalLiquido);
-
-      document.getElementById('aMeta').textContent =
-        `Lucro líquido: ${formatBRL(a.lucroLiquido)} • Rentabilidade: ${formatPct(a.rentPeriodo)}`;
-      document.getElementById('bMeta').textContent =
-        `Lucro líquido: ${formatBRL(b.lucroLiquido)} • Rentabilidade: ${formatPct(b.rentPeriodo)}`;
-
-      document.getElementById('aBruto').textContent = formatBRL(a.finalBruto);
-      document.getElementById('bBruto').textContent = formatBRL(b.finalBruto);
-
-      document.getElementById('aLucroBruto').textContent = formatBRL(a.lucroBruto);
-      document.getElementById('bLucroBruto').textContent = formatBRL(b.lucroBruto);
-
-      document.getElementById('aIof').textContent = a.iof > 0 ? `${formatBRL(a.iof)} (${(a.iofRate*100).toFixed(0)}% do lucro)` : '—';
-      document.getElementById('bIof').textContent = b.iof > 0 ? `${formatBRL(b.iof)} (${(b.iofRate*100).toFixed(0)}% do lucro)` : '—';
-
-      document.getElementById('aIr').textContent = a.ir > 0 ? `${formatBRL(a.ir)} (${(a.irRate*100).toFixed(1).replace('.', ',')}%)` : '—';
-      document.getElementById('bIr').textContent = b.ir > 0 ? `${formatBRL(b.ir)} (${(b.irRate*100).toFixed(1).replace('.', ',')}%)` : '—';
-
-      document.getElementById('aLucroLiquido').textContent = formatBRL(a.lucroLiquido);
-      document.getElementById('bLucroLiquido').textContent = formatBRL(b.lucroLiquido);
-
-      document.getElementById('aRentPeriodo').textContent = formatPct(a.rentPeriodo);
-      document.getElementById('bRentPeriodo').textContent = formatPct(b.rentPeriodo);
-
-      document.getElementById('equivalencia').textContent = equivalenciaText(days);
-
-      document.getElementById('resultBox').style.display = 'block';
-      document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    function resetAll() {
-      document.getElementById('principal').value = '10000';
-      document.getElementById('prazo').value = '365';
-      document.getElementById('prazoUnidade').value = 'dias';
-      document.getElementById('cdi').value = '10,65';
-      document.getElementById('ipca').value = '4,00';
-      document.getElementById('considerarIof').value = 'nao';
-      document.getElementById('diasUteisMode').value = 'aprox';
-
-      document.getElementById('tipoA').value = 'CDB';
-      document.getElementById('indexadorA').value = 'CDI';
-      document.getElementById('taxaA').value = '110';
-
-      document.getElementById('tipoB').value = 'LCI';
-      document.getElementById('indexadorB').value = 'CDI';
-      document.getElementById('taxaB').value = '95';
-
-      updateTaxaHelp('A'); updateTaxaHelp('B');
-      updateIRInfo('A'); updateIRInfo('B');
-
-      document.getElementById('resultBox').style.display = 'none';
-    }
-
-    // Events
-    document.getElementById('btnComparar').addEventListener('click', compare);
-    document.getElementById('btnReset').addEventListener('click', resetAll);
-
-    ['indexadorA','indexadorB'].forEach(id => {
-      document.getElementById(id).addEventListener('change', () => {
-        updateTaxaHelp(id.endsWith('A') ? 'A' : 'B');
-      });
+  function highlightIRRow(days) {
+    ['irRow1','irRow2','irRow3','irRow4'].forEach(id => {
+      document.getElementById(id).classList.remove('row-active');
     });
+    document.getElementById(irRowId(Math.floor(days))).classList.add('row-active');
+  }
 
-    ['tipoA','tipoB','prazo','prazoUnidade'].forEach(id => {
-      document.getElementById(id).addEventListener('change', () => {
-        updateIRInfo('A'); updateIRInfo('B');
+  function calcular() {
+    const principal = parseNumberBR(document.getElementById('principal').value);
+    const prazo = parseNumberBR(document.getElementById('prazo').value);
+    const unidade = document.getElementById('prazoUnidade').value;
+    const days = daysFromInput(prazo, unidade);
+    const tipo = document.getElementById('tipo').value;
+    const indexador = document.getElementById('indexador').value;
+    const taxa = parseNumberBR(document.getElementById('taxa').value);
+    const cdiAA = parseNumberBR(document.getElementById('cdi').value);
+    const ipcaAA = parseNumberBR(document.getElementById('ipca').value);
+    const considerIOF = document.getElementById('considerarIof').value === 'sim';
+
+    const periodReturn = effectiveReturn(indexador, taxa, days, cdiAA, ipcaAA);
+    const finalBruto = principal * (1 + periodReturn);
+    const lucroBruto = Math.max(0, finalBruto - principal);
+
+    const iofRate = considerIOF ? iofRateByDays(Math.floor(days)) : 0;
+    const iof = lucroBruto * iofRate;
+    const lucroAposIof = Math.max(0, lucroBruto - iof);
+
+    const isIsento = tipo === 'LCI' || tipo === 'LCA';
+    const irRate = isIsento ? 0 : irRateByDays(Math.floor(days));
+    const ir = lucroAposIof * irRate;
+
+    const lucroLiquido = Math.max(0, lucroAposIof - ir);
+    const finalLiquido = principal + lucroLiquido;
+    const rentPeriodo = principal > 0 ? (finalLiquido / principal - 1) : 0;
+
+    // Headline
+    const badge = isIsento ? 'isento' : 'tributado';
+    const badgeLabel = isIsento
+      ? '<i class="fa-solid fa-shield-halved"></i> Isento de IR'
+      : `<i class="fa-solid fa-file-invoice-dollar"></i> IR: ${formatPct(irRate, 1)} sobre o lucro`;
+    document.getElementById('headlineResult').innerHTML =
+      `<span class="badge ${badge}">${badgeLabel}</span>`;
+
+    // Metrics
+    document.getElementById('rFinalLiquido').textContent = formatBRL(finalLiquido);
+    document.getElementById('rLucroLiquido').textContent = `Lucro líquido: ${formatBRL(lucroLiquido)} • ${formatPct(rentPeriodo)} no período`;
+
+    if (isIsento) {
+      document.getElementById('rAliquota').textContent = '0% (isento)';
+      document.getElementById('rAliquotaInfo').textContent = 'LCI e LCA são isentas de IR para pessoa física.';
+    } else {
+      document.getElementById('rAliquota').textContent = formatPct(irRate, 1);
+      const prazoLabel = Math.floor(days) <= 180 ? 'até 180 dias'
+        : Math.floor(days) <= 360 ? '181 a 360 dias'
+        : Math.floor(days) <= 720 ? '361 a 720 dias'
+        : 'acima de 720 dias';
+      document.getElementById('rAliquotaInfo').textContent = `Faixa pelo prazo (${Math.round(days)} dias corridos: ${prazoLabel}).`;
+    }
+
+    document.getElementById('rValorIr').textContent = ir > 0 ? formatBRL(ir) : 'R$ 0,00';
+    document.getElementById('rIrInfo').textContent = ir > 0
+      ? `${formatPct(irRate, 1)} × ${formatBRL(lucroAposIof)} de lucro após IOF`
+      : isIsento ? 'Produto isento — IR não é cobrado.' : 'Sem rendimento, sem IR.';
+
+    // Table
+    document.getElementById('dPrincipal').textContent = formatBRL(principal);
+    document.getElementById('dRendBruto').textContent = `${formatBRL(lucroBruto)} (${formatPct(periodReturn)})`;
+    document.getElementById('dFinalBruto').textContent = formatBRL(finalBruto);
+    document.getElementById('dIof').textContent = iof > 0
+      ? `${formatBRL(iof)} (${(iofRate*100).toFixed(0)}% do lucro)`
+      : 'R$ 0,00';
+    document.getElementById('iofRow').style.display = considerIOF ? '' : 'none';
+    document.getElementById('dIr').textContent = ir > 0 ? formatBRL(ir) : isIsento ? 'Isento' : 'R$ 0,00';
+    document.getElementById('dRendLiquido').textContent = formatBRL(lucroLiquido);
+    document.getElementById('dFinalLiquido').textContent = formatBRL(finalLiquido);
+    document.getElementById('dRentPeriodo').textContent = formatPct(rentPeriodo);
+
+    // Highlight IR table row
+    if (!isIsento) {
+      highlightIRRow(Math.floor(days));
+    } else {
+      ['irRow1','irRow2','irRow3','irRow4'].forEach(id => {
+        document.getElementById(id).classList.remove('row-active');
       });
-      document.getElementById(id).addEventListener('input', () => {
-        updateIRInfo('A'); updateIRInfo('B');
-      });
+    }
+
+    document.getElementById('resultBox').style.display = 'block';
+    document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function resetAll() {
+    document.getElementById('principal').value = '10000';
+    document.getElementById('prazo').value = '365';
+    document.getElementById('prazoUnidade').value = 'dias';
+    document.getElementById('tipo').value = 'CDB';
+    document.getElementById('indexador').value = 'CDI';
+    document.getElementById('taxa').value = '110';
+    document.getElementById('cdi').value = '10,65';
+    document.getElementById('ipca').value = '4,00';
+    document.getElementById('considerarIof').value = 'nao';
+    updateTaxaHelp();
+    updateIpcaVisibility();
+    document.getElementById('resultBox').style.display = 'none';
+    ['irRow1','irRow2','irRow3','irRow4'].forEach(id => {
+      document.getElementById(id).classList.remove('row-active');
     });
+  }
 
-    // init
-    updateTaxaHelp('A'); updateTaxaHelp('B');
-    updateIRInfo('A'); updateIRInfo('B');
+  function updateTaxaHelp() {
+    const idx = document.getElementById('indexador').value;
+    const helpMap = {
+      CDI: 'Ex.: 110 significa 110% do CDI.',
+      PRE: 'Ex.: 12 significa 12% ao ano.',
+      IPCA: 'Ex.: 6 significa IPCA + 6% ao ano.'
+    };
+    const labelMap = {
+      CDI: 'Taxa (% do CDI)',
+      PRE: 'Taxa prefixada (a.a.)',
+      IPCA: 'Spread sobre o IPCA (a.a.)'
+    };
+    document.getElementById('taxaHelp').textContent = helpMap[idx] || '';
+    document.querySelector('#taxaField label').textContent = labelMap[idx] || 'Taxa';
+  }
+
+  function updateIpcaVisibility() {
+    const idx = document.getElementById('indexador').value;
+    document.getElementById('ipcaField').style.display = idx === 'IPCA' ? '' : 'none';
+  }
+
+  document.getElementById('btnCalcular').addEventListener('click', calcular);
+  document.getElementById('btnReset').addEventListener('click', resetAll);
+  document.getElementById('indexador').addEventListener('change', () => {
+    updateTaxaHelp();
+    updateIpcaVisibility();
+  });
+
+  updateTaxaHelp();
+  updateIpcaVisibility();
 </script>
 
-    <!-- Cookie Consent Banner -->
-    <div id="cookie-banner" class="cookie-banner">
-        <div class="container cookie-container">
-            <p class="cookie-text">
-                Usamos cookies para melhorar sua experiência, analisar o tráfego e personalizar conteúdo e anúncios. Você pode aceitar, recusar ou gerenciar suas preferências a qualquer momento. Leia nossa <a href="/politica-privacidade">Política de Privacidade</a>.
-            </p>
-            <div class="cookie-actions">
-                <button id="cookie-reject" class="btn-cookie-reject" type="button">Recusar</button>
-                <a id="cookie-preferences" class="btn-cookie-preferences" href="/politica-privacidade">Gerenciar preferências</a>
-                <button id="cookie-accept" class="btn-cookie-accept" type="button">Aceitar</button>
-            </div>
-        </div>
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner" class="cookie-banner">
+  <div class="container cookie-container">
+    <p class="cookie-text">
+      Usamos cookies para melhorar sua experiência, analisar o tráfego e personalizar conteúdo e anúncios. Você pode aceitar, recusar ou gerenciar suas preferências a qualquer momento. Leia nossa <a href="/politica-privacidade">Política de Privacidade</a>.
+    </p>
+    <div class="cookie-actions">
+      <button id="cookie-reject" class="btn-cookie-reject" type="button">Recusar</button>
+      <a id="cookie-preferences" class="btn-cookie-preferences" href="/politica-privacidade">Gerenciar preferências</a>
+      <button id="cookie-accept" class="btn-cookie-accept" type="button">Aceitar</button>
     </div>
+  </div>
+</div>
 </body>
 </html>
