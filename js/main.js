@@ -259,11 +259,11 @@ async function loadBlogPosts() {
 // Consent schema (localStorage key: 'cookie-consent-v2'):
 //   { necessary: true, analytics: bool, ads: bool, date: 'YYYY-MM-DD' }
 //
-// Script loaders (loadAnalytics / loadAds) are defined here but inert until
-// the respective tracking IDs are configured. They will be called automatically
-// once the user grants consent in the appropriate category.
+// Script loaders (loadAnalytics / loadAds) are gated by consent and are
+// called automatically only after the user grants the corresponding category.
 
 const CONSENT_KEY = 'cookie-consent-v2';
+const ADSENSE_CLIENT_ID = 'ca-pub-4613426749830025';
 
 function getConsent() {
     try {
@@ -296,7 +296,7 @@ function saveConsent(prefs) {
 }
 
 // ── SCRIPT LOADERS (gated on consent) ────────────────────
-// Replace the placeholder IDs when the accounts are active.
+// Replace analytics placeholders when the account is active.
 
 function loadAnalytics() {
     // GA4 — uncomment and replace G-XXXXXXXXXX when property is ready
@@ -312,13 +312,13 @@ function loadAnalytics() {
 }
 
 function loadAds() {
-    // AdSense — uncomment when account is approved
-    // if (document.querySelector('script[src*="adsbygoogle"]')) return;
-    // const s = document.createElement('script');
-    // s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025';
-    // s.async = true;
-    // s.crossOrigin = 'anonymous';
-    // document.head.appendChild(s);
+    if (document.querySelector('script[src*="adsbygoogle"]')) return;
+
+    const s = document.createElement('script');
+    s.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`;
+    s.async = true;
+    s.crossOrigin = 'anonymous';
+    document.head.appendChild(s);
 }
 
 function applyConsent(consent) {
