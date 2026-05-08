@@ -1,9 +1,8 @@
 # Regras de domínio (http/www → https sem www) estão em netlify.toml
 
-# Redirecionar URLs internas .html para o padrão canônico sem extensão
-/blog.html /blog 301
-/mapa-do-site.html /mapa-do-site 301
-/posts/:slug.html /posts/:slug 301
+# URLs limpas: o Netlify já aplica Pretty URLs para arquivos .html.
+# Evite redirecionamentos genéricos .html -> sem extensão em _redirects,
+# pois eles podem competir com /slug -> /slug.html e causar ERR_TOO_MANY_REDIRECTS.
 
 # Redirecionar post DGS com URL antiga para a URL correta
 /posts/dgs-etf-wisdomtree-emerging-markets-smallcap-dividend-guia /posts/dgs-wisdomtree-emerging-markets-small-cap-dividend-guia-completo 301
