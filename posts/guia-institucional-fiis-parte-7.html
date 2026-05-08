@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Guia Institucional de FIIs (Parte 7/8) — Carteira Institucional: IPS, Risco, Correlação e Rebalanceamento | Cérebro Milionário</title>
-  <meta name="description" content="Guia Institucional de FIIs (Parte 7/8): como construir uma carteira de FIIs em nível institucional usando IPS, orçamento de risco, correlação, diversificação, limites, rebalanceamento, governança e monitoramento contínuo." />
-  <meta name="keywords" content="carteira de FIIs, IPS, orçamento de risco, correlação, diversificação, rebalanceamento, limites, governança, risco de concentração, tracking error" />
+  <title>Carteira Institucional de FIIs: IPS, Risco, Correlação e Rebalanceamento (Parte 7/8) | Cérebro Milionário</title>
+  <meta name="description" content="Construa uma carteira de FIIs em nível institucional: IPS completa, orçamento de risco por driver, limites de concentração, bandas de rebalanceamento e painel de monitoramento. Parte 7 do Guia Institucional de FIIs." />
+  <meta name="keywords" content="carteira de FIIs, IPS, orçamento de risco, correlação, diversificação, rebalanceamento, limites concentração, tracking error, FII institucional" />
   <meta name="author" content="Cérebro Milionário" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://cerebromilionario.site/posts/guia-institucional-fiis-parte-7" />
@@ -14,15 +14,15 @@
   <!-- OG -->
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://cerebromilionario.site/posts/guia-institucional-fiis-parte-7" />
-  <meta property="og:title" content="Guia Institucional de FIIs (Parte 7/8) — Carteira Institucional" />
-  <meta property="og:description" content="IPS, orçamento de risco, diversificação, limites e rebalanceamento — framework institucional para carteira de FIIs." />
+  <meta property="og:title" content="Carteira Institucional de FIIs: IPS, Risco e Rebalanceamento (Parte 7/8)" />
+  <meta property="og:description" content="IPS, orçamento de risco por driver, limites de concentração, bandas de rebalanceamento e painel de monitoramento — framework institucional para carteira de FIIs." />
   <meta property="og:image" content="https://cerebromilionario.site/images/blog-cover.svg" />
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://cerebromilionario.site/posts/guia-institucional-fiis-parte-7" />
-  <meta property="twitter:title" content="Guia Institucional de FIIs (Parte 7/8) — Carteira Institucional" />
-  <meta property="twitter:description" content="IPS, orçamento de risco, diversificação, limites e rebalanceamento — framework institucional para carteira de FIIs." />
+  <meta property="twitter:title" content="Carteira Institucional de FIIs: IPS, Risco e Rebalanceamento (Parte 7/8)" />
+  <meta property="twitter:description" content="IPS, orçamento de risco por driver, limites de concentração, bandas de rebalanceamento e painel de monitoramento — framework institucional para carteira de FIIs." />
   <meta property="twitter:image" content="https://cerebromilionario.site/images/blog-cover.svg" />
 
   <!-- Fonts + Icons -->
@@ -41,13 +41,77 @@
   <!-- Schema -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "headline":"Guia Institucional de FIIs (Parte 7/8) — Carteira Institucional: IPS, Risco, Correlação e Rebalanceamento",
-    "description":"Framework institucional para construção e gestão de carteira de FIIs: IPS, orçamento de risco, diversificação, limites e rebalanceamento.",
-    "author":{"@type":"Organization","name":"Cérebro Milionário"},
-    "publisher":{"@type":"Organization","name":"Cérebro Milionário"},
-    "mainEntityOfPage":"https://cerebromilionario.site/posts/guia-institucional-fiis-parte-7.html"
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Carteira Institucional de FIIs: IPS, Orçamento de Risco, Limites e Rebalanceamento",
+        "description": "Framework institucional para construção e gestão de carteira de FIIs: IPS, orçamento de risco por driver, diversificação real, limites de concentração e rebalanceamento por bandas.",
+        "url": "https://cerebromilionario.site/posts/guia-institucional-fiis-parte-7",
+        "datePublished": "2026-01-15",
+        "dateModified": "2026-05-08",
+        "author": {"@type": "Organization", "name": "Cérebro Milionário"},
+        "publisher": {"@type": "Organization", "name": "Cérebro Milionário"},
+        "mainEntityOfPage": "https://cerebromilionario.site/posts/guia-institucional-fiis-parte-7",
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [".hero h1", ".hero p"]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "O que é IPS no contexto de FIIs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "IPS (Investment Policy Statement) é o documento-base da carteira de FIIs: define objetivo (renda ou total return), horizonte mínimo, tolerância a drawdown, limites numéricos de concentração e crédito, regras de rebalanceamento e periodicidade de revisão. Sem IPS, decisões viram emocionais em crises."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Como montar um orçamento de risco para carteira de FIIs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "O orçamento de risco distribui a 'capacidade de perda' entre 4 categorias: (1) risco de mercado/cap rate — quanto de oscilação de preço é tolerada; (2) risco de crédito — perda permanente máxima em papel; (3) risco de liquidez — quanto do portfólio pode ficar travado; (4) risco operacional — capex e vacância não planejados. Cada bloco recebe um limite numérico, ex.: máximo 15% de exposição a estruturas subordinadas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quantos FIIs preciso para uma carteira bem diversificada?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Número de tickers não é diversificação. Uma carteira com 8–12 FIIs cobrindo drivers independentes (curva de juros, crédito privado, consumo, absorção de espaços) é mais diversificada que 25 FIIs com o mesmo driver dominante. O critério institucional é: para cada posição relevante, qual driver precisa dar certo? Se a maioria responde o mesmo, há risco duplicado."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Como funciona o rebalanceamento por bandas em FIIs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Define-se um peso-alvo por segmento (ex.: 45% tijolo) e uma banda de tolerância (ex.: ±8 pp). Se tijolo sobe para 54% ou cai para 36%, o rebalanceamento é disparado. Para fundos individuais, uma banda típica é ±2–3 pp sobre o peso-alvo de 5–8%. O rebalance por bandas é mais eficiente que por calendário fixo porque age quando o desvio é relevante, não por data."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quais limites de concentração são considerados prudentes em FIIs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Referências institucionais: máximo 8–10% por fundo individual; máximo 20–25% por segmento de risco homogêneo; máximo 15% de exposição a um único devedor/CRI (carteira papel); máximo 30% em estruturas subordinadas. Para FIIs com liquidez restrita (volume diário < R$ 500k), o limite por fundo deve ser menor para garantir saída em até 10 pregões."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "O que monitorar mensalmente em uma carteira de FIIs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Painel mínimo mensal: (1) concentração — top 3 posições e top 3 drivers; (2) liquidez — dias estimados para saída completa; (3) crédito — eventos em CRIs, extensões e covenant breaks; (4) operacional tijolo — vacância e WAULT; (5) valuation — desconto/prêmio médio da carteira; (6) risco macro — regime de juros e o que mudou. Completar trimestralmente com revisão de IPS."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
 
@@ -113,6 +177,12 @@
     .card{ border:1px solid rgba(0,0,0,.08); border-radius: 18px; background:#fff; box-shadow: var(--shadow-sm); padding: 14px 16px; }
     .card h3{ margin-top: 0; }
     .card ul{ margin: 10px 0 0 18px; }
+
+    .faq{ margin-top: 34px; }
+    .faq details{ border:1px solid rgba(0,0,0,.08); border-radius: 14px; background:#fff; box-shadow: var(--shadow-sm); margin: 10px 0; padding: 14px 16px; }
+    .faq summary{ font-weight: 700; cursor: pointer; list-style: none; }
+    .faq summary::-webkit-details-marker{ display: none; }
+    .faq details p{ margin: 10px 0 0; line-height: 1.75; }
   </style>
 </head>
 
@@ -212,10 +282,10 @@
               <span class="pill"><i class="fa-solid fa-diagram-project"></i> Guia Institucional • Parte 7/8</span>
               <h1>Carteira Institucional de FIIs: IPS, Orçamento de Risco, Limites e Rebalanceamento</h1>
               <p>
-                O investidor institucional não “compra fundos”; ele implementa um <b>processo</b>.
+                O investidor institucional não "compra fundos"; ele implementa um <b>processo</b>.
                 O coração do processo é uma <b>IPS (Investment Policy Statement)</b> que define objetivo,
                 restrições, orçamento de risco, limites e gatilhos de ação.
-                Essa parte te entrega um framework completo, neutro e replicável.
+                Essa parte entrega um framework completo, neutro e replicável para qualquer tamanho de carteira.
               </p>
 
               <div class="kpi-grid">
@@ -224,9 +294,9 @@
                 <div class="kpi"><strong>Gestão</strong><span>rebalance + monitor</span></div>
               </div>
 
-              <div class="callout">
-                <b>Princípio institucional:</b> diversificação não é “muitos ativos”.
-                Diversificação é <b>não depender de um único driver</b> (crédito, vacância, consumo, curva de juros, etc.).
+              <div class="callout" style="margin-top:14px;">
+                <b>Princípio institucional:</b> diversificação não é "muitos ativos".
+                Diversificação é <b>não depender de um único driver</b> — crédito, vacância, consumo, curva de juros, absorção de área.
               </div>
             </div>
 
@@ -235,228 +305,598 @@
               <ol>
                 <li><a href="#i1">IPS: o que entra e por que isso muda tudo</a></li>
                 <li><a href="#i2">Objetivo: renda, total return e tolerância a drawdown</a></li>
-                <li><a href="#i3">Orçamento de risco: o que você realmente “pode perder”</a></li>
-                <li><a href="#i4">Diversificação de verdade: por drivers (não por tickers)</a></li>
+                <li><a href="#i3">Orçamento de risco: os 4 riscos que você precisa quantificar</a></li>
+                <li><a href="#i4">Diversificação real: por drivers, não por tickers</a></li>
                 <li><a href="#i5">Limites: concentração, liquidez, crédito e segmentação</a></li>
-                <li><a href="#i6">Rebalanceamento: regras, bandas e gatilhos</a></li>
-                <li><a href="#i7">Monitoramento contínuo: painel institucional (checklist)</a></li>
-                <li><a href="#i8">Checklist e ponte para a Parte 8 (blindagem)</a></li>
+                <li><a href="#i6">Exemplo de alocação-alvo: carteira de 5 blocos</a></li>
+                <li><a href="#i7">Rebalanceamento: bandas, gatilhos e regra de qualidade</a></li>
+                <li><a href="#i8">Monitoramento contínuo: painel institucional com KPIs</a></li>
+                <li><a href="#i9">Stress test: carteira vs 3 cenários de choque</a></li>
+                <li><a href="#i10">Checklist e ponte para a Parte 8 (blindagem)</a></li>
               </ol>
             </div>
 
+            <!-- AdSense bloco 1 -->
+            <ins class="adsbygoogle"
+                 style="display:block;margin:22px 0;"
+                 data-ad-client="ca-pub-4613426749830025"
+                 data-ad-slot="9876543229"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
             <h2 id="i1">1) IPS: o que entra e por que isso muda tudo</h2>
             <p>
-              IPS é o “contrato” entre você (alocador) e o processo. Ela evita decisões emocionais e
-              padroniza o que fazer em cenários de estresse. Uma IPS institucional contém:
+              IPS é o "contrato" entre você (alocador) e o processo. Ela evita decisões emocionais
+              e padroniza o que fazer em cenários de estresse. Sem IPS escrita, toda crise vira
+              uma decisão nova sob pressão máxima — exatamente quando a racionalidade está comprometida.
+              Uma IPS institucional contém seis blocos mínimos, cada um com parâmetros numéricos:
             </p>
 
-            <div class="card">
-              <h3>IPS — blocos mínimos</h3>
-              <ul>
-                <li><b>Objetivo primário:</b> renda, preservação real, total return, estabilidade.</li>
-                <li><b>Horizonte:</b> mínimo de permanência e janela de avaliação (ex.: 3–5 anos).</li>
-                <li><b>Restrições:</b> liquidez mínima, limite de concentração, veto de estruturas.</li>
-                <li><b>Risco:</b> budget e drawdown aceitável (ex.: pior cenário tolerado).</li>
-                <li><b>Regras:</b> rebalanceamento, aportes, o que fazer em stress.</li>
-                <li><b>Governança:</b> periodicidade de revisão e “gatilhos de exceção”.</li>
-              </ul>
-            </div>
+            <table class="table" aria-label="Blocos da IPS com exemplos">
+              <thead>
+                <tr>
+                  <th>Bloco da IPS</th>
+                  <th>O que define</th>
+                  <th>Exemplo de parâmetro</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Objetivo primário</b></td>
+                  <td>Renda corrente, preservação real ou total return</td>
+                  <td>Renda ≥ 0,6% a.m. + preservação real</td>
+                </tr>
+                <tr>
+                  <td><b>Horizonte</b></td>
+                  <td>Mínimo de permanência e janela de avaliação</td>
+                  <td>Mínimo 3 anos; avaliar em ciclos de 12 meses</td>
+                </tr>
+                <tr>
+                  <td><b>Restrições</b></td>
+                  <td>Liquidez mínima, vetos estruturais</td>
+                  <td>Mín. 20% em FIIs com vol. diário &gt; R$ 2M</td>
+                </tr>
+                <tr>
+                  <td><b>Risco (budget)</b></td>
+                  <td>Drawdown aceitável, perda permanente tolerada</td>
+                  <td>Drawdown máx. −25%; perda crédito máx. −5%</td>
+                </tr>
+                <tr>
+                  <td><b>Regras</b></td>
+                  <td>Rebalanceamento, aportes, ação em stress</td>
+                  <td>Rebalancear quando desvio &gt; 8 pp do alvo</td>
+                </tr>
+                <tr>
+                  <td><b>Governança</b></td>
+                  <td>Revisão da IPS e gatilhos de exceção</td>
+                  <td>Revisão anual + revisão extra se Selic ±200 bps</td>
+                </tr>
+              </tbody>
+            </table>
 
             <div class="warning">
-              <b>Erro comum:</b> “Eu sou conservador” não é IPS.
-              Conservador precisa ser traduzido em limites numéricos: exposição a crédito, duration, liquidez, drawdown.
+              <b>Erro comum:</b> "Eu sou conservador" não é IPS.
+              Conservador precisa ser traduzido em limites numéricos: exposição máxima a crédito,
+              duration do portfólio, mínimo de liquidez, drawdown tolerado.
             </div>
 
             <h2 id="i2">2) Objetivo: renda, total return e tolerância a drawdown</h2>
             <p>
               FIIs pagam distribuição, mas o investidor institucional mede <b>total return</b>:
-              distribuição + variação de preço + eventos (default, capex, diluição). Se o objetivo é renda,
-              você define “renda mínima” e permite volatilidade dentro de bandas.
+              distribuição + variação de preço + eventos corporativos (default, capex emergencial,
+              diluição, fechamento de desconto em FOF). Se o objetivo é renda, você define "renda mínima"
+              e permite volatilidade dentro de bandas. Se é total return, você aceita cortes temporários
+              de DY em troca de apreciação.
             </p>
 
             <div class="math">
               <code>
-Total Return (simplificado) =
-Distribuições + ΔPreço + Eventos (diluição, default, capex, fechamento de desconto)
+Total Return (simplificado):
+TR = Distribuições + ΔPreço + Eventos
+
+Exemplos de "eventos":
+(+) fechamento de desconto em FOF: NAV 100 → preço 87 → 90 (+3,4%)
+(−) diluição: emissão a 10% abaixo do NAV → impacto −2% na cota existente
+(−) default CRI: perda permanente no P&L do fundo papel
               </code>
             </div>
 
             <div class="note">
-              Defina uma métrica operacional simples:
-              “posso tolerar X% de drawdown sem vender?”.
-              Se a resposta for “não sei”, o risco está fora do controle.
+              Defina uma métrica operacional: "consigo tolerar X% de drawdown sem vender?".
+              Se a resposta for "não sei", o risco está fora do controle — e a IPS está incompleta.
             </div>
 
-            <h2 id="i3">3) Orçamento de risco: o que você realmente “pode perder”</h2>
+            <h2 id="i3">3) Orçamento de risco: os 4 riscos que você precisa quantificar</h2>
             <p>
-              Orçamento de risco (risk budget) é alocar “capacidade de perder” entre os blocos da carteira:
-              tijolo, papel, FOFs e táticas. Institucionalmente, você define:
-              <b>limites por risco dominante</b>, não só por segmento.
+              Orçamento de risco (risk budget) distribui a "capacidade de perder" entre os blocos
+              da carteira. Institucionalmente, você define <b>limites por tipo de risco dominante</b>,
+              não apenas por segmento ou ticker.
             </p>
 
-            <div class="math">
-              <code>
-Budget de risco (visão prática):
-- Risco de mercado (cap rate/juros): quanto de volatilidade aceito?
-- Risco de crédito: qual perda permanente máxima tolerada?
-- Risco de liquidez: quanto do portfólio posso travar sem necessidade de venda?
-- Risco operacional: quanto capex/rotação/renegociação a carteira aguenta?
-              </code>
-            </div>
-
-            <h2 id="i4">4) Diversificação real: por drivers (não por tickers)</h2>
-            <p>
-              “Ter 20 FIIs” não garante nada se 15 deles dependem do mesmo driver macro.
-              Diversificação institucional separa o que move o NOI e a marcação:
-            </p>
-
-            <table class="table" aria-label="Drivers e exemplos">
+            <table class="table" aria-label="Orçamento de risco por categoria">
               <thead>
                 <tr>
-                  <th>Driver</th>
+                  <th>Tipo de risco</th>
                   <th>Onde aparece</th>
-                  <th>Como diversificar</th>
+                  <th>Como mensurar</th>
+                  <th>Limite de referência</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><b>Curva de juros / cap rate</b></td>
-                  <td>tijolo (valuation) e duration</td>
-                  <td>misturar durations e contratos</td>
+                  <td><b>Mercado / cap rate</b></td>
+                  <td>Tijolo (valuation), duration implícita</td>
+                  <td>Drawdown histórico, sensibilidade a +100 bps</td>
+                  <td>Drawdown máx. −20 a −30%</td>
                 </tr>
                 <tr>
-                  <td><b>Crédito / spread</b></td>
-                  <td>papel/CRI</td>
-                  <td>indexadores, senioridade, concentração</td>
+                  <td><b>Crédito</b></td>
+                  <td>Papel (CRI), FOFs com CRI subordinado</td>
+                  <td>% em estruturas sub + concentração por devedor</td>
+                  <td>Máx. 15% subordinado; máx. 10% por devedor</td>
                 </tr>
                 <tr>
-                  <td><b>Consumo</b></td>
-                  <td>shoppings</td>
-                  <td>regiões, mix, resiliência</td>
+                  <td><b>Liquidez</b></td>
+                  <td>Todos — especialmente fundos com vol. baixo</td>
+                  <td>Dias para liquidar posição (tamanho ÷ vol. diário)</td>
+                  <td>Saída em ≤ 10 pregões para cada posição</td>
                 </tr>
                 <tr>
-                  <td><b>Atividade econômica / absorção</b></td>
-                  <td>lajes/logística</td>
-                  <td>localização + qualidade + churn</td>
+                  <td><b>Operacional</b></td>
+                  <td>Tijolo — vacância, capex, churn de inquilino</td>
+                  <td>WAULT, taxa de vacância, ciclo de capex previsto</td>
+                  <td>Máx. 30% em fundos com vacância &gt; 15%</td>
                 </tr>
               </tbody>
             </table>
 
             <div class="callout">
-              <b>Regra institucional:</b> para cada posição grande,
-              escreva “qual driver precisa dar certo para este fundo funcionar?”.
-              Se vários fundos respondem igual, você tem “risco duplicado”.
+              <b>Dica prática:</b> faça um "what if" por tipo de risco antes de montar a carteira:
+              se a Selic subir 300 bps, quanto o portfólio perde? Se o maior devedor do portfólio
+              papel entrar em default, qual o impacto em DY?
             </div>
+
+            <h2 id="i4">4) Diversificação real: por drivers, não por tickers</h2>
+            <p>
+              "Ter 20 FIIs" não garante nada se 15 deles dependem do mesmo driver macro.
+              Diversificação institucional começa por mapear qual driver move o NOI e a marcação de cada posição:
+            </p>
+
+            <table class="table" aria-label="Drivers de risco por segmento">
+              <thead>
+                <tr>
+                  <th>Driver</th>
+                  <th>Segmento exposto</th>
+                  <th>Como diversificar</th>
+                  <th>Correlação entre si</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Curva de juros / cap rate</b></td>
+                  <td>Tijolo (valuation) e duration implícita do portfólio</td>
+                  <td>Mix contratos típicos/atípicos; variação de prazos</td>
+                  <td>Alta — todos os tijolos sobem quando juro cai</td>
+                </tr>
+                <tr>
+                  <td><b>Spread de crédito</b></td>
+                  <td>Papel / CRI, FOFs com posição sub</td>
+                  <td>Indexadores diferentes, senioridade sênior + mezanino</td>
+                  <td>Alta entre CRIs do mesmo devedor</td>
+                </tr>
+                <tr>
+                  <td><b>Consumo / varejo</b></td>
+                  <td>Shoppings, strip malls</td>
+                  <td>Regiões, ticket médio, resiliência do mix</td>
+                  <td>Moderada com lajes (ambos dependem de renda)</td>
+                </tr>
+                <tr>
+                  <td><b>Absorção de espaços</b></td>
+                  <td>Lajes corporativas, logística</td>
+                  <td>Localização, classe do ativo, WAULT longo</td>
+                  <td>Baixa com papel; moderada com shoppings</td>
+                </tr>
+                <tr>
+                  <td><b>Câmbio / supply chain</b></td>
+                  <td>Logística (e-commerce, importação)</td>
+                  <td>Mistura de contratos dolarizados e locais</td>
+                  <td>Baixa com shoppings e lajes</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="callout">
+              <b>Regra institucional:</b> para cada posição &gt; 5%, escreva:
+              "qual driver precisa dar certo para este fundo funcionar?".
+              Se vários fundos respondem igual → você tem risco duplicado, não diversificação.
+            </div>
+
+            <!-- AdSense bloco 2 -->
+            <ins class="adsbygoogle"
+                 style="display:block;margin:22px 0;"
+                 data-ad-client="ca-pub-4613426749830025"
+                 data-ad-slot="9876543230"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
             <h2 id="i5">5) Limites: concentração, liquidez, crédito e segmentação</h2>
             <p>
-              Limites são o que impede um portfólio de virar uma aposta disfarçada.
-              Um conjunto institucional de limites (exemplo) inclui:
+              Limites impedem que uma carteira vire uma aposta disfarçada.
+              A tabela abaixo reúne um conjunto de limites institucionais de referência —
+              ajuste conforme tamanho de patrimônio e tolerância individual:
             </p>
 
-            <div class="grid2">
-              <div class="card">
-                <h3>Limites de concentração</h3>
-                <ul>
-                  <li>máximo por fundo (ex.: 6–10%)</li>
-                  <li>máximo por inquilino (tijolo) via concentração indireta</li>
-                  <li>máximo por emissor/devedor (papel)</li>
-                </ul>
-              </div>
-              <div class="card">
-                <h3>Limites de liquidez</h3>
-                <ul>
-                  <li>mínimo de volume médio (proxy)</li>
-                  <li>tamanho de posição compatível com saída em N dias</li>
-                  <li>FOFs: atenção ao risco de “dupla liquidez”</li>
-                </ul>
-              </div>
+            <table class="table" aria-label="Limites institucionais de referência">
+              <thead>
+                <tr>
+                  <th>Dimensão</th>
+                  <th>Limite de referência</th>
+                  <th>Fundamento</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Máx. por fundo individual</b></td>
+                  <td>8–10%</td>
+                  <td>Evita que um evento específico destrua &gt; 1% da carteira</td>
+                </tr>
+                <tr>
+                  <td><b>Máx. por segmento homogêneo</b></td>
+                  <td>25–35%</td>
+                  <td>Controla exposição a um único driver macro</td>
+                </tr>
+                <tr>
+                  <td><b>Máx. em estruturas subordinadas (papel)</b></td>
+                  <td>15%</td>
+                  <td>Perda permanente em crise de crédito</td>
+                </tr>
+                <tr>
+                  <td><b>Máx. por devedor/CRI único</b></td>
+                  <td>10%</td>
+                  <td>Concentração de crédito em evento de default</td>
+                </tr>
+                <tr>
+                  <td><b>Máx. em FIIs com vol. diário &lt; R$ 500k</b></td>
+                  <td>5% por fundo</td>
+                  <td>Garante saída em ≤ 10 pregões</td>
+                </tr>
+                <tr>
+                  <td><b>Máx. em FOFs</b></td>
+                  <td>20%</td>
+                  <td>Evita dupla camada de taxa + risco de dupla liquidez</td>
+                </tr>
+                <tr>
+                  <td><b>Máx. em vacância &gt; 15%</b></td>
+                  <td>30% do portfólio tijolo</td>
+                  <td>Limita o risco operacional agregado</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="note">
+              Para carteiras menores (ex.: &lt; R$ 200k), o limite de liquidez é menos crítico porque
+              a posição em cada fundo raramente excede alguns dias de negociação.
+              Para patrimônios &gt; R$ 1M, liquidez vira um constraint real.
             </div>
 
-            <div class="grid2" style="margin-top:12px;">
-              <div class="card">
-                <h3>Limites de crédito</h3>
-                <ul>
-                  <li>máximo em estruturas subordinadas</li>
-                  <li>máximo em operações com LTV alto</li>
-                  <li>máximo em “indexador agressivo” com payment shock</li>
-                </ul>
-              </div>
-              <div class="card">
-                <h3>Limites por segmento</h3>
-                <ul>
-                  <li>tijolo: evitar concentração em um só ciclo</li>
-                  <li>papel: evitar concentração em um só devedor/estrutura</li>
-                  <li>FOFs: evitar excesso de taxa + desconto estrutural</li>
-                </ul>
-              </div>
-            </div>
-
-            <h2 id="i6">6) Rebalanceamento: regras, bandas e gatilhos</h2>
+            <h2 id="i6">6) Exemplo de alocação-alvo: carteira de 5 blocos</h2>
             <p>
-              Rebalanceamento institucional é “comprar o que ficou barato” e “reduzir o que virou risco”
-              <b>sem depender de feeling</b>. Existem duas formas clássicas:
-              <b>por calendário</b> e <b>por bandas</b>.
+              Um framework de alocação institucional divide a carteira em blocos por perfil de risco/retorno,
+              não por segmento. Abaixo um exemplo de carteira moderada orientada a renda com proteção de capital:
             </p>
+
+            <table class="table" aria-label="Exemplo de alocação-alvo por bloco">
+              <thead>
+                <tr>
+                  <th>Bloco</th>
+                  <th>Composição típica</th>
+                  <th>Peso-alvo</th>
+                  <th>Driver dominante</th>
+                  <th>DY esperado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Tijolo de renda</b></td>
+                  <td>Logística + lajes A+ com WAULT longo</td>
+                  <td>35%</td>
+                  <td>Absorção + cap rate</td>
+                  <td>7–9% a.a.</td>
+                </tr>
+                <tr>
+                  <td><b>Tijolo de ciclo</b></td>
+                  <td>Shoppings + lajes B com upside de vacância</td>
+                  <td>20%</td>
+                  <td>Consumo + reprecificação</td>
+                  <td>5–7% a.a. (DY baixo + apreciação)</td>
+                </tr>
+                <tr>
+                  <td><b>Papel sênior</b></td>
+                  <td>CRI IPCA+ / CDI+ com LTV &lt; 60%</td>
+                  <td>25%</td>
+                  <td>Spread de crédito + inflação</td>
+                  <td>11–13% a.a.</td>
+                </tr>
+                <tr>
+                  <td><b>Papel tático</b></td>
+                  <td>CRI com spread premium, mezanino selecionado</td>
+                  <td>10%</td>
+                  <td>Crédito — risco assimétrico</td>
+                  <td>13–16% a.a.</td>
+                </tr>
+                <tr>
+                  <td><b>FOF / tático</b></td>
+                  <td>FOF com desconto real ao NAV</td>
+                  <td>10%</td>
+                  <td>Fechamento de desconto + diversificação</td>
+                  <td>8–10% a.a. (DY + fechamento)</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="callout">
+              Este exemplo é <b>ilustrativo</b>. A alocação correta depende do objetivo, horizonte e
+              regime de juros vigente. Em juros altos (Selic &gt; 13%), o peso papel tende a subir;
+              em ciclo de queda, tijolo de ciclo ganha mais upside.
+              Veja como o regime de juros afeta a alocação na
+              <a href="/posts/guia-institucional-fiis-parte-6">Parte 6 — Ciclos Macroeconômicos</a>.
+            </div>
+
+            <h2 id="i7">7) Rebalanceamento: bandas, gatilhos e regra de qualidade</h2>
+            <p>
+              Rebalanceamento institucional significa "comprar o que ficou barato" e "reduzir o que virou risco
+              concentrado" — <b>sem depender de feeling</b>. Há dois mecanismos clássicos, melhores quando combinados:
+            </p>
+
+            <table class="table" aria-label="Mecanismos de rebalanceamento">
+              <thead>
+                <tr>
+                  <th>Mecanismo</th>
+                  <th>Como funciona</th>
+                  <th>Vantagem</th>
+                  <th>Limitação</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Por bandas</b></td>
+                  <td>Age quando o peso desviar &gt; X pp do alvo</td>
+                  <td>Age quando o desvio é relevante (eficiente)</td>
+                  <td>Pode ser frequente em mercados voláteis</td>
+                </tr>
+                <tr>
+                  <td><b>Por calendário</b></td>
+                  <td>Revisão trimestral ou semestral fixa</td>
+                  <td>Simples, disciplinado</td>
+                  <td>Pode agir tarde ou cedo demais</td>
+                </tr>
+                <tr>
+                  <td><b>Por aportes</b></td>
+                  <td>Novos recursos vão para o bloco subponderado</td>
+                  <td>Sem custo de transação em venda</td>
+                  <td>Só funciona enquanto há aportes regulares</td>
+                </tr>
+              </tbody>
+            </table>
 
             <div class="math">
               <code>
-Rebalance por bandas (exemplo):
-Alvo tijolo = 50%
-Banda = ±7pp
-Se tijolo > 57% ou < 43% → rebalancear
+Exemplo — rebalance por bandas (nível segmento):
+  Alvo tijolo = 55%     Banda = ±8 pp
+  → Rebalancear se tijolo &gt; 63% ou &lt; 47%
 
-Para fundos individuais:
-peso alvo 6% com banda 2pp (4% a 8%)
+Exemplo — rebalance por bandas (nível fundo):
+  Alvo por fundo = 7%   Banda = ±2 pp
+  → Rebalancear se fundo &gt; 9% ou &lt; 5%
+
+Prioridade de rebalance:
+  1º: aportes (sem venda)
+  2º: resgate de DY acumulado
+  3º: venda de sobreposição (somente se necessário)
               </code>
             </div>
 
             <div class="warning">
-              <b>Armadilha:</b> rebalancear “só porque caiu” em um ativo com deterioração estrutural.
-              Por isso o rebalance precisa ser combinado com “gatilhos de qualidade”.
+              <b>Armadilha:</b> rebalancear "só porque caiu" em um ativo com deterioração estrutural
+              é o erro mais comum. Por isso o rebalanceamento por bandas precisa vir acompanhado
+              de "gatilhos de qualidade" — critérios que suspendem o rebalance automático.
             </div>
 
-            <h3>6.1) Gatilhos de qualidade (institucional)</h3>
+            <h3>7.1) Gatilhos de qualidade (suspendem o rebalance automático)</h3>
             <ul>
-              <li>tijolo: aumento persistente de vacância + capex não planejado</li>
-              <li>papel: deterioração de covenant, eventos de crédito, extensão recorrente</li>
-              <li>FOFs: desconto estrutural + custo alto + performance fraca no ciclo completo</li>
+              <li><b>Tijolo:</b> vacância acima de 20% por mais de 2 trimestres consecutivos sem plano de reversão documentado.</li>
+              <li><b>Papel:</b> evento de crédito (default parcial, extensão compulsória), piora de covenant ou LTV &gt; 80% após reavaliação.</li>
+              <li><b>FOF:</b> desconto estrutural &gt; 20% combinado com performance abaixo do IFIX por 12+ meses e taxa de gestão acima de 1,2% a.a.</li>
+              <li><b>Qualquer:</b> CVM instaurou inquérito, gestor trocou sem plano de transição, emissão dilutiva acima de 30% sem aprovação em assembleia.</li>
             </ul>
 
-            <h2 id="i7">7) Monitoramento contínuo: painel institucional</h2>
+            <h2 id="i8">8) Monitoramento contínuo: painel institucional com KPIs</h2>
             <p>
-              Você não precisa de 200 indicadores. Precisa do painel certo, com poucos “alertas de verdade”.
+              Você não precisa de 200 indicadores. Precisa de um painel com poucos "alertas de verdade",
+              verificado em frequência adequada:
             </p>
 
+            <table class="table" aria-label="Painel de KPIs por frequência">
+              <thead>
+                <tr>
+                  <th>KPI</th>
+                  <th>Frequência</th>
+                  <th>Alerta</th>
+                  <th>Ação</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Concentração top 3 posições</b></td>
+                  <td>Mensal</td>
+                  <td>&gt; 30% da carteira</td>
+                  <td>Reduzir a maior posição até a próxima janela</td>
+                </tr>
+                <tr>
+                  <td><b>Liquidez (dias para saída)</b></td>
+                  <td>Mensal</td>
+                  <td>Qualquer posição &gt; 15 dias</td>
+                  <td>Não adicionar; planejar saída gradual</td>
+                </tr>
+                <tr>
+                  <td><b>Vacância média (tijolo)</b></td>
+                  <td>Trimestral</td>
+                  <td>&gt; 12% do bloco tijolo</td>
+                  <td>Revisar teses; acionar gatilho de qualidade</td>
+                </tr>
+                <tr>
+                  <td><b>Exposição crédito sub</b></td>
+                  <td>Trimestral</td>
+                  <td>&gt; 15% do portfólio</td>
+                  <td>Reduzir mezanino; priorizar sênior</td>
+                </tr>
+                <tr>
+                  <td><b>DY run-rate vs alvo</b></td>
+                  <td>Mensal</td>
+                  <td>Queda &gt; 15% vs média 6 meses</td>
+                  <td>Verificar causa: corte voluntário vs deterioração</td>
+                </tr>
+                <tr>
+                  <td><b>Desconto médio (FOFs)</b></td>
+                  <td>Mensal</td>
+                  <td>Desconto &lt; 5% (sobrecomprado)</td>
+                  <td>Reduzir posição; aguardar nova oportunidade</td>
+                </tr>
+                <tr>
+                  <td><b>Regime macro (Selic/IPCA)</b></td>
+                  <td>Mensal</td>
+                  <td>Variação &gt; 100 bps na Selic esperada</td>
+                  <td>Revisar alocação tijolo/papel</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- AdSense bloco 3 -->
+            <ins class="adsbygoogle"
+                 style="display:block;margin:22px 0;"
+                 data-ad-client="ca-pub-4613426749830025"
+                 data-ad-slot="9876543231"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+            <h2 id="i9">9) Stress test: carteira vs 3 cenários de choque</h2>
+            <p>
+              Antes de finalizar a IPS, simule a carteira em três cenários de choque históricos.
+              O objetivo não é prever o futuro, mas verificar se o drawdown implícito está dentro
+              do budget de risco aprovado:
+            </p>
+
+            <table class="table" aria-label="Stress test por cenário">
+              <thead>
+                <tr>
+                  <th>Cenário</th>
+                  <th>Gatilho</th>
+                  <th>Impacto tijolo</th>
+                  <th>Impacto papel</th>
+                  <th>Impacto FOF</th>
+                  <th>Carteira 5-blocos*</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Alta de juros +300 bps</b></td>
+                  <td>Selic vai de 10,75% para 13,75%</td>
+                  <td>−20 a −30%</td>
+                  <td>+flutuante (CDI+); −4% no pré</td>
+                  <td>−15 a −25%</td>
+                  <td>~−15%</td>
+                </tr>
+                <tr>
+                  <td><b>Crise de crédito (2008-style)</b></td>
+                  <td>Spreads explodem, CRI subordinado em default</td>
+                  <td>−15%</td>
+                  <td>−25 a −40% (sub); −5% (sênior)</td>
+                  <td>−20%</td>
+                  <td>~−18%</td>
+                </tr>
+                <tr>
+                  <td><b>Recessão / vacância</b></td>
+                  <td>PIB −2%; vacância logística +8 pp</td>
+                  <td>−12 a −18%</td>
+                  <td>−5 a −10%</td>
+                  <td>−12%</td>
+                  <td>~−12%</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="muted" style="font-size:13px;">*Carteira-exemplo da seção 6: 35% tijolo renda + 20% tijolo ciclo + 25% papel sênior + 10% papel tático + 10% FOF.</p>
+
+            <div class="note">
+              O exercício de stress test serve para calibrar o budget de risco na IPS, não para
+              prever o timing. Se o cenário de alta de juros +300 bps implica −15% e seu budget
+              é "máximo −10%", a IPS precisa reduzir o peso em tijolo ou aumentar o peso em papel flutuante.
+            </div>
+
+            <h2 id="i10">10) Checklist e ponte para a Parte 8 (blindagem)</h2>
             <div class="card">
-              <h3>Painel mínimo (mensal/trimestral)</h3>
+              <h3>Checklist — Parte 7 (carteira e processo)</h3>
               <ul>
-                <li><b>Concentração:</b> top 5 posições e top 5 drivers (crédito, ciclo, consumo).</li>
-                <li><b>Liquidez:</b> tempo estimado de saída vs tamanho de posição.</li>
-                <li><b>Crédito:</b> concentração por devedor, senioridade e eventos.</li>
-                <li><b>Operacional (tijolo):</b> vacância, WAULT, capex e reprecificação.</li>
-                <li><b>Valuation:</b> desconto/premium (FOFs) e sinais de cap rate implícito.</li>
-                <li><b>Risco macro:</b> regime (Parte 6) e o que mudou desde a última revisão.</li>
+                <li>Tenho IPS escrita com objetivo, limites numéricos e regras de rebalanceamento.</li>
+                <li>Meu risco é orçado por tipo (mercado, crédito, liquidez, operacional) com limite para cada um.</li>
+                <li>Identifiquei o driver dominante de cada posição; não tenho risco duplicado disfarçado.</li>
+                <li>Tenho limites claros por fundo, por segmento, por devedor e por estrutura sub.</li>
+                <li>Uso rebalanceamento por bandas + gatilhos de qualidade para suspender o automático.</li>
+                <li>Tenho um painel mínimo com KPIs e alertas verificados em frequência adequada.</li>
+                <li>Fiz stress test em pelo menos 3 cenários; o drawdown implícito está dentro do budget.</li>
               </ul>
             </div>
 
-            <h2 id="i8">8) Checklist e ponte para a Parte 8 (blindagem)</h2>
-            <div class="card">
-              <h3>Checklist (Parte 7)</h3>
-              <ul>
-                <li>Tenho uma IPS escrita com objetivo, limites e regras.</li>
-                <li>Meu risco é medido por drivers (juros, crédito, liquidez), não por “achismo”.</li>
-                <li>Tenho limites claros (posição, devedor, liquidez, segmento).</li>
-                <li>Tenho rebalance por bandas + gatilhos de qualidade.</li>
-                <li>Tenho um painel simples para monitoramento recorrente.</li>
-              </ul>
-            </div>
+            <p>
+              Na <a href="/posts/guia-institucional-fiis-parte-8"><b>Parte 8</b></a>, fechamos com a "blindagem":
+              armadilhas mais comuns (DY inflado, alavancagem escondida, diluição, risco de extensão de CRI),
+              checklist final de due diligence e um protocolo de ação para quando "dá ruim" — sem pânico.
+            </p>
 
             <p>
-              Na <b>Parte 8</b>, a gente fecha com a “blindagem”:
-              armadilhas mais comuns (DY, alavancagem escondida, diluição, risco de extensão),
-              checklist final, e um protocolo de ação para quando “dá ruim” (sem pânico).
+              Para aprofundar o lado de análise de fundos individuais antes de montar a carteira,
+              veja a <a href="/posts/guia-institucional-fiis-parte-3">Parte 3 — Segmentos de Tijolo</a>
+              e a <a href="/posts/guia-institucional-fiis-parte-4">Parte 4 — FIIs de Papel</a>.
+              Para entender como o regime macro afeta a alocação ótima entre tijolo e papel,
+              consulte a <a href="/posts/guia-institucional-fiis-parte-6">Parte 6 — Ciclos e Spreads</a>.
             </p>
+
+            <!-- FAQ -->
+            <section class="faq" aria-label="Perguntas frequentes">
+              <h2>Perguntas frequentes</h2>
+
+              <details>
+                <summary>O que é IPS no contexto de FIIs?</summary>
+                <p>IPS (Investment Policy Statement) é o documento-base da carteira: define objetivo (renda ou total return), horizonte mínimo, tolerância a drawdown, limites numéricos de concentração e crédito, regras de rebalanceamento e periodicidade de revisão. Sem IPS, decisões viram emocionais em crises — exatamente quando a racionalidade está mais comprometida.</p>
+              </details>
+
+              <details>
+                <summary>Como montar um orçamento de risco para carteira de FIIs?</summary>
+                <p>Distribua a "capacidade de perda" entre 4 categorias: (1) risco de mercado/cap rate — oscilação de preço tolerada; (2) risco de crédito — perda permanente máxima em papel, ex.: máximo 15% em estruturas subordinadas; (3) risco de liquidez — dias para sair de cada posição; (4) risco operacional — capex e vacância não planejados. Cada bloco recebe um limite numérico na IPS.</p>
+              </details>
+
+              <details>
+                <summary>Quantos FIIs preciso para uma carteira bem diversificada?</summary>
+                <p>Número de tickers não é diversificação. Uma carteira com 8–12 FIIs cobrindo drivers independentes (curva de juros, crédito privado, consumo, absorção de espaços) é mais diversificada que 25 FIIs com o mesmo driver dominante. Para cada posição relevante, pergunte: "qual driver precisa dar certo?". Se a maioria responde o mesmo, há risco duplicado.</p>
+              </details>
+
+              <details>
+                <summary>Como funciona o rebalanceamento por bandas em FIIs?</summary>
+                <p>Define-se um peso-alvo por segmento (ex.: 55% tijolo) e uma banda de tolerância (ex.: ±8 pp). Se tijolo sobe para 63% ou cai para 47%, o rebalanceamento é disparado. Para fundos individuais, uma banda típica é ±2 pp sobre o peso-alvo de 7%. O rebalance por bandas é mais eficiente que por calendário fixo porque age quando o desvio é relevante, não por data arbitrária.</p>
+              </details>
+
+              <details>
+                <summary>Quais limites de concentração são considerados prudentes em FIIs?</summary>
+                <p>Referências institucionais: máximo 8–10% por fundo individual; máximo 25–35% por segmento de risco homogêneo; máximo 15% de exposição a estruturas subordinadas; máximo 10% por devedor/CRI único; máximo 5% por fundo com volume diário abaixo de R$ 500k. Para FOFs, máximo de 20% para evitar dupla camada de taxa e risco de dupla liquidez.</p>
+              </details>
+
+              <details>
+                <summary>O que monitorar mensalmente em uma carteira de FIIs?</summary>
+                <p>Painel mínimo mensal: (1) concentração das top 3 posições; (2) liquidez — dias estimados para saída; (3) DY run-rate vs média dos 6 meses anteriores; (4) desconto/prêmio dos FOFs; (5) regime macro (Selic esperada). Trimestralmente: vacância média do bloco tijolo, exposição a crédito subordinado e revisão de gatilhos de qualidade.</p>
+              </details>
+            </section>
 
             <div class="nav-ends" aria-label="Navegação entre partes">
               <a href="/posts/guia-institucional-fiis-parte-6"><i class="fa-solid fa-arrow-left"></i> Voltar: Parte 6</a>
@@ -468,15 +908,17 @@ peso alvo 6% com banda 2pp (4% a 8%)
         </div>
       </div>
     </section>
-  
+
 <section class="callout" data-interlink="cluster" style="margin-top:2.5rem;">
 <h3>Leia também</h3>
 <ul>
-<li><a href="/posts/enciclopedia-da-bolsa-parte-1-como-analisar-empresas">Guia complementar do mesmo cluster</a></li>
-<li><a href="/posts/enciclopedia-da-bolsa-parte-3-valuation-completo">Análise estratégica para aprofundar o tema</a></li>
-<li><a href="/posts/enciclopedia-da-bolsa-parte-4-psicologia-do-mercado">Conteúdo avançado para consolidar o aprendizado</a></li>
+<li><a href="/posts/guia-institucional-fiis-parte-3">Guia Institucional de FIIs Parte 3 — Segmentos de Tijolo: NOI, Cap Rate e Drivers por Segmento</a></li>
+<li><a href="/posts/guia-institucional-fiis-parte-4">Guia Institucional de FIIs Parte 4 — FIIs de Papel: CRI, Crédito e Spread</a></li>
+<li><a href="/posts/guia-institucional-fiis-parte-6">Guia Institucional de FIIs Parte 6 — Ciclos Macroeconômicos: Curva de Juros e Spreads</a></li>
+<li><a href="/posts/guia-institucional-fiis-parte-8">Guia Institucional de FIIs Parte 8 — Blindagem: Armadilhas, Checklist e Protocolo de Crise</a></li>
+<li><a href="/posts/guia-institucional-fiis-parte-2">Guia Institucional de FIIs Parte 2 — Modelagem: NOI, Cap Rate e NAV</a></li>
 </ul>
-<p><strong>Próximo passo:</strong> siga pelo <a href="/hub#cluster-bolsa">hub temático</a> e aplique os conceitos com <a href="/calculadora-valuation">ferramenta prática</a> e <a href="/calculadora-ir-bolsa">simulador relacionado</a>.</p>
+<p><strong>Próximo passo:</strong> siga pelo <a href="/hub#cluster-fiis">hub temático de FIIs</a> e use o <a href="/calculadora">simulador de juros compostos</a> para projetar distribuições da carteira.</p>
 </section>
 
 </main>
@@ -540,7 +982,7 @@ peso alvo 6% com banda 2pp (4% a 8%)
     <div id="cookie-banner" class="cookie-banner">
         <div class="container cookie-container">
             <p class="cookie-text">
-                We use cookies to improve your experience and analyze traffic. By clicking “Accept”, you agree to our use of optional cookies. Read our <a href="/politica-privacidade">Privacy Policy</a>.
+                We use cookies to improve your experience and analyze traffic. By clicking "Accept", you agree to our use of optional cookies. Read our <a href="/politica-privacidade">Privacy Policy</a>.
             </p>
             <div class="cookie-actions">
                 <button id="cookie-accept" class="btn-cookie-accept">Accept</button>
