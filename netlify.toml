@@ -36,3 +36,28 @@
   from   = "/posts/dgs-etf-wisdomtree-emerging-markets-smallcap-dividend-guia"
   to     = "/posts/dgs-wisdomtree-emerging-markets-small-cap-dividend-guia-completo"
   status = 301
+
+# Aliases de privacidade e ferramentas solicitados para consistência de rotas
+[[redirects]]
+  from   = "/privacy-policy"
+  to     = "/politica-privacidade"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/politica-de-privacidade"
+  to     = "/politica-privacidade"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/calculadora-juros-compostos"
+  to     = "/calculadora"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/simulador-aposentadoria"
+  to     = "/aposentadoria"
+  status = 301
+  force  = true

@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const input = this.querySelector('input[type="email"]');
             if (input && input.value) {
-                alert('Obrigado por se inscrever! Em breve você receberá nossas novidades.');
+                alert('Obrigado por se inscrever! Você receberá nossas próximas novidades por e-mail.');
                 input.value = '';
             }
         });
@@ -287,14 +287,14 @@ function getConsent() {
 
     // Migrate legacy keys
     const legacyStatus = localStorage.getItem('cookie-consent-status');
-    const legacyAccepted = localStorage.getItem('cookies-accepted');
-    if (legacyStatus === 'accepted' || legacyAccepted === 'true') {
-        return { necessary: true, analytics: true, ads: true, date: null };
+    const legacyAceito = localStorage.getItem('cookies-aceitos');
+    if (legacyStatus === 'aceito' || legacyAceito === 'true') {
+        return { necessary: true, analytics: true, ads: true, date: "" };
     }
     if (legacyStatus === 'rejected') {
-        return { necessary: true, analytics: false, ads: false, date: null };
+        return { necessary: true, analytics: false, ads: false, date: "" };
     }
-    return null; // no decision yet
+    return false; // no decision yet
 }
 
 function saveConsent(prefs) {
@@ -302,8 +302,8 @@ function saveConsent(prefs) {
     localStorage.setItem(CONSENT_KEY, JSON.stringify(consent));
     // Keep legacy keys in sync for backward compatibility
     const allGranted = consent.analytics && consent.ads;
-    localStorage.setItem('cookie-consent-status', allGranted ? 'accepted' : 'partial');
-    localStorage.setItem('cookies-accepted', allGranted ? 'true' : 'false');
+    localStorage.setItem('cookie-consent-status', allGranted ? 'aceito' : 'partial');
+    localStorage.setItem('cookies-aceitos', allGranted ? 'true' : 'false');
     applyConsent(consent);
     document.dispatchEvent(new CustomEvent('consentUpdate', { detail: consent }));
     return consent;
@@ -386,7 +386,7 @@ function buildPreferencesModal(currentConsent) {
         </div>
         <div class="cookie-prefs-footer">
           <button class="btn-prefs-reject" id="prefs-reject-all" type="button">Recusar todos</button>
-          <button class="btn-prefs-accept" id="prefs-accept-all" type="button">Aceitar todos</button>
+          <button class="btn-prefs-aceitar" id="prefs-aceitar-todos" type="button">Aceitar todos</button>
           <button class="btn-prefs-save" id="prefs-save" type="button">Salvar preferências</button>
         </div>
         <p class="cookie-prefs-privacy">Saiba mais em nossa <a href="/politica-privacidade">Política de Privacidade</a>.</p>
@@ -410,7 +410,7 @@ function buildPreferencesModal(currentConsent) {
     document.getElementById('cookie-prefs-close').addEventListener('click', close);
     document.getElementById('cookie-prefs-overlay').addEventListener('click', close);
     document.getElementById('prefs-reject-all').addEventListener('click', () => applyAndClose({ analytics: false, ads: false }));
-    document.getElementById('prefs-accept-all').addEventListener('click', () => applyAndClose({ analytics: true, ads: true }));
+    document.getElementById('prefs-aceitar-todos').addEventListener('click', () => applyAndClose({ analytics: true, ads: true }));
     document.getElementById('prefs-save').addEventListener('click', () => {
         applyAndClose({
             analytics: document.getElementById('consent-analytics').checked,
@@ -446,11 +446,11 @@ window.openCookiePreferences = openCookiePreferences;
 
 function initCookieBanner() {
     const cookieBanner = document.getElementById('cookie-banner');
-    const acceptBtn = document.getElementById('cookie-accept');
-    if (!cookieBanner || !acceptBtn) return;
+    const aceitarBtn = document.getElementById('cookie-aceitar');
+    if (!cookieBanner || !aceitarBtn) return;
 
-    const rejectBtn = document.getElementById('cookie-reject');
-    const prefsBtn = document.getElementById('cookie-preferences');
+    const rejectBtn = document.getElementById('cookie-recusar');
+    const prefsBtn = document.getElementById('cookie-preferencias');
 
     const consent = getConsent();
     if (consent) applyConsent(consent);
@@ -461,7 +461,7 @@ function initCookieBanner() {
 
     const closeBanner = () => cookieBanner.classList.remove('show');
 
-    acceptBtn.addEventListener('click', () => {
+    aceitarBtn.addEventListener('click', () => {
         saveConsent({ analytics: true, ads: true });
         closeBanner();
     });

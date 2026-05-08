@@ -13,7 +13,7 @@ BASE_URL = "https://cerebromilionario.site"
 ROOT = Path(__file__).resolve().parent
 
 EXCLUDE_DIRS = {".git", "node_modules", "images", "css", "js", "scripts", "vendor"}
-EXCLUDE_FILES = {"404.html", "trilogia_snippet.html"}
+EXCLUDE_FILES = {"404.html", "trilogia_snippet.html", "privacy-policy.html", "politica-de-privacidade.html", "calculadora-juros-compostos.html", "simulador-aposentadoria.html"}
 
 
 class SEOHTMLParser(HTMLParser):
