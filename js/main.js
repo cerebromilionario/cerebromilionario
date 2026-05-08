@@ -133,11 +133,25 @@ function initTabs() {
     });
 }
 
+function normalizePostsIndex(data) {
+    // posts/posts.json is an index object with metadata at the root.
+    // Always read the canonical posts array instead of counting root keys.
+    if (data && Array.isArray(data.posts)) {
+        if (Number.isInteger(data.totalPosts) && data.totalPosts !== data.posts.length) {
+            console.warn('posts/posts.json totalPosts does not match posts.length:', data.totalPosts, data.posts.length);
+        }
+        return data.posts;
+    }
+
+    // Backward compatibility for any legacy build that exposed the index as a bare array.
+    return Array.isArray(data) ? data : [];
+}
+
 async function fetchPostsIndex() {
     try {
         const res = await fetch('/posts/posts.json');
         const data = await res.json();
-        return Array.isArray(data) ? data : (data.posts || []);
+        return normalizePostsIndex(data);
     } catch (e) {
         console.error('Error fetching posts:', e);
         return [];
