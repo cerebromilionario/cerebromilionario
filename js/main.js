@@ -254,56 +254,227 @@ async function loadBlogPosts() {
     renderPage(1);
 }
 
-// ── COOKIE CONSENT LOGIC ──────────────────────────────────
+// ── COOKIE CONSENT v2 ─────────────────────────────────────
+//
+// Consent schema (localStorage key: 'cookie-consent-v2'):
+//   { necessary: true, analytics: bool, ads: bool, date: 'YYYY-MM-DD' }
+//
+// Script loaders (loadAnalytics / loadAds) are defined here but inert until
+// the respective tracking IDs are configured. They will be called automatically
+// once the user grants consent in the appropriate category.
+
+const CONSENT_KEY = 'cookie-consent-v2';
+
+function getConsent() {
+    try {
+        const stored = localStorage.getItem(CONSENT_KEY);
+        if (stored) return JSON.parse(stored);
+    } catch (_) {}
+
+    // Migrate legacy keys
+    const legacyStatus = localStorage.getItem('cookie-consent-status');
+    const legacyAccepted = localStorage.getItem('cookies-accepted');
+    if (legacyStatus === 'accepted' || legacyAccepted === 'true') {
+        return { necessary: true, analytics: true, ads: true, date: null };
+    }
+    if (legacyStatus === 'rejected') {
+        return { necessary: true, analytics: false, ads: false, date: null };
+    }
+    return null; // no decision yet
+}
+
+function saveConsent(prefs) {
+    const consent = { necessary: true, analytics: !!prefs.analytics, ads: !!prefs.ads, date: new Date().toISOString().slice(0, 10) };
+    localStorage.setItem(CONSENT_KEY, JSON.stringify(consent));
+    // Keep legacy keys in sync for backward compatibility
+    const allGranted = consent.analytics && consent.ads;
+    localStorage.setItem('cookie-consent-status', allGranted ? 'accepted' : 'partial');
+    localStorage.setItem('cookies-accepted', allGranted ? 'true' : 'false');
+    applyConsent(consent);
+    document.dispatchEvent(new CustomEvent('consentUpdate', { detail: consent }));
+    return consent;
+}
+
+// ── SCRIPT LOADERS (gated on consent) ────────────────────
+// Replace the placeholder IDs when the accounts are active.
+
+function loadAnalytics() {
+    // GA4 — uncomment and replace G-XXXXXXXXXX when property is ready
+    // if (document.querySelector('script[src*="googletagmanager"]')) return;
+    // const s = document.createElement('script');
+    // s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+    // s.async = true;
+    // document.head.appendChild(s);
+    // window.dataLayer = window.dataLayer || [];
+    // function gtag(){dataLayer.push(arguments);}
+    // gtag('js', new Date());
+    // gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+}
+
+function loadAds() {
+    // AdSense — uncomment when account is approved
+    // if (document.querySelector('script[src*="adsbygoogle"]')) return;
+    // const s = document.createElement('script');
+    // s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4613426749830025';
+    // s.async = true;
+    // s.crossOrigin = 'anonymous';
+    // document.head.appendChild(s);
+}
+
+function applyConsent(consent) {
+    if (consent.analytics) loadAnalytics();
+    if (consent.ads) loadAds();
+}
+
+// ── PREFERENCES MODAL ────────────────────────────────────
+
+function buildPreferencesModal(currentConsent) {
+    const existing = document.getElementById('cookie-prefs-modal');
+    if (existing) existing.remove();
+
+    const analyticsChecked = currentConsent ? currentConsent.analytics : false;
+    const adsChecked = currentConsent ? currentConsent.ads : false;
+
+    const modal = document.createElement('div');
+    modal.id = 'cookie-prefs-modal';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-labelledby', 'cookie-prefs-title');
+    modal.innerHTML = `
+      <div class="cookie-prefs-overlay" id="cookie-prefs-overlay"></div>
+      <div class="cookie-prefs-box" role="document">
+        <div class="cookie-prefs-header">
+          <h2 id="cookie-prefs-title" class="cookie-prefs-title">Preferências de cookies</h2>
+          <button class="cookie-prefs-close" id="cookie-prefs-close" aria-label="Fechar">&times;</button>
+        </div>
+        <div class="cookie-prefs-body">
+          <p class="cookie-prefs-intro">Escolha quais categorias de cookies você aceita. Os cookies necessários não podem ser desativados — são essenciais para o funcionamento do site.</p>
+          <div class="cookie-category">
+            <div class="cookie-category-info">
+              <strong>Necessários</strong>
+              <span>Preferência de consentimento e funcionalidades básicas do site. Sempre ativos.</span>
+            </div>
+            <label class="cookie-toggle cookie-toggle--disabled" aria-label="Cookies necessários — sempre ativos">
+              <input type="checkbox" checked disabled>
+              <span class="cookie-toggle-track"></span>
+            </label>
+          </div>
+          <div class="cookie-category">
+            <div class="cookie-category-info">
+              <strong>Analytics</strong>
+              <span>Dados de audiência agregados (páginas visitadas, tempo de sessão) para melhorar o conteúdo. Nenhum dado pessoal identificável.</span>
+            </div>
+            <label class="cookie-toggle" aria-label="Cookies de analytics">
+              <input type="checkbox" id="consent-analytics" ${analyticsChecked ? 'checked' : ''}>
+              <span class="cookie-toggle-track"></span>
+            </label>
+          </div>
+          <div class="cookie-category">
+            <div class="cookie-category-info">
+              <strong>Publicidade</strong>
+              <span>Anúncios personalizados via Google AdSense. Se recusar, anúncios não personalizados (ou nenhum anúncio) serão exibidos.</span>
+            </div>
+            <label class="cookie-toggle" aria-label="Cookies de publicidade">
+              <input type="checkbox" id="consent-ads" ${adsChecked ? 'checked' : ''}>
+              <span class="cookie-toggle-track"></span>
+            </label>
+          </div>
+        </div>
+        <div class="cookie-prefs-footer">
+          <button class="btn-prefs-reject" id="prefs-reject-all" type="button">Recusar todos</button>
+          <button class="btn-prefs-accept" id="prefs-accept-all" type="button">Aceitar todos</button>
+          <button class="btn-prefs-save" id="prefs-save" type="button">Salvar preferências</button>
+        </div>
+        <p class="cookie-prefs-privacy">Saiba mais em nossa <a href="/politica-privacidade">Política de Privacidade</a>.</p>
+      </div>`;
+
+    document.body.appendChild(modal);
+
+    const close = () => {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+        setTimeout(() => modal.remove(), 300);
+    };
+
+    const applyAndClose = (prefs) => {
+        saveConsent(prefs);
+        close();
+        const banner = document.getElementById('cookie-banner');
+        if (banner) banner.classList.remove('show');
+    };
+
+    document.getElementById('cookie-prefs-close').addEventListener('click', close);
+    document.getElementById('cookie-prefs-overlay').addEventListener('click', close);
+    document.getElementById('prefs-reject-all').addEventListener('click', () => applyAndClose({ analytics: false, ads: false }));
+    document.getElementById('prefs-accept-all').addEventListener('click', () => applyAndClose({ analytics: true, ads: true }));
+    document.getElementById('prefs-save').addEventListener('click', () => {
+        applyAndClose({
+            analytics: document.getElementById('consent-analytics').checked,
+            ads: document.getElementById('consent-ads').checked
+        });
+    });
+
+    const onKey = (e) => { if (e.key === 'Escape') { close(); document.removeEventListener('keydown', onKey); } };
+    document.addEventListener('keydown', onKey);
+
+    const focusable = modal.querySelectorAll('button, input, a[href]');
+    const first = focusable[0], last = focusable[focusable.length - 1];
+    modal.addEventListener('keydown', (e) => {
+        if (e.key !== 'Tab') return;
+        if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
+        else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
+    });
+
+    requestAnimationFrame(() => {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        document.getElementById('cookie-prefs-close').focus();
+    });
+}
+
+function openCookiePreferences() {
+    buildPreferencesModal(getConsent());
+}
+
+window.openCookiePreferences = openCookiePreferences;
+
+// ── BANNER INIT ──────────────────────────────────────────
+
 function initCookieBanner() {
     const cookieBanner = document.getElementById('cookie-banner');
     const acceptBtn = document.getElementById('cookie-accept');
-
     if (!cookieBanner || !acceptBtn) return;
 
-    const actionsContainer = acceptBtn.parentElement;
-    let rejectBtn = document.getElementById('cookie-reject');
-    let prefsBtn = document.getElementById('cookie-preferences');
-    const legacyAccepted = localStorage.getItem('cookies-accepted') === 'true';
-    const consentStatus = localStorage.getItem('cookie-consent-status');
+    const rejectBtn = document.getElementById('cookie-reject');
+    const prefsBtn = document.getElementById('cookie-preferences');
 
-    acceptBtn.textContent = 'Aceitar';
-    acceptBtn.type = 'button';
+    const consent = getConsent();
+    if (consent) applyConsent(consent);
 
-    if (!rejectBtn) {
-        rejectBtn = document.createElement('button');
-        rejectBtn.id = 'cookie-reject';
-        rejectBtn.className = 'btn-cookie-reject';
-        rejectBtn.type = 'button';
-        actionsContainer.prepend(rejectBtn);
-    }
-    rejectBtn.textContent = 'Recusar';
-
-    if (!prefsBtn) {
-        prefsBtn = document.createElement('a');
-        prefsBtn.id = 'cookie-preferences';
-        prefsBtn.className = 'btn-cookie-preferences';
-        prefsBtn.href = '/politica-privacidade';
-        actionsContainer.insertBefore(prefsBtn, acceptBtn);
-    }
-    prefsBtn.textContent = 'Gerenciar preferências';
-
-    const shouldShowBanner = !consentStatus && !legacyAccepted;
-    if (shouldShowBanner) {
-        setTimeout(() => {
-            cookieBanner.classList.add('show');
-        }, 2000);
+    if (!consent) {
+        setTimeout(() => cookieBanner.classList.add('show'), 2000);
     }
 
-    const setConsentAndClose = (status) => {
-        localStorage.setItem('cookie-consent-status', status);
-        localStorage.setItem('cookies-accepted', status === 'accepted' ? 'true' : 'false');
-        cookieBanner.classList.remove('show');
-    };
+    const closeBanner = () => cookieBanner.classList.remove('show');
 
-    acceptBtn.addEventListener('click', () => setConsentAndClose('accepted'));
-    rejectBtn.addEventListener('click', () => setConsentAndClose('rejected'));
+    acceptBtn.addEventListener('click', () => {
+        saveConsent({ analytics: true, ads: true });
+        closeBanner();
+    });
+
+    if (rejectBtn) {
+        rejectBtn.addEventListener('click', () => {
+            saveConsent({ analytics: false, ads: false });
+            closeBanner();
+        });
+    }
+
+    if (prefsBtn) {
+        prefsBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openCookiePreferences();
+        });
+    }
 }
 
-// Add to DOMContentLoaded
 document.addEventListener('DOMContentLoaded', initCookieBanner);
