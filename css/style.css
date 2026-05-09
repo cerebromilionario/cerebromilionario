@@ -432,6 +432,50 @@ strong { color: var(--text-primary); font-weight: 600; }
 .post-content a:hover { color: var(--gold-light); }
 
 
+/* ── DISCREET EDITORIAL ADS ─────────────────────────────── */
+.ad-slot {
+  width: 100%;
+  margin: var(--s8) auto;
+  padding: var(--s4);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: rgba(255,255,255,.025);
+  overflow: hidden;
+}
+.ad-label {
+  margin-bottom: var(--s3);
+  color: var(--text-muted);
+  font-size: .72rem;
+  line-height: 1;
+  letter-spacing: .08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.ad-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90px;
+}
+.ad-slot--banner .ad-box {
+  min-height: 250px;
+}
+.ad-slot--native .ad-box {
+  display: block;
+  min-height: 120px;
+}
+.ad-slot iframe {
+  max-width: 100%;
+}
+
+@media (max-width: 480px) {
+  .ad-slot {
+    margin: var(--s6) auto;
+    padding: var(--s3);
+  }
+}
+
+
 .sources-section {
   max-width: 760px;
   margin: var(--s10) auto var(--s6);

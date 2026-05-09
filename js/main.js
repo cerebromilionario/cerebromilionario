@@ -268,6 +268,142 @@ async function loadBlogPosts() {
     renderPage(1);
 }
 
+
+// ── SAFE EDITORIAL AD PLACEMENTS ─────────────────────────
+// Adsterra is loaded only in long editorial posts, after the user grants
+// advertising consent. Institutional pages and short pages are intentionally
+// excluded to preserve UX and future AdSense review quality.
+
+const ADSTERRA_BANNER_KEY = '699af996b3136c4dfc586934025a7d1b';
+const ADSTERRA_NATIVE_KEY = '75df86cf15f03453238aa97e4ff925c8';
+const ADSTERRA_NATIVE_CONTAINER_ID = `container-${ADSTERRA_NATIVE_KEY}`;
+const AD_ELIGIBLE_PATH_PREFIX = '/posts/';
+const AD_EXCLUDED_SLUGS = new Set([
+    'politica-de-privacidade',
+    'politica-privacidade',
+    'privacy-policy',
+    'termos-uso',
+    'contato',
+    'sobre',
+    'perguntas-frequentes',
+    'politica-editorial',
+    '404'
+]);
+
+function normalizePathname(pathname) {
+    return pathname.replace(/\/+$/, '').replace(/\.html$/, '') || '/';
+}
+
+function isEligibleForEditorialAds() {
+    const path = normalizePathname(window.location.pathname);
+    if (!path.startsWith(AD_ELIGIBLE_PATH_PREFIX)) return false;
+
+    const slug = path.split('/').filter(Boolean).pop();
+    if (!slug || AD_EXCLUDED_SLUGS.has(slug)) return false;
+
+    const article = document.querySelector('.post-content');
+    if (!article) return false;
+
+    const paragraphs = article.querySelectorAll('p').length;
+    const headings = article.querySelectorAll('h2, h3').length;
+    const textLength = (article.textContent || '').trim().length;
+    return paragraphs >= 8 && headings >= 2 && textLength >= 3000;
+}
+
+function createAdSlot(type) {
+    const slot = document.createElement('aside');
+    slot.className = `ad-slot ad-slot--${type}`;
+    slot.dataset.adsterraSlot = type;
+    slot.setAttribute('aria-label', 'Publicidade');
+    slot.innerHTML = '<div class="ad-label">Publicidade</div><div class="ad-box"></div>';
+    return slot;
+}
+
+function insertAfterElement(reference, node) {
+    if (!reference || !reference.parentNode) return false;
+    reference.parentNode.insertBefore(node, reference.nextSibling);
+    return true;
+}
+
+function placeEditorialAdSlots() {
+    if (!isEligibleForEditorialAds()) return;
+    if (document.querySelector('[data-adsterra-slot]')) return;
+
+    const article = document.querySelector('.post-content');
+    const paragraphs = Array.from(article.querySelectorAll(':scope > p'));
+    const headings = Array.from(article.querySelectorAll(':scope > h2'));
+
+    const bannerReference = paragraphs[Math.min(5, paragraphs.length - 3)];
+    const nativeReference = headings.length >= 3 ? headings[Math.floor(headings.length * 0.65)] : paragraphs[Math.max(7, paragraphs.length - 2)];
+
+    if (bannerReference) {
+        insertAfterElement(bannerReference, createAdSlot('banner'));
+    }
+
+    if (nativeReference && nativeReference !== bannerReference) {
+        const nativeSlot = createAdSlot('native');
+        if (!insertAfterElement(nativeReference, nativeSlot) && paragraphs.length) {
+            insertAfterElement(paragraphs[paragraphs.length - 2], nativeSlot);
+        }
+    }
+}
+
+function loadAdsterraBanner(slot) {
+    const box = slot.querySelector('.ad-box');
+    if (!box || box.dataset.loaded === 'true') return;
+    box.dataset.loaded = 'true';
+
+    const config = document.createElement('script');
+    config.text = `atOptions = {\n  'key' : '${ADSTERRA_BANNER_KEY}',\n  'format' : 'iframe',\n  'height' : 250,\n  'width' : 300,\n  'params' : {}\n};`;
+
+    const invoke = document.createElement('script');
+    invoke.src = `https://www.highperformanceformat.com/${ADSTERRA_BANNER_KEY}/invoke.js`;
+    invoke.async = true;
+
+    box.appendChild(config);
+    box.appendChild(invoke);
+}
+
+function loadAdsterraNative(slot) {
+    const box = slot.querySelector('.ad-box');
+    if (!box || box.dataset.loaded === 'true') return;
+    box.dataset.loaded = 'true';
+
+    const invoke = document.createElement('script');
+    invoke.async = true;
+    invoke.dataset.cfasync = 'false';
+    invoke.src = `https://pl29394756.profitablecpmratenetwork.com/${ADSTERRA_NATIVE_KEY}/invoke.js`;
+
+    const container = document.createElement('div');
+    container.id = ADSTERRA_NATIVE_CONTAINER_ID;
+
+    box.appendChild(invoke);
+    box.appendChild(container);
+}
+
+function loadAdsterraPlacements() {
+    document.querySelectorAll('[data-adsterra-slot="banner"]').forEach(loadAdsterraBanner);
+    document.querySelectorAll('[data-adsterra-slot="native"]').forEach(loadAdsterraNative);
+}
+
+function optimizeArticleAds() {
+    const enableAds = () => {
+        placeEditorialAdSlots();
+        loadAdsterraPlacements();
+    };
+
+    const consent = getConsent();
+    if (consent && consent.ads) {
+        enableAds();
+    }
+
+    document.addEventListener('consentUpdate', (event) => {
+        if (event.detail && event.detail.ads) {
+            enableAds();
+        }
+    });
+}
+
 // ── COOKIE CONSENT v2 ─────────────────────────────────────
 //
 // Consent schema (localStorage key: 'cookie-consent-v2'):
@@ -376,7 +512,7 @@ function buildPreferencesModal(currentConsent) {
           <div class="cookie-category">
             <div class="cookie-category-info">
               <strong>Publicidade</strong>
-              <span>Anúncios personalizados via Google AdSense. Se recusar, anúncios não personalizados (ou nenhum anúncio) serão exibidos.</span>
+              <span>Anúncios personalizados por redes de publicidade aprovadas. Se recusar, anúncios não personalizados (ou nenhum anúncio) serão exibidos.</span>
             </div>
             <label class="cookie-toggle" aria-label="Cookies de publicidade">
               <input type="checkbox" id="consent-ads" ${adsChecked ? 'checked' : ''}>
