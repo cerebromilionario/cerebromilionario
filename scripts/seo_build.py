@@ -50,8 +50,21 @@ SITEMAP_STATIC_FILES = (
     "simulador-carteira.html",
     "simulador-dividendos.html",
 )
-POST_SITEMAP_LIMIT = 50
+POST_SITEMAP_LIMIT = 100
 WEAK_POST_PATTERNS = ("-parte-",)
+
+# Primeira parte de cada série longa — inclui no sitemap como ponto de entrada
+SERIES_ENTRY_POSTS = (
+    "acoes-institucional-parte-1.html",
+    "biblia-da-aposentadoria-parte-1.html",
+    "biblia-imposto-de-renda-investidor-parte-1.html",
+    "enciclopedia-da-bolsa-parte-1-como-analisar-empresas.html",
+    "enciclopedia-primeiro-milhao-parte-1.html",
+    "etf-masterclass-carteira-global-parte-1.html",
+    "guia-institucional-fiis-parte-1.html",
+    "macroeconomia-institucional-parte-1.html",
+    "warren-buffett-biografia-institucional-parte-1.html",
+)
 
 
 class SEOHTMLParser(HTMLParser):
@@ -202,7 +215,17 @@ def select_sitemap_pages(site_root: Path, pages: list[Path]) -> list[Path]:
         post_candidates.append((visible_word_count(page), rel, page))
 
     selected_posts = sorted(page for _words, _rel, page in sorted(post_candidates, reverse=True)[:POST_SITEMAP_LIMIT])
-    return static_pages + selected_posts
+
+    # Add series entry posts (parte-1 of each multi-part series) so Google discovers the full series
+    series_entries = []
+    eligible_by_name = {page.name: page for page in eligible}
+    for fname in SERIES_ENTRY_POSTS:
+        if fname in eligible_by_name:
+            entry = eligible_by_name[fname]
+            if entry not in selected_posts:
+                series_entries.append(entry)
+
+    return static_pages + selected_posts + sorted(series_entries)
 
 
 def generate_sitemap(site_root: Path, pages: list[Path]) -> Path:
