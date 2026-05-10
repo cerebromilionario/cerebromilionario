@@ -434,7 +434,8 @@ strong { color: var(--text-primary); font-weight: 600; }
 
 /* ── DISCREET EDITORIAL ADS ─────────────────────────────── */
 .ad-slot {
-  width: 100%;
+  width: calc(100% - (var(--s6) * 2));
+  max-width: 760px;
   margin: var(--s8) auto;
   padding: var(--s4);
   border: 1px solid var(--border);
