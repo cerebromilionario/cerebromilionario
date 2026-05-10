@@ -288,6 +288,8 @@ const AD_EXCLUDED_SLUGS = new Set([
     'sobre',
     'perguntas-frequentes',
     'politica-editorial',
+    'obrigado',
+    'mapa-do-site',
     '404'
 ]);
 
@@ -310,19 +312,19 @@ function isEligibleForEditorialAds(path = normalizePathname(window.location.path
     const slug = getCurrentSlug(path);
     if (!slug || AD_EXCLUDED_SLUGS.has(slug)) return false;
 
-    const article = document.querySelector('.post-content');
+    const article = document.querySelector('.post-content, .post-wrap');
     if (!article) return false;
 
     const paragraphs = article.querySelectorAll('p').length;
     const headings = article.querySelectorAll('h2, h3').length;
     const textLength = (article.textContent || '').trim().length;
-    return paragraphs >= 8 && headings >= 2 && textLength >= 3000;
+    return paragraphs >= 5 && headings >= 1 && textLength >= 1500;
 }
 
 function isEligibleForAdsterraAds() {
     const path = normalizePathname(window.location.pathname);
     if (AD_EXCLUDED_SLUGS.has(getCurrentSlug(path))) return false;
-    return isHomePage(path) || isEligibleForEditorialAds(path);
+    return true;
 }
 
 function createAdSlot(type) {
@@ -359,7 +361,7 @@ function placeHomeAdSlots() {
 function placeEditorialAdSlots() {
     if (!isEligibleForEditorialAds()) return;
 
-    const article = document.querySelector('.post-content');
+    const article = document.querySelector('.post-content, .post-wrap');
     const paragraphs = Array.from(article.querySelectorAll(':scope > p'));
     const headings = Array.from(article.querySelectorAll(':scope > h2'));
 
@@ -378,6 +380,23 @@ function placeEditorialAdSlots() {
     }
 }
 
+function placeToolAdSlots() {
+    const topAnchor = document.querySelector('.hero-section, .page-header, .hub-hero');
+    const sections = document.querySelectorAll('.section, .calculator-section, .hub-section, .features-section, .content-section, .editorial-section');
+    const midAnchor = sections.length > 0 ? sections[Math.floor(sections.length / 2)] : null;
+
+    if (topAnchor) {
+        insertAfterElement(topAnchor, createAdSlot('banner'));
+    }
+
+    if (midAnchor) {
+        insertAfterElement(midAnchor, createAdSlot('native'));
+    } else if (!topAnchor) {
+        const firstSection = document.querySelector('main > section, main > div');
+        if (firstSection) insertAfterElement(firstSection, createAdSlot('banner'));
+    }
+}
+
 function placeAdsterraSlots() {
     if (!isEligibleForAdsterraAds()) return;
     if (document.querySelector('[data-adsterra-slot]')) return;
@@ -387,7 +406,12 @@ function placeAdsterraSlots() {
         return;
     }
 
-    placeEditorialAdSlots();
+    if (isEligibleForEditorialAds()) {
+        placeEditorialAdSlots();
+        return;
+    }
+
+    placeToolAdSlots();
 }
 
 function loadAdsterraBanner(slot) {
